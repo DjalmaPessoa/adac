@@ -1,0 +1,1049 @@
+# Testes em Tabelas de Duas Entradas
+
+## Introdução
+
+
+Os principais testes em tabelas de duas entradas são os de homogeneidade
+e de independência. O `teste de homogeneidade` é apropriado
+para estudar a igualdade das distribuições condicionais de uma
+variável resposta categórica correspondentes a diferentes
+níveis de uma variável preditora também categórica. O `teste de independência` é adequado para estudar a associação
+entre duas variáveis categóricas. Enquanto o primeiro teste
+se refere às distribuições condicionais da variável
+resposta para níveis fixados da variável preditora, o segundo se
+refere à distribuição conjunta das duas variáveis
+categóricas que definem as celas da tabela. Apesar de conceitualmente
+distintas, as duas hipóteses podem ser testadas, no caso de amostragem
+aleatória simples, utilizando a mesma estatística de teste
+multinomial de Pearson.
+
+Nos testes de homogeneidade e de independência para tabelas de
+frequências $L\times C$ obtidas por amostragem aleatória
+simples, a estatística de teste de Pearson tem distribuição
+assintótica qui-quadrado com $(L-1)(C-1)$ graus de liberdade, isto é 
+$\chi ^{2}\left( (L-1)(C-1)\right)$. Para pesquisas com planos amostrais
+complexos, esta propriedade assintótica padrão não é
+válida. Por exemplo, testes definidos em tabelas de freqüências
+obtidas mediante amostragem por conglomerados são mais liberais
+(rejeitam mais) relativamente aos níveis nominais de significância,
+devido à correlação intraclasse positiva das variáveis
+usadas para definir a tabela. Além disso, para planos amostrais
+complexos, as estatísticas de teste das duas hipóteses devem ser
+corrigidas de formas diferentes.
+
+Neste capítulo, apresentamos versões modificadas de procedimentos
+clássicos de testes para dados categóricos, de maneira a incorporar
+os efeitos de plano amostral na análise. Procedimentos mais recentes,
+baseados em ajustes de modelos regressivos, estão disponíveis em
+pacotes especializados como o SUDAAN (procedimento CATAN, para dados
+tabelados, e procedimento LOGISTIC, para regressão com respostas
+individuais binárias, por exemplo), porém não serão aqui
+considerados.
+
+## Tabelas 2x2 {#tabelas22}
+
+Para fixar idéias, vamos considerar inicialmente uma tabela de
+contingência $2\times 2$, isto é, com $L=2$ e $C=2$, representada
+pela Tabela \ref{tab81}. A entrada $p_{lc}$ na Tabela \ref{tab81} representa
+a proporção populacional de unidades no nível $l$ da
+variável 1 e $c$ da variável 2, ou seja $p_{lc}=\frac{N_{lc}}{N}$ ,
+onde $N_{lc}$ é o número de observações na cela $\left(
+l,c\right)$ na população, $N$ é o tamanho da população
+e $\sum\nolimits_{l}\sum\nolimits_{c}p_{lc}=1$. Vamos denotar, ainda, as
+proporções marginais na tabela por $p_{l+}=\sum\nolimits_{c}p_{lc}$
+e $p_{+c}=\sum_{l}p_{lc}$.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Tabela 2x2 de proporções }\bigskip \label{tab81}$
+\begin{tabular}{|c|c|c|c|}
+\hline
+& \multicolumn{3}{|c|}{Var 2} \\ \cline{2-4}
+Var 1 & 1 & 2 & Total \\ \hline
+1 & $p_{11}$ & $p_{12}$ & $p_{1+}$ \\ 
+2 & $p_{21}$ & $p_{22}$ & $p_{2+}$ \\ \hline
+Total & $p_{+1}$ & $p_{+2}$ & $1$ \\ \hline
+\end{tabular}
+$%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+### Teste de Independência
+
+A hipótese de independência corresponde a 
+\[
+H_{0}:p_{lc}=p_{l+}p_{+c}\;\;\forall l,c=1,2\;. 
+\]
+
+A estatística de teste de Pearson para testar esta hipótese, no caso
+de amostragem aleatória simples, é dada por 
+\[
+X_{P}^{2}\left( I\right) =n\sum\limits_{l=1}^{2}\sum\limits_{c=1}^{2}\frac{
+\left( \hat{p}_{lc}-\hat{p}_{l+}\hat{p}_{+c}\right) ^{2}}{\hat{p}_{l+}\hat{p}
+_{+c}} 
+\]
+onde $\hat{p}_{lc}=n_{lc}/n$ , $n_{lc}$ é o número de observações da amostra na cela $\left( l,c\right)$ da tabela, $n$ é o
+tamanho total da amostra, $\hat{p}_{l+}=\sum\nolimits_{c}\widehat{p}_{lc}$ e 
+$\hat{p}_{+c}=\sum_{l}\hat{p}_{lc}$ .
+
+Sob a hipótese nula, a estatística $X_{P}^{2}\left( I\right)$ tem
+distribuição de referência qui-quadrado com um grau de
+liberdade. Observe que esta estatística mede uma distância (em certa
+escala) entre os valores observados na amostra e os valores esperados
+(estimados) sob a hipótese nula de independência.
+
+### Teste de Homogeneidade
+
+No caso do teste de independência, as duas variáveis envolvidas
+são consideradas como respostas. No teste de homogeneidade, uma das
+variáveis, a variável 2, por exemplo, é considerada a resposta
+enquanto a variável 1 é considerada explicativa. Vamos agora
+analisar a distribuição da variável 2 (coluna) para cada
+nível da variável 1 (linha). Considerando ainda uma tabela $2\times
+2,$ queremos testar a hipótese 
+\[
+H_{0}:p_{1c}=p_{2c}\quad c=1,2\;\;. 
+\]
+onde agora $p_{lc}$ representa a proporção na linha $l$ de unidades
+na coluna $c$. Com as restrições usuais de que as proporções
+nas linhas somam $1$, isto é, $p_{11}+p_{12}=p_{21}+p_{22}=1$, a
+hipótese nula considerada se reduz a $p_{11}=p_{21}$ e novamente temos
+apenas um grau de liberdade.
+
+Para o teste de homogeneidade, usamos a seguinte estatística de teste de
+Pearson: 
+\[
+X_{P}^{2}\left( H\right) =\sum\limits_{l=1}^{2}\sum\limits_{c=1}^{2}\frac{
+n_{l+}\left( \widehat{p}_{lc}-\hat{p}_{+c}\right) ^{2}}{\hat{p}_{+c}},
+\]
+onde $n_{l+}=\sum\nolimits_{c}n_{lc}$ para $l=1,2$ e $\widehat{p}
+_{lc}=n_{lc}/n_{l+}$ para $l=1,2$ e $c=1,2$.
+
+Esta estatística mede a distância entre valores observados e
+esperados sob a hipótese nula de homogeneidade e tem, também,
+distribuição de referência qui-quadrado com um grau de
+liberdade. Embora as expressões de $X_{P}^{2}\left( I\right)$ e 
+$X_{P}^{2}\left( H\right)$ sejam distintas, seus valores numéricos
+são iguais.
+
+### Efeitos de Plano Amostral nas Celas
+
+Para relacionar os testes tratados neste capítulo com o teste de
+qualidade de ajuste apresentado no capítulo anterior, observe que os
+testes de independência e de homogeneidade são definidos sobre o
+vetor de proporções de distribuições multinomiais. No caso
+de independência, temos uma distribuição multinomial com
+vetor de probabilidades $\left( p_{11},p_{12},p_{21},p_{22}\right) ,$ e no
+caso do teste de homogeneidade, temos duas multinomiais (no caso binomiais)
+com vetores de probabilidades $\left( p_{11},p_{12}\right)$ e $\left(
+p_{21},p_{22}\right)$. O processo de contagem que gera estas multinomias
+pressupõe que as observações individuais (indicadores de classe)
+são independentes e com mesma distribuição. Estas hipóteses
+só são válidas no caso de amostragem aleatória simples com
+reposição.
+
+Quando os dados são gerados através de um plano amostral complexo,
+surgem efeitos de conglomeração e estratificação que devem
+ser considerados no cálculo das estatísticas de teste. Neste caso,
+as freqüências nas celas da tabela são estimadas, levando em
+conta os pesos dos elementos da amostra bem como o plano amostral
+efetivamente utilizado.
+
+Denotemos por $\hat{N}_{lc}$ o estimador do número de observações na cela $\left( l,c\right)$ na população, 
+e designemos por $\hat{n}_{lc}=$ $\left( \hat{N}_{lc}/\hat{N}\right) \times n$ o valor
+padronizado de $\hat{N}_{lc}$, de modo que $\sum\limits_{l=1}^{L}\sum
+\limits_{c=1}^{C}\hat{n}_{lc}=n$. Sejam, agora, os estimadores das proporções
+nas celas dados por $\hat{p}_{lc}=\hat{n}_{lc}/n$ no caso do teste
+de independência e por $\hat{p}_{lc}=\hat{n}_{lc}/n_{l+}$ no caso do
+teste de homogeneidade. As estatísticas $X_{P}^{2}\left( I\right)$ e $
+X_{P}^{2}\left( H\right)$ calculadas com as estimativas $\hat{n}_{lc}$ no
+lugar dos valores $n_{lc}$ não têm, como antes, distribuição
+assintótica qui-quadrado com um grau de liberdade.
+
+Por outro lado, é importante observar que as agências produtoras de
+dados estatísticos geralmente apresentam os resultados de suas pesquisas
+em tabelas contendo as estimativas $\hat{N}_{lc}$, como ilustrado no Exemplo 
+\ref{Analisec} do Capítulo 5. Se calcularmos as estatísticas 
+$X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left( H\right)$ a partir dos
+valores dos $\hat{N}_{lc}$ fornecidos, com a estimativa do tamanho da popula
+ção $\hat{N}$ no lugar de $n$, os resultados assintóticos
+obtidos para amostragem aleatória simples com reposição (IID)
+deixarão de ser válidos. Devemos calcular as estatísticas de
+teste $X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left( H\right)$ a partir dos 
+$\hat{n}_{lc}$ anteriormente definidos, que correspondem aos $\hat{N}
+_{lc}$ padronizados para totalizar $n$.
+
+As estatísticas baseadas nos valores estimados $\hat{n}_{lc}$ podem ser
+corrigidas para ter distribuição de referência qui-quadrado com
+um grau de liberdade, no caso de tabela $2\times 2$. Mas, é importante
+observar que os efeitos de plano amostral e as correções a serem
+considerados são distintos para as duas estatísticas $
+X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left( H\right)$.
+
+Para ilustrar esse ponto vamos considerar o \emph{ajuste de EPA médio},
+que será apresentado na próxima seção para o caso de tabelas 
+$L\times C$ . Este ajuste, no caso da estatística $X_{P}^{2}\left(
+I\right)$, se baseia no EPA médio das estimativas das proporç
+ões nas celas $\hat{p}_{lc}=\hat{n}_{lc}/n$, enquanto que para a
+estatística $X_{P}^{2}\left( H\right)$ ele se baseia no EPA médio
+das estimativas das proporções nas linhas $\hat{p}_{lc}=\hat{n}
+_{lc}/n_{l+}$.
+
+Os valores das estatísticas $X_{P}^{2}\left( I\right)$ e 
+$X_{P}^{2}\left( H\right)$ são iguais no caso IID, mas para planos
+amostrais complexos, as estatísticas corrigidas pelo EPA médio
+são distintas, apesar de terem, para tabelas $2\times 2$, a mesma
+distribuição de referência qui- quadrado com um grau de
+liberdade. Adiante apresentaremos um exemplo numérico para ilustrar este
+ponto.
+
+## Tabelas de Duas Entradas (Caso Geral)
+
+### Teste de Homogeneidade
+
+O teste de homogeneidade pode ser usado para comparar distribuições
+de uma variável categórica ($C$ categorias) para um conjunto de $L$
+regiões não superpostas, a partir de amostras independentes obtidas
+através de um plano amostral com vários estágios. Vamos
+considerar uma tabela $L\times C$ e supor que as colunas da tabela
+correspondem às classes da variável resposta e as linhas
+correspondem às regiões, de modo que as somas da proporções
+nas linhas na tabela de proporções são iguais a $1$. A tabela
+para a população é da forma da Tabela \ref{tab82}
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Proporções de linhas em tabela $L\times C$}\bigskip \label{tab82}$
+\begin{tabular}{|c|cccccc|c|}
+\hline\hline
+Região & $1$ & $2$ & $\ldots $ & $c$ & $\ldots $ & $C$ & Total \\ 
+\hline\hline
+$1$ & $p_{11}$ & $p_{12}$ & $\ldots $ & $p_{1c}$ & $\ldots $ & $p_{1C}$ & $1$
+\\ 
+$2$ & $p_{21}$ & $p_{22}$ & $\ldots $ & $p_{2c}$ & $\ldots $ & $p_{2C}$ & $1$
+\\ 
+$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
+\\ 
+$l$ & $p_{l1}$ & $p_{l1}$ & $\ldots $ & $p_{lc}$ & $\ldots $ & $p_{lC}$ & $1$
+\\ 
+$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
+\\ 
+$L$ & $p_{L1}$ & $p_{L2}$ & $\ldots $ & $p_{Lc}$ & $\ldots $ & $p_{LC}$ & $1$
+\\ \hline\hline
+\end{tabular}
+$%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+Note que aqui as proporções que aparecem nas linhas da tabela
+são proporções calculadas em relação à
+freqüência total da linha, e não proporções calculadas
+em relação ao total da tabela como na seção anterior.
+Portanto, $p_{lc}=N_{lc}/N_{l+}$ para todo $l=1,\ldots ,L$ e $c=1,\ldots ,C$.
+
+Vamos considerar o caso em que $L=2$ regiões devem ser comparadas. Seja 
+$\mathbf{p}_{l}=\left( p_{l1},\ldots ,p_{l\;C-1}\right) ^{\prime }$ o vetor
+de proporções da $l$-ésima região, sem incluir a proporç
+ão referente à última categoria ($p_{lC}$), $l=1,2.$ A
+hipótese de igualdade das distribuições da resposta nas duas
+regiões pode ser expressa como $H_{0}:\mathbf{p}_{1}=\mathbf{p}_{2}$ ,
+com $C-1$ componentes em cada vetor, pois em cada região a soma das
+proporções é 1.
+
+Seja $\mathbf{p}_{0}=\left( p_{+1},\ldots p_{+\;C-1}\right) ^{\prime }$ o
+vetor comum de proporções sob $H_{0}$, desconhecido.
+Denotemos por $\mathbf{\hat{p}}_{l}=\left( \hat{p}_{l1},\ldots ,\hat{p}
+_{l\;C-1}\right) ^{\prime }$ os vetores de proporções estimadas 
+($l=1,2$), baseados em amostras independentes para as diferentes regiões,
+onde $\hat{p}_{lc}=\widehat{N}_{lc}/\widehat{N}_{l+}$ é um estimador
+consistente da proporção $p_{lc}$ na população
+correspondente, e $\widehat{N}_{lc}$ e $\widehat{N}_{l+}$ são
+estimadores ponderados das freqüências nas celas e nas marginais de
+linha da tabela, respectivamente, de modo que $\sum\nolimits_{c=1}^{C}
+\widehat{N}_{lc}=\widehat{N}_{l+}$ . Estes estimadores levam em consideração as probabilidades desiguais de inclusão na amostra e os ajustes
+por não-resposta. Observe que, se os tamanhos das amostras dos subgrupos
+regionais não forem fixados, os $\hat{p}_{lc}$ são estimadores de
+razão.
+
+Sejam $\mathbf{\hat{V}}_{p}\left( \widehat{\mathbf{p}}_{1}\right)$ e 
+$\mathbf{\hat{V}}_{p}\left( \widehat{\mathbf{p}}_{2}\right)$ estimadores
+consistentes das matrizes de variância de aleatorização dos
+vetores $\widehat{\mathbf{p}}_{1}$ e $\widehat{\mathbf{p}}_{2}$ ,
+respectivamente. A estatística de Wald baseada no plano amostral $
+X_{W}^{2}\left( H\right)$ para efetuar o teste de homogeneidade no caso de
+duas regiões $\left( L=2\right)$ é dada por 
+\begin{equation}
+X_{W}^{2}\left( H\right) =\left( \mathbf{\hat{p}}_{1}-\mathbf{\hat{p}}
+_{2}\right) ^{^{\prime }}\left[ \mathbf{\hat{V}}_{p}\left( \widehat{\mathbf{p
+}}_{1}\right) +\mathbf{\hat{V}}_{p}\left( \widehat{\mathbf{p}}_{2}\right)
+\right] ^{-1}\left( \mathbf{\hat{p}}_{1}-\mathbf{\hat{p}}_{2}\right) ,
+(\#eq:Tab1)
+\end{equation}
+pois as amostras são disjuntas e supostas independentes.
+
+No caso, a estatística de Wald $X_{W}^{2}\left( H\right)$ tem distribui
+ção assintótica qui-quadrado com $\left( 2-1\right) \times
+\left( C-1\right)$ graus de liberdade. Quando o número de unidades
+primárias de amostragem na amostra de cada região é grande, a
+estatística de Wald funciona adequadamente. Caso contrário, ocorre
+problema de instabilidade e usamos, alternativamente, uma estatística
+F-corrigida de Wald. Freitas et al.(1997) descrevem uma aplicação da
+estatística $X_{W}^{2}\left( H\right)$ para testar a hipótese de
+igualdade das pirâmides etárias estimadas pela Pesquisa sobre
+Padrões de Vida 96/97 (PPV) e da Pesquisa Nacional por Amostra de
+Domicílios 95 para as regiões Sudeste e Nordeste. Tal compara\c{c
+}ão fez parte do processo de avaliação da qualidade dos
+resultados da PPV.
+
+Designemos por $f=m-H$ o número total de graus de liberdade
+disponível para estimar $\left[ \mathbf{\hat{V}}_{p}\left( \widehat{
+\mathbf{p}}_{1}\right) +\mathbf{\hat{V}}_{p}\left( \widehat{\mathbf{p}}
+_{2}\right) \right] ,$ onde $m$ e $H$ são os números totais de
+conglomerados e de estratos nas amostras das duas regiões,
+respectivamente. As correções F da estatística $X_{W}^{2}\left(
+H\right)$ são dadas por 
+\begin{equation}
+F_{1.p}=\frac{f-\left( C-1\right) +1}{f\left( C-1\right) }X_{W}^{2}\left(
+H\right) , (\#eq:Tab2) 
+\end{equation}
+que tem distribuição de referência F com $\left( C-1\right)$ e $
+\left( f-\left( C-1\right) +1\right)$ graus de liberdade e, ainda, 
+\begin{equation}
+F_{2.p}=X_{W}^{2}\left( H\right) /\left( C-1\right) (\#eq:Tab3)
+\end{equation}
+que tem distribuição de referência \emph{F} com $\left(
+C-1\right)$ e $f$ graus de liberdade.
+
+As estatísticas $F_{1.p}$ e $F_{2.p}$ podem amenizar o efeito de
+instabilidade, quando $f$ não é grande relativamente ao número
+de classes ($C$) da variável resposta.
+
+No caso de $L=2$ regiões, a estatística de teste de homogeneidade de
+Pearson é dada por 
+\begin{equation}
+X_{P}^{2}\left( H\right) =\left( \mathbf{\hat{p}}_{1}-\mathbf{\hat{p}}
+_{2}\right) ^{^{\prime }}\left( \mathbf{\hat{P}}/\widehat{n}_{1+}+\mathbf{
+\hat{P}}/\widehat{n}_{2+}\right) ^{-1}\left( \mathbf{\hat{p}}_{1}-\mathbf{
+\hat{p}}_{2}\right) \;\;,  (\#eq:Tab4)
+\end{equation}
+onde $\mathbf{\hat{P}=diag}\left( \mathbf{\hat{p}}_{0}\right) -\mathbf{\hat{p
+}}_{0}\mathbf{\hat{p}}_{0}^{^{\prime }}$ e $\mathbf{\hat{p}}_{0}$ é o
+estimador do vetor comum de proporções sob a hipótese de
+homogeneidade.
+
+Neste caso, $\mathbf{\hat{P}}/\widehat{n}_{1+}$ é o estimador da matriz
+de covariância de $\mathbf{\hat{p}}_{0}$ na primeira região e $
+\mathbf{\hat{P}}/\widehat{n}_{2+}$ na segunda. Observe que \@ref(eq:Tab4) e \@ref(eq:Tab1)
+têm a mesma forma, diferindo só no estimador da matriz de
+covariância usado para definir a métrica de distância. No caso
+da estatística $X_{P}^{2}\left( H\right)$, o estimador da matriz de
+covariância baseia-se nas hipóteses relativas à distribuiç
+ão multinomial, apropriadas para a amostragem aleatória simples. A
+distribuição de referência da estatística $X_{P}^{2}\left(
+H\right)$ é qui-quadrado com $\left( C-1\right)$ graus de liberdade.
+
+Para introduzir em $X_{P}^{2}\left( H\right)$ o ajuste de EPA médio e o
+ajuste de Rao-Scott de primeira ordem, é preciso calcular estimativas de
+efeitos de plano amostral das estimativas das proporções nas linhas
+em ambas as regiões. O ajuste de segunda ordem de Rao-Scott, por sua
+vez, depende da matriz de efeito multivariado do plano amostral. As
+estimativas de efeitos de plano amostral na região $l$ são da forma 
+\begin{equation}
+\hat{d}_{lc}=\widehat{n}_{l+}\hat{V}_{lc}/\left( \hat{p}_{+c}\left( 1-\hat{p}
+_{+c}\right) \right) ,\ \;l=1,2\mbox{ e }c=1,\ldots ,C,  (\#eq:Tab5)
+\end{equation}
+onde $\hat{V}_{lc}$ é o $c$-ésimo elemento da diagonal de $\mathbf{
+\hat{V}}_{p}\left( \widehat{\mathbf{p}}_{l}\right) .$
+
+A matriz estimada de efeito multivariado de plano amostral é 
+\begin{equation}
+\mathbf{\hat{\Delta}=}\frac{\widehat{n}_{1+}\times \widehat{n}_{2+}}{
+\widehat{n}_{1+}+\widehat{n}_{2+}}\mathbf{\hat{P}}^{-1}\left( \mathbf{\hat{V}
+}_{p}\left( \widehat{\mathbf{p}}_{1}\right) +\mathbf{\hat{V}}_{p}\left( 
+\widehat{\mathbf{p}}_{2}\right) \right) \;\;.  (\#eq:Tab6)
+\end{equation}
+
+A estatística de Pearson com ajuste de EPA médio é dada por 
+\begin{equation}
+X_{P}^{2}\left( H;\hat{d}_{\cdot }\right) =X_{P}^{2}\left( H\right) /\hat{d}
+_{\cdot },  (\#eq:Tab7)
+\end{equation}
+onde $\hat{d}_{\cdot }=\sum\limits_{l=1}^{2}\sum\limits_{c=1}^{C}\hat{d}
+_{lc}/2C$ é a média das estimativas dos efeitos univariados de plano
+amostral.
+
+Usando os autovalores $\hat{\delta}_{c}$ de $\mathbf{\hat{\Delta}}$, o
+ajuste de primeira ordem de Rao-Scott é dado por 
+\begin{equation}
+X_{P}^{2}\left( H;\hat{\delta}_{.}\right) =X_{P}^{2}\left( H\right) /\hat{
+\delta}_{.},  (\#eq:Tab8)
+\end{equation}
+onde 
+\[
+\hat{\delta}_{.}=\frac{tr\left( \mathbf{\hat{\Delta}}\right) }{\left(
+C-1\right) }=\frac{1}{C-1}\sum\limits_{l=1}^{2}\left( 1-\frac{\widehat{n}
+_{l+}}{\widehat{n}_{1+}+\widehat{n}_{2+}}\right) \sum\limits_{c=1}^{C}\frac{
+\hat{p}_{lc}}{\hat{p}_{+c}}\left( 1-\hat{p}_{lc}\right) \hat{d}_{lc} 
+\]
+é um estimador da média $\bar{\delta}$ dos autovalores $\delta _{c}$
+da matriz $\mathbf{\Delta }$, desconhecida, de efeito multivariado do plano
+amostral. Como a soma dos autovalores de $\mathbf{\hat{\Delta}}$ é igual
+ao traço de $\mathbf{\hat{\Delta}}$, esta correção pode ser
+obtida sem ser necessário calcular os autovalores.
+
+As distribuições de referência, tanto de $X_{P}^{2}\left( H;\hat{
+d}_{\cdot }\right)$ como de $X_{P}^{2}\left( H;\hat{\delta}_{.}\right)$,
+são qui-quadrado com $\left( C-1\right)$ graus de liberdade. Estes
+ajustes corrigem a estatística $X_{P}^{2}\left( H\right)$ de modo a
+obter estatísticas com valor esperado igual ao da distribuição
+qui-quadrado de referência. Tal correção é apropriada quando
+houver pouca variação das estimativas dos autovalores $\hat{\delta}
+_{c}$. Quando isto não ocorrer, pode ser introduzido o ajuste de segunda
+ordem de Rao-Scott, que para a estatística de Pearson é dado por 
+\begin{equation}
+X_{P}^{2}\left( H;\hat{\delta}_{.},\hat{a}^{2}\right) =X_{P}^{2}\left( H;
+\hat{\delta}_{.}\right) /\left( 1+\hat{a}^{2}\right)  (\#eq:Tab9)
+\end{equation}
+onde $\hat{a}^{2}$ é o quadrado do coeficiente de variação dos
+quadrados das estimativas dos autovalores $\hat{\delta}_{c}$, dado por 
+\[
+\hat{a}^{2}=\sum\limits_{c=1}^{C}\hat{\delta}_{c}^{2}/\left( \left(
+C-1\right) \hat{\delta}_{.}^{2}\right) -1,
+\]
+onde a soma dos quadrados dos autovalores pode ser obtida a partir do tra\c{c
+}o de $\mathbf{\hat{\Delta}}^{2}$
+\[
+\sum\limits_{c=1}^{C}\hat{\delta}_{c}^{2}=tr\left( \mathbf{\hat{\Delta}}
+^{2}\right) \;\;. 
+\]
+
+A estatística de Pearson com a correção de segunda ordem de
+Rao-Scott $X_{P}^{2}\left( H;\hat{\delta}_{.},\hat{a}^{2}\right)$ tem
+distribuição de referência qui-quadrado com graus de liberdade
+com ajuste de Satterhwaite $gl_{S}=\left( C-1\right) /\left( 1+\hat{a}
+^{2}\right)$.
+
+Quando as estimativas $\mathbf{\hat{V}}_{p}\left( \widehat{\mathbf{p}}
+_{1}\right)$ e $\mathbf{\hat{V}}_{p}\left( \widehat{\mathbf{p}}_{2}\right)$
+das matrizes de covariâncias regionais são baseadas em números
+relativamente pequenos de unidades primárias de amostragem selecionadas,
+pode-se usar a estatística F-corrigida de Pearson. Ela é dada, no
+caso de duas regiões, por 
+\[
+FX_{P}^{2}\left( H;\hat{\delta}_{.}\right) =X_{P}^{2}\left( H;\hat{\delta}
+_{.}\right) /\left( C-1\right),
+\]
+e tem distribuição de referência \emph{F} com $\left( C-1\right) 
+$ e $f$ graus de liberdade.
+
+### Teste de Independência
+
+Vamos considerar o teste de independência no caso geral de tabela $
+L\times C$, onde os dados são extraídos de uma única populaç
+ão, sem fixar marginais. Consideremos a Tabela \ref{tab83} com as propor
+ções nas celas a nível da população, onde agora
+novamente se tem $p_{lc}=N_{lc}/N$.
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Proporções por cela na população}\bigskip \label{tab83}$
+\begin{tabular}{|c|cccccc|c|}
+\hline\hline
+& \multicolumn{7}{|c|}{Variável 2} \\ \cline{2-8}
+Variável 1 & $1$ & $2$ & $\ldots $ & $c$ & $\ldots $ & $C$ & Total \\ 
+\hline\hline
+$1$ & $p_{11}$ & $p_{12}$ & $\ldots $ & $p_{1c}$ & $\ldots $ & $p_{1C}$ & $
+p_{1+}$ \\ 
+$2$ & $p_{21}$ & $p_{22}$ & $\ldots $ & $p_{2c}$ & $\ldots $ & $p_{2C}$ & $
+p_{2+}$ \\ 
+$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
+\\ 
+$l$ & $p_{l1}$ & $p_{l1}$ & $\ldots $ & $p_{lc}$ & $\ldots $ & $p_{lC}$ & $
+p_{l+}$ \\ 
+$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
+\\ 
+$L$ & $p_{L1}$ & $p_{L2}$ & $\ldots $ & $p_{Lc}$ & $\ldots $ & $p_{LC}$ & $
+p_{L+}$ \\ \hline\hline
+Total & $p_{+1}$ & $p_{+2}$ & $\ldots $ & $p_{+c}$ & $\ldots $ & $p_{+C}$ & $
+1$ \\ \hline\hline
+\end{tabular}
+$
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+Estamos interessados em testar a hipótese de independência 
+\[
+H_{0}:p_{lc}=p_{l+}p_{+c},\quad l=1,\ldots ,L-1,\ c=1,\ldots,C-1, 
+\]
+onde $p_{l+}=\sum_{c=1}^{C}p_{lc}$ , $p_{+c}=\sum_{l=1}^{L}p_{lc}$ e 
+$\sum_{c=1}^{C}\sum_{l=1}^{L}p_{lc}=1$.
+
+Vamos escrever a hipótese de independência numa forma alternativa
+mas equivalente, usando contrastes de proporções: 
+\[
+H_{0}:f_{lc}=p_{lc}-p_{l+}p_{+c}=0,\quad l=1,\ldots ,L-1,\ c=1,\ldots
+,C-1.
+\]
+
+Consideremos o vetor $\mathbf{f}$ com $\left( L-1\right) \left( C-1\right)$
+componentes formado pelos contrastes $f_{lc}$ arranjados em ordem de linhas: 
+\[
+\mathbf{f}=\left( f_{11},\ldots ,f_{1\;C-1},\ldots ,f_{L-1\;1},\ldots
+,f_{L-1\;C-1}\right) ^{\prime }. 
+\]
+
+Um teste da hipótese de independência pode ser definido em termos da
+distância entre uma estimativa consistente do vetor de contrastes $
+\mathbf{f}$ e o vetor nulo com mesmo número de componentes. O vetor de
+estimativa consistente de $\mathbf{f}$ é denotado por $\mathbf{\hat{f}}
+=\left( \hat{f}_{11},\ldots ,\hat{f}_{1\;C-1},\ldots ,\hat{f}
+_{L-1\;1},\ldots ,\hat{f}_{L-1\;C-1}\right) ^{^{\prime }}$, onde $\hat{f}
+_{lc}=\hat{p}_{lc}-\hat{p}_{l+}\hat{p}_{+c}$, onde $\hat{p}_{lc}=\hat{n}
+_{lc}/n$. Os $\hat{n}_{lc}$ são as frequências ponderadas nas celas,
+considerando as diferentes probabilidades de inclusão e ajustes por
+não-resposta, onde os pesos amostrais são normalizados de modo que 
+$\sum_{c=1}^{C}\sum_{l=1}^{L}\hat{n}_{lc}=n$. Se $n$ não for fixado de
+antemão, os $\hat{p}_{lc}$ serão estimadores de razões. Apenas 
+$\left( L-1\right) \left( C-1\right)$ componentes são incluídos no
+vetores $\mathbf{f}$ e $\mathbf{\hat{f}}$, pois a soma das proporç
+ões nas celas da tabela é igual a 1.
+
+### Estatística de Wald Baseada no Plano Amostral
+
+A estatística de Wald baseada no plano amostral $X_{W}^{2}\left(I\right)$, 
+para o teste de independência, tem a forma da expressão \@ref(eq:Tab8, com $\mathbf{\hat{f}}$ no lugar de 
+$\mathbf{\hat{p}}$, o vetor $\mathbf{0}_{\left( L-1\right)\left( C-1\right)}$ no lugar de 
+$\mathbf{p}_{0}$ e a estimativa baseada no plano amostral 
+$\mathbf{\hat{V}}_{\mathbf{f}}$ da matriz de covariância de $\mathbf{\hat{f}}$ no lugar de $\mathbf{
+\hat{V}}_{p}$. Assim, a estatística de teste de independência de
+Wald é dada por 
+\begin{equation}
+X_{W}^{2}\left( I\right) =\mathbf{\hat{f}}^{\prime }\mathbf{\hat{V}}_{
+\mathbf{f}}^{-1}\mathbf{\hat{f}\;\;},  (\#eq:Tab10)
+\end{equation}
+que é assintoticamente $\chi ^{2}\left( \left( L-1\right) \left(
+C-1\right) \right)$.
+
+A estimativa $\mathbf{\hat{V}}_{\mathbf{f}}$ da matriz de covariância de 
+$\mathbf{\hat{f}}$ pode ser obtida pelo método de linearização
+de Taylor apresentado na Seção \ref{taylor}, considerando o vetor de
+contrastes $\mathbf{f}$ como uma função (não-linear) do vetor $
+\mathbf{p}$, isto é, 
+$\mathbf{f=g}\left( \mathbf{p}\right) \mathbf{=g}\left( p_{11},\ldots ,p_{1\;C-1},\ldots ,p_{L-1\;1},\ldots
+,p_{L-1\;C-1}\right)$. Assim, a matriz de covariância de 
+$\mathbf{\hat{f}}$ pode ser estimada por
+
+\begin{equation}
+\mathbf{\hat{V}}_{\mathbf{f}}=\mathbf{\Delta g}\left( \mathbf{\hat{p}}
+\right) \mathbf{\hat{V}}_{p}^{-1}\mathbf{\Delta g}\left( \mathbf{\hat{p}}
+\right) ^{^{\prime }},  (\#eq:Tab11)
+\end{equation}
+onde $\mathbf{\Delta g}\left( \mathbf{p}\right)$ é a matriz jacobiana
+de dimensão $\left( L-1\right) \left( C-1\right) \times $\linebreak $
+\left( L-1\right) \left( C-1\right)$ dada por 
+\[
+\mathbf{\Delta g}\left( \mathbf{p}\right) =\left[ \partial \mathbf{g}
+/\partial p_{11},\ldots ,\partial \mathbf{g}/\partial p_{1\;C-1},\ldots
+,\partial \mathbf{g}/\partial p_{L-1\;1},\ldots ,\partial \mathbf{g}
+/\partial p_{L-1\;C-1}\right] 
+\]
+e $\mathbf{\hat{V}}_{p}$ é uma estimativa consistente da matriz de
+covariância de $\mathbf{\hat{p}}$.
+
+é possível ainda introduzir, no caso de se ter o número $m$ de
+unidades primárias pequeno, correção na estatística de Wald,
+utilizando as propostas alternativas de estatísticas F-corrigidas, como
+em \@ref(eq:Tab9) e \@ref(eq:Tab10), com $\left( L-1\right) \left( C-1\right)$ no
+lugar de $J-1$, obtendo-se 
+\[
+F_{1.p}=\frac{f-\left( L-1\right) \left( C-1\right) -1}{f\left( L-1\right)
+\left( C-1\right) }X_{W}^{2}\left( I\right),
+\]
+que tem distribuição assintótica $\mathbf{F}$ com 
+$\left(L-1\right) \left( C-1\right)$ e $f-\left( L-1\right) \left(C-1\right) -1$ graus de liberdade e 
+\[
+F_{2.p}=\frac{X_{W}^{2}\left( I\right) }{\left( L-1\right) \left( C-1\right) 
+}, 
+\]
+que tem distribuição assintótica $\mathbf{F}$ com 
+$\left(L-1\right) \left( C-1\right)$ e $f$ graus de liberdade.
+
+### Estatística de Pearson com Ajuste de Rao-Scott
+
+Na presença de efeitos de plano amostral importantes, as
+estatísticas clássicas de teste precisam ser ajustadas para terem a
+mesma distribuição assintótica de referência que a obtida
+para o caso de amostragem aleatória simples.
+
+A estatística de teste de independência $X_{P}^{2}\left( I\right)$
+de Pearson para a tabela $L\times C$ é dada por 
+\[
+X_{P}^{2}\left( I\right) =n\sum\limits_{l=1}^{L}\sum\limits_{c=1}^{C}\frac{
+\left( \hat{p}_{lc}-\hat{p}_{l+}\hat{p}_{+c}\right) ^{2}}{\hat{p}_{l+}\hat{p}
+_{+c}}.
+\]
+
+Esta estatística pode ser escrita em forma matricial como 
+\begin{equation}
+X_{P}^{2}\left( I\right) =n\;\mathbf{\hat{f}}^{\prime }\;\widehat{\mathbf{P}}
+_{0\mathbf{f}}\;\mathbf{\hat{f}},  (\#eq:Tab12)
+\end{equation}
+onde
+
+\begin{equation}
+\widehat{\mathbf{P}}_{0\mathbf{f}}=\mathbf{\Delta g}\left( \mathbf{\hat{p}}
+\right) \mathbf{\hat{P}}_{0}\mathbf{\Delta g}\left( \mathbf{\hat{p}}\right)
+^{\prime },  (\#eq:Tab13)
+\end{equation}
+\[
+\mathbf{\hat{P}}_{0}=diag\left( \mathbf{\hat{p}}_{0}\right) -\mathbf{\hat{p}}
+_{0}\mathbf{\hat{p}}_{0}^{^{\prime }}, 
+\]
+$\widehat{\mathbf{P}}_{0}/n$ estima a matriz $\left( L-1\right) \left(
+C-1\right) \times \left( L-1\right) \left( C-1\right)$ de covariância
+multinomial de $\mathbf{\hat{p}}$ sob a hipótese nula, $\mathbf{\hat{p}}
+_{0}$ é o vetor com componentes $\hat{p}_{l+}$ $\hat{p}_{+c}$, e $
+diag\left( \mathbf{\hat{p}}_{0}\right)$ representa a matriz diagonal com
+elementos $\hat{p}_{l+}$ $\hat{p}_{+c}$ na diagonal.
+
+Observemos que a forma de $X_{P}^{2}\left( I\right)$ como expressa em \@ref(eq:Tab12)
+é semelhante à da estatística de Wald dada em \@ref(eq:Tab10),
+a diferença sendo a estimativa da matriz de covariância de $
+\mathbf{\hat{f}}$ usada em cada uma dessas estatísticas.
+
+Como nos testes de qualidade de ajuste e de homogeneidade no caso de plano
+amostral complexo, podemos introduzir correções simples na
+estatística de Pearson em \@ref(eq:Tab12) para obter estatísticas
+de teste com distribuições assintóticas conhecidas.
+
+Inicialmente, vamos considerar ajustes baseados nos efeitos univariados de
+plano amostral estimados, $\hat{d}_{lc}$, das estimativas das proporç
+ões nas celas $\hat{p}_{lc}$. O ajuste mais simples é feito
+dividindo-se o valor da estatística $X_{P}^{2}$ de Pearson pela
+média $\hat{d}_{.}$ dos efeitos univariados de plano amostral: 
+\[
+X_{P}^{2}\left( I;\hat{d}_{.}\right) =X_{P}^{2}\left( I\right) /\hat{d}
+_{.}, 
+\]
+onde $\hat{d}_{.}=\sum_{c=1}^{C}\sum_{l=1}^{L}\hat{d}_{lc}/\left(
+LC\right)$ é um estimador da média dos efeitos univariados de plano
+amostral desconhecidos.
+
+Estimamos os efeitos do plano amostral por $\hat{d}_{lc}=\hat{V}_{p}\left( 
+\hat{p}_{lc}\right) /$\linebreak $\left( \hat{p}_{lc}\left( 1-\hat{p}
+_{lc}\right) /n\right)$, onde $\hat{V}_{p}\left( \hat{p}_{lc}\right)$
+é a estimativa da variância de aleatorização do estimador de
+proporção $\hat{p}_{lc}$. Este ajustamento requer que estejam
+disponíveis as estimativas dos efeitos de plano amostral dos
+estimadores das proporções nas $L\times C$ celas da tabela.
+
+A seguir vamos apresentar as correções de primeira e de segunda
+ordem de Rao-Scott para a estatística $X_{P}^{2}\left( I\right)$ de
+Pearson para o teste de independência. Estas correções
+baseiam-se nos autovalores da matriz estimada de efeito multivariado de
+plano amostral, dada por 
+\begin{equation}
+\mathbf{\hat{\Delta}}=n\;\mathbf{\hat{P}}_{0\mathbf{f}}^{-1}\;\mathbf{\hat{V}
+}_{\mathbf{f}},  (\#eq:Tab14)
+\end{equation}
+onde $\mathbf{\hat{V}}_{\mathbf{f}}$ foi definido em \@ref(eq:Tab11) e $\mathbf{
+\hat{P}}_{0\mathbf{f}}$ definido em \@ref(eq:Tab13).
+
+O ajuste de Rao-Scott de primeira ordem para $X_{P}^{2}\left( I\right)$
+é dado por 
+\begin{equation}
+X_{P}^{2}\left( I;\hat{\delta}_{.}\right) =X_{P}^{2}\left( I\right) /\hat{
+\delta}_{.},  (\#eq:Tab15)
+\end{equation}
+onde $\hat{\delta}_{.}$ é um estimador da média $\bar{\delta}$ dos
+autovalores desconhecidos da matriz $\mathbf{\Delta }$ de efeitos
+multivariados de plano amostral.
+
+Podemos estimar a média dos efeitos generalizados, usando os efeitos
+univariados nas celas e nas marginais da tabela, por 
+\[
+\begin{array}{lll}
+\hat{\delta}_{.} & = & \frac{1}{\left( L-1\right) \left( C-1\right) }
+\sum\limits_{l=1}^{L}\sum\limits_{c=1}^{C}\frac{\hat{p}_{lc}\left( 1-\hat{p}
+_{lc}\right) }{\hat{p}_{l+}\hat{p}_{+c}}\hat{d}_{lc} \\ 
+&  & -\sum\limits_{l=1}^{L}\left( 1-\hat{p}_{l+}\right) \hat{d}
+_{l+}-\sum\limits_{c=1}^{C}\left( 1-\hat{p}_{+c}\right) \hat{d}_{+c},
+\end{array}
+\;
+\]
+sem precisar calcular a matriz de efeitos multivariados de plano amostral. A
+distribuição assintótica de $X_{P}^{2}\left( I;\hat{\delta}
+_{.}\right)$, sob $H_{0}$, é qui-quadrado com 
+$\left( L-1\right) \times \left( C-1\right)$ graus de liberdade.
+
+O ajuste de Rao-Scott de segunda ordem é definido por 
+\[
+X_{P}^{2}\left( I;\hat{\delta}_{.};\hat{a}^{2}\right) =X_{P}^{2}\left(
+I\right) /\left( \hat{\delta}_{.}\left( 1+\hat{a}^{2}\right) \right), 
+\]
+onde $\hat{\delta}_{.}$ é um estimador da média dos autovalores de $
+\mathbf{\hat{\Delta}}$, dado por 
+\[
+\hat{\delta}_{.}=\frac{tr\left( \mathbf{\hat{\Delta}}\right) }{\left(
+L-1\right) \left( C-1\right) } 
+\]
+e $\hat{a}^{2}$ é um estimador do quadrado do coeficiente de variaç
+ão dos autovalores desconhecidos de $\mathbf{\Delta ,}$ $\delta _{k}$, $
+k=1,\ldots ,\left( L-1\right) \left( C-1\right)$, dado por 
+\[
+\hat{a}^{2}=\sum\limits_{k=1}^{\left( L-1\right) \left( C-1\right) }\hat{
+\delta}_{k}^{2}/\left( \left( L-1\right) \left( C-1\right) \hat{\delta}
+_{.}^{2}\right) -1. 
+\]
+
+Um estimador da soma dos quadrados dos autovalores é 
+\[
+\sum\limits_{k=1}^{\left( L-1\right) \left( C-1\right) }\hat{\delta}
+_{k}^{2}=tr\left( \mathbf{\hat{\Delta}}^{2}\right).
+\]
+
+A estatística $X_{P}^{2}\left( I;\hat{\delta}_{.};\hat{a}^{2}\right)$
+é assintoticamente qui-quadrado com graus de liberdade com ajuste de
+Satterthwaite $gl_{S}=\left( L-1\right) \left( C-1\right) /\left( 1+\hat{a}
+^{2}\right) .$
+
+Em situações instáveis, pode ser necessário fazer uma corre
+ção F ao ajuste de primeira ordem de Rao-Scott \@ref(eq:Tab15). A
+estatística F-corrigida é definida por 
+\begin{equation}
+FX_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{P}^{2}\left( \hat{\delta}
+_{.}\right) /\left( L-1\right) \left( C-1\right) \;\;.  (\#eq:Tab16)
+\end{equation}
+
+A estatística \@ref(eq:Tab16) tem distribuição de referência $F$
+com $\left( L-1\right)$ $\times\left( C-1\right)$ e $f$ graus
+de liberdade.
+
+\begin{myex}
+Correções de EPA médio das estatísticas $X_{P}^{2}\left(
+I\right)$ e $X_{P}^{2}\left( H\right)$.
+\end{myex}
+
+Considerando os dados do Exemplo \ref{pnad90} do Capítulo 6, vamos
+testar a hipótese de independência entre as variáveis Sexo (sx)
+e Rendimento médio mensal (re). Vamos fazer também um teste de
+homogeneidade, para comparar as distribuições de renda para os dois
+sexos.
+
+A variável sx tem dois níveis: sx(1)-Homens, sx(2)- Mulheres e a
+variável re tem três níveis: re(1)- Menos de salário
+mínimo, re(2) - de 1 a 5 salário mínimos e re(3)- mais de 5
+salários mínimos. A Tabela \ref{tab84} apresenta as
+freqüências nas celas para a amostra pesquisada.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Freqüências amostrais por celas na PNAD 90}\bigskip \label{tab84} 
+\begin{tabular}{|c|cccc|}
+\hline\hline
+& \multicolumn{3}{|c}{\textbf{Renda Mensal}} &  \\ 
+\textbf{Sexo} & 1 & 2 & 3 & \multicolumn{1}{|c|}{\textbf{Total}} \\ 
+\hline\hline
+1 & \multicolumn{1}{|r}{$476$} & \multicolumn{1}{r}{$2.527$} & 
+\multicolumn{1}{r}{$1.273$} & \multicolumn{1}{|r|}{$4.276$} \\ 
+2 & \multicolumn{1}{|r}{$539$} & \multicolumn{1}{r}{$1.270$} & 
+\multicolumn{1}{r}{$422$} & \multicolumn{1}{|r|}{$2.231$} \\ \hline\hline
+\textbf{Total} & \multicolumn{1}{|r}{$1.015$} & \multicolumn{1}{r}{$3.797$}
+& \multicolumn{1}{r}{$1.695$} & \multicolumn{1}{|r|}{$6.507$} \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+No teste de homogeneidade das distribuições de renda, consideramos
+fixadas as marginais $4.276$ e $2.231$ da variável Sexo na tabela de
+freqüências amostrais. Usando o programa Stata, calculamos as
+estimativas das proporções nas linhas da tabela. Nestas
+estimativas são considerados os pesos das unidades da amostra e o plano
+amostral utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo \ref
+{pnad90} do Capítulo 6.
+
+Vamos considerar o teste de homogeneidade entre as variáveis Sexo e Renda
+\textbf{\ }e calcular o efeito de plano amostral médio das estimativas
+das proporções nas celas da tabela. A Tabela \ref{tab85} contém,
+em cada cela, as estimativas: da proporção na linha, do
+desvio-padrão da estimativa da proporção na linha ($\times
+10.000 $), e do efeito de plano amostral da estimativa de proporção
+na linha.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Proporções nas linhas, desvios padrões e EPAs}\bigskip \label{tab85}
+\begin{tabular}{|c|ccc|c|}
+\hline\hline
+& \multicolumn{3}{|c|}{\textbf{Renda Mensal}} &  \\ \cline{2-4}
+\textbf{Sexo} & 1 & 2 & 3 & \textbf{Total} \\ \hline\hline
+1 & \multicolumn{1}{|r}{$
+\begin{tabular}{r}
+$0,111$ \\ 
+$57,269$ \\ 
+$1,420$
+\end{tabular}
+$} & \multicolumn{1}{r}{$
+\begin{tabular}{r}
+$0,591$ \\ 
+$102,576$ \\ 
+$1,861$
+\end{tabular}
+$} & \multicolumn{1}{r|}{$
+\begin{tabular}{r}
+$0,298$ \\ 
+$111,213$ \\ 
+$2,527$
+\end{tabular}
+$} & 
+\begin{tabular}{c}
+$1,00$
+\end{tabular}
+\\ \hline
+2 & \multicolumn{1}{|r}{$
+\begin{tabular}{r}
+$0,240$ \\ 
+$125,026$ \\ 
+$1,909$
+\end{tabular}
+$} & \multicolumn{1}{r}{$
+\begin{tabular}{r}
+$0,570$ \\ 
+$119,375$ \\ 
+$1,297$
+\end{tabular}
+$} & \multicolumn{1}{r|}{$
+\begin{tabular}{r}
+$0,190$ \\ 
+$111,410$ \\ 
+$1,800$
+\end{tabular}
+$} & 
+\begin{tabular}{c}
+$1,00$
+\end{tabular}
+\\ \hline\hline
+\begin{tabular}{c}
+Amostra \\ 
+completa
+\end{tabular}
+& \multicolumn{1}{|r}{$
+\begin{tabular}{r}
+$0,155$ \\ 
+$68,977$ \\ 
+$2,358$
+\end{tabular}
+$} & \multicolumn{1}{r}{$
+\begin{tabular}{r}
+$0,584$ \\ 
+$82,001$ \\ 
+$1,800$
+\end{tabular}
+$} & \multicolumn{1}{r|}{$
+\begin{tabular}{r}
+$0,261$ \\ 
+$96,1300$ \\ 
+$3,117$
+\end{tabular}
+$} & 
+\begin{tabular}{c}
+$1,00$
+\end{tabular}
+\\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+Vamos calcular, a título de ilustração, uma das celas de tabela
+de efeitos de plano amostral, digamos a cela (1,1). A estimativa da
+variância do estimador da proporção de linha nesta cela é $
+\left( 0,0057269\right) ^{2}$. Sob amostragem aleatória simples com
+reposição, a estimativa da variância do estimador de proporção de linha na cela é: $0,111\left( 1-0,111\right) /4.276$. A
+estimativa do efeito de plano amostral do estimador de proporção na
+cela é portanto igual a 
+\[
+\frac{\left( 0,0057269\right) ^{2}}{0,111\left( 1-0,111\right) /4.276}\cong
+1,420\;\;. 
+\]
+
+A estimativa do efeito médio de plano amostral para corrigir a
+estatística $X_{P}^{2}\left( H\right)$ é $\hat{d}_{.}=1,802$
+, calculada tomando a média dos EPAs das celas correspondentes aos
+níveis 1 e 2 da variável sx.
+
+Vamos agora considerar o teste de independência entre as variáveis
+Sexo e Renda\textbf{\ }e calcular o efeito de plano amostral médio das
+estimativas das proporções nas celas da tabela. A Tabela \ref
+{tab86} contém, em cada cela, as estimativas: da proporção na
+cela, do desvio-padrão da estimativa da proporção na cela ($
+\times 10.000$), e do efeito de plano amostral da estimativa de proporç
+ão na cela.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Proporções nas celas, desvios padrões e EPAs}\bigskip \label{tab86} 
+\begin{tabular}{|c|ccc|c|}
+\hline\hline
+& \multicolumn{3}{|c|}{\textbf{Renda Mensal}} &  \\ \cline{2-4}
+\textbf{Sexo} & 1 & 2 & 3 & \textbf{Total} \\ \hline\hline
+1 & \multicolumn{1}{|r}{$
+\begin{tabular}{r}
+$0,073$ \\ 
+$38,343$ \\ 
+$1,414$
+\end{tabular}
+$} & \multicolumn{1}{r}{
+\begin{tabular}{r}
+$0,388$ \\ 
+$80,435$ \\ 
+$1,772$
+\end{tabular}
+} & \multicolumn{1}{r|}{
+\begin{tabular}{r}
+$0,196$ \\ 
+$71,772$ \\ 
+$2,128$
+\end{tabular}
+} & $
+\begin{tabular}{r}
+$0,657$ \\ 
+$55,814$ \\ 
+$0,899$
+\end{tabular}
+$ \\ \hline
+2 & 
+\begin{tabular}{r}
+$0,082$ \\ 
+$44,401$ \\ 
+$1,695$
+\end{tabular}
+& 
+\begin{tabular}{r}
+$0,195$ \\ 
+$51,582$ \\ 
+$1,101$
+\end{tabular}
+& 
+\begin{tabular}{r}
+$0,065$ \\ 
+$40,219$ \\ 
+$1,729$
+\end{tabular}
+& 
+\begin{tabular}{r}
+$0,343$ \\ 
+$55,814$ \\ 
+$0,899$
+\end{tabular}
+\\ \hline\hline
+\textbf{Total} & 
+\begin{tabular}{r}
+$0,155$ \\ 
+$68,977$ \\ 
+$2,358$
+\end{tabular}
+& 
+\begin{tabular}{r}
+$0,584$ \\ 
+$82,001$ \\ 
+$1,800$
+\end{tabular}
+& 
+\begin{tabular}{r}
+$0,261$ \\ 
+$96,130$ \\ 
+$3,117$
+\end{tabular}
+& $
+\begin{tabular}{r}
+$1,000$
+\end{tabular}
+$ \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+Vamos calcular, a título de ilustração, o efeito de plano
+amostral na cela (1,1) da Tabela \ref{tab86}. A estimativa da variância
+do estimador de proporção nesta cela é 
+$\left(0,0038343\right) ^{2}$. Sob amostragem aleatória simples com reposiç%
+ão, a estimativa da variância do estimador de proporção na
+cela é: $0,073\times \left( 1-0,073\right) /6.507$. A
+estimativa do efeito de plano amostral do estimador de proporção na
+cela é
+
+\[
+\frac{\left( 0,0038343\right) ^{2}}{0,073\left( 1-0,073\right) /6.507}\cong
+1,414\;\;. 
+\]
+
+Portanto, a estimativa do efeito médio de plano amostral requerida para
+corrigir a estatística $X_{P}^{2}\left( I\right)$ é $\hat{d}_{.}=1,640,$ calculada tomando a média dos EPAs das celas
+correspondentes aos níveis 1 e 2 da variável sx.
+
+Calculando as estatísticas $X_{P}^{2}\left( I\right)$ e 
+$X_{P}^{2}\left( H\right)$ para os testes clássicos de independência
+e homogeneidade a partir da Tabela \ref{tab86}, obtemos os valores 
+$X_{P}^{2}\left( I\right) =X_{P}^{2}\left( H\right) =227,025$, com distribui
+ção de referência $\chi ^{2}\left( 2\right)$, resultado que
+indica rejeição da hipótese de independência entre sx e re,
+bem como da hipótese de igualdade de distribuição de renda para
+os dois sexos a partir do teste de homogeneidade. O valor comum das
+estatísticas $X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left( H\right)$
+foi calculado sem considerar os pesos e o plano amostral. Considerando
+estes últimos, mediante a correção de EPA médio das
+estatísticas clássicas, obtemos os valores $X_{P}^{2}\left( I;\hat{d}
+_{.}\right) =137,117$ e $X_{P}^{2}\left( H;\hat{d}_{.}\right) =124,742$, que
+também indicam a rejeição das hipóteses de independência
+e de homogeneidade.
+
+Vale ressaltar que apesar de todos os testes mencionados indicarem forte
+rejeição das hipóteses de independência e de homogeneidade,
+os valores das estatísticas de teste $137,117$ e $124,742$ , calculados
+considerando os pesos e plano amostral, são bem menores que o valor $
+227,025$ obtido para o caso de amostra IID. Sob a hipótese nula, a
+distribuição de referência de todas essas estatísticas de
+teste é $\chi ^{2}\left( 2\right)$, mostrando novamente que a
+estatística de teste calculada sob a hipótese de amostra IID tem
+maior tendência a rejeitar a hipótese nula.
+
+A partir da Tabela \ref{tab86}, examinando as estimativas das proporç
+ões nas celas da tabela para cada sexo, observamos uma ordenação
+estocástica das distribuições de renda para os dois sexos, com
+proporções maiores em valores mais altos para o nível 1 da
+variável sexo, que é o sexo masculino.
+

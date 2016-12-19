@@ -1,0 +1,842 @@
+# Testes de Qualidade de Ajuste
+
+## Introdução
+
+
+Tabelas de distribuições de frequências ocorrem comumente na
+análise de dados de pesquisas complexas. Tais tabelas são formadas
+pela classificação e cálculo de frequências dos dados da
+amostra disponível segundo níveis de uma variável categórica
+- tabelas de uma entrada - ou segundo celas de uma classificação
+cruzada de duas (ou mais) variáveis categóricas - tabelas de duas
+(ou mais) entradas. Neste capítulo concentraremos a atenção em
+tabelas de uma entrada, ou equivalentemente nas frequências
+absolutas e relativas (ou proporções) correspondentes.
+
+Em muitos casos, o objetivo da análise é testar hipóteses de
+bondade de ajuste de modelos para descrever essas distribuições de
+frequências. Sob a hipótese de observações IID (distribuição Multinomial) ou equivalentemente, de amostragem aleatória
+simples, inferências válidas para testar tais hipóteses podem
+ser baseadas na estatística padrão de teste qui-quadrado de Pearson.
+Tais testes podem ser facilmente executados usando procedimentos prontos em
+pacotes estatísticos padrões tais como o SAS, S-Plus, SPSS, GLIM e
+outros.
+
+No caso de planos amostrais complexos, entretanto, os procedimentos de teste
+precisam ser ajustados devido aos efeitos de conglomeração,
+estratificação e/ou pesos desiguais. Neste capítulo examinaremos
+o impacto do plano amostral sobre as estatísticas de teste usuais
+notando que, em alguns casos, os valores observados dessas estatísticas
+de teste podem ser muito grandes, acarretando inferências incorretas,
+conforme já ilustrado no Exemplo \ref{exebin} do Capítulo 4. Isto
+ocorre porque a probabilidade de erros do tipo I (rejeitar a hipótese
+nula quando esta é verdadeira) é muito maior que o nível nominal
+de significância $\alpha$ especificado.
+
+Para obter inferências válidas usando amostras complexas podemos
+introduzir correções na estatística de teste de Pearson, tais
+como os ajustes de Rao-Scott, ou alternativamente usar outras
+estatísticas de teste que já incorporem o plano amostral, tais como
+a estatística de Wald. Os dois enfoques serão ilustrados através
+de um exemplo introdutório simples de teste de bondade de ajuste. Os
+resultados discutidos neste capítulo são adequados tanto para uma
+abordagem de aleatorização, em que os parâmetros se referem
+à população finita em questão, quanto para uma abordagem
+baseada em modelos, em que os parâmetros especificam algum modelo de
+superpopulação.
+
+## Teste para uma Proporção
+
+### Correção de Estatísticas Clássicas
+
+No Exemplo \ref{exebin} do Capítulo 4 a estatística de teste $Z_{bin},$ que foi utilizada para comparar com um valor hipotético
+pré-fixado a proporção de empregados cobertos por plano de
+saúde, resultou num teste mais liberal do que o teste que empregou a
+estatística $Z_{p}$, baseada no plano amostral efetivamente adotado. A
+causa disto foi o fato de $Z_{bin}$ não considerar o efeito de conglomeração existente. Vamos examinar com mais detalhes o comportamento
+assintótico da estatística de teste $Z_{bin}$, construindo a
+estatística de teste $X_{P}^{2}$ de Pearson para o exemplo
+correspondente. Para isto, consideremos a Tabela \ref{tab71} contendo a
+distribuição de frequências, onde $n_{j}$ e $p_{oj}$ são
+as frequências (absolutas) observadas na amostra e as proporções hipotéticas nas categorias de interesse, respectivamente.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Freqüências observadas e proporções hipotéticas }\bigskip \label%
+{tab71} 
+\begin{tabular}[t]{|c|c|c|c|}
+\hline\hline
+Categoria & $j$ & $n_{j}$ & $p_{0j}$ \\ \hline\hline
+\begin{tabular}{l}
+Cobertos por \\ 
+plano de saúde
+\end{tabular}
+& 1 & \multicolumn{1}{|r|}{$840$} & \multicolumn{1}{|r|}{$0,8$} \\ 
+Não cobertos & 2 & \multicolumn{1}{|r|}{$160$} & \multicolumn{1}{|r|}{$%
+0,2$} \\ \hline\hline
+\multicolumn{1}{|l|}{Todos os empregados} & \multicolumn{1}{|l|}{$\sum $} & 
+\multicolumn{1}{|l|}{$1.000$} & \multicolumn{1}{|l|}{$1,0$} \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+As proporções populacionais desconhecidas nas categorias são $p_{j}=N_{j}/N$, onde $N$ é o tamanho total da populaç%
+ão de empregados e $N_{j}$ é o número de elementos da população na categoria 
+$j,\ j=1,2$. Os parâmetros populacionais $p_{j}$
+poderiam também ser considerados como pseudo-parâmetros, se vistos
+como estimativas de censo para as probabilidades desconhecidas ($\pi _{j}$,
+digamos) no contexto de um modelo de superpopulação.
+
+A estatística de teste de Pearson para a hipótese simples de
+bondade de ajuste $H_{0}:p_{j}=p_{0j},\ j=1,2$, é dada por 
+\begin{equation}
+X_{P}^{2}=\sum\limits_{j=1}^{2}\left( n_{j}-n\,p_{0j}\right)
+^{2}/\left( n\,p_{0j}\right) =n\sum\limits_{j=1}^{2}\left( 
+\widehat{p}_{j}-p_{0j}\right) ^{2}/p_{0j},  
+(\#eq:qual1)
+\end{equation}
+onde as proporções $\widehat{p}_{j}=n_{j}/n$ são estimativas
+amostrais usuais das proporções populacionais $p_{j}$, para $j=1,2$.
+
+Como há apenas duas categorias e as proporções devem somar $1$,
+observa-se que $p_{2}=1-p_{1},$ $\widehat{p}_{2}=1-\widehat{p}_{1}$ e 
+$p_{02}=1-p_{01}$. Isto acarreta na equivalência entre as
+estatísticas $Z_{bin}$ e $X_{P}^{2}$ demonstrada pela relação 
+\begin{equation}
+X_{P}^{2}=n\sum\limits_{j=1}^{2}\left( \widehat{p}%
+_{j}-p_{0j}\right) ^{2}/p_{0j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{%
+p_{0}\left( 1-p_{0}\right) /n}=Z_{bin}^{2}  
+(\#eq:qual2)
+\end{equation}
+onde $\widehat{p}=\widehat{p}_{1}$ e $p_{0}=p_{01}$ para simplicidade e
+coerência com a notação do Exemplo \ref{exebin}.
+
+Sob a hipótese de observações IID, a distribuição
+assintótica da estatística $X_{P}^{2}$ é qui-quadrado ($\chi^{2}$). Neste caso, em que há apenas duas categorias e uma restrição (soma das proporções igual a $1$), a distribuição da estatística $X_{P}^{2}$ em \@ref(\#eq:qual1) tem apenas um grau de liberdade.
+
+Rao e Scott(1981) obtiveram resultados gerais para a distribuição
+assintótica da estatística de teste $X_{P}^{2}$ de Pearson sob
+planos amostrais complexos. Com apenas duas celas, a distribuição
+assintótica da estatística de teste $X_{P}^{2}$ é a distribuição da variável aleatória $dW$, onde $W$ tem distribuiçao $\chi ^{2}\left( 1\right)$ (qui-quadrado com um grau de liberdade) e $d$
+é o efeito de plano amostral (EPA) da estimativa $\widehat{p}$ da proporção $p$. O efeito de plano amostral nesse caso é dado por $d=V_{p}\left( \widehat{p}\right) /V_{bin}\left( \widehat{p}\right)$.
+
+Para uma amostra de empregados selecionada por amostragem aleatória
+simples, teríamos $d=1$ pois $V_{p}\left( \widehat{p}\right)$ e 
+$V_{bin}\left( \widehat{p}\right)$ seriam iguais. Neste caso, a
+estatística $X_{P}^{2}$ de teste seria assintoticamente 
+$\chi ^{2}\left(1\right)$. Como a amostra foi efetivamente selecionada por amostragem de
+conglomerados, devido à correlação intraclasse positiva o efeito
+de plano amostral $d$ é maior que um, e portanto a distribuição
+assintótica da estatística de teste $X_{P}^{2}$ não é mais 
+$\chi ^{2}\left( 1\right)$.
+
+Considerando que o impacto da correlação intraclasse positiva na
+distribuição assintótica da estatística $X_{P}^{2}$ de
+Pearson pode levar a inferências incorretas caso se utilize a distribuição assintótica usual, o próximo passo é derivar um
+procedimento de teste válido. Isto é feito introduzindo uma correção em $X_{P}^{2}.$ Para isto, observe que a esperança
+assintótica de $X_{P}^{2}$ é $E_{p}\left( X_{P}^{2}\right) =d$. Como 
+$E_{p}\left( X_{P}^{2}/d\right) =$ 
+$E\left( \chi ^{2}\left( 1\right) \right)=1$, obtemos então a correção simples de Rao-Scott para $X_{P}^{2}$ dividindo o valor observado da estatística de teste pelo
+efeito do plano amostral $d$, isto é, 
+\begin{equation}
+X_{P}^{2}(d)=X_{P}^{2}/d\mbox{,}  
+(\#eq:qual3)
+\end{equation}
+que tem, no caso de duas celas, distribuição assintótica 
+$\chi^{2}\left( 1\right)$.
+
+Outra estatística comumente usada para testar a mesma hipótese de
+bondade de ajuste no caso de proporções é a estatística do
+teste da Razão de Verossimilhança (RV), dada por 
+\begin{equation}
+X_{RV}^{2}=2n\sum\limits_{j=1}^{2}\widehat{p}_{j}\log \left( 
+\widehat{p}_{j}/p_{0j}\right) =2n\log \left( \frac{\widehat{p}\left( 1-
+\widehat{p}\right) }{p_{0}\left( 1-p_{0}\right) }\right) .
+(\#eq:qual4)
+\end{equation}
+
+No caso de amostragem aleatória simples, a estatística $X_{RV}^{2}$
+é também distribuída assintoticamente como $\chi ^{2}\left(1\right)$, quando a hipótese nula é verdadeira. Para planos
+amostrais complexos, a estatística corrigida correspondente é 
+\begin{equation}
+X_{RV}^{2}(d)=X_{RV}^{2}/d\;\;.  
+(\#eq:qual5)
+\end{equation}
+
+Vamos calcular os valores das estatísticas de Pearson e de RV, com suas
+correções de Rao-Scott, para os dados do Exemplo \ref{exebin}. Para
+as correções, primeiro é preciso calcular o efeito do plano
+amostral 
+\[
+\begin{array}{llcll}
+d & = & V_{p}\left( \widehat{p}\right) /V_{bin}\left( \widehat{p}\right) & =
+& \frac{p\left( 1-p\right) /m}{p\left( 1-p\right) /n} \\ 
+& = & \frac{0,0032}{0,00016} & = & 20
+\end{array}
+\]
+onde $m=50$ é o número de empregados por empresa (tamanho do
+conglomerado) e $n=1.000$ é o número de empregados na amostra.
+
+O valor da estatística de teste de Pearson é 
+\[
+X_{P}^{2}=\frac{\left( 0,84-0,80\right) ^{2}}{\left( 0,80\times 0,20\right)
+/1.000}=10 
+\]
+com $p$valor $0,0016$. O valor da estatística de teste de Pearson com a
+correção de Rao-Scott $X_{P}^{2}(d)$ é então dado por 
+\[
+X_{P}^{2}(d)=X_{P}^{2}/d=10/20=0,5 
+\]
+com $p$valor $0,4795$. Observe que $Z_{p}^{2}=0,707^{2}=0,5$ , e também
+que $X_{P}^{2}(d)=Z_{bin}^{2}/d= 3,162^{2}/20=0,5$ ou seja, $%
+Z_{p}^{2}=X_{P}^{2}(d)$ conforme esperado. Os valores da estatística do
+teste da Razão de Verossimilhança e sua correção de
+Rao-Scott são dados respectivamente por 
+\[
+X_{RV}^{2}=2\times 1.000\times \log \left( \frac{0,84\times 0,16}{0,80\times
+0,20}\right) =10,56\;, 
+\]
+com $p$valor $0,0012$, e 
+\[
+X_{RV}^{2}(d)=X_{LR}^{2}/d=10,56/20=0,528\;\;, 
+\]
+com $p$valor de $0,4675$.
+
+Como se pode notar, as estatísticas baseadas na Razão de
+Verossimilhança oferecem resultados semelhantes às
+versões correspondentes baseadas na estatística de Pearson. Em ambos
+os casos, as decisões baseadas nas estatísticas sem correção
+seriam incorretas no sentido de rejeitar a hipótese nula. Também em
+ambos os casos a correção de Rao-Scott produziu efeito semelhante.
+
+O efeito de plano amostral $d=20$ observado neste exemplo é muito grande
+e pouco comum na prática. Isto ocorreu neste caso porque o coeficiente
+de correlação intraclasse assume o valor máximo $\rho =1$ (todos
+os valores dentro de um conglomerado são iguais, e portanto a
+homogeneidade é máxima). Na prática, as correlações
+intraclasse observadas são usualmente positivas mas menores que um, e
+portanto as estimativas de efeito de plano amostral $\widehat{d}$
+correspondentes são maiores que um. Para conglomerados de tamanho
+médio igual a $20$ ($m=20$) como neste exemplo, os valores típicos
+de $\widehat{d}$ são menores que $3$, tendo em correspondência
+correlações intraclasse estimadas positivas $\widehat{\rho }<0,1$.
+
+Os resultados do exemplo discutido nesta seção ilustram bem a
+importância de considerar o plano amostral na construção de
+estatísticas de teste para proporções simples, embora num caso
+um tanto extremo. Ilustram também um dos enfoques existentes para tratar
+do problema, a saber a correção de estatísticas de teste usuais
+(de Pearson e da Razão de Verossimilhança).
+
+### Estatística de Wald
+
+Como alternativa à estatística de teste de Pearson, podemos usar a
+es\-ta\-tís\-ti\-ca de bondade de ajuste $X_{N}^{2}$ de Neyman. No caso
+de duas celas, ela se reduz a 
+\begin{equation}
+X_{N}^{2}=n\sum\limits_{j=1}^{2}\left( \hat{p}_{j}-p_{0j}\right) ^{2}/\hat{p}%
+_{j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{\hat{p}\left( 1-\hat{p}%
+\right) /n}\;\;\mbox{.}  
+(\#eq:qual6)
+\end{equation}
+Note que a expressão de $X_{N}^{2}$ em \@ref(eq:qual6) pode ser obtida
+substituindo-se no denominador de $X_{P}^{2}$ em \@ref(eq:qual2) a proporção hipotética $p_{0}$ pela proporção estimada $\hat{p}$.
+
+A estatística de Neyman é um caso particular da estatística de
+bondade de ajuste de Wald. Esta última estatística difere das
+estatísticas de Pearson , da Razão de Verossimilhança e de
+Neyman por incorporar automaticamente o plano amostral. Para o caso de duas
+celas, ela se reduz a 
+\begin{equation}
+X_{W}^{2}=\left( \widehat{p}-p_{0}\right) ^{2}/\hat{V}_{p}\left( \widehat{p}
+\right) \mbox{,}  
+(\#eq:qual7)
+\end{equation}
+onde $\hat{V}_{p}\left( \widehat{p}\right)$ é uma estimativa da
+variância de aleatorização de $\hat{p}$, correspondente ao plano
+amostral efetivamente utilizado.
+
+O efeito do termo $\hat{V}_{p}\left( \widehat{p}\right)$, que aparece no
+denominador de $X_{W}^{2}$, é incorporar na estatística de bondade
+de ajuste o efeito do plano amostral utilizado. No caso particular de
+amostragem aleatória simples, usamos no lugar de $\widehat{V}_{p}\left( 
+\widehat{p}\right)$ a variância 
+$\widehat{V}_{bin}\left( \widehat{p}\right) =$ $\widehat{p}\left( 1-\widehat{p}\right) /n$. Neste caso,
+estatística resultante $X_{bin}^{2}$ coincide com a estatística $X_{N}^{2}$ de Neyman.
+
+Para o plano amostral de conglomerados considerado no Exemplo \ref{exebin},
+a estatística $X_{W}^{2}$, sem qualquer ajuste auxiliar, já é
+distribuída assintoticamente como qui-quadrado com um grau de liberdade.
+O valor da estatística de Wald para esse exemplo é 
+\[
+X_{W}^{2}=\left( 0,84-0,80\right) ^{2}/0,002743=0,583\;\;\mbox{.} 
+\]
+Observe que o valor desta estatística é bem próximo dos valores
+das estatísticas de Pearson e da Razão de Verossimilhança com a
+correção de Rao-Scott.
+
+A estatística de Wald, pelo uso de uma estimativa apropriada da
+variância, reflete a complexidade do plano amostral e fornece uma
+estatística de teste assintoticamente válida, não necessitando
+que seja feito qualquer ajuste auxiliar. Esta pode ser considerada uma
+vantagem em relação às estatísticas com correção de
+Rao-Scott. Entretanto, no caso de mais de duas celas, pode haver
+desvantagens no uso da estatística de Wald baseada no plano amostral,
+devido à instabilidade nas estimativas de variância em pequenas
+amostras.
+
+Reproduzimos na Tabela \ref{tab72} os resultados para todas as
+estatísticas de teste consideradas até agora, para facilidade de
+comparação.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Valores e $p$valores de estatísticas de teste alternativas para os
+dados do Exemplo 4.4}\bigskip \label{tab72} 
+\begin{tabular}{|c|c|c|c|}
+\hline\hline
+Estatística de teste & gl & Valor observado & $p$valor \\ \hline\hline
+\multicolumn{1}{|l|}{Pearson $X_{P}^{2}$} & 1 & $10,00$ & $0,0016$ \\ 
+\multicolumn{1}{|l|}{Pearson ajustada $X_{P}^{2}\left( d\right)$} & 1 & $%
+0,500$ & $0,4795$ \\ 
+\multicolumn{1}{|l|}{RV $X_{RV}^{2}$} & 1 & $10,56$ & $0,0012$ \\ 
+\multicolumn{1}{|l|}{RV ajustada $X_{RV}^{2}(d)$} & 1 & $0,528$ & $0,4675$
+\\ 
+\multicolumn{1}{|l|}{Wald $X_{W}^{2}$} & 1 & $0,583$ & $0,4451$ \\ 
+\hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+Nesta seção foram apresentadas as duas principais abordagens para
+incorporar o efeito do plano amostral na estatística de teste:
+
+\begin{enumerate}
+\item  a metodologia de ajuste de Rao-Scott para as estatísticas de
+teste de Pearson e da Razão de Verossimilhança;
+
+\item  e a estatística de Wald baseada no plano amostral.
+\end{enumerate}
+
+Ambas as abordagens são facilmente generalizáveis para tabelas de
+uma ou duas entradas com número de linhas e colunas maior que dois.
+Vamos considerar na próxima seção o caso geral de testes de
+bondade de ajuste e apresentar mais detalhes sobre as estatísticas de
+teste alternativas. Depois, introduziremos os testes de independência e
+de homogeneidade para tabelas de duas entradas. A ênfase será dada
+nos procedimentos baseados na estatísticas de teste de Wald baseadas no
+plano amostral e nas estatísticas de Pearson e da RV com os vários
+ajustes de Rao-Scott.
+
+## Teste para Várias Proporções
+
+Neste seção vamos considerar extensões do problema de testes de
+bondade de ajuste, aumentando o número de proporções envolvidas.
+O caso de tabelas de duas entradas será considerado no capítulo
+seguinte.
+
+A hipótese de bondade de ajuste para $J\geq 2$ celas pode ser escrita
+como $H_{0}:p_{j}=p_{0j}\;,\;j=1,\ldots ,J$, onde $p_{j}=N_{j}/N$ são as
+proporções populacionais desconhecidas nas celas e $p_{0j}$ são
+as proporções hipotéticas das celas. Essa hipótese pode
+também ser escrita, usando notação vetorial, como 
+$H_{0}:\mathbf{p=p}_{0}$ , onde $\mathbf{p=}\left( p_{1},\ldots ,p_{J-1}\right) ^{^{\prime}}$é o vetor de proporções populacionais desconhecidas e 
+$\mathbf{p}_{0}\mathbf{=}\left( p_{01},\ldots ,p_{0\,J-1}\right) ^{^{\prime}}$é o vetor de proporções hipotéticas.
+
+O vetor de estimativas consistentes das proporções das celas,
+baseado em $n$ observações, é denotado por 
+$\widehat{\mathbf{p}}\mathbf{=}\left(\widehat{p}_{1},\ldots,\widehat{p}_{J-1}\right) ^{^{\prime}}$, onde $\widehat{p}_{j}=\widehat{n}_{j}/n$. Os $\widehat{n}_{j}$ são
+as frequências ponderadas nas celas, considerando as diferentes
+probabilidades de inclusão dos elementos e ajustes por não-resposta,
+onde os pesos amostrais são normalizados de modo que $\sum_{j=1}^{J}\widehat{n}_{j}=n$. Se $n$ não for fixado de antemão, os 
+$\widehat{p}$ serão estimadores de razões, o que é comum quando trabalhamos
+com subgrupos da população. Observe que apenas $J-1$ componentes
+são incluídos em cada um dos vetores $\mathbf{p,\;p}_{0}$ e $\widehat{\mathbf{p}}$, pois a soma das proporções nas $J$ categorias
+é igual a $1$, e portanto a proporção na $J$-ésima categoria
+é obtida por diferença.
+
+### Estatística de Wald Baseada no Plano Amostral
+
+A estatística de Wald baseada no plano amostral $X_{W}^{2}$, para o
+teste da hipótese simples de bondade de ajuste, foi anteriormente
+introduzida no caso de duas celas como uma alternativa à estatística
+de Pearson ajustada. No caso de mais de duas celas, a estatística de
+bondade de ajuste de Wald é dada por 
+\begin{equation}
+X_{W}^{2}=\left( \widehat{\mathbf{p}}\mathbf{-p}_{0}\right) ^{^{\prime }}
+\widehat{\mathbf{V}}_{p}^{-1}\left( \widehat{\mathbf{p}}-\mathbf{p}_{0}\right) \;\mbox{,} 
+(\#eq:qual8)
+\end{equation}
+onde $\widehat{\mathbf{V}}_{p}$ denota um estimador consistente da matriz de
+covariância de aleatorização verdadeira $\mathbf{V}_{p}$ do
+estimador $\widehat{\mathbf{p}}$ do vetor de proporções 
+$\mathbf{p}$. Uma estimativa $\widehat{\mathbf{V}}_{p}$ pode ser obtida pelo método
+de linearização, usando-se por exemplo o pacote **SUDAAN**.
+
+Sob a hipótese nula $H_{0}$, a estatística $X_{W}^{2}$ tem distribuição assintótica qui-quadrado com $J-1$ graus de liberdade,
+fornecendo assim um procedimento de teste válido no caso de amostras
+complexas. Na prática, espera-se que $X_{W}^{2}$ funcione adequadamente
+se o número de unidades primárias de amostragem selecionadas for
+grande e o número de celas componentes do vetor $\mathbf{p}$ for
+relativamente pequeno. Neste caso, podemos obter um estimador estável de 
+$\mathbf{V}_{p}$. Observe que \@ref(eq:qual7) é um caso particular de \@ref(eq:qual8).
+
+\subsection{Situações Instáveis}
+
+Se o número $m$ de unidades primárias de amostragem disponíveis
+for pequeno, pode ocorrer um problema de instabilidade na estimativa $\widehat{\mathbf{V}}_{p}$, devido ao pequeno número de graus de
+liberdade $f=m-H$ disponível para a estimação da variância.
+A instabilidade da estimativa $\widehat{\mathbf{V}}_{p}$ pode tornar a
+estatística de Wald muito liberal.
+
+é comum contornar esta instabilidade corrigindo a estatística de
+Wald, mediante emprego da chamada \emph{estatística de Wald F-corrigida}
+. Há duas propostas alternativas de estatísticas \textbf{F}%
+-corrigidas de Wald. A primeira é dada por 
+\begin{equation}
+F_{1.p}=\frac{f-J+2}{f\left( J-1\right) }X_{W}^{2}\;\;,  
+(\#eq:qual9)
+\end{equation}
+que tem distribuição assintótica de referência $F$ com $J-1$
+e $f-J+2$ graus de liberdade. A segunda é dada por 
+\begin{equation}
+F_{2.p}=\frac{X_{W}^{2}}{\left( J-1\right) },  
+(\#eq:qual10)
+\end{equation}
+que tem distribuição assintótica de referência $F$ com $J-1$
+e $f$ graus de liberdade. No caso $J=2$, as duas correções
+reproduzem a estatística original.
+
+O\ efeito de uma correção $\mathbf{F}$ à estatística $X_{W}^{2}$ pode ser visualizado facilmente no caso de duas celas. Se $f$ for
+pequeno, então o $p$valor de $X_{W}^{2}$, obtido a partir de uma
+distribuição \textbf{F} com $1$ e $f$ graus, é maior que o $p$
+valor obtido numa distribuição qui-quadrado com um grau de
+liberdade. Quando $f$ aumenta a diferença diminui, tornando a correção desprezível, quando $f$ for grande.
+
+Thomas e Rao(1987) analisaram o desempenho das diferentes estatísticas
+de teste de bondade de ajuste, no caso de instabilidade. Eles verificaram
+que a estatística de Wald F-corrigida $F_{1.p}$ não apresentou, em
+geral, o melhor desempenho nesta comparação, contudo, comportou-se
+relativamente bem nos casos padrões, onde a instabilidade não era
+muito grave. As estatísticas F-corrigidas de Wald são bastante
+utilizadas na prática, e estão implementadas em pacotes para
+análise de dados de pesquisas amostrais complexas.
+
+### Estatística de Pearson com Ajuste de Rao-Scott (#raoscott)
+
+O exemplo introdutório serviu para mostrar que, na presença de
+efeitos de plano amostral importantes, as estatísticas clássicas de
+teste precisam ser ajus\-tadas para terem a mesma distribuição
+assintótica de referência que a obtida para o caso de amostragem
+aleatória simples. Inicialmente, vamos considerar a estatística de
+teste $X_{P}^{2}$ de Pearson$.$ Essa estatística pode ser escrita em
+forma matricial como 
+\begin{equation}
+X_{P}^{2}=n\sum\limits_{j=1}^{J}\left( \widehat{p}_{j}-p_{0j}\right)
+^{2}/p_{0j}=n\left( \widehat{\mathbf{p}}-\mathbf{p}_{0}\right) ^{^{\prime }}
+\mathbf{P}_{0}^{-1}\left( \widehat{\mathbf{p}}-\mathbf{p}_{0}\right) 
+(\#eq:qual11)
+\end{equation}
+onde 
+$\mathbf{P}_{0}=diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}$ e $\mathbf{P}_{0}/n$ é a matriz 
+$\left( J-1\right)\times \left( J-1\right)$ de covariância multinomial de 
+$\widehat{\mathbf{p}}$ sob a hipótese nula, e $diag\left( \mathbf{p}_{0}\right)$
+representa uma matriz diagonal com elementos $p_{0j}$ na diagonal.
+
+A matriz de covariância $\mathbf{P}_{0}/n$ é uma generalização do caso $J=2$ celas para o caso de mais de duas celas ($J>2$).
+Observe que a expressão de $X_{P}^{2}$ tem a mesma forma da
+estatística de Wald, com $\mathbf{P}_{0}/n$ no lugar de 
+$\widehat{\mathbf{V}}_{p}$. No caso de apenas duas celas, $X_{P}^{2}$ reduz-se à
+fórmula simples antes considerada 
+$X_{P}^{2}=\left( \widehat{p}_{1}-p_{01}\right) ^{2}/\left[ p_{01}\left( 1-p_{01}\right) /n\right]$,
+onde o denominador corresponde à variância da binomial sob a
+hipótese nula.
+
+Para examinar a distribuição assintótica da estatística $X_{P}^{2}$ de Pearson, vamos generalizar os resultados anteriores, do caso
+de duas celas para o caso $J>2$. Neste caso, $X_{P}^{2}$ é
+assintoticamente distribuído como uma soma ponderada 
+$\delta_{1}W_{1}+\delta _{2}W_{2}+\ldots +\delta _{J-1}W_{J-1}$ de $J-1$
+variáveis aleatórias independentes $W_{j}$ , cada uma tendo distribuição qui-quadrado com um grau de liberdade. Os pesos $\delta _{j}$
+são os autovalores da matriz de efeito multivariado de plano amostral 
+$\mathbf{\Delta }=\mathbf{P}_{0}^{-1}\mathbf{V}_{p}$, onde 
+$\mathbf{V}_{p}\mathbf{/}n$ é a matriz de covariância do estimador $\widehat{\mathbf{p}}$ do vetor de proporção $\mathbf{p}$ baseada no plano
+amostral verdadeiro. Tais autovalores são também chamados efeitos
+generalizados de plano a\-mos\-tral. Observe que, em geral, eles não
+coincidem com os efeitos univariados de plano amostral $d_{j}$.
+
+No caso de amostragem aleatória simples, os efeitos generalizados de
+plano amostral $\delta _{j}$ são todos iguais a um, pois neste caso 
+$\mathbf{\Delta =I}$, matriz identidade. Neste caso, a soma 
+$\sum_{j=1}^{J-1}\delta _{j}W_{j}$ se reduz a $\sum_{j=1}^{J-1}W_{j},$ cuja
+distribuição é $\chi ^{2}$ com $J-1$ graus de liberdade. Assim,
+sob amostragem aleatória simples, a estatística $X_{P}^{2}$ é
+distribuída assintoticamente como qui-quadrado com $J-1$ graus de
+liberdade.
+
+No caso de plano amostral mais complexo, envolvendo estratificação
+e/ou conglomeração, os efeitos generalizados de plano amostral
+não são iguais a um. Devido aos efeitos de conglomeração, os 
+$\delta _{j}$ tendem a ser maiores que um, e assim a distribuição
+assintótica da variável aleatória $\sum_{j=1}^{J-1}\delta_{j}W_{j}$ 
+será diferente de uma qui-quadrado com $J-1$ graus de
+liberdade. Desta forma, a estatística $X_{P}^{2}$ requer correções
+semelhantes às introduzidas no caso de duas celas. No caso
+geral, há mais de uma possibilidade de correção e consideraremos
+as  `correções de primeira ordem e de segunda ordem de Rao-Scott`
+, desenvolvidas por Rao e Scott(1981). A correção de primeira ordem
+tem por objetivo corrigir a esperança assintótica da estatística 
+$X_{P}^{2}$ de Pearson, e a de segunda ordem também envolve correção da variância. 
+Tecnicamente, os dois ajustes são baseados nos
+autovalores da matriz de efeito multivariado de plano amostral estimada
+$\widehat{\mathbf{\Delta }}$.
+
+Inicialmente, consideramos um `ajuste simples de EPA médio` à
+estatística $X_{P}^{2}$, devido a Fellegi (1980) e Holt, Scott e
+Ewings(1980), e o ajuste de primeira ordem de Rao-Scott. Estes ajustes
+são úteis nos casos em que não é possível obter uma
+estimativa adequada $\mathbf{\hat{V}}_{p}$ para a matriz de covariância
+de aletorização. Quando esta estimativa está disponível,
+deve-se usar o ajuste mais preciso de segunda ordem.
+
+O ajuste de EPA médio é baseado nos efeitos univariados de plano
+a\-mos\-tral estimados $\hat{d}_{j}$ das estimativas $\hat{p}_{j}$. O ajuste
+da estatística \@ref(eq:qual11) é feito dividindo o valor observado da
+estatística $X_{P}^{2}$ de Pearson pela média $\hat{d}_{.}$ dos
+efeitos univariados de plano amostral: 
+\begin{equation}
+X_{P}^{2}\left( \hat{d}_{.}\right) =X_{P}^{2}/\hat{d}_{.}  
+(\#eq:qual12)
+\end{equation}
+onde $\hat{d}_{.}=\sum_{j=1}^{J}\hat{d}_{j}/J$ é um estimador da
+média $\bar{d}$ dos efeitos de plano a\-mos\-tral desconhecidos.
+
+Estimamos os efeitos do plano amostral por $\hat{d}_{j}=\hat{V}_{p}\left(\hat{p}_{j}\right) /\left( \hat{p}_{j}\left( 1-\hat{p}_{j}\right) /n\right)$, onde $\hat{V}_{p}\left( \hat{p}_{j}\right)$ é a estimativa da
+variância de aleatorização do estimador de proporção $\hat{p}_{j}$ . 
+Este ajustamento requer que estejam disponíveis as
+estimativas dos efeitos de plano amostral dos estimadores das proporções das $J$ celas. 
+A correlação intraclasse positiva fornece uma
+média $\hat{d}_{.}$ maior que $1$ e, portanto, o ajuste do EPA médio
+tende a remover a liberalidade de $X_{P}^{2}$.
+
+O ajuste do EPA médio não corrige exatamente a esperança
+assintótica de $X_{P}^{2}$ , pois a média dos efeitos univariados de
+plano amostral não é igual à média dos efeitos generalizados
+de plano amostral. Sob a hipótese nula, a esperança assintótica
+de $X_{P}^{2}$ é $E\left( X_{P}^{2}\right) =\sum_{j=1}^{J-1}\delta _{j}$
+, logo 
+$E\left( X_{P}^{2}/\bar{\delta}\right) =E\left( \chi ^{2}\left(J-1\right) \right) =J-1$, 
+onde a média dos autovalores é $\bar{\delta}=\sum_{j=1}^{J-1}\delta _{j}/\left( J-1\right)$. Este raciocínio
+conduz ao ajuste de primeira ordem de Rao-Scott para $X_{P}^{2}$, dado por 
+\begin{equation}
+X_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{P}^{2}/\hat{\delta}_{.}\;\;\mbox{,}
+(\#eq:qual13)
+\end{equation}
+onde $\hat{\delta}_{.}$ é um estimador da média $\bar{\delta}$ dos
+autovalores desconhecidos da matriz de efeitos multivariados de plano
+amostral $\mathbf{\Delta }$.
+
+Podemos estimar a média dos efeitos generalizados usando os efeitos
+univariados de plano amostral estimados, pela equação
+
+\[
+\left( J-1\right) \hat{\delta}_{.}=\sum_{j=1}^J\frac{\hat{p}_{j}}{p_{0j}}\left( 1-\hat{p}_{0j}\right)
+ \hat{d}_{j}\mbox{,} 
+\]
+sem estimar os próprios autovalores. Alternativamente, $\hat{\delta}_{.}$
+pode ser obtido a partir da estimativa da matriz de efeitos multivariados 
+$\mathbf{\hat{\Delta}}=n\mathbf{P}_{0}^{-1}\mathbf{\hat{V}}_{p}$, pela equação 
+$\hat{\delta}_{.}=tr\left( \mathbf{\hat{\Delta}}\right) /\left(J-1\right)$, 
+isto é, dividindo o traço de $\mathbf{\hat{\Delta}}$ pelo número de graus de liberdade.
+
+A estatística ajustada $X_{P}^{2}\left( \hat{\delta}_{.}\right)$ só
+tem distribuição as$\sin $toticamente qui-quadrado com $\left(
+J-1\right)$ graus de liberdade se os autovalores forem iguais. Na
+prática, esta estatística funciona bem se a variação dos
+autovalores estimados for pequena. No cálculo de $X_{P}^{2}\left( \hat{\delta}_{.}\right)$
+só são necessários os efeitos multivariados
+de plano amostral dos $\hat{p}_{j}$ que aparecem na diagonal da matriz $\mathbf{\hat{\Delta}}$.
+Assim, esta estatística é adequada em
+análises secundárias de tabelas de contingência, se forem
+divulgadas as estimativas de efeito de plano amostral correspondentes. O
+ajuste de primeira ordem de Rao-Scott 
+$X_{P}^{2}\left( \hat{\delta}_{.}\right)$ é mais exato do que o ajuste do EPA médio da
+estatística $X_{P}^{2}\left( \hat{d}_{.}\right)$, que é considerada
+uma alternativa conservadora de $X_{P}^{2}\left( \hat{\delta}_{.}\right)$.
+
+A correção de primeira ordem de Rao-Scott \@ref(eq:qual13) é
+introduzida na estatística de Pearson com o objetivo de tornar a
+média assintótica da estatística ajustada igual ao número de
+graus de liberdade da distribuição de referência. Se a variação dos autovalores estimados
+$\hat{\delta}_{j}$ for grande, então
+será também necessária uma correção da variância de $X_{P}^{2}$. 
+Isto é obtido através de uma `correção de segunda ordem de Rao-Scott`, baseada no método de [@sat]. A estatística de Pearson com ajuste de Rao-Scott de segunda ordem é dada por 
+\begin{equation}
+X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right) =
+X_{P}^{2}\left( \hat{\delta}_{.}\right) /\left( 1+\hat{a}^{2}\right) , 
+ (\#eq:qual14)
+\end{equation}
+onde $\hat{a}^{2}$ é um estimador do quadrado do coeficiente de variação 
+$a^{2}$ dos autovalores desconhecidos dado por 
+\[
+\hat{a}^{2}=\sum_{j=1}^{J-1}\hat{\delta}_{j}^{2}/\left( \left( J-1\right)
+ \hat{\delta}_{.}^{2}\right) -1\;\;. 
+\]
+
+Um estimador da soma dos quadrados dos autovalores é dado por 
+\[
+\sum_{j=1}^{J-1}\hat{\delta}_{j}^{2}=tr\left( \mathbf{\hat{\Delta}}^{2}\right) =n^{2}\sum\limits_{j=1}^{J}\sum\limits_{k=1}^{J}
+\hat{V}_{p}^{2}\left( \hat{p}_{j},\hat{p}_{k}\right) /p_{0j}p_{0k}, 
+\]
+onde $\hat{V}_{p}\left( \hat{p}_{j},\hat{p}_{k}\right)$ são os
+estimadores das covariâncias de aleatorização de $\hat{p}_{j}$ e 
+$\hat{p}_{k}$. Os graus de liberdade também devem ser corrigidos. A
+estatística $X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$ é
+assintoticamente qui-quadrado com graus de liberdade com ajuste de
+Satterthwaite dados por $gl_{S}=\left( J-1\right) /\left( 1+\hat{a}^{2}\right)$.
+
+Observe que, para o ajuste de segunda ordem, é necessária estimativa
+completa da matriz de variância $\mathbf{\hat{V}}_{p}$, enquanto que
+para o ajuste de primeira ordem só precisamos conhecer estimativas das
+variâncias $\hat{V}_{p}$.
+
+Em situações instáveis, pode ser necessário fazer uma correção F ao ajuste de primeira ordem de Rao-Scott \@ref(eq:qual13). A
+estatística F-corrigida é definida por 
+\begin{equation}
+FX_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{W}^{2}/\left( \left( J-1\right) 
+\hat{\delta}_{.}\right) \;\;.  
+(\#eq:qual15)
+\end{equation}
+
+A estatística $FX_{P}^{2}\left( \hat{\delta}_{.}\right)$ tem distribuição de referência $F$  com $J-1$ e $f$ graus de liberdade.
+Thomas e Rao(1987) observaram que esta estatística, em situações
+instáveis, é melhor que a estatística sem correção de
+primeira ordem.
+
+```{example}
+Teste de bondade de ajuste para a distribuição etária da PPV
+96-97 na Região Sudeste.
+```
+
+Vamos considerar um teste da bondade de ajuste da distribuição das
+idades para a Pesquisa sobre Padrões de Vida (PPV) 96/97, para os
+subgrupos de 0 a 14; de 15 a 29; de 30 a 44; de 45 a 59 e de 60 e mais anos
+de idade. As proporções correspondentes para a população
+foram obtidas da Contagem Populacional de 96. Na Região Sudeste, o
+número de estratos é $H=15$ e o número total de conglomerados
+(setores) na amostra da PPV é $m=276$ e portanto $f=m-H=261$. As informações utilizadas neste exemplo são apresentadas na Tabela \ref
+{tab73}.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Vetores de proporções por classes de idade da PPV 96/97 e Contagem
+96 e EPAs calculados para a PPV - Região Sudeste }\bigskip \label{tab73} 
+\begin{tabular}{|c|c|c|c|c|}
+\hline\hline
+& Contagem & \multicolumn{3}{|c|}{PPV} \\ \cline{2-5}
+Idade & 
+\begin{tabular}{c}
+Proporção \\ 
+$\left( \mathbf{p}_{0}\right)$
+\end{tabular}
+& Frequência & 
+\begin{tabular}{c}
+Proporção \\ 
+$\left( \mathbf{\hat{p}}\right)$
+\end{tabular}
+& EPA \\ \hline\hline
+0 a 14 anos & $0,2842$ & \multicolumn{1}{|r|}{$2.516$} & 
+\multicolumn{1}{|r|}{$0,2845$} & \multicolumn{1}{|r|}{$2,2859$} \\ 
+15 a 29 anos & $0,2774$ & \multicolumn{1}{|r|}{$2.360$} & 
+\multicolumn{1}{|r|}{$0,2678$} & \multicolumn{1}{|r|}{$2,1864$} \\ 
+30 a 44 anos & $0,2263$ & \multicolumn{1}{|r|}{$2.018$} & 
+\multicolumn{1}{|r|}{$0,2225$} & \multicolumn{1}{|r|}{$2,2539$} \\ 
+45 a 59 anos & $0,1261$ & \multicolumn{1}{|r|}{$1.177$} & 
+\multicolumn{1}{|r|}{$0,1316$} & \multicolumn{1}{|r|}{$1,9903$} \\ 
+60 anos e mais & $0,0860$ & \multicolumn{1}{|r|}{$832$} & 
+\multicolumn{1}{|r|}{$0,0935$} & \multicolumn{1}{|r|}{$3,1627$} \\ 
+\hline\hline
+Total & $1,0000$ & \multicolumn{1}{|r|}{$8903$} & \multicolumn{1}{|r|}{$%
+0,9999$} & $-$ \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+Os valores dos EPAs observados na PPV ( coluna 5 da Tabela \ref{tab73})
+mos\-tram que o plano amostral não pode ser ignorado na análise.
+Queremos testar a hipótese $H_{0}:\mathbf{p=p}_{0}$ usando as
+estimativas de proporções obtidas pela amostra da PPV. O vetor de
+proporções populacionais $\mathbf{p}_{0}$ foi obtido dos resultados
+da Contagem Populacional de 96, que é uma pesquisa censitária. Neste
+exemplo, vamos calcular a estatística de Pearson e suas correções, e também a estatística de Wald baseada no plano amostral.
+Calculamos a matriz $\widehat{\mathbf{V}}_{p}$ pela aplicação do
+método de linearização de Taylor descrito na Seção \ref
+{taylor} através da fórmula \@ref(eq:qual24) obtendo
+
+\[
+\widehat{\mathbf{V}}_{p}(\widehat{\mathbf{p}})=10^{-6}\times \left[ 
+\begin{tabular}{rrrr|r}
+$52,27$ & $-3,899$ & $-5,672$ & $-19,29$ & $-23,41$ \\ 
+$-3,899$ & $48,16$ & $-29,35$ & $-3,399$ & $-11,52$ \\ 
+$-5,672$ & $-29,35$ & $43,80$ & $-8,226$ & $-0,5558$ \\ 
+$-19,29$ & $-3,399$ & $-8,226$ & $25,55$ & $5,366$ \\ \hline
+$-23,41$ & $-11,52$ & $-0,5558$ & $5,366$ & $30,12$
+\end{tabular}
+\right] \mbox{ .} 
+\]
+
+Para obter a estatística de Pearson \@ref(eq:qual11), vamos calcular a
+matriz de covariância populacional e uma estimativa dessa matriz de
+covariância sob suposição de distribuição multinomial,
+dada por 
+$\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}$, resultando em 
+\[
+\mathbf{P}_{0}/n=10^{-6}\times \left[ 
+\begin{tabular}{rrrr|r}
+$22,85$ & $-8,855$ & $-7,223$ & $-4,025$ & $-2,745$ \\ 
+$-8,855$ & $22,51$ & $-7,051$ & $-3,929$ & $-2,680$ \\ 
+$-7,223$ & $-7,051$ & $19,67$ & $-3,205$ & $-2,186$ \\ 
+$-4,025$ & $-3,929$ & $-3,205$ & $12,38$ & $-1,218$ \\ \hline
+$-2,745$ & $-2,680$ & $-2,186$ & $-1,218$ & $8,829$%
+\end{tabular}
+\right] \;. 
+\]
+
+Para obter os diversos ajustes desta estatística precisamos usar os
+valores dos EPAs, listados na coluna 5 da Tabela \ref{tab73}. Estes valores
+foram obtidos através do pacote SUDAAN. Para obter as diferentes correções da estatística de Pearson, precisamos calcular as seguintes
+quantidades: 
+\[
+\hat{d}_{.}=\sum_{j=1}^{5}\hat{d}_{j}/5=2,376\;\;\mbox{,} 
+\]
+\[
+\hat{\delta}_{.}=\sum_{j=1}^5\frac{\hat{p}_{j}}{4p_{0j}}
+\left( 1-\hat{p}_{0j}\right) \hat{d}_{j}=2,457\;\;, 
+\]
+\[
+1+\hat{a}^{2}=8903^{2}\sum\limits_{j=1}^{5}\sum\limits_{k=1}^{5}\left( \hat{V}_{p}^{2}\left( \hat{p}_{j},\hat{p}_{k}\right) /p_{0j}p_{0k}\right) /\left(
+4\times 2,457^{2}\right) =1,253\;\;. 
+\]
+
+Podemos então calcular a estatística $X_{P}^{2}$ de Pearson usando \@ref(eq:qual11), resultando em 
+\[
+X_{P}^{2}=11,64 
+\]
+com $4$ g.l. e um $p$valor $0,020$ .
+
+A estatística de Pearson com ajustamento de EPA médio é
+calculada usando \@ref(eq:qual12), resultando em 
+\[
+X_{P}^{2}\left( \hat{d}_{.}\right) =11,64/2,376=4,901 
+\]
+com $4$ g.l. e um $p$valor $0,298$ .
+
+A estatística de Pearson com ajustamento de Rao-Scott de primeira ordem,
+dada por \@ref(eq:qual13), resulta em 
+\[
+X_{P}^{2}\left( \hat{\delta}_{.}\right) =11,64/2,457=4,74 
+\]
+com $4$ g.l. e um $p$valor $0,315$ .
+
+O ajustamento de Rao-Scott de primeira ordem F-corrigido para a
+estatís\-tica de Pearson, dado por \@ref(eq:qual15), resulta em 
+\[
+FX_{P}^{2}\left( \hat{\delta}_{.}\right) =4,74/4=1,85
+\]
+com $4$ e $261$ g.l e um $p$valor $0,318$ .
+
+O ajustamento de Rao-Scott de segunda ordem para a estatística de
+Pearson, dado por \@ref(eq:qual14), resulta em 
+\[
+X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right) =4,74/1,253=3,784 
+\]
+com $4$/$1,253=3,19$ g.l. e $p$valor $0,314$ .
+
+A estatística de Wald baseada no plano amostral (veja equação 
+\@ref(eq:qual8) resulta em 
+\[
+X_{W}^{2}=5,691 
+\]
+com $4$ g.l. e um $p$valor $0,223$ .
+
+As estatísticas F-corrigidas de Wald, definidas em \@ref(eq:qual9) e \@ref(eq:qual10), resultam em 
+\[
+F_{1.p}=\frac{261-5+2}{261\times 4}\times 5,690661=1,406 
+\]
+com $4$ e $259$ g.l. e um $p$valor $0,232$ , e 
+\[
+F_{2.p}=5,691/4\mbox{ }=1,423 
+\]
+com 4 e 261 gl e um $p$valor $0,228$ .
+
+A Tabela \ref{tab74} resume os valores das diversas estatísticas de
+teste calculadas, bem como das informações comparativas com as
+respectivas distribuições de referência.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Valores e $p$valores de estatísticas alternativas de teste}\bigskip 
+\label{tab74} 
+\begin{tabular}{|c|c|c|c|c|}
+\hline\hline
+Estatística & Tipo & Valor & Distribuição & $p$valor \\ 
+\hline\hline
+$X_{P}^{2}$ & 
+\begin{tabular}{c}
+Adequada \\ 
+para IID
+\end{tabular}
+& \multicolumn{1}{|r|}{$11,640$} & $\chi ^{2}(4)$ & $0,020$ \\ \hline
+$X_{P}^{2}\left( \hat{d}_{.}\right)$ & Ajustes e & \multicolumn{1}{|r|}{$%
+4,901$} & $\chi ^{2}(4)$ & $0,298$ \\ 
+$X_{P}^{2}\left( \hat{\delta}_{.}\right)$ & correções da & 
+\multicolumn{1}{|r|}{$4,740$} & $\chi ^{2}(4)$ & $0,315$ \\ 
+$FX_{P}^{2}\left( \hat{\delta}_{.}\right)$ & Estatística & 
+\multicolumn{1}{|r|}{$1,850$} & $F\left( 4;261\right)$ & $0,318$ \\ 
+$X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$ & $X_{P}^{2}$ & 
+\multicolumn{1}{|r|}{$3,784$} & $\chi ^{2}(3,19)$ & $0,314$ \\ \hline
+$X_{W}^{2}$ & Baseadas no & \multicolumn{1}{|r|}{$5,691$} & $\chi ^{2}(4)$ & 
+$0,223$ \\ 
+$F_{1.p}$ & plano & \multicolumn{1}{|r|}{$1,406$} & $F\left( 4;259\right)$
+& $0,232$ \\ 
+$F_{2.p}$ & amostral & \multicolumn{1}{|r|}{$1,423$} & $F\left( 4;261\right) 
+$ & $0,228$ \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+Examinando os resultados da Tabela \ref{tab74}, verificamos que o teste
+clássico de Pearson rejeita a hipótese nula $H_{0}$ no nível $%
+\alpha =5\%$, diferentemente de todos os outros testes$.$ Os valores das
+estatísticas com ajustes de Rao-Scott (com ou sem correção F)
+são semelhantes e parecem corrigir exagerademente o $p$valor dos testes.
+A estatística de Wald baseada no plano amostral e suas correções
+F, que têm valores quase iguais, produzem uma correção menor no $%
+p$valor do teste. Nesse exemplo, como o número de graus de liberdade
+(dado pelo número de unidades primárias na amostra menos o
+número de estratos)$f=m-H=261$ é grande, a correção F tem
+pouco efeito, tanto nas estatísticas com ajustes de primeira e segunda
+ordem de Rao-Scott, como na estatística Wald.

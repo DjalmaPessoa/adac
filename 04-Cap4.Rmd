@@ -1,0 +1,1123 @@
+# Efeitos do Plano Amostral
+
+## Introdução
+
+
+O cálculo de desvio padrão e o uso de testes de hipóteses
+desempenham papel fundamental em estudos analíticos. Além de
+estimativas pontuais, na inferência analítica é necessário
+transmitir a idéia de precisão associada a essas estimativas e
+construir intervalos de confiança associados. Valores de desvios
+padrões, ou alternativamente comprimentos de intervalos de confiança, permitem avaliar a precisão da estimação. O cálculo
+do desvio padrão também possibilita a construção de
+estatísticas para testar hipóteses relativas a parâmetros do
+modelo (tradição de modelagem) ou de parâmetros da população
+ão finita (tradição de amostragem). Testes de hipóteses
+são também usados na fase de seleção de modelos.
+
+Os pacotes mais comuns de análise estatística incluem em suas
+saídas valores de estimativas pontuais e seus desvios padrões,
+além de valores-$p$ relativos a hipóteses de interesse. Contudo, as
+fórmulas usadas nestes pacotes para o cálculo dos desvios
+padrões e obtenção de testes são, em geral, baseadas nas
+hipóteses de independência e de igualdade de distribuição
+(IID) das observações, ou equivalentemente, de amostragem
+aleatória simples com reposição (AASC). Tais hipóteses quase
+nunca valem para dados obtidos através de pesquisas por amostragem, como
+as que realizam o IBGE e outras agências produtoras de estatísticas.
+
+Este capítulo trata de avaliar o impacto sobre desvios padrões,
+intervalos de confiança e níveis de significância de testes
+usuais quando há afastamentos das hipóteses IID mencionadas, devidos
+ao uso de planos amostrais complexos para obter os dados. Como veremos, o
+impacto pode ser muito grande em algumas situações, justificando os
+cuidados que devem ser tomados na análise de dados deste tipo. Neste
+capítulo, usaremos como referência básica [@Sk89a].
+
+## Efeito do Plano Amostral (EPA) de Kish
+
+Para medir o efeito do plano amostral sobre a variância de um estimador,
+Kish(1965) propôs uma medida que denominou `Efeito do Plano Amostral` ($\mathbf{EPA}$) (em inglês, *design effect*  ou,
+abreviadamente, *deff*). O objetivo desta medida é comparar
+planos amostrais no estágio de planejamento da pesquisa. O $\mathbf{EPA}$
+de Kish é uma razão entre variâncias (de aleatorização)
+de um estimador, calculadas para dois planos amostrais alternativos. Vamos
+considerar um estimador $\hat{\theta}$ e calcular a variância de sua
+distribuição induzida pelo plano amostral complexo (verdadeiro) 
+$V_{VERD}\left( \hat{\theta}\right)$ e a variância da distribuição do estimador induzida pelo plano de amostragem aleatória simples 
+$V_{AAS}\left(\hat{\theta}\right)$.
+
+```{definition}
+O **Efeito do Plano Amostral ($EPA$)**  **de Kish** para um estimador $\hat{\theta}$ é
+``` 
+\begin{equation}
+\mathbf{EPA}_{Kish}\left( \hat{\theta}\right) =\frac{V_{VERD}\left( \hat{\theta}\right) }{V_{AAS}\left( \hat{\theta}\right) }. (\#eq:epa1) \end{equation}
+
+Para ilustrar o conceito do $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$, vamos considerar um exemplo.
+
+```{example}
+\label{epakish}Efeitos de plano amostral de Kish para estimadores de totais
+com amostragem conglomerada em dois estágios.
+```
+
+[@SilvaMou] estimaram o $\mathbf{EPA}_{Kish}$ para
+estimadores de totais de várias variáveis sócio-econômicas
+no nível das Regiões Metropolitanas (RMs) utilizando dados do
+questionário de amostra do Censo Demográfico de 1980. Essas
+medidas estimadas do efeito do plano amostral foram calculadas para
+três esquemas amostrais alternativos, todos considerando amostragem
+conglomerada de domicílios em dois estágios, tendo o setor
+censitário como unidade primária e o domicílio como unidade
+secundária de amostragem. Duas das alternativas consideraram seleção de setores com equiprobabilidade via amostragem aleatória
+simples sem reposição (AC2AAS) e fração amostral constante
+de domicílios no segundo estágio (uma usando o estimador simples ou 
+$\pi$-ponderado do total, e outra usando o estimador de razão para o
+total calibrando no número total de domicílios da população), e uma terceira alternativa considerou a seleção de setores
+com probabilidades proporcionais ao tamanho (número de domicílios
+por setor), denominada AC2PPT, e a seleção de $15$ domicílios em
+cada setor da amostra, e empregando o correspondente estimador 
+$\pi$-ponderado. Os resultados referentes à Região Metropolitana do Rio de Janeiro para algumas variáveis são apresentados na Tabela \ref
+{tab41} a título de ilustração. Note que a população
+alvo considera apenas moradores em domicílios particulares permanentes
+na Região Metropolitana do Rio de Janeiro.
+
+\begin{center}
+\begin{table}[tbp] \centering%
+\caption{Efeitos de plano amostral de Kish para variáveis selecionadas - Região Metropolitana do Rio de Janeiro}\bigskip \label{tab41} 
+\begin{tabular}{|r|l|l|c|}
+\hline\hline
+Plano amostral $\rightarrow $ & \multicolumn{2}{|c|}{AC2AAS} & AC2PPT \\ 
+\hline\hline
+\multicolumn{1}{|l|}{Variável $\downarrow $} & 
+\begin{tabular}{l}
+Estimador \\ 
+Simples
+\end{tabular}
+& 
+\begin{tabular}{l}
+Estimador \\ 
+de Razão
+\end{tabular}
+& \multicolumn{1}{|l|}{
+\begin{tabular}{l}
+Estimador \\ 
+$\pi $-ponderado
+\end{tabular}
+} \\ \hline\hline
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+1) Número total \\ 
+de moradores
+\end{tabular}
+} & \multicolumn{1}{|r|}{$10,74$} & \multicolumn{1}{|r|}{$2,00$} & 
+\multicolumn{1}{|r|}{$1,90$} \\ \hline
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+2) Número de \\ 
+moradores ocupados
+\end{tabular}
+} & \multicolumn{1}{|r|}{$5,78$} & \multicolumn{1}{|r|}{$1,33$} & 
+\multicolumn{1}{|r|}{$1,28$} \\ \hline
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+3) Rendimento \\ 
+monetário mensal I
+\end{tabular}
+} & \multicolumn{1}{|r|}{$5,22$} & \multicolumn{1}{|r|}{$4,92$} & 
+\multicolumn{1}{|r|}{$4,49$} \\ \hline
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+4) Número total de \\ 
+filhos nascidos vivos \\ 
+de mulheres com \\ 
+15 anos ou mais
+\end{tabular}
+} & \multicolumn{1}{|r|}{$4,59$} & \multicolumn{1}{|r|}{$2,02$} & 
+\multicolumn{1}{|r|}{$1,89$} \\ \hline
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+5) Número de \\ 
+domicílios que \\ 
+têm fogão
+\end{tabular}
+} & \multicolumn{1}{|r|}{$111,27$} & \multicolumn{1}{|r|}{$1,58$} & 
+\multicolumn{1}{|r|}{$1,55$} \\ \hline
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+6) Número de \\ 
+domicílios que \\ 
+têm telefone
+\end{tabular}
+} & \multicolumn{1}{|r|}{$7,11$} & \multicolumn{1}{|r|}{$7,13$} & 
+\multicolumn{1}{|r|}{$6,41$} \\ \hline
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+7) Valor do aluguel \\ 
+ou prestação mensal
+\end{tabular}
+} & \multicolumn{1}{|r|}{$7,22$} & \multicolumn{1}{|r|}{$7,02$} & 
+\multicolumn{1}{|r|}{$6,45$} \\ \hline
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+8) Número de \\ 
+domicílios que \\ 
+têm automóvel \\ 
+e renda < 5SM
+\end{tabular}
+} & \multicolumn{1}{|r|}{$1,80$} & \multicolumn{1}{|r|}{$1,67$} & 
+\multicolumn{1}{|r|}{$1,55$} \\ \hline
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+9) Número de \\ 
+domicílios que \\ 
+têm geladeira \\ 
+e renda $\geq $ 5SM
+\end{tabular}
+} & \multicolumn{1}{|r|}{$46,58$} & \multicolumn{1}{|r|}{$2,26$} & 
+\multicolumn{1}{|r|}{$2,08$} \\ \hline\hline
+\end{tabular}
+\end{table}
+\end{center}
+
+Os valores apresentados na Tabela \ref{tab41} para a RM do Rio de Janeiro são similares aos observados para as demais RMs, se consideradas as mesmas variáveis. Nota-se grande variação dos valores do EPA, cujos valores mínimo e máximo são de 1,28 e 111,27
+respectivamente. Para algumas variáveis (1,2,4,5 e 9), o EPA varia
+consideravelmente entre as diferentes alternativas de plano amostral,
+enquanto para outras variáveis (3,6,7 e 8) as variações entre os
+planos amostrais é mínima.
+
+Os valores elevados do EPA observados para algumas variáveis realçam
+a importância de considerar o plano amostral verdadeiro ao estimar
+variâncias e desvios padrões associados \`{a}s estimativas pontuais.
+Isso ocorre porque estimativas ingênuas de variância baseadas na
+hipótese de AAS subestimam substancialmente as variâncias corretas.
+
+Outra regularidade encontrada nesse valores é que o EPA para o plano
+amostral AC2AAS com estimador simples apresenta sempre os valores mais
+elevados, revelando que este esquema é menos eficiente que os
+competidores considerados. Em geral, o EPA é menor para o esquema
+AC2PPT, com valores próximos aos do esquema AC2AAS com estimador de
+razão.
+
+Os valores dos EPAs calculados por [@SilvaMou] podem ser
+usados para planejar pesquisas amostrais (ao menos nas regiões
+metropolitanas), pois permitem comparar e antecipar o impacto do uso de
+alguns esquemas amostrais alternativos sobre a precisão de estimadores
+de totais de várias variáveis relevantes. Permitem também
+calcular tamanhos amostrais para garantir determinado nível de
+precisão, sem emprego de fórmulas complicadas. Portanto, tais
+valores seriam úteis como informação de apoio ao planejamento de
+novas pesquisas por amostragem, antes que as respectivas amostras sejam
+efetivamente selecionadas.
+
+Entretanto, esses valores têm pouca utilidade em termos de usos
+analíticos dos dados da amostra do Censo Demográfico 80. é que
+tais valores, embora tendo sido estimados com essa amostra, foram calculados
+para planos amostrais distintos do que foi efetivamente adotado para seleção da amostra do censo. A amostra de domicílios usada no censo
+é estratificada por setor censitário com seleção
+sistemática de uma fração fixa (25\% no Censo 80) dos
+domicílios de cada setor. Já os planos amostrais considerados na
+tabulação dos EPAs eram planos amostrais em dois estágios, com
+seleção de setores no primeiro estágio, os quais foram
+considerados por sua similaridade com os esquemas adotados nas principais
+pesquisas domiciliares do IBGE tais como a PNAD e a PME (Pesquisa Mensal de
+Emprego). Portanto, a utilidade maior dos valores tabulados dos EPAs seria a
+comparação de planos amostrais alternativos para planejamento de
+pesquisas futuras, e não a análise dos resultados da amostra do
+censo 80.
+
+## Efeito do Plano Amostral Ampliado
+
+O que se observou no Exemplo \ref{epakish} com respeito à dificuldade de
+uso dos EPAs de Kish calculados para fins analíticos também se
+aplica para outras situações e é uma deficiência estrutural
+do conceito de EPA proposto por Kish. Para tentar contornar essa
+dificuldade, é necessário considerar um conceito ampliado de EPA,
+correspondente ao conceito de *misspecification effect*  `meff`
+proposto por p. 24, [@SHS89], que apresentamos e
+discutimos nesta seção.
+
+Para introduzir este conceito ampliado de EPA, que tem utilidade também
+para fins de inferência analítica, vamos agora considerar um modelo
+subjacente às observações usadas para o cálculo do estimador
+pontual $\hat{\theta}$. Designemos por $v_{0}=\widehat{V}_{IID}\left( \hat{\theta}\right)$ um estimador usual (consistente) da variância de $\hat{\theta}$ calculado sob a hipótese (ingênua) de que as observações são IID. A inadequação da hipótese de IID poderia
+ser consequência ou de estrutura da população ou de efeito de
+plano amostral complexo. Em qualquer dos casos, a estimativa $v_{0}$ da variância de $\hat{\theta}$ calculada sob a hipótese de observações IID se afastaria da variância de $\hat{\theta}$ sob o plano
+amostral (ou modelo) verdadeiro, denotada 
+$V_{VERD}\left( \hat{\theta}\right)$. Note que 
+$V_{VERD}\left( \hat{\theta}\right) =V_{M}\left( \hat{\theta}\right)$ na abordagem baseada em modelos e $V_{VERD}\left( \hat{\theta}\right) =V_{p}\left( \hat{\theta}\right)$ na abordagem de aleatorização.
+
+Para avaliar se este afastamento tende a ser grande ou pequeno, vamos considerar a distribuição de $v_{0}$ com relação à
+distribuição de aleatorização verdadeira (ou do modelo
+verdadeiro) e localizar $V_{VERD}\left( \hat{\theta}\right)$ com relação a esta distribuição de referência. Como em geral seria
+complicado obter esta distribuição, vamos tomar uma medida de centro ou locação da mesma e compará-la a $V_{VERD}\left(\hat{\theta}\right)$.
+
+Podemos desta forma introduzir uma medida de efeito da especificação
+incorreta do plano amostral (ou do modelo) sobre a estimativa $v_{0}$ da variância do estimador $\hat{\theta}$.
+
+```{definition}
+O efeito da especificação incorreta do plano amostral (ou do modelo)
+sobre a estimativa $v_{0}$ da variância do estimador $\hat{\theta}$
+é 
+\begin{equation}
+\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left( \hat{%
+\theta}\right) }{E_{VERD}\left( v_{0}\right) }\;.  (\#eq:epa2)
+\end{equation}
+```
+
+Desta forma, o $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ mede a
+tendência de $v_{0}$ a subestimar ou superestimar $V_{VERD}\left( \hat{\theta}\right) ,$ variância `verdadeira` de $\hat{\theta}$. Quanto mais afastado de $1$ for o valor de $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$, mais incorreta será considerada a especificação do plano amostral ou do modelo.
+
+Enquanto a medida proposta por Kish baseia-se nas distribuições
+induzidas pela aleatorização dos planos amostrais comparados, o 
+$\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ pode ser calculado com
+respeito a distribuições de aleatorização ou do modelo
+envolvido, bastando calcular $V_{VERD}$ e $E_{VERD}$ da definição 
+\@ref(eq:epa2) com relação à distribuição correspondente.
+
+Em geral, são esperadas as seguintes consequências sobre o 
+$\mathbf{EPA}$ ao ignorar o plano amostral efetivamente adotado e admitir que a seleção da amostra foi AAS:
+
+
+1.  Ignorar os pesos em $v_{0}$ pode inflacionar o $\mathbf{EPA}$;
+
+2.  Ignorar conglomeração em $v_{0}$ pode inflacionar o 
+$\mathbf{EPA}$;
+
+3.  Ignorar estratificação em $v_{0}$ pode reduzir o $\mathbf{EPA}$.
+
+
+Combinações destes aspectos num mesmo plano amostral, resultando na
+especificação incorreta do plano amostral subjacente a $v_{0},$
+podem inflacionar ou reduzir o $\mathbf{EPA}$. Nesses casos é
+difícil prever o impacto de ignorar o plano amostral (ou modelo)
+verdadeiro sobre a análise baseada em hipóteses IID. Por essa
+razão, é recomendável ao menos estimar os EPAs antes de concluir
+a análise padrão, para poder então avaliar se há impactos
+importantes a considerar.
+
+```{example}
+\label{deffuni}Efeitos de plano amostral para estimação de
+médias na amostragem estratificada simples com alocação
+desproporcional
+```
+
+Neste exemplo consideramos uma população de $N=749$ empresas, para
+as quais foram observadas as seguintes variáveis:
+
+1. pessoal ocupado em 31/12/94 (PO);
+
+2. total de salários pagos no ano de 94 (SAL);
+
+3. receita total no ano de 94 (REC).
+
+A idéia é considerar o problema de estimar as médias
+populacionais das variáveis SAL e REC (variáveis de pesquisa, nesse
+exemplo), usando amostras estratificadas simples com alocação
+desproporcional, implicando em unidades amostrais com pesos desiguais numa situação bastante simples. A variável PO é a variável de
+estratificação. As médias populacionais das variáveis de
+pesquisa (SAL e REC) são conhecidas, porém supostas
+desconhecidas para efeitos do presente exercício, em que se
+supõe que amostragem seria usada para sua estimação.
+
+Para estimar estas médias, as empresas da população foram
+divididas em dois estratos, definidos a partir da variável PO, conforme
+indicado na Tabela \ref{tab42}.
+
+\begin{center}
+\begin{table}[tbp] 
+\caption{Definição da estratificação da população de empresas}\bigskip \label{tab42} 
+\begin{tabular}{|c|c|c|}
+\hline
+Estrato & Condição & Tamanho \\ \hline
+1 & empresas com PO  $>21$ & $161$ empresas \\ \hline
+2 & empresas com PO $\leq21$ & $588$ empresas \\ \hline
+\end{tabular}
+\end{table}
+\end{center}
+
+Foram então selecionadas de cada um dos estratos amostras aleatórias
+simples sem reposição de $30$ empresas, implicando em uso de aloca\c{%
+c}ão igual e em frações amostrais desiguais, em vista dos
+diferentes tamanhos populacionais dos estratos. Como o estrato 1 contém
+cerca de $21\%$ das observações da população, a proporção de $50\%$ das observações da amostra no estrato 1 (das maiores empresas) na amostra é bem maior do que seria esperado sob
+amostragem aleatória simples da população em geral. Desta forma,
+a média amostral de uma variável de pesquisa $y$ qualquer (SAL ou
+REC) dada por 
+\[
+\bar{y}=\frac{1}{n}\sum\limits_{h=1}^{2}\sum\limits_{i\in s_{h}}y_{hi} \]
+tenderia a superestimar a média populacional $\overline{Y}$ 
+dada por $\overline{Y}=\frac{1}{N}\sum\limits_{h=1}^{2}\sum_{i\in U_{h}}y_{hi},$ onde $y_{hi}$ é o valor da variável de pesquisa $y$
+para a $i-$ésima observação do estrato $h$, $(h=1,2)$. Neste
+caso, um estimador não-viciado da média populacional $\bar{Y}$ seria
+dado por
+
+\[
+\bar{y}_{w}=\sum\limits_{h=1}^{2}W_{h}\bar{y}_{h} 
+\]
+onde $W_{h}=\frac{N_{h}}{N}$ é a proporção de observações da população no estrato $h$ e 
+$\bar{y}_{h}=\frac{1}{n_{h}}\sum\limits_{i\in s_{h}}y_{hi}$ é a média amostral dos $y^{^{\prime}}s$ no estrato $h$, $(h=1,2)$.
+
+Com a finalidade de ilustrar o cálculo do $\mathbf{EPA}$, vamos
+considerar o estimador não-viciado $\bar{y}_{w}$ e calcular sua
+variância sob o plano amostral realmente utilizado (amostra
+estratificada simples - AES com alocação igual). Essa variância
+poderá então ser comparada com o valor esperado (sob a distribuição induzida pelo plano amostral estratificado) do estimador da
+variância obtido sob a hipótese de amostragem aleatória simples.
+
+No presente exercício, a variância do estimador $\bar{y}_{w}$ pode
+ser obtida de duas formas: calculando a expressão da variância
+utilizando os dados de todas as unidades da população (que são
+conhecidos, mas admitidos desconhecidos para fins do exercício de estimação de médias via amostragem) e por simulação.
+
+A variância de $\bar{y}_{w}$ sob a distribuição de aleatorização verdadeira é dada por 
+\begin{equation}
+V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
+1-f_{h}\right) \frac{S_{h}^{2}}{n_{h}}  (\#eq:epa3)
+\end{equation}
+onde $f_{h}=n_{h}/N_{h}$ , $n_{h}$ é o número de observações
+na amostra no estrato $h,$ e $S_{h}^{2}=\frac{1}{N_{h}-1}\sum\limits_{i\in
+U_{h}}\left( y_{hi}-\overline{Y}_{h}\right) ^{2}$ é a variância
+populacional da variável de pesquisa $y$ dentro do estrato $h$, com 
+$\overline{Y}_{h}=\frac{1}{N_{h}}\sum\limits_{i\in U_{h}}y_{hi}$
+representando a média populacional da variável $y$ dentro do estrato 
+$h$.
+
+Um estimador usual da variância de $\bar{y}_{w}$ sob amostragem
+aleatória simples é $v_{0}=\left( 1-f\right) \frac{s^{2}}{n}$ onde 
+$s^{2}=\frac{1}{n-1}\sum\limits_{h=1}^{2}\sum\limits_{i\in s_{h}}\left(y_{hi}-\bar{y}\right) ^{2}$ e $f=\sum_{h=1}^{2}n_{h}/\sum_{h=1}^{2}N_{h} =n/N$.
+
+O cálculo do $\mathbf{EPA}$ foi feito também por meio de simulação. Geramos $500$ amostras de tamanho $60$, segundo o plano amostral
+estratificado considerado. Para cada uma das $500$ amostras e cada uma das
+duas variáveis de pesquisa (SAL e REC) foram calculados:
+
+
+1.  média amostral ($\bar{y}$);
+
+2.  estimativa ponderada da média ($\bar{y}_{w}$);
+
+3.  estimativa da variância da estimativa ponderada da média 
+($\bar{y}_{w}$) considerando observações IID $\left( v_{0}\right)$;
+
+4.  estimativa da variância da estimativa ponderada da média 
+($\bar{y}_{w}$) considerando o plano amostral verdadeiro $\left( \hat{V}_{AES}\ \left( \bar{y}_{w}\right) \right)$.
+
+
+Note que na apresentação dos resultados os valores dos salários
+foram expressos em milhares de Reais (R\$ $1.000,00$) e os valores das
+receitas em milhões de Reais (R\$ $1.000.000,00$). Como a população é conhecida, os parâmetros populacionais de interesse podem
+ser calculados, obtendo-se os valores na primeira linha da Tabela.\ref{tab43}.
+
+
+
+\begin{table}[tbp] \centering
+\caption{Propriedades dos estimadores da média das variáveis de pesquisa}
+\bigskip \label{tab43} 
+\begin{tabular}{|c|l|c|}
+\hline\hline
+Quantidade de interesse & Salários & Receitas \\ \hline\hline
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+1) Média populacional $\overline{Y}$
+\end{tabular}
+} & \multicolumn{1}{|r|}{$78,328$} & \multicolumn{1}{|r|}{$2,107$} \\ 
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+2) Média de $\bar{y}$ sobre \\ 
+$500$ amostras
+\end{tabular}
+} & \multicolumn{1}{|r|}{$160,750$} & \multicolumn{1}{|r|}{$4,191$} \\ 
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+3) Média de $\bar{y}_{w}$ sobre \\ 
+$500$ amostras
+\end{tabular}
+} & \multicolumn{1}{|r|}{$76,700$} & \multicolumn{1}{|r|}{$2,054$} \\ 
+\hline\hline
+\end{tabular}
+\end{table}
+
+
+Em contraste com os valores dos parâmetros populacionais, calculamos a
+média das médias amostrais não ponderadas ($\bar{y}$) dos
+salários e das receitas obtidas nas $500$ amostras simuladas, obtendo os
+valores na segunda linha da Tabela \ref{tab43}. Como previsto, observamos um
+vício para cima na estimativa destas médias, da ordem de $105\%$
+para os salários e de $98,9\%$ para as receitas.
+
+Usamos também o estimador $\bar{y}_{w}$ para estimar a média dos
+salários e das receitas na população, obtendo para esse
+estimador as médias apresentadas na terceira linha da Tabela \ref{tab43}. Observamos ainda um pequeno vício da ordem de $-1,95\%$ e $-2,51\%$
+para os salários e receitas, respectivamente. Note que o estimador $\bar{y}_{w}$ é não-viciado sob o plano amostral adotado, entretanto o
+pequeno vício observado na simulação não pode ser ignorado
+pois é significantemente diferente de $0$ ao nível de
+significância de $5\%$, apesar do tamanho razoável da simulação ($500$ replicações).
+
+Além dos estimadores pontuais, o interesse maior da simulação
+foi comparar valores de estimadores de variância, e consequentemente
+de medidas do efeito do plano amostral. Como o estimador pontual dado pela
+média amostral não ponderada ($\bar{y}$) é grosseiramente
+viciado, não consideramos estimativas de variância para esse
+estimador, mas tão somente para o estimador não-viciado dado pela
+média ponderada $\bar{y}_{w}$. Para esse último, consideramos dois
+estimadores de variância, a saber o estimador ingênuo sob a
+hipótese de AAS (dado por $v_{0}$) e um estimador não viciado da
+variância sob o plano amostral 
+$\hat{V}_{AES}\left( \bar{y}_{w}\right)$ , que foi obtido substituindo as variâncias dentro dos
+estratos $S_{h}^{2}$ por estimativas amostrais não viciadas dadas por $s_{h}^{2}=\frac{1}{n_{h}-1}\sum_{i=1}^{n_{h}}(y_{hi}-\overline{y}_{h})^{2}$, 
+$h=1,2$, na fórmula de $V_{AES}\left( \bar{y}_{w}\right)$ conforme
+definida em \@ref(eq:epa3).
+
+Como neste exercício a população é conhecida, podemos
+calcular $V_{AES}\left(\bar{y}_{w}\right)$ através das
+variâncias de $y$ dentro dos estratos $h=1,2$ ou através da simulação. Esses valores são apresentados respectivamente na primeira e
+segunda linhas da Tabela \ref{tab44}, para as duas variáveis de pesquisa consideradas.
+
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Propriedades dos estimadores de variância do estimador
+$\bar{y}_{w}$ }\bigskip \label{tab44} 
+\begin{tabular}{|c|l|c|}
+\hline\hline
+\begin{tabular}{r}
+Quantidade de \\ 
+interesse
+\end{tabular}
+& Salários & Receitas \\ \hline\hline
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+1) Variância populacional $V_{AES}\left( \bar{y}_{w}\right)$
+\end{tabular}
+} & \multicolumn{1}{|r|}{$244,18$} & \multicolumn{1}{|r|}{$0,43500$} \\ 
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+2) Média de $\widehat{V}_{AES}\left( \bar{y}_{w}\right)$ \\ 
+usando $500$ amostras
+\end{tabular}
+} & \multicolumn{1}{|r|}{$231,84$} & \multicolumn{1}{|r|}{$0,32569$} \\ 
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+3) Valor esperado de $v_{0}$ \\ 
+usando população
+\end{tabular}
+} & \multicolumn{1}{|r|}{$1.613,3$} & \multicolumn{1}{|r|}{$1,1880$} \\ 
+\multicolumn{1}{|l|}{
+\begin{tabular}{l}
+4)Média de $v_{0}$ \\ 
+usando $500$ amostras
+\end{tabular}
+} & \multicolumn{1}{|r|}{$1.636,1$} & \multicolumn{1}{|r|}{$1,2121$} \\ 
+\hline\hline
+\end{tabular}
+\end{table}
+\end{center}
+
+Os valores de $E_{VERD}\left( v_{0}\left( \overline{SAL}_{w}\right) \right)$
+e de $E_{VERD}\left( v_{0}\left( \overline{REC}_{w}\right) \right)$ foram
+também calculados a partir das variâncias dentro e entre estratos na
+população, resultando nos valores na linha 3 da Tabela \ref{tab44},
+e estimativas desses valores baseadas nas 500 amostras da simulação
+são apresentadas na linha 4 da Tabela \ref{tab44}. Os valores para o 
+$\mathbf{EPA}$ foram calculados tanto com base nas estimativas de simulação como nos valores populacionais das variâncias, cujos cálculos estão ilustrados a seguir:
+
+\begin{eqnarray*}
+\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right) &=&\frac{231,84}{1.636,1}=0,142 \\
+\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
+\right) &=&\frac{0,32569}{1,2121}=0,269
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\mathbf{EPA}\left( \overline{SAL}_{w},v_{0}\left( \overline{SAL}_{w}\right)
+\right) &=&\frac{244,18}{1.613,3}=0,151\mbox{ e } \\
+\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
+\right) &=&\frac{0,43500}{1,1880}=0,366.
+\end{eqnarray*}
+
+A Tabela \ref{tab45} resume os principais resultados deste exercício,
+para o estimador ponderado da média $\bar{y}_{w}$. Apesar das diferenças entre os resultados da simulação e suas contrapartidas
+calculadas considerando conhecidos os valores da população, as
+conclusões da análise são similares:
+
+
+1.  ignorar os pesos na estimação da média provoca vícios
+substanciais, que não podem ser ignorados; portanto, o uso do estimador
+simples de média ($\bar{y}$) é desaconselhado;
+
+2.  ignorar os pesos na estimação da variância do estimador
+ponderado $\bar{y}_{w}$ também provoca vícios substanciais, neste
+caso, superestimando a variância por ignorar o efeito de estratificação; os efeitos de plano amostral são substancialmente menores que $1$
+para as duas variáveis de pesquisa consideradas (salários e
+receita); portanto o uso do estimador ingênuo de variância $v_{0}$
+é desaconselhado.
+
+
+Essas conclusões são largamente aceitas pelos amostristas e
+produtores de dados baseados em pesquisas amostrais para o caso da estimação de médias e totais, e respectivas variâncias. Entretanto
+ainda há exemplos de usos indevidos de dados amostrais nos quais os
+pesos são ignorados, em particular para a estimação de
+variâncias associadas a estimativas pontuais de médias e totais. Tal
+situação se deve ao uso ingênuo de pacotes estatísticos
+padrões desenvolvidos para analisar amostras IID, sem a devida consideração dos pesos e plano amostral.
+
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Valores dos Efeitos de Plano Amostral (EPA) para as médias de
+Salário e de Receita }\bigskip \label{tab45} 
+\begin{tabular}{|c|c|c|c|}
+\hline\hline
+Variável & Estimativa & Simulação & População \\ 
+\hline\hline
+Salário & Variância & \multicolumn{1}{|r|}{$231,84$} & 
+\multicolumn{1}{|r|}{$244,18$} \\ 
+& \textbf{$EPA$} & \multicolumn{1}{|r|}{$0,142$} & \multicolumn{1}{|r|}{$0,151$} \\ \hline
+Receita & Variância & \multicolumn{1}{|r|}{$0,32569$} & 
+\multicolumn{1}{|r|}{$0,43500$} \\ 
+& \textbf{$EPA$} & \multicolumn{1}{|r|}{$0,269$} & \multicolumn{1}{|r|}{$0,366$} \\ \hline\hline
+\end{tabular}
+\end{center}
+
+**Observação:**
+Neste exemplo não foi feito uso analítico dos dados e sim
+descritivo, onde é usual incorporar os pesos no cálculo de
+estimativas e variâncias.
+Não seria esperado usar um estimador ponderado para a média e
+não considerar os pesos no cálculo de variâncias, como fizemos
+neste exemplo.
+
+
+**Observação:**
+O exemplo mostra que ignorar a estratificação ao calcular $v_{0}$
+diminui o $\mathbf{EPA}$.
+
+
+Um outro exemplo relevante é utilizado a seguir para ilustrar o fato de
+que o conceito do $\mathbf{EPA}$ adotado aqui é mais abrangente do que o
+definido por Kish, em particular porque a origem do efeito pode estar na
+estrutura da população e não no plano amostral usado para obter
+os dados.
+
+```{example}
+População conglomerada com conglomerados de tamanho 2 
+[@SHS89], p. 25
+```
+
+Considere uma população de conglomerados de tamanho 2, isto é,
+onde as unidades (elementares ou de referência) estão grupadas em
+pares (exemplos de tais populações incluem pares de irmãos
+gêmeos, casais, jogadores numa dupla de vôlei de praia ou tênis,
+etc.). Suponha que os valores de uma variável de pesquisa medida nessas
+unidades têm média $\theta$ e variância $\sigma ^{2}$, além
+de uma correlação $\rho$ entre os valores dentro de cada par
+(correlação intraclasse, veja \citeonline[cap. 2]{SilvaMou} e \citeonline{haggard}.
+Suponha que um único par é sorteado ao acaso da
+população e que os valores $y_{1}$ e $y_{2}$ são observados para
+as duas unidades do par selecionado. O modelo assumido pode então ser
+representado como 
+\[
+\left\{ 
+\begin{array}{l}
+E_{M}\left( Y_{i}\right) =\theta \\ 
+V_{M}\left( Y_{i}\right) =\sigma ^{2} \\ 
+CORR_{M}\left( Y_{1};Y_{2}\right) =\rho
+\end{array}
+\right. \;\;i=1,2. 
+\]
+
+Um estimador não viciado para $\theta$ é dado por 
+$\widehat{\theta }=(y_{1}+y_{2})/2$ , a média amostral. Assumindo a (falsa) hipótese
+de que o esquema amostral é AASC de unidades individuais e não de
+pares, ou equivalentemente, que $y_{1}$ e $y_{2}$ são 
+observações de variáveis aleatórias IID, a variância de 
+$\widehat{\theta }$ é dada por 
+\[
+V_{AAS}\left( \widehat{\theta }\right) =\sigma ^{2}/2 
+\]
+com um estimador não viciado dado por 
+\[
+v_{0}\left( \widehat{\theta }\right) =(y_{1}-y_{2})^{2}/4\;. 
+\]
+
+Entretanto, na realidade a variância de $\widehat{\theta }$ é dada
+por 
+\[
+V_{VERD}\left( \widehat{\theta }\right) =V_{M}\left( \widehat{\theta }
+\right) =\sigma ^{2}(1+\rho )/2 
+\]
+e o valor esperado do estimador de variância 
+$v_{0}\left( \widehat{\theta }\right)$ é dado por 
+\[
+E_{VERD}\left[ v_{0}\left( \widehat{\theta }\right) \right] =\sigma
+^{2}(1-\rho )/2\;. 
+\]
+
+Consequentemente, considerando as equações \@ref(eq:epa1) e \@ref(eq:epa2), tem-se que 
+\[
+\mathbf{EPA}_{Kish}\left( \hat{\theta}\right) =1+\rho 
+\]
+e 
+\[
+\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =(1+\rho )/(1-\rho )\;. 
+\]
+
+A Figura 4.1 plota os valores de $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$ e $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ para valores de $\rho$ entre $0$ e $0,8$. Como se pode notar, o efeito da especificação inadequada do plano amostral ou da estrutura populacional pode ser severo, com valores de $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ chegando a $9$. Um aspecto importante a notar é que o $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$ tem variação muito mais modesta que o $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$.
+
+
+![Fig 2.1: Valores de EPA e EPA de Kish para conglomeração](Figuras/figura41borda.pdf)
+
+
+
+Este exemplo ilustra bem dois aspectos distintos do uso de medidas como o
+efeito de plano amostral. O primeiro é que as duas medidas são
+distintas,\emph{\ embora os respectivos estimadores baseados numa particular
+amostra coincidam}. No caso particular deste exemplo, o 
+$\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$ cresce pouco com o valor do coeficiente
+de correlação intraclasse $\rho$, o que implica que um plano
+amostral conglomerado como o adotado (seleção ao acaso de um par da
+população) seria menos eficiente que um plano amostral aleatório
+simples (seleção de duas unidades ao acaso da população),
+mas a perda de eficiência seria modesta. Já se o interesse é
+medir, a posteriori, o efeito da má especificação do plano
+amostral no estimador de variância, o impacto, medido pelo $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$, seria muito maior.
+
+Vale ainda notar que o $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ mede
+o impacto da má especificação do plano amostral ou do modelo
+para a estrutura populacional. Neste exemplo, ignorar a estrutura da população (o fato de que as observações são pareadas) poderia
+provocar subestimação da variância do estimador de média,
+que seria tanto maior quanto maior fosse o coeficiente de correlação
+intraclasse $\rho$. Efeitos como esse são comuns também devido ao
+planejamento amostral, mesmo em populações onde a conglomeração é imposta artificialmente pelo amostrista.
+
+## Intervalos de Confiança e Testes de Hipóteses
+
+A partir da estimativa pontual $\hat{\theta}$ de um parâmetro 
+$\theta $ (da população finita ou do modelo de superpopulação) é
+possível construir um intervalo de confiança de nível de confiança aproximado $\left( 1-\alpha \right)$ a partir da distribuição assintótica de 
+\[
+t_{0}=\frac{\hat{\theta}-\theta }{v_{0}^{1/2}} 
+\]
+que, sob a hipótese de que as observações são IID,
+frequentemente é $N\left( 0;1\right)$.
+
+Neste caso, um intervalo de confiança de nível de confiança
+aproximado $\left( 1-\alpha \right)$ é dado por 
+$\left[ \hat{\theta}-z_{\alpha /2}v_{0}^{1/2},\hat{\theta}+z_{\alpha /2}v_{0}^{1/2}\right]$,
+onde $z_{\alpha }$ é definido por 
+$\int_{z_{\alpha }}^{+\infty }\varphi\left( t\right) dt=\alpha$ , onde $\varphi$ é a função de densidade da distribuição normal padrão.
+
+Vamos analisar o efeito de um plano amostral complexo sobre o intervalo de confiança. No caso de um plano amostral complexo, a distribuição que é aproximadamente normal é a de 
+\[
+\frac{\hat{\theta}-\theta }{\left[ \widehat{V}_{VERD}\left( \hat{\theta}\right) \right] ^{1/2}}. 
+\]
+
+Por outro lado, para obter a variância da distribuição
+assintótica de $t_{0}$ note que 
+\[
+\frac{\hat{\theta}-\theta }{v_{0}^{1/2}}=\frac{\hat{\theta}-\theta }{\left[ 
+\widehat{V}_{VERD}\left( \hat{\theta}\right) \right] ^{1/2}}\times \frac{
+\left[ \widehat{V}_{VERD}\left( \hat{\theta}\right) \right] ^{1/2}}{
+v_{0}^{1/2}}\;. 
+\]
+
+Como o primeiro fator tende para uma $N\left( 0;1\right)$, a variância
+assintótica de $t_{0}$ é aproximadamente igual ao quadrado do
+segundo fator, isto é, a 
+$\frac{\widehat{V}_{VERD}\left( \hat{\theta}\right) }{v_{0}}$ que é um estimador para $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$. Porém quando a amostra é grande esse valor
+aproxima o 
+$\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left( \hat{\theta}\right) }{E_{VERD}\left( v_{0}\right) }$, pois 
+$v_{0}$ é aproximadamente igual a $E_{VERD}\left( v_{0}\right)$ e 
+$\widehat{V}_{VERD}\left( \hat{\theta}\right)$ é aproximadamente igual a $V_{VERD}\left( \hat{\theta}\right)$. Logo temos que a distribuição assintótica verdadeira de $t_{0}$ é dada por 
+\[
+t_{0}\sim N\left[ 0;\mathbf{EPA}\left( \hat{\theta},v_{0}\right)
+\right] \;. 
+\]
+
+Dependendo do valor de 
+$\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$, o
+intervalo de confiança baseado na distribuição assintótica
+verdadeira de $t_{0}$ pode ser bem distinto daquele baseado na distribuição assintótica obtida sob a hipótese de observações IID.
+Em geral, a probabilidade de cobertura assintótica do 
+intervalo $\left[\hat{\theta}-z_{\alpha /2}v_{0}^{1/2},
+\hat{\theta}+z_{\alpha/2}v_{0}^{1/2}\right]$ será aproximadamente igual a
+
+\[
+2\Phi \left( z_{\alpha /2}/\left[ \mathbf{EPA}\left( \hat{\theta}
+,v_{0}\right) \right] ^{1/2}\right) -1\;\;, 
+\]
+onde $\Phi$ é a função de distribuição acumulada de uma 
+$N\left( 0;1\right)$. Calculamos esta probabilidade para alguns valores do $\mathbf{EPA}$, que apresentamos na Tabela \ref{tab46}.
+
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Probabilidades de cobertura para níveis nominais de $95\%$ e
+$99\%$}\bigskip \label{tab46} 
+\begin{tabular}{|c|c|c|}
+\hline\hline
+$\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ & $1-\alpha =0,95$&
+$1-\alpha =0,99$ \\ \hline\hline
+$0,90$ & $0,96$ & $0,99$ \\ 
+$0,95$ & $0,96$ & $0,99$ \\ 
+$1,0$ & $0,95$ & $0,99$ \\ 
+$1,5$ & $0,89$ & $0,96$ \\ 
+$2,0$ & $0,83$ & $0,93$ \\ 
+$2,5$ & $0,78$ & $0,90$ \\ 
+$3,0$ & $0,74$ & $0,86$ \\ 
+$3,5$ & $0,71$ & $0,83$ \\ 
+$4,0$ & $0,67$ & $0,80$ \\ \hline\hline
+\end{tabular}
+\end{table}
+\end{center}
+
+À medida que o valor do $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$
+aumenta, a probabilidade real de cobertura diminui, sendo menor que o valor
+nominal para valores de 
+$\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$
+maiores que 1.
+
+Utilizando a correspondência existente entre intervalos de confiança
+e testes de hipóteses, podemos derivar os níveis de
+significância nominais e reais subtraindo de $1$ os valores da Tabela 
+\ref{tab46}. Por exemplo, para $\alpha =0,05$ e $\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =2$, o nível de significância real seria
+aproximadamente $1-0,83=0,17$.
+
+```{example}
+\label{exebin}Teste de hipótese sobre proporção
+```
+Vamos considerar um exemplo hipotético de teste de hipótese sobre
+uma proporção, semelhante ao de [@Sud76], apresentado em
+p. 196, [@lethonen]. Uma amostra de $m=50$ conglomerados
+é extraída de uma grande população de empresas industriais
+(conglomerados). Suponhamos que cada empresa $i=1,\ldots ,50$ da amostra
+tenha $n_{i}=20$ empregados. O tamanho total da amostra de empregados
+(unidades elementares) é $n=\sum_{i}n_{i}=1.000$. Queremos estudar o
+acesso dos trabalhadores das empresas a planos de saúde.
+
+Usando-se conhecimento do ano anterior, foi estabelecida a hipótese de
+que a proporção de trabalhadores cobertos por planos de saúde
+é $80\%$, ou seja $H_{0}:p=p_{0}=0,8$. Vamos adotar o nível de
+significância $\alpha =5\%$.
+
+A estimativa obtida na pesquisa foi $\widehat{p}=n_{A}/n=0,84$, onde 
+$n_{A}=840$ é o número de trabalhadores na amostra com acesso a
+planos de saúde. Ignorando o plano amostral e a conglomeração
+das unidades elementares na população, podemos considerar um teste
+binomial e usar a aproximação normal $N(0;1)$ para a estatística
+de teste 
+\begin{equation}
+Z=|\widehat{p}-p_{0}|/\sqrt{p_{0}\left( 1-p_{0}\right) /n},  (\#eq:epa4)
+\end{equation}
+onde o denominador é o desvio padrão da estimativa $\widehat{p}$ sob
+a hipótese nula.
+
+Vamos calcular o valor da estatística $Z$, supondo que tenha sido usada
+amostragem aleatória simples com reposição (AASC) de
+empregados. Vamos também considerar uma abordagem baseada no plano
+amostral de conglomerados. O desvio padrão de $\widehat{p}$, no
+denominador de $Z$, será baseado na hipótese de distribuição
+binomial, com tamanhos amostrais diferentes para as duas abordagens.
+
+Para o teste baseado na amostragem aleatória simples, ignoramos a
+conglomeração e usamos na fórmula do desvio padrão o tamanho
+total da amostra de unidades elementares (empregados), isto é, 
+$n=1.000$. O valor da estatística de teste $Z$ definida em \@ref(eq:epa4)
+é, portanto,
+
+\begin{equation}
+Z_{bin}=|0,84-0,8|/\sqrt{0,8\left( 1-0,8\right) /1.000}=3,162>Z_{0,025}=1,96
+(\#eq:epa5)
+\end{equation}
+onde $\sqrt{0,8\left( 1-0,8\right) /1.000}=0,0126$ é o desvio padrão
+de $\widehat{p}$ sob a hipótese nula. Este\ resultado sugere a rejeição da hipótese $H_{0}$.
+
+Por outro lado, é razoável admitir que se uma empresa for coberta
+por plano de saúde, cada empregado dessa empresa terá acesso ao
+plano. Essa é uma informação importante que foi ignorada no
+teste anterior. De fato, selecionar mais de uma pessoa numa empresa não
+aumenta nosso conhecimento sobre a cobertura por plano de saúde no
+local. Portanto, o \emph{tamanho efetivo} da amostra é $\overline{n}=50$
+, em contraste com o valor $1.000$ usado no teste anterior. O termo 
+`tamanho efetivo` foi introduzido em [@Kish65]  para
+designar o tamanho de uma amostra aleatória simples necessário para estimar $p$
+com a mesma precisão obtida por uma amostra conglomerada de tamanho $n$
+(neste caso, igual a $1.000$) unidades elementares.
+
+Usando o tamanho efetivo de amostra, temos a estatística de teste
+baseada no plano amostral verdadeiro 
+\[
+Z_{p}=|\widehat{p}-p_{0}|/\sqrt{p_{0}\left( 1-p_{0}\right) /50}=0,707 ,
+\]
+onde o valor $\sqrt{0,8\left( 1-0,8\right) /50}=0,0566$ é muito maior
+que o valor do desvio padrão obtido no teste anterior. Portanto, o valor
+observado de $Z_{p}$ é menor que o de $Z_{bin}$, e o novo teste sugere a
+não rejeição da mesma hipótese nula.
+
+Neste exemplo, portanto, se verifica que ignorar a conglomeração
+pode induzir a uma decisão incorreta de rejeitar a hipótese nula,
+quando a mesma não seria rejeitada se o plano amostral fosse
+corretamente incorporado na análise. Efeitos desse tipo são mais
+difíceis de antecipar para inferência analítica, particularmente
+quando os planos amostrais empregados envolvem combinação de
+estratificação, conglomeração e probabilidades desiguais de
+seleção. Por essa razão, a recomendação é procurar
+sempre considerar o plano amostral na análise, ao menos como forma de
+verificar se as conclusões obtidas por formas ingênuas de
+análise ignorando os pesos e plano amostral são as mesmas.
+
+## Efeitos Multivariados de Plano Amostral
+
+O conceito de efeito de plano amostral introduzido em \@ref(eq:epa2) é
+relativo a inferências sobre um parâmetro univariado $\theta$.
+Consideremos agora o problema de estimação de um vetor 
+$\mathbf{\theta}$ de $K$ parâmetros. Seja $\mathbf{\hat{\theta}}$ um
+estimador de $\mathbf{\theta}$ e seja $\mathbf{V}_{0}$ um estimador da
+matriz $K\times K$ de covariância de $\mathbf{\hat{\theta}}$, baseado
+nas hipóteses de independência e igualdade de distribuição
+das observações (IID), ou equivalentemente, de amostragem
+aleatória simples com reposição (AASC). é
+possível generalizar a equação \@ref(eq:epa2), definindo o
+`efeito multivariado do plano amostral de` 
+$\mathbf{\hat{\theta}}$ \textbf{e} $\mathbf{V}_{0}$ como 
+\begin{equation}
+\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})=\mathbf{\Delta =E}_{VERD}\left( 
+\mathbf{V}_{0}\right) ^{-1}\mathbf{V}_{VERD}(\mathbf{\hat{\theta}),}
+(\#eq:epa6)
+\end{equation}
+onde $\mathbf{E}_{VERD}\left( \mathbf{V}_{0}\right)$ é o valor esperado
+de $\mathbf{V}_{0}$ e, $\mathbf{V}_{VERD}(\mathbf{\hat{\theta})}$ é a
+matriz de covariância de $\mathbf{\hat{\theta}}$, ambas calculadas com
+respeito \`{a} distribuição de aleatorização induzida pelo
+plano amostral efetivamente utilizado, ou alternativamente sob o `modelo correto`.
+
+Os autovalores $\delta _{1}\geq \ldots \geq \delta _{K}$ da matriz $\mathbf{\Delta }$ são denominados `efeitos generalizados do plano amostral`. A partir deles, e utilizando resultados padrões de teoria das matrizes (p.64, [@Johnson]) é possível definir
+limitantes para os efeitos (univariados) do plano amostral para combinações lineares $\mathbf{c}^{^{\prime }}\widehat{\mathbf{\theta }}$ das
+componentes de $\widehat{\mathbf{\theta }}$. Temos os seguintes resultados: 
+\begin{eqnarray*}
+\delta _{1} &=&\max \mathbf{EPA}(\mathbf{c}^{^{\prime }}\widehat{\mathbf{%
+\theta }}\mathbf{,c}^{^{\prime }}\mathbf{V}_{0}\mathbf{c)}, \\
+\delta _{K} &=&\min \mathbf{EPA}(\mathbf{c}^{^{\prime }}\widehat{\mathbf{\theta }}\mathbf{,c}^{^{\prime }}\mathbf{V}_{0}\mathbf{c)}.
+\end{eqnarray*}
+
+No caso particular onde $\mathbf{\Delta =I}_{K\times K}$ , temos $\delta_{1}=\ldots =\delta _{K}=1$ e os efeitos (univariados) do plano amostral das combinações lineares para componentes de $\mathbf{\hat{\theta}}$
+são todos iguais a $1$. Para ilustrar esse conceito, vamos reconsiderar
+o Exemplo \ref{deffuni} de estimação de médias com amostragem
+estratificada desproporcional anteriormente apresentado, mas agora
+considerando a natureza multivariada do problema (há duas variáveis
+de pesquisa).
+
+```{example}
+\label{deffmult}Efeitos Multivariados do Plano Amostral para as médias
+de Salários e de Receitas
+```
+
+Vamos considerar as variáveis Salário (em R\$ $1.000$) e Receita (em
+R\$ $1.000.000$) definidas na população de empresas do Exemplo \ref
+{deffuni} e calcular a matriz $\mathbf{EMPA}\left( \mathbf{\hat{\theta},V}_{0}\right)$, onde $\mathbf{\hat{\theta}=}\left( \overline{SAL}_{w},\overline{REC}_{w}\right) ^{\prime }$. Neste exemplo, os dados populacionais
+são conhecidos, e portanto podemos calcular a covariância dos
+estimadores $\left( \overline{SAL}_{w},\overline{REC}_{w}\right)$. Usando a
+mesma notação do Exemplo \ref{deffuni}, temos que 
+\[
+COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=}\sum\limits_{h=1}^{2}W_{h}^{2}\frac{\left( 1-f_{h}\right) }{n_{h}}S_{SAL,REC}^{\left( h\right) } 
+\]
+onde 
+\[
+S_{SAL,REC}^{\left( h\right) }=\frac{1}{N_{h}-1}\sum\limits_{i\in
+U_{h}}\left( SAL_{hi}-\overline{SAL}_{h}\right) \left( REC_{hi}-\overline{REC
+}_{h}\right) \;. 
+\]
+
+Substituindo os valores conhecidos na população das variáveis $%
+SAL_{hi}$ e $REC_{hi}$, obtemos para esta covariância o valor 
+\[
+COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3,2358
+\]
+e portanto a matriz de variância dos estimadores ponderados da média
+fica igual a 
+\begin{equation}
+\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}
+\left[ \begin{array}{rr}
+244,18 & 3,2358 \\ 
+3,2358 & 0,4350
+\end{array}
+\right]   (\#eq:epa7)
+\end{equation}
+onde os valores das variâncias em \@ref(eq:epa7) foram os calculados no
+Exemplo \ref{deffuni} e coincidem, respectivamente, com os valores usados
+nos numeradores de $\mathbf{EPA}\left( \overline{SAL}_{w}\right)$ e de 
+$\mathbf{EPA}\left( \overline{REC}_{w}\right)$ lá apresentados. Para
+calcular o $\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})$ é
+preciso agora obter $\mathbf{E}_{VERD}\left(\mathbf{V}_{0}\right)$.
+
+Neste exemplo, a matriz de efeito do plano amostral $\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})=\mathbf{\Delta }$ pode também ser calculada
+através de simulação, de modo análogo ao que foi feito no
+Exemplo \ref{deffuni}. Para isto, foram utilizadas outras $500$ amostras de
+tamanho $60$ segundo o plano amostral descrito no Exemplo \ref{deffuni}.
+Para cada uma das $500$ amostras foram calculadas estimativas:
+
+
+1.  da variância da média amostral ponderada do salário e da
+receita assumindo observações IID;
+
+2.  da covariância entre médias ponderadas do salário e da
+receita assumindo observações IID;
+
+3.  da variância da média amostral ponderada do salário e da
+receita considerando o plano amostral verdadeiro;
+
+4.  da covariância entre médias ponderadas do salário e da
+receita considerando o plano amostral verdadeiro.
+
+
+A partir da simulação foram obtidos os seguintes resultados:
+
+\begin{equation}
+\mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) =\left[ 
+\begin{array}{rr}
+1785,3 & 27,734 \\ 
+27,734 & 1,2852
+\end{array}
+\right],  (\#eq:epa8)
+\end{equation}
+
+\begin{equation}
+\mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
+\begin{array}{rr}
+250,41 & 3,2683 \\ 
+3,2683 & 0,42267
+\end{array}
+\right] \mbox{ e }  (\#eq:epa9)
+\end{equation}
+
+\begin{equation}
+\mathbf{\Delta =}\left[ \mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) \right]
+^{-1}\mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
+\begin{array}{rr}
+0,1516 & -4,931 \\ 
+-0,0007277 & 0,4353
+\end{array}
+\right] \;\;.  (\#eq:epa10)
+\end{equation}
+
+Os autovalores $\delta _{1}=0,447$ e $\delta _{2}=0,139$ de $\mathbf{\Delta }
+$ fornecem os efeitos generalizados do plano amostral.
+
+Da mesma forma que o $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$
+definido em \@ref(eq:epa2) para o caso uniparamétrico foi utilizado para
+corrigir níveis de confiança de intervalos e níveis de
+significância de testes, o $\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})$
+definido em \@ref(eq:epa6) pode ser utilizado para corrigir níveis de
+confiança de regiões de confiança e níveis de
+significância de testes de hipóteses no caso multiparamétrico.
+Para ilustrar, vamos considerar o problema de testar a hipótese $H_{0}:\mathbf{\mu }=\mathbf{\mu }_{0}$, onde $\mathbf{\mu }$ é o vetor de
+médias de um vetor de variáveis de pesquisa $\mathbf{y}$. A
+estatística de teste usualmente adotada para este caso é a $T^{2}$
+de Hottelling dada por 
+\begin{equation}
+T^{2}=n\left( \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{S}
+_{y}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) , (\#eq:epa11) 
+\end{equation}
+onde 
+\begin{eqnarray*}
+\mathbf{\bar{y}} &=&\frac{1}{n}\sum\limits_{i\in s}\mathbf{y}_{i},\quad 
+\mathbf{S}_{y}=\frac{1}{n-1}\sum\limits_{i\in s}\left( \mathbf{y}_{i}-
+\mathbf{\bar{y}}\right) \left( \mathbf{y}_{i}-\mathbf{\bar{y}}\right)
+^{^{\prime }},\mbox{ e } \\
+\mathbf{\mu }_{0} &=&\left( \mu _{10},\mu _{20},\ldots ,\mu _{K0}\right)
+^{^{\prime }}\;\;.
+\end{eqnarray*}
+
+Se as observações $\mathbf{y}_{i}$ são IID normais, a
+estatística $T^{2}$ tem a distribuição 
+$\frac{\left( n-1\right) }{\left( n-K\right)}\mathbf{F}\left( K;n-K\right)$ sob $H_{0}$, onde $\mathbf{F}\left( K;n-K\right)$ denota uma variável aleatória com
+distribuição $\mathbf{F}$ com $K$ e $\left( n-K\right)$ graus de
+liberdade. Mesmo se as observações $\mathbf{y}_{i}$ não forem
+normais, $T^{2}$ tem distribuição assintótica 
+$\chi ^{2}\left(K\right)$ quando $n\rightarrow \infty$ (\citeonline[p.191]{Johnson}).
+
+Contudo, se for utilizado um plano amostral complexo, $T^{2}$ tem
+aproximadamente a distribuição da variável $\sum\limits_{i=1}^{K}$ $\delta _{i}Z_{i}^{2}$, onde $Z_{1},\ldots ,Z_{K}$
+são variáveis aleatórias independentes com distribuição
+normal padrão e os $\delta _{i}$ são os autovalores da matriz $\mathbf{\Delta }=\Sigma _{AAS}^{-1}\Sigma$, onde $\Sigma _{AAS}=E_{p}(\mathbf{S}_{y}/n)$ e $\Sigma =V_{p}(\mathbf{\bar{y})}$.
+
+Vamos analisar o efeito do plano amostral sobre o nível de
+significância deste teste. Para simplificar, consideremos o caso em que $\delta _{1}=\ldots =\delta _{K}=\delta$. Neste caso, o nível de
+significância real é dado aproximadamente por 
+\begin{equation}
+P\left(\chi ^{2}\left( K\right) >\chi _{\alpha }^{2}\left( K\right) /\delta\right)  (\#eq:epa12)
+\end{equation}
+onde $\chi _{\alpha }^{2}\left( K\right)$ é o quantil superior 
+$\alpha$
+de uma distribuição $\chi ^{2}$ com $K$ graus de liberdade, isto
+é, o valor tal que 
+$P\left[ \chi ^{2}\left( K\right) >\chi _{\alpha}^{2}\left( K\right) \right] =\alpha$ .
+
+A Tabela \ref{tab47} apresenta os níveis de significância reais para 
+$\alpha =5\%$ para vários valores de $K$ e $\delta$. Mesmo quando os
+valores dos $\delta _{i}$ são distintos, os valores da Tabela \ref{tab47}
+podem ser devidamente interpretados. Para isso, consideremos o $p$valor do
+teste da hipótese $H_{0}:\mathbf{\mu }=\mathbf{\mu }_{0}$, sob a
+hipótese de amostragem aleatória simples com reposição e sob
+o plano amostral efetivamente utilizado. Por definição este valor
+é dado por 
+\[
+p\mbox{valor}_{AAS}\left( \mathbf{\bar{y}}\right) =P\left[ \chi ^{2}\left(
+K\right) >\left( \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{
+\Sigma }_{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) \right] 
+\]
+e $H_{0}$ é rejeitada com nível de significância $\alpha$ se valor-$p$ $_{AAS}<\alpha$.
+
+O verdadeiro valor-$p$ pode ser definido analogamente como 
+\begin{equation}
+p\mbox{valor}_{VERD}\left( \mathbf{\bar{y}}\right) =P\left[ \chi ^{2}\left(K\right) >\left( \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{\Sigma }_{VERD}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) \right] \;.
+(\#eq:epa13)
+\end{equation}
+
+Os valores na Tabela \ref{tab47} podem ser usados para quantificar a
+diferença entre estes $p$valores. Consideremos a região
+crítica do teste de nível $\alpha$ baseado na hipótese de AAS: 
+\begin{eqnarray}
+RC_{AAS}\left( \mathbf{\bar{y}}\right) &=&\left\{ \mathbf{\bar{y}:}\left( 
+\mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{\Sigma }
+_{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) >\chi _{\alpha
+}^{2}\left( K\right) \right\} (\#eq:epa14)  \\
+&=&\left\{ \mathbf{\bar{y}:}p\mbox{valor}_{AAS}\left( \mathbf{\bar{y}}
+\right) <\alpha \right\}.  \nonumber
+\end{eqnarray}
+
+Pode-se mostrar que o máximo de $p$valor$_{VERD}\left( \mathbf{\bar{y}}\right)$ quando $\mathbf{\bar{y}}$ pertence \`{a} $RC_{AAS}\left( \mathbf{\bar{y}}\right)$ é dado por: 
+
+\begin{equation}
+\max_{\mathbf{\bar{y}\in }RC_{AAS}\left( \mathbf{\bar{y}}\right) }p
+\mbox{valor}_{VERD}\left( \mathbf{\bar{y}}\right) =P\left( \chi ^{2}\left(K\right) >\chi _{\alpha }^{2}\left( K\right) /\delta _{1}\right).
+(\#eq:epa15)
+\end{equation}
+
+Observe que o segundo membro de \@ref(eq:epa15) é da mesma forma que o
+segundo membro de \@ref(eq:epa12). Logo, os valores da Tabela \ref{tab47} podem
+ser interpretados como valores máximos de $p$valor$_{VERD}\left( \mathbf{\bar{y}}\right)$ para $\mathbf{\bar{y}}$ na região $RC_{AAS}\left( 
+\mathbf{\bar{y}}\right)$, considerando-se $\delta _{1}$ no lugar de $\delta 
+$.
+
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Níveis de significância ($\%$) verdadeiros do teste $T^{2}$ para o
+nível nominal de $5\%$ assumindo autovalores iguais para $\mathbf{\Delta}}
+\label{tab47} 
+\begin{tabular}{|c|cccc|}
+\hline\hline
+&  & $K$ &  &  \\ \cline{2-5}
+$\delta $ & \multicolumn{1}{|r}{1} & \multicolumn{1}{r}{2} & 
+\multicolumn{1}{r}{3} & \multicolumn{1}{r|}{4} \\ \hline\hline
+\multicolumn{1}{|r|}{0,9} & \multicolumn{1}{|r}{4} & \multicolumn{1}{r}{4} & 
+\multicolumn{1}{r}{3} & \multicolumn{1}{r|}{3} \\ 
+\multicolumn{1}{|r|}{1,0} & \multicolumn{1}{|r}{5} & \multicolumn{1}{r}{5} & 
+\multicolumn{1}{r}{5} & \multicolumn{1}{r|}{5} \\ 
+\multicolumn{1}{|r|}{1,5} & \multicolumn{1}{|r}{11} & \multicolumn{1}{r}{14}
+& \multicolumn{1}{r}{16} & \multicolumn{1}{r|}{19} \\ 
+\multicolumn{1}{|r|}{2,0} & \multicolumn{1}{|r}{17} & \multicolumn{1}{r}{22}
+& \multicolumn{1}{r}{27} & \multicolumn{1}{r|}{32} \\ 
+\multicolumn{1}{|r|}{2,5} & \multicolumn{1}{|r}{22} & \multicolumn{1}{r}{30}
+& \multicolumn{1}{r}{37} & \multicolumn{1}{r|}{44} \\ 
+\multicolumn{1}{|r|}{3,0} & \multicolumn{1}{|r}{26} & \multicolumn{1}{r}{37}
+& \multicolumn{1}{r}{46} & \multicolumn{1}{r|}{53} \\ \hline\hline
+\end{tabular}
+\end{table}
+\end{center}
+
