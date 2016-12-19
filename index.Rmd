@@ -1,7 +1,7 @@
 
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
+title: "Análise de Dados Amostrais Complexos"
+author: "Djalma Pessoa e Pedro Nascimento Silva"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
