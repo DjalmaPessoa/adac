@@ -32,3 +32,9 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+
+```{r}
+library(survey)
+source("C:\\Users\\anthonyd\\Documents\\GitHub\\adac\\data\\ppv1.R")
+```
