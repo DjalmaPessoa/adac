@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A Minimal Book Example</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie">
+
+
+<meta name="date" content="2016-12-19">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="prefacio.html">
+<link rel="next" href="referencial-para-inferencia.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="prefacio.html"><a href="prefacio.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="prefacio.html"><a href="prefacio.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introducao.html"><a href="introducao.html"><i class="fa fa-check"></i><b>2</b> Introdução</a><ul>
+<li class="chapter" data-level="2.1" data-path="introducao.html"><a href="introducao.html#motivacao"><i class="fa fa-check"></i><b>2.1</b> Motivação</a></li>
+<li class="chapter" data-level="2.2" data-path="introducao.html"><a href="introducao.html#impacto-dos-pesos-da-amostra-da-ppv"><i class="fa fa-check"></i><b>2.2</b> Impacto dos pesos da amostra da PPV</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html"><i class="fa fa-check"></i><b>3</b> Referencial para Inferência</a><ul>
+<li class="chapter" data-level="3.1" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html#modelagem---primeiras-ideias"><i class="fa fa-check"></i><b>3.1</b> Modelagem - Primeiras Idéias</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html#abordagem-1---modelagem-classica"><i class="fa fa-check"></i><b>3.1.1</b> Abordagem 1 - Modelagem Clássica</a></li>
+<li class="chapter" data-level="3.1.2" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html#abordagem-2---amostragem-probabilistica"><i class="fa fa-check"></i><b>3.1.2</b> Abordagem 2 - Amostragem Probabilística</a></li>
+<li class="chapter" data-level="3.1.3" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html#discussao-das-abordagens-1-e-2"><i class="fa fa-check"></i><b>3.1.3</b> Discussão das Abordagens 1 e 2</a></li>
+<li class="chapter" data-level="3.1.4" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html#abordagem-3---modelagem-de-superpopulacao"><i class="fa fa-check"></i><b>3.1.4</b> Abordagem 3 - Modelagem de Superpopulação</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html#modelos-de-superpopulacao"><i class="fa fa-check"></i><b>3.2</b> Modelos de Superpopulação</a></li>
+<li class="chapter" data-level="3.3" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html#planejamento-amostral"><i class="fa fa-check"></i><b>3.3</b> Planejamento Amostral</a></li>
+<li class="chapter" data-level="3.4" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html#planos-amostrais-informativos-e-ignoraveis"><i class="fa fa-check"></i><b>3.4</b> Planos Amostrais Informativos e Ignoráveis</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estimacao-baseada-no-plano-amostral.html"><a href="estimacao-baseada-no-plano-amostral.html"><i class="fa fa-check"></i><b>4</b> Estimação Baseada no Plano Amostral</a><ul>
+<li class="chapter" data-level="4.1" data-path="estimacao-baseada-no-plano-amostral.html"><a href="estimacao-baseada-no-plano-amostral.html#estimacao-de-totais"><i class="fa fa-check"></i><b>4.1</b> Estimação de Totais</a></li>
+<li class="chapter" data-level="4.2" data-path="estimacao-baseada-no-plano-amostral.html"><a href="estimacao-baseada-no-plano-amostral.html#por-que-estimar-variancias"><i class="fa fa-check"></i><b>4.2</b> Por que Estimar Variâncias</a></li>
+<li class="chapter" data-level="4.3" data-path="estimacao-baseada-no-plano-amostral.html"><a href="estimacao-baseada-no-plano-amostral.html#linearizacao-de-taylor-para-estimar-variancias"><i class="fa fa-check"></i><b>4.3</b> Linearização de Taylor para Estimar variâncias </a></li>
+<li class="chapter" data-level="4.4" data-path="estimacao-baseada-no-plano-amostral.html"><a href="estimacao-baseada-no-plano-amostral.html#metodo-do-conglomerado-primario"><i class="fa fa-check"></i><b>4.4</b> Método do Conglomerado Primário</a></li>
+<li class="chapter" data-level="4.5" data-path="estimacao-baseada-no-plano-amostral.html"><a href="estimacao-baseada-no-plano-amostral.html#metodos-de-replicacao"><i class="fa fa-check"></i><b>4.5</b> Métodos de Replicação</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="efeitos-do-plano-amostral.html"><a href="efeitos-do-plano-amostral.html"><i class="fa fa-check"></i><b>5</b> Efeitos do Plano Amostral</a><ul>
+<li class="chapter" data-level="5.1" data-path="efeitos-do-plano-amostral.html"><a href="efeitos-do-plano-amostral.html#introducao-1"><i class="fa fa-check"></i><b>5.1</b> Introdução</a></li>
+<li class="chapter" data-level="5.2" data-path="efeitos-do-plano-amostral.html"><a href="efeitos-do-plano-amostral.html#efeito-do-plano-amostral-epa-de-kish"><i class="fa fa-check"></i><b>5.2</b> Efeito do Plano Amostral (EPA) de Kish</a></li>
+<li class="chapter" data-level="5.3" data-path="efeitos-do-plano-amostral.html"><a href="efeitos-do-plano-amostral.html#efeito-do-plano-amostral-ampliado"><i class="fa fa-check"></i><b>5.3</b> Efeito do Plano Amostral Ampliado</a></li>
+<li class="chapter" data-level="5.4" data-path="efeitos-do-plano-amostral.html"><a href="efeitos-do-plano-amostral.html#intervalos-de-confianca-e-testes-de-hipoteses"><i class="fa fa-check"></i><b>5.4</b> Intervalos de Confiança e Testes de Hipóteses</a></li>
+<li class="chapter" data-level="5.5" data-path="efeitos-do-plano-amostral.html"><a href="efeitos-do-plano-amostral.html#efeitos-multivariados-de-plano-amostral"><i class="fa fa-check"></i><b>5.5</b> Efeitos Multivariados de Plano Amostral</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ajuste-de-modelos-parametricos.html"><a href="ajuste-de-modelos-parametricos.html"><i class="fa fa-check"></i><b>6</b> Ajuste de Modelos Paramétricos</a><ul>
+<li class="chapter" data-level="6.1" data-path="ajuste-de-modelos-parametricos.html"><a href="ajuste-de-modelos-parametricos.html#introducao-modpar1"><i class="fa fa-check"></i><b>6.1</b> Introdução (#modpar1)</a></li>
+<li class="chapter" data-level="6.2" data-path="ajuste-de-modelos-parametricos.html"><a href="ajuste-de-modelos-parametricos.html#metodo-de-maxima-verossimilhanca-mv"><i class="fa fa-check"></i><b>6.2</b> Método de Máxima Verossimilhança (MV)</a></li>
+<li class="chapter" data-level="6.3" data-path="ajuste-de-modelos-parametricos.html"><a href="ajuste-de-modelos-parametricos.html#ponderacao-de-dados-amostrais"><i class="fa fa-check"></i><b>6.3</b> Ponderação de Dados Amostrais</a></li>
+<li class="chapter" data-level="6.4" data-path="ajuste-de-modelos-parametricos.html"><a href="ajuste-de-modelos-parametricos.html#modpar3"><i class="fa fa-check"></i><b>6.4</b> Método de Máxima Pseudo-Verossimilhança label</a></li>
+<li class="chapter" data-level="6.5" data-path="ajuste-de-modelos-parametricos.html"><a href="ajuste-de-modelos-parametricos.html#robustez-do-procedimento-mpv"><i class="fa fa-check"></i><b>6.5</b> Robustez do Procedimento MPV</a></li>
+<li class="chapter" data-level="6.6" data-path="ajuste-de-modelos-parametricos.html"><a href="ajuste-de-modelos-parametricos.html#desvantagens-da-inferencia-de-aleatorizacao"><i class="fa fa-check"></i><b>6.6</b> Desvantagens da Inferência de Aleatorização</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="modelos-de-regressao.html"><a href="modelos-de-regressao.html"><i class="fa fa-check"></i><b>7</b> Modelos de Regressão</a><ul>
+<li class="chapter" data-level="7.1" data-path="modelos-de-regressao.html"><a href="modelos-de-regressao.html#modlinear"><i class="fa fa-check"></i><b>7.1</b> Modelo de Regressão Linear Normal</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="modelos-de-regressao.html"><a href="modelos-de-regressao.html#especificacao-do-modelo"><i class="fa fa-check"></i><b>7.1.1</b> Especificação do Modelo</a></li>
+<li class="chapter" data-level="7.1.2" data-path="modelos-de-regressao.html"><a href="modelos-de-regressao.html#pseudo-parametros-do-modelo"><i class="fa fa-check"></i><b>7.1.2</b> Pseudo-parâmetros do Modelo</a></li>
+<li class="chapter" data-level="7.1.3" data-path="modelos-de-regressao.html"><a href="modelos-de-regressao.html#estimadores-de-mpv-dos-parametros-do-modelo"><i class="fa fa-check"></i><b>7.1.3</b> Estimadores de MPV dos Parâmetros do Modelo</a></li>
+<li class="chapter" data-level="7.1.4" data-path="modelos-de-regressao.html"><a href="modelos-de-regressao.html#estimacao-da-variancia-de-estimadores-de-mpv"><i class="fa fa-check"></i><b>7.1.4</b> Estimação da Variância de Estimadores de MPV</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="modelos-de-regressao.html"><a href="modelos-de-regressao.html#modlogist"><i class="fa fa-check"></i><b>7.2</b> Modelo de Regressão Logística</a></li>
+<li class="chapter" data-level="7.3" data-path="modelos-de-regressao.html"><a href="modelos-de-regressao.html#teste-de-hipoteses"><i class="fa fa-check"></i><b>7.3</b> Teste de Hipóteses</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="testes-de-qualidade-de-ajuste.html"><a href="testes-de-qualidade-de-ajuste.html"><i class="fa fa-check"></i><b>8</b> Testes de Qualidade de Ajuste</a><ul>
+<li class="chapter" data-level="8.1" data-path="testes-de-qualidade-de-ajuste.html"><a href="testes-de-qualidade-de-ajuste.html#introducao-2"><i class="fa fa-check"></i><b>8.1</b> Introdução</a></li>
+<li class="chapter" data-level="8.2" data-path="testes-de-qualidade-de-ajuste.html"><a href="testes-de-qualidade-de-ajuste.html#teste-para-uma-proporcao"><i class="fa fa-check"></i><b>8.2</b> Teste para uma Proporção</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="testes-de-qualidade-de-ajuste.html"><a href="testes-de-qualidade-de-ajuste.html#correcao-de-estatisticas-classicas"><i class="fa fa-check"></i><b>8.2.1</b> Correção de Estatísticas Clássicas</a></li>
+<li class="chapter" data-level="8.2.2" data-path="testes-de-qualidade-de-ajuste.html"><a href="testes-de-qualidade-de-ajuste.html#estatistica-de-wald"><i class="fa fa-check"></i><b>8.2.2</b> Estatística de Wald</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="testes-de-qualidade-de-ajuste.html"><a href="testes-de-qualidade-de-ajuste.html#teste-para-varias-proporcoes"><i class="fa fa-check"></i><b>8.3</b> Teste para Várias Proporções</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="testes-de-qualidade-de-ajuste.html"><a href="testes-de-qualidade-de-ajuste.html#estatistica-de-wald-baseada-no-plano-amostral"><i class="fa fa-check"></i><b>8.3.1</b> Estatística de Wald Baseada no Plano Amostral</a></li>
+<li class="chapter" data-level="8.3.2" data-path="testes-de-qualidade-de-ajuste.html"><a href="testes-de-qualidade-de-ajuste.html#estatistica-de-pearson-com-ajuste-de-rao-scott-raoscott"><i class="fa fa-check"></i><b>8.3.2</b> Estatística de Pearson com Ajuste de Rao-Scott (#raoscott)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="testes-em-tabelas-de-duas-entradas.html"><a href="testes-em-tabelas-de-duas-entradas.html"><i class="fa fa-check"></i><b>9</b> Testes em Tabelas de Duas Entradas</a><ul>
+<li class="chapter" data-level="9.1" data-path="testes-em-tabelas-de-duas-entradas.html"><a href="testes-em-tabelas-de-duas-entradas.html#introducao-3"><i class="fa fa-check"></i><b>9.1</b> Introdução</a></li>
+<li class="chapter" data-level="9.2" data-path="testes-em-tabelas-de-duas-entradas.html"><a href="testes-em-tabelas-de-duas-entradas.html#tabelas22"><i class="fa fa-check"></i><b>9.2</b> Tabelas 2x2</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="testes-em-tabelas-de-duas-entradas.html"><a href="testes-em-tabelas-de-duas-entradas.html#teste-de-independencia"><i class="fa fa-check"></i><b>9.2.1</b> Teste de Independência</a></li>
+<li class="chapter" data-level="9.2.2" data-path="testes-em-tabelas-de-duas-entradas.html"><a href="testes-em-tabelas-de-duas-entradas.html#teste-de-homogeneidade"><i class="fa fa-check"></i><b>9.2.2</b> Teste de Homogeneidade</a></li>
+<li class="chapter" data-level="9.2.3" data-path="testes-em-tabelas-de-duas-entradas.html"><a href="testes-em-tabelas-de-duas-entradas.html#efeitos-de-plano-amostral-nas-celas"><i class="fa fa-check"></i><b>9.2.3</b> Efeitos de Plano Amostral nas Celas</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="testes-em-tabelas-de-duas-entradas.html"><a href="testes-em-tabelas-de-duas-entradas.html#tabelas-de-duas-entradas-caso-geral"><i class="fa fa-check"></i><b>9.3</b> Tabelas de Duas Entradas (Caso Geral)</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="testes-em-tabelas-de-duas-entradas.html"><a href="testes-em-tabelas-de-duas-entradas.html#teste-de-homogeneidade-1"><i class="fa fa-check"></i><b>9.3.1</b> Teste de Homogeneidade</a></li>
+<li class="chapter" data-level="9.3.2" data-path="testes-em-tabelas-de-duas-entradas.html"><a href="testes-em-tabelas-de-duas-entradas.html#teste-de-independencia-1"><i class="fa fa-check"></i><b>9.3.2</b> Teste de Independência</a></li>
+<li class="chapter" data-level="9.3.3" data-path="testes-em-tabelas-de-duas-entradas.html"><a href="testes-em-tabelas-de-duas-entradas.html#estatistica-de-wald-baseada-no-plano-amostral-1"><i class="fa fa-check"></i><b>9.3.3</b> Estatística de Wald Baseada no Plano Amostral</a></li>
+<li class="chapter" data-level="9.3.4" data-path="testes-em-tabelas-de-duas-entradas.html"><a href="testes-em-tabelas-de-duas-entradas.html#estatistica-de-pearson-com-ajuste-de-rao-scott"><i class="fa fa-check"></i><b>9.3.4</b> Estatística de Pearson com Ajuste de Rao-Scott</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="agregacao-vs-desagregacao.html"><a href="agregacao-vs-desagregacao.html"><i class="fa fa-check"></i><b>10</b> Agregação vs. Desagregação</a><ul>
+<li class="chapter" data-level="10.1" data-path="agregacao-vs-desagregacao.html"><a href="agregacao-vs-desagregacao.html#introducao-4"><i class="fa fa-check"></i><b>10.1</b> Introdução</a></li>
+<li class="chapter" data-level="10.2" data-path="agregacao-vs-desagregacao.html"><a href="agregacao-vs-desagregacao.html#modelagem-da-estrutura-populacional"><i class="fa fa-check"></i><b>10.2</b> Modelagem da Estrutura Populacional</a></li>
+<li class="chapter" data-level="10.3" data-path="agregacao-vs-desagregacao.html"><a href="agregacao-vs-desagregacao.html#modelos-hierarquicos"><i class="fa fa-check"></i><b>10.3</b> Modelos Hierárquicos</a></li>
+<li class="chapter" data-level="10.4" data-path="agregacao-vs-desagregacao.html"><a href="agregacao-vs-desagregacao.html#analise-desagregada-pros-e-contras"><i class="fa fa-check"></i><b>10.4</b> Análise Desagregada: Prós e Contras</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html"><i class="fa fa-check"></i><b>11</b> Pacotes para Analisar Dados Amostrais</a><ul>
+<li class="chapter" data-level="11.1" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html#introducao-5"><i class="fa fa-check"></i><b>11.1</b> Introdução</a></li>
+<li class="chapter" data-level="11.2" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html#pacotes-computacionais"><i class="fa fa-check"></i><b>11.2</b> Pacotes Computacionais</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introducao" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Introdução</h1>
+<div id="motivacao" class="section level2">
+<h2><span class="header-section-number">2.1</span> Motivação</h2>
+<p>Este livro trata de problema de grande importância para os usuários de dados obtidos através de pesquisas amostrais por agências produtoras de informações estatísticas. Tais dados são comumente utilizados em análises descritivas envolvendo o cálculo de estimativas para totais, proporções, médias e razões, nas quais, em geral, são devidamente considerados os pesos distintos das observações e o planejamento da amostra que lhes deu origem.</p>
+<p>Outro uso destes dados, denominado secundário, é a construção e ajuste de modelos, feita geralmente por analistas que trabalham fora das agências produtoras dos dados. Neste caso, o foco é, essencialmente, estabelecer a natureza de relações ou associações entre variáveis. Para isto, a estatística clássica conta com um arsenal de ferramentas de análise, já incorporado aos principais pacotes estatísticos disponíveis. O uso destes pacotes se faz, entretanto, sob condições que não refletem a complexidade usualmente envolvida nas pesquisas amostrais de populações finitas. Em geral, partem de hipóteses básicas que só são válidas quando os dados são obtidos através de amostras aleatórias simples com reposição (AASC). Tais pacotes estatísticos não consideram os seguintes aspectos relevantes no caso de amostras complexas:</p>
+<p>i.) <strong>probabilidades distintas de seleção das unidades</strong>;</p>
+<p>ii.) <strong>conglomeração das unidades</strong>;</p>
+<p>iii.) <strong>estratificação</strong>;</p>
+<p>iv.) <strong>calibração ou imputação para não-resposta e outros ajustes</strong>.</p>
+<p>As estimativas pontuais de parâmetros da população ou de modelos são influenciadas por pesos distintos das observações. Além disso, as estimativas de variância (ou da precisão dos estimadores) são influenciadas pela conglomeração, estratificação e pesos, ou no caso de não resposta, também por eventual imputação de dados faltantes. Ao ignorar estes aspectos, os pacotes tradicionais de análise podem produzir estimativas incorretas das variâncias das estimativas pontuais.</p>
+<p>A seguir vamos apresentar um exemplo de uso de dados de uma pesquisa amostral real para ilustrar como os pontos i) a iv) acima mencionados afetam a inferência sobre quantidades descritivas populacionais tais como médias, proporções, razões e totais.</p>
+</div>
+<div id="impacto-dos-pesos-da-amostra-da-ppv" class="section level2">
+<h2><span class="header-section-number">2.2</span> Impacto dos pesos da amostra da PPV</h2>
+<p>Os dados deste exemplo são relativos à distribuição dos pesos na amostra da Pesquisa sobre Padrões de Vida (PPV), realizada pelo IBGE nos anos 1996-97. <span class="citation">(Albieri and Bianchini <a href="#ref-albieri">1997</a>)</span> descrevem resumidamente a Pesquisa sobre Padrões de Vida (PPV), que foi realizada nas Regiões Nordeste e Sudeste do País, considerando 10 estratos geográficos, a saber: Região Metropolitana de Fortaleza, Região Metropolitana de Recife, Região Metropolitana de Salvador, restante da área urbana do Nordeste, restante da área rural do Nordeste, Região Metropolitana de Belo Horizonte, Região Metropolitana do Rio de Janeiro, Região Metropolitana de São Paulo, restante da área urbana do Sudeste e restante da área rural do Sudeste.</p>
+<p>O plano amostral empregado na seleção da amostra da PPV foi de dois estágios, com estratificação das unidades primárias de amostragem (no caso os setores censitários da base geográfica do IBGE conforme usada para o Censo Demográfico de 1991), seleção destes setores com probabilidade proporcional ao tamanho, e seleção aleatória das unidades de segundo estágio (domicílios). O tamanho da amostra para cada estrato geográfico foi fixado em 480 domicílios, e o número de setores selecionados foi fixado em 60, com 8 domicílios selecionados em cada setor. A exceção ficou por conta dos estratos que correspondem ao restante da área rural de cada Região, onde foram selecionados 30 setores e 16 domicílios por setor, em função da dificuldade de acesso a esses setores, o que implicaria em aumento de custo da coleta.</p>
+<p>Os setores de cada um dos 10 estratos geográficos foram subdivididos em 3 estratos de acordo com a renda média mensal do chefe do domicílio por setor, perfazendo um total de 30 estratos geográficos versus renda. Em seguida foi feita uma alocação proporcional, com base no número de domicílios particulares permanentes ocupados do estrato de renda no universo de cada estrato geográfico, obtidos pelo Censo de 1991. No final foram obtidos 554 setores na amostra, distribuídos tal como revela a Tabela <a href="#Tab11"><strong>??</strong></a>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Estrato Geográfico</th>
+<th>População</th>
+<th>Amostra</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 RM Fortaleza</td>
+<td>2.263</td>
+<td>62</td>
+</tr>
+<tr class="even">
+<td>2-RM Recife</td>
+<td>2.309</td>
+<td>61</td>
+</tr>
+<tr class="odd">
+<td>3-RM Salvador</td>
+<td>2.186</td>
+<td>61</td>
+</tr>
+<tr class="even">
+<td>4-Restante Nordeste Urbano</td>
+<td>15.057</td>
+<td>61</td>
+</tr>
+<tr class="odd">
+<td>5-Restante Nordeste Rural</td>
+<td>23.711</td>
+<td>33</td>
+</tr>
+<tr class="even">
+<td>6-RM Belo Horizonte</td>
+<td>3.283</td>
+<td>62</td>
+</tr>
+<tr class="odd">
+<td>7-RM Rio de Janeiro</td>
+<td>10.420</td>
+<td>61</td>
+</tr>
+<tr class="even">
+<td>8-RM São Paulo</td>
+<td>14.943</td>
+<td>61</td>
+</tr>
+<tr class="odd">
+<td>9-Restante Sudeste Urbano</td>
+<td>25.855</td>
+<td>61</td>
+</tr>
+<tr class="even">
+<td>10-Restante Sudeste Rural</td>
+<td>12.001</td>
+<td>31</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>112.001</td>
+<td>554</td>
+</tr>
+</tbody>
+</table>
+
+<p>A Tabela <a href="#Tab12"><strong>??</strong></a> apresenta um resumo das distribuições dos pesos amostrais para as Regiões Nordeste (5 estratos geográficos) e Sudeste (5 estratos geográficos) separadamente e para o conjunto da amostra da PPV.</p>
+
+<p>No cálculo dos pesos foram consideradas as probabilidades de inclusão dos elementos na amostra bem como correções devido a não-resposta. Contudo, a grande variabilidade dos pesos amostrais da PPV é devida à variabilidade das probabilidades de inclusão na amostra, ilustrando desta forma o ponto i) citado anteriormente nesta seção.</p>
+<p>Na análise de dados desta pesquisa, deve-se considerar que há elementos da amostra com pesos bem distintos. Por exemplo, a razão entre o maior e o menor peso é cerca de 40 vezes. Tais pesos são utilizados para <code>expandir</code> os dados, multiplicando-se cada observação pelo seu respectivo peso. Assim, por exemplo, para <code>estimar</code> quantos elementos <code>da população</code> pertencem a determinado conjunto (domínio), basta somar os pesos dos elementos da amostra que pertencem a este conjunto. É possível ainda incorporar os pesos, de maneira simples e natural, quando estimamos medidas descritivas simples da população tais como totais, médias, proporções, razões, etc.</p>
+<p>Por outro lado, quando utilizamos a amostra para estudos analíticos, as opções padrão disponíveis nos pacotes estatísticos usuais para levar em conta os pesos distintos das observações são apropriadas somente para observações independentes e identicamente distribuídas (IID). Por exemplo, os procedimentos padrão disponíveis para estimar a média populacional permitem utilizar pesos distintos das observações amostrais, mas tratariam tais pesos como se fossem frequências de observações repetidas na amostra, e portanto interpretariam a soma dos pesos como tamanho amostral, situação que na maioria das vezes gera inferências incorretas sobre a precisão das estimativas, pois o tamanho da amostra é muito menor que a soma dos pesos amostrais usualmente encontrados nos arquivos de microdados de pesquisas disseminados por agências de estatísticas oficiais. Em tais pesquisas, a opção mais freqüente é disseminar pesos que somados estimam o total de unidades <code>da população</code>.</p>
+<p>Além disso, a variabilidade dos pesos para distintas observações amostrais produz impactos tanto na estimação pontual quanto na estimação das variâncias dessas estimativas, que sofre ainda influência da conglomeração e estratificação - pontos ii) e iii) mencionados anteriormente.</p>
+<p>Para exemplificar o impacto de ignorar os pesos e o plano amostral ao estimar quantidades descritivas populacionais, tais como totais, médias, proporções e razões, calculamos estimativas de quantidades desses diferentes tipos usando a amostra da PPV juntamente com estimativas das respectivas variâncias. Essas estimativas de variâncias foram calculadas sob duas estratégias: considerando amostragem aleatória simples (portanto ignorando o plano amostral efetivamente adotado), e considerando o plano amostral da pesquisa e os pesos diferenciados das unidades. A razão entre as estimativas de variância obtidas sob o plano amostral verdadeiro e sob amostragem aleatória simples foi calculada para cada uma das estimativas consideradas usando a <code>library survey</code> do R . Essa razão fornece uma medida do efeito de ignorar o plano amostral . Os resultados das estimativas ponderadas e variâncias considerando o plano amostral são apresentados na Tabela , juntamente com as medidas dos efeitos de plano amostral (EPA).</p>
+
+<div class="example">
+<span id="ex:unnamed-chunk-4" class="example"><strong>Example 2.1 </strong></span>Utilização da library survey do R para estimar totais e razões na PPV
+</div>
+<p> A seguir, mostramos a utilização da library survey do R para obter algumas estimativas da Tabela @ref[Tab13]. Vamos supor que os dados da pesquisa estão contidos no data frame <code>ppv</code>, que contém as variáveis:</p>
+<ul>
+<li><p>NSETOR - conglomerados;</p></li>
+<li>ESTRATOF - estratos;</li>
+<li>PESOF - pesos do plano amostral;</li>
+<li>REGIAO - regiões de abrangência: 1- Nordeste, 2- Sudeste;</li>
+<li>ANALF1.SE - indicador de analfabeto na faixa etária de 7 a 14 anos na Região Sudeste;</li>
+<li>ANALF2.SE - indicador de analfabeto na faixa etária acima de 14 anos na Região Sudeste;</li>
+<li>FAIXA1.SE - indicador de idade entre 7 e 14 anos na Região Sudeste;</li>
+<li><p>FAIXA2.SE - indicador de idade acima de 14 anos na Região Sudeste;</p></li>
+</ul>
+<p>O passo fundamental para utilização da library <code>survey</code> é criar um objeto que guarde as informações relevantes do plano amostral. Isso é feito por meio da função <code>svydesign</code>. As variáveis que definem estratos, conglomerados e pesos na <code>PPV</code> são respectivamente, <code>ESTRATOF</code>, <code>NSETOR</code> e <code>PESOF</code>. O objeto de desenho amostral, <code>ppv.des</code> incorpora as informações do plano amostral adotado na <code>PPV</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># library(adacr)</span>
+<span class="co"># data(ppv1)</span>
+ppv1 &lt;-<span class="st"> </span><span class="kw">transform</span> ( ppv1, 
+<span class="dt">ANALF1.SE =</span> (V04A01 ==<span class="st"> </span><span class="dv">2</span> |<span class="st"> </span>V04A02 ==<span class="st"> </span><span class="dv">2</span>) &amp;<span class="st"> </span>(V02A08 &gt;=<span class="st"> </span><span class="dv">7</span> &amp;<span class="st"> </span>V02A08 &lt;=<span class="st"> </span><span class="dv">14</span>) &amp;<span class="st"> </span>REGIAO ==<span class="dv">2</span>,
+<span class="dt">ANALF2.SE =</span> ((V04A01 ==<span class="st"> </span><span class="dv">2</span> |<span class="st"> </span>V04A02 ==<span class="st"> </span><span class="dv">2</span>) &amp;<span class="st"> </span>(V02A08 &gt;<span class="dv">14</span>)) &amp;<span class="st"> </span>REGIAO ==<span class="dv">2</span>,
+<span class="dt">FAIXA1.SE =</span> (V02A08 &gt;=<span class="st"> </span><span class="dv">7</span> &amp;<span class="st"> </span>V02A08 &lt;=<span class="st"> </span><span class="dv">14</span>) &amp;<span class="st"> </span>REGIAO ==<span class="dv">2</span>, 
+<span class="dt">FAIXA2.SE =</span> (V02A08 &gt;<span class="st"> </span><span class="dv">14</span>) &amp;<span class="st"> </span>REGIAO ==<span class="st"> </span><span class="dv">2</span> ) 
+  
+<span class="kw">library</span>(survey)
+ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> ~NSETOR, <span class="dt">strata =</span> ~ESTRATOF,
+<span class="dt">data =</span> ppv1, <span class="dt">nest =</span> <span class="ot">TRUE</span>, <span class="dt">weights =</span> ~PESOF)</code></pre></div>
+<p>Vamos estimar os totais de analfabetos nas faixas etárias de 7 a 14 anos e acima de 14 anos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(~ANALF1.SE, ppv.des, <span class="dt">deff =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##                    total        SE     DEff
+## ANALF1.SEFALSE 102466391   1698198 465.2732
+## ANALF1.SETRUE    1174220    127982   2.6426</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(~ANALF2.SE, ppv.des, <span class="dt">deff =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##                   total       SE     DEff
+## ANALF2.SEFALSE 98848267  1680091 115.6674
+## ANALF2.SETRUE   4792344   318877   4.1667</code></pre>
+<p>Em seguida, estimaremos a proporção de analfabetos na faixa etária de 7 a 14 anos:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ANALF1.SE_FAIXA1.SE_raz&lt;-<span class="kw">svyratio</span>(~ANALF1.SE,~FAIXA1.SE, ppv.des,<span class="dt">deff=</span>T)
+<span class="kw">coef</span>(ANALF1.SE_FAIXA1.SE_raz) <span class="co"># razão</span></code></pre></div>
+<pre><code>## ANALF1.SE/FAIXA1.SE 
+##            0.118689</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">SE</span>(ANALF1.SE_FAIXA1.SE_raz) <span class="co"># se da razão</span></code></pre></div>
+<pre><code>## ANALF1.SE/FAIXA1.SE 
+##          0.01178896</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">deff</span>(ANALF1.SE_FAIXA1.SE_raz) <span class="co"># EPA da razão</span></code></pre></div>
+<pre><code>## [1] 2.461971</code></pre>
+<p>As outras estimativas da Tabela @ref[Tab13] podem ser obtidas de maneira análoga.</p>
+
+<p>Como se pode observar da quarta coluna da Tabela @ref[b13], os valores do efeito do plano amostral variam de um modesto 1,26 para o número médio de filhos tidos por mulheres em idade fértil (12 a 49 anos de idade) até um substancial 4,17 para o total de analfabetos entre pessoas de mais de 14 anos. Nesse último caso, usar a estimativa de variância como se o plano amostral fosse amostragem aleatória simples implicaria em subestimar consideravelmente a variância da estimativa pontual, que é mais que 4 vezes maior se consideramos o plano amostral efetivamente utilizado.</p>
+<p>Note que as variáveis e parâmetros cujas estimativas são apresentadas na Tabela  não foram escolhidas de forma a acentuar os efeitos ilustrados, mas tão somente para representar distintos parâmetros (médias, razões, totais, proporções) e variáveis de interesse. Os resultados apresentados para as estimativas de EPA ilustram bem o cenário típico em pesquisas amostrais complexas: o impacto do plano amostral sobre a inferência varia conforme a variável e o tipo de parâmetro de interesse. Note ainda que à exceção do menor valor, todas as demais estimativas de EPA apresentaram valores superiores a 2.</p>
+
+Este livro tem três objetivos principais:
+
+<p>Para alcançar tais objetivos, adota-se uma abordagem fortemente ancorada na apresentação de exemplos de análises de dados obtidos em pesquisas amostrais complexas, usando pacotes clássicos e também recursos do pacote estatístico R (<a href="http://www.r-project.org/" class="uri">http://www.r-project.org/</a>). A comparação dos resultados das análises feitas das duas formas permite avaliar o impacto de não se considerar os pontos i) a iv) anteriormente citados. O ponto iv) não será tratado de forma completa neste texto. O leitor interessado na análise de dados sujeitos a não-resposta pode consultar <span class="citation">(Kalton <a href="#ref-kalton83a">1983</a><a href="#ref-kalton83a">a</a>)</span>, <span class="citation">(Little and Rubin <a href="#ref-LR2002">2002</a>)</span>, <span class="citation">(Rubin <a href="#ref-Rubin87">1987</a>)</span>, <span class="citation">(Särndal, Swensson, and Wretman <a href="#ref-SSW92">1992</a>)</span>, ou Schafer (1997), por exemplo.</p>
+
+<p>O livro está organizado em catorze capítulos. Este primeiro capítulo discute a motivação para estudar o assunto e apresenta uma idéia geral dos objetivos e da estrutura do livro.</p>
+<p>No segundo capítulo, procuramos dar uma visão das diferentes abordagens utilizadas na análise estatística de dados de pesquisas amostrais complexas. Apresentamos um referencial para inferência com ênfase no <code>Modelo de Superpopulação</code> que incorpora, de forma natural, tanto uma estrutura estocástica para descrever a geração dos dados populacionais (modelo) como o plano amostral efetivamente utilizado para obter os dados amostrais (plano amostral). As referências básicas para seguir este capítulo são cap2 em <span class="citation">(Nascimento Silva <a href="#ref-Silva">1996</a>)</span>, cap1 em <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span> e caps 1 e 2 em <span class="citation">(Chambers and Skinner <a href="#ref-CHSK2003">2003</a>)</span>.</p>
+<p>Esse referencial tem evoluído ao longo dos anos como uma forma de permitir a incorporação de idéias e procedimentos de análise e inferência usualmente associados à Estatística Clássica à prática da interpretação de dados provenientes de pesquisas amostrais. Apesar dessa evolução, sua adoção não é livre de controvérsia e uma breve revisão dessa discussão é apresentada no capítulo 2.</p>
+<p>No terceiro capítulo apresentamos uma revisão sucinta, a título de recordação, de alguns resultados básicos da Teoria de Amostragem, requeridos nas partes subseqüentes do livro. São discutidos os procedimentos básicos para estimação de totais considerando o plano amostral, e em seguida revistas algumas técnicas para estimação de variâncias úteis para o caso de estatísticas complexas, tais como razões e outras estatísticas requeridas na inferência analítica com dados amostrais. As referências centrais para este capítulo são caps 2 e 3 em <span class="citation">(Särndal, Swensson, and Wretman <a href="#ref-SSW92">1992</a>)</span>, <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span> e <span class="citation">(Cochran <a href="#ref-cochran">1977</a>)</span>.</p>
+<p>No Capítulo 4 introduzimos o conceito de <code>Efeito do Plano Amostral (EPA)</code>, que permite avaliar o impacto de ignorar a estruturação dos dados populacionais ou do plano amostral sobre a estimativa da variância de um estimador. Para isso, comparamos o estimador da variância apropriado para dados obtidos por amostragem aleatória simples (hipótese de AAS) com o valor esperado deste mesmo estimador sob a distribuição de aleatorização induzida pelo plano amostral efetivamente utilizado (plano amostral verdadeiro). Aqui a referência principal foi o livro <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, complementado com o texto de <span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span>.</p>
+<p>No Capítulo 5 estudamos a questão do uso de pesos ao analisar dados provenientes de pesquisas amostrais complexas, e introduzimos um método geral, denominado <code>Método de Máxima Pseudo Verossimilhança(MPV)</code>, para incorporar os pesos e o plano amostral na obtenção não só de estimativas de parâmetros dos modelos regulares de interesse, como também das variâncias dessas estimativas. As referências básicas utilizadas nesse capítulo foram <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, <span class="citation">(Pfeffermann <a href="#ref-Pfeff">1993</a>)</span>, <span class="citation">(Binder <a href="#ref-binder83">1983</a>)</span> e cap.6 em <span class="citation">(Nascimento Silva <a href="#ref-Silva">1996</a>)</span>.</p>
+<p>O Capítulo 6 trata da obtenção de <code>Estimadores de Máxima Pseudo-Verossimilhança (EMPV)</code> e da respectiva matriz de covariância para os parâmetros em modelos de regressão linear e de regressão logística, quando os dados vêm de pesquisas amostrais complexas. Apresentamos um exemplo de aplicação com dados do Suplemento Trabalho da Pesquisa Nacional por Amostra de Domicílios (PNAD) de 90, onde ajustamos um modelo de regressão logística. Neste exemplo, são feitas comparações entre resultados de ajustes obtidos através de um programa especializado, a library <code>survey</code> (Lumley, 2004), e através de um programa de uso geral, a library glm do pacote R. As referências centrais são cap6 em <span class="citation">(Nascimento Silva <a href="#ref-Silva">1996</a>)</span> e Binder(1983), além de <span class="citation">(Pessoa, Nascimento Silva, and Duarte <a href="#ref-Pessoa">1997</a>)</span>.</p>
+<p>Os capítulos sétimo e oitavo tratam da análise de dados categóricos com ênfase na adaptação dos testes clássicos para proporções, de independência e de homogeneidade em tabelas de contingência, para dados provenientes de pesquisas amostrais complexas. Apresentamos correções das estatísticas clássicas e a estatística de Wald baseada no plano amostral. As referências básicas usadas nesses capítulos foram os livros cap. 4, <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span> e cap. 7 <span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span>. Também são apresentadas as idéias básicas de como efetuar ajuste de modelos log-lineares a dados de freqüências em tabelas de múltiplas entradas.</p>
+<p>O capítulo nove trata da estimação de densidades e funções de distribuição, ferramentas que tem assumido importância cada dia maior com a maior disponibilidade de microdados de pesquisas amostrais para analistas fora das agências produtoras.</p>
+<p>O capítulo décimo trata da estimação e ajuste de modelos hierárquicos considerando o plano amostral. Modelos hierárquicos (ou modelos multinível) têm sido bastante utilizados para explorar situações em que as relações entre variáveis de interesse em uma certa população de unidades elementares (por exemplo, crianças em escolas, pacientes em hospitais, empregados em empresas, moradores em regiões, etc.) são afetadas por efeitos de grupos determinados ao nível de unidades conglomeradas (os grupos). Ajustar e interpretar tais modelos é tarefa mais difícil que o mero ajuste de modelos lineares mesmo em casos onde os dados são obtidos de forma exaustiva, mas ainda mais complicada quando se trata de dados obtidos através de pesquisas amostrais complexas. Várias alternativas de métodos para ajuste de modelos hierárquicos estão disponíveis, e este capítulo apresenta uma revisão de tais abordagens, ilustrando com aplicações a dados de pesquisas amostrais de escolares.</p>
+<p>O capítulo onze trata da não resposta e suas conseqüências sobre a análise de dados. As abordagens de tratamento usuais, reponderação e imputação, são descritas de maneira resumida, com apresentação de alguns exemplos ilustrativos, e referências à ampla literatura existente sobre o assunto. Em seguida destacamos a importância de considerar os efeitos da não-resposta e dos tratamentos compensatórios aplicados nas análises dos dados resultantes, destacando em particular as ferramentas disponíveis para a estimação de variâncias na presença de dados incompletos tratados mediante reponderação e/ou imputação.</p>
+<p>O capítulo doze trata de assunto ainda emergente: diagnósticos do ajuste de modelos quando os dados foram obtidos de amostras complexas. A literatura sobre o assunto ainda é incipiente, mas o assunto é importante e procura-se estimular sua investigação com a revisão do estado da arte no assunto.</p>
+<p>O capítulo treze discute algumas formas alternativas de analisar dados de pesquisas complexas, contrapondo algumas abordagens distintas à que demos preferência nos capítulos anteriores, para dar aos leitores condições de apreciar de forma crítica o material apresentado no restante deste livro. Entre as abordagens discutidas, há duas principais: a denominada <code>análise desagregada</code>, e a abordagem denominada <code>obtenção  do modelo amostral</code> proposta por <span class="citation">(Pfeffermann, Krieger, and Rinott <a href="#ref-PKR">1998</a>)</span>. A chamada <code>análise desagregada</code> incorpora explicitamente na análise vários aspectos do plano amostral utilizado através do emprego de modelos hierárquicos <span class="citation">(Bryk and Raudenbush <a href="#ref-bryk">1992</a>)</span>. Em contraste, a abordagem adotada nos oito primeiros capítulos é denominada <code>análise agregada</code>, e procura ‘’eliminar’‘da análise efeitos tais como conglomeração induzida pelo plano amostral, considerando tais efeitos como’‘ruídos’‘ou fatores de perturbação que’‘atrapalham’’ o emprego dos procedimentos clássicos de estimação, ajuste de modelos e teste de hipóteses.</p>
+<p>A abordagem de <code>obtenção do modelo amostral</code> parte de um modelo de superpopulação e procura derivar o modelo amostral (ou que valeria para as observações da amostra obtida) considerando modelos para as probabilidades de inclusão dadas as variáveis auxiliares e as variáveis resposta de interesse. Uma vez obtidos tais modelos, seu ajuste prossegue por métodos convencionais tais como máxima verossimilhança ou mesmo MCMC (Markov Chain Monte Carlo).</p>
+<p>Por último, no Capítulo catorze, listamos alguns pacotes computacionais especializados disponíveis para a análise de dados de pesquisas amostrais complexas. Sem pretender ser exaustiva ou detalhada, essa revisão dos pacotes procura também apresentar suas características mais importantes. Vários destes programas podem ser adquiridos gratuitamente via <code>internet</code>, nos endereços fornecidos de seus produtores. Com isto pretendemos indicar aos leitores o caminho mais curto para permitir a implementação prática das técnicas e métodos aqui discutidos.</p>
+<p>Uma das características que procuramos dar ao livro foi o emprego de exemplos com dados reais, retirados principalmente da experiência do IBGE com pesquisas amostrais complexas. Embora a experiência de fazer inferência analítica com dados desse tipo seja ainda incipiente no Brasil, acreditamos ser fundamental difundir essas idéias para alimentar um processo de melhoria do aproveitamento dos dados das inúmeras pesquisas realizadas pelo IBGE e instituições congêneres, que permita ir além da tradicional estimação de médias, totais, proporções e razões. Esperamos com esse livro fazer uma contribuição a esse processo.</p>
+<p>Uma dificuldade em escrever um livro como este vem do fato de que não é possível começar do zero: é preciso assumir algum conhecimento prévio de idéias e conceitos necessários à compreensão do material tratado. Procuramos tornar o livro acessível para um estudante de fim de curso de graduação em Estatística. Por essa razão optamos por não apresentar provas de resultados e sempre que possível, apresentar os conceitos e idéias de maneira intuitiva, juntamente com uma discussão mais formal para dar solidez aos resultados apresentados. As provas de vários dos resultados aqui discutidos se restringem a material disponível apenas em artigos em periódicos especializados estrangeiros e portanto, são de acesso mais difícil. Ao leitor em busca de maior detalhamento e rigor, sugerimos consultar diretamente as inúmeras referências incluídas ao longo do texto. Para um tratamento mais profundo do assunto, os livros de <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span> e <span class="citation">(Chambers and Skinner <a href="#ref-CHSK2003">2003</a>)</span> são as referências centrais a pesquisar. Para aqueles querendo um tratamento ainda mais prático que o nosso, o livro de <span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span> pode ser uma opção interessante.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-albieri">
+<p>Albieri, S., and Z. M. Bianchini. 1997. “Aspectos de Amostragem Relativos à Pesquisa Domiciliar Sobre Padrões de Vida.” Rio de Janeiro: IBGE, Departamento de Metodologia.</p>
+</div>
+<div id="ref-kalton83a">
+<p>Kalton, G. 1983a. “Compensating for Missing Survey Data.” Ann Arbor, Michigan: The University of Michigan, Institute for Social Research, Survey Research Center.</p>
+</div>
+<div id="ref-LR2002">
+<p>Little, R. J. A., and D. B. Rubin. 2002. <em>Statistical Analysis with Missing Data</em>. Nova Iorque: John Wiley; Sons.</p>
+</div>
+<div id="ref-Rubin87">
+<p>Rubin, D. B. 1987. <em>Multiple Imputation for Nonresponse in Surveys</em>. Nova Iorque: John Wiley; Sons.</p>
+</div>
+<div id="ref-SSW92">
+<p>Särndal, C-E., B. Swensson, and J. H. Wretman. 1992. <em>Model Assisted Survey Sampling</em>. Nova Iorque: Springer-Verlag.</p>
+</div>
+<div id="ref-Silva">
+<p>Nascimento Silva, P. L. D. 1996. “Utilizing Auxiliary Information for Estimation and Analysis in Sample Surveys.” PhD thesis, University of Southampton, Department of Social Statistics.</p>
+</div>
+<div id="ref-SHS89">
+<p>Skinner, C. J., D. Holt, and T. M. F. Smith, eds. 1989. <em>Analysis of Complex Surveys</em>. Chichester: John Wiley; Sons.</p>
+</div>
+<div id="ref-CHSK2003">
+<p>Chambers, R.L., and C.J. Skinner, eds. 2003. <em>Analysis of Survey Data</em>. Chichester: John Wiley.</p>
+</div>
+<div id="ref-W85">
+<p>Wolter, K. M. 1985. <em>Introduction to Variance Estimation</em>. Nova Iorque: Springer-Verlag.</p>
+</div>
+<div id="ref-cochran">
+<p>Cochran, W. G. 1977. <em>Sampling Techniques</em>. Nova Iorque: John Wiley.</p>
+</div>
+<div id="ref-lethonen">
+<p>Lehtonen, R., and E. J. Pahkinen. 1995. <em>Practical Methods for Design and Analysis of Complex Surveys</em>. Chichester: John Wiley; Sons.</p>
+</div>
+<div id="ref-Pfeff">
+<p>Pfeffermann, D. 1993. “The Role of Sampling Weights When Modelling Survey Data.” <em>International Statistical Review</em> 61: 317–37.</p>
+</div>
+<div id="ref-binder83">
+<p>Binder, D. A. 1983. “On the Variances of Asymptotically Normal Estimators from Complex Surveys.” <em>International Statistical Review</em> 51: 279–92.</p>
+</div>
+<div id="ref-Pessoa">
+<p>Pessoa, D. G. C., P. L. D. Nascimento Silva, and R. P. N. Duarte. 1997. “Análise Estatística de Dados de Pesquisas Por Amostragem: Problemas No Uso de Pacotes Padrões.” <em>Revista Brasileira de Estatística</em> 33: 44–57.</p>
+</div>
+<div id="ref-PKR">
+<p>Pfeffermann, D., A. M. Krieger, and Y. Rinott. 1998. “Parametric Distributions of Complex Survey Data Under Informative Probability Survey.” <em>Statistica Sinica</em> 8: 1087–1114.</p>
+</div>
+<div id="ref-bryk">
+<p>Bryk, A. S., and S. W. Raudenbush. 1992. <em>Hierarquical Linear Models: Applications and Data Analysis Methods</em>. Newbury Park: Sage.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="prefacio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referencial-para-inferencia.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-Cap1.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

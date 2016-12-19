@@ -235,8 +235,8 @@ O passo fundamental para utilização da library `survey` é criar um objeto que
 As variáveis que definem estratos, conglomerados e pesos na `PPV` são respectivamente, `ESTRATOF`, `NSETOR` e `PESOF`. O objeto de desenho amostral, `ppv.des` incorpora as informações do plano amostral adotado na `PPV`.
 
 ```{r, message=FALSE, warning=FALSE}
-library(adacr)
-data(ppv1)
+# library(adacr)
+# data(ppv1)
 ppv1 <- transform ( ppv1, 
 ANALF1.SE = (V04A01 == 2 | V04A02 == 2) & (V02A08 >= 7 & V02A08 <= 14) & REGIAO ==2,
 ANALF2.SE = ((V04A01 == 2 | V04A02 == 2) & (V02A08 >14)) & REGIAO ==2,

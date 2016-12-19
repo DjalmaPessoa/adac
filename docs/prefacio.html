@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="pacotes-para-analisar-dados-amostrais.html">
-
+<link rel="prev" href="index.html">
+<link rel="next" href="introducao.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -211,175 +211,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="prefacio" class="section level1 unnumbered">
+<h1>Prefácio</h1>
+<p>Uma preocupação básica de toda instituição produtora de informações estatísticas é com a utilização ‘’correta’’ de seus dados. Isso pode ser intrepretado de várias formas, algumas delas com reflexos até na confiança do público e na própria sobrevivência do órgão. Do nosso ponto de vista, como técnicos da área de metodologia do IBGE, enfatizamos um aspecto técnico particular, mas nem por isso menos importante para os usuários dos dados.</p>
+<p>A revolução da informática com a resultante facilidade de acesso ao computador, criou condições extremamente favoráveis à utilização de dados estatísticos, produzidos por órgãos como o IBGE. Algumas vezes esses dados são utilizados para fins puramente descritivos. Outras vezes, porém, sua utilização é feita para fins analíticos, envolvendo a construção de modelos, quando o objetivo é extrair conclusões aplicáveis também a populações distintas daquela da qual se extraiu a amostra. Neste caso, é comum empregar, sem grandes preocupações, pacotes computacionais padrões disponíveis para a seleção e ajuste de modelos. é neste ponto que entra a nossa preocupação com o uso adequado dos dados produzidos pelo IBGE.</p>
+<p>O que torna tais dados especiais para quem pretende usá-los para fins analíticos? Esta é a questão básica que será amplamente discutida ao longo deste texto. A mensagem principal que pretendemos transmitir é que certos cuidados precisam ser tomados para utilização correta dos dados de pesquisas amostrais como as que o IBGE realiza.</p>
+<p>O que torna especiais dados como os produzidos pelo IBGE é que estes são obtidos através de pesquisas amostrais complexas de populações finitas que envolvem: <strong>probabilidades distintas de seleção, estratificação e conglomeração das unidades, ajustes para compensar não-resposta e outros ajustes</strong>. Os pacotes tradicionais de análise ignoram estes aspectos, podendo produzir estimativas incorretas tanto dos parâmetros como para as variâncias destas estimativas. Quando utilizamos a amostra para estudos analíticos, as opções disponíveis nos pacotes estatísticos usuais para levar em conta os pesos distintos das observações são apropriadas somente para observações independentes e identicamente distribuídas (IID). Além disso, a variabilidade dos pesos produz impactos tanto na estimação pontual quanto na estimação das variâncias dessas estimativas, que sofre ainda influência da estratificação e conglomeração.</p>
+<p>O objetivo deste livro é analisar o impacto das simplificações feitas ao utilizar procedimentos e pacotes usuais de análise de dados, e apresentar os ajustes necessários desses procedimentos de modo a incorporar na análise, de forma apropriada, os aspectos aqui ressaltados. Para isto serão apresentados exemplos de análises de dados obtidos em pesquisas amostrais complexas, usando pacotes clássicos e também pacotes estatísticos especializados. A comparação dos resultados das análises feitas das duas formas permitirá avaliar o impacto de ignorar o plano amostral na análise dos dados resultantes de pesquisas amostrais complexas.</p>
+<div id="agradecimentos" class="section level2 unnumbered">
+<h2>Agradecimentos</h2>
+<p>A elaboração de um texto como esse não se faz sem a colaboração de muitas pessoas. Em primeiro lugar, agradecemos à Comissão Organizadora do SINAPE por ter propiciado a oportunidade ao selecionar nossa proposta de minicurso. Agradecemos também ao IBGE por ter proporcionado as condições e os meios usados para a produção da monografia, bem como o acesso aos dados detalhados e identificados que utilizamos em vários exemplos.</p>
+<p>No plano pessoal, agradecemos a Zélia Bianchini pela revisão do manuscrito e sugestões que o aprimoraram. Agradecemos a Marcos Paulo de Freitas e Renata Duarte pela ajuda com a computação de vários exemplos. Agradecemos a Waldecir Bianchini, Luiz Pessoa e Marinho Persiano pela colaboração na utilização do processador de textos. Aos demais colegas do Departamento de Metodologia do IBGE, agradecemos o companheirismo e solidariedade nesses meses de trabalho na preparação do manuscrito.</p>
+<p>Finalmente, agradecemos a nossas famílias pela aceitação resignada de nossas ausências e pelo incentivo à conclusão da empreitada.</p>
 
-<div id="refs" class="references">
-<div>
-<p>Albieri, S., and Z. M. Bianchini. 1997. “Aspectos de Amostragem Relativos à Pesquisa Domiciliar Sobre Padrões de Vida.” Rio de Janeiro: IBGE, Departamento de Metodologia.</p>
-</div>
-<div>
-<p>Bickel, P. J., and K. A. Doksum. 1977. <em>Mathematical Statistics: Basic Ideas and Selected Topics</em>. San Francisco: Holden-Day.</p>
-</div>
-<div>
-<p>Binder, D. A. 1983. “On the Variances of Asymptotically Normal Estimators from Complex Surveys.” <em>International Statistical Review</em> 51: 279–92.</p>
-</div>
-<div>
-<p>Binder, D. A., J. G. Kovar, S. Kumar, D. Paton, and A. V. Baaren. 1987. “Analytic Uses of Survey Data: A Review.” In <em>Applied Probability, Stochastic Processes and Sampling Theory</em>, edited by I. B. MacNeil and G. J. Umphrey, 243–64. John Wiley.</p>
-</div>
-<div>
-<p>Bishop, Y. M. M., S. E. Fienberg, and P. W. Holland. 1975. <em>Discrete Multivariate Analysis: Theory and Practice</em>. Massachusets: The MIT Press.</p>
-</div>
-<div>
-<p>Brewer, K. W. R. 1979. “A Class of Robust Sampling Designs for Large Scale Surveys.” <em>Journal of the American Statistical Association</em> 74: 911–15.</p>
-</div>
-<div>
-<p>Bryk, A. S., and S. W. Raudenbush. 1992. <em>Hierarquical Linear Models: Applications and Data Analysis Methods</em>. Newbury Park: Sage.</p>
-</div>
-<div>
-<p>Carlson, B. L. 1998. “Software for Statistical Analysis of Sample Survey Data.” In <em>Encyclopaedia of Biostatistics</em>. John Wiley.</p>
-</div>
-<div>
-<p>Cassel, C. M., C-E. Särndal, and J. H Wretman. 1977. <em>Foundations of Inference in Survey Sampling</em>. Nova Iorque: John Wiley.</p>
-</div>
-<div>
-<p>Chambers, R.L., and C.J. Skinner, eds. 2003. <em>Analysis of Survey Data</em>. Chichester: John Wiley.</p>
-</div>
-<div>
-<p>Cochran, W. G. 1977. <em>Sampling Techniques</em>. Nova Iorque: John Wiley.</p>
-</div>
-<div>
-<p>Cox, D. R., and D. V. Hinkley. 1974. <em>Theoretical Statistics</em>. Londres: Chapman &amp; Hall.</p>
-</div>
-<div>
-<p>Deming, W. E. 1956. “On Simplifications of Sampling Design Through Replication with Equal Probabilities and Without Stages.” <em>Journal of the American Statistical Association</em> 51: 24–53.</p>
-</div>
-<div>
-<p>Diggle, P. J., K. Y. Liang, and S. L. Zeger. 1994. <em>Analysis of Longitudinal Data</em>. Oxford: Clarendon Press.</p>
-</div>
-<div>
-<p>Fuller, W. A. 1984. “Least Squares and Related Analyses for Complex Survey Designs.” <em>Survey Methodology</em> 10: 97–118.</p>
-</div>
-<div>
-<p>Garthwaite, P. H., I. T. Jollife, and B Jones. 1995. <em>Statistical Inference</em>. Nova Iorque: Prentice Hall.</p>
-</div>
-<div>
-<p>H?jek, J. 1960. “Limiting Distributions in Simple Random Sampling from Finite Populations.” <em>Pub.Math. Inst. Hung. Acad. Sci.</em> 5: 361–74.</p>
-</div>
-<div>
-<p>Hansen, M. H., W. N. Hurwitz, and W. G. Madow. 1953. <em>Sample Survey Methods and Theory</em>. Nova Iorque: John Wiley; Sons.</p>
-</div>
-<div>
-<p>IBGE. 1985. “Amostra de Uso Público Do Censo Demográfico de 1980 - Metodologia E Manual Do Usuário.” Rio de Janeiro: IBGE.</p>
-</div>
-<div>
-<p>Isaki, C. T., and W. A. Fuller. 1982. “Survey Design Under the Regression Superpopulation Model.” <em>Journal of the American Statistical Association</em> 77: 89–96.</p>
-</div>
-<div>
-<p>Johnson, R. A., and D. W. Wichern. 1988. <em>Applied Multivariate Statistical Analysis</em>. Englewood Cliffs, New Jersey: Prentice Hall.</p>
-</div>
-<div>
-<p>Kalton, G. 1983a. “Compensating for Missing Survey Data.” Ann Arbor, Michigan: The University of Michigan, Institute for Social Research, Survey Research Center.</p>
-</div>
-<div>
-<p>———. 1983b. “Models in the Practice of Survey Sampling.” <em>International Statistical Review</em> 51: 175–88.</p>
-</div>
-<div>
-<p>Kish, L. 1965. <em>Survey Sampling</em>. Nova Iorque: John Wiley; Sons.</p>
-</div>
-<div>
-<p>Labor Statistics, US Bureau of. 1984. “BLS Handbook of Methods - Volume Ii - the Consumer Price Index.” BLS Bulletin 2134-2. Washington DC.</p>
-</div>
-<div>
-<p>Lehtonen, R., and E. J. Pahkinen. 1995. <em>Practical Methods for Design and Analysis of Complex Surveys</em>. Chichester: John Wiley; Sons.</p>
-</div>
-<div>
-<p>Leote, R. M. D. 1996. “Um Perfil Sócio-Econômico Das Pessoas Ocupadas No Setor Informal Na área Urbana Do Rio de Janeiro.” 2. Rio de Janeiro: IBGE, Escola Nacional de Ciências Estatísticas.</p>
-</div>
-<div>
-<p>Lepkowski, J., and J. Bowles. 1996. “Sampling Error Software for Personal Computers.” <em>The Survey Statistician</em> 35: 10–17.</p>
-</div>
-<div>
-<p>Little, R. J. A., and D. B. Rubin. 2002. <em>Statistical Analysis with Missing Data</em>. Nova Iorque: John Wiley; Sons.</p>
-</div>
-<div>
-<p>Longford, N.T. 1993. <em>Random Coefficient Models</em>. Oxford: Clarendon Press.</p>
-</div>
-<div>
-<p>Mahalanobis, P. C. 1939. “A Sample Survey of the Acreage Under Jute in Bengal.” <em>Sankhya</em> 4: 511–31.</p>
-</div>
-<div>
-<p>———. 1944. “On Large-Scale Sample Surveys.” <em>Philosophical Transactions of the Royal Society of London B</em> 231: 329–451.</p>
-</div>
-<div>
-<p>Montanari, G. E. 1987. “Post-Sampling Efficient QR-prediction in Large-Sample Surveys.” <em>International Statistical Review</em> 55: 191–202.</p>
-</div>
-<div>
-<p>Nascimento Silva, P. L. D. 1996. “Utilizing Auxiliary Information for Estimation and Analysis in Sample Surveys.” PhD thesis, University of Southampton, Department of Social Statistics.</p>
-</div>
-<div>
-<p>Nascimento Silva, P. L. D., and F. A. S. Moura. 1990. “Efeitos de Conglomeração Da Malha Setorial Do Censo Demográfico 80.” Série Textos para Discuss?o 32. Rio de Janeiro: IBGE, Diretoria de Pesquisas.</p>
-</div>
-<div>
-<p>Nathan, G., and D. Holt. 1980. “The Effect of Survey Design on Regression Analysis.” <em>Journal of the Royal Statistical Society B</em> 42: 377–86.</p>
-</div>
-<div>
-<p>Neyman, J. 1934. “On the Two Different Aspects of the Representative Method: The Method of Stratified Sampling and the Method of Purposive Selection.” <em>Journal of the Royal Statistical Society A</em> 97: 558–606.</p>
-</div>
-<div>
-<p>Pessoa, D. G. C., P. L. D. Nascimento Silva, and R. P. N. Duarte. 1997. “Análise Estatística de Dados de Pesquisas Por Amostragem: Problemas No Uso de Pacotes Padrões.” <em>Revista Brasileira de Estatística</em> 33: 44–57.</p>
-</div>
-<div>
-<p>Pfeffermann, D. 1993. “The Role of Sampling Weights When Modelling Survey Data.” <em>International Statistical Review</em> 61: 317–37.</p>
-</div>
-<div>
-<p>Pfeffermann, D., and G. Nathan. 1981. “Regression Analysis of Data from Complex Samples.” <em>Journal of the American Statistical Association</em> 76: p. 681–89.</p>
-</div>
-<div>
-<p>Pfeffermann, D., A. M. Krieger, and Y. Rinott. 1998. “Parametric Distributions of Complex Survey Data Under Informative Probability Survey.” <em>Statistica Sinica</em> 8: 1087–1114.</p>
-</div>
-<div>
-<p>Quenoille, M. H. 1949. “Problems in Plane Sampling.” <em>Annals of Mathematical Statistics</em> 20: p. 355–75.</p>
-</div>
-<div>
-<p>———. 1956. “Notes on Bias in Estimation.” <em>Biometrika</em> 43: 353–60.</p>
-</div>
-<div>
-<p>Robinson, P. M., and C. E. Särndal. 1983. “Asymptotic Properties of the Generalized Regression Estimator in Probability Sampling.” <em>Sankhyā B</em> 45: 240–48.</p>
-</div>
-<div>
-<p>Rubin, D. B. 1987. <em>Multiple Imputation for Nonresponse in Surveys</em>. Nova Iorque: John Wiley; Sons.</p>
-</div>
-<div>
-<p>Satterthwaite, F. E. 1946. “An Approximate Distribution of Estimates of Variance Components.” <em>Biometrics</em> 2: 110–14.</p>
-</div>
-<div>
-<p>Särndal, C-E., B. Swensson, and J. H. Wretman. 1992. <em>Model Assisted Survey Sampling</em>. Nova Iorque: Springer-Verlag.</p>
-</div>
-<div>
-<p>Shah, B. V., B. G. Barnwell, P. N. Hunt, and L. M. LaVange. 1992. <em>SUDAAN User’s Manual - Professional Software for Survey Analysis for Multistage Sample Designs - Realease 6.0</em>. Research Triangle Park, NC:Research Triangle Institute.</p>
-</div>
-<div>
-<p>Shah, B. V., R. E. Folsom, L. M. LaVange, S. C. Wheeless, K. E. Boyle, and R. L. Williams. 1993. “Statistical Methods and Mathematical Algorithms Used in Sudaan.”</p>
-</div>
-<div>
-<p>Skinner, C. J. 1989a. “Introduction to Part A.” In <em>Analysis of Complex Surveys</em>, 23–57. Chichester: John Wiley; Sons.</p>
-</div>
-<div>
-<p>Skinner, C. J., D. Holt, and T. M. F. Smith, eds. 1989. <em>Analysis of Complex Surveys</em>. Chichester: John Wiley; Sons.</p>
-</div>
-<div>
-<p>Stata. 1997. <em>Stata User’s Guide, Release 5</em>. College Station, Texas: Stata Press.</p>
-</div>
-<div>
-<p>Sudman, S. 1976. <em>Applied Sampling</em>. Nova Iorque: Academic Press.</p>
-</div>
-<div>
-<p>Westat. 1996. <em>A User’s Guide to WesVarPc, Version 2.0</em>. Mariland: Westat, Inc.</p>
-</div>
-<div>
-<p>Wolter, K. M. 1985. <em>Introduction to Variance Estimation</em>. Nova Iorque: Springer-Verlag.</p>
-</div>
 </div>
 </div>
             </section>
@@ -387,8 +231,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="pacotes-para-analisar-dados-amostrais.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introducao.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -416,7 +260,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/11-references.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/00-Cap0.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
