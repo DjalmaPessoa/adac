@@ -16,7 +16,7 @@ description: "This is a minimal example of using the bookdown package to write a
 
 ```{r}
 library(survey)
-source("C:\\Users\\anthonyd\\Documents\\GitHub\\adac\\data\\ppv1.R")
+source("~\\GitHub\\adac\\data\\ppv1.R")
 ```
 
 
