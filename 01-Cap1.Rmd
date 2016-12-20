@@ -83,61 +83,64 @@ Em seguida foi feita uma alocação proporcional, com base no
 número de domicílios particulares permanentes ocupados do estrato de
 renda no universo de cada estrato geográfico, obtidos pelo Censo de 1991.
 No final foram obtidos 554 setores na amostra, distribuídos tal como
-revela a Tabela \@ref(Tab11).
+revela a Tabela \@ref(tab:numset).
 
 
 
-Estrato Geográfico         | População | Amostra
----------------------------|-----------|-----------
-1 RM Fortaleza             |  2.263    |   62
-2-RM Recife                |  2.309    |   61
-3-RM Salvador              |  2.186    |   61
-4-Restante Nordeste Urbano | 15.057    |   61
-5-Restante Nordeste Rural  | 23.711    |   33
-6-RM Belo Horizonte        |  3.283    |   62           
-7-RM Rio de Janeiro        | 10.420    |   61
-8-RM São Paulo             | 14.943    |   61
-9-Restante Sudeste Urbano  | 25.855    |   61
-10-Restante Sudeste Rural  | 12.001    |   31          |
-Total                      |112.001    |   554
+```{r, numset, echo=FALSE}
+estrat <- data.frame (Estrato =
+ c("RM Fortaleza", "RM Recife", "RM Salvador", 
+"Restante Nordeste Urbano", "Restante Nordeste Rural",
+"RM Belo Horizonte", "RM Rio de Janeiro", "RM São Paulo",
+"Restante Sudeste Urbano", "Restante Sudeste Rural","Total")
+, População = c(2263, 2309,2186,15057,23711,3283, 10420,
+ 14931, 25855, 12001, 112016), Amostra = c(62, 61, 61, 61, 33, 62,
+   61, 61, 61,31,554) 
+    )
+knitr::kable(estrat,booktabs = TRUE, 
+  caption = "Número de setores na população e na amostra, por estrato geográfico"
+  )
+```
 
-\begin{center}
-\begin{table}[htbp] \centering
+<!-- \begin{center} -->
+<!-- \begin{table}[htbp] \centering -->
 
-\caption{Número de setores na população e na amostra, por estrato geográfico}
-\bigskip \label{Tab11} 
-\begin{tabular}{|l|c|c|}
-\hline\hline
-& \multicolumn{2}{|l|}{Número de setores} \\ \cline{2-3}
-\multicolumn{1}{|c|}{Estrato Geográfico} & População & Amostra
-\\ \hline\hline
-1-RM Fortaleza & \multicolumn{1}{|r|}{$2.263$} & \multicolumn{1}{|r|}{$62$}
-\\ \hline
-2-RM Recife & \multicolumn{1}{|r|}{$2.309$} & \multicolumn{1}{|r|}{$61$} \\ 
-\hline
-3-RM Salvador & \multicolumn{1}{|r|}{$2.186$} & \multicolumn{1}{|r|}{$61$}
-\\ \hline
-4-Restante Nordeste Urbano & \multicolumn{1}{|r|}{$15.057$} & 
-\multicolumn{1}{|r|}{$61$} \\ \hline
-5-Restante Nordeste Rural & \multicolumn{1}{|r|}{$23.711$} & 
-\multicolumn{1}{|r|}{$33$} \\ \hline
-6-RM Belo Horizonte & \multicolumn{1}{|r|}{$3.283$} & \multicolumn{1}{|r|}{$%
-62$} \\ \hline
-7-RM Rio de Janeiro & \multicolumn{1}{|r|}{$10.420$} & \multicolumn{1}{|r|}{$%
-61$} \\ \hline
-8-RM São Paulo & \multicolumn{1}{|r|}{$14.931$} & \multicolumn{1}{|r|}{$%
-61$} \\ \hline
-9-Restante Sudeste Urbano & \multicolumn{1}{|r|}{$25.855$} & 
-\multicolumn{1}{|r|}{$61$} \\ \hline
-10-Restante Sudeste Rural & \multicolumn{1}{|r|}{$12.001$} & 
-\multicolumn{1}{|r|}{$31$} \\ \hline\hline
-Total & \multicolumn{1}{|r|}{$112.016$} & \multicolumn{1}{|r|}{$554$} \\ 
-\hline\hline
-\end{tabular}
-\end{table}
-\end{center}
+<!-- \caption{Número de setores na população e na amostra, por estrato geográfico} -->
+<!-- \bigskip \label{Tab11}  -->
+<!-- \begin{tabular}{|l|c|c|} -->
+<!-- \hline\hline -->
+<!-- & \multicolumn{2}{|l|}{Número de setores} \\ \cline{2-3} -->
+<!-- \multicolumn{1}{|c|}{Estrato Geográfico} & População & Amostra -->
+<!-- \\ \hline\hline -->
+<!-- 1-RM Fortaleza & \multicolumn{1}{|r|}{$2.263$} & \multicolumn{1}{|r|}{$62$} -->
+<!-- \\ \hline -->
+<!-- 2-RM Recife & \multicolumn{1}{|r|}{$2.309$} & \multicolumn{1}{|r|}{$61$} \\  -->
+<!-- \hline -->
+<!-- 3-RM Salvador & \multicolumn{1}{|r|}{$2.186$} & \multicolumn{1}{|r|}{$61$} -->
+<!-- \\ \hline -->
+<!-- 4-Restante Nordeste Urbano & \multicolumn{1}{|r|}{$15.057$} &  -->
+<!-- \multicolumn{1}{|r|}{$61$} \\ \hline -->
+<!-- 5-Restante Nordeste Rural & \multicolumn{1}{|r|}{$23.711$} &  -->
+<!-- \multicolumn{1}{|r|}{$33$} \\ \hline -->
+<!-- 6-RM Belo Horizonte & \multicolumn{1}{|r|}{$3.283$} & \multicolumn{1}{|r|}{$% -->
+<!-- 62$} \\ \hline -->
+<!-- 7-RM Rio de Janeiro & \multicolumn{1}{|r|}{$10.420$} & \multicolumn{1}{|r|}{$% -->
+<!-- 61$} \\ \hline -->
+<!-- 8-RM São Paulo & \multicolumn{1}{|r|}{$14.931$} & \multicolumn{1}{|r|}{$% -->
+<!-- 61$} \\ \hline -->
+<!-- 9-Restante Sudeste Urbano & \multicolumn{1}{|r|}{$25.855$} &  -->
+<!-- \multicolumn{1}{|r|}{$61$} \\ \hline -->
+<!-- 10-Restante Sudeste Rural & \multicolumn{1}{|r|}{$12.001$} &  -->
+<!-- \multicolumn{1}{|r|}{$31$} \\ \hline\hline -->
+<!-- Total & \multicolumn{1}{|r|}{$112.016$} & \multicolumn{1}{|r|}{$554$} \\  -->
+<!-- \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
 
-A Tabela \@ref(Tab12) apresenta um resumo das distribuições dos pesos
+
+
+A Tabela \@ref(tab:dispesos) apresenta um resumo das distribuições dos pesos
 amostrais para as Regiões Nordeste (5 estratos geográficos) e
 Sudeste (5 estratos geográficos) separadamente e para o conjunto da
 amostra da PPV.
@@ -160,6 +163,17 @@ Nordeste + Sudeste & $724$ & \multicolumn{1}{|r|}{$1.364$} & $4.034$ &
 \end{table}
 
 \end{center}
+
+```{r, dispesos, echo=FALSE}
+Nordeste <- summary(ppv1$PESOF[ppv1$REGIAO=="1"])
+Sudeste <- summary(ppv1$PESOF[ppv1$REGIAO=="2"])
+Nordeste_Sudeste <- summary(ppv1$PESOF)
+Pesos <- rbind(Nordeste, Sudeste, Nordeste_Sudeste)
+knitr::kable(Pesos,booktabs = TRUE,
+  caption = "Distribuição dos pesos da amostra da PPV")
+```
+
+
 
 No cálculo dos pesos foram consideradas as probabilidades de
 inclusão dos elementos na amostra bem como correções devido a

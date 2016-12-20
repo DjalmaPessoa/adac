@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2016-12-19">
+<meta name="date" content="2016-12-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -227,76 +227,153 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">1.2</span> Impacto dos pesos da amostra da PPV</h2>
 <p>Os dados deste exemplo são relativos à distribuição dos pesos na amostra da Pesquisa sobre Padrões de Vida (PPV), realizada pelo IBGE nos anos 1996-97. <span class="citation">(Albieri and Bianchini <a href="#ref-albieri">1997</a>)</span> descrevem resumidamente a Pesquisa sobre Padrões de Vida (PPV), que foi realizada nas Regiões Nordeste e Sudeste do País, considerando 10 estratos geográficos, a saber: Região Metropolitana de Fortaleza, Região Metropolitana de Recife, Região Metropolitana de Salvador, restante da área urbana do Nordeste, restante da área rural do Nordeste, Região Metropolitana de Belo Horizonte, Região Metropolitana do Rio de Janeiro, Região Metropolitana de São Paulo, restante da área urbana do Sudeste e restante da área rural do Sudeste.</p>
 <p>O plano amostral empregado na seleção da amostra da PPV foi de dois estágios, com estratificação das unidades primárias de amostragem (no caso os setores censitários da base geográfica do IBGE conforme usada para o Censo Demográfico de 1991), seleção destes setores com probabilidade proporcional ao tamanho, e seleção aleatória das unidades de segundo estágio (domicílios). O tamanho da amostra para cada estrato geográfico foi fixado em 480 domicílios, e o número de setores selecionados foi fixado em 60, com 8 domicílios selecionados em cada setor. A exceção ficou por conta dos estratos que correspondem ao restante da área rural de cada Região, onde foram selecionados 30 setores e 16 domicílios por setor, em função da dificuldade de acesso a esses setores, o que implicaria em aumento de custo da coleta.</p>
-<p>Os setores de cada um dos 10 estratos geográficos foram subdivididos em 3 estratos de acordo com a renda média mensal do chefe do domicílio por setor, perfazendo um total de 30 estratos geográficos versus renda. Em seguida foi feita uma alocação proporcional, com base no número de domicílios particulares permanentes ocupados do estrato de renda no universo de cada estrato geográfico, obtidos pelo Censo de 1991. No final foram obtidos 554 setores na amostra, distribuídos tal como revela a Tabela <a href="#Tab11"><strong>??</strong></a>.</p>
+<p>Os setores de cada um dos 10 estratos geográficos foram subdivididos em 3 estratos de acordo com a renda média mensal do chefe do domicílio por setor, perfazendo um total de 30 estratos geográficos versus renda. Em seguida foi feita uma alocação proporcional, com base no número de domicílios particulares permanentes ocupados do estrato de renda no universo de cada estrato geográfico, obtidos pelo Censo de 1991. No final foram obtidos 554 setores na amostra, distribuídos tal como revela a Tabela <a href="introducao.html#tab:numset">1.1</a>.</p>
 <table>
+<caption><span id="tab:numset">Table 1.1: </span>Número de setores na população e na amostra, por estrato geográfico</caption>
 <thead>
 <tr class="header">
-<th>Estrato Geográfico</th>
-<th>População</th>
-<th>Amostra</th>
+<th align="left">Estrato</th>
+<th align="right">População</th>
+<th align="right">Amostra</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1 RM Fortaleza</td>
-<td>2.263</td>
-<td>62</td>
+<td align="left">RM Fortaleza</td>
+<td align="right">2263</td>
+<td align="right">62</td>
 </tr>
 <tr class="even">
-<td>2-RM Recife</td>
-<td>2.309</td>
-<td>61</td>
+<td align="left">RM Recife</td>
+<td align="right">2309</td>
+<td align="right">61</td>
 </tr>
 <tr class="odd">
-<td>3-RM Salvador</td>
-<td>2.186</td>
-<td>61</td>
+<td align="left">RM Salvador</td>
+<td align="right">2186</td>
+<td align="right">61</td>
 </tr>
 <tr class="even">
-<td>4-Restante Nordeste Urbano</td>
-<td>15.057</td>
-<td>61</td>
+<td align="left">Restante Nordeste Urbano</td>
+<td align="right">15057</td>
+<td align="right">61</td>
 </tr>
 <tr class="odd">
-<td>5-Restante Nordeste Rural</td>
-<td>23.711</td>
-<td>33</td>
+<td align="left">Restante Nordeste Rural</td>
+<td align="right">23711</td>
+<td align="right">33</td>
 </tr>
 <tr class="even">
-<td>6-RM Belo Horizonte</td>
-<td>3.283</td>
-<td>62</td>
+<td align="left">RM Belo Horizonte</td>
+<td align="right">3283</td>
+<td align="right">62</td>
 </tr>
 <tr class="odd">
-<td>7-RM Rio de Janeiro</td>
-<td>10.420</td>
-<td>61</td>
+<td align="left">RM Rio de Janeiro</td>
+<td align="right">10420</td>
+<td align="right">61</td>
 </tr>
 <tr class="even">
-<td>8-RM São Paulo</td>
-<td>14.943</td>
-<td>61</td>
+<td align="left">RM São Paulo</td>
+<td align="right">14931</td>
+<td align="right">61</td>
 </tr>
 <tr class="odd">
-<td>9-Restante Sudeste Urbano</td>
-<td>25.855</td>
-<td>61</td>
+<td align="left">Restante Sudeste Urbano</td>
+<td align="right">25855</td>
+<td align="right">61</td>
 </tr>
 <tr class="even">
-<td>10-Restante Sudeste Rural</td>
-<td>12.001</td>
-<td>31</td>
+<td align="left">Restante Sudeste Rural</td>
+<td align="right">12001</td>
+<td align="right">31</td>
 </tr>
 <tr class="odd">
-<td>Total</td>
-<td>112.001</td>
-<td>554</td>
+<td align="left">Total</td>
+<td align="right">112016</td>
+<td align="right">554</td>
 </tr>
 </tbody>
 </table>
+<!-- \begin{center} -->
+<!-- \begin{table}[htbp] \centering -->
+<!-- \caption{Número de setores na população e na amostra, por estrato geográfico} -->
+<!-- \bigskip \label{Tab11}  -->
+<!-- \begin{tabular}{|l|c|c|} -->
+<!-- \hline\hline -->
+<!-- & \multicolumn{2}{|l|}{Número de setores} \\ \cline{2-3} -->
+<!-- \multicolumn{1}{|c|}{Estrato Geográfico} & População & Amostra -->
+<!-- \\ \hline\hline -->
+<!-- 1-RM Fortaleza & \multicolumn{1}{|r|}{$2.263$} & \multicolumn{1}{|r|}{$62$} -->
+<!-- \\ \hline -->
+<!-- 2-RM Recife & \multicolumn{1}{|r|}{$2.309$} & \multicolumn{1}{|r|}{$61$} \\  -->
+<!-- \hline -->
+<!-- 3-RM Salvador & \multicolumn{1}{|r|}{$2.186$} & \multicolumn{1}{|r|}{$61$} -->
+<!-- \\ \hline -->
+<!-- 4-Restante Nordeste Urbano & \multicolumn{1}{|r|}{$15.057$} &  -->
+<!-- \multicolumn{1}{|r|}{$61$} \\ \hline -->
+<!-- 5-Restante Nordeste Rural & \multicolumn{1}{|r|}{$23.711$} &  -->
+<!-- \multicolumn{1}{|r|}{$33$} \\ \hline -->
+<!-- 6-RM Belo Horizonte & \multicolumn{1}{|r|}{$3.283$} & \multicolumn{1}{|r|}{$% -->
+<!-- 62$} \\ \hline -->
+<!-- 7-RM Rio de Janeiro & \multicolumn{1}{|r|}{$10.420$} & \multicolumn{1}{|r|}{$% -->
+<!-- 61$} \\ \hline -->
+<!-- 8-RM São Paulo & \multicolumn{1}{|r|}{$14.931$} & \multicolumn{1}{|r|}{$% -->
+<!-- 61$} \\ \hline -->
+<!-- 9-Restante Sudeste Urbano & \multicolumn{1}{|r|}{$25.855$} &  -->
+<!-- \multicolumn{1}{|r|}{$61$} \\ \hline -->
+<!-- 10-Restante Sudeste Rural & \multicolumn{1}{|r|}{$12.001$} &  -->
+<!-- \multicolumn{1}{|r|}{$31$} \\ \hline\hline -->
+<!-- Total & \multicolumn{1}{|r|}{$112.016$} & \multicolumn{1}{|r|}{$554$} \\  -->
+<!-- \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
+<p>A Tabela <a href="introducao.html#tab:dispesos">1.2</a> apresenta um resumo das distribuições dos pesos amostrais para as Regiões Nordeste (5 estratos geográficos) e Sudeste (5 estratos geográficos) separadamente e para o conjunto da amostra da PPV.</p>
 
-<p>A Tabela <a href="#Tab12"><strong>??</strong></a> apresenta um resumo das distribuições dos pesos amostrais para as Regiões Nordeste (5 estratos geográficos) e Sudeste (5 estratos geográficos) separadamente e para o conjunto da amostra da PPV.</p>
-
+<table>
+<caption><span id="tab:dispesos">Table 1.2: </span>Distribuição dos pesos da amostra da PPV</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Min.</th>
+<th align="right">1st Qu.</th>
+<th align="right">Median</th>
+<th align="right">Mean</th>
+<th align="right">3rd Qu.</th>
+<th align="right">Max.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nordeste</td>
+<td align="right">724</td>
+<td align="right">1194</td>
+<td align="right">1556</td>
+<td align="right">3999</td>
+<td align="right">6937</td>
+<td align="right">15350</td>
+</tr>
+<tr class="even">
+<td>Sudeste</td>
+<td align="right">991</td>
+<td align="right">2789</td>
+<td align="right">5429</td>
+<td align="right">6922</td>
+<td align="right">9509</td>
+<td align="right">29230</td>
+</tr>
+<tr class="odd">
+<td>Nordeste_Sudeste</td>
+<td align="right">724</td>
+<td align="right">1403</td>
+<td align="right">3785</td>
+<td align="right">5340</td>
+<td align="right">8306</td>
+<td align="right">29230</td>
+</tr>
+</tbody>
+</table>
 <p>No cálculo dos pesos foram consideradas as probabilidades de inclusão dos elementos na amostra bem como correções devido a não-resposta. Contudo, a grande variabilidade dos pesos amostrais da PPV é devida à variabilidade das probabilidades de inclusão na amostra, ilustrando desta forma o ponto i) citado anteriormente nesta seção.</p>
 <p>Na análise de dados desta pesquisa, deve-se considerar que há elementos da amostra com pesos bem distintos. Por exemplo, a razão entre o maior e o menor peso é cerca de 40 vezes. Tais pesos são utilizados para <code>expandir</code> os dados, multiplicando-se cada observação pelo seu respectivo peso. Assim, por exemplo, para <code>estimar</code> quantos elementos <code>da população</code> pertencem a determinado conjunto (domínio), basta somar os pesos dos elementos da amostra que pertencem a este conjunto. É possível ainda incorporar os pesos, de maneira simples e natural, quando estimamos medidas descritivas simples da população tais como totais, médias, proporções, razões, etc.</p>
 <p>Por outro lado, quando utilizamos a amostra para estudos analíticos, as opções padrão disponíveis nos pacotes estatísticos usuais para levar em conta os pesos distintos das observações são apropriadas somente para observações independentes e identicamente distribuídas (IID). Por exemplo, os procedimentos padrão disponíveis para estimar a média populacional permitem utilizar pesos distintos das observações amostrais, mas tratariam tais pesos como se fossem frequências de observações repetidas na amostra, e portanto interpretariam a soma dos pesos como tamanho amostral, situação que na maioria das vezes gera inferências incorretas sobre a precisão das estimativas, pois o tamanho da amostra é muito menor que a soma dos pesos amostrais usualmente encontrados nos arquivos de microdados de pesquisas disseminados por agências de estatísticas oficiais. Em tais pesquisas, a opção mais freqüente é disseminar pesos que somados estimam o total de unidades <code>da população</code>.</p>
