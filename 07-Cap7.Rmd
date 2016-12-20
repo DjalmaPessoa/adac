@@ -86,8 +86,16 @@ Não cobertos & 2 & \multicolumn{1}{|r|}{$160$} & \multicolumn{1}{|r|}{$%
 %EndExpansion
 \end{center}
 
-As proporções populacionais desconhecidas nas categorias são $p_{j}=N_{j}/N$, onde $N$ é o tamanho total da populaç%
-ão de empregados e $N_{j}$ é o número de elementos da população na categoria 
+
+```{r}
+obs <- c(840,160) # observados
+n <- sum(obs)
+pobs <- obs/n
+p0 <- c(.8, .2) # valores hipotéticos
+```
+
+
+As proporções populacionais desconhecidas nas categorias são $p_{j}=N_{j}/N$, onde $N$ é o tamanho total da população de empregados e $N_{j}$ é o número de elementos da população na categoria 
 $j,\ j=1,2$. Os parâmetros populacionais $p_{j}$
 poderiam também ser considerados como pseudo-parâmetros, se vistos
 como estimativas de censo para as probabilidades desconhecidas ($\pi _{j}$,
@@ -103,6 +111,13 @@ X_{P}^{2}=\sum\limits_{j=1}^{2}\left( n_{j}-n\,p_{0j}\right)
 \end{equation}
 onde as proporções $\widehat{p}_{j}=n_{j}/n$ são estimativas
 amostrais usuais das proporções populacionais $p_{j}$, para $j=1,2$.
+
+```{r}
+
+X2P <- sum((obs-n*p0)^2/(n*p0))
+X2P
+```
+
 
 Como há apenas duas categorias e as proporções devem somar $1$,
 observa-se que $p_{2}=1-p_{1},$ $\widehat{p}_{2}=1-\widehat{p}_{1}$ e 
@@ -172,7 +187,21 @@ X_{RV}^{2}(d)=X_{RV}^{2}/d\;\;.
 Vamos calcular os valores das estatísticas de Pearson e de RV, com suas
 correções de Rao-Scott, para os dados do Exemplo \ref{exebin}. Para
 as correções, primeiro é preciso calcular o efeito do plano
-amostral 
+amostral
+
+
+```{r}
+p <- p0[1]
+m <- 50
+d <- (p*(1-p)/m)/ (p*(1-p)/n)
+d
+X2Pd <- X2P/d
+X2Pd
+pchisq(X2Pd, 1, lower.tail = F)
+```
+
+
+
 \[
 \begin{array}{llcll}
 d & = & V_{p}\left( \widehat{p}\right) /V_{bin}\left( \widehat{p}\right) & =
@@ -194,15 +223,33 @@ correção de Rao-Scott $X_{P}^{2}(d)$ é então dado por
 X_{P}^{2}(d)=X_{P}^{2}/d=10/20=0,5 
 \]
 com $p$valor $0,4795$. Observe que $Z_{p}^{2}=0,707^{2}=0,5$ , e também
-que $X_{P}^{2}(d)=Z_{bin}^{2}/d= 3,162^{2}/20=0,5$ ou seja, $%
-Z_{p}^{2}=X_{P}^{2}(d)$ conforme esperado. Os valores da estatística do
+que $X_{P}^{2}(d)=Z_{bin}^{2}/d= 3,162^{2}/20=0,5$ ou seja, $Z_{p}^{2}=X_{P}^{2}(d)$ 
+conforme esperado. Os valores da estatística do
 teste da Razão de Verossimilhança e sua correção de
 Rao-Scott são dados respectivamente por 
+
+```{r}
+# Estat'sitica da RV
+X2RV <- 2*n*sum(pobs*log(pobs/p0))
+X2RV
+```
+
 \[
 X_{RV}^{2}=2\times 1.000\times \log \left( \frac{0,84\times 0,16}{0,80\times
 0,20}\right) =10,56\;, 
 \]
 com $p$valor $0,0012$, e 
+
+
+```{r}
+# Estatística da RV corrigida
+X2RVd <- X2RV/d
+X2RVd
+pchisq(X2RVd, 1, lower.tail = FALSE)
+```
+
+
+
 \[
 X_{RV}^{2}(d)=X_{LR}^{2}/d=10,56/20=0,528\;\;, 
 \]
@@ -237,11 +284,11 @@ do problema, a saber a correção de estatísticas de teste usuais
 ### Estatística de Wald
 
 Como alternativa à estatística de teste de Pearson, podemos usar a
-es\-ta\-tís\-ti\-ca de bondade de ajuste $X_{N}^{2}$ de Neyman. No caso
+estatística de bondade de ajuste $X_{N}^{2}$ de Neyman. No caso
 de duas celas, ela se reduz a 
 \begin{equation}
 X_{N}^{2}=n\sum\limits_{j=1}^{2}\left( \hat{p}_{j}-p_{0j}\right) ^{2}/\hat{p}%
-_{j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{\hat{p}\left( 1-\hat{p}%
+_{j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{\hat{p}\left( 1-\hat{p}
 \right) /n}\;\;\mbox{.}  
 (\#eq:qual6)
 \end{equation}
@@ -273,7 +320,16 @@ estatística resultante $X_{bin}^{2}$ coincide com a estatística $X_{N}^{2}$ de
 Para o plano amostral de conglomerados considerado no Exemplo \ref{exebin},
 a estatística $X_{W}^{2}$, sem qualquer ajuste auxiliar, já é
 distribuída assintoticamente como qui-quadrado com um grau de liberdade.
-O valor da estatística de Wald para esse exemplo é 
+O valor da estatística de Wald para esse exemplo é
+
+```{r}
+Vp <- (pobs[1]*pobs[2])/m # variância usa número efetivo
+X2W <- ((pobs[1]-p0[1])^2)/Vp
+X2W
+pchisq(X2W,1, lower.tail = FALSE)
+```
+
+
 \[
 X_{W}^{2}=\left( 0,84-0,80\right) ^{2}/0,002743=0,583\;\;\mbox{.} 
 \]
@@ -291,7 +347,7 @@ desvantagens no uso da estatística de Wald baseada no plano amostral,
 devido à instabilidade nas estimativas de variância em pequenas
 amostras.
 
-Reproduzimos na Tabela \ref{tab72} os resultados para todas as
+Reproduzimos na Tabela \@ref(tab:testprop) os resultados para todas as
 estatísticas de teste consideradas até agora, para facilidade de
 comparação.
 
@@ -319,6 +375,19 @@ Estatística de teste & gl & Valor observado & $p$valor \\ \hline\hline
 \end{table}%
 %EndExpansion
 \end{center}
+
+```{r, testprop, echo=FALSE}
+Valor_observado= round(c(X2P, X2Pd,X2RV, X2RVd, X2W ),2)
+valorp = round(c(pchisq(c(X2P, X2Pd,X2RV, X2RVd, X2W), 1, lower.tail = FALSE)),4)
+
+testprop <- data.frame(Estatística = c("Pearson","Pearson ajustada","RV", "RV ajustada", "Wald"),
+  gl = rep(1, 5), Valor_observado,valorp)
+  
+
+knitr::kable(testprop, booktabs=TRUE,
+  caption = "Valores e valores-p de estatísticas de testes para os dados do Exemplo 4.4")
+```
+
 
 Nesta seção foram apresentadas as duas principais abordagens para
 incorporar o efeito do plano amostral na estatística de teste:

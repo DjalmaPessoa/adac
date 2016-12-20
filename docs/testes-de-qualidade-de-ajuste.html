@@ -225,7 +225,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">7.2.1</span> Correção de Estatísticas Clássicas</h3>
 <p>No Exemplo  do Capítulo 4 a estatística de teste <span class="math inline">\(Z_{bin},\)</span> que foi utilizada para comparar com um valor hipotético pré-fixado a proporção de empregados cobertos por plano de saúde, resultou num teste mais liberal do que o teste que empregou a estatística <span class="math inline">\(Z_{p}\)</span>, baseada no plano amostral efetivamente adotado. A causa disto foi o fato de <span class="math inline">\(Z_{bin}\)</span> não considerar o efeito de conglomeração existente. Vamos examinar com mais detalhes o comportamento assintótico da estatística de teste <span class="math inline">\(Z_{bin}\)</span>, construindo a estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> de Pearson para o exemplo correspondente. Para isto, consideremos a Tabela  contendo a distribuição de frequências, onde <span class="math inline">\(n_{j}\)</span> e <span class="math inline">\(p_{oj}\)</span> são as frequências (absolutas) observadas na amostra e as proporções hipotéticas nas categorias de interesse, respectivamente.</p>
 
-<p>As proporções populacionais desconhecidas nas categorias são <span class="math inline">\(p_{j}=N_{j}/N\)</span>, onde <span class="math inline">\(N\)</span> é o tamanho total da populaç% ão de empregados e <span class="math inline">\(N_{j}\)</span> é o número de elementos da população na categoria <span class="math inline">\(j,\ j=1,2\)</span>. Os parâmetros populacionais <span class="math inline">\(p_{j}\)</span> poderiam também ser considerados como pseudo-parâmetros, se vistos como estimativas de censo para as probabilidades desconhecidas (<span class="math inline">\(\pi _{j}\)</span>, digamos) no contexto de um modelo de superpopulação.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">obs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">840</span>,<span class="dv">160</span>) <span class="co"># observados</span>
+n &lt;-<span class="st"> </span><span class="kw">sum</span>(obs)
+pobs &lt;-<span class="st"> </span>obs/n
+p0 &lt;-<span class="st"> </span><span class="kw">c</span>(.<span class="dv">8</span>, .<span class="dv">2</span>) <span class="co"># valores hipotéticos</span></code></pre></div>
+<p>As proporções populacionais desconhecidas nas categorias são <span class="math inline">\(p_{j}=N_{j}/N\)</span>, onde <span class="math inline">\(N\)</span> é o tamanho total da população de empregados e <span class="math inline">\(N_{j}\)</span> é o número de elementos da população na categoria <span class="math inline">\(j,\ j=1,2\)</span>. Os parâmetros populacionais <span class="math inline">\(p_{j}\)</span> poderiam também ser considerados como pseudo-parâmetros, se vistos como estimativas de censo para as probabilidades desconhecidas (<span class="math inline">\(\pi _{j}\)</span>, digamos) no contexto de um modelo de superpopulação.</p>
 A estatística de teste de Pearson para a hipótese simples de bondade de ajuste <span class="math inline">\(H_{0}:p_{j}=p_{0j},\ j=1,2\)</span>, é dada por
 <span class="math display" id="eq:qual1">\[\begin{equation}
 X_{P}^{2}=\sum\limits_{j=1}^{2}\left( n_{j}-n\,p_{0j}\right)
@@ -234,6 +238,9 @@ X_{P}^{2}=\sum\limits_{j=1}^{2}\left( n_{j}-n\,p_{0j}\right)
 \tag{7.1}
 \end{equation}\]</span>
 <p>onde as proporções <span class="math inline">\(\widehat{p}_{j}=n_{j}/n\)</span> são estimativas amostrais usuais das proporções populacionais <span class="math inline">\(p_{j}\)</span>, para <span class="math inline">\(j=1,2\)</span>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X2P &lt;-<span class="st"> </span><span class="kw">sum</span>((obs-n*p0)^<span class="dv">2</span>/(n*p0))
+X2P</code></pre></div>
+<pre><code>## [1] 10</code></pre>
 Como há apenas duas categorias e as proporções devem somar <span class="math inline">\(1\)</span>, observa-se que <span class="math inline">\(p_{2}=1-p_{1},\)</span> <span class="math inline">\(\widehat{p}_{2}=1-\widehat{p}_{1}\)</span> e <span class="math inline">\(p_{02}=1-p_{01}\)</span>. Isto acarreta na equivalência entre as estatísticas <span class="math inline">\(Z_{bin}\)</span> e <span class="math inline">\(X_{P}^{2}\)</span> demonstrada pela relação
 <span class="math display" id="eq:qual1" id="eq:qual2">\[\begin{equation}
 X_{P}^{2}=n\sum\limits_{j=1}^{2}\left( \widehat{p}%
@@ -263,7 +270,18 @@ No caso de amostragem aleatória simples, a estatística <span class="math inlin
 X_{RV}^{2}(d)=X_{RV}^{2}/d\;\;.  
 \tag{7.5}
 \end{equation}\]</span>
-<p>Vamos calcular os valores das estatísticas de Pearson e de RV, com suas correções de Rao-Scott, para os dados do Exemplo . Para as correções, primeiro é preciso calcular o efeito do plano amostral <span class="math display">\[
+<p>Vamos calcular os valores das estatísticas de Pearson e de RV, com suas correções de Rao-Scott, para os dados do Exemplo . Para as correções, primeiro é preciso calcular o efeito do plano amostral</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span>p0[<span class="dv">1</span>]
+m &lt;-<span class="st"> </span><span class="dv">50</span>
+d &lt;-<span class="st"> </span>(p*(<span class="dv">1</span>-p)/m)/<span class="st"> </span>(p*(<span class="dv">1</span>-p)/n)
+d</code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X2Pd &lt;-<span class="st"> </span>X2P/d
+X2Pd</code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pchisq</span>(X2Pd, <span class="dv">1</span>, <span class="dt">lower.tail =</span> F)</code></pre></div>
+<pre><code>## [1] 0.4795001</code></pre>
+<p><span class="math display">\[
 \begin{array}{llcll}
 d &amp; = &amp; V_{p}\left( \widehat{p}\right) /V_{bin}\left( \widehat{p}\right) &amp; =
 &amp; \frac{p\left( 1-p\right) /m}{p\left( 1-p\right) /n} \\ 
@@ -275,10 +293,22 @@ X_{P}^{2}=\frac{\left( 0,84-0,80\right) ^{2}}{\left( 0,80\times 0,20\right)
 /1.000}=10 
 \]</span> com <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,0016\)</span>. O valor da estatística de teste de Pearson com a correção de Rao-Scott <span class="math inline">\(X_{P}^{2}(d)\)</span> é então dado por <span class="math display">\[
 X_{P}^{2}(d)=X_{P}^{2}/d=10/20=0,5 
-\]</span> com <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,4795\)</span>. Observe que <span class="math inline">\(Z_{p}^{2}=0,707^{2}=0,5\)</span> , e também que <span class="math inline">\(X_{P}^{2}(d)=Z_{bin}^{2}/d= 3,162^{2}/20=0,5\)</span> ou seja, <span class="math inline">\(% Z_{p}^{2}=X_{P}^{2}(d)\)</span> conforme esperado. Os valores da estatística do teste da Razão de Verossimilhança e sua correção de Rao-Scott são dados respectivamente por <span class="math display">\[
+\]</span> com <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,4795\)</span>. Observe que <span class="math inline">\(Z_{p}^{2}=0,707^{2}=0,5\)</span> , e também que <span class="math inline">\(X_{P}^{2}(d)=Z_{bin}^{2}/d= 3,162^{2}/20=0,5\)</span> ou seja, <span class="math inline">\(Z_{p}^{2}=X_{P}^{2}(d)\)</span> conforme esperado. Os valores da estatística do teste da Razão de Verossimilhança e sua correção de Rao-Scott são dados respectivamente por</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estat&#39;sitica da RV</span>
+X2RV &lt;-<span class="st"> </span><span class="dv">2</span>*n*<span class="kw">sum</span>(pobs*<span class="kw">log</span>(pobs/p0))
+X2RV</code></pre></div>
+<pre><code>## [1] 10.56154</code></pre>
+<p><span class="math display">\[
 X_{RV}^{2}=2\times 1.000\times \log \left( \frac{0,84\times 0,16}{0,80\times
 0,20}\right) =10,56\;, 
-\]</span> com <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,0012\)</span>, e <span class="math display">\[
+\]</span> com <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,0012\)</span>, e</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estatística da RV corrigida</span>
+X2RVd &lt;-<span class="st"> </span>X2RV/d
+X2RVd</code></pre></div>
+<pre><code>## [1] 0.528077</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pchisq</span>(X2RVd, <span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## [1] 0.4674165</code></pre>
+<p><span class="math display">\[
 X_{RV}^{2}(d)=X_{LR}^{2}/d=10,56/20=0,528\;\;, 
 \]</span> com <span class="math inline">\(p\)</span>valor de <span class="math inline">\(0,4675\)</span>.</p>
 <p>Como se pode notar, as estatísticas baseadas na Razão de Verossimilhança oferecem resultados semelhantes às versões correspondentes baseadas na estatística de Pearson. Em ambos os casos, as decisões baseadas nas estatísticas sem correção seriam incorretas no sentido de rejeitar a hipótese nula. Também em ambos os casos a correção de Rao-Scott produziu efeito semelhante.</p>
@@ -287,10 +317,10 @@ X_{RV}^{2}(d)=X_{LR}^{2}/d=10,56/20=0,528\;\;,
 </div>
 <div id="estatistica-de-wald" class="section level3">
 <h3><span class="header-section-number">7.2.2</span> Estatística de Wald</h3>
-Como alternativa à estatística de teste de Pearson, podemos usar a es-ta-tís-ti-ca de bondade de ajuste <span class="math inline">\(X_{N}^{2}\)</span> de Neyman. No caso de duas celas, ela se reduz a
+Como alternativa à estatística de teste de Pearson, podemos usar a estatística de bondade de ajuste <span class="math inline">\(X_{N}^{2}\)</span> de Neyman. No caso de duas celas, ela se reduz a
 <span class="math display" id="eq:qual6">\[\begin{equation}
 X_{N}^{2}=n\sum\limits_{j=1}^{2}\left( \hat{p}_{j}-p_{0j}\right) ^{2}/\hat{p}%
-_{j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{\hat{p}\left( 1-\hat{p}%
+_{j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{\hat{p}\left( 1-\hat{p}
 \right) /n}\;\;\mbox{.}  
 \tag{7.6}
 \end{equation}\]</span>
@@ -303,12 +333,62 @@ X_{W}^{2}=\left( \widehat{p}-p_{0}\right) ^{2}/\hat{V}_{p}\left( \widehat{p}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(\hat{V}_{p}\left( \widehat{p}\right)\)</span> é uma estimativa da variância de aleatorização de <span class="math inline">\(\hat{p}\)</span>, correspondente ao plano amostral efetivamente utilizado.</p>
 <p>O efeito do termo <span class="math inline">\(\hat{V}_{p}\left( \widehat{p}\right)\)</span>, que aparece no denominador de <span class="math inline">\(X_{W}^{2}\)</span>, é incorporar na estatística de bondade de ajuste o efeito do plano amostral utilizado. No caso particular de amostragem aleatória simples, usamos no lugar de <span class="math inline">\(\widehat{V}_{p}\left( \widehat{p}\right)\)</span> a variância <span class="math inline">\(\widehat{V}_{bin}\left( \widehat{p}\right) =\)</span> <span class="math inline">\(\widehat{p}\left( 1-\widehat{p}\right) /n\)</span>. Neste caso, estatística resultante <span class="math inline">\(X_{bin}^{2}\)</span> coincide com a estatística <span class="math inline">\(X_{N}^{2}\)</span> de Neyman.</p>
-<p>Para o plano amostral de conglomerados considerado no Exemplo , a estatística <span class="math inline">\(X_{W}^{2}\)</span>, sem qualquer ajuste auxiliar, já é distribuída assintoticamente como qui-quadrado com um grau de liberdade. O valor da estatística de Wald para esse exemplo é <span class="math display">\[
+<p>Para o plano amostral de conglomerados considerado no Exemplo , a estatística <span class="math inline">\(X_{W}^{2}\)</span>, sem qualquer ajuste auxiliar, já é distribuída assintoticamente como qui-quadrado com um grau de liberdade. O valor da estatística de Wald para esse exemplo é</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Vp &lt;-<span class="st"> </span>(pobs[<span class="dv">1</span>]*pobs[<span class="dv">2</span>])/m <span class="co"># variância usa número efetivo</span>
+X2W &lt;-<span class="st"> </span>((pobs[<span class="dv">1</span>]-p0[<span class="dv">1</span>])^<span class="dv">2</span>)/Vp
+X2W</code></pre></div>
+<pre><code>## [1] 0.5952381</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pchisq</span>(X2W,<span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## [1] 0.4404007</code></pre>
+<p><span class="math display">\[
 X_{W}^{2}=\left( 0,84-0,80\right) ^{2}/0,002743=0,583\;\;\mbox{.} 
 \]</span> Observe que o valor desta estatística é bem próximo dos valores das estatísticas de Pearson e da Razão de Verossimilhança com a correção de Rao-Scott.</p>
 <p>A estatística de Wald, pelo uso de uma estimativa apropriada da variância, reflete a complexidade do plano amostral e fornece uma estatística de teste assintoticamente válida, não necessitando que seja feito qualquer ajuste auxiliar. Esta pode ser considerada uma vantagem em relação às estatísticas com correção de Rao-Scott. Entretanto, no caso de mais de duas celas, pode haver desvantagens no uso da estatística de Wald baseada no plano amostral, devido à instabilidade nas estimativas de variância em pequenas amostras.</p>
-<p>Reproduzimos na Tabela  os resultados para todas as estatísticas de teste consideradas até agora, para facilidade de comparação.</p>
+<p>Reproduzimos na Tabela <a href="testes-de-qualidade-de-ajuste.html#tab:testprop">7.1</a> os resultados para todas as estatísticas de teste consideradas até agora, para facilidade de comparação.</p>
 
+<table>
+<caption><span id="tab:testprop">Table 7.1: </span>Valores e valores-p de estatísticas de testes para os dados do Exemplo 4.4</caption>
+<thead>
+<tr class="header">
+<th align="left">Estatística</th>
+<th align="right">gl</th>
+<th align="right">Valor_observado</th>
+<th align="right">valorp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Pearson</td>
+<td align="right">1</td>
+<td align="right">10.00</td>
+<td align="right">0.0016</td>
+</tr>
+<tr class="even">
+<td align="left">Pearson ajustada</td>
+<td align="right">1</td>
+<td align="right">0.50</td>
+<td align="right">0.4795</td>
+</tr>
+<tr class="odd">
+<td align="left">RV</td>
+<td align="right">1</td>
+<td align="right">10.56</td>
+<td align="right">0.0012</td>
+</tr>
+<tr class="even">
+<td align="left">RV ajustada</td>
+<td align="right">1</td>
+<td align="right">0.53</td>
+<td align="right">0.4674</td>
+</tr>
+<tr class="odd">
+<td align="left">Wald</td>
+<td align="right">1</td>
+<td align="right">0.60</td>
+<td align="right">0.4404</td>
+</tr>
+</tbody>
+</table>
 <p>Nesta seção foram apresentadas as duas principais abordagens para incorporar o efeito do plano amostral na estatística de teste:</p>
 
 <p>Ambas as abordagens são facilmente generalizáveis para tabelas de uma ou duas entradas com número de linhas e colunas maior que dois. Vamos considerar na próxima seção o caso geral de testes de bondade de ajuste e apresentar mais detalhes sobre as estatísticas de teste alternativas. Depois, introduziremos os testes de independência e de homogeneidade para tabelas de duas entradas. A ênfase será dada nos procedimentos baseados na estatísticas de teste de Wald baseadas no plano amostral e nas estatísticas de Pearson e da RV com os vários ajustes de Rao-Scott.</p>
@@ -403,7 +483,7 @@ FX_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{W}^{2}/\left( \left( J-1\right)
 <p>A estatística <span class="math inline">\(FX_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span> tem distribuição de referência <span class="math inline">\(F\)</span> com <span class="math inline">\(J-1\)</span> e <span class="math inline">\(f\)</span> graus de liberdade. Thomas e Rao(1987) observaram que esta estatística, em situações instáveis, é melhor que a estatística sem correção de primeira ordem.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-19" class="example"><strong>Example 7.1 </strong></span>Teste de bondade de ajuste para a distribuição etária da PPV 96-97 na Região Sudeste.
+<span id="ex:unnamed-chunk-25" class="example"><strong>Example 7.1 </strong></span>Teste de bondade de ajuste para a distribuição etária da PPV 96-97 na Região Sudeste.
 </div>
 <p></p>
 <p>Vamos considerar um teste da bondade de ajuste da distribuição das idades para a Pesquisa sobre Padrões de Vida (PPV) 96/97, para os subgrupos de 0 a 14; de 15 a 29; de 30 a 44; de 45 a 59 e de 60 e mais anos de idade. As proporções correspondentes para a população foram obtidas da Contagem Populacional de 96. Na Região Sudeste, o número de estratos é <span class="math inline">\(H=15\)</span> e o número total de conglomerados (setores) na amostra da PPV é <span class="math inline">\(m=276\)</span> e portanto <span class="math inline">\(f=m-H=261\)</span>. As informações utilizadas neste exemplo são apresentadas na Tabela .</p>
