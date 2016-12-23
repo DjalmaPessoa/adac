@@ -542,7 +542,7 @@ C-1\right) \right)$.
 
 A estimativa $\mathbf{\hat{V}}_{\mathbf{f}}$ da matriz de covariância de 
 $\mathbf{\hat{f}}$ pode ser obtida pelo método de linearização
-de Taylor apresentado na Seção \ref{taylor}, considerando o vetor de
+de Taylor apresentado na Seção \@ref(taylor), considerando o vetor de
 contrastes $\mathbf{f}$ como uma função (não-linear) do vetor $
 \mathbf{p}$, isto é, 
 $\mathbf{f=g}\left( \mathbf{p}\right) \mathbf{=g}\left( p_{11},\ldots ,p_{1\;C-1},\ldots ,p_{L-1\;1},\ldots
@@ -1046,4 +1046,75 @@ A partir da Tabela \ref{tab86}, examinando as estimativas das proporç
 estocástica das distribuições de renda para os dois sexos, com
 proporções maiores em valores mais altos para o nível 1 da
 variável sexo, que é o sexo masculino.
+
+## Laboratório de R  
+
+Vamos reproduzir alguns resultados usando dados da PNAD descritos na Seção ??? 
+
+```{example}
+Estimativas de medidas descritivas em tabelas
+```
+```{r}
+library(survey)
+source("~\\GitHub\\adac\\data\\pnadrj90.R")
+names(pnadrj90)
+```
+Tranformação em fatores:
+```{r}
+unlist(lapply(pnadrj90, mode))
+pnadrj90<-transform(pnadrj90,sx=factor(sx),id=factor(id),ae=factor(ae),ht=factor(ht),re=factor(re))
+```
+Definição do objeto de desenho:
+
+```{r}
+pnad.des<-svydesign(id=~psu,strata=~stra,weights=~pesopes,data=pnadrj90,nest=TRUE)
+```
+
+Estimativas de proporções:
+
+```{r}
+svymean(~sx,pnad.des)         #estimativa de proporção para sx
+svymean(~re,pnad.des)         #estimativa de proporçâo para re
+svymean(~ae,pnad.des)         #estimativa de proporção para ae
+ht.mean<-svymean(~ht,pnad.des)
+```
+
+Exemplos de funções extratoras e atributos
+
+
+```{r}
+coef(ht.mean)                         #estimativas das proporções
+attributes(ht.mean)                          #ver atributos
+vcov(ht.mean)                         #estimativas de variâncias e covariâncias
+attr(ht.mean, "var")
+```
+
+Exemplo de formatação de tabela
+
+```{r, results='asis'}
+library(xtable)
+print(xtable(svyby(~re,~sx,pnad.des,svymean,keep.var=TRUE),caption="Proporções por sexo"),type="html", size="small", include.rownames=FALSE)
+```
+
+```{r}
+svymean(~re,pnad.des,deff=T)
+round(svytable(~sx+re,pnad.des,Ntotal=1),digits=3)
+svyby(~re,~sx,pnad.des,svymean,keep.var=T)
+svymean(~I((sx==1&re==1)*1),pnad.des,deff=T)
+```
+
+Reproduz Tabela 8.6:
+
+```{r}
+svytable(~sx+re,pnad.des)
+svytable(~sx+re,pnad.des,Ntotal=100)
+sx.re_mean<-svymean(~interaction(sx,re),pnad.des,deff=T)
+frame_sx_re <- data.frame(sx.re_mean)
+frame_sx_re <- transform(frame_sx_re, SE = 10000*SE)
+#b<-ftable(sx.re_mean, rownames=list(sx=c("1","2"),re=c("1","2","3"))) 
+knitr::kable(frame_sx_re,booktabs=TRUE, digits=3,
+  caption="Proporções nas cela, desvios padrões e EPAs")
+```
+
+
 

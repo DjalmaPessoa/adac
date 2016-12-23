@@ -1,6 +1,6 @@
 # Ajuste  de Modelos Paramétricos
 
-## Introdução (#modpar1)
+## Introdução {#modpar1}
 
 Nos primórdios do uso ''moderno'' de pesquisas por amostragem, os dados
 obtidos eram usados principalmente para estimar funções simples dos
@@ -679,9 +679,9 @@ em probabilidade segundo a mistura $Mp.$ Esse resultado segue porque
 Nesse caso, o parâmetro $\mathbf{\theta }$ do modelo não tem
 interpretação substantiva significante, porém a QDPC $\mathbf{
 \theta }_{U}$ é uma entidade definida na população finita (real)
-com interpretação clara, independente da validade do modelo. Como $
-\mathbf{\hat{\theta}}_{MPV}$ é consistente para a QDPC $\mathbf{\theta}
-_{U}$, a inferência baseada no procedimento MPV segue válida para
+com interpretação clara, independente da validade do modelo. Como 
+$\mathbf{\hat{\theta}}_{MPV}$ é consistente para a QDPC 
+$\mathbf{\theta}_{U}$, a inferência baseada no procedimento MPV segue válida para
 este pseudo-parâmetro, independente da inadequação do modelo
 para a população. \citeonline[p. 81]{Sk89b} discute essa situaç
 ão, mos\-trando que $\mathbf{\theta }_{U}$ pode ainda ser um alvo
@@ -716,7 +716,7 @@ leitores interessados poderão consultar: [@SSW92], p. 166, [@brewer], [@Isaki],
 
 ## Desvantagens da Inferência de Aleatorização
 
-\ Se o modelo postulado para os dados amostrais for correto, o uso de
+Se o modelo postulado para os dados amostrais for correto, o uso de
 estimadores ponderados pode resultar em perda substancial de eficiência
 comparado com o estimador ótimo, sob o modelo. Em geral, a perda de
 eficiência aumenta quando diminui o tamanho da amostra e aumenta a varia

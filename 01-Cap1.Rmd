@@ -48,7 +48,7 @@ inferência sobre quantidades descritivas populacionais tais como
 médias, proporções, razões e totais.
 
 
-## Impacto dos pesos da amostra da PPV
+## Impacto dos pesos da amostra da PPV {#ppv}
 
 
 Os dados deste exemplo são relativos à distribuição dos
@@ -225,174 +225,148 @@ aleatória simples foi calculada para cada uma das estimativas consideradas
 usando a `library survey` do R . Essa razão fornece uma
 medida do efeito de ignorar o plano amostral . Os resultados das
 estimativas ponderadas e variâncias considerando o plano amostral
-são apresentados na Tabela \ref{Tab13}, juntamente com as medidas dos
-efeitos de plano amostral (EPA).
+são apresentados na Tabela \@ref(tab:epas), juntamente com as medidas dos
+efeitos de plano amostral (EPA). Exemplos de utilização da library `survey` para obtenção de estimativas apresentadas na \@ref(tab:epas) estão na Seção \@ref(epa). As outras estimativas da Tabela \@ref(tab:epas) podem ser obtidas de maneira análoga.
 
-```{example}
-Utilização da library survey do R para estimar totais e razões na PPV 
-```
-A seguir, mostramos a utilização da library survey do R para obter algumas estimativas da Tabela \@ref[Tab13].
-Vamos supor que os dados da pesquisa estão contidos no data frame `ppv`, que contém as variáveis:
+Na Tabela \@ref(tab:epas) apresentamos as estimativas dos seguintes parâmetros populacionais:
 
--  NSETOR - conglomerados;
+1. Número médio de pessoas por domicílio;
+2. \% de domicílios alugados;
+3. Número total de pessoas que avaliaram seu estado de de saúde como ruim;
+4. Total de analfabetos de 7 a 14 anos;
+5. Total de analfabetos de mais de 14 anos;
+6. \% de analfabetos de 7 a 14 anos;
+7. \% de analfabetos de mais de 14 anos;
+8. Total de mulheres de 12 a 49 anos que tiveram filhos;
+9. Total de mulheres de 12 a 49 anos que tiveram filhos vivos;
+10.Total de mulheres de 12 a 49 anos que tiveram filhos mortos;
+11. Número médio de filhos tidos por mulheres de 12 a 49 anos;
+12. Razão de dependência.
 
-- ESTRATOF - estratos;
-- PESOF - pesos do plano amostral;
-- REGIAO - regiões de abrangência: 1- Nordeste, 2- Sudeste;
-- ANALF1.SE - indicador de analfabeto na faixa etária de 7 a 14 anos na Região Sudeste;
-- ANALF2.SE - indicador de analfabeto na faixa etária acima de 14 anos na Região Sudeste;
-- FAIXA1.SE - indicador de idade entre 7 e 14 anos na Região Sudeste;
-- FAIXA2.SE - indicador de idade acima de 14 anos na Região Sudeste;
 
-
-O passo fundamental para utilização da library `survey` é criar um objeto que guarde as informações relevantes do plano amostral. Isso é feito por meio da função `svydesign`.
-As variáveis que definem estratos, conglomerados e pesos na `PPV` são respectivamente, `ESTRATOF`, `NSETOR` e `PESOF`. O objeto de desenho amostral, `ppv.des` incorpora as informações do plano amostral adotado na `PPV`.
-
-```{r, message=FALSE, warning=FALSE}
-# library(adacr)
-# data(ppv1)
-ppv1 <- transform ( ppv1, 
-ANALF1.SE = (V04A01 == 2 | V04A02 == 2) & (V02A08 >= 7 & V02A08 <= 14) & REGIAO ==2,
-ANALF2.SE = ((V04A01 == 2 | V04A02 == 2) & (V02A08 >14)) & REGIAO ==2,
-FAIXA1.SE = (V02A08 >= 7 & V02A08 <= 14) & REGIAO ==2, 
-FAIXA2.SE = (V02A08 > 14) & REGIAO == 2 ) 
+```{r,epas, echo=FALSE}
+epas <- data.frame(
+Estimativa = c(3.62, 10.70, 1208123, 1174220,4792344, 11.87, 10.87, 10817590, 10804511,709145,1.39,0.53),
+DP =c(0.05, 1.15, 146681, 127982, 318877, 1.18, 0.67, 322947, 323182, 87363, 0.03, 0.01),
+EPA= c(2.64, 2.97, 3.37,2.64, 4.17,2.46, 3.86, 2.02, 3.02, 2.03, 1.26, 1.99 )  
+)
+knitr::kable(epas, booktabs=TRUE,
+caption="Estimativas de Efeitos de Plano Amostral (EPAs) 
+para variáveis selecionadas da PPV - Região Sudeste"
+)
   
-library(survey)
-ppv.des<-svydesign(ids = ~NSETOR, strata = ~ESTRATOF,
-data = ppv1, nest = TRUE, weights = ~PESOF)
 ```
 
-Vamos estimar os totais de analfabetos nas faixas etárias de 7 a 14 anos e acima de 14 anos.
+<!-- \begin{center} -->
 
+<!-- \begin{table}[htbp] \centering -->
 
-```{r}
-svytotal(~ANALF1.SE, ppv.des, deff = TRUE)
-svytotal(~ANALF2.SE, ppv.des, deff = TRUE)
-```
+<!-- \caption{Estimativas de Efeitos de Plano Amostral (EPAs)  -->
+<!-- para variáveis selecionadas da PPV - Região Sudeste }\bigskip \label{Tab13}  -->
+<!-- \begin{tabular}{|c|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- \begin{tabular}{l} -->
+<!-- ``Parâmetro'' \\  -->
+<!-- Populacional -->
+<!-- \end{tabular} -->
+<!-- \  & Estimativa &  -->
+<!-- \begin{tabular}{l} -->
+<!-- Desvio \\  -->
+<!-- padrão -->
+<!-- \end{tabular} -->
+<!-- & \textbf{EPA } \\ \hline\hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 1) Número médio de \\  -->
+<!-- pessoas por domicílio -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$3,62$} & \multicolumn{1}{|r|}{$0,05$} &  -->
+<!-- \multicolumn{1}{|r|}{$2,64$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{r} -->
+<!-- 2) \% de domicílios alugados -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$16,70$} & \multicolumn{1}{|r|}{$1,15$} &  -->
+<!-- \multicolumn{1}{|r|}{$2,97$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 3) Número total de pessoas \\  -->
+<!-- que avaliaram seu estado de \\  -->
+<!-- de saúde como ruim -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$1.208.123$} & \multicolumn{1}{|r|}{$146.681$} &  -->
+<!-- \multicolumn{1}{|r|}{$3,37$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 4) Total de analfabetos \\  -->
+<!-- de 7 a 14 anos -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$1.174.220$} & \multicolumn{1}{|r|}{$127.982$} &  -->
+<!-- \multicolumn{1}{|r|}{$2,64$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 5) Total de analfabetos \\  -->
+<!-- de mais de 14 anos -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$4.792.344$} & \multicolumn{1}{|r|}{$318.877$} &  -->
+<!-- \multicolumn{1}{|r|}{$4,17$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 6) \% de analfabetos \\  -->
+<!-- de 7 a 14 anos -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$11,87$} & \multicolumn{1}{|r|}{$1,18$} &  -->
+<!-- \multicolumn{1}{|r|}{$2,46$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 7) \% de analfabetos \\  -->
+<!-- de mais de 14 anos -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$10,87$} & \multicolumn{1}{|r|}{$0,67$} &  -->
+<!-- \multicolumn{1}{|r|}{$3,86$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 8) Total de mulheres \\  -->
+<!-- de 12 a 49 anos \\  -->
+<!-- que tiveram filhos -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$10.817.590$} & \multicolumn{1}{|r|}{$322.947$} &  -->
+<!-- \multicolumn{1}{|r|}{$2,02$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 9) Total de mulheres \\  -->
+<!-- de 12 a 49 anos que \\  -->
+<!-- tiveram filhos vivos -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$10.804.511$} & \multicolumn{1}{|r|}{$323.182$} &  -->
+<!-- \multicolumn{1}{|r|}{$2,02$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 10) Total de mulheres \\  -->
+<!-- de 12 a 49 anos que \\  -->
+<!-- tiveram filhos mortos -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$709.145$} & \multicolumn{1}{|r|}{$87.363$} &  -->
+<!-- \multicolumn{1}{|r|}{$2,03$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 11) Número médio de \\  -->
+<!-- filhos tidos por mulheres \\  -->
+<!-- de 12 a 49 anos -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$1,39$} & \multicolumn{1}{|r|}{$0,03$} &  -->
+<!-- \multicolumn{1}{|r|}{$1,26$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 12) Razão de dependência -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$0,53$} & \multicolumn{1}{|r|}{$0,01$} &  -->
+<!-- \multicolumn{1}{|r|}{$1,99$} \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
 
-Em seguida, estimaremos a proporção de analfabetos na faixa etária de 7 a 14 anos:
-
-```{r}
-ANALF1.SE_FAIXA1.SE_raz<-svyratio(~ANALF1.SE,~FAIXA1.SE, ppv.des,deff=T)
-coef(ANALF1.SE_FAIXA1.SE_raz) # razão
-SE(ANALF1.SE_FAIXA1.SE_raz) # se da razão
-deff(ANALF1.SE_FAIXA1.SE_raz) # EPA da razão
-```
-
-
-
-As outras estimativas da Tabela \@ref[Tab13] podem ser obtidas de maneira análoga.
- 
-\begin{center}
-
-\begin{table}[htbp] \centering
-
-\caption{Estimativas de Efeitos de Plano Amostral (EPAs) 
-para variáveis selecionadas da PPV - Região Sudeste }\bigskip \label{Tab13} 
-\begin{tabular}{|c|c|c|c|}
-\hline\hline
-\begin{tabular}{l}
-``Parâmetro'' \\ 
-Populacional
-\end{tabular}
-\  & Estimativa & 
-\begin{tabular}{l}
-Desvio \\ 
-padrão
-\end{tabular}
-& \textbf{EPA } \\ \hline\hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-1) Número médio de \\ 
-pessoas por domicílio
-\end{tabular}
-} & \multicolumn{1}{|r|}{$3,62$} & \multicolumn{1}{|r|}{$0,05$} & 
-\multicolumn{1}{|r|}{$2,64$} \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{r}
-2) \% de domicílios alugados
-\end{tabular}
-} & \multicolumn{1}{|r|}{$16,70$} & \multicolumn{1}{|r|}{$1,15$} & 
-\multicolumn{1}{|r|}{$2,97$} \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-3) Número total de pessoas \\ 
-que avaliaram seu estado de \\ 
-de saúde como ruim
-\end{tabular}
-} & \multicolumn{1}{|r|}{$1.208.123$} & \multicolumn{1}{|r|}{$146.681$} & 
-\multicolumn{1}{|r|}{$3,37$} \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-4) Total de analfabetos \\ 
-de 7 a 14 anos
-\end{tabular}
-} & \multicolumn{1}{|r|}{$1.174.220$} & \multicolumn{1}{|r|}{$127.982$} & 
-\multicolumn{1}{|r|}{$2,64$} \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-5) Total de analfabetos \\ 
-de mais de 14 anos
-\end{tabular}
-} & \multicolumn{1}{|r|}{$4.792.344$} & \multicolumn{1}{|r|}{$318.877$} & 
-\multicolumn{1}{|r|}{$4,17$} \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-6) \% de analfabetos \\ 
-de 7 a 14 anos
-\end{tabular}
-} & \multicolumn{1}{|r|}{$11,87$} & \multicolumn{1}{|r|}{$1,18$} & 
-\multicolumn{1}{|r|}{$2,46$} \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-7) \% de analfabetos \\ 
-de mais de 14 anos
-\end{tabular}
-} & \multicolumn{1}{|r|}{$10,87$} & \multicolumn{1}{|r|}{$0,67$} & 
-\multicolumn{1}{|r|}{$3,86$} \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-8) Total de mulheres \\ 
-de 12 a 49 anos \\ 
-que tiveram filhos
-\end{tabular}
-} & \multicolumn{1}{|r|}{$10.817.590$} & \multicolumn{1}{|r|}{$322.947$} & 
-\multicolumn{1}{|r|}{$2,02$} \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-9) Total de mulheres \\ 
-de 12 a 49 anos que \\ 
-tiveram filhos vivos
-\end{tabular}
-} & \multicolumn{1}{|r|}{$10.804.511$} & \multicolumn{1}{|r|}{$323.182$} & 
-\multicolumn{1}{|r|}{$2,02$} \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-10) Total de mulheres \\ 
-de 12 a 49 anos que \\ 
-tiveram filhos mortos
-\end{tabular}
-} & \multicolumn{1}{|r|}{$709.145$} & \multicolumn{1}{|r|}{$87.363$} & 
-\multicolumn{1}{|r|}{$2,03$} \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-11) Número médio de \\ 
-filhos tidos por mulheres \\ 
-de 12 a 49 anos
-\end{tabular}
-} & \multicolumn{1}{|r|}{$1,39$} & \multicolumn{1}{|r|}{$0,03$} & 
-\multicolumn{1}{|r|}{$1,26$} \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-12) Razão de dependência
-\end{tabular}
-} & \multicolumn{1}{|r|}{$0,53$} & \multicolumn{1}{|r|}{$0,01$} & 
-\multicolumn{1}{|r|}{$1,99$} \\ \hline\hline
-\end{tabular}
-\end{table}
-\end{center}
-
-Como se pode observar da quarta coluna da Tabela \@ref[b13], os valores do
+Como se pode observar da quarta coluna da Tabela \@ref(tab:epas), os valores do
 efeito do plano amostral variam de um modesto 1,26 para o número
 médio de filhos tidos por mulheres em idade fértil (12 a 49 anos de
 idade) até um substancial 4,17 para o total de analfabetos entre pessoas
@@ -402,7 +376,7 @@ simples implicaria em subestimar consideravelmente a variância da
 estimativa pontual, que é mais que 4 vezes maior se consideramos o plano
 amostral efetivamente utilizado.
 
-Note que as variáveis e parâmetros cujas estimativas são apresentadas na Tabela \ref{Tab13} não foram escolhidas de forma a acentuar os efeitos ilustrados, mas tão somente para representar distintos parâmetros (médias, razões, totais, proporções) e variáveis de interesse. Os resultados apresentados para as estimativas de EPA ilustram bem o cenário típico em pesquisas amostrais complexas: o impacto do plano amostral sobre a inferência varia conforme a variável e o tipo de parâmetro de interesse. Note ainda que à exceção do menor valor, todas as demais estimativas de EPA apresentaram valores superiores a 2.
+Note que as variáveis e parâmetros cujas estimativas são apresentadas na Tabela \@ref(tab:epas) não foram escolhidas de forma a acentuar os efeitos ilustrados, mas tão somente para representar distintos parâmetros (médias, razões, totais, proporções) e variáveis de interesse. Os resultados apresentados para as estimativas de EPA ilustram bem o cenário típico em pesquisas amostrais complexas: o impacto do plano amostral sobre a inferência varia conforme a variável e o tipo de parâmetro de interesse. Note ainda que à exceção do menor valor, todas as demais estimativas de EPA apresentaram valores superiores a 2.
 
 \section{Objetivos do Livro}
 
@@ -456,7 +430,7 @@ pesquisas amostrais. Apesar dessa evolução, sua adoção
 não é livre de controvérsia e uma breve revisão dessa
 discussão é apresentada no capítulo 2.
 
-No terceiro capítulo apresentamos uma revisão sucinta, a título
+No Capítulo 3 apresentamos uma revisão sucinta, a título
 de recordação, de alguns resultados básicos da Teoria de
 Amostragem, requeridos nas partes subseqüentes do livro. São
 discutidos os procedimentos básicos para estimação de totais
@@ -585,3 +559,58 @@ assunto, os livros de [@SHS89]  e [@CHSK2003]
 são as referências centrais a pesquisar. Para aqueles querendo um tratamento 
 ainda mais prático que o nosso, o livro de [@lethonen] pode ser uma 
 opção interessante.
+
+## Laboratório de R do Capítulo 1. {#epa}
+
+```{example}
+Utilização da library survey do R para estimar totais e razões na PPV 
+```
+A seguir, mostramos a utilização da library survey do R para obter algumas estimativas da Tabela \@ref(tab:epas).
+Vamos supor que os dados da pesquisa estão contidos no data frame `ppv1`, que contém as variáveis:
+
+-  NSETOR - conglomerados;
+
+- ESTRATOF - estratos;
+- PESOF - pesos do plano amostral;
+- REGIAO - regiões de abrangência: 1- Nordeste, 2- Sudeste;
+- ANALF1.SE - indicador de analfabeto na faixa etária de 7 a 14 anos na Região Sudeste;
+- ANALF2.SE - indicador de analfabeto na faixa etária acima de 14 anos na Região Sudeste;
+- FAIXA1.SE - indicador de idade entre 7 e 14 anos na Região Sudeste;
+- FAIXA2.SE - indicador de idade acima de 14 anos na Região Sudeste;
+
+
+O passo fundamental para utilização da library `survey` é criar um objeto que guarde as informações relevantes do plano amostral. Isso é feito por meio da função `svydesign`.
+As variáveis que definem estratos, conglomerados e pesos na `PPV` são respectivamente, `ESTRATOF`, `NSETOR` e `PESOF`. O objeto de desenho amostral, `ppv.des` incorpora as informações do plano amostral adotado na `PPV`.
+
+```{r, message=FALSE, warning=FALSE}
+# library(adacr)
+# data(ppv1)
+ppv1 <- transform ( ppv1, 
+ANALF1.SE = (V04A01 == 2 | V04A02 == 2) & (V02A08 >= 7 & V02A08 <= 14) & REGIAO ==2,
+ANALF2.SE = ((V04A01 == 2 | V04A02 == 2) & (V02A08 >14)) & REGIAO ==2,
+FAIXA1.SE = (V02A08 >= 7 & V02A08 <= 14) & REGIAO ==2, 
+FAIXA2.SE = (V02A08 > 14) & REGIAO == 2 ) 
+  
+library(survey)
+ppv.des<-svydesign(ids = ~NSETOR, strata = ~ESTRATOF,
+data = ppv1, nest = TRUE, weights = ~PESOF)
+```
+
+Vamos estimar os totais de analfabetos nas faixas etárias de 7 a 14 anos e acima de 14 anos.
+
+
+```{r}
+svytotal(~ANALF1.SE, ppv.des, deff = TRUE)
+svytotal(~ANALF2.SE, ppv.des, deff = TRUE)
+```
+
+Em seguida, estimaremos a proporção de analfabetos na faixa etária de 7 a 14 anos:
+
+```{r}
+ANALF1.SE_FAIXA1.SE_raz<-svyratio(~ANALF1.SE,~FAIXA1.SE, ppv.des,deff=T)
+coef(ANALF1.SE_FAIXA1.SE_raz) # razão
+SE(ANALF1.SE_FAIXA1.SE_raz) # se da razão
+deff(ANALF1.SE_FAIXA1.SE_raz) # EPA da razão
+```
+
+

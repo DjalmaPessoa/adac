@@ -1,8 +1,8 @@
-# Estimação Baseada no Plano Amostral
+# Estimação Baseada no Plano Amostral {#planamo}
 
-## Estimação de Totais
+## Estimação de Totais {#estimatotais}
 
-Devido a sua importância para os desenvolvimentos teóricos em vários dos capítulos subseqüentes, alguns resultados básicos relativos à estimação de totais da população finita numa abordagem baseada no plano amostral serão reproduzidos nesta seção. A referência básica usada foi a  seção 2.8 de [@SSW92].
+Devido a sua importância para os desenvolvimentos teóricos em vários dos capítulos subseqüentes, alguns resultados básicos relativos à estimação de totais da população finita numa abordagem baseada no plano amostral serão reproduzidos nesta seção. A referência básica usada foi a  Seção 2.8 de [@SSW92].
 
 Consideremos o problema de estimar o vetor $\mathbf{Y}=\sum_{i \in U}\mathbf{y}_i$ de totais das $P$ variáveis da pesquisa na população, a partir de uma amostra observada $a$. Naturalmente, qualquer estimador viável do total $\mathbf{Y}$ só pode depender dos valores das
 variáveis de pesquisa observados na amostra, contidos em $\mathbf{y}_{i_{1}}, \ldots , \mathbf{y}_{i_{n}}$, mas não dos valores dessas variáveis para os elementos não pesquisados.
@@ -45,7 +45,7 @@ O estimador de variância em \@ref(eq:estpa4) é um estimador não-viciado da va
 E_p \left[ \hat{V}_p \left( \mathbf{\hat{Y}}_{\pi} \right) \right] = V_p \left( \mathbf{\hat{Y}}_{\pi} \right) (\#eq:estpa5)
 \end{equation}
 
-desde que $\pi _{ij} > 0 \quad \forall i,j \in U$, como suposto neste livro (Seção \ref{Planamo}).
+desde que $\pi _{ij} > 0 \quad \forall i,j \in U$, como suposto neste livro na Seção \@ref(planamo).
 
 O segundo estimador da variância, chamado estimador de Sen-Yates-Grundy, é motivado pela expressão \@ref(eq:estpa3) e é dado por 
 
@@ -150,7 +150,7 @@ O estimador de regressão descrito em \@ref(eq:estpa16) é um caso particular do
 
 Para completar a descrição dos procedimentos de inferência para médias e totais baseados em estimadores ponderados do tipo razão ou regressão, é necessário identificar estimadores para as variâncias de aleatorização correspondentes. Entretanto, os estimadores de razão e regressão são viciados sob a distribuição de aleatorização para pequenas amostras. Em ambos os
 casos, o vício é desprezível para amostras grandes, e estão disponíveis expressões assintóticas para as respectivas variâncias de aleatorização. Partindo destas foram então
-construídos estimadores amostrais das variâncias dos estimadores de razão e regressão, que podem ser encontrados na excelente revisão sobre o tema contida em [@SSW92], seção 6.6 e cap. 7. Apesar de sua importância para os praticantes de amostragem, a discussão detalhada desse problema não será incluída neste livro.
+construídos estimadores amostrais das variâncias dos estimadores de razão e regressão, que podem ser encontrados na excelente revisão sobre o tema contida em [@SSW92], Seção 6.6 e cap. 7. Apesar de sua importância para os praticantes de amostragem, a discussão detalhada desse problema não será incluída neste livro.
 
 O problema da estimação das variâncias de aleatorização para estimadores como os de razão e regressão nos remete a uma questão central da teoria da amostragem. Trata-se dos métodos
 disponíveis para estimar variâncias de estimadores `complexos`. O caso dos estimadores de razão e regressão para totais e médias foi resolvido faz tempo, e não há muito o que discutir aqui. Entretanto, a variedade de métodos empregados para estimação de variâncias merece uma discussão em separado, pois as técnicas de ajuste consideradas neste livro para incorporar pesos e plano amostral na inferência partindo de dados de pesquisas amostrais complexas depende em grande medida da aplicação de tais técnicas.
@@ -197,7 +197,7 @@ totais e médias.
 Para alguns planos amostrais utilizados na prática, as probabilidades de inclusão conjuntas podem ser nulas (caso de amostragem sistemática)
 ou difíceis de calcular (caso de alguns esquemas de seleção com
 probabilidades desiguais). Nesses casos, as expressões fornecidas na 
-Seção \ref{EstimaTotais} para os estimadores das variâncias dos
+Seção \@ref(estimatotais) para os estimadores das variâncias dos
 estimadores de totais não são mais válidas.
 
 Em muitos outros casos, como se verá no restante deste livro, os
@@ -232,7 +232,7 @@ dessas três idéias suporta os desenvolvimentos teóricos dos
 algoritmos empregados pelos principais pacotes estatísticos
 especializados em estimação de variâncias de aleatorização (veja discussão no Capítulo 10).
 
-## Linearização de Taylor para Estimar variâncias \label{taylor}
+## Linearização de Taylor para Estimar variâncias {#taylor}
 
 Um problema que ocorre frequentemente é o de estimar um vetor de
 parâmetros 
@@ -447,7 +447,7 @@ estrato (se a amostra for estratificada no primeiro estágio).
 Embora o método tenha sido originalmente proposto para estimação
 de totais, pode ser aplicado também para estimar (por linearizaç%
 ão) quantidades populacionais que possam ser representadas como funç%
-ões de totais, conforme discutido na Seção \ref{taylor}. De
+ões de totais, conforme discutido na Seção \@ref(taylor). De
 fato, esse método fornece a base para vários dos pacotes
 estatísticos especializados em cálculo de variâncias
 considerando o plano amostral, tais como SUDAAN, CENVAR, STATA ou PC-CARP
@@ -523,7 +523,7 @@ amostra de cada replicação, o que faz desta uma técnica
 flexível e genérica. Além disso, a abordagem de replicação é bastante geral, pois os estimadores aos quais se aplica não
 precisam ser necessariamente expressos como funções de totais, como
 ocorre com a técnica de linearização discutida na Seção 
-\ref{taylor}. Apesar destas vantagens, a aplicação prática desta
+\@ref(taylor). Apesar destas vantagens, a aplicação prática desta
 técnica de forma exata é restrita porque em geral é menos
 eficiente, inconveniente e mais caro selecionar $G$ amostras independentes com o mesmo esquema, se comparado à seleção de uma única
 amostra de tamanho $n$ diretamente. Além disto, se o número de

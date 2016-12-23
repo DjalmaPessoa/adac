@@ -271,7 +271,7 @@ parâmetros. Para isto é necessária a estimação das
 variâncias correspondentes. Nesta seção concentramos nossa atenção na estimação das variâncias dos estimadores de MPV
 dos coeficientes de regressão $\mathbf{\beta }$. As expressões a
 seguir são obtidas por aplicação direta dos resultados gerais
-fornecidos na Seção \ref{modpar3}, observando-se que os escores
+fornecidos na Seção \@ref(modpar3), observando-se que os escores
 correspondentes a $\mathbf{\beta}$ no `ajuste do censo` do modelo \@ref(eq:norm1) são dados por 
 $\mathbf{u}_{i}\left( \mathbf{B}\right) =\mathbf{z}_{i}\left( y_{i}-\mathbf{z}_{i}^{\prime }\mathbf{B}\right) =\mathbf{z}
 _{i}e_{i}$ , 
@@ -335,7 +335,7 @@ aplicável numa ampla gama de planos amostrais.
 
 No modelo de regressão logística, a variável resposta $y$ é
 binária, isto é, assume os valores $0$ e $1$. Considerando um vetor $\mathbf{z}$ de variáveis explanatórias tal como o empregado no
-modelo de regressão linear discutido na Seção \ref{modlinear}, o
+modelo de regressão linear discutido na Seção \@ref(modlinear), o
 modelo de superpopulação é dado por 
 \begin{equation}
 f(y_{i}|\mathbf{z}_{i},\mathbf{\beta )=}\left[ p\left( \mathbf{z}_{i}^{\prime }\mathbf{\beta }\right) \right] ^{y_{i}}\left[ 1-p\left( 
@@ -376,7 +376,7 @@ O estimador de MPV do vetor de coeficientes $\mathbf{\beta }$ no modelo \@ref(eq
 onde $w_{i}$ é o peso da $i$-ésima observação amostral.
 
 A matriz de covariância do estimador de MPV de $\mathbf{\beta }$ pode
-ser obtida conforme indicado na Seção \ref{modpar3}, bastando
+ser obtida conforme indicado na Seção \@ref(modpar3), bastando
 substituir os valores dos escores $\mathbf{u}_{i}\left( \mathbf{\beta }
 \right) =\left[ y_{i}-p\left( \mathbf{z}_{i}^{\prime }\mathbf{\beta }\right)
 \right] \mathbf{z}_{i}$ e do jacobiano correspondentes. Para maiores
@@ -517,7 +517,7 @@ valores correspondentes estimados pelo **S-Plus**.
 
 As estimativas calculadas pelo pacote **SUDAAN** são feitas pelo 
 `Método de Máxima Pseudo-Verossimilhança`, resolvendo a equação \@ref(eq:norm27). As estimativas dos desvios padrões são
-obtidas das variâncias calculadas pelo método de linearização descrito na Seção \ref{modpar3}, equação (\ref{5.9}),
+obtidas das variâncias calculadas pelo método de linearização descrito na Seção \@ref(modpar3), equação (\ref{5.9}),
 considerando os escores tal como apresentados na equação \@ref(eq:norm25a). Para esses cálculos, os estimadores de variância considerados
 levaram em conta os pesos das observações, mas utilizaram uma
 aproximação que consiste em considerar que as unidades primárias
