@@ -909,3 +909,75 @@ p$valor do teste. Nesse exemplo, como o número de graus de liberdade
 número de estratos)$f=m-H=261$ é grande, a correção F tem
 pouco efeito, tanto nas estatísticas com ajustes de primeira e segunda
 ordem de Rao-Scott, como na estatística Wald.
+
+## Laboratório de R
+
+<
+Exemplo 7.1 pode ser substituído por: Criar variável ITAB (Não aparece)
+
+```{r, echo=FALSE}
+ppv1<-transform(ppv1,IDATAB=cut(V02A08,
+c(0,14,29,44,59,200),include.lowest=T))
+```
+
+```{r}
+ppv.des<-svydesign(id=~NSETOR,strat=~ESTRATOF,weights=~PESOF,
+data=ppv1,nest=TRUE)
+ppv.se.des<-subset(ppv.des,REGIAO==2)
+```
+
+
+```{r}
+ppv.id<-svymean(~IDATAB,ppv.se.des,deff=T)
+Vhat<-vcov(ppv.id)
+```
+
+```{r, results='asis'}
+library(xtable)
+xtable(print(ppv.id),caption="Estimativas das proporções nas classes",
+digits=c(0,4,4,3),align=c("l","r","r","r" ), label="prop",table.placement="H")
+```
+
+Estatística de Wald calculada a partir da fórmula 7.8
+
+
+```{r}
+#Vetor de proporções estimadas
+phat<-coefficients(ppv.id)
+# Vetor de proporções obtido na Contagem Populacional de 1996
+p0<-c(.2842,.2774,.2263,.1261,.086)
+# Estatística de Wald
+X2_W<-matrix((phat-p0)[-5],nrow=1)%*%solve(Vhat[-5,-5])%*%
+matrix((phat-p0)[-5],ncol=1)
+X2_W
+```
+
+```{r}
+#Cálculo do p-valor
+round(pchisq(X2_W,4,lower.tail=FALSE),digits=3)
+```
+
+
+Estatística de Pearson calculada a partir da fórmula 7.11
+
+```{r}
+n<-8903
+P0<-diag(p0)-matrix(p0,ncol=1)%*%matrix(p0,nrow=1)
+X2_P<-n*matrix((phat-p0)[-5],nrow=1)%*%solve(P0[-5,-5])%*%
+matrix((phat-p0)[-5],ncol=1)
+X2_P
+```
+
+Cálculo do valor-p:
+
+```{r}
+round(pchisq(X2_P,4,lower.tail=FALSE),digits=3)
+```
+
+
+
+
+
+
+
+

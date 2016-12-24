@@ -445,9 +445,7 @@ selecionados, e que pelo menos dois destes sejam selecionados em cada
 estrato (se a amostra for estratificada no primeiro estágio).
 
 Embora o método tenha sido originalmente proposto para estimação
-de totais, pode ser aplicado também para estimar (por linearizaç%
-ão) quantidades populacionais que possam ser representadas como funç%
-ões de totais, conforme discutido na Seção \@ref(taylor). De
+de totais, pode ser aplicado também para estimar (por linearização) quantidades populacionais que possam ser representadas como funções de totais, conforme discutido na Seção \@ref(taylor). De
 fato, esse método fornece a base para vários dos pacotes
 estatísticos especializados em cálculo de variâncias
 considerando o plano amostral, tais como SUDAAN, CENVAR, STATA ou PC-CARP
@@ -500,9 +498,9 @@ tais como WesVarPC (veja [@Westat]).
 A idéia básica é construir a amostra de tamanho $n$ como a
 união de $G$ amostras de tamanho $n/G$ cada uma, selecionadas de forma
 independente e usando o mesmo plano amostral, onde $G$ é o número de 
-\emph{replicações}. Nesse caso, se $\theta $ é o
-parâmetro-alvo, e $\widehat{\theta }_{g}$ é um estimador não
-viciado de $\theta $ baseado na $g$-ésima replicação 
+\emph{replicações}. Nesse caso, se $\theta$ é o
+parâmetro-alvo, e $\widehat{\theta}_{g}$ é um estimador não
+viciado de $\theta$ baseado na $g$-ésima replicação 
 $(g=1,\ldots ,G)$, segue-se que 
 $$
 \widehat{\theta }_{R}=\frac{1}{G}\sum_{g=1}^{G}\widehat{\theta }_{g} 
@@ -585,9 +583,9 @@ $$
 \widehat{\theta }_{\left( g\right) }=G\widehat{\theta }-\left( G-1\right) 
 \widehat{\theta }_{g} 
 $$
-onde $\widehat{\theta }_{g}$ é um estimador de $\theta $ obtido da
+onde $\widehat{\theta }_{g}$ é um estimador de $\theta$ obtido da
 amostra após eliminar os elementos do grupo $g$, empregando a mesma
-forma funcional adotada no cálculo do estimador $\widehat{\theta }$ que
+forma funcional adotada no cálculo do estimador $\widehat{\theta}$ que
 considera a amostra inteira. A estimação da variância por esse
 método pode então ser feita de duas maneiras alternativas, usando um
 dos estimadores dados por 
@@ -634,4 +632,52 @@ não funciona bem [@W85], p. 163.
 O pacote WesVarPC [@Westat] baseia suas estimativas de variância
 principalmente no método `jackknife`, embora também possua uma
 opção para usar outro método conhecido como de replicações de meias amostras balanceadas (do inglês *balanced half-sample replication*).
+
+## Laboratório de R
+
+Ilustração da linearização de Taylor:
+
+```{r}
+tot.est<-svytotal(~ANALF1.SE+FAIXA1.SE,ppv.des)
+# Estimativa de cada total
+y1hat<-coef(tot.est)[1]
+y2hat<-coef(tot.est)[2]
+# Estimativa da matriz de covariâncias
+Vcov.Y1.Y2<-vcov(tot.est)
+```
+Calcular por meio da fórmula 3.22 do livro:?
+
+Estimação do se da razão obtida diretamente pela função `svyratio`da library survey
+
+```{r}
+ANALF1.SE_FAIXA1.SE_RAZ<-svyratio(~ANALF1.SE,~FAIXA1.SE,ppv.des)
+coef(ANALF1.SE_FAIXA1.SE_RAZ)
+SE(ANALF1.SE_FAIXA1.SE_RAZ)
+```
+
+Material da Seção 3.5:
+
+Jackknife:
+
+```{r}
+ppv.des.jkn<-as.svrepdesign(ppv.des,type="JKn")
+ANALF1.SE_FAIXA1.SE_RAZ_jkn<-svyratio(~ANALF1.SE,~FAIXA1.SE, ppv.des.jkn)
+coef(ANALF1.SE_FAIXA1.SE_RAZ_jkn)
+SE(ANALF1.SE_FAIXA1.SE_RAZ_jkn)
+```
+
+
+Bootstrap:
+
+
+```{r}
+ppv.des.jkn<-as.svrepdesign(ppv.des,type="bootstrap")
+ANALF1.SE_FAIXA1.SE_RAZ_jkn<-svyratio(~ANALF1.SE,~FAIXA1.SE, ppv.des.jkn)
+coef(ANALF1.SE_FAIXA1.SE_RAZ_jkn)
+SE(ANALF1.SE_FAIXA1.SE_RAZ_jkn)
+```
+
+
+
+
 

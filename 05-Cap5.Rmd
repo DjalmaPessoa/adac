@@ -420,9 +420,9 @@ num \emph{pseudo-parâmetro}, eleito como alvo da inferência num
 esquema que incorpora o planejamento amostral. Isto se justifica porque, sob
 certas condições de regularidade, $\mathbf{\theta }_{U}\mathbf{
 -\theta }=o_{p}\left( 1\right)$. Como em pesquisas por amostragem o tamanho
-da população é geralmente grande, um estimador adequado para $
-\mathbf{\theta }_{U}$ será geralmente adequado também para $\mathbf{
-\theta }$.
+da população é geralmente grande, um estimador adequado para 
+$\mathbf{\theta}_{U}$ será geralmente adequado também para 
+$\mathbf{\theta }$.
 
 Seja $\mathbf{T}=\sum_{i\in U}\mathbf{u}_{i}\left( \mathbf{\theta }\right)$
 a soma dos vetores de escores na população, o qual é um vetor de
@@ -435,10 +435,7 @@ sistema de equações obtido igualando o estimador $\mathbf{\hat{T}}$
 do total $\mathbf{T}$ a zero.\medskip
 
 ```{definition}
-O estimador de Máxima Pseudo-Verossimilhança (MPV) \linebreak $
-\mathbf{\hat{\theta}}_{MPV}$ de $\mathbf{\theta }_{U}$ (e consequentemente
-de $\mathbf{\theta }$) será a solução das equações de
-Pseudo-Verossimilhança dadas por 
+O estimador de Máxima Pseudo-Verossimilhança (MPV) $\mathbf{\hat{\theta}}_{MPV}$ de $\mathbf{\theta }_{U}$ (e consequentemente de $\mathbf{\theta}$) será a solução das equações dePseudo-Verossimilhança dadas por 
 \begin{equation}
 \mathbf{\hat{T}}=\sum_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta }
 \right) =\mathbf{0\;\;.}  
@@ -487,7 +484,7 @@ J\left( \mathbf{\theta }_{U}\right) =\left. \frac{\partial T\left( \mathbf{
 (\#eq:modpar11)
 \end{equation}
 
-$V_{p}\left[\sum_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta}_{U}\right) \right] $ é a matriz de variância (de aleatorização) do estimador do total populacional dos escores e $\hat{V}_{p}\left[\sum_{i\ins}w_{i}\mathbf{u}_{i}\left( \mathbf{\hat{\theta}}_{MPV}\right)\right]$ é um estimador consistente para esta variância.
+$V_{p}\left[\sum_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta}_{U}\right) \right]$ é a matriz de variância (de aleatorização) do estimador do total populacional dos escores e $\hat{V}_{p}\left[\sum_{i\ins}w_{i}\mathbf{u}_{i}\left( \mathbf{\hat{\theta}}_{MPV}\right)\right]$ é um estimador consistente para esta variância.
 Binder(1983) mostrou também que a distribuição assintótica
 de $\mathbf{\hat{\theta}}_{MPV}$ é Normal Multivariada, isto é, que 
 \begin{equation}
@@ -508,12 +505,12 @@ Os pesos $w_{i}$ devem ser tais que os estimadores de total em \@ref(eq:modpar7)
 sejam assintoticamente normais e não-viciados, e possuam estimadores de
 variância consistentes, conforme requerido para a obtenção da
 distribuição assintótica dos estimadores MPV. Os pesos mais
-usados são os do estimador $\pi $-ponderado ou de Horvitz-Thompson para
+usados são os do estimador $\pi$-ponderado ou de Horvitz-Thompson para
 totais, dados pelo inverso das probabilidades de inclusão dos
 indivíduos, ou seja $w_{i}=\pi _{i}^{-1}$. Tais pesos satisfazem essas
-condições sempre que $\pi _{i}>0$ e $\pi _{ij}>0\quad \forall i,j\in
-U$ e algumas condições adicionais de regularidade são
-satisfeitas (veja [@fuller84]).
+condições sempre que $\pi _{i}>0$ e 
+$\pi _{ij}>0\quad \forall i,j\in U$ e algumas condições adicionais de regularidade são
+satisfeitas (veja, [@fuller84]).
 
 Assim, um procedimento padrão para ajustar um modelo paramétrico
 regular $f\left( \mathbf{y};\mathbf{\theta }\right)$ pelo método da
@@ -524,8 +521,8 @@ seguir.
 1.  Resolver $\sum\limits_{i\in s}\pi _{i}^{-1}\mathbf{u}_{i}\left( 
 \mathbf{\theta }\right) =\mathbf{0}$ e calcular o estimador pontual $\mathbf{
 \hat{\theta}}_{\pi }$ do parâmetro $\mathbf{\theta }$\textbf{\ }no
-modelo $f\left( \mathbf{y;\theta }\right)$ (ou do pseudo-parâmetro $
-\mathbf{\theta }_{U}$ correspondente).
+modelo $f\left( \mathbf{y;\theta }\right)$ (ou do pseudo-parâmetro 
+$\mathbf{\theta }_{U}$ correspondente).
 
 2.  Calcular a matriz de variância estimada 
 \begin{equation}
@@ -766,3 +763,10 @@ como principal resultado conjunto de tabelas com contagens e proporções, as qu
 agências produtoras. Este é o caso, por exemplo, da PNAD, da amostra
 do Censo Demográfico e de inúmeras outras pesquisas do IBGE e de
 agências estatísticas congêneres.
+
+## Laboratório de R
+
+Usar função svymle da library survey para incluir exemplo de estimador MPV?
+
+Possibilidade: explorar o exemplo 2.1?
+

@@ -1116,5 +1116,5 @@ knitr::kable(frame_sx_re,booktabs=TRUE, digits=3,
   caption="Proporções nas cela, desvios padrões e EPAs")
 ```
 
-
+Resultado dos testes obtidos pela survey são diferentes. Seriam incluídos?
 

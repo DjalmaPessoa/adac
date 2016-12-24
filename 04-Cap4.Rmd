@@ -1121,3 +1121,51 @@ $\delta $ & \multicolumn{1}{|r}{1} & \multicolumn{1}{r}{2} &
 \end{table}
 \end{center}
 
+## Laboratório de R
+
+Vale a pena incluir as contas que não dependem da simulação?
+
+Exemplo 4.2. Parte de simulação do exemplo para salario
+
+```{r}
+library(survey)
+source("~\\GitHub\\adac\\data\\popul.R")
+```
+
+```{r, eval=FALSE}
+N<-nrow(popul)
+n1<-30; n2<-30
+nh=c(n1,n2)
+n<-sum(nh)
+Nh<-table(popul$estrato)
+fh<-nh/Nh ; Wh<-Nh/N ; f<-n/N
+``` 
+
+
+Simulação (incluir?)
+
+
+
+```{r, eval=FALSE}
+mat.res<-matrix(NA,500,4)
+popul$salario<-popul$salario/1000
+library(sampling)
+#Geracão dos dados
+for(i in 1:500){
+s<-strata(popul, "estrato",c(30,30),method= "srswor")
+dados<-getdata(popul,s)
+med_y<-mean(dados$salario)
+var_AAS<-(1-f)*var(dados$salario)/n
+desenho<-svydesign(~1,strata=~estrato,data=dados,fpc=~Prob)
+med_yw<-svymean(~salario,desenho)
+mat.res[i,]<-c(med_y,coef(med_yw),var_AAS,SE(med_yw)^2)
+}
+colMeans(mat.res)
+```
+
+
+
+
+
+
+

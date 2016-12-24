@@ -313,7 +313,7 @@ Pseudo-Verossimilhança e de Linearização, que serão descritos mais adiante.
 
 Em outras palavras, o uso dos pacotes usuais para analisar dados produzidos
 por pesquisas com planos amostrais complexos, tal como o uso de muitos
-remédios, pode ter contra-indicações. Cabe ao usuário "ler a bula" e identificar situações em que o uso de tais pacotes pode ser inadequado, e buscar opções de rotinas específicas ou de pacotes especializados capazes de incorporar adequadamente a estrutura do plano amostral nas análises. Ao longo deste livro faremos uso intensivo da biblioteca [@R-survey} disponível no pacote \texttt{R}, mas o leitor encontrará funcionalidade semelhante em vários outros pacotes. Nossa escolha se deveu a dois fatores principais: primeiro ao fato do pacote R ser aberto, livre e gratuito, dispensando o usuário de custos de licenciamento, bem como possibilitando aos interessados o acesso ao código fonte e a capacidade de modificar as rotinas de análise, caso necessário. O segundo fator é de natureza mais técnica, porém transitória. No presente momento, a biblioteca \emph{survey} é a coleção de rotinas mais completa e genérica para análise de dados amostrais complexos existente, dispondo de rotinas capazes de ajustar os modelos usuais mas também de ajustar modelos não convencionais mediante maximização de verossimilhanças especificadas pelo usuário. Sabemos, entretanto, que muitos usuários habituados à facilidade de uso de pacotes com interfaces gráficas do tipo ``aponte e clique'' terão dificuldade adicional de adaptar-se à linguagem de comandos utilizada pelo pacote R, mas acreditamos que os benefícios do aprendizado desta nova ferramenta compensam largamente os custos adicionais do aprendizado.
+remédios, pode ter contra-indicações. Cabe ao usuário "ler a bula" e identificar situações em que o uso de tais pacotes pode ser inadequado, e buscar opções de rotinas específicas ou de pacotes especializados capazes de incorporar adequadamente a estrutura do plano amostral nas análises. Ao longo deste livro faremos uso intensivo da library `survey` disponível no R, mas o leitor encontrará funcionalidade semelhante em vários outros pacotes. Nossa escolha se deveu a dois fatores principais: primeiro ao fato do pacote R ser aberto, livre e gratuito, dispensando o usuário de custos de licenciamento, bem como possibilitando aos interessados o acesso ao código fonte e a capacidade de modificar as rotinas de análise, caso necessário. O segundo fator é de natureza mais técnica, porém transitória. No presente momento, a library `survey` é a coleção de rotinas mais completa e genérica para análise de dados amostrais complexos existente, dispondo de rotinas capazes de ajustar os modelos usuais mas também de ajustar modelos não convencionais mediante maximização de verossimilhanças especificadas pelo usuário. Sabemos, entretanto, que muitos usuários habituados à facilidade de uso de pacotes com interfaces gráficas do tipo "aponte e clique" terão dificuldade adicional de adaptar-se à linguagem de comandos utilizada pelo pacote R, mas acreditamos que os benefícios do aprendizado desta nova ferramenta compensam largamente os custos adicionais do aprendizado.
 
 ## Fontes de Variação
 
@@ -327,7 +327,7 @@ variação), incluindo:
 subjacente que por hipótese gera as medidas verdadeiras de qualquer
 unidade da população considerada;
 
-2.  `processo de medição`,\ que diz respeito aos
+2.  `processo de medição`, que diz respeito aos
 instrumentos e métodos usados para obter as medidas de qualquer unidade
 da população;
 
@@ -482,9 +482,9 @@ sua vez seriam boas aproximações para os parâmetros dos modelos de interesse.
 
 A seguir apresentamos um exemplo com a finalidade de ilustrar uma situação de plano amostral não-ignorável.
 
-
-**Ex2.2** Efeito da amostragem estratificada simples com alocação desproporcional
-
+```{example}
+Efeito da amostragem estratificada simples com alocação desproporcional
+```
 
 Considere $N$ observações de uma população finita $U$ onde são consideradas de interesse duas variáveis binárias $(x_i ; y_i )$. Suponha que na população os vetores aleatórios $(X_i ; Y_i )$ são independentes e identicamente distribuídos com distribuição de probabilidades conjunta dada por:
 

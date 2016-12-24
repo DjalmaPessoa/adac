@@ -888,3 +888,8 @@ Por exemplo, é difícil considerar pesos ao plotar os resíduos do
 ajuste dum modelo via MPV. Essa é questão que ainda merece maior
 investigação e por enquanto é uma desvantagem da abordagem aqui
 preconizada.
+
+## Laboratório de R
+
+Usar exemplo da amolim ou conseguir exemplo melhor?
+Reproduzir usando a survey os resultados do Exemplo 6.1???
