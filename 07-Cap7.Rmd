@@ -753,10 +753,8 @@ mos\-tram que o plano amostral não pode ser ignorado na análise.
 Queremos testar a hipótese $H_{0}:\mathbf{p=p}_{0}$ usando as
 estimativas de proporções obtidas pela amostra da PPV. O vetor de
 proporções populacionais $\mathbf{p}_{0}$ foi obtido dos resultados
-da Contagem Populacional de 96, que é uma pesquisa censitária. Neste
-exemplo, vamos calcular a estatística de Pearson e suas correções, e também a estatística de Wald baseada no plano amostral.
-Calculamos a matriz $\widehat{\mathbf{V}}_{p}$ pela aplicação do
-método de linearização de Taylor descrito na Seção \ref
+da Contagem Populacional de 96, que é uma pesquisa censitária. Neste exemplo, vamos calcular a estatística de Pearson e suas correções, e também a estatística de Wald baseada no plano amostral.
+Calculamos a matriz $\widehat{\mathbf{V}}_{p}$ pela aplicação do método de linearização de Taylor descrito na Seção \ref
 {taylor} através da fórmula \@ref(eq:qual24) obtendo
 
 \[
@@ -912,7 +910,6 @@ ordem de Rao-Scott, como na estatística Wald.
 
 ## Laboratório de R
 
-<
 Exemplo 7.1 pode ser substituído por: Criar variável ITAB (Não aparece)
 
 ```{r, echo=FALSE}
@@ -932,13 +929,17 @@ ppv.id<-svymean(~IDATAB,ppv.se.des,deff=T)
 Vhat<-vcov(ppv.id)
 ```
 
-```{r, results='asis'}
+```{r, estpropclas, results='asis'}
 library(xtable)
-xtable(print(ppv.id),caption="Estimativas das proporções nas classes",
-digits=c(0,4,4,3),align=c("l","r","r","r" ), label="prop",table.placement="H")
+fr_ppv_id<- data.frame(ppv.id)
+row.names(fr_ppv_id) <- NULL
+fr_ppv_id <- cbind(Idade= c("0 a 14 anos","15 a 29 anos", "30 a 44 anos","45 a 59 anos", "60 anos e mais"), fr_ppv_id)
+knitr::kable(fr_ppv_id, booktabs= TRUE, digits=c(0,4,4,3), caption="Estimativas das proporções nas classes") 
+
 ```
 
-Estatística de Wald calculada a partir da fórmula 7.8
+
+Estatística de Wald calculada a partir da fórmula \@ref(eq:qual8)
 
 
 ```{r}

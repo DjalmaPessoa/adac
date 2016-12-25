@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2016-12-24">
+<meta name="date" content="2016-12-25">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -558,19 +558,61 @@ F_{2.p}=5,691/4\mbox{ }=1,423
 </div>
 <div id="laboratorio-de-r-4" class="section level2">
 <h2><span class="header-section-number">7.4</span> Laboratório de R</h2>
-<p>&lt; Exemplo 7.1 pode ser substituído por: Criar variável ITAB (Não aparece)</p>
+<p>Exemplo 7.1 pode ser substituído por: Criar variável ITAB (Não aparece)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span>~NSETOR,<span class="dt">strat=</span>~ESTRATOF,<span class="dt">weights=</span>~PESOF,
 <span class="dt">data=</span>ppv1,<span class="dt">nest=</span><span class="ot">TRUE</span>)
 ppv.se.des&lt;-<span class="kw">subset</span>(ppv.des,REGIAO==<span class="dv">2</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.id&lt;-<span class="kw">svymean</span>(~IDATAB,ppv.se.des,<span class="dt">deff=</span>T)
 Vhat&lt;-<span class="kw">vcov</span>(ppv.id)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xtable)
-<span class="kw">xtable</span>(<span class="kw">print</span>(ppv.id),<span class="dt">caption=</span><span class="st">&quot;Estimativas das proporções nas classes&quot;</span>,
-<span class="dt">digits=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">3</span>),<span class="dt">align=</span><span class="kw">c</span>(<span class="st">&quot;l&quot;</span>,<span class="st">&quot;r&quot;</span>,<span class="st">&quot;r&quot;</span>,<span class="st">&quot;r&quot;</span> ), <span class="dt">label=</span><span class="st">&quot;prop&quot;</span>,<span class="dt">table.placement=</span><span class="st">&quot;H&quot;</span>)</code></pre></div>
-<pre><code>                mean        SE   DEff</code></pre>
-IDATAB[0,14] 0.2845340 0.0072301 2.2862 IDATAB(14,29] 0.2678396 0.0069400 2.1867 IDATAB(29,44] 0.2224982 0.0066181 2.2542 IDATAB(44,59] 0.1316017 0.0050548 1.9906 IDATAB(59,200] 0.0935266 0.0054882 3.1632 % latex table generated in R 3.3.2 by xtable 1.8-2 package % Sat Dec 24 18:54:36 2016
-
-<p>Estatística de Wald calculada a partir da fórmula 7.8</p>
+fr_ppv_id&lt;-<span class="st"> </span><span class="kw">data.frame</span>(ppv.id)
+<span class="kw">row.names</span>(fr_ppv_id) &lt;-<span class="st"> </span><span class="ot">NULL</span>
+fr_ppv_id &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="dt">Idade=</span> <span class="kw">c</span>(<span class="st">&quot;0 a 14 anos&quot;</span>,<span class="st">&quot;15 a 29 anos&quot;</span>, <span class="st">&quot;30 a 44 anos&quot;</span>,<span class="st">&quot;45 a 59 anos&quot;</span>, <span class="st">&quot;60 anos e mais&quot;</span>), fr_ppv_id)
+knitr::<span class="kw">kable</span>(fr_ppv_id, <span class="dt">booktabs=</span> <span class="ot">TRUE</span>, <span class="dt">digits=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">3</span>), <span class="dt">caption=</span><span class="st">&quot;Estimativas das proporções nas classes&quot;</span>) </code></pre></div>
+<table>
+<caption><span id="tab:estpropclas">Table 7.2: </span>Estimativas das proporções nas classes</caption>
+<thead>
+<tr class="header">
+<th align="left">Idade</th>
+<th align="right">mean</th>
+<th align="right">SE</th>
+<th align="right">deff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0 a 14 anos</td>
+<td align="right">0.2845</td>
+<td align="right">0.0072</td>
+<td align="right">2.286</td>
+</tr>
+<tr class="even">
+<td align="left">15 a 29 anos</td>
+<td align="right">0.2678</td>
+<td align="right">0.0069</td>
+<td align="right">2.187</td>
+</tr>
+<tr class="odd">
+<td align="left">30 a 44 anos</td>
+<td align="right">0.2225</td>
+<td align="right">0.0066</td>
+<td align="right">2.254</td>
+</tr>
+<tr class="even">
+<td align="left">45 a 59 anos</td>
+<td align="right">0.1316</td>
+<td align="right">0.0051</td>
+<td align="right">1.991</td>
+</tr>
+<tr class="odd">
+<td align="left">60 anos e mais</td>
+<td align="right">0.0935</td>
+<td align="right">0.0055</td>
+<td align="right">3.163</td>
+</tr>
+</tbody>
+</table>
+<p>Estatística de Wald calculada a partir da fórmula <a href="testes-de-qualidade-de-ajuste.html#eq:qual8">(7.8)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Vetor de proporções estimadas</span>
 phat&lt;-<span class="kw">coefficients</span>(ppv.id)
 <span class="co"># Vetor de proporções obtido na Contagem Populacional de 1996</span>
