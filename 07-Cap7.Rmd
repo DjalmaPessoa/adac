@@ -749,13 +749,12 @@ Total & $1,0000$ & \multicolumn{1}{|r|}{$8903$} & \multicolumn{1}{|r|}{$%
 \end{center}
 
 Os valores dos EPAs observados na PPV ( coluna 5 da Tabela \ref{tab73})
-mos\-tram que o plano amostral não pode ser ignorado na análise.
+mostram que o plano amostral não pode ser ignorado na análise.
 Queremos testar a hipótese $H_{0}:\mathbf{p=p}_{0}$ usando as
 estimativas de proporções obtidas pela amostra da PPV. O vetor de
 proporções populacionais $\mathbf{p}_{0}$ foi obtido dos resultados
 da Contagem Populacional de 96, que é uma pesquisa censitária. Neste exemplo, vamos calcular a estatística de Pearson e suas correções, e também a estatística de Wald baseada no plano amostral.
-Calculamos a matriz $\widehat{\mathbf{V}}_{p}$ pela aplicação do método de linearização de Taylor descrito na Seção \ref
-{taylor} através da fórmula \@ref(eq:qual24) obtendo
+Calculamos a matriz $\widehat{\mathbf{V}}_{p}$ pela aplicação do método de linearização de Taylor descrito na Seção \ref(#taylor) através da fórmula \@ref(eq:qual22) obtendo
 
 \[
 \widehat{\mathbf{V}}_{p}(\widehat{\mathbf{p}})=10^{-6}\times \left[ 

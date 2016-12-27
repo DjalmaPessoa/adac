@@ -1,0 +1,279 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Análise de Dados Amostrais Complexos},
+            pdfauthor={Djalma Pessoa e Pedro Nascimento Silva},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Análise de Dados Amostrais Complexos}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Djalma Pessoa e Pedro Nascimento Silva}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{2016-12-27}
+
+\usepackage{booktabs}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(survey)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: grid
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: Matrix
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: survival
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'survey'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:graphics':
+## 
+##     dotchart
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{source}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{ppv1.R"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter*{Prefácio}\label{prefacio}
+\addcontentsline{toc}{chapter}{Prefácio}
+
+Uma preocupação básica de toda instituição produtora de informações
+estatísticas é com a utilização `'correta'' de seus dados. Isso pode ser
+intrepretado de várias formas, algumas delas com reflexos até na
+confiança do público e na própria sobrevivência do órgão. Do nosso ponto
+de vista, como técnicos da área de metodologia do IBGE, enfatizamos um
+aspecto técnico particular, mas nem por isso menos importante para os
+usuários dos dados.
+
+A revolução da informática com a resultante facilidade de acesso ao
+computador, criou condições extremamente favoráveis à utilização de
+dados estatísticos, produzidos por órgãos como o IBGE. Algumas vezes
+esses dados são utilizados para fins puramente descritivos. Outras
+vezes, porém, sua utilização é feita para fins analíticos, envolvendo a
+construção de modelos, quando o objetivo é extrair conclusões aplicáveis
+também a populações distintas daquela da qual se extraiu a amostra.
+Neste caso, é comum empregar, sem grandes preocupações, pacotes
+computacionais padrões disponíveis para a seleção e ajuste de modelos. é
+neste ponto que entra a nossa preocupação com o uso adequado dos dados
+produzidos pelo IBGE.
+
+O que torna tais dados especiais para quem pretende usá-los para fins
+analíticos? Esta é a questão básica que será amplamente discutida ao
+longo deste texto. A mensagem principal que pretendemos transmitir é que
+certos cuidados precisam ser tomados para utilização correta dos dados
+de pesquisas amostrais como as que o IBGE realiza.
+
+O que torna especiais dados como os produzidos pelo IBGE é que estes são
+obtidos através de pesquisas amostrais complexas de populações finitas
+que envolvem: \textbf{probabilidades distintas de seleção,
+estratificação e conglomeração das unidades, ajustes para compensar
+não-resposta e outros ajustes}. Os pacotes tradicionais de análise
+ignoram estes aspectos, podendo produzir estimativas incorretas tanto
+dos parâmetros como para as variâncias destas estimativas. Quando
+utilizamos a amostra para estudos analíticos, as opções disponíveis nos
+pacotes estatísticos usuais para levar em conta os pesos distintos das
+observações são apropriadas somente para observações independentes e
+identicamente distribuídas (IID). Além disso, a variabilidade dos pesos
+produz impactos tanto na estimação pontual quanto na estimação das
+variâncias dessas estimativas, que sofre ainda influência da
+estratificação e conglomeração.
+
+O objetivo deste livro é analisar o impacto das simplificações feitas ao
+utilizar procedimentos e pacotes usuais de análise de dados, e
+apresentar os ajustes necessários desses procedimentos de modo a
+incorporar na análise, de forma apropriada, os aspectos aqui
+ressaltados. Para isto serão apresentados exemplos de análises de dados
+obtidos em pesquisas amostrais complexas, usando pacotes clássicos e
+também pacotes estatísticos especializados. A comparação dos resultados
+das análises feitas das duas formas permitirá avaliar o impacto de
+ignorar o plano amostral na análise dos dados resultantes de pesquisas
+amostrais complexas.
+
+\section*{Agradecimentos}\label{agradecimentos}
+\addcontentsline{toc}{section}{Agradecimentos}
+
+A elaboração de um texto como esse não se faz sem a colaboração de
+muitas pessoas. Em primeiro lugar, agradecemos à Comissão Organizadora
+do SINAPE por ter propiciado a oportunidade ao selecionar nossa proposta
+de minicurso. Agradecemos também ao IBGE por ter proporcionado as
+condições e os meios usados para a produção da monografia, bem como o
+acesso aos dados detalhados e identificados que utilizamos em vários
+exemplos.
+
+No plano pessoal, agradecemos a Zélia Bianchini pela revisão do
+manuscrito e sugestões que o aprimoraram. Agradecemos a Marcos Paulo de
+Freitas e Renata Duarte pela ajuda com a computação de vários exemplos.
+Agradecemos a Waldecir Bianchini, Luiz Pessoa e Marinho Persiano pela
+colaboração na utilização do processador de textos. Aos demais colegas
+do Departamento de Metodologia do IBGE, agradecemos o companheirismo e
+solidariedade nesses meses de trabalho na preparação do manuscrito.
+
+Finalmente, agradecemos a nossas famílias pela aceitação resignada de
+nossas ausências e pelo incentivo à conclusão da empreitada.
+
+\chapter{Introdução}\label{introducao}
+
+\chapter{Referencial para Inferência}\label{referencial-para-inferencia}
+
+\chapter{Estimação Baseada no Plano Amostral}\label{planamo}
+
+\chapter{Efeitos do Plano Amostral}\label{efeitos-do-plano-amostral}
+
+\chapter{Ajuste de Modelos
+Paramétricos}\label{ajuste-de-modelos-parametricos}
+
+\chapter{Modelos de Regressão}\label{modelos-de-regressao}
+
+\chapter{Testes de Qualidade de
+Ajuste}\label{testes-de-qualidade-de-ajuste}
+
+\chapter{Testes em Tabelas de Duas
+Entradas}\label{testes-em-tabelas-de-duas-entradas}
+
+\chapter{Agregação vs.~Desagregação}\label{agregacao-vs.desagregacao}
+
+\chapter{Pacotes para Analisar Dados
+Amostrais}\label{pacotes-para-analisar-dados-amostrais}
+
+\chapter{Placeholder}\label{placeholder}
+
+\bibliography{packages,book}
+
+
+\end{document}

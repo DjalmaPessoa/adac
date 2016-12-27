@@ -159,7 +159,7 @@ isto é, tal que todos os domicílios e pessoas dentro
 de um mesmo estrato têm igual probabilidade de seleção.
 Entretanto, as probabilidades de inclusão (e conseqüentemente os
 pesos) variam bastante entre as várias regiões de pesquisa.
-A Tabela \@ref(tab51) revela como variam essas probabilidades de seleção entre as 
+A Tabela 5.1 revela como variam essas probabilidades de seleção entre as 
 regiões cobertas pela amostra da PNAD de 93. Como se
 pode observar, tais probabilidades de inclusão chegam a ser $5$ vezes
 maiores em Belém do que em São Paulo, e portanto variação semelhante será observada nos pesos.
@@ -242,8 +242,8 @@ A estimação do total populacional $Y$ de uma variável de
 pesquisa $y$ num dado estrato usando os dados da PNAD é feita
 rotineiramente com estimadores ponderados de tipo razão 
 $\widehat{Y}_{R}=\widehat{Y}_{\pi }\,X\,/\,\widehat{X}_{\pi }=\sum_{i\in s}w_{i}^{R}y_{i}$
-(tal como definidos por \@ref(3.17), com pesos dados por 
-$w_{i}^{R}=\pi_{i}^{-1}X\,/\,\widehat{X}_{\pi }$ (veja \@ref(eq:modpar19), onde $X$ é o total
+(tal como definidos por \@ref(3.15), com pesos dados por 
+$w_{i}^{R}=\pi_{i}^{-1}X\,/\,\widehat{X}_{\pi }$ (veja \@ref(eq:modpar17), onde $X$ é o total
 da população no estrato obtido por métodos demográficos de
 projeção, utilizado como variável auxiliar, e $\widehat{X}_{\pi}$ e $\widehat{Y}_{\pi}$ são os estimadores $\pi$-ponderados de $X$ e 
 $Y$ respectivamente. Para estimar para conjuntos de estratos basta somar as
@@ -357,7 +357,7 @@ texto, usando-se sempre como peso o inverso da probabilidade de inclusão
 na amostra. é possível utilizar pesos de outro tipo como, por
 exemplo, aqueles de razão empregados na estimação da PNAD, ou
 mesmo pesos de regressão. Para esses casos, há que fazer alguns
-ajustes da teoria aqui exposta (veja \citeonline[cap. 6]{Silva}).
+ajustes da teoria aqui exposta (veja [@Silva], cap. 6).
 
 Há várias formas alternativas de incorporar os pesos amostrais no
 processo de inferência. A principal que será adotada ao longo deste

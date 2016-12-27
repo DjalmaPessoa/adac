@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2016-12-25">
+<meta name="date" content="2016-12-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -101,7 +101,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Análise de Dados Amostrais Complexos</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
@@ -110,7 +110,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="introducao.html"><a href="introducao.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
 <li class="chapter" data-level="1.1" data-path="introducao.html"><a href="introducao.html#motivacao"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
 <li class="chapter" data-level="1.2" data-path="introducao.html"><a href="introducao.html#ppv"><i class="fa fa-check"></i><b>1.2</b> Impacto dos pesos da amostra da PPV</a></li>
-<li class="chapter" data-level="1.3" data-path="introducao.html"><a href="introducao.html#epa"><i class="fa fa-check"></i><b>1.3</b> Laboratório de R do Capítulo 1.</a></li>
+<li class="chapter" data-level="1.3" data-path="introducao.html"><a href="introducao.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.3</b> Objetivos do Livro</a></li>
+<li class="chapter" data-level="1.4" data-path="introducao.html"><a href="introducao.html#epa"><i class="fa fa-check"></i><b>1.4</b> Laboratório de R do Capítulo 1.</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html"><i class="fa fa-check"></i><b>2</b> Referencial para Inferência</a><ul>
 <li class="chapter" data-level="2.1" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html#modelagem---primeiras-ideias"><i class="fa fa-check"></i><b>2.1</b> Modelagem - Primeiras Idéias</a><ul>
@@ -386,7 +387,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Na análise de dados desta pesquisa, deve-se considerar que há elementos da amostra com pesos bem distintos. Por exemplo, a razão entre o maior e o menor peso é cerca de 40 vezes. Tais pesos são utilizados para <code>expandir</code> os dados, multiplicando-se cada observação pelo seu respectivo peso. Assim, por exemplo, para <code>estimar</code> quantos elementos <code>da população</code> pertencem a determinado conjunto (domínio), basta somar os pesos dos elementos da amostra que pertencem a este conjunto. É possível ainda incorporar os pesos, de maneira simples e natural, quando estimamos medidas descritivas simples da população tais como totais, médias, proporções, razões, etc.</p>
 <p>Por outro lado, quando utilizamos a amostra para estudos analíticos, as opções padrão disponíveis nos pacotes estatísticos usuais para levar em conta os pesos distintos das observações são apropriadas somente para observações independentes e identicamente distribuídas (IID). Por exemplo, os procedimentos padrão disponíveis para estimar a média populacional permitem utilizar pesos distintos das observações amostrais, mas tratariam tais pesos como se fossem frequências de observações repetidas na amostra, e portanto interpretariam a soma dos pesos como tamanho amostral, situação que na maioria das vezes gera inferências incorretas sobre a precisão das estimativas, pois o tamanho da amostra é muito menor que a soma dos pesos amostrais usualmente encontrados nos arquivos de microdados de pesquisas disseminados por agências de estatísticas oficiais. Em tais pesquisas, a opção mais freqüente é disseminar pesos que somados estimam o total de unidades <code>da população</code>.</p>
 <p>Além disso, a variabilidade dos pesos para distintas observações amostrais produz impactos tanto na estimação pontual quanto na estimação das variâncias dessas estimativas, que sofre ainda influência da conglomeração e estratificação - pontos ii) e iii) mencionados anteriormente.</p>
-<p>Para exemplificar o impacto de ignorar os pesos e o plano amostral ao estimar quantidades descritivas populacionais, tais como totais, médias, proporções e razões, calculamos estimativas de quantidades desses diferentes tipos usando a amostra da PPV juntamente com estimativas das respectivas variâncias. Essas estimativas de variâncias foram calculadas sob duas estratégias: considerando amostragem aleatória simples (portanto ignorando o plano amostral efetivamente adotado), e considerando o plano amostral da pesquisa e os pesos diferenciados das unidades. A razão entre as estimativas de variância obtidas sob o plano amostral verdadeiro e sob amostragem aleatória simples foi calculada para cada uma das estimativas consideradas usando a <code>library survey</code> do R . Essa razão fornece uma medida do efeito de ignorar o plano amostral . Os resultados das estimativas ponderadas e variâncias considerando o plano amostral são apresentados na Tabela <a href="introducao.html#tab:epas">1.3</a>, juntamente com as medidas dos efeitos de plano amostral (EPA). Exemplos de utilização da library <code>survey</code> para obtenção de estimativas apresentadas na <a href="introducao.html#tab:epas">1.3</a> estão na Seção <a href="introducao.html#epa">1.3</a>. As outras estimativas da Tabela <a href="introducao.html#tab:epas">1.3</a> podem ser obtidas de maneira análoga.</p>
+<p>Para exemplificar o impacto de ignorar os pesos e o plano amostral ao estimar quantidades descritivas populacionais, tais como totais, médias, proporções e razões, calculamos estimativas de quantidades desses diferentes tipos usando a amostra da PPV juntamente com estimativas das respectivas variâncias. Essas estimativas de variâncias foram calculadas sob duas estratégias: considerando amostragem aleatória simples (portanto ignorando o plano amostral efetivamente adotado), e considerando o plano amostral da pesquisa e os pesos diferenciados das unidades. A razão entre as estimativas de variância obtidas sob o plano amostral verdadeiro e sob amostragem aleatória simples foi calculada para cada uma das estimativas consideradas usando a <code>library survey</code> do R . Essa razão fornece uma medida do efeito de ignorar o plano amostral . Os resultados das estimativas ponderadas e variâncias considerando o plano amostral são apresentados na Tabela <a href="introducao.html#tab:epas">1.3</a>, juntamente com as medidas dos efeitos de plano amostral (EPA). Exemplos de utilização da library <code>survey</code> para obtenção de estimativas apresentadas na <a href="introducao.html#tab:epas">1.3</a> estão na Seção <a href="introducao.html#epa">1.4</a>. As outras estimativas da Tabela <a href="introducao.html#tab:epas">1.3</a> podem ser obtidas de maneira análoga.</p>
 <p>Na Tabela <a href="introducao.html#tab:epas">1.3</a> apresentamos as estimativas dos seguintes parâmetros populacionais:</p>
 <ol style="list-style-type: decimal">
 <li>Número médio de pessoas por domicílio;</li>
@@ -581,11 +582,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <!-- \end{center} -->
 <p>Como se pode observar da quarta coluna da Tabela <a href="introducao.html#tab:epas">1.3</a>, os valores do efeito do plano amostral variam de um modesto 1,26 para o número médio de filhos tidos por mulheres em idade fértil (12 a 49 anos de idade) até um substancial 4,17 para o total de analfabetos entre pessoas de mais de 14 anos. Nesse último caso, usar a estimativa de variância como se o plano amostral fosse amostragem aleatória simples implicaria em subestimar consideravelmente a variância da estimativa pontual, que é mais que 4 vezes maior se consideramos o plano amostral efetivamente utilizado.</p>
 <p>Note que as variáveis e parâmetros cujas estimativas são apresentadas na Tabela <a href="introducao.html#tab:epas">1.3</a> não foram escolhidas de forma a acentuar os efeitos ilustrados, mas tão somente para representar distintos parâmetros (médias, razões, totais, proporções) e variáveis de interesse. Os resultados apresentados para as estimativas de EPA ilustram bem o cenário típico em pesquisas amostrais complexas: o impacto do plano amostral sobre a inferência varia conforme a variável e o tipo de parâmetro de interesse. Note ainda que à exceção do menor valor, todas as demais estimativas de EPA apresentaram valores superiores a 2.</p>
-
-Este livro tem três objetivos principais:
-
+</div>
+<div id="objetivos-do-livro" class="section level2">
+<h2><span class="header-section-number">1.3</span> Objetivos do Livro</h2>
+<p>Este livro tem três objetivos principais:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>ilustrar e analisar o impacto das simplificações feitas ao utilizar pacotes usuais de análise de dados quando estes são provenientes de pesquisas amostrais complexas</strong>;</p></li>
+<li><p><strong>apresentar uma coleção de métodos e recursos computacionais disponíveis para análise de dados amostrais complexos, equipando o analista para trabalhar com tais dados, reduzindo assim o risco de inferências incorretas</strong>;</p></li>
+<li><p><strong>ilustrar o potencial analítico de muitas das pesquisas produzidas por agências de estatísticas oficiais para responder questões de interesse, mediante uso de ferramentas de análise estatística agora já bastante difundidas, aumentando assim o valor adicionado destas pesquisas</strong>.</p></li>
+</ol>
 <p>Para alcançar tais objetivos, adota-se uma abordagem fortemente ancorada na apresentação de exemplos de análises de dados obtidos em pesquisas amostrais complexas, usando pacotes clássicos e também recursos do pacote estatístico R (<a href="http://www.r-project.org/" class="uri">http://www.r-project.org/</a>). A comparação dos resultados das análises feitas das duas formas permite avaliar o impacto de não se considerar os pontos i) a iv) anteriormente citados. O ponto iv) não será tratado de forma completa neste texto. O leitor interessado na análise de dados sujeitos a não-resposta pode consultar <span class="citation">(Kalton <a href="#ref-kalton83a">1983</a><a href="#ref-kalton83a">a</a>)</span>, <span class="citation">(Little and Rubin <a href="#ref-LR2002">2002</a>)</span>, <span class="citation">(Rubin <a href="#ref-Rubin87">1987</a>)</span>, <span class="citation">(Särndal, Swensson, and Wretman <a href="#ref-SSW92">1992</a>)</span>, ou Schafer (1997), por exemplo.</p>
-
+<p><strong>Estrutura do Livro</strong></p>
 <p>O livro está organizado em catorze capítulos. Este primeiro capítulo discute a motivação para estudar o assunto e apresenta uma idéia geral dos objetivos e da estrutura do livro.</p>
 <p>No segundo capítulo, procuramos dar uma visão das diferentes abordagens utilizadas na análise estatística de dados de pesquisas amostrais complexas. Apresentamos um referencial para inferência com ênfase no <code>Modelo de Superpopulação</code> que incorpora, de forma natural, tanto uma estrutura estocástica para descrever a geração dos dados populacionais (modelo) como o plano amostral efetivamente utilizado para obter os dados amostrais (plano amostral). As referências básicas para seguir este capítulo são cap2 em <span class="citation">(Nascimento Silva <a href="#ref-Silva">1996</a>)</span>, cap1 em <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span> e caps 1 e 2 em <span class="citation">(Chambers and Skinner <a href="#ref-CHSK2003">2003</a>)</span>.</p>
 <p>Esse referencial tem evoluído ao longo dos anos como uma forma de permitir a incorporação de idéias e procedimentos de análise e inferência usualmente associados à Estatística Clássica à prática da interpretação de dados provenientes de pesquisas amostrais. Apesar dessa evolução, sua adoção não é livre de controvérsia e uma breve revisão dessa discussão é apresentada no capítulo 2.</p>
@@ -605,7 +612,7 @@ Este livro tem três objetivos principais:
 <p>Uma dificuldade em escrever um livro como este vem do fato de que não é possível começar do zero: é preciso assumir algum conhecimento prévio de idéias e conceitos necessários à compreensão do material tratado. Procuramos tornar o livro acessível para um estudante de fim de curso de graduação em Estatística. Por essa razão optamos por não apresentar provas de resultados e sempre que possível, apresentar os conceitos e idéias de maneira intuitiva, juntamente com uma discussão mais formal para dar solidez aos resultados apresentados. As provas de vários dos resultados aqui discutidos se restringem a material disponível apenas em artigos em periódicos especializados estrangeiros e portanto, são de acesso mais difícil. Ao leitor em busca de maior detalhamento e rigor, sugerimos consultar diretamente as inúmeras referências incluídas ao longo do texto. Para um tratamento mais profundo do assunto, os livros de <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span> e <span class="citation">(Chambers and Skinner <a href="#ref-CHSK2003">2003</a>)</span> são as referências centrais a pesquisar. Para aqueles querendo um tratamento ainda mais prático que o nosso, o livro de <span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span> pode ser uma opção interessante.</p>
 </div>
 <div id="epa" class="section level2">
-<h2><span class="header-section-number">1.3</span> Laboratório de R do Capítulo 1.</h2>
+<h2><span class="header-section-number">1.4</span> Laboratório de R do Capítulo 1.</h2>
 
 <div class="example">
 <span id="ex:unnamed-chunk-2" class="example"><strong>Example 1.1 </strong></span>Utilização da library survey do R para estimar totais e razões na PPV
@@ -743,7 +750,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/01-Cap1.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["bookdown-demo.pdf"],
 "toc": {
 "collapse": "subsection"
 }

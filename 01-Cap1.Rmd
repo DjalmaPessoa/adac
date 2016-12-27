@@ -231,12 +231,12 @@ efeitos de plano amostral (EPA). Exemplos de utilização da library `survey` pa
 Na Tabela \@ref(tab:epas) apresentamos as estimativas dos seguintes parâmetros populacionais:
 
 1. Número médio de pessoas por domicílio;
-2. \% de domicílios alugados;
+2. % de domicílios alugados;
 3. Número total de pessoas que avaliaram seu estado de de saúde como ruim;
 4. Total de analfabetos de 7 a 14 anos;
 5. Total de analfabetos de mais de 14 anos;
-6. \% de analfabetos de 7 a 14 anos;
-7. \% de analfabetos de mais de 14 anos;
+6. % de analfabetos de 7 a 14 anos;
+7. % de analfabetos de mais de 14 anos;
 8. Total de mulheres de 12 a 49 anos que tiveram filhos;
 9. Total de mulheres de 12 a 49 anos que tiveram filhos vivos;
 10.Total de mulheres de 12 a 49 anos que tiveram filhos mortos;
@@ -378,24 +378,19 @@ amostral efetivamente utilizado.
 
 Note que as variáveis e parâmetros cujas estimativas são apresentadas na Tabela \@ref(tab:epas) não foram escolhidas de forma a acentuar os efeitos ilustrados, mas tão somente para representar distintos parâmetros (médias, razões, totais, proporções) e variáveis de interesse. Os resultados apresentados para as estimativas de EPA ilustram bem o cenário típico em pesquisas amostrais complexas: o impacto do plano amostral sobre a inferência varia conforme a variável e o tipo de parâmetro de interesse. Note ainda que à exceção do menor valor, todas as demais estimativas de EPA apresentaram valores superiores a 2.
 
-\section{Objetivos do Livro}
+## Objetivos do Livro
 
 Este livro tem três objetivos principais:
-\begin{enumerate}
-\item[1)]  \textbf{ilustrar e analisar o impacto das simplificações
-feitas ao utilizar pacotes usuais de análise de dados quando estes são provenientes
-de pesquisas amostrais complexas};
 
-\item[2)]  \textbf{apresentar uma coleção de métodos e recursos computacionais 
-disponíveis para análise de dados amostrais complexos, equipando o analista para trabalhar 
-com tais dados, reduzindo assim o risco de inferências incorretas};
+1)  **ilustrar e analisar o impacto das simplificações
+feitas ao utilizar pacotes usuais de análise de dados quando estes são provenientes de pesquisas amostrais complexas**;
 
-\item[3)]  \textbf{ilustrar o potencial analítico de muitas das pesquisas produzidas 
-por agências de estatísticas oficiais para responder questões de interesse, mediante 
-uso de ferramentas de análise estatística agora já bastante difundidas, aumentando 
-assim o valor adicionado destas pesquisas}.
+2) **apresentar uma coleção de métodos e recursos computacionais 
+disponíveis para análise de dados amostrais complexos, equipando o analista para trabalhar com tais dados, reduzindo assim o risco de inferências incorretas**;
 
-\end{enumerate}
+3) **ilustrar o potencial analítico de muitas das pesquisas produzidas 
+por agências de estatísticas oficiais para responder questões de interesse, mediante uso de ferramentas de análise estatística agora já bastante difundidas, aumentando assim o valor adicionado destas pesquisas**.
+
 
 Para alcançar tais objetivos, adota-se uma abordagem fortemente ancorada na 
 apresentação de exemplos de análises de dados obtidos em pesquisas amostrais complexas,
@@ -406,7 +401,7 @@ a iv) anteriormente citados. O ponto iv) não será tratado de forma completa ne
 O leitor interessado na análise de dados sujeitos a não-resposta pode consultar 
 [@kalton83a], [@LR2002], [@Rubin87], [@SSW92], ou Schafer (1997), por exemplo.
 
-\section{Estrutura do Livro}
+**Estrutura do Livro**
 
 O livro está organizado em catorze capítulos. Este primeiro capítulo
 discute a motivação para estudar o assunto e apresenta uma idéia

@@ -45,7 +45,7 @@ _{1}x_{i}  (\#eq:hier1)
 \end{equation}
 onde $\beta _{0}$ e $\beta _{1}$ são parâmetros desconhecidos e $Y_{i}$ e $X_{i}$ são as variáveis resposta e preditora para a 
 $i$-ésima unidade da população, respectivamente. Modelos dessa
-forma são freq\"{u}entemente considerados na prática para
+forma são frequentemente considerados na prática para
 representar relações entre variáveis, e a inferência é
 dirigida aos parâmetros $\beta _{0}$ e $\beta _{1}.$
 
@@ -101,7 +101,7 @@ renda, que sustenta discussões sobre preconceito contra mulheres no
 mercado de trabalho (estamos simplificando aqui a situação, pois em
 geral se precisa remover efeitos de profissão, posição na ocupação, número de horas trabalhadas e outros que afetam a renda de
 assalariados). Em casos como este, em que dados de pesquisas amostrais
-domiciliares são freq\"{u}entemente usados para ajustar modelos com
+domiciliares são frequentemente usados para ajustar modelos com
 efeitos de estratificação, os estratos de análise (pessoas
 classificadas por sexo) são formados a posteriori, porque as pessoas da
 amostra não são selecionadas em grupos devido à inexistência
@@ -297,8 +297,7 @@ _{2j}\;\;,
 \right.  (\#eq:hier10)
 \end{equation}
 onde $\eta _{0j}$, $\eta _{1j}$ e $\eta _{2j}$ são erros no nível 2
-satisfazendo as condições em (\ref{9.5}). As equações (\ref
-{9.9}) e (\ref{9.10}) definem um modelo hierárquico, que pode ser
+satisfazendo as condições em \@ref(eq:hier5). As equações \@ref(eq:hier9) e \@ref(eq:hier10) definem um modelo hierárquico, que pode ser
 escrito de forma equivalente como 
 \begin{eqnarray}
 ESC_{ij} &=&\gamma _{00}+\gamma _{01}CST_{j}+\gamma _{02}EXP_{j}
@@ -312,11 +311,11 @@ CSA_{ij}  \nonumber \\
 \end{eqnarray}
 
 A presença dos erros aleatórios $\eta _{0j}$, $\eta _{1j}$ e $\eta
-_{2j}$ (de nível 2), torna (\ref{9.11}) um modelo misto. Se os erros
-fossem suprimidos em (\ref{9.10}), o modelo especificado só teria
+_{2j}$ (de nível 2), torna \@ref(eq:hier11) um modelo misto. Se os erros
+fossem suprimidos em \@ref(eq:hier10), o modelo especificado só teria
 efeitos fixos e a estimação dos parâmetros não traria
-qualquer problema. Entretanto, a exclusão dos erros de nível 2 em (%
-\ref{9.10}) não seria razoável, pois as variáveis definidas no
+qualquer problema. Entretanto, a exclusão dos erros de nível 2 em 
+\@ref(eq:hier10) não seria razoável, pois as variáveis definidas no
 nível 2 não determinam completamente os coeficientes dentro das
 turmas. Este aspecto fundamental do modelo deve ser incorporado no
 procedimento de estimação dos respectivos parâmetros de
@@ -331,33 +330,31 @@ ESC_{ij} &=&\gamma _{00}+\gamma _{01}CST_{j}+\gamma _{02}EXP_{j}
 _{ij}\right) \;\;.  \nonumber
 \end{eqnarray}
 
-Além da parte fixa, o modelo contém uma \emph{parte residual, }com
+Além da parte fixa, o modelo contém uma `parte residual`, om
 os erros aleatórios com média zero: $\eta _{0j},$ que representa o
 desvio da média dos indivíduos da turma $j$ com relação
-à média total, e $\varepsilon _{ij},$ que é o desvio do $i$%
--ésimo aluno com relação à média da turma $j$. Vamos
+à média total, e $\varepsilon _{ij},$ que é o desvio do $i$-ésimo aluno com relação à média da turma $j$. Vamos
 supor, ainda, que os $\eta _{0j}$ e os $\varepsilon _{ij}$ são
-independentes entre si e os $\eta _{0j}$ são independentes dos $%
-\varepsilon _{ij}$ , com 
+independentes entre si e os $\eta _{0j}$ são independentes dos 
+$\varepsilon _{ij}$ , com 
 \begin{equation}
 E_{M}\left( \eta _{0j}\right) =E_{M}\left( \varepsilon _{ij}\right)
 =0,\;V_{M}\left( \eta _{0j}\right) =\sigma _{0}^{2},\;V_{M}\left(
 \varepsilon _{ij}\right) =\sigma ^{2},\;\forall i,j\;.  (\#eq:hier13)
 \end{equation}
 
-A parte aleatória do modelo (\ref{9.12}) é o termo $\eta
-_{0j}+\varepsilon _{ij}$, com distribuição tendo parâmetros $%
-\sigma _{0}^{2}$ e $\sigma ^{2}$ a serem estimados.
+A parte aleatória do modelo \@ref(eq:hier12) é o termo $\eta
+_{0j}+\varepsilon _{ij}$, com distribuição tendo parâmetros 
+$\sigma _{0}^{2}$ e $\sigma ^{2}$ a serem estimados.
 
-O modelo (\ref{9.12}) não permite estudar interações entre
+O modelo \@ref(eq:hier12) não permite estudar interações entre
 variáveis nos dois níveis hierárquicos. Para isto teríamos
 de supor, por exemplo, que a diferença de desempenho entre sexos varia
 com as turmas, requerendo que o modelo fosse alterado, fazendo $\beta _{1j}$
 depender das variáveis $CST_{j}$ e $EXP_{j}$. Isto introduziria mais
 erros aleatórios no modelo e mais parâmetros a serem estimados.
 
-Voltando ao modelo básico de dois níveis hierárquicos (\ref{9.11}%
-), verificamos que há uma correlação positiva entre respostas de
+Voltando ao modelo básico de dois níveis hierárquicos \@ref(eq:hier11), verificamos que há uma correlação positiva entre respostas de
 alunos na mesma turma, mas uma correlação nula entre respostas de
 alunos em turmas diferentes. Assim 
 \begin{equation}
@@ -375,21 +372,16 @@ V_{M}\left( ESC_{ij}\right) =V_{M}\left( ESC_{ij^{^{\prime }}}\right)
 e portanto
 
 \begin{equation}
-CORR_{M}\left( ESC_{ij},ESC_{ij^{^{\prime }}}\right) =\frac{\sigma _{0}^{2}}{%
-\sigma _{0}^{2}+\sigma ^{2}}.  (\#eq:hier15)
+CORR_{M}\left( ESC_{ij},ESC_{ij^{^{\prime }}}\right) = \frac{\sigma_{0}^{2}}{\sigma _{0}^{2}+\sigma ^{2}}.  (\#eq:hier15)
 \end{equation}
 
-A expressão (\ref{9.15}) define a \emph{correlação intraclasse }%
+A expressão \@ref(eq:hier15) define a `correlação intraclasse`
 usual que, em nosso exemplo, mede o grau de similaridade entre alunos dentro
-das turmas ou o grau de conglomeração da variável resposta $%
-ESC_{ij}$ por turmas. Ela é a fração da variância residual atribuída à variância intra-conglomerado.
+das turmas ou o grau de conglomeração da variável resposta $ESC_{ij}$ por turmas. Ela é a fração da variância residual atribuída à variância intra-conglomerado.
 No caso de se supor adicionalmente a normalidade dos dados, foram propostos
-vários métodos para estimação dos parâmetros do modelo (%
-\ref{9.11}), entre os quais os métodos de Máxima Verossimilhanç%
-a, de Máxima Verossimilhança Restrita e o Método Iterativo de
-Mínimos Quadrados Generalizados. Detalhes destes métodos de estima\c{%
-c}ão não serão abordados neste texto, e o leitor interessado
-deve consultar, por exemplo, \citeonline{bryk}.
+vários métodos para estimação dos parâmetros do modelo \@ref(eq:hier11), entre os quais os métodos de Máxima Verossimilhança, de Máxima Verossimilhança Restrita e o Método Iterativo de
+Mínimos Quadrados Generalizados. Detalhes destes métodos de estimação não serão abordados neste texto, e o leitor interessado
+deve consultar, por exemplo, [@bryk].
 
 Nas considerações anteriores, não mencionamos explicitamente o
 plano amostral utilizado. Os modelos hierárquicos, ao incorporarem
@@ -451,13 +443,12 @@ e $3$, foi ajustado o modelo logístico
 _{1}(TEMP)_{j}+\beta _{2}\left( EXP\right) _{j},  (\#eq:hier16)
 \end{equation}
 no qual $\beta _{0},\beta _{1}$ e $\beta _{2}$ são coeficientes a serem
-estimados, e o índice $j$ se refere a um domínio de estudo, $%
-j=1,\ldots ,9$ (tais domínios não foram identificados na
+estimados, e o índice $j$ se refere a um domínio de estudo, $j=1,\ldots ,9$ (tais domínios não foram identificados na
 referência citada).
 
 Podemos analisar os dados considerando as observações como IID,
 ignorando a existência de conglomerados e de pesos distintos, que
-chamaremos aqui de \emph{análise ingênua}. Neste caso, os
+chamaremos aqui de `análise ingênua`. Neste caso, os
 coeficientes podem ser estimados pelo método padrão de Máxima
 Verossimilhança, utilizando um dos pacotes padrões. Os resultados
 dessa análise são apresentados na Tabela \ref{tab91}.
@@ -490,11 +481,10 @@ $6,82$ & $0,000$ & $1$ \\
 \end{center}
 
 Os $p$valores da Tabela \ref{tab91} indicam que os coeficientes são
-significantemente diferentes de $0$ ao nível de significância $%
-\alpha =5\%$, sugerindo que todas as variáveis preditoras têm poder
+significantemente diferentes de $0$ ao nível de significância $\alpha =5\%$, sugerindo que todas as variáveis preditoras têm poder
 de explicação, e portanto devem permanecer no modelo.
 
-Outra opção é a \emph{análise agregada}, que incorpora o
+Outra opção é a `análise agregada`, que incorpora o
 plano amostral e os pesos através do método de MPV para estimar
 parâmetros, e do uso de estatísticas baseadas no plano amostral para
 testar hipóteses. Esta abordagem pode ser usada também na etapa de
@@ -580,8 +570,8 @@ Padrão
 %EndExpansion
 \end{center}
 
-Finalmente, a \emph{análise desagregada} que, neste exemplo, usaria um 
-\emph{modelo hierárquico} com dois níveis, a saber:
+Finalmente, a `análise desagregada` que, neste exemplo, usaria um 
+`modelo hierárquico` com dois níveis, a saber:
 
 
 -  nível 1 - alunos;
@@ -589,19 +579,17 @@ Finalmente, a \emph{análise desagregada} que, neste exemplo, usaria um
 -  nível 2 - turmas.
 
 
-No modelo hierárquico, para cada nível se considera uma variaç%
-ão aleatória. Denotando por $p_{jk}$ a probabilidade de um
+No modelo hierárquico, para cada nível se considera uma variação aleatória. Denotando por $p_{jk}$ a probabilidade de um
 aluno da turma $k$ no domínio $j$ atingir o nível desejado em
-Matemática, podemos modificar o modelo (\ref{9.16}) para incluir o
+Matemática, podemos modificar o modelo \@ref(eq:hier16) para incluir o
 efeito da turma empregando 
 \begin{equation}
 \log \left( \frac{p_{jk}}{1-p_{jk}}\right) =\beta _{0}+\beta
 _{1}TEMP_{jk}+\beta _{2}EXP_{j}+u_{k}.  (\#eq:hier17)
 \end{equation}
 
-O erro aleatório $u_{k}\sim N\left( 0,\sigma _{u}^{2}\right) $
-representa a variação aleatória no nível 2. A variaç%
-ão no nível 1, entre alunos, é introduzida da seguinte forma.
+O erro aleatório $u_{k}\sim N\left( 0,\sigma _{u}^{2}\right)$
+representa a variação aleatória no nível 2. A variação no nível 1, entre alunos, é introduzida da seguinte forma.
 Sob a hipótese binomial, em cada domínio, a proporção de
 alunos atingindo o nível adequado tem variância $p_{jk}\left(
 1-p_{jk}\right) /n_{jk}$. Vamos supor que a variação residual no
@@ -647,8 +635,7 @@ Padrão
 
 A coluna de $p$valores da Tabela \ref{tab94} indica novamente que o
 coeficiente de $EXP$ não é significantemente diferente de zero ao
-nível $\alpha =5\%$. A variação no nível 2 foi estimada por $%
-\sigma _{u}^{2}=0,42$ com desvio-padrão $0,189$, e portanto é
+nível $\alpha =5\%$. A variação no nível 2 foi estimada por $\sigma_{u}^{2}=0,42$ com desvio-padrão $0,189$, e portanto é
 significante ao nível $\alpha =5\%$. Isto sugere a existência de
 diferença de avaliação dos professores sobre o aprendizado de
 Matemática dos alunos.
@@ -697,7 +684,7 @@ nível 2)
 $x_{1j}=$ Experiência Acadêmica Média antes da Escola
 Secundária;
 
-$x_{2j}=$ Status Sócio-Econ\^{o}mico Médio;
+$x_{2j}=$ Status Sócio-Econômico Médio;
 
 $x_{3j}=$ Proporção Alta de Minorias;
 
@@ -705,7 +692,7 @@ $x_{4j}=$ Tamanho;
 
 $x_{5j}=$ Mistura étnica;
 
-$x_{6j}=$ Mistura de Status Sócio-Econ\^{o}mico;
+$x_{6j}=$ Mistura de Status Sócio-Econômico;
 
 $x_{7j}=$ Grau de Organização Comunitária ($Comunit$).
 
@@ -741,8 +728,8 @@ Foram obtidas as seguintes estimativas para os parâmetros deste modelo:
 \hat{\sigma}^{2}=0,915;\;\hat{\tau}_{00}=0,084\;\mbox{ e}
 \]
 \[
-\mbox{\emph{Correlação Intra-Escola}}=\frac{\hat{\tau}_{00}}{\hat{%
-\sigma}^{2}+\hat{\tau}_{00}}=0,092\;\;.
+\mbox{Correlação Intra-Escola}=\frac{\hat{\tau}_{00}}{\hat{
+\sigma}^{2}+\hat{\tau}_{00}}=0,092.
 \]
 
 Logo cerca de apenas $9\%$ da variação na eficiência do
@@ -805,20 +792,19 @@ $\hat{\tau}_{00}$ & \multicolumn{1}{|r|}{$0,055$} & \multicolumn{1}{|r|}{-}
 
 Com essas estimativas, a proporção da variação total entre
 escolas do parâmetro $\beta _{0j}$ (nível médio da eficácia
-dos professores por escola) explicada pelas variáveis $\left(
-x_{1},\ldots ,x_{6}\right) $ aumentou para
+dos professores por escola) explicada pelas variáveis 
+$\left(x_{1},\ldots ,x_{6}\right)$ aumentou para
 \[
 \frac{0,084-0,055}{0,084}=35.
 \]
 
 Embora esse aumento do poder explicativo do modelo já tenha sido
-subs\-tan\-cial, ainda é relativamente baixa a proporção de varia%
-ção explicada, e portanto consideramos um terceiro modelo, em que
+subs\-tan\-cial, ainda é relativamente baixa a proporção de variação explicada, e portanto consideramos um terceiro modelo, em que
 foi adicionada ao Modelo II a variável preditora $x_{7}=Comunit$ ao
 nível da escola.
 
 **Modelo III:** Modelo Hierárquico com dois níveis,
-usando as variáveis $\left( x_{1},\ldots ,x_{7}\right) $, definidas no
+usando as variáveis $\left( x_{1},\ldots ,x_{7}\right)$, definidas no
 nível 2, para explicar a variação da eficiência média do
 professor por escola\textbf{.}
 
@@ -872,7 +858,7 @@ $\hat{\tau}_{00}$ & \multicolumn{1}{|r|}{$0,031$} & \multicolumn{1}{|r|}{-}
 
 A proporção da variação total entre escolas do parâmetro
 $\beta _{0j}$ (nível médio da eficácia dos professores por
-escola) explicada pelas variáveis $\left( x_{1},\ldots ,x_{7}\right) $
+escola) explicada pelas variáveis $\left( x_{1},\ldots ,x_{7}\right)$
 aumentou para
 \[
 \frac{0,084-0,031}{0,084}=63.
@@ -880,7 +866,7 @@ aumentou para
 
 O incremento na variação explicada devido à introdução
 da variável $Comunit$ no modelo de nível 2, foi de $63\%-35\%=28\%,$
-sugerindo que essa variável\emph{\ }é importante para explicar a
+sugerindo que essa variável é importante para explicar a
 variação na eficácia do professor. O Modelo III já atinge um
 nível razoável de poder explicativo e poderia ser considerado
 satisfatório para algumas finalidades.
@@ -892,8 +878,8 @@ hierárquica da população.
 **Modelo IV:** Análise de Regressão Simples (nível 1).
 
 Vamos considerar um modelo de regressão linear simples, com o resultado
-do professor $Y_{ij}$ dependendo das características $\left(
-x_{1j},\ldots ,x_{7j}\right) $ da escola, que teriam seus valores
+do professor $Y_{ij}$ dependendo das características 
+$\left(x_{1j},\ldots ,x_{7j}\right)$ da escola, que teriam seus valores
 "repetidos" para os professores de uma mesma escola. Esse modelo pode ser
 escrito como
 \[
@@ -901,7 +887,7 @@ Y_{ij}=\gamma _{0}+\sum\limits_{k=1}^{7}\gamma _{k}x_{kj}+e_{ij}.
 \]
 
 A Tabela \ref{tab97} apresenta as estimativas de Mínimos Quadrados
-Ponderados de $\left( \gamma _{0},\gamma _{1},\ldots \gamma _{7}\right) $
+Ponderados de $\left( \gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)$
 com pesos dados por $n_{j}=$ número de professores da escola $j$.
 
 \begin{center}
@@ -941,14 +927,14 @@ Tabela \ref{tab96}) foram bem semelhantes neste exemplo, o que pode ser
 explicado em parte pela pequena variação do número de
 professores por escola.
 
-A introdução da variável $Comunit$\emph{, }neste modelo, só
+A introdução da variável $Comunit$, neste modelo, só
 aumentou a quantidade de variação explicada em $2,5\%$. A julgar por
-este resultado, a importância da variável $Comunit$\emph{\ }é
+este resultado, a importância da variável $Comunit$ é
 pequena. Este resultado é enganador devido ao fato de usar, no
 cálculo da razão de variação explicada, a variação
-total $\left( \tau _{00}+\sigma ^{2}\right) $ no denominador. No modelo
-hierárquico correspondente (Modelo III) este denominador é $\tau
-_{00},$ que é a parte explicável da variação. A
+total $\left( \tau _{00}+\sigma ^{2}\right)$ no denominador. No modelo
+hierárquico correspondente (Modelo III) este denominador é 
+$\tau_{00}$, que é a parte explicável da variação. A
 estatística de variação explicada da análise hierárquica
 fornece uma evidência mais clara para se julgar a importância de
 preditores do nível 2.
@@ -963,9 +949,8 @@ II e III aqui considerados são modelos de interceptos aleatórios do
 tipo $y_{ij}=\beta _{0j}+\mathbf{x}_{j}^{T}\mathbf{\beta +}v_{ij}\;$, onde
 os coeficientes de regressão $\mathbf{\beta }$ são considerados
 fixos e apenas os interceptos $\beta _{0j}=\beta _{0}+u_{j}$ são efeitos
-aleatórios. Tais modelos poderiam ser generalizados mediante suposiç%
-ão de que os coeficientes de regressão nas variáveis preditoras $%
-\mathbf{\beta}$ também são aleatórios. O Modelo V a seguir é desse tipo.
+aleatórios. Tais modelos poderiam ser generalizados mediante suposição de que os coeficientes de regressão nas variáveis preditoras 
+$\mathbf{\beta}$ também são aleatórios. O Modelo V a seguir é desse tipo.
 
 **Modelo V:** Modelo de Coeficientes Aleatórios
 $$
@@ -1008,8 +993,8 @@ Já a classe social média dos alunos da escola é uma proxy da
 medida dos recursos da escola e de seu ambiente normativo. Modelos
 Hierárquicos ajudam a solucionar este confundimento, fornecendo uma
 decomposição de qualquer relação entre variáveis, tais
-como desempenho e classe social, em componentes separadas no nível 1 (%
-\emph{indivíduo}) e no nível 2 (\emph{organização}).\medskip
+como desempenho e classe social, em componentes separadas no nível 1 
+(`indivíduo`) e no nível 2 (`organização`).
 
 **Desvios padrões mal estimados**
 
@@ -1030,7 +1015,7 @@ decorre da amostragem por conglomerado.\medskip
 
 Pode ocorrer quando as relações entre características
 individuais e resultados variam ao longo das organizações. Embora
-este fen\^{o}meno seja, freq\"{u}entemente, considerado como de
+este fen\^{o}meno seja, frequentemente, considerado como de
 distúrbio do ponto de vista metodológico, as causas da
 heterogeneidade da regressão são muitas vezes de interesse
 substantivo. Modelos hierárquicos possibilitam ao pesquisador estimar um
@@ -1052,15 +1037,13 @@ Os exemplos de modelagem desagregada discutidos anteriormente e na
 mai\-o\-ria dos livros sobre modelos hierárquicos são relativamente
 simples, ao menos em termos do número de variáveis consideradas.
 Apesar disso, representam situações mais complexas que as cobertas
-pelos pacotes padrões até recentemente, e freq\"{u}entemente
+pelos pacotes padrões até recentemente, e frequentemente
 requerem o emprego de pacotes ou procedimentos especializados para seu
 ajuste e análise.
 
 Quando a modelagem for feita com a finalidade de incorporar aspectos do
-planejamento amostral, tais como estratificação, conglomeraç%
-ão e probabilidades desiguais de inclusão, a situação
-desejável é incorporar na formulação do modelo as informa\c{c%
-}ões necessárias para que o plano amostral seja ignorável na
+planejamento amostral, tais como estratificação, conglomeração e probabilidades desiguais de inclusão, a situação
+desejável é incorporar na formulação do modelo as informações necessárias para que o plano amostral seja ignorável na
 etapa de estimação dos parâmetros. Mesmo quando se pode
 incorporar no modelo as informações sobre a estrutura populacional,
 há casos nos quais o plano amostral é não ignorável e pesos
@@ -1072,10 +1055,8 @@ considerar variáveis indicadoras de pertinência a estratos, medidas
 de tamanho usadas para definir as probabilidades de inclusão e
 também informações sobre a estrutura de conglomeração da
 população e da amostra. Incluir todas essas variáveis num modelo
-pode apresentar desafios não triviais ao analista: a especificaç%
-ão detalhada da forma do modelo, a estimação de seus
-inúmeros parâmetros dada apenas uma amostra das unidades da popula\c{%
-c}ão, a interpretação das estimativas dos parâmetros e o
+pode apresentar desafios não triviais ao analista: a especificação detalhada da forma do modelo, a estimação de seus
+inúmeros parâmetros dada apenas uma amostra das unidades da população, a interpretação das estimativas dos parâmetros e o
 diagnóstico do ajuste efetuado podem todas se tornar tarefas bastante
 complexas. Essa dificuldade é também mencionada por \citeonline[p.~9]{Sk89a}.
 
@@ -1093,8 +1074,7 @@ a\-mos\-trais por analistas secundários é geralmente realizada em
 condições em que as informações sobre o plano amostral
 são parcial ou completamente ignoradas. Este é o caso das várias
 pesquisas para as quais já existe a prática de disseminar arquivos
-de microdados nos quais, entretanto, as informações de identifica\c{c%
-}ão do plano amostral são omitidas (total ou parcialmente) para
+de microdados nos quais, entretanto, as informações de identificação do plano amostral são omitidas (total ou parcialmente) para
 evitar a revelação indesejada de informações individuais
 ''sensitivas''.\medskip
 

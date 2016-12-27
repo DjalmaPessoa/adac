@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2016-12-25">
+<meta name="date" content="2016-12-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -101,7 +101,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Análise de Dados Amostrais Complexos</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
@@ -110,7 +110,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="introducao.html"><a href="introducao.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
 <li class="chapter" data-level="1.1" data-path="introducao.html"><a href="introducao.html#motivacao"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
 <li class="chapter" data-level="1.2" data-path="introducao.html"><a href="introducao.html#ppv"><i class="fa fa-check"></i><b>1.2</b> Impacto dos pesos da amostra da PPV</a></li>
-<li class="chapter" data-level="1.3" data-path="introducao.html"><a href="introducao.html#epa"><i class="fa fa-check"></i><b>1.3</b> Laboratório de R do Capítulo 1.</a></li>
+<li class="chapter" data-level="1.3" data-path="introducao.html"><a href="introducao.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.3</b> Objetivos do Livro</a></li>
+<li class="chapter" data-level="1.4" data-path="introducao.html"><a href="introducao.html#epa"><i class="fa fa-check"></i><b>1.4</b> Laboratório de R do Capítulo 1.</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html"><i class="fa fa-check"></i><b>2</b> Referencial para Inferência</a><ul>
 <li class="chapter" data-level="2.1" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html#modelagem---primeiras-ideias"><i class="fa fa-check"></i><b>2.1</b> Modelagem - Primeiras Idéias</a><ul>
@@ -267,14 +268,14 @@ J\left( \mathbf{\hat{\theta}}\right) =\left. J\left( \mathbf{\theta }\right)
 <p></p>
 <p>A título de ilustração, consideremos uma pesquisa com uma amostra complexa como a da PNAD do IBGE, que emprega uma amostra estratificada de domicílios em três estágios, tendo como unidades primárias de amostragem (UPAs) os municípios, que são estratificados segundo as unidades da federação (UFs), e regiões menores dentro das UFs (veja IBGE, 1981, p. 67).</p>
 <p>A seleção de municípios dentro de cada estrato é feita com probabilidades desiguais, proporcionais ao tamanho, havendo inclusive municípios incluídos na amostra com certeza (chamados de municípios auto-representativos). Da mesma forma, a seleção de setores (unidades secundárias de amostragem ou USAs) dentro de cada município é feita com probabilidades proporcionais ao número de domicílios em cada setor segundo o último censo disponível. Dentro de cada setor, a seleção de domicílios é feita por amostragem sistemática simples (portanto, com eqüiprobabilidade). Todas as pessoas moradoras em cada domicílio da amostra são pesquisadas.</p>
-<p>A amostra de domicílios e de pessoas dentro de cada estrato é <code>autoponderada</code>, isto é, tal que todos os domicílios e pessoas dentro de um mesmo estrato têm igual probabilidade de seleção. Entretanto, as probabilidades de inclusão (e conseqüentemente os pesos) variam bastante entre as várias regiões de pesquisa. A Tabela <a href="#tab51"><strong>??</strong></a> revela como variam essas probabilidades de seleção entre as regiões cobertas pela amostra da PNAD de 93. Como se pode observar, tais probabilidades de inclusão chegam a ser <span class="math inline">\(5\)</span> vezes maiores em Belém do que em São Paulo, e portanto variação semelhante será observada nos pesos.</p>
+<p>A amostra de domicílios e de pessoas dentro de cada estrato é <code>autoponderada</code>, isto é, tal que todos os domicílios e pessoas dentro de um mesmo estrato têm igual probabilidade de seleção. Entretanto, as probabilidades de inclusão (e conseqüentemente os pesos) variam bastante entre as várias regiões de pesquisa. A Tabela 5.1 revela como variam essas probabilidades de seleção entre as regiões cobertas pela amostra da PNAD de 93. Como se pode observar, tais probabilidades de inclusão chegam a ser <span class="math inline">\(5\)</span> vezes maiores em Belém do que em São Paulo, e portanto variação semelhante será observada nos pesos.</p>
 
 <p>Se <span class="math inline">\({\ \pi }_{i}\)</span>representa a probabilidade de inclusão na amostra do <span class="math inline">\(i\)</span>-ésimo domicílio da população, <span class="math inline">\(i=1,...,N\)</span>, então <span class="math display">\[
 \pi _{i}=\pi _{munic\acute{\imath}pio\left| estrato\right. }\times \pi
 _{setor\left| munic\acute{\imath}pio\right. }\times \pi _{domic\acute{\imath}
 lio\left| setor\right. } 
 \]</span> isto é, a probabilidade global de inclusão de um domicílio (e conseqüentemente de todas as pessoas nele moradoras) é dada pelo produto das probabilidades condicionais de inclusão nos vários estágios de amostragem.</p>
-<p>A estimação do total populacional <span class="math inline">\(Y\)</span> de uma variável de pesquisa <span class="math inline">\(y\)</span> num dado estrato usando os dados da PNAD é feita rotineiramente com estimadores ponderados de tipo razão <span class="math inline">\(\widehat{Y}_{R}=\widehat{Y}_{\pi }\,X\,/\,\widehat{X}_{\pi }=\sum_{i\in s}w_{i}^{R}y_{i}\)</span> (tal como definidos por @ref(3.17), com pesos dados por <span class="math inline">\(w_{i}^{R}=\pi_{i}^{-1}X\,/\,\widehat{X}_{\pi }\)</span> (veja <a href="#eq:modpar19">(<strong>??</strong>)</a>, onde <span class="math inline">\(X\)</span> é o total da população no estrato obtido por métodos demográficos de projeção, utilizado como variável auxiliar, e <span class="math inline">\(\widehat{X}_{\pi}\)</span> e <span class="math inline">\(\widehat{Y}_{\pi}\)</span> são os estimadores <span class="math inline">\(\pi\)</span>-ponderados de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> respectivamente. Para estimar para conjuntos de estratos basta somar as estimativas para cada estrato incluído no conjunto. Para estimar médias e proporções, os pesos são também incorporados da forma apropriada. No caso, a estimação de médias é feita usando estimadores ponderados da forma <span class="math display">\[
+<p>A estimação do total populacional <span class="math inline">\(Y\)</span> de uma variável de pesquisa <span class="math inline">\(y\)</span> num dado estrato usando os dados da PNAD é feita rotineiramente com estimadores ponderados de tipo razão <span class="math inline">\(\widehat{Y}_{R}=\widehat{Y}_{\pi }\,X\,/\,\widehat{X}_{\pi }=\sum_{i\in s}w_{i}^{R}y_{i}\)</span> (tal como definidos por @ref(3.15), com pesos dados por <span class="math inline">\(w_{i}^{R}=\pi_{i}^{-1}X\,/\,\widehat{X}_{\pi }\)</span> (veja <a href="#eq:modpar17">(<strong>??</strong>)</a>, onde <span class="math inline">\(X\)</span> é o total da população no estrato obtido por métodos demográficos de projeção, utilizado como variável auxiliar, e <span class="math inline">\(\widehat{X}_{\pi}\)</span> e <span class="math inline">\(\widehat{Y}_{\pi}\)</span> são os estimadores <span class="math inline">\(\pi\)</span>-ponderados de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> respectivamente. Para estimar para conjuntos de estratos basta somar as estimativas para cada estrato incluído no conjunto. Para estimar médias e proporções, os pesos são também incorporados da forma apropriada. No caso, a estimação de médias é feita usando estimadores ponderados da forma <span class="math display">\[
 \overline{y}^{R}=\frac{\sum_{i\in s}w_{i}^{R}y_{i}}{\sum_{i\in s}w_{i}^{R}} 
 \]</span> e a estimação de proporções é caso particular da estimação de médias quando a variável de pesquisa <span class="math inline">\(y\)</span> é do tipo indicador (isto é, só toma valores <span class="math inline">\(0\)</span> e <span class="math inline">\(1\)</span>).</p>
 <p>Estimadores ponderados (como por exemplo os usados na PNAD) são preferidos pelos praticantes de amostragem por sua simplicidade e por serem não viciados (ao menos aproximadamente) com respeito à distribuição de aleatorização induzida pela seleção da amostra, independentemente dos valores assumidos pelas variáveis de pesquisa na população. Já para a modelagem de relações entre variáveis de pesquisa, o uso dos pesos induzidos pelo planejamento amostral ainda não é freqüente ou aceito sem controvérsia.</p>
@@ -301,7 +302,7 @@ em lugar do estimador de mínimos quadrados ordinários (MQO) dado por
 <li><p>contra a <code>má especificação do modelo</code>.</p></li>
 </ol>
 <p>A <code>robustez dos procedimentos</code> que incorporam pesos é obtida pela mudança de foco da inferência para <code>quantidades da população finita</code>, que definem parâmetros-alvo alternativos aos parâmetros do modelo de superpopulação, conforme já discutido na Seção @ref{superpop}.</p>
-<p>A questão da construção dos pesos não será tratada neste texto, usando-se sempre como peso o inverso da probabilidade de inclusão na amostra. é possível utilizar pesos de outro tipo como, por exemplo, aqueles de razão empregados na estimação da PNAD, ou mesmo pesos de regressão. Para esses casos, há que fazer alguns ajustes da teoria aqui exposta (veja ).</p>
+<p>A questão da construção dos pesos não será tratada neste texto, usando-se sempre como peso o inverso da probabilidade de inclusão na amostra. é possível utilizar pesos de outro tipo como, por exemplo, aqueles de razão empregados na estimação da PNAD, ou mesmo pesos de regressão. Para esses casos, há que fazer alguns ajustes da teoria aqui exposta (veja <span class="citation">(Nascimento Silva <a href="#ref-Silva">1996</a>)</span>, cap. 6).</p>
 <p>Há várias formas alternativas de incorporar os pesos amostrais no processo de inferência. A principal que será adotada ao longo deste texto será o método de , que descrevemos na próxima seção.</p>
 </div>
 <div id="modpar3" class="section level2">
@@ -575,7 +576,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/05-Cap5.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["bookdown-demo.pdf"],
 "toc": {
 "collapse": "subsection"
 }

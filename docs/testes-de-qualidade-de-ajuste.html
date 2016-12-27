@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2016-12-25">
+<meta name="date" content="2016-12-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -101,7 +101,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Análise de Dados Amostrais Complexos</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
@@ -110,7 +110,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="introducao.html"><a href="introducao.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
 <li class="chapter" data-level="1.1" data-path="introducao.html"><a href="introducao.html#motivacao"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
 <li class="chapter" data-level="1.2" data-path="introducao.html"><a href="introducao.html#ppv"><i class="fa fa-check"></i><b>1.2</b> Impacto dos pesos da amostra da PPV</a></li>
-<li class="chapter" data-level="1.3" data-path="introducao.html"><a href="introducao.html#epa"><i class="fa fa-check"></i><b>1.3</b> Laboratório de R do Capítulo 1.</a></li>
+<li class="chapter" data-level="1.3" data-path="introducao.html"><a href="introducao.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.3</b> Objetivos do Livro</a></li>
+<li class="chapter" data-level="1.4" data-path="introducao.html"><a href="introducao.html#epa"><i class="fa fa-check"></i><b>1.4</b> Laboratório de R do Capítulo 1.</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html"><i class="fa fa-check"></i><b>2</b> Referencial para Inferência</a><ul>
 <li class="chapter" data-level="2.1" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html#modelagem---primeiras-ideias"><i class="fa fa-check"></i><b>2.1</b> Modelagem - Primeiras Idéias</a><ul>
@@ -491,12 +492,12 @@ FX_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{W}^{2}/\left( \left( J-1\right)
 <p>A estatística <span class="math inline">\(FX_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span> tem distribuição de referência <span class="math inline">\(F\)</span> com <span class="math inline">\(J-1\)</span> e <span class="math inline">\(f\)</span> graus de liberdade. Thomas e Rao(1987) observaram que esta estatística, em situações instáveis, é melhor que a estatística sem correção de primeira ordem.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-33" class="example"><strong>Example 7.1 </strong></span>Teste de bondade de ajuste para a distribuição etária da PPV 96-97 na Região Sudeste.
+<span id="ex:unnamed-chunk-40" class="example"><strong>Example 7.1 </strong></span>Teste de bondade de ajuste para a distribuição etária da PPV 96-97 na Região Sudeste.
 </div>
 <p></p>
 <p>Vamos considerar um teste da bondade de ajuste da distribuição das idades para a Pesquisa sobre Padrões de Vida (PPV) 96/97, para os subgrupos de 0 a 14; de 15 a 29; de 30 a 44; de 45 a 59 e de 60 e mais anos de idade. As proporções correspondentes para a população foram obtidas da Contagem Populacional de 96. Na Região Sudeste, o número de estratos é <span class="math inline">\(H=15\)</span> e o número total de conglomerados (setores) na amostra da PPV é <span class="math inline">\(m=276\)</span> e portanto <span class="math inline">\(f=m-H=261\)</span>. As informações utilizadas neste exemplo são apresentadas na Tabela .</p>
 
-<p>Os valores dos EPAs observados na PPV ( coluna 5 da Tabela ) mos-tram que o plano amostral não pode ser ignorado na análise. Queremos testar a hipótese <span class="math inline">\(H_{0}:\mathbf{p=p}_{0}\)</span> usando as estimativas de proporções obtidas pela amostra da PPV. O vetor de proporções populacionais <span class="math inline">\(\mathbf{p}_{0}\)</span> foi obtido dos resultados da Contagem Populacional de 96, que é uma pesquisa censitária. Neste exemplo, vamos calcular a estatística de Pearson e suas correções, e também a estatística de Wald baseada no plano amostral. Calculamos a matriz <span class="math inline">\(\widehat{\mathbf{V}}_{p}\)</span> pela aplicação do método de linearização de Taylor descrito na Seção  através da fórmula <a href="#eq:qual24">(<strong>??</strong>)</a> obtendo</p>
+<p>Os valores dos EPAs observados na PPV ( coluna 5 da Tabela ) mostram que o plano amostral não pode ser ignorado na análise. Queremos testar a hipótese <span class="math inline">\(H_{0}:\mathbf{p=p}_{0}\)</span> usando as estimativas de proporções obtidas pela amostra da PPV. O vetor de proporções populacionais <span class="math inline">\(\mathbf{p}_{0}\)</span> foi obtido dos resultados da Contagem Populacional de 96, que é uma pesquisa censitária. Neste exemplo, vamos calcular a estatística de Pearson e suas correções, e também a estatística de Wald baseada no plano amostral. Calculamos a matriz <span class="math inline">\(\widehat{\mathbf{V}}_{p}\)</span> pela aplicação do método de linearização de Taylor descrito na Seção (#taylor) através da fórmula <a href="#eq:qual22">(<strong>??</strong>)</a> obtendo</p>
 <p><span class="math display">\[
 \widehat{\mathbf{V}}_{p}(\widehat{\mathbf{p}})=10^{-6}\times \left[ 
 \begin{tabular}{rrrr|r}
@@ -685,7 +686,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/07-Cap7.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["bookdown-demo.pdf"],
 "toc": {
 "collapse": "subsection"
 }

@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2016-12-25">
+<meta name="date" content="2016-12-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -101,7 +101,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Análise de Dados Amostrais Complexos</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
@@ -110,7 +110,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="introducao.html"><a href="introducao.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
 <li class="chapter" data-level="1.1" data-path="introducao.html"><a href="introducao.html#motivacao"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
 <li class="chapter" data-level="1.2" data-path="introducao.html"><a href="introducao.html#ppv"><i class="fa fa-check"></i><b>1.2</b> Impacto dos pesos da amostra da PPV</a></li>
-<li class="chapter" data-level="1.3" data-path="introducao.html"><a href="introducao.html#epa"><i class="fa fa-check"></i><b>1.3</b> Laboratório de R do Capítulo 1.</a></li>
+<li class="chapter" data-level="1.3" data-path="introducao.html"><a href="introducao.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.3</b> Objetivos do Livro</a></li>
+<li class="chapter" data-level="1.4" data-path="introducao.html"><a href="introducao.html#epa"><i class="fa fa-check"></i><b>1.4</b> Laboratório de R do Capítulo 1.</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html"><i class="fa fa-check"></i><b>2</b> Referencial para Inferência</a><ul>
 <li class="chapter" data-level="2.1" data-path="referencial-para-inferencia.html"><a href="referencial-para-inferencia.html#modelagem---primeiras-ideias"><i class="fa fa-check"></i><b>2.1</b> Modelagem - Primeiras Idéias</a><ul>
@@ -539,6 +540,574 @@ X_{W}^{2}/R\sim \mathbf{F}(R,\upsilon),
 <div id="laboratorio-de-r-3" class="section level2">
 <h2><span class="header-section-number">6.4</span> Laboratório de R</h2>
 <p>Usar exemplo da amolim ou conseguir exemplo melhor? Reproduzir usando a survey os resultados do Exemplo 6.1???</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
+<span class="kw">source</span>(<span class="st">&quot;~</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">adac</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">pnadrj90.R&quot;</span>)
+<span class="kw">names</span>(pnadrj90)</code></pre></div>
+<pre><code>##  [1] &quot;stra&quot;     &quot;psu&quot;      &quot;pesopes&quot;  &quot;informal&quot; &quot;sx&quot;       &quot;id&quot;      
+##  [7] &quot;ae&quot;       &quot;ht&quot;       &quot;re&quot;       &quot;um&quot;</code></pre>
+<p>Preparação dos dados: Variáveis explicativas são fatores. Ver tipo de variável:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unlist</span>(<span class="kw">lapply</span>(pnadrj90, mode))</code></pre></div>
+<pre><code>##      stra       psu   pesopes  informal        sx        id        ae 
+## &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; 
+##        ht        re        um 
+## &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot;</code></pre>
+<p>Transformar variáveis para fatores e mudar o nível básico do fator (último)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnadrj90$sx&lt;-<span class="kw">as.factor</span>(pnadrj90$sx)
+pnadrj90$sx&lt;-<span class="kw">relevel</span>(pnadrj90$sx,<span class="dt">ref=</span><span class="st">&quot;2&quot;</span>)
+pnadrj90$id&lt;-<span class="kw">as.factor</span>(pnadrj90$id)
+pnadrj90$id&lt;-<span class="kw">relevel</span>(pnadrj90$id,<span class="dt">ref=</span><span class="st">&quot;4&quot;</span>)
+pnadrj90$ae&lt;-<span class="kw">as.factor</span>(pnadrj90$ae)
+pnadrj90$ae&lt;-<span class="kw">relevel</span>(pnadrj90$ae,<span class="dt">ref=</span><span class="st">&quot;3&quot;</span>)
+pnadrj90$ht&lt;-<span class="kw">as.factor</span>(pnadrj90$ht)
+pnadrj90$ht&lt;-<span class="kw">relevel</span>(pnadrj90$ht,<span class="dt">ref=</span><span class="st">&quot;3&quot;</span>)
+pnadrj90$re&lt;-<span class="kw">as.factor</span>(pnadrj90$re)
+pnadrj90$re&lt;-<span class="kw">relevel</span>(pnadrj90$re,<span class="dt">ref=</span><span class="st">&quot;3&quot;</span>)
+##transformar variável de resposta para 0,1:
+pnadrj90$informal&lt;-<span class="kw">ifelse</span>(pnadrj90$informal==<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>)</code></pre></div>
+<p>Cria objeto de desenho</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnad.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span>~psu,<span class="dt">strata=</span>~stra,<span class="dt">weights=</span>~pesopes,<span class="dt">data=</span>pnadrj90,<span class="dt">nest=</span><span class="ot">TRUE</span>)</code></pre></div>
+<p>Ajusta modelo de regressão logística na Tabela 6.2 Comparar resultado com o da página 106 de Pessoa e Silva (1998)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">inf.logit&lt;-<span class="kw">svyglm</span>(informal~sx+ae+ht+id+re+sx*id+sx*ht+ae*ht+ht*id+ht*re,<span class="dt">design=</span>pnad.des,<span class="dt">family=</span>binomial)</code></pre></div>
+<pre><code>## Warning: non-integer #successes in a binomial glm!</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xtable)
+<span class="kw">print</span>(<span class="kw">xtable</span>(inf.logit, <span class="dt">digits=</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>)),<span class="dt">type=</span><span class="st">&quot;html&quot;</span>)</code></pre></div>
+<!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
+<!-- Tue Dec 27 11:13:27 2016 -->
+<table border="1">
+<tr>
+<th>
+</th>
+<th>
+Estimate
+</th>
+<th>
+Std. Error
+</th>
+<th>
+t value
+</th>
+<th>
+Pr(&gt;|t|)
+</th>
+</tr>
+<tr>
+<td align="right">
+(Intercept)
+</td>
+<td align="right">
+-0.515
+</td>
+<td align="right">
+0.260
+</td>
+<td align="right">
+-1.98
+</td>
+<td align="right">
+0.048
+</td>
+</tr>
+<tr>
+<td align="right">
+sx1
+</td>
+<td align="right">
+0.148
+</td>
+<td align="right">
+0.222
+</td>
+<td align="right">
+0.67
+</td>
+<td align="right">
+0.506
+</td>
+</tr>
+<tr>
+<td align="right">
+ae1
+</td>
+<td align="right">
+0.745
+</td>
+<td align="right">
+0.165
+</td>
+<td align="right">
+4.53
+</td>
+<td align="right">
+0.000
+</td>
+</tr>
+<tr>
+<td align="right">
+ae2
+</td>
+<td align="right">
+0.496
+</td>
+<td align="right">
+0.156
+</td>
+<td align="right">
+3.18
+</td>
+<td align="right">
+0.002
+</td>
+</tr>
+<tr>
+<td align="right">
+ht1
+</td>
+<td align="right">
+-0.377
+</td>
+<td align="right">
+0.317
+</td>
+<td align="right">
+-1.19
+</td>
+<td align="right">
+0.236
+</td>
+</tr>
+<tr>
+<td align="right">
+ht2
+</td>
+<td align="right">
+-0.697
+</td>
+<td align="right">
+0.275
+</td>
+<td align="right">
+-2.53
+</td>
+<td align="right">
+0.012
+</td>
+</tr>
+<tr>
+<td align="right">
+id1
+</td>
+<td align="right">
+-0.239
+</td>
+<td align="right">
+0.540
+</td>
+<td align="right">
+-0.44
+</td>
+<td align="right">
+0.659
+</td>
+</tr>
+<tr>
+<td align="right">
+id2
+</td>
+<td align="right">
+-0.729
+</td>
+<td align="right">
+0.302
+</td>
+<td align="right">
+-2.41
+</td>
+<td align="right">
+0.016
+</td>
+</tr>
+<tr>
+<td align="right">
+id3
+</td>
+<td align="right">
+0.227
+</td>
+<td align="right">
+0.231
+</td>
+<td align="right">
+0.98
+</td>
+<td align="right">
+0.327
+</td>
+</tr>
+<tr>
+<td align="right">
+re1
+</td>
+<td align="right">
+0.286
+</td>
+<td align="right">
+0.277
+</td>
+<td align="right">
+1.03
+</td>
+<td align="right">
+0.302
+</td>
+</tr>
+<tr>
+<td align="right">
+re2
+</td>
+<td align="right">
+0.065
+</td>
+<td align="right">
+0.144
+</td>
+<td align="right">
+0.45
+</td>
+<td align="right">
+0.652
+</td>
+</tr>
+<tr>
+<td align="right">
+sx1:id1
+</td>
+<td align="right">
+0.878
+</td>
+<td align="right">
+0.348
+</td>
+<td align="right">
+2.52
+</td>
+<td align="right">
+0.012
+</td>
+</tr>
+<tr>
+<td align="right">
+sx1:id2
+</td>
+<td align="right">
+0.300
+</td>
+<td align="right">
+0.231
+</td>
+<td align="right">
+1.30
+</td>
+<td align="right">
+0.195
+</td>
+</tr>
+<tr>
+<td align="right">
+sx1:id3
+</td>
+<td align="right">
+-0.259
+</td>
+<td align="right">
+0.190
+</td>
+<td align="right">
+-1.36
+</td>
+<td align="right">
+0.173
+</td>
+</tr>
+<tr>
+<td align="right">
+sx1:ht1
+</td>
+<td align="right">
+-0.736
+</td>
+<td align="right">
+0.206
+</td>
+<td align="right">
+-3.57
+</td>
+<td align="right">
+0.000
+</td>
+</tr>
+<tr>
+<td align="right">
+sx1:ht2
+</td>
+<td align="right">
+-0.089
+</td>
+<td align="right">
+0.185
+</td>
+<td align="right">
+-0.48
+</td>
+<td align="right">
+0.631
+</td>
+</tr>
+<tr>
+<td align="right">
+ae1:ht1
+</td>
+<td align="right">
+0.792
+</td>
+<td align="right">
+0.240
+</td>
+<td align="right">
+3.29
+</td>
+<td align="right">
+0.001
+</td>
+</tr>
+<tr>
+<td align="right">
+ae2:ht1
+</td>
+<td align="right">
+0.739
+</td>
+<td align="right">
+0.227
+</td>
+<td align="right">
+3.26
+</td>
+<td align="right">
+0.001
+</td>
+</tr>
+<tr>
+<td align="right">
+ae1:ht2
+</td>
+<td align="right">
+0.026
+</td>
+<td align="right">
+0.197
+</td>
+<td align="right">
+0.13
+</td>
+<td align="right">
+0.895
+</td>
+</tr>
+<tr>
+<td align="right">
+ae2:ht2
+</td>
+<td align="right">
+0.089
+</td>
+<td align="right">
+0.183
+</td>
+<td align="right">
+0.49
+</td>
+<td align="right">
+0.626
+</td>
+</tr>
+<tr>
+<td align="right">
+ht1:id1
+</td>
+<td align="right">
+-1.420
+</td>
+<td align="right">
+0.605
+</td>
+<td align="right">
+-2.35
+</td>
+<td align="right">
+0.019
+</td>
+</tr>
+<tr>
+<td align="right">
+ht2:id1
+</td>
+<td align="right">
+-0.413
+</td>
+<td align="right">
+0.506
+</td>
+<td align="right">
+-0.82
+</td>
+<td align="right">
+0.414
+</td>
+</tr>
+<tr>
+<td align="right">
+ht1:id2
+</td>
+<td align="right">
+-0.124
+</td>
+<td align="right">
+0.355
+</td>
+<td align="right">
+-0.35
+</td>
+<td align="right">
+0.726
+</td>
+</tr>
+<tr>
+<td align="right">
+ht2:id2
+</td>
+<td align="right">
+-0.109
+</td>
+<td align="right">
+0.279
+</td>
+<td align="right">
+-0.39
+</td>
+<td align="right">
+0.696
+</td>
+</tr>
+<tr>
+<td align="right">
+ht1:id3
+</td>
+<td align="right">
+-0.220
+</td>
+<td align="right">
+0.248
+</td>
+<td align="right">
+-0.89
+</td>
+<td align="right">
+0.375
+</td>
+</tr>
+<tr>
+<td align="right">
+ht2:id3
+</td>
+<td align="right">
+-0.537
+</td>
+<td align="right">
+0.205
+</td>
+<td align="right">
+-2.62
+</td>
+<td align="right">
+0.009
+</td>
+</tr>
+<tr>
+<td align="right">
+ht1:re1
+</td>
+<td align="right">
+1.529
+</td>
+<td align="right">
+0.356
+</td>
+<td align="right">
+4.29
+</td>
+<td align="right">
+0.000
+</td>
+</tr>
+<tr>
+<td align="right">
+ht2:re1
+</td>
+<td align="right">
+0.338
+</td>
+<td align="right">
+0.320
+</td>
+<td align="right">
+1.06
+</td>
+<td align="right">
+0.292
+</td>
+</tr>
+<tr>
+<td align="right">
+ht1:re2
+</td>
+<td align="right">
+0.490
+</td>
+<td align="right">
+0.233
+</td>
+<td align="right">
+2.10
+</td>
+<td align="right">
+0.036
+</td>
+</tr>
+<tr>
+<td align="right">
+ht2:re2
+</td>
+<td align="right">
+-0.115
+</td>
+<td align="right">
+0.183
+</td>
+<td align="right">
+-0.63
+</td>
+<td align="right">
+0.530
+</td>
+</tr>
+</table>
+<p>Teste de Wald para a hipótese <span class="math inline">\(H_0: ht:re=0\)</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">regTermTest</span>(inf.logit,<span class="st">&quot;ht:re&quot;</span>)</code></pre></div>
+<pre><code>## Wald test for ht:re
+##  in svyglm(formula = informal ~ sx + ae + ht + id + re + sx * id + 
+##     sx * ht + ae * ht + ht * id + ht * re, design = pnad.des, 
+##     family = binomial)
+## F =  6.742662  on  4  and  616  df: p= 2.58e-05</code></pre>
 
 </div>
 </div>
@@ -588,7 +1157,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/06-Cap6.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["bookdown-demo.pdf"],
 "toc": {
 "collapse": "subsection"
 }
