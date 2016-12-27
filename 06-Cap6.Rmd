@@ -34,7 +34,7 @@ f\left( \left. y_{i}\right|\mathbf{z}_{i};\mathbf{\beta },\sigma_{e}\right) =\le
 (\#eq:norm1)
 \end{equation}
 onde $\mathbf{\beta }=\left( \beta _{1},\ldots ,\beta _{P}\right) ^{^{\prime
-}}$ e $\sigma _{e}>0$ são parâmetros desconhecidos do modelo.
+}}$ e $\sigma_{e}>0$ são parâmetros desconhecidos do modelo.
 
 Observe que \@ref(eq:norm1) constitui-se numa especificação (parcial) de
 um modelo marginal para um conjunto de variáveis da pesquisa, e não
@@ -390,7 +390,7 @@ logística depende da solução por métodos numéricos de um
 sistema de equações. Portanto é importante dispor de um pacote
 computacional adequado para efetuar os cálculos. Hoje em dia já
 estão disponíveis vários pacotes com essa funcionalidade,
-conforme se discute no Capítulo 10.\medskip 
+conforme se discute no Capítulo 10.
 
 ```{example}
 \label{pnad90}Análise do perfil sócio-econ\^{o}mico das pessoas
@@ -398,8 +398,8 @@ ocupadas no setor informal da economia na área urbana do Rio de Janeiro
 ```
 
 Utilizando dados do Suplemento Trabalho da Pesquisa Nacional por Amos\-tra
-de Domicílios (\textbf{PNAD}) de 90, Leote(1996) analisou o perfil
-sócio-econ\^{o}mico das pessoas ocupadas no setor informal da economia
+de Domicílios (**PNAD**) de 90, Leote(1996) analisou o perfil
+sócio-econômico das pessoas ocupadas no setor informal da economia
 na área urbana do Rio de Janeiro.
 
 Os dados utilizados são relativos a pessoas que:
@@ -797,7 +797,7 @@ $\mathbf{F}$, sob as hipóteses do modelo clássico de regressão
 com erros normais, são testes da Razão de Máxima Verossimilhança.
 
 é pois natural tentar adaptar testes de Razão de Máxima
-Ve\-ros\-si\-mi\-lhan\-ça para pesquisas amostrais complexas, tal como
+Verossimilhança para pesquisas amostrais complexas, tal como
 foi feito na derivação de estimadores de MPV a partir de estimadores
 de Máxima Verossimilhança. A principal dificuldade é que no
 contexto de pesquisas complexas, devido aos pesos distintos das observações e ao plano amostral utilizado, a função de verossimilhança usual não representa a distribuição conjunta das observações. Apesar desta dificuldade ter sido contornada na derivação
