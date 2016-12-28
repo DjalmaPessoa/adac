@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2016-12-27">
+<meta name="date" content="2016-12-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -231,6 +231,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <embed src="Figuras/Figura21Nova.pdf" />
 <p class="caption">Fig 2.1: Modelagem Clássica</p>
 </div>
+<table style="width:94%;">
+<caption>Representação esquemática da abordagem I.</caption>
+<colgroup>
+<col width="30%" />
+<col width="63%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left">Dados Amostrais</td>
+<td align="left"><span class="math inline">\(Y_1=y_1,\ldots, Y_n=y_n\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Modelo Paramétrico/ Hipóteses</td>
+<td align="left"><span class="math inline">\(Y_1,\ldots,Y_n\)</span> variáveis aleatórias IID com distribuição <span class="math inline">\(f(y,\theta)\)</span>, onde <span class="math inline">\(\theta \in \Theta\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Objetivo</td>
+<td align="left">Inferir sobre <span class="math inline">\(\theta\)</span> usando as observações <span class="math inline">\(y_1, \ldots,y_n\)</span></td>
+</tr>
+</tbody>
+</table>
 
 <p>Do ponto de vista matemático, o parâmetro <span class="math inline">\(\theta\)</span> serve para indexar os elementos da família de distribuições <span class="math inline">\(\left\{f\left( y;\theta \right);\theta \in \Theta \right\}\)</span>. Na prática, as questões relevantes da pesquisa são traduzidas em termos de perguntas sobre o valor ou região a que pertence o parâmetro <span class="math inline">\(\theta\)</span>, e a inferência sobre <span class="math inline">\(\theta\)</span> a partir dos dados ajuda a responder tais questões. Esta abordagem é útil em estudos analíticos tais como, por exemplo, na investigação da natureza da associação entre variáveis (modelos de regressão linear ou logística, modelos log-lineares, etc.). Vários exemplos discutidos ao longo dos capítulos seis, sete e oito ilustram situações deste tipo. No capítulo nove o foco vai ser a estimação não paramétrica da forma da função <span class="math inline">\(f(y;\theta )\)</span>.</p>
 <p>Investigando a existência de diferenciais de salários por sexo e raça</p>
@@ -238,7 +259,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="abordagem-2---amostragem-probabilistica" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Abordagem 2 - Amostragem Probabilística</h3>
-<p>A abordagem adotada pelos praticantes de amostragem (amostristas) considera uma população finita <span class="math inline">\(U=\{1,\ldots ,N\}\)</span>, da qual é selecionada uma amostra <span class="math inline">\(a=\left\{ i_{1},\ldots ,i_{n}\right\}\)</span>, segundo um plano amostral caracterizado por <span class="math inline">\(p\left( a\right)\)</span>, probabilidade de ser selecionada a amostra <span class="math inline">\(a\)</span>, suposta calculável para todas as possíveis amostras. Os valores <span class="math inline">\(y_{1},\ldots ,y_{N}\)</span> das variáveis de interesse <span class="math inline">\(Y\)</span> na população finita são considerados fixos, porém desconhecidos.</p>
+<p>A abordagem adotada pelos praticantes de amostragem (amostristas) considera uma população finita <span class="math inline">\(U=\{1,\ldots ,N\}\)</span>, da qual é selecionada uma amostra <span class="math inline">\(a=\left\{ i_{1},\ldots ,i_{n}\right\}\)</span>, segundo um plano amostral caracterizado por <span class="math inline">\(p\left( a\right)\)</span>, probabilidade de ser selecionada a amostra <span class="math inline">\(a\)</span>, suposta calculável para todas as possíveis amostras. Os valores <span class="math inline">\(y_{1},\ldots ,y_{N}\)</span> das variáveis de interesse <span class="math inline">\(Y\)</span> na população finita são considerados fixos, porém desconhecidos. Sem perda de generalidade, podemos reindexar a população de tal forma que a amostra observada seja formada pelos índices <span class="math inline">\(s=\{1,\ldots,n\}\)</span> |</p>
 <p>A partir dos valores observados na amostra, denotados por <span class="math inline">\(y_{i_{1}},\ldots,y_{i_{n}}\)</span>, são feitas inferências a respeito de funções dos valores populacionais, digamos <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right)\)</span>. Os valores de tais funções são quantidades descritivas populacionais (QDPs), também denominadas <code>parâmetros da população finita</code> pelos amostristas. Em geral, o objetivo desta abordagem é fazer estudos descritivos utilizando funções <span class="math inline">\(g\)</span> particulares, tais como totais <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right) =\sum_{i=1}^{N}y_{i}\)</span> , médias <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right) =N^{-1}\sum_{i=1}^{N}y_{i}\)</span>, proporções, razões, etc. Uma descrição esquemática resumida dessa abordagem é apresentada no Tabela , e uma representação gráfica resumida na Figura .</p>
 <div class="figure">
 <embed src="Figuras/figura22borda.pdf" />

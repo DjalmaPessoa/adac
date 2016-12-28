@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2016-12-27">
+<meta name="date" content="2016-12-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -461,7 +461,7 @@ _{i}^{\prime }\mathbf{\beta }\right) \right] \mathbf{z}_{i}  \tag{6.26}
 <p>Vale observar que, tal como no caso da modelagem clássica, a obtenção dos estimadores de MPV dos parâmetros no modelo de regressão logística depende da solução por métodos numéricos de um sistema de equações. Portanto é importante dispor de um pacote computacional adequado para efetuar os cálculos. Hoje em dia já estão disponíveis vários pacotes com essa funcionalidade, conforme se discute no Capítulo 10.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-26" class="example"><strong>Example 6.1 </strong></span>Análise do perfil sócio-econ^{o}mico das pessoas ocupadas no setor informal da economia na área urbana do Rio de Janeiro
+<span id="ex:pnad" class="example"><strong>Example 6.1 </strong></span>Análise do perfil sócio-econômico das pessoas ocupadas no setor informal da economia na área urbana do Rio de Janeiro
 </div>
 <p></p>
 <p>Utilizando dados do Suplemento Trabalho da Pesquisa Nacional por Amos-tra de Domicílios (<strong>PNAD</strong>) de 90, Leote(1996) analisou o perfil sócio-econômico das pessoas ocupadas no setor informal da economia na área urbana do Rio de Janeiro.</p>
@@ -487,7 +487,7 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 <p>onde <span class="math inline">\(p_{ijklm}\)</span> é a probabilidade de pertencer ao setor informal correspondente à combinação de níveis das variáveis explicativas, sendo i=1, 2 o nível de sx; j=1, 2, 3 o nível de ae; k=1, 2, 3 o nível de ht; l=1, 2, 3, 4 o nível de id e m=1, 2, 3 o nível de re.</p>
 <p>Os efeitos foram adicionados sequencialmente na ordem da Tabela . Depois de introduzidos os efeitos principais, as interações de dois fatores foram introduzidas na ordem definida pela <code>função step do S-Plus</code>.</p>
 <p>O <span class="math inline">\(p\)</span>valor do teste de nulidade das interações não incluídas no modelo é 0,0515, aceitando-se a hipótese de nulidade destes efeitos ao nível <span class="math inline">\(\alpha =0,05\)</span>. O modelo obtido difere do selecionado em Leote(1996) só pela inclusão de mais um efeito, referente à interação ae:ht.</p>
-<p>Uma descrição detalhada do plano amostral da PNAD 90 foi apresentada no Exemplo . Como se pode observar dessa descrição, o plano amostral da PNAD apresenta todos os aspectos de um plano amostral complexo, incluindo estratificação (geográfica), seleção de unidades primárias (municípios, ou setores nos municípios auto-representativos) ou secundárias (setores nos municípios não auto-representativos) com probabilidades desiguais, conglomeração (de domicílios em setores, e de pessoas nos domicílios) e seleção sistemática sem reposição de unidades. Nesse caso, fica difícil admitir a priori com confiança as hipóteses usuais de modelagem das observações amostrais como IID. Por esse motivo foram considerados métodos alternativos de modelagem e ajuste.</p>
+<p>Uma descrição detalhada do plano amostral da PNAD 90 foi apresentada no Exemplo <a href="modelos-de-regressao.html#ex:pnad">6.1</a>. Como se pode observar dessa descrição, o plano amostral da PNAD apresenta todos os aspectos de um plano amostral complexo, incluindo estratificação (geográfica), seleção de unidades primárias (municípios, ou setores nos municípios auto-representativos) ou secundárias (setores nos municípios não auto-representativos) com probabilidades desiguais, conglomeração (de domicílios em setores, e de pessoas nos domicílios) e seleção sistemática sem reposição de unidades. Nesse caso, fica difícil admitir a priori com confiança as hipóteses usuais de modelagem das observações amostrais como IID. Por esse motivo foram considerados métodos alternativos de modelagem e ajuste.</p>
 <p>Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões, calculadas pela <strong>PROC LOGISTIC</strong> do pacote <strong>SUDAAN</strong>. Para facilitar a comparação incluímos na Tabela  os valores correspondentes estimados pelo <strong>S-Plus</strong>.</p>
 <p>As estimativas calculadas pelo pacote <strong>SUDAAN</strong> são feitas pelo <code>Método de Máxima Pseudo-Verossimilhança</code>, resolvendo a equação <a href="modelos-de-regressao.html#eq:norm27">(6.28)</a>. As estimativas dos desvios padrões são obtidas das variâncias calculadas pelo método de linearização descrito na Seção <a href="ajuste-de-modelos-parametricos.html#modpar3">5.4</a>, equação (), considerando os escores tal como apresentados na equação <a href="modelos-de-regressao.html#eq:norm25a">(6.26)</a>. Para esses cálculos, os estimadores de variância considerados levaram em conta os pesos das observações, mas utilizaram uma aproximação que consiste em considerar que as unidades primárias de amostragem foram selecionadas com reposição, especificando a opção WR do pacote SUDAAN. Veja <span class="citation">(Shah et al. <a href="#ref-SUDAAN92">1992</a>)</span>, p. 4) e <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, eq. 7.7.2.</p>
 
@@ -572,7 +572,7 @@ pnadrj90$informal&lt;-<span class="kw">ifelse</span>(pnadrj90$informal==<span cl
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xtable)
 <span class="kw">print</span>(<span class="kw">xtable</span>(inf.logit, <span class="dt">digits=</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>)),<span class="dt">type=</span><span class="st">&quot;html&quot;</span>)</code></pre></div>
 <!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
-<!-- Tue Dec 27 15:42:43 2016 -->
+<!-- Wed Dec 28 19:18:12 2016 -->
 <table border="1">
 <tr>
 <th>

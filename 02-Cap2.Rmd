@@ -14,6 +14,25 @@ Seja $Y$ um vetor $P \times 1$ de variáveis de pesquisa (ou de interesse), e se
 ![Fig 2.1: Modelagem Clássica](Figuras/Figura21Nova.pdf)
 
 
+
+
+-------------------   ----------------------------------------------
+Dados Amostrais       $Y_1=y_1,\ldots, Y_n=y_n$
+
+
+Modelo Paramétrico/   $Y_1,\ldots,Y_n$ variáveis aleatórias IID
+Hipóteses             com distribuição $f(y,\theta)$,
+                      onde $\theta \in \Theta$
+                                       
+
+Objetivo              Inferir sobre $\theta$ usando as 
+                      observações $y_1, \ldots,y_n$
+------------------    -----------------------------------------------                     
+ 
+ Table: Representação esquemática da abordagem I. 
+ 
+ 
+
 \begin{center}
 \begin{table}[tbp] \centering
 \caption{Representação esquemática da abordagem 1}\bigskip \label{Tab21} 
@@ -79,7 +98,8 @@ amostral caracterizado por $p\left( a\right)$, probabilidade de ser
 selecionada a amostra $a$, suposta calculável para todas as
 possíveis amostras. Os valores $y_{1},\ldots ,y_{N}$ das variáveis
 de interesse $Y$ na população finita são considerados fixos,
-porém desconhecidos. 
+porém desconhecidos. Sem perda de generalidade, podemos reindexar a população de tal forma que a amostra observada seja formada pelos índices $s=\{1,\ldots,n\}$
+                                     |            
 
 A partir dos valores observados na amostra, denotados por $y_{i_{1}},\ldots,y_{i_{n}}$, são feitas inferências a respeito de funções dos
 valores populacionais, digamos $g\left( y_{1},\ldots ,y_{N}\right)$. Os

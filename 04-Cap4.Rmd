@@ -55,8 +55,8 @@ O **Efeito do Plano Amostral ($EPA$)**  **de Kish** para um estimador $\hat{\the
 
 Para ilustrar o conceito do $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$, vamos considerar um exemplo.
 
-```{example}
-\label{epakish}Efeitos de plano amostral de Kish para estimadores de totais
+```{example, label="epakish" }
+Efeitos de plano amostral de Kish para estimadores de totais
 com amostragem conglomerada em dois estágios.
 ```
 
@@ -227,7 +227,7 @@ censo 80.
 
 ## Efeito do Plano Amostral Ampliado
 
-O que se observou no Exemplo \ref{epakish} com respeito à dificuldade de
+O que se observou no Exemplo \@ref(ex:epakish) com respeito à dificuldade de
 uso dos EPAs de Kish calculados para fins analíticos também se
 aplica para outras situações e é uma deficiência estrutural
 do conceito de EPA proposto por Kish. Para tentar contornar essa
@@ -295,8 +295,8 @@ razão, é recomendável ao menos estimar os EPAs antes de concluir
 a análise padrão, para poder então avaliar se há impactos
 importantes a considerar.
 
-```{example}
-\label{deffuni}Efeitos de plano amostral para estimação de
+```{example, label = "deffuni"}
+Efeitos de plano amostral para estimação de
 médias na amostragem estratificada simples com alocação
 desproporcional
 ```
@@ -607,7 +607,7 @@ gêmeos, casais, jogadores numa dupla de vôlei de praia ou tênis,
 etc.). Suponha que os valores de uma variável de pesquisa medida nessas
 unidades têm média $\theta$ e variância $\sigma ^{2}$, além
 de uma correlação $\rho$ entre os valores dentro de cada par
-(correlação intraclasse, veja \citeonline[cap. 2]{SilvaMou} e \citeonline{haggard}.
+(correlação intraclasse, veja [@SilvaMou], cap. 2 e [@haggard].
 Suponha que um único par é sorteado ao acaso da
 população e que os valores $y_{1}$ e $y_{2}$ são observados para
 as duas unidades do par selecionado. O modelo assumido pode então ser
@@ -897,22 +897,22 @@ componentes de $\widehat{\mathbf{\theta }}$. Temos os seguintes resultados:
 
 No caso particular onde $\mathbf{\Delta =I}_{K\times K}$ , temos $\delta_{1}=\ldots =\delta _{K}=1$ e os efeitos (univariados) do plano amostral das combinações lineares para componentes de $\mathbf{\hat{\theta}}$
 são todos iguais a $1$. Para ilustrar esse conceito, vamos reconsiderar
-o Exemplo \ref{deffuni} de estimação de médias com amostragem
+o Exemplo \@ref(ex:deffuni) de estimação de médias com amostragem
 estratificada desproporcional anteriormente apresentado, mas agora
 considerando a natureza multivariada do problema (há duas variáveis
 de pesquisa).
 
-```{example}
-\label{deffmult}Efeitos Multivariados do Plano Amostral para as médias
+```{example , label="deffmult"}
+Efeitos Multivariados do Plano Amostral para as médias
 de Salários e de Receitas
 ```
 
 Vamos considerar as variáveis Salário (em R\$ $1.000$) e Receita (em
-R\$ $1.000.000$) definidas na população de empresas do Exemplo \ref
-{deffuni} e calcular a matriz $\mathbf{EMPA}\left( \mathbf{\hat{\theta},V}_{0}\right)$, onde $\mathbf{\hat{\theta}=}\left( \overline{SAL}_{w},\overline{REC}_{w}\right) ^{\prime }$. Neste exemplo, os dados populacionais
+R\$ $1.000.000$) definidas na população de empresas do Exemplo 
+\@ref(ex:deffuni) e calcular a matriz $\mathbf{EMPA}\left( \mathbf{\hat{\theta},V}_{0}\right)$, onde $\mathbf{\hat{\theta}=}\left( \overline{SAL}_{w},\overline{REC}_{w}\right) ^{\prime }$. Neste exemplo, os dados populacionais
 são conhecidos, e portanto podemos calcular a covariância dos
 estimadores $\left( \overline{SAL}_{w},\overline{REC}_{w}\right)$. Usando a
-mesma notação do Exemplo \ref{deffuni}, temos que 
+mesma notação do Exemplo \@ref(ex:deffuni), temos que 
 \[
 COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=}\sum\limits_{h=1}^{2}W_{h}^{2}\frac{\left( 1-f_{h}\right) }{n_{h}}S_{SAL,REC}^{\left( h\right) } 
 \]
@@ -939,7 +939,7 @@ fica igual a
 \right]   (\#eq:epa7)
 \end{equation}
 onde os valores das variâncias em \@ref(eq:epa7) foram os calculados no
-Exemplo \ref{deffuni} e coincidem, respectivamente, com os valores usados
+Exemplo \@ref(ex:deffuni) e coincidem, respectivamente, com os valores usados
 nos numeradores de $\mathbf{EPA}\left( \overline{SAL}_{w}\right)$ e de 
 $\mathbf{EPA}\left( \overline{REC}_{w}\right)$ lá apresentados. Para
 calcular o $\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})$ é
@@ -947,8 +947,8 @@ preciso agora obter $\mathbf{E}_{VERD}\left(\mathbf{V}_{0}\right)$.
 
 Neste exemplo, a matriz de efeito do plano amostral $\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})=\mathbf{\Delta }$ pode também ser calculada
 através de simulação, de modo análogo ao que foi feito no
-Exemplo \ref{deffuni}. Para isto, foram utilizadas outras $500$ amostras de
-tamanho $60$ segundo o plano amostral descrito no Exemplo \ref{deffuni}.
+Exemplo \@ref(ex:deffuni). Para isto, foram utilizadas outras $500$ amostras de
+tamanho $60$ segundo o plano amostral descrito no Exemplo \@ref(ex:deffuni).
 Para cada uma das $500$ amostras foram calculadas estimativas:
 
 

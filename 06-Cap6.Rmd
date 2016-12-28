@@ -392,9 +392,9 @@ computacional adequado para efetuar os cálculos. Hoje em dia já
 estão disponíveis vários pacotes com essa funcionalidade,
 conforme se discute no Capítulo 10.
 
-```{example}
-\label{pnad90}Análise do perfil sócio-econ\^{o}mico das pessoas
-ocupadas no setor informal da economia na área urbana do Rio de Janeiro
+```{example,label="pnad"}
+Análise do perfil sócio-econômico das pessoas
+ocupadas no setor informal da economia na área urbana do Rio de Janeiro 
 ```
 
 Utilizando dados do Suplemento Trabalho da Pesquisa Nacional por Amos\-tra
@@ -499,7 +499,7 @@ em Leote(1996) só pela inclusão de mais um efeito, referente à
 interação ae:ht.
 
 Uma descrição detalhada do plano amostral da PNAD 90 foi apresentada
-no Exemplo \ref{PNAD}. Como se pode observar dessa descrição, o
+no Exemplo \@ref(ex:pnad). Como se pode observar dessa descrição, o
 plano amostral da PNAD apresenta todos os aspectos de um plano amostral
 complexo, incluindo estratificação (geográfica), seleção
 de unidades primárias (municípios, ou setores nos municípios

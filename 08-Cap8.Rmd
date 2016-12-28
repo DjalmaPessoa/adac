@@ -776,6 +776,13 @@ freqüências nas celas para a amostra pesquisada.
 %EndExpansion
 \end{center}
 
+
+```{r, frqamost, results='asis'}
+source("~\\GitHub\\adac\\data\\pnadrj90.R")
+freq.sx.re <-table(pnadrj90$sx, pnadrj90$re , dnn= c("Sexo", "Renda"))
+print(xtable(freq.sx.re ,caption= "Frequências Amostrais por celas na PNADRJ90"), type="html" )
+```
+
 No teste de homogeneidade das distribuições de renda, consideramos
 fixadas as marginais $4.276$ e $2.231$ da variável Sexo na tabela de
 freqüências amostrais. Usando o programa Stata, calculamos as
