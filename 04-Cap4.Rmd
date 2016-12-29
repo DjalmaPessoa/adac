@@ -76,8 +76,8 @@ total calibrando no número total de domicílios da população), e uma terceira
 com probabilidades proporcionais ao tamanho (número de domicílios
 por setor), denominada AC2PPT, e a seleção de $15$ domicílios em
 cada setor da amostra, e empregando o correspondente estimador 
-$\pi$-ponderado. Os resultados referentes à Região Metropolitana do Rio de Janeiro para algumas variáveis são apresentados na Tabela \ref
-{tab41} a título de ilustração. Note que a população
+$\pi$-ponderado. Os resultados referentes à Região Metropolitana do Rio de Janeiro para algumas variáveis são apresentados na Tabela 
+\@ref(tab:epakish) a título de ilustração. Note que a população
 alvo considera apenas moradores em domicílios particulares permanentes
 na Região Metropolitana do Rio de Janeiro.
 
@@ -179,7 +179,55 @@ e renda $\geq $ 5SM
 \end{table}
 \end{center}
 
-Os valores apresentados na Tabela \ref{tab41} para a RM do Rio de Janeiro são similares aos observados para as demais RMs, se consideradas as mesmas variáveis. Nota-se grande variação dos valores do EPA, cujos valores mínimo e máximo são de 1,28 e 111,27
+
+Plano amostral                       AC2AAS                                AC2PPT  
+
+
+---------------------------------------------------------------------------------------------------------------
+Variável                  Estimador Simples   Estimador de Razão   Estimador $\pi$-ponderado 
+------------------------ ------------------- -------------------- ---------------------------
+1) Número total             10.74                 2.00                        1.90
+de moradores                     
+
+2) Número de                5.78                  1.33                        1.28
+moradores ocupados
+
+
+3) Rendimento               5.22                  4.92                        4.49  
+monetário mensal
+
+
+4) Número total de          4.59                  2.02                        1.89
+filhos nascidos vivos 
+de mulheres com
+15 anos ou mais                                   
+
+5) Número de              111.27                  1.58                        1.55 
+domicílios                           
+que  têm fogão
+
+6) Número de               7.11                   7.13                        6.41  
+domicílios que
+têm telefone
+
+7) Valor do aluguel ou     7.22                   7.02                        6.45
+ prestação mensal
+ 
+8) Número de               1.80                   1.67                        1.55 
+domicílios que                                   
+têm automóvel 
+e renda < 5SM                    
+
+9) Número de 
+domicílios que            46.58                   2.26                        2.08 
+têm geladeira 
+e renda $\geq$ 5SM                                      
+-----------------------------------------------------------------------------------------------------------------
+  Table: (#tab:epakish) Efeitos de plano amostral de Kish para variáveis selecionadas -
+  Região Metropolitana do Rio de Janeiro.
+           
+
+Os valores apresentados na Tabela \@ref(tab:epakish) para a RM do Rio de Janeiro são similares aos observados para as demais RMs, se consideradas as mesmas variáveis. Nota-se grande variação dos valores do EPA, cujos valores mínimo e máximo são de 1,28 e 111,27
 respectivamente. Para algumas variáveis (1,2,4,5 e 9), o EPA varia
 consideravelmente entre as diferentes alternativas de plano amostral,
 enquanto para outras variáveis (3,6,7 e 8) as variações entre os
@@ -335,6 +383,13 @@ Estrato & Condição & Tamanho \\ \hline
 \end{table}
 \end{center}
 
+ Estrato         Condição                Tamanho
+--------  --------------------------  ------------------
+   1       empresas com PO  $>21$       $161$ empresas
+   2       empresas com PO $\leq21$     $588$ empresas
+
+Table:(#tab:estempr) Definição da estratificação da população de empresas
+
 Foram então selecionadas de cada um dos estratos amostras aleatórias
 simples sem reposição de $30$ empresas, implicando em uso de aloca\c{%
 c}ão igual e em frações amostrais desiguais, em vista dos
@@ -436,17 +491,30 @@ $500$ amostras
 \end{tabular}
 \end{table}
 
+------------------------------------------------------------------------
+Quantidade de interesse            Salários   Receitas 
+--------------------------------  ---------- ---------- 
+1) Média populacional              78.328      2.107
+
+2) Média de $\bar{y}$ sobre        160.750     4.191
+500 amostras       
+
+3) Média de $\bar{y}_{w}$ sobre    76.700      2.054
+500 amostras
+------------------------------------------------------------------------
+Table:(#tab:proestmed) Propriedades dos estimadores da média das variáveis 
+de pesquisa
 
 Em contraste com os valores dos parâmetros populacionais, calculamos a
 média das médias amostrais não ponderadas ($\bar{y}$) dos
 salários e das receitas obtidas nas $500$ amostras simuladas, obtendo os
-valores na segunda linha da Tabela \ref{tab43}. Como previsto, observamos um
+valores na segunda linha da Tabela \@ref(tab:proestmed). Como previsto, observamos um
 vício para cima na estimativa destas médias, da ordem de $105\%$
 para os salários e de $98,9\%$ para as receitas.
 
 Usamos também o estimador $\bar{y}_{w}$ para estimar a média dos
 salários e das receitas na população, obtendo para esse
-estimador as médias apresentadas na terceira linha da Tabela \ref{tab43}. Observamos ainda um pequeno vício da ordem de $-1,95\%$ e $-2,51\%$
+estimador as médias apresentadas na terceira linha da Tabela \@ref(tab:proestmed). Observamos ainda um pequeno vício da ordem de $-1,95\%$ e $-2,51\%$
 para os salários e receitas, respectivamente. Note que o estimador $\bar{y}_{w}$ é não-viciado sob o plano amostral adotado, entretanto o
 pequeno vício observado na simulação não pode ser ignorado
 pois é significantemente diferente de $0$ ao nível de

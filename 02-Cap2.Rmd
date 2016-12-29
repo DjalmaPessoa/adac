@@ -8,12 +8,13 @@ abordagens alternativas de análise estatística.
 
 ### Abordagem 1 - Modelagem Clássica {#classic}
 
-Seja $Y$ um vetor $P \times 1$ de variáveis de pesquisa (ou de interesse), e sejam $n$ vetores de observações destas variáveis para uma amostra de unidades de interesse denotados por $y_1,\ldots ,y_n$. Em Inferência Estatística, a abordagem que aqui chamamos de `Modelagem clássica` considera $y_1,\ldots ,y_n$ como valores (realizações) de vetores de variáveis aleatórias $y_1,\ldots ,y_n$. Podemos formular modelos bastante sofisticados para a distribuição conjunta destes vetores aleatórios, mas para simplificar a discussão, vamos inicialmente supor que $y_1,\ldots ,y_n$ são vetores aleatórios independentes e identicamente distribuídos (IID), com a mesma distribuição de $Y$, caracterizada pela função de densidade ou de frequência $f(y;\theta)$, onde $\theta \in \Theta$ é o parâmetro (um vetor de dimensão $K \times 1$) indexador da distribuição $f$, e $\Theta$ é o espaço paramétrico. A partir das observações $y_1,\ldots ,y_n$, são feitas inferências a respeito do parâmetro $\theta$. Uma representação gráfica esquemática dessa abordagem é apresentada na Figura \ref{fig:Figura21} a seguir, e uma descrição esquemática resumida é apresentada na Tabela \ref{Tab21}.
+Seja $Y$ um vetor $P \times 1$ de variáveis de pesquisa (ou de interesse), e sejam $n$ vetores de observações destas variáveis para uma amostra de unidades de interesse denotados por $y_1,\ldots ,y_n$. Em Inferência Estatística, a abordagem que aqui chamamos de `Modelagem clássica` considera $y_1,\ldots ,y_n$ como valores (realizações) de vetores de variáveis aleatórias $y_1,\ldots ,y_n$. Podemos formular modelos bastante sofisticados para a distribuição conjunta destes vetores aleatórios, mas para simplificar a discussão, vamos inicialmente supor que $y_1,\ldots ,y_n$ são vetores aleatórios independentes e identicamente distribuídos (IID), com a mesma distribuição de $Y$, caracterizada pela função de densidade ou de frequência $f(y;\theta)$, onde $\theta \in \Theta$ é o parâmetro (um vetor de dimensão $K \times 1$) indexador da distribuição $f$, e $\Theta$ é o espaço paramétrico. A partir das observações $y_1,\ldots ,y_n$, são feitas inferências a respeito do parâmetro $\theta$. Uma representação gráfica esquemática dessa abordagem é apresentada na Figura \ref{fig:Figura21} a seguir, e uma descrição esquemática resumida é apresentada na Tabela \@ref(tab:modelclass).
 
+```{r, modclas, echo=FALSE}
+knitr::include_graphics("Figuras/Figura21Nova.pdf")
+```
 
-![Fig 2.1: Modelagem Clássica](Figuras/Figura21Nova.pdf)
-
-
+<!-- ![Fig 2.1: Modelagem Clássica](Figuras/Figura21Nova.pdf) -->
 
 
 -------------------   ----------------------------------------------
@@ -29,7 +30,7 @@ Objetivo              Inferir sobre $\theta$ usando as
                       observações $y_1, \ldots,y_n$
 ------------------    -----------------------------------------------                     
  
- Table: Representação esquemática da abordagem I. 
+ Table: (#tab:modelclass) Representação esquemática da abordagem 1. 
  
  
 
@@ -110,12 +111,34 @@ populacionais (QDPs), também denominadas
 tais como totais $g\left( y_{1},\ldots ,y_{N}\right) =\sum_{i=1}^{N}y_{i}$ ,
 médias $g\left( y_{1},\ldots ,y_{N}\right) =N^{-1}\sum_{i=1}^{N}y_{i}$,
 proporções, razões, etc. Uma descrição esquemática resumida
-dessa abordagem é apresentada no Tabela \ref{Tab22}, e uma representação
- gráfica resumida na Figura \ref{fig:Figura22}.
+dessa abordagem é apresentada no Tabela \@ref(tab:modelamo), e uma representação
+ gráfica resumida na Figura \@ref{fig:Figura22}.
+
+```{r, modamo, echo=FALSE}
+knitr::include_graphics("Figuras/figura22borda.pdf")
+```
+
+<!-- ![Fig 2.2: Amostragem Probabilística](Figuras/figura22borda.pdf) -->
 
 
 
-![Fig 2.2: Amostragem Probabilística](Figuras/figura22borda.pdf)
+
+-------------------   ----------------------------------------------
+Dados Amostrais       $Y_1=y_1,\ldots, Y_n=y_n$
+
+
+Hipóteses/Modelo      extraídos de $y_1,\ldots,y_N$  segundo $p(s)
+Hipóteses             
+                      
+
+Objetivo              Inferir sobre funções $g(y_1, \ldots, y_N) 
+                      usando $y_1, \ldots,y_n$
+------------------    -----------------------------------------------                     
+ 
+ Table: (#tab:modelamo) Representação esquemática da abordagem 2. 
+
+
+
 
 
 \begin{center}
@@ -153,8 +176,6 @@ usando $y_{i_1},\ldots ,y_{i_n}$
 \end{tabular}
 \end{table}
 \end{center}
-
-
 
 
 
@@ -238,7 +259,19 @@ interesse $Y$ na população finita são considerados observações
 
 Utilizando um plano amostral definido por $p(a)$, obtemos os valores das variáveis de pesquisa na amostra $y_{i_1},\ldots ,y_{i_n}$. A partir de $y_{i_1},\ldots ,y_{i_n}$ (em geral não considerados como observações de vetores aleatórios IID) queremos fazer inferências sobre o parâmetro $\theta $, considerando os pontos i) a iii) do Capítulo 1. Veja uma representação gráfica resumida desta abordagem na Figura 2.3.
 
-![Fig 2.3: Modelagem de Superpopulação](Figuras/figura23borda.pdf)
+
+```{r, modsup,echo=FALSE}
+knitr::include_graphics("Figuras/figura23borda.pdf")
+```
+
+
+
+
+
+
+
+
+<!-- ![Fig 2.3: Modelagem de Superpopulação](Figuras/figura23borda.pdf) -->
 
 
 Adotando o modelo de superpopulação e considerando métodos
@@ -256,7 +289,26 @@ populacionais $y_{1},\ldots ,y_{N}$, já que estes não são
 conhecidos ou observados. Este último passo adiciona a informação sobre o
 plano amostral utilizado, contida em $p(s)$,  à informação
 estrutural contida no modelo $\left\{ f\left( y;\theta \right) ;\theta \in \Theta\right\}$. Uma representação esquemática dessa abordagem é
-apresentada no Tabela \ref{Tab23}.
+apresentada no Tabela \@ref(tab:modelsuperpop).
+
+-------------------   ----------------------------------------------
+Dados Amostrais       $Y_1=y_1,\ldots, Y_n=y_n$
+
+
+População e           Extraídos de $y_1,\dots,y_n$ segundo $p(s)
+esquema de seleção    
+
+Modelo para           $Y_1,\dots,Y_N$ variáveis aleatórias IID
+poulação              com distribuição $f(y,\theta)$, onde $\theta \in \Theta$
+
+Parâmetro-alvo        associar $\theta \longleftrightarrow g\left(Y_{1},\ldots Y_{N}\right)$  
+
+
+Objetivo              Inferir sobre $g\left( Y_{1},\ldots Y_{N}\right)$ partir de 
+                      $y_{i_1},\ldots ,y_{i_n}$ usando $p\left( s\right)$
+------------------    -----------------------------------------------                     
+ 
+ Table: (#tab:modelsuperpop) Representação esquemática da abordagem 3. 
 
 \begin{center}
 \begin{table}[tbp] \centering

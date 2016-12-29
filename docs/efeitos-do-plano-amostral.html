@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2016-12-28">
+<meta name="date" content="2016-12-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -243,9 +243,83 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span id="ex:epakish" class="example"><strong>Example 4.1 </strong></span>Efeitos de plano amostral de Kish para estimadores de totais com amostragem conglomerada em dois estágios.
 </div>
 <p></p>
-<p><span class="citation">(Nascimento Silva and Moura <a href="#ref-SilvaMou">1990</a>)</span> estimaram o <span class="math inline">\(\mathbf{EPA}_{Kish}\)</span> para estimadores de totais de várias variáveis sócio-econômicas no nível das Regiões Metropolitanas (RMs) utilizando dados do questionário de amostra do Censo Demográfico de 1980. Essas medidas estimadas do efeito do plano amostral foram calculadas para três esquemas amostrais alternativos, todos considerando amostragem conglomerada de domicílios em dois estágios, tendo o setor censitário como unidade primária e o domicílio como unidade secundária de amostragem. Duas das alternativas consideraram seleção de setores com equiprobabilidade via amostragem aleatória simples sem reposição (AC2AAS) e fração amostral constante de domicílios no segundo estágio (uma usando o estimador simples ou <span class="math inline">\(\pi\)</span>-ponderado do total, e outra usando o estimador de razão para o total calibrando no número total de domicílios da população), e uma terceira alternativa considerou a seleção de setores com probabilidades proporcionais ao tamanho (número de domicílios por setor), denominada AC2PPT, e a seleção de <span class="math inline">\(15\)</span> domicílios em cada setor da amostra, e empregando o correspondente estimador <span class="math inline">\(\pi\)</span>-ponderado. Os resultados referentes à Região Metropolitana do Rio de Janeiro para algumas variáveis são apresentados na Tabela  a título de ilustração. Note que a população alvo considera apenas moradores em domicílios particulares permanentes na Região Metropolitana do Rio de Janeiro.</p>
+<p><span class="citation">(Nascimento Silva and Moura <a href="#ref-SilvaMou">1990</a>)</span> estimaram o <span class="math inline">\(\mathbf{EPA}_{Kish}\)</span> para estimadores de totais de várias variáveis sócio-econômicas no nível das Regiões Metropolitanas (RMs) utilizando dados do questionário de amostra do Censo Demográfico de 1980. Essas medidas estimadas do efeito do plano amostral foram calculadas para três esquemas amostrais alternativos, todos considerando amostragem conglomerada de domicílios em dois estágios, tendo o setor censitário como unidade primária e o domicílio como unidade secundária de amostragem. Duas das alternativas consideraram seleção de setores com equiprobabilidade via amostragem aleatória simples sem reposição (AC2AAS) e fração amostral constante de domicílios no segundo estágio (uma usando o estimador simples ou <span class="math inline">\(\pi\)</span>-ponderado do total, e outra usando o estimador de razão para o total calibrando no número total de domicílios da população), e uma terceira alternativa considerou a seleção de setores com probabilidades proporcionais ao tamanho (número de domicílios por setor), denominada AC2PPT, e a seleção de <span class="math inline">\(15\)</span> domicílios em cada setor da amostra, e empregando o correspondente estimador <span class="math inline">\(\pi\)</span>-ponderado. Os resultados referentes à Região Metropolitana do Rio de Janeiro para algumas variáveis são apresentados na Tabela <a href="efeitos-do-plano-amostral.html#tab:epakish">4.1</a> a título de ilustração. Note que a população alvo considera apenas moradores em domicílios particulares permanentes na Região Metropolitana do Rio de Janeiro.</p>
 
-<p>Os valores apresentados na Tabela  para a RM do Rio de Janeiro são similares aos observados para as demais RMs, se consideradas as mesmas variáveis. Nota-se grande variação dos valores do EPA, cujos valores mínimo e máximo são de 1,28 e 111,27 respectivamente. Para algumas variáveis (1,2,4,5 e 9), o EPA varia consideravelmente entre as diferentes alternativas de plano amostral, enquanto para outras variáveis (3,6,7 e 8) as variações entre os planos amostrais é mínima.</p>
+<p>Plano amostral AC2AAS AC2PPT</p>
+<table>
+<caption><span id="tab:epakish">Table 4.1: </span> Efeitos de plano amostral de Kish para variáveis selecionadas - Região Metropolitana do Rio de Janeiro.</caption>
+<colgroup>
+<col width="26%" />
+<col width="21%" />
+<col width="22%" />
+<col width="29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Variável</th>
+<th align="center">Estimador Simples</th>
+<th align="center">Estimador de Razão</th>
+<th align="center">Estimador <span class="math inline">\(\pi\)</span>-ponderado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1) Número total de moradores</td>
+<td align="center">10.74</td>
+<td align="center">2.00</td>
+<td align="center">1.90</td>
+</tr>
+<tr class="even">
+<td align="left">2) Número de moradores ocupados</td>
+<td align="center">5.78</td>
+<td align="center">1.33</td>
+<td align="center">1.28</td>
+</tr>
+<tr class="odd">
+<td align="left">3) Rendimento monetário mensal</td>
+<td align="center">5.22</td>
+<td align="center">4.92</td>
+<td align="center">4.49</td>
+</tr>
+<tr class="even">
+<td align="left">4) Número total de filhos nascidos vivos de mulheres com 15 anos ou mais</td>
+<td align="center">4.59</td>
+<td align="center">2.02</td>
+<td align="center">1.89</td>
+</tr>
+<tr class="odd">
+<td align="left">5) Número de domicílios que têm fogão</td>
+<td align="center">111.27</td>
+<td align="center">1.58</td>
+<td align="center">1.55</td>
+</tr>
+<tr class="even">
+<td align="left">6) Número de domicílios que têm telefone</td>
+<td align="center">7.11</td>
+<td align="center">7.13</td>
+<td align="center">6.41</td>
+</tr>
+<tr class="odd">
+<td align="left">7) Valor do aluguel ou prestação mensal</td>
+<td align="center">7.22</td>
+<td align="center">7.02</td>
+<td align="center">6.45</td>
+</tr>
+<tr class="even">
+<td align="left">8) Número de domicílios que têm automóvel e renda &lt; 5SM</td>
+<td align="center">1.80</td>
+<td align="center">1.67</td>
+<td align="center">1.55</td>
+</tr>
+<tr class="odd">
+<td align="left">9) Número de domicílios que têm geladeira e renda <span class="math inline">\(\geq\)</span> 5SM</td>
+<td align="center">46.58</td>
+<td align="center">2.26</td>
+<td align="center">2.08</td>
+</tr>
+</tbody>
+</table>
+<p>Os valores apresentados na Tabela <a href="efeitos-do-plano-amostral.html#tab:epakish">4.1</a> para a RM do Rio de Janeiro são similares aos observados para as demais RMs, se consideradas as mesmas variáveis. Nota-se grande variação dos valores do EPA, cujos valores mínimo e máximo são de 1,28 e 111,27 respectivamente. Para algumas variáveis (1,2,4,5 e 9), o EPA varia consideravelmente entre as diferentes alternativas de plano amostral, enquanto para outras variáveis (3,6,7 e 8) as variações entre os planos amostrais é mínima.</p>
 <p>Os valores elevados do EPA observados para algumas variáveis realçam a importância de considerar o plano amostral verdadeiro ao estimar variâncias e desvios padrões associados `{a}s estimativas pontuais. Isso ocorre porque estimativas ingênuas de variância baseadas na hipótese de AAS subestimam substancialmente as variâncias corretas.</p>
 <p>Outra regularidade encontrada nesse valores é que o EPA para o plano amostral AC2AAS com estimador simples apresenta sempre os valores mais elevados, revelando que este esquema é menos eficiente que os competidores considerados. Em geral, o EPA é menor para o esquema AC2PPT, com valores próximos aos do esquema AC2AAS com estimador de razão.</p>
 <p>Os valores dos EPAs calculados por <span class="citation">(Nascimento Silva and Moura <a href="#ref-SilvaMou">1990</a>)</span> podem ser usados para planejar pesquisas amostrais (ao menos nas regiões metropolitanas), pois permitem comparar e antecipar o impacto do uso de alguns esquemas amostrais alternativos sobre a precisão de estimadores de totais de várias variáveis relevantes. Permitem também calcular tamanhos amostrais para garantir determinado nível de precisão, sem emprego de fórmulas complicadas. Portanto, tais valores seriam úteis como informação de apoio ao planejamento de novas pesquisas por amostragem, antes que as respectivas amostras sejam efetivamente selecionadas.</p>
@@ -289,6 +363,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>A idéia é considerar o problema de estimar as médias populacionais das variáveis SAL e REC (variáveis de pesquisa, nesse exemplo), usando amostras estratificadas simples com alocação desproporcional, implicando em unidades amostrais com pesos desiguais numa situação bastante simples. A variável PO é a variável de estratificação. As médias populacionais das variáveis de pesquisa (SAL e REC) são conhecidas, porém supostas desconhecidas para efeitos do presente exercício, em que se supõe que amostragem seria usada para sua estimação.</p>
 <p>Para estimar estas médias, as empresas da população foram divididas em dois estratos, definidos a partir da variável PO, conforme indicado na Tabela .</p>
 
+<table>
+<caption><span id="tab:estempr">Table 4.2: </span> Definição da estratificação da população de empresas</caption>
+<thead>
+<tr class="header">
+<th align="left">Estrato</th>
+<th align="center">Condição</th>
+<th align="center">Tamanho</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="center">empresas com PO <span class="math inline">\(&gt;21\)</span></td>
+<td align="center"><span class="math inline">\(161\)</span> empresas</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="center">empresas com PO <span class="math inline">\(\leq21\)</span></td>
+<td align="center"><span class="math inline">\(588\)</span> empresas</td>
+</tr>
+</tbody>
+</table>
 <p>Foram então selecionadas de cada um dos estratos amostras aleatórias simples sem reposição de <span class="math inline">\(30\)</span> empresas, implicando em uso de alocaão igual e em frações amostrais desiguais, em vista dos diferentes tamanhos populacionais dos estratos. Como o estrato 1 contém cerca de <span class="math inline">\(21\%\)</span> das observações da população, a proporção de <span class="math inline">\(50\%\)</span> das observações da amostra no estrato 1 (das maiores empresas) na amostra é bem maior do que seria esperado sob amostragem aleatória simples da população em geral. Desta forma, a média amostral de uma variável de pesquisa <span class="math inline">\(y\)</span> qualquer (SAL ou REC) dada por <span class="math display">\[
 \bar{y}=\frac{1}{n}\sum\limits_{h=1}^{2}\sum\limits_{i\in s_{h}}y_{hi} \]</span> tenderia a superestimar a média populacional <span class="math inline">\(\overline{Y}\)</span> dada por <span class="math inline">\(\overline{Y}=\frac{1}{N}\sum\limits_{h=1}^{2}\sum_{i\in U_{h}}y_{hi},\)</span> onde <span class="math inline">\(y_{hi}\)</span> é o valor da variável de pesquisa <span class="math inline">\(y\)</span> para a <span class="math inline">\(i-\)</span>ésima observação do estrato <span class="math inline">\(h\)</span>, <span class="math inline">\((h=1,2)\)</span>. Neste caso, um estimador não-viciado da média populacional <span class="math inline">\(\bar{Y}\)</span> seria dado por</p>
 <p><span class="math display">\[
@@ -312,8 +408,40 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 </ol>
 <p>Note que na apresentação dos resultados os valores dos salários foram expressos em milhares de Reais (R$ <span class="math inline">\(1.000,00\)</span>) e os valores das receitas em milhões de Reais (R$ <span class="math inline">\(1.000.000,00\)</span>). Como a população é conhecida, os parâmetros populacionais de interesse podem ser calculados, obtendo-se os valores na primeira linha da Tabela..</p>
 
-<p>Em contraste com os valores dos parâmetros populacionais, calculamos a média das médias amostrais não ponderadas (<span class="math inline">\(\bar{y}\)</span>) dos salários e das receitas obtidas nas <span class="math inline">\(500\)</span> amostras simuladas, obtendo os valores na segunda linha da Tabela . Como previsto, observamos um vício para cima na estimativa destas médias, da ordem de <span class="math inline">\(105\%\)</span> para os salários e de <span class="math inline">\(98,9\%\)</span> para as receitas.</p>
-<p>Usamos também o estimador <span class="math inline">\(\bar{y}_{w}\)</span> para estimar a média dos salários e das receitas na população, obtendo para esse estimador as médias apresentadas na terceira linha da Tabela . Observamos ainda um pequeno vício da ordem de <span class="math inline">\(-1,95\%\)</span> e <span class="math inline">\(-2,51\%\)</span> para os salários e receitas, respectivamente. Note que o estimador <span class="math inline">\(\bar{y}_{w}\)</span> é não-viciado sob o plano amostral adotado, entretanto o pequeno vício observado na simulação não pode ser ignorado pois é significantemente diferente de <span class="math inline">\(0\)</span> ao nível de significância de <span class="math inline">\(5\%\)</span>, apesar do tamanho razoável da simulação (<span class="math inline">\(500\)</span> replicações).</p>
+<table style="width:78%;">
+<caption><span id="tab:proestmed">Table 4.3: </span> Propriedades dos estimadores da média das variáveis de pesquisa</caption>
+<colgroup>
+<col width="47%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Quantidade de interesse</th>
+<th align="center">Salários</th>
+<th align="center">Receitas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1) Média populacional</td>
+<td align="center">78.328</td>
+<td align="center">2.107</td>
+</tr>
+<tr class="even">
+<td align="left">2) Média de <span class="math inline">\(\bar{y}\)</span> sobre 500 amostras</td>
+<td align="center">160.750</td>
+<td align="center">4.191</td>
+</tr>
+<tr class="odd">
+<td align="left">3) Média de <span class="math inline">\(\bar{y}_{w}\)</span> sobre 500 amostras</td>
+<td align="center">76.700</td>
+<td align="center">2.054</td>
+</tr>
+</tbody>
+</table>
+<p>Em contraste com os valores dos parâmetros populacionais, calculamos a média das médias amostrais não ponderadas (<span class="math inline">\(\bar{y}\)</span>) dos salários e das receitas obtidas nas <span class="math inline">\(500\)</span> amostras simuladas, obtendo os valores na segunda linha da Tabela <a href="efeitos-do-plano-amostral.html#tab:proestmed">4.3</a>. Como previsto, observamos um vício para cima na estimativa destas médias, da ordem de <span class="math inline">\(105\%\)</span> para os salários e de <span class="math inline">\(98,9\%\)</span> para as receitas.</p>
+<p>Usamos também o estimador <span class="math inline">\(\bar{y}_{w}\)</span> para estimar a média dos salários e das receitas na população, obtendo para esse estimador as médias apresentadas na terceira linha da Tabela <a href="efeitos-do-plano-amostral.html#tab:proestmed">4.3</a>. Observamos ainda um pequeno vício da ordem de <span class="math inline">\(-1,95\%\)</span> e <span class="math inline">\(-2,51\%\)</span> para os salários e receitas, respectivamente. Note que o estimador <span class="math inline">\(\bar{y}_{w}\)</span> é não-viciado sob o plano amostral adotado, entretanto o pequeno vício observado na simulação não pode ser ignorado pois é significantemente diferente de <span class="math inline">\(0\)</span> ao nível de significância de <span class="math inline">\(5\%\)</span>, apesar do tamanho razoável da simulação (<span class="math inline">\(500\)</span> replicações).</p>
 <p>Além dos estimadores pontuais, o interesse maior da simulação foi comparar valores de estimadores de variância, e consequentemente de medidas do efeito do plano amostral. Como o estimador pontual dado pela média amostral não ponderada (<span class="math inline">\(\bar{y}\)</span>) é grosseiramente viciado, não consideramos estimativas de variância para esse estimador, mas tão somente para o estimador não-viciado dado pela média ponderada <span class="math inline">\(\bar{y}_{w}\)</span>. Para esse último, consideramos dois estimadores de variância, a saber o estimador ingênuo sob a hipótese de AAS (dado por <span class="math inline">\(v_{0}\)</span>) e um estimador não viciado da variância sob o plano amostral <span class="math inline">\(\hat{V}_{AES}\left( \bar{y}_{w}\right)\)</span> , que foi obtido substituindo as variâncias dentro dos estratos <span class="math inline">\(S_{h}^{2}\)</span> por estimativas amostrais não viciadas dadas por <span class="math inline">\(s_{h}^{2}=\frac{1}{n_{h}-1}\sum_{i=1}^{n_{h}}(y_{hi}-\overline{y}_{h})^{2}\)</span>, <span class="math inline">\(h=1,2\)</span>, na fórmula de <span class="math inline">\(V_{AES}\left( \bar{y}_{w}\right)\)</span> conforme definida em <a href="efeitos-do-plano-amostral.html#eq:epa3">(4.3)</a>.</p>
 <p>Como neste exercício a população é conhecida, podemos calcular <span class="math inline">\(V_{AES}\left(\bar{y}_{w}\right)\)</span> através das variâncias de <span class="math inline">\(y\)</span> dentro dos estratos <span class="math inline">\(h=1,2\)</span> ou através da simulação. Esses valores são apresentados respectivamente na primeira e segunda linhas da Tabela , para as duas variáveis de pesquisa consideradas.</p>
 

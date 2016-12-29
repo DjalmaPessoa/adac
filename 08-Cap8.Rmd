@@ -365,7 +365,7 @@ estimativas de efeitos de plano amostral na região $l$ são da forma
 _{+c}\right) \right) ,\ \;l=1,2\mbox{ e }c=1,\ldots ,C,  (\#eq:Tab5)
 \end{equation}
 onde $\hat{V}_{lc}$ é o $c$-ésimo elemento da diagonal de $\mathbf{
-\hat{V}}_{p}\left( \widehat{\mathbf{p}}_{l}\right) .$
+\hat{V}}_{p}\left( \widehat{\mathbf{p}}_{l}\right)$.
 
 A matriz estimada de efeito multivariado de plano amostral é 
 \begin{equation}
