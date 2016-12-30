@@ -579,12 +579,32 @@ usando $500$ amostras
 \end{table}
 \end{center}
 
+--------------------------------------------------------------------------------
+Quantidade de interesse                           Salários   Receitas
+------------------------------------------------ ---------- ----------
+1) Variância populacional                            244.1    0.43500                     
+$V_{AES}\left( \bar{y}_{w}\right)$
+
+2) Média de                                         231.84    0.32569                            
+$\widehat{V}_{AES}\left(\bar{y}_{w}\right)$ 
+usando $500$ amostras
+
+3) Valor esperado de                                1613.3     1.1880                 
+$v_{0}$ usando população
+
+4) Média de $v_{0}$                                 1636.1     1.2121 
+usando $500$ amostras
+-------------------------------------------------------------------------------
+Table:(#tab:varest) Propriedades dos estimadore de variância do estimador $\bar{y}_{w}$
+
+
+
 Os valores de $E_{VERD}\left( v_{0}\left( \overline{SAL}_{w}\right) \right)$
 e de $E_{VERD}\left( v_{0}\left( \overline{REC}_{w}\right) \right)$ foram
 também calculados a partir das variâncias dentro e entre estratos na
-população, resultando nos valores na linha 3 da Tabela \ref{tab44},
+população, resultando nos valores na linha 3 da Tabela \@ref(tab:tab:varest),
 e estimativas desses valores baseadas nas 500 amostras da simulação
-são apresentadas na linha 4 da Tabela \ref{tab44}. Os valores para o 
+são apresentadas na linha 4 da Tabela \@ref(tab:tab:varest). Os valores para o 
 $\mathbf{EPA}$ foram calculados tanto com base nas estimativas de simulação como nos valores populacionais das variâncias, cujos cálculos estão ilustrados a seguir:
 
 \begin{eqnarray*}
@@ -643,6 +663,19 @@ Receita & Variância & \multicolumn{1}{|r|}{$0,32569$} &
 \end{tabular}
 \end{center}
 
+-----------------------------------------------------------------------
+Variável  Estimativa  Simulação  População
+--------- ----------- ---------- ----------
+Salário   Variância   231.84     244.18
+          EPA         0.142      0.151
+ 
+Receita   Variância   0.32569    0.43500
+          EPA         0.269      0.366
+--------------------------------------------------------------------
+Table:(#tab:eparec)Valores dos Efeitos de Plano amostral(EPA) para as
+médias de Salário e Receita.
+
+                  
 **Observação:**
 Neste exemplo não foi feito uso analítico dos dados e sim
 descritivo, onde é usual incorporar os pesos no cálculo de
@@ -833,6 +866,21 @@ $4,0$ & $0,67$ & $0,80$ \\ \hline\hline
 \end{tabular}
 \end{table}
 \end{center}
+
+ 
+$\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$    $1-\alpha=0.95$      $1-\alpha=0.99$
+-----------------------------------------------   ----------------     ---------------  
+                    0.90                                 0.96                0.99                  
+                    0.95                                 0.96                0.99
+                    1.0                                  0.95                0.99
+                    1.5                                  0.89                0.96
+                    2.0                                  0.83                0.93
+                    2.5                                  0.78                0.90
+                    3.0                                  0.74                0.86
+                    3.5                                  0.71                0.83
+                    4.0                                  0.67                0.80
+                                            
+Table:(#tab:procob) Probabilidades de cobertura para níveis nominais de 95% e 99%
 
 À medida que o valor do $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$
 aumenta, a probabilidade real de cobertura diminui, sendo menor que o valor
@@ -1188,6 +1236,25 @@ $\delta $ & \multicolumn{1}{|r}{1} & \multicolumn{1}{r}{2} &
 \end{tabular}
 \end{table}
 \end{center}
+
+
+```{r, nivsig, echo=FALSE}
+mat.res <- matrix(NA, 6, 4)
+K <- 1:4
+delta <- c(.9, seq(1, 3, by=.5))
+qsup <- qchisq(.95, c(1:4))
+for(i in 1:length(delta)){
+mat.res[i,] <- round(pchisq(qsup/delta[i], K, lower.tail = F)*100, 0)
+}
+dimnames(mat.res)<- list(delta=as.character(delta), K= as.character(K))
+knitr::kable(mat.res, booktabs=TRUE,
+caption="Níveis de significância (%) verdadeiros do teste $T^2$ para o nível nominal
+de 5% assumindo autovalores iguais para $Delta$.")
+```
+
+
+
+
 
 ## Laboratório de R
 

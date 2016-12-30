@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2016-12-29">
+<meta name="date" content="2016-12-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -445,7 +445,44 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 <p>Além dos estimadores pontuais, o interesse maior da simulação foi comparar valores de estimadores de variância, e consequentemente de medidas do efeito do plano amostral. Como o estimador pontual dado pela média amostral não ponderada (<span class="math inline">\(\bar{y}\)</span>) é grosseiramente viciado, não consideramos estimativas de variância para esse estimador, mas tão somente para o estimador não-viciado dado pela média ponderada <span class="math inline">\(\bar{y}_{w}\)</span>. Para esse último, consideramos dois estimadores de variância, a saber o estimador ingênuo sob a hipótese de AAS (dado por <span class="math inline">\(v_{0}\)</span>) e um estimador não viciado da variância sob o plano amostral <span class="math inline">\(\hat{V}_{AES}\left( \bar{y}_{w}\right)\)</span> , que foi obtido substituindo as variâncias dentro dos estratos <span class="math inline">\(S_{h}^{2}\)</span> por estimativas amostrais não viciadas dadas por <span class="math inline">\(s_{h}^{2}=\frac{1}{n_{h}-1}\sum_{i=1}^{n_{h}}(y_{hi}-\overline{y}_{h})^{2}\)</span>, <span class="math inline">\(h=1,2\)</span>, na fórmula de <span class="math inline">\(V_{AES}\left( \bar{y}_{w}\right)\)</span> conforme definida em <a href="efeitos-do-plano-amostral.html#eq:epa3">(4.3)</a>.</p>
 <p>Como neste exercício a população é conhecida, podemos calcular <span class="math inline">\(V_{AES}\left(\bar{y}_{w}\right)\)</span> através das variâncias de <span class="math inline">\(y\)</span> dentro dos estratos <span class="math inline">\(h=1,2\)</span> ou através da simulação. Esses valores são apresentados respectivamente na primeira e segunda linhas da Tabela , para as duas variáveis de pesquisa consideradas.</p>
 
-<p>Os valores de <span class="math inline">\(E_{VERD}\left( v_{0}\left( \overline{SAL}_{w}\right) \right)\)</span> e de <span class="math inline">\(E_{VERD}\left( v_{0}\left( \overline{REC}_{w}\right) \right)\)</span> foram também calculados a partir das variâncias dentro e entre estratos na população, resultando nos valores na linha 3 da Tabela , e estimativas desses valores baseadas nas 500 amostras da simulação são apresentadas na linha 4 da Tabela . Os valores para o <span class="math inline">\(\mathbf{EPA}\)</span> foram calculados tanto com base nas estimativas de simulação como nos valores populacionais das variâncias, cujos cálculos estão ilustrados a seguir:</p>
+<table style="width:99%;">
+<caption><span id="tab:varest">Table 4.4: </span> Propriedades dos estimadore de variância do estimador <span class="math inline">\(\bar{y}_{w}\)</span></caption>
+<colgroup>
+<col width="68%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Quantidade de interesse</th>
+<th align="center">Salários</th>
+<th align="center">Receitas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1) Variância populacional <span class="math inline">\(V_{AES}\left( \bar{y}_{w}\right)\)</span></td>
+<td align="center">244.1</td>
+<td align="center">0.43500</td>
+</tr>
+<tr class="even">
+<td align="left">2) Média de <span class="math inline">\(\widehat{V}_{AES}\left(\bar{y}_{w}\right)\)</span> usando <span class="math inline">\(500\)</span> amostras</td>
+<td align="center">231.84</td>
+<td align="center">0.32569</td>
+</tr>
+<tr class="odd">
+<td align="left">3) Valor esperado de <span class="math inline">\(v_{0}\)</span> usando população</td>
+<td align="center">1613.3</td>
+<td align="center">1.1880</td>
+</tr>
+<tr class="even">
+<td align="left">4) Média de <span class="math inline">\(v_{0}\)</span> usando <span class="math inline">\(500\)</span> amostras</td>
+<td align="center">1636.1</td>
+<td align="center">1.2121</td>
+</tr>
+</tbody>
+</table>
+<p>Os valores de <span class="math inline">\(E_{VERD}\left( v_{0}\left( \overline{SAL}_{w}\right) \right)\)</span> e de <span class="math inline">\(E_{VERD}\left( v_{0}\left( \overline{REC}_{w}\right) \right)\)</span> foram também calculados a partir das variâncias dentro e entre estratos na população, resultando nos valores na linha 3 da Tabela <a href="#tab:tab:varest"><strong>??</strong></a>, e estimativas desses valores baseadas nas 500 amostras da simulação são apresentadas na linha 4 da Tabela <a href="#tab:tab:varest"><strong>??</strong></a>. Os valores para o <span class="math inline">\(\mathbf{EPA}\)</span> foram calculados tanto com base nas estimativas de simulação como nos valores populacionais das variâncias, cujos cálculos estão ilustrados a seguir:</p>
 <span class="math display">\[\begin{eqnarray*}
 \mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right) &amp;=&amp;\frac{231,84}{1.636,1}=0,142 \\
 \mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
@@ -466,6 +503,37 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 \begin{center} \begin{table}[tbp] 
 
 <p>\end{center}</p>
+<table style="width:61%;">
+<caption><span id="tab:eparec">Table 4.5: </span>Valores dos Efeitos de Plano amostral(EPA) para as médias de Salário e Receita.</caption>
+<colgroup>
+<col width="13%" />
+<col width="16%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Variável</th>
+<th align="left">Estimativa</th>
+<th align="left">Simulação</th>
+<th align="left">População</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Salário</td>
+<td align="left">Variância EPA</td>
+<td align="left">231.84 0.142</td>
+<td align="left">244.18 0.151</td>
+</tr>
+<tr class="even">
+<td align="left">Receita</td>
+<td align="left">Variância EPA</td>
+<td align="left">0.32569 0.269</td>
+<td align="left">0.43500 0.366</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Observação:</strong> Neste exemplo não foi feito uso analítico dos dados e sim descritivo, onde é usual incorporar os pesos no cálculo de estimativas e variâncias. Não seria esperado usar um estimador ponderado para a média e não considerar os pesos no cálculo de variâncias, como fizemos neste exemplo.</p>
 <p><strong>Observação:</strong> O exemplo mostra que ignorar a estratificação ao calcular <span class="math inline">\(v_{0}\)</span> diminui o <span class="math inline">\(\mathbf{EPA}\)</span>.</p>
 <p>Um outro exemplo relevante é utilizado a seguir para ilustrar o fato de que o conceito do <span class="math inline">\(\mathbf{EPA}\)</span> adotado aqui é mais abrangente do que o definido por Kish, em particular porque a origem do efeito pode estar na estrutura da população e não no plano amostral usado para obter os dados.</p>
@@ -533,6 +601,63 @@ t_{0}\sim N\left[ 0;\mathbf{EPA}\left( \hat{\theta},v_{0}\right)
 ,v_{0}\right) \right] ^{1/2}\right) -1\;\;, 
 \]</span> onde <span class="math inline">\(\Phi\)</span> é a função de distribuição acumulada de uma <span class="math inline">\(N\left( 0;1\right)\)</span>. Calculamos esta probabilidade para alguns valores do <span class="math inline">\(\mathbf{EPA}\)</span>, que apresentamos na Tabela .</p>
 
+<table>
+<caption><span id="tab:procob">Table 4.6: </span> Probabilidades de cobertura para níveis nominais de 95% e 99%</caption>
+<thead>
+<tr class="header">
+<th align="left"><span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span></th>
+<th align="left"><span class="math inline">\(1-\alpha=0.95\)</span></th>
+<th><span class="math inline">\(1-\alpha=0.99\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.90</td>
+<td align="left">0.96</td>
+<td>0.99</td>
+</tr>
+<tr class="even">
+<td align="left">0.95</td>
+<td align="left">0.96</td>
+<td>0.99</td>
+</tr>
+<tr class="odd">
+<td align="left">1.0</td>
+<td align="left">0.95</td>
+<td>0.99</td>
+</tr>
+<tr class="even">
+<td align="left">1.5</td>
+<td align="left">0.89</td>
+<td>0.96</td>
+</tr>
+<tr class="odd">
+<td align="left">2.0</td>
+<td align="left">0.83</td>
+<td>0.93</td>
+</tr>
+<tr class="even">
+<td align="left">2.5</td>
+<td align="left">0.78</td>
+<td>0.90</td>
+</tr>
+<tr class="odd">
+<td align="left">3.0</td>
+<td align="left">0.74</td>
+<td>0.86</td>
+</tr>
+<tr class="even">
+<td align="left">3.5</td>
+<td align="left">0.71</td>
+<td>0.83</td>
+</tr>
+<tr class="odd">
+<td align="left">4.0</td>
+<td align="left">0.67</td>
+<td>0.80</td>
+</tr>
+</tbody>
+</table>
 <p>À medida que o valor do <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> aumenta, a probabilidade real de cobertura diminui, sendo menor que o valor nominal para valores de <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> maiores que 1.</p>
 <p>Utilizando a correspondência existente entre intervalos de confiança e testes de hipóteses, podemos derivar os níveis de significância nominais e reais subtraindo de <span class="math inline">\(1\)</span> os valores da Tabela . Por exemplo, para <span class="math inline">\(\alpha =0,05\)</span> e <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =2\)</span>, o nível de significância real seria aproximadamente <span class="math inline">\(1-0,83=0,17\)</span>.</p>
 
@@ -683,6 +808,62 @@ _{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) &gt;\chi _{\alpha
 \begin{center} \begin{table}[tbp] \caption{Níveis de significância (<span class="math inline">\(\%\)</span>) verdadeiros do teste <span class="math inline">\(T^{2}\)</span> para o nível nominal de <span class="math inline">\(5\%\)</span> assumindo autovalores iguais para $} 
 
 <p>\end{table} \end{center}</p>
+<table>
+<caption><span id="tab:nivsig">Table 4.7: </span>Níveis de significância (%) verdadeiros do teste <span class="math inline">\(T^2\)</span> para o nível nominal de 5% assumindo autovalores iguais para <span class="math inline">\(Delta\)</span>.</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.9</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td>1.5</td>
+<td align="right">11</td>
+<td align="right">14</td>
+<td align="right">16</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td align="right">17</td>
+<td align="right">22</td>
+<td align="right">27</td>
+<td align="right">31</td>
+</tr>
+<tr class="odd">
+<td>2.5</td>
+<td align="right">22</td>
+<td align="right">30</td>
+<td align="right">37</td>
+<td align="right">43</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td align="right">26</td>
+<td align="right">37</td>
+<td align="right">46</td>
+<td align="right">53</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="laboratorio-de-r-1" class="section level2">
 <h2><span class="header-section-number">4.6</span> Laboratório de R</h2>
