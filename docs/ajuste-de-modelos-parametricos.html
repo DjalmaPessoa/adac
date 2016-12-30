@@ -268,8 +268,115 @@ J\left( \mathbf{\hat{\theta}}\right) =\left. J\left( \mathbf{\theta }\right)
 <p></p>
 <p>A título de ilustração, consideremos uma pesquisa com uma amostra complexa como a da PNAD do IBGE, que emprega uma amostra estratificada de domicílios em três estágios, tendo como unidades primárias de amostragem (UPAs) os municípios, que são estratificados segundo as unidades da federação (UFs), e regiões menores dentro das UFs (veja IBGE, 1981, p. 67).</p>
 <p>A seleção de municípios dentro de cada estrato é feita com probabilidades desiguais, proporcionais ao tamanho, havendo inclusive municípios incluídos na amostra com certeza (chamados de municípios auto-representativos). Da mesma forma, a seleção de setores (unidades secundárias de amostragem ou USAs) dentro de cada município é feita com probabilidades proporcionais ao número de domicílios em cada setor segundo o último censo disponível. Dentro de cada setor, a seleção de domicílios é feita por amostragem sistemática simples (portanto, com eqüiprobabilidade). Todas as pessoas moradoras em cada domicílio da amostra são pesquisadas.</p>
-<p>A amostra de domicílios e de pessoas dentro de cada estrato é <code>autoponderada</code>, isto é, tal que todos os domicílios e pessoas dentro de um mesmo estrato têm igual probabilidade de seleção. Entretanto, as probabilidades de inclusão (e conseqüentemente os pesos) variam bastante entre as várias regiões de pesquisa. A Tabela 5.1 revela como variam essas probabilidades de seleção entre as regiões cobertas pela amostra da PNAD de 93. Como se pode observar, tais probabilidades de inclusão chegam a ser <span class="math inline">\(5\)</span> vezes maiores em Belém do que em São Paulo, e portanto variação semelhante será observada nos pesos.</p>
-
+<p>A amostra de domicílios e de pessoas dentro de cada estrato é <code>autoponderada</code>, isto é, tal que todos os domicílios e pessoas dentro de um mesmo estrato têm igual probabilidade de seleção. Entretanto, as probabilidades de inclusão (e conseqüentemente os pesos) variam bastante entre as várias regiões de pesquisa. A Tabela <a href="ajuste-de-modelos-parametricos.html#tab:proselpnad">5.1</a> revela como variam essas probabilidades de seleção entre as regiões cobertas pela amostra da PNAD de 93. Como se pode observar, tais probabilidades de inclusão chegam a ser <span class="math inline">\(5\)</span> vezes maiores em Belém do que em São Paulo, e portanto variação semelhante será observada nos pesos.</p>
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Probabilidades de seleção da amostra da PNAD de 1993 segundo -->
+<!-- regiões }\bigskip \label{tab51}  -->
+<!-- \begin{tabular}{|c|c|} -->
+<!-- \hline\hline -->
+<!-- Região da pesquisa &  -->
+<!-- \begin{tabular}{l} -->
+<!-- Probabilidade \\  -->
+<!-- de seleção -->
+<!-- \end{tabular} -->
+<!-- \\ \hline\hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- RM de Belém -->
+<!-- \end{tabular} -->
+<!-- } & $1/150$ \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- RMs de Fortaleza, Recife, Salvador e Porto Alegre \\  -->
+<!-- Distrito Federal -->
+<!-- \end{tabular} -->
+<!-- } & $1/200$ \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- RMs de Belo Horizonte e Curitiba -->
+<!-- \end{tabular} -->
+<!-- } & $1/250$ \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- Rond\^{o}nia, Acre, Amazonas, Roraima, Amapá, \\  -->
+<!-- Tocantins, Sergipe, Mato Grosso do Sul, \\  -->
+<!-- Mato Grosso e Goiás -->
+<!-- \end{tabular} -->
+<!-- } & $1/300$ \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- Pará -->
+<!-- \end{tabular} -->
+<!-- } & $1/350$ \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- RM do Rio de Janeiro, Piauí, Ceará, \\  -->
+<!-- Rio Grande do Norte, Paraíba, Pernambuco, \\  -->
+<!-- Alagoas, Bahia, Minas Gerais, \\  -->
+<!-- Espírito Santo e Rio de Janeiro -->
+<!-- \end{tabular} -->
+<!-- } & $1/500$ \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- Paraná, Santa Catarina, Rio Grande do Sul -->
+<!-- \end{tabular} -->
+<!-- } & $1/550$ \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- RM de São Paulo, Maranhão, São Paulo -->
+<!-- \end{tabular} -->
+<!-- } & $1/750$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
+<table>
+<caption><span id="tab:proselpnad">Table 5.1: </span> Probabilidades de seleção da amostra da PNAD de 1993 segundo regiões</caption>
+<colgroup>
+<col width="80%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Região da pesquisa</th>
+<th align="center">Probabilidade de seleção</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">RM de Belém</td>
+<td align="center">1/150</td>
+</tr>
+<tr class="even">
+<td align="left">RMs de Fortaleza, Recife, Salvador e Porto Alegre Distrito Federal</td>
+<td align="center">1/200</td>
+</tr>
+<tr class="odd">
+<td align="left">RMs de Belo Horizonte e Curitiba</td>
+<td align="center">1/250</td>
+</tr>
+<tr class="even">
+<td align="left">Rondô}nia, Acre, Amazonas, Roraima, Amapá, Tocantins, Sergipe, Mato Grosso do Sul, Mato Grosso e Goiás</td>
+<td align="center">1/300</td>
+</tr>
+<tr class="odd">
+<td align="left">Pará</td>
+<td align="center">1/350</td>
+</tr>
+<tr class="even">
+<td align="left">RM do Rio de Janeiro, Piauí, Ceará, Rio Grande do Norte, Paraíba, Pernambuco, Alagoas, Bahia, Minas Gerais, Espírito Santo e Rio de Janeiro</td>
+<td align="center">1/500</td>
+</tr>
+<tr class="odd">
+<td align="left">Paraná, Santa Catarina, Rio Grande do Sul</td>
+<td align="center">1/550</td>
+</tr>
+<tr class="even">
+<td align="left">RM de São Paulo, Maranhão, São Paulo</td>
+<td align="center">1/750</td>
+</tr>
+</tbody>
+</table>
 <p>Se <span class="math inline">\({\ \pi }_{i}\)</span>representa a probabilidade de inclusão na amostra do <span class="math inline">\(i\)</span>-ésimo domicílio da população, <span class="math inline">\(i=1,...,N\)</span>, então <span class="math display">\[
 \pi _{i}=\pi _{munic\acute{\imath}pio\left| estrato\right. }\times \pi
 _{setor\left| munic\acute{\imath}pio\right. }\times \pi _{domic\acute{\imath}

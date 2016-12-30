@@ -475,7 +475,48 @@ _{i}^{\prime }\mathbf{\beta }\right) \right] \mathbf{z}_{i}  \tag{6.26}
 <p>As pessoas que trabalhavam em locais com até cinco pessoas ocupadas foram classificadas no setor informal, independente da posição de ocupação delas, enquanto as que trabalhavam em locais com mais de cinco pessoas ocupadas foram classificadas no setor formal. O trabalho refere-se ao trabalho principal. Para a variável renda considerou-se a soma dos rendimentos de todos os trabalhos.</p>
 <p>Foi considerada uma amostra de <span class="math inline">\(6.507\)</span> pessoas (após a exclusão de <span class="math inline">\(9\)</span> registros considerados atípicos), classificadas de acordo com as variáveis descritas na Tabela , todas tratadas como fatores na análise. A variável ht foi considerada como a soma de horas trabalhadas em todos os trabalhos, por semana. A variável re compreende a renda média mensal de todos os trabalhos, em salários mínimos.</p>
 
-<p>Os fatores considerados foram tomados como explicativos e a variável res-pos-ta foi o indicador de pertinência ao setor informal da economia. Foi ajus-tado um modelo logís-tico (Agresti, 1990) para explicar a probabilidade de uma pessoa pertencer ao setor informal da economia.</p>
+<table style="width:72%;">
+<colgroup>
+<col width="43%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Fatores</th>
+<th>Níveis</th>
+<th align="center">Descrição dos níveis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Sexo(sx)</td>
+<td>sx(1) sx(2)</td>
+<td align="center">Homens Mulheres</td>
+</tr>
+<tr class="even">
+<td align="center">Anos de estudo(ht)</td>
+<td>ae(1) ae(3)</td>
+<td align="center">Até 4 ae(2) De 5 a 8 9 ou mais</td>
+</tr>
+<tr class="odd">
+<td align="center">Horas trabalhadas(ht)</td>
+<td>ht(1) ht(3)</td>
+<td align="center">Menos de 40 ht(2) De 40 a 48 Mais de 48</td>
+</tr>
+<tr class="even">
+<td align="center">Idade e anos completos(id)</td>
+<td>id(1) id(3) id(4)</td>
+<td align="center">Até 17 id(2) De 18 a 25 De 26 a 49 50 ou mais</td>
+</tr>
+<tr class="odd">
+<td align="center">Rendimento médio mensal(re)</td>
+<td>re(1) Men re(2) De re(3) Mai</td>
+<td align="center">os de 1 1 a 5 s de 5</td>
+</tr>
+</tbody>
+</table>
+<p>Os fatores considerados foram tomados como explicativos e a variável resposta foi o indicador de pertinência ao setor informal da economia. Foi ajus-tado um modelo logís-tico (Agresti, 1990) para explicar a probabilidade de uma pessoa pertencer ao setor informal da economia.</p>
 <p>Para a seleção do modelo foi usada a função <code>glm</code> do <strong>S-Plus</strong>, aplicada aos dados tabelados. O modelo final selecionado foi escolhido passo a passo, incluindo em cada passo as interações que produziam maior decréscimo do desvio residual, considerando a perda de graus de liberdade. O modelo selecionado foi</p>
 <span class="math display" id="eq:norm28">\[\begin{eqnarray}
 \log \left( \frac{p_{ijklm}}{1-p_{ijklm}}\right) &amp;=&amp;\mu +\beta
@@ -572,7 +613,7 @@ pnadrj90$informal&lt;-<span class="kw">ifelse</span>(pnadrj90$informal==<span cl
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xtable)
 <span class="kw">print</span>(<span class="kw">xtable</span>(inf.logit, <span class="dt">digits=</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>)),<span class="dt">type=</span><span class="st">&quot;html&quot;</span>)</code></pre></div>
 <!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
-<!-- Fri Dec 30 12:11:33 2016 -->
+<!-- Fri Dec 30 17:44:19 2016 -->
 <table border="1">
 <tr>
 <th>
