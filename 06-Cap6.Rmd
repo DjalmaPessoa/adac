@@ -425,70 +425,58 @@ refere-se ao trabalho principal. Para a variável renda considerou-se a
 soma dos rendimentos de todos os trabalhos.
 
 Foi considerada uma amostra de $6.507$ pessoas (após a exclusão de $9$ registros considerados atípicos), classificadas de acordo com as
-variáveis descritas na Tabela \ref{tab61}, todas tratadas como
+variáveis descritas na Tabela \@ref(tab:varexp}, todas tratadas como
 fatores na análise. A variável ht foi considerada como a soma de
 horas trabalhadas em todos os trabalhos, por semana. A variável re
 compreende a renda média mensal de todos os trabalhos, em salários
 mínimos.
 
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Descrição das variáveis explicativas }\bigskip \label{tab61} 
-\begin{tabular}{|c|c|c|}
-\hline\hline
-\textbf{Fatores} & \textbf{Níveis} & \textbf{Descrição dos
-níveis} \\ \hline\hline
-Sexo (sx) & sx(1) & Homens \\ 
-& sx(2) & Mulheres \\ \hline
-Anos de estudo (ae) & ae(1) & Até 4 \\ 
-& ae(2) & De 5 a 8 \\ 
-& ae(3) & 9 ou mais \\ \hline
-Horas trabalhadas (ht) & ht(1) & Menos de 40 \\ 
-& ht(2) & De 40 a 48 \\ 
-& ht(3) & Mais de 48 \\ \hline
-Idade em anos completos (id) & id(1) & Até 17 \\ 
-& id(2) & De 18 a 25 \\ 
-& id(3) & De 26 a 49 \\ 
-& id(4) & 50 ou mais \\ \hline
-Rendimento médio mensal (re) & re(1) & Menos de 1 \\ 
-& re(2) & De 1 a 5 \\ 
-& re(3) & Mais de 5 \\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Descrição das variáveis explicativas }\bigskip \label{tab61}  -->
+<!-- \begin{tabular}{|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- \textbf{Fatores} & \textbf{Níveis} & \textbf{Descrição dos -->
+<!-- níveis} \\ \hline\hline -->
+<!-- Sexo (sx) & sx(1) & Homens \\  -->
+<!-- & sx(2) & Mulheres \\ \hline -->
+<!-- Anos de estudo (ae) & ae(1) & Até 4 \\  -->
+<!-- & ae(2) & De 5 a 8 \\  -->
+<!-- & ae(3) & 9 ou mais \\ \hline -->
+<!-- Horas trabalhadas (ht) & ht(1) & Menos de 40 \\  -->
+<!-- & ht(2) & De 40 a 48 \\  -->
+<!-- & ht(3) & Mais de 48 \\ \hline -->
+<!-- Idade em anos completos (id) & id(1) & Até 17 \\  -->
+<!-- & id(2) & De 18 a 25 \\  -->
+<!-- & id(3) & De 26 a 49 \\  -->
+<!-- & id(4) & 50 ou mais \\ \hline -->
+<!-- Rendimento médio mensal (re) & re(1) & Menos de 1 \\  -->
+<!-- & re(2) & De 1 a 5 \\  -->
+<!-- & re(3) & Mais de 5 \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
 
--------------------------------------------------------------------------------------
-        Fatores                  Níveis     Descrição
-                                            dos níveis
-  ------------------------------ -----     -----------
-          Sexo(sx)               sx(1)        Homens   
-                                 sx(2)       Mulheres
-                                                
-    Anos de estudo(ht)           ae(1)        Até 4                                                                            ae(2)       De 5 a 8   
-                                 ae(3)      9 ou mais
   
-  Horas trabalhadas(ht)          ht(1)      Menos de 40                                                                        ht(2)      De 40 a 48
-                                 ht(3)      Mais de 48
-  
-  Idade e anos completos(id)     id(1)        Até 17                                                                           id(2)      De 18 a 25
-                                 id(3)     De 26 a 49
-                                 id(4)      50 ou mais
+|       Fatores                 | Níveis  |Descrição dos níveis |
+| ----------------------------- | ------- | ------------------- |
+| Sexo(sx)| sx(1)<br>sx(2)| Homens<br>Mulheres|                              
+| Anos de estudo(ht)| ae(1)<br>ae(2)<br>ae(3)| Até 4<br>De 5 a 8<br>9 ou mais |                    
+| Horas trabalhadas(ht) | ht(1)<br>ht(2)<br>ht(3) | Menos de 40<br>De 40 a 48<br>Mais de 48 |
+| Idade em anos completos(id) | id(1)<br>id(2)<br>id(3)<br>id(4) | Até 17<br>De 18 a 25<br>De 26 a 49<br>50 ou mais |
+| Rendimento médio mensal(re) | re(1)<br>re(2)<br>re(3) |Menos de 1<br>De 1 a 5<br>Mais de 5
 
-   Rendimento médio mensal(re)   re(1)  Menos de 1
-                                 re(2)  De 1 a 5
-                                 re(3)  Mais de 5
---------------------------------------------------------------------------------------
-
+Table:(#tab:varexp)Descrição das variáveis explicativas
 
 Os fatores considerados foram tomados como explicativos e a variável
 resposta foi o indicador de pertinência ao setor informal da
-economia. Foi ajus\-tado um modelo logís\-tico (Agresti, 1990) para
+economia. Foi ajustado um modelo logístico (Agresti, 1990) para
 explicar a probabilidade de uma pessoa pertencer ao setor informal da
 economia.
 
@@ -629,15 +617,15 @@ ae2.ht2 & \multicolumn{1}{|r}{$0,089$} & \multicolumn{1}{r|}{$0,183$} &
 Na Tabela \ref{tab63} são apresentadas as probabilidades de
 significância dos tes\-tes de nulidade dos efeitos do modelo. Todos os
 efeitos incluídos no modelo são significativos, nos níveis
-usuais de significância. A \textbf{PROC LOGISTIC} do pacote \textbf{
-SUDAAN} não inclui testes para os efeitos principais, por não ser
+usuais de significância. A **PROC LOGISTIC** do pacote 
+**SUDAAN*}** não inclui testes para os efeitos principais, por não ser
 possível separar tais efeitos das interações. A coluna de $p$
 valores da Tabela \ref{tab63}, obtida pela PROC LOGISTIC do pacote SUDAAN,
 utiliza a estatística de Wald baseada no plano amostral com correção. Mais detalhes são encontrados em Shah et al.(1993).
 
 Os testes da Tabela \ref{tab63} indicam a significância de todas as
 interações de 2 fatores que entraram no modelo selecionado. O teste
-de qualidade global de ajuste, na primeira linha da\textbf{\ }Tabela \ref
+de qualidade global de ajuste, na primeira linha da Tabela \ref
 {tab63}, indica a necessidade de serem introduzidas novas interações.
 
 \begin{center}
@@ -735,7 +723,7 @@ concordância entre as estimativas pontuais obtidas pelos dois pacotes.
 A concordância das estimativas dos coeficientes pode ser explicada, em
 parte, pela pequena variabilidade dos pesos das unidades, tal como se pode
 verificar na Tabela \ref{tab66}, que apresenta a distribuição de
-freq\"{u}ências dos pesos.
+frequências dos pesos.
 
 \begin{center}
 %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
@@ -757,6 +745,18 @@ $712$ & $712$ \\ \hline\hline
 \end{table}%
 %EndExpansion
 \end{center}
+
+
+```{r,pesofreq, echo=FALSE}
+source("~\\GitHub\\adac\\data\\pnadrj90.R")
+tab_peso <-table(pnadrj90$pesopes)
+fr_peso <- data.frame (tab_peso)
+names(fr_peso)<- c("Valor do peso","Frequência")
+knitr::kable(fr_peso, booktabs=TRUE,
+caption= "Distribuição de frequências dos pesos da amostra da PNAD-90 - Parte
+Urbana do Rio de Janeiro") 
+```
+
 
 Como foi visto na Tabela \ref{tab62}, o impacto do plano amostral nas
 estimativas de precisão é um pouco maior. As maiores diferenças
@@ -796,7 +796,7 @@ preferiu-se usá-lo aqui apenas para ajustar um modelo já selecionado.
 
 ## Teste de Hipóteses
 
-Nas secões 6.1 e 6.2 discutimos formas de introduzir pesos e plano
+Nas Secões \@ref(modlinear) e \@ref(modlogist) discutimos formas de introduzir pesos e plano
 amostral em procedimentos de estimação pontual e de variâncias
 ao ajustar modelos com dados de pesquisas amostrais complexas. Neste
 contexto, procedimentos estatísticos de teste de hipóteses devem,

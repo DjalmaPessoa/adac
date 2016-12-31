@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2016-12-30">
+<meta name="date" content="2016-12-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -473,50 +473,81 @@ _{i}^{\prime }\mathbf{\beta }\right) \right] \mathbf{z}_{i}  \tag{6.26}
 <li><p>desenvolviam atividades não agrícolas.</p></li>
 </ul>
 <p>As pessoas que trabalhavam em locais com até cinco pessoas ocupadas foram classificadas no setor informal, independente da posição de ocupação delas, enquanto as que trabalhavam em locais com mais de cinco pessoas ocupadas foram classificadas no setor formal. O trabalho refere-se ao trabalho principal. Para a variável renda considerou-se a soma dos rendimentos de todos os trabalhos.</p>
-<p>Foi considerada uma amostra de <span class="math inline">\(6.507\)</span> pessoas (após a exclusão de <span class="math inline">\(9\)</span> registros considerados atípicos), classificadas de acordo com as variáveis descritas na Tabela , todas tratadas como fatores na análise. A variável ht foi considerada como a soma de horas trabalhadas em todos os trabalhos, por semana. A variável re compreende a renda média mensal de todos os trabalhos, em salários mínimos.</p>
-
-<table style="width:72%;">
+<p>Foi considerada uma amostra de <span class="math inline">\(6.507\)</span> pessoas (após a exclusão de <span class="math inline">\(9\)</span> registros considerados atípicos), classificadas de acordo com as variáveis descritas na Tabela @ref(tab:varexp}, todas tratadas como fatores na análise. A variável ht foi considerada como a soma de horas trabalhadas em todos os trabalhos, por semana. A variável re compreende a renda média mensal de todos os trabalhos, em salários mínimos.</p>
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Descrição das variáveis explicativas }\bigskip \label{tab61}  -->
+<!-- \begin{tabular}{|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- \textbf{Fatores} & \textbf{Níveis} & \textbf{Descrição dos -->
+<!-- níveis} \\ \hline\hline -->
+<!-- Sexo (sx) & sx(1) & Homens \\  -->
+<!-- & sx(2) & Mulheres \\ \hline -->
+<!-- Anos de estudo (ae) & ae(1) & Até 4 \\  -->
+<!-- & ae(2) & De 5 a 8 \\  -->
+<!-- & ae(3) & 9 ou mais \\ \hline -->
+<!-- Horas trabalhadas (ht) & ht(1) & Menos de 40 \\  -->
+<!-- & ht(2) & De 40 a 48 \\  -->
+<!-- & ht(3) & Mais de 48 \\ \hline -->
+<!-- Idade em anos completos (id) & id(1) & Até 17 \\  -->
+<!-- & id(2) & De 18 a 25 \\  -->
+<!-- & id(3) & De 26 a 49 \\  -->
+<!-- & id(4) & 50 ou mais \\ \hline -->
+<!-- Rendimento médio mensal (re) & re(1) & Menos de 1 \\  -->
+<!-- & re(2) & De 1 a 5 \\  -->
+<!-- & re(3) & Mais de 5 \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
+<table style="width:81%;">
+<caption><span id="tab:varexp">Table 6.1: </span>Descrição das variáveis explicativas</caption>
 <colgroup>
-<col width="43%" />
-<col width="13%" />
-<col width="15%" />
+<col width="41%" />
+<col width="11%" />
+<col width="27%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="center">Fatores</th>
+<th>Fatores</th>
 <th>Níveis</th>
-<th align="center">Descrição dos níveis</th>
+<th>Descrição dos níveis</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">Sexo(sx)</td>
-<td>sx(1) sx(2)</td>
-<td align="center">Homens Mulheres</td>
+<td>Sexo(sx)</td>
+<td>sx(1)<br>sx(2)</td>
+<td>Homens<br>Mulheres</td>
 </tr>
 <tr class="even">
-<td align="center">Anos de estudo(ht)</td>
-<td>ae(1) ae(3)</td>
-<td align="center">Até 4 ae(2) De 5 a 8 9 ou mais</td>
+<td>Anos de estudo(ht)</td>
+<td>ae(1)<br>ae(2)<br>ae(3)</td>
+<td>Até 4<br>De 5 a 8<br>9 ou mais</td>
 </tr>
 <tr class="odd">
-<td align="center">Horas trabalhadas(ht)</td>
-<td>ht(1) ht(3)</td>
-<td align="center">Menos de 40 ht(2) De 40 a 48 Mais de 48</td>
+<td>Horas trabalhadas(ht)</td>
+<td>ht(1)<br>ht(2)<br>ht(3)</td>
+<td>Menos de 40<br>De 40 a 48<br>Mais de 48</td>
 </tr>
 <tr class="even">
-<td align="center">Idade e anos completos(id)</td>
-<td>id(1) id(3) id(4)</td>
-<td align="center">Até 17 id(2) De 18 a 25 De 26 a 49 50 ou mais</td>
+<td>Idade em anos completos(id)</td>
+<td>id(1)<br>id(2)<br>id(3)<br>id(4)</td>
+<td>Até 17<br>De 18 a 25<br>De 26 a 49<br>50 ou mais</td>
 </tr>
 <tr class="odd">
-<td align="center">Rendimento médio mensal(re)</td>
-<td>re(1) Men re(2) De re(3) Mai</td>
-<td align="center">os de 1 1 a 5 s de 5</td>
+<td>Rendimento médio mensal(re)</td>
+<td>re(1)<br>re(2)<br>re(3)</td>
+<td>Menos de 1<br>De 1 a 5<br>Mais de 5</td>
 </tr>
 </tbody>
 </table>
-<p>Os fatores considerados foram tomados como explicativos e a variável resposta foi o indicador de pertinência ao setor informal da economia. Foi ajus-tado um modelo logís-tico (Agresti, 1990) para explicar a probabilidade de uma pessoa pertencer ao setor informal da economia.</p>
+<p>Os fatores considerados foram tomados como explicativos e a variável resposta foi o indicador de pertinência ao setor informal da economia. Foi ajustado um modelo logístico (Agresti, 1990) para explicar a probabilidade de uma pessoa pertencer ao setor informal da economia.</p>
 <p>Para a seleção do modelo foi usada a função <code>glm</code> do <strong>S-Plus</strong>, aplicada aos dados tabelados. O modelo final selecionado foi escolhido passo a passo, incluindo em cada passo as interações que produziam maior decréscimo do desvio residual, considerando a perda de graus de liberdade. O modelo selecionado foi</p>
 <span class="math display" id="eq:norm28">\[\begin{eqnarray}
 \log \left( \frac{p_{ijklm}}{1-p_{ijklm}}\right) &amp;=&amp;\mu +\beta
@@ -532,21 +563,48 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 <p>Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões, calculadas pela <strong>PROC LOGISTIC</strong> do pacote <strong>SUDAAN</strong>. Para facilitar a comparação incluímos na Tabela  os valores correspondentes estimados pelo <strong>S-Plus</strong>.</p>
 <p>As estimativas calculadas pelo pacote <strong>SUDAAN</strong> são feitas pelo <code>Método de Máxima Pseudo-Verossimilhança</code>, resolvendo a equação <a href="modelos-de-regressao.html#eq:norm27">(6.28)</a>. As estimativas dos desvios padrões são obtidas das variâncias calculadas pelo método de linearização descrito na Seção <a href="ajuste-de-modelos-parametricos.html#modpar3">5.4</a>, equação (), considerando os escores tal como apresentados na equação <a href="modelos-de-regressao.html#eq:norm25a">(6.26)</a>. Para esses cálculos, os estimadores de variância considerados levaram em conta os pesos das observações, mas utilizaram uma aproximação que consiste em considerar que as unidades primárias de amostragem foram selecionadas com reposição, especificando a opção WR do pacote SUDAAN. Veja <span class="citation">(Shah et al. <a href="#ref-SUDAAN92">1992</a>)</span>, p. 4) e <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, eq. 7.7.2.</p>
 
-<p>Na Tabela  são apresentadas as probabilidades de significância dos tes-tes de nulidade dos efeitos do modelo. Todos os efeitos incluídos no modelo são significativos, nos níveis usuais de significância. A  do pacote  não inclui testes para os efeitos principais, por não ser possível separar tais efeitos das interações. A coluna de <span class="math inline">\(p\)</span> valores da Tabela , obtida pela PROC LOGISTIC do pacote SUDAAN, utiliza a estatística de Wald baseada no plano amostral com correção. Mais detalhes são encontrados em Shah et al.(1993).</p>
-<p>Os testes da Tabela  indicam a significância de todas as interações de 2 fatores que entraram no modelo selecionado. O teste de qualidade global de ajuste, na primeira linha daTabela , indica a necessidade de serem introduzidas novas interações.</p>
+<p>Na Tabela  são apresentadas as probabilidades de significância dos tes-tes de nulidade dos efeitos do modelo. Todos os efeitos incluídos no modelo são significativos, nos níveis usuais de significância. A <strong>PROC LOGISTIC</strong> do pacote **SUDAAN*}** não inclui testes para os efeitos principais, por não ser possível separar tais efeitos das interações. A coluna de <span class="math inline">\(p\)</span> valores da Tabela , obtida pela PROC LOGISTIC do pacote SUDAAN, utiliza a estatística de Wald baseada no plano amostral com correção. Mais detalhes são encontrados em Shah et al.(1993).</p>
+<p>Os testes da Tabela  indicam a significância de todas as interações de 2 fatores que entraram no modelo selecionado. O teste de qualidade global de ajuste, na primeira linha da Tabela , indica a necessidade de serem introduzidas novas interações.</p>
 
 <p>Para comparação, apresentamos na Tabela  algumas estimativas de razões de vantagens, relevantes na análise, calculadas tanto pela função glm do  como pela  do pacote  e, naTabela  os correspondentes intervalos de confiança de <span class="math inline">\(95\%\)</span>. Na construção destes intervalos foi necessário utilizar estimativas pontuais dos efeitos bem como a matriz de covariância estimada dos estimadores dos efeitos do modelo. Deste modo, estes intervalos sumarizam, ao mesmo tempo, discrepâncias existentes tanto nas estimativas pontuais dos efeitos como nas variâncias e covariâncias das estimativas.</p>
 
 <p>Além dos ajustes aqui comparados, foram feitos (embora não apresentados) os seguintes ajustes com a utilização do : 1) dados individuais (resposta 0-1) considerando os pesos; 2) dados da tabela estimada considerando os pesos e 3) dados individuais com pesos normalizados. Em todas estas análises, como esperado, as estimativas pontuais dos efeitos coincidiram com as obtidas pela  do pacote . Pode-se notar que, neste exemplo, há estreita concordância entre as estimativas pontuais obtidas pelos dois pacotes.</p>
-<p>A concordância das estimativas dos coeficientes pode ser explicada, em parte, pela pequena variabilidade dos pesos das unidades, tal como se pode verificar na Tabela , que apresenta a distribuição de freq&quot;{u}ências dos pesos.</p>
+<p>A concordância das estimativas dos coeficientes pode ser explicada, em parte, pela pequena variabilidade dos pesos das unidades, tal como se pode verificar na Tabela , que apresenta a distribuição de frequências dos pesos.</p>
 
+<table>
+<caption><span id="tab:pesofreq">Table 6.2: </span>Distribuição de frequências dos pesos da amostra da PNAD-90 - Parte Urbana do Rio de Janeiro</caption>
+<thead>
+<tr class="header">
+<th align="left">Valor do peso</th>
+<th align="right">Frequência</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">674</td>
+<td align="right">127</td>
+</tr>
+<tr class="even">
+<td align="left">675</td>
+<td align="right">784</td>
+</tr>
+<tr class="odd">
+<td align="left">711</td>
+<td align="right">3288</td>
+</tr>
+<tr class="even">
+<td align="left">712</td>
+<td align="right">2308</td>
+</tr>
+</tbody>
+</table>
 <p>Como foi visto na Tabela , o impacto do plano amostral nas estimativas de precisão é um pouco maior. As maiores diferenças entre os dois métodos ocorrem na estimação dos desvios das estimativas dos parâmetros do primeiro nível de idade (até 17 anos) e da interação deste com horas trabalhadas (tanto no nível de menos de 40 horas semanais como no nível de 40 a 48 horas semanais trabalhadas). Esta diferenciação maior no caso dos desvios padrões já era esperada. Quando não levamos em conta os pesos nem o plano amostral na estimação dos parâmetros, podemos até chegar em uma estimativa pontual dos coeficientes bem próxima de quando levamos ambos em conta, mas as estimativas dos desvios padrões são mais sensíveis a esta diferença entre as análises. A tendência revelada é de subestimação dos desvios padrões pelo <strong>S-Plus</strong> ao ignorar o plano amostral e a variação dos pesos.</p>
 <p>Neste exemplo, foi utilizada a função glm do <strong>S-Plus</strong> na seleção do modelo. Feita a seleção, o mesmo modelo foi ajustado através da <strong>PROC LOGISTIC</strong> do <strong>SUDAAN</strong>. O propósito foi imitar uma situação onde o modelo já tivesse sido selecionado e ajustado por usuário secundário dos dados, sem considerar os pesos e o plano amostral, tal como é usual. Outra possibilidade seria repetir o processo de seleção do modelo usando-se a <strong>PROC LOGISTIC</strong> do <strong>SUDAAN</strong>. Isto poderia ser feito passo a passo, incluindo efeitos e interações que melhorassem mais a qualidade de ajuste, tal como foi feito automaticamente pela função <strong>step do S-Plus</strong>. Este procedimento possibilitaria comparar a seleção de modelos quando são considerados os pesos e o plano amostral na análise.</p>
 <p>Diferentemente dos pacotes mais usados de análise estatística, tais como SAS, S-Plus, BMDP, etc., o SUDAAN não possui, atualmente, ferramentas usuais de diagnóstico de ajuste de modelos, como gráficos de resíduos padronizados, etc., tornando mais difícil seu uso na etapa de seleção de modelos. Considerando-se a maior dificuldade de seleção de modelos através do <strong>SUDAAN</strong>, preferiu-se usá-lo aqui apenas para ajustar um modelo já selecionado.</p>
 </div>
 <div id="teste-de-hipoteses" class="section level2">
 <h2><span class="header-section-number">6.3</span> Teste de Hipóteses</h2>
-<p>Nas secões 6.1 e 6.2 discutimos formas de introduzir pesos e plano amostral em procedimentos de estimação pontual e de variâncias ao ajustar modelos com dados de pesquisas amostrais complexas. Neste contexto, procedimentos estatísticos de teste de hipóteses devem, também, sofrer adaptações. Nesta seção, esse problema será abordado de forma sucinta, para modelos de regressão.</p>
+<p>Nas Secões <a href="modelos-de-regressao.html#modlinear">6.1</a> e <a href="modelos-de-regressao.html#modlogist">6.2</a> discutimos formas de introduzir pesos e plano amostral em procedimentos de estimação pontual e de variâncias ao ajustar modelos com dados de pesquisas amostrais complexas. Neste contexto, procedimentos estatísticos de teste de hipóteses devem, também, sofrer adaptações. Nesta seção, esse problema será abordado de forma sucinta, para modelos de regressão.</p>
 <p>De modo geral, testes de hipóteses em regressão surgem inicialmente na seleção de modelos e também para fornecer evidência favorável ou contrária a indagações levantadas pelo pesquisador.</p>
 <p>Denotemos por <span class="math inline">\(\mathbf{\beta }=\left( \beta _{1},\ldots ,\beta _{P}\right) ^{\prime }\)</span> o vetor de parâmetros num modelo de regressão. Como é sabido, para testar a hipótese <span class="math inline">\(H_{0}:\beta _{j}=0\)</span>, para algum <span class="math inline">\(j\in \left\{ 1,\ldots ,P\right\} \mathbf{,}\)</span> usamos um teste <span class="math inline">\(t,\)</span> e para para testar a hipótese <span class="math inline">\(H_{0}:\left( \beta _{j_{1}},\ldots ,\beta _{j_{R}}\right) ^{\prime }=\mathbf{0}_{R}\)</span>, onde <span class="math inline">\(\left( j_{1},\ldots ,j_{R}\right) \subset \left( 1,\ldots ,P\right)\)</span> e <span class="math inline">\(\mathbf{0}_{R}\)</span> é o vetor zero <span class="math inline">\(R\)</span>-dimensional, usamos um teste <span class="math inline">\(\mathbf{F}\)</span>. Tais testes <span class="math inline">\(t\)</span> e <span class="math inline">\(\mathbf{F}\)</span>, sob as hipóteses do modelo clássico de regressão com erros normais, são testes da Razão de Máxima Verossimilhança.</p>
 <p>é pois natural tentar adaptar testes de Razão de Máxima Verossimilhança para pesquisas amostrais complexas, tal como foi feito na derivação de estimadores de MPV a partir de estimadores de Máxima Verossimilhança. A principal dificuldade é que no contexto de pesquisas complexas, devido aos pesos distintos das observações e ao plano amostral utilizado, a função de verossimilhança usual não representa a distribuição conjunta das observações. Apesar desta dificuldade ter sido contornada na derivação de estimadores de MPV, a adaptação fica bem mais difícil no caso de testes da Razão de Máxima Verossimilhança.</p>
@@ -613,7 +671,7 @@ pnadrj90$informal&lt;-<span class="kw">ifelse</span>(pnadrj90$informal==<span cl
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xtable)
 <span class="kw">print</span>(<span class="kw">xtable</span>(inf.logit, <span class="dt">digits=</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>)),<span class="dt">type=</span><span class="st">&quot;html&quot;</span>)</code></pre></div>
 <!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
-<!-- Fri Dec 30 17:44:19 2016 -->
+<!-- Sat Dec 31 17:02:32 2016 -->
 <table border="1">
 <tr>
 <th>

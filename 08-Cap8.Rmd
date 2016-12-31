@@ -215,37 +215,49 @@ considerar uma tabela $L\times C$ e supor que as colunas da tabela
 correspondem às classes da variável resposta e as linhas
 correspondem às regiões, de modo que as somas da proporções
 nas linhas na tabela de proporções são iguais a $1$. A tabela
-para a população é da forma da Tabela \ref{tab82}
+para a população é da forma da Tabela \@ref(tab:proplinha).
 
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Proporções de linhas em tabela $L\times C$}\bigskip \label{tab82}$
-\begin{tabular}{|c|cccccc|c|}
-\hline\hline
-Região & $1$ & $2$ & $\ldots $ & $c$ & $\ldots $ & $C$ & Total \\ 
-\hline\hline
-$1$ & $p_{11}$ & $p_{12}$ & $\ldots $ & $p_{1c}$ & $\ldots $ & $p_{1C}$ & $1$
-\\ 
-$2$ & $p_{21}$ & $p_{22}$ & $\ldots $ & $p_{2c}$ & $\ldots $ & $p_{2C}$ & $1$
-\\ 
-$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
-\\ 
-$l$ & $p_{l1}$ & $p_{l1}$ & $\ldots $ & $p_{lc}$ & $\ldots $ & $p_{lC}$ & $1$
-\\ 
-$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
-\\ 
-$L$ & $p_{L1}$ & $p_{L2}$ & $\ldots $ & $p_{Lc}$ & $\ldots $ & $p_{LC}$ & $1$
-\\ \hline\hline
-\end{tabular}
-$%
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Proporções de linhas em tabela $L\times C$}\bigskip \label{tab82}$ -->
+<!-- \begin{tabular}{|c|cccccc|c|} -->
+<!-- \hline\hline -->
+<!-- Região & $1$ & $2$ & $\ldots $ & $c$ & $\ldots $ & $C$ & Total \\  -->
+<!-- \hline\hline -->
+<!-- $1$ & $p_{11}$ & $p_{12}$ & $\ldots $ & $p_{1c}$ & $\ldots $ & $p_{1C}$ & $1$ -->
+<!-- \\  -->
+<!-- $2$ & $p_{21}$ & $p_{22}$ & $\ldots $ & $p_{2c}$ & $\ldots $ & $p_{2C}$ & $1$ -->
+<!-- \\  -->
+<!-- $\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $ -->
+<!-- \\  -->
+<!-- $l$ & $p_{l1}$ & $p_{l1}$ & $\ldots $ & $p_{lc}$ & $\ldots $ & $p_{lC}$ & $1$ -->
+<!-- \\  -->
+<!-- $\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $ -->
+<!-- \\  -->
+<!-- $L$ & $p_{L1}$ & $p_{L2}$ & $\ldots $ & $p_{Lc}$ & $\ldots $ & $p_{LC}$ & $1$ -->
+<!-- \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- $% -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
+
+|Região | $1$ | $2$ | $\ldots$ | $c$ | $\ldots$ | $C$ | Total | 
+|-------|-----|-----|-----------|-----|-----------|-----|-------|
+$1$ | $p_{11}$ | $p_{12}$ | $\ldots$ | $p_{1c}$ | $\ldots$ | $p_{1C}$ | $1$ |
+$2$ | $p_{21}$ | $p_{22}$ | $\ldots$ | $p_{2c}$ | $\ldots$ | $p_{2C}$ | $1$ |
+$\vdots$ | $\vdots$ | $\vdots$ | . | $\vdots$ | . | $\vdots$ | $\vdots$ |
+$l$ | $p_{l1}$ | $p_{l1}$ | $\ldots$ | $p_{lc}$ | $\ldots$ | $p_{lC}$ | $1$ |
+$\vdots$ | $\vdots$ | $\vdots$ | . | $\vdots$ | . | $\vdots$  | $\vdots$ |
+$L$ | $p_{L1}$ | $p_{L2}$ | $\ldots$ | $p_{Lc}$ | $\ldots$ | $p_{LC}$ | $1$ |
+Total| $p_{+1}$ |$p_{+2}$ | $\ldots$ | $p_{+c}$ | $\ldots$ | $p_{+C}$ | $1$ |
+
+Table:(#tab:proplinha) Proporções de linhas em tabela $L\times C$.
 
 Note que aqui as proporções que aparecem nas linhas da tabela
 são proporções calculadas em relação à
@@ -281,8 +293,8 @@ Sejam $\mathbf{\hat{V}}_{p}\left( \widehat{\mathbf{p}}_{1}\right)$ e
 $\mathbf{\hat{V}}_{p}\left( \widehat{\mathbf{p}}_{2}\right)$ estimadores
 consistentes das matrizes de variância de aleatorização dos
 vetores $\widehat{\mathbf{p}}_{1}$ e $\widehat{\mathbf{p}}_{2}$ ,
-respectivamente. A estatística de Wald baseada no plano amostral $
-X_{W}^{2}\left( H\right)$ para efetuar o teste de homogeneidade no caso de
+respectivamente. A estatística de Wald baseada no plano amostral 
+$X_{W}^{2}\left( H\right)$ para efetuar o teste de homogeneidade no caso de
 duas regiões $\left( L=2\right)$ é dada por 
 \begin{equation}
 X_{W}^{2}\left( H\right) =\left( \mathbf{\hat{p}}_{1}-\mathbf{\hat{p}}
@@ -318,8 +330,8 @@ H\right)$ são dadas por
 F_{1.p}=\frac{f-\left( C-1\right) +1}{f\left( C-1\right) }X_{W}^{2}\left(
 H\right) , (\#eq:Tab2) 
 \end{equation}
-que tem distribuição de referência F com $\left( C-1\right)$ e $
-\left( f-\left( C-1\right) +1\right)$ graus de liberdade e, ainda, 
+que tem distribuição de referência F com $\left( C-1\right)$ e 
+$\left( f-\left( C-1\right) +1\right)$ graus de liberdade e, ainda, 
 \begin{equation}
 F_{2.p}=X_{W}^{2}\left( H\right) /\left( C-1\right) (\#eq:Tab3)
 \end{equation}
@@ -344,8 +356,8 @@ estimador do vetor comum de proporções sob a hipótese de
 homogeneidade.
 
 Neste caso, $\mathbf{\hat{P}}/\widehat{n}_{1+}$ é o estimador da matriz
-de covariância de $\mathbf{\hat{p}}_{0}$ na primeira região e $
-\mathbf{\hat{P}}/\widehat{n}_{2+}$ na segunda. Observe que \@ref(eq:Tab4) e \@ref(eq:Tab1)
+de covariância de $\mathbf{\hat{p}}_{0}$ na primeira região e 
+$\mathbf{\hat{P}}/\widehat{n}_{2+}$ na segunda. Observe que \@ref(eq:Tab4) e \@ref(eq:Tab1)
 têm a mesma forma, diferindo só no estimador da matriz de
 covariância usado para definir a métrica de distância. No caso
 da estatística $X_{P}^{2}\left( H\right)$, o estimador da matriz de
@@ -450,9 +462,9 @@ $ e $f$ graus de liberdade.
 
 ### Teste de Independência
 
-Vamos considerar o teste de independência no caso geral de tabela $
-L\times C$, onde os dados são extraídos de uma única populaç
-ão, sem fixar marginais. Consideremos a Tabela \ref{tab83} com as propor
+Vamos considerar o teste de independência no caso geral de tabela 
+$L\times C$, onde os dados são extraídos de uma única população, 
+sem fixar marginais. Consideremos a Tabela \@ref(tab:??) com as propor
 ções nas celas a nível da população, onde agora
 novamente se tem $p_{lc}=N_{lc}/N$.
 
@@ -486,6 +498,11 @@ $
 %BeginExpansion
 \end{table}%
 %EndExpansion
+
+
+
+
+
 
 Estamos interessados em testar a hipótese de independência 
 \[
@@ -555,8 +572,8 @@ $\mathbf{\hat{f}}$ pode ser estimada por
 \right) ^{^{\prime }},  (\#eq:Tab11)
 \end{equation}
 onde $\mathbf{\Delta g}\left( \mathbf{p}\right)$ é a matriz jacobiana
-de dimensão $\left( L-1\right) \left( C-1\right) \times $\linebreak $
-\left( L-1\right) \left( C-1\right)$ dada por 
+de dimensão $\left( L-1\right) \left( C-1\right) \times $
+$\left( L-1\right) \left( C-1\right)$ dada por 
 \[
 \mathbf{\Delta g}\left( \mathbf{p}\right) =\left[ \partial \mathbf{g}
 /\partial p_{11},\ldots ,\partial \mathbf{g}/\partial p_{1\;C-1},\ldots
@@ -777,7 +794,7 @@ freqüências nas celas para a amostra pesquisada.
 \end{center}
 
 
-```{r, frqamost, results='asis'}
+```{r, frqamost, results='asis',echo=FALSE}
 source("~\\GitHub\\adac\\data\\pnadrj90.R")
 freq.sx.re <-table(pnadrj90$sx, pnadrj90$re , dnn= c("Sexo", "Renda"))
 print(xtable(freq.sx.re ,caption= "Frequências Amostrais por celas na PNADRJ90"), type="html" )
@@ -891,10 +908,9 @@ $1,00$
 
 Vamos calcular, a título de ilustração, uma das celas de tabela
 de efeitos de plano amostral, digamos a cela (1,1). A estimativa da
-variância do estimador da proporção de linha nesta cela é $
-\left( 0,0057269\right) ^{2}$. Sob amostragem aleatória simples com
-reposição, a estimativa da variância do estimador de proporção de linha na cela é: $0,111\left( 1-0,111\right) /4.276$. A
-estimativa do efeito de plano amostral do estimador de proporção na
+variância do estimador da proporção de linha nesta cela é 
+$\left( 0,0057269\right) ^{2}$. Sob amostragem aleatória simples com
+reposição, a estimativa da variância do estimador de proporção de linha na cela é: $0,111\left( 1-0,111\right) /4.276$. A estimativa do efeito de plano amostral do estimador de proporção na
 cela é portanto igual a 
 \[
 \frac{\left( 0,0057269\right) ^{2}}{0,111\left( 1-0,111\right) /4.276}\cong
@@ -1025,8 +1041,7 @@ correspondentes aos níveis 1 e 2 da variável sx.
 Calculando as estatísticas $X_{P}^{2}\left( I\right)$ e 
 $X_{P}^{2}\left( H\right)$ para os testes clássicos de independência
 e homogeneidade a partir da Tabela \ref{tab86}, obtemos os valores 
-$X_{P}^{2}\left( I\right) =X_{P}^{2}\left( H\right) =227,025$, com distribui
-ção de referência $\chi ^{2}\left( 2\right)$, resultado que
+$X_{P}^{2}\left( I\right) =X_{P}^{2}\left( H\right) =227,025$, com distribuição de referência $\chi ^{2}\left( 2\right)$, resultado que
 indica rejeição da hipótese de independência entre sx e re,
 bem como da hipótese de igualdade de distribuição de renda para
 os dois sexos a partir do teste de homogeneidade. O valor comum das
@@ -1041,8 +1056,8 @@ e de homogeneidade.
 Vale ressaltar que apesar de todos os testes mencionados indicarem forte
 rejeição das hipóteses de independência e de homogeneidade,
 os valores das estatísticas de teste $137,117$ e $124,742$ , calculados
-considerando os pesos e plano amostral, são bem menores que o valor $
-227,025$ obtido para o caso de amostra IID. Sob a hipótese nula, a
+considerando os pesos e plano amostral, são bem menores que o valor 
+$227,025$ obtido para o caso de amostra IID. Sob a hipótese nula, a
 distribuição de referência de todas essas estatísticas de
 teste é $\chi ^{2}\left( 2\right)$, mostrando novamente que a
 estatística de teste calculada sob a hipótese de amostra IID tem

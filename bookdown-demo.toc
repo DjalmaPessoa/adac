@@ -1,0 +1,20 @@
+\contentsline {chapter}{Pref\IeC {\'a}cio}{5}{chapter*.2}
+\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{7}{chapter.1}
+\contentsline {chapter}{\numberline {2}Referencial para Infer\IeC {\^e}ncia}{9}{chapter.2}
+\contentsline {chapter}{\numberline {3}Estima\IeC {\c c}\IeC {\~a}o Baseada no Plano Amostral}{11}{chapter.3}
+\contentsline {chapter}{\numberline {4}Efeitos do Plano Amostral}{13}{chapter.4}
+\contentsline {chapter}{\numberline {5}Ajuste de Modelos Param\IeC {\'e}tricos}{15}{chapter.5}
+\contentsline {chapter}{\numberline {6}Modelos de Regress\IeC {\~a}o}{17}{chapter.6}
+\contentsline {section}{\numberline {6.1}Modelo de Regress\IeC {\~a}o Linear Normal}{17}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Especifica\IeC {\c c}\IeC {\~a}o do Modelo}{17}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Pseudo-par\IeC {\^a}metros do Modelo}{18}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Estimadores de MPV dos Par\IeC {\^a}metros do Modelo}{19}{subsection.6.1.3}
+\contentsline {subsection}{\numberline {6.1.4}Estima\IeC {\c c}\IeC {\~a}o da Vari\IeC {\^a}ncia de Estimadores de MPV}{20}{subsection.6.1.4}
+\contentsline {section}{\numberline {6.2}Modelo de Regress\IeC {\~a}o Log\IeC {\'\i }stica}{21}{section.6.2}
+\contentsline {section}{\numberline {6.3}Teste de Hip\IeC {\'o}teses}{26}{section.6.3}
+\contentsline {section}{\numberline {6.4}Laborat\IeC {\'o}rio de R}{28}{section.6.4}
+\contentsline {chapter}{\numberline {7}Testes de Qualidade de Ajuste}{35}{chapter.7}
+\contentsline {chapter}{\numberline {8}Testes em Tabelas de Duas Entradas}{37}{chapter.8}
+\contentsline {chapter}{\numberline {9}Agrega\IeC {\c c}\IeC {\~a}o vs.\nobreakspace {}Desagrega\IeC {\c c}\IeC {\~a}o}{39}{chapter.9}
+\contentsline {chapter}{\numberline {10}Pacotes para Analisar Dados Amostrais}{41}{chapter.10}
+\contentsline {chapter}{\numberline {11}Placeholder}{43}{chapter.11}
