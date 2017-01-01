@@ -1,4 +1,4 @@
-# Introdução
+# Introdução {#introduc}
 
 ## Motivação
 
@@ -425,7 +425,7 @@ pesquisas amostrais. Apesar dessa evolução, sua adoção
 não é livre de controvérsia e uma breve revisão dessa
 discussão é apresentada no capítulo 2.
 
-No Capítulo 3 apresentamos uma revisão sucinta, a título
+No Capítulo \@ref(planamo) apresentamos uma revisão sucinta, a título
 de recordação, de alguns resultados básicos da Teoria de
 Amostragem, requeridos nas partes subseqüentes do livro. São
 discutidos os procedimentos básicos para estimação de totais
@@ -435,7 +435,7 @@ estatísticas complexas, tais como razões e outras estatísticas
 requeridas na inferência analítica com dados amostrais. As
 referências centrais para este capítulo são caps 2 e 3 em [@SSW92], [@W85] e [@cochran].
 
-No Capítulo 4 introduzimos o conceito de `Efeito do Plano Amostral
+No Capítulo \@ref(epa) introduzimos o conceito de `Efeito do Plano Amostral
 (EPA)`, que permite avaliar o impacto de ignorar a estruturação dos
 dados populacionais ou do plano amostral sobre a estimativa da variância
 de um estimador. Para isso, comparamos o estimador da variância
@@ -445,7 +445,7 @@ distribuição de aleatorização induzida pelo plano amostral efetivamente util
 (plano amostral verdadeiro). Aqui a referência principal foi o livro
 [@SHS89], complementado com o texto de [@lethonen].
 
-No Capítulo 5 estudamos a questão do uso de pesos ao analisar dados
+No Capítulo \@ref(ajmodpar) estudamos a questão do uso de pesos ao analisar dados
 provenientes de pesquisas amostrais complexas, e introduzimos um método
 geral, denominado `Método de Máxima Pseudo Verossimilhança(MPV)`, para incorporar os pesos e o plano amostral na obtenção
 não só de estimativas de parâmetros dos modelos regulares de
@@ -453,7 +453,7 @@ interesse, como também das variâncias dessas estimativas. As
 referências básicas utilizadas nesse capítulo foram
 [@SHS89], [@Pfeff], [@binder83] e cap.6 em [@Silva].
 
-O Capítulo 6 trata da obtenção de `Estimadores de
+O Capítulo \@ref(modreg) trata da obtenção de `Estimadores de
 Máxima Pseudo-Verossimilhança (EMPV)` e da
 respectiva matriz de covariância para os parâmetros em modelos de
 regressão linear e de regressão logística, quando os dados

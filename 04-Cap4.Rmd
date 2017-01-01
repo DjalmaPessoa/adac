@@ -1,4 +1,4 @@
-# Efeitos do Plano Amostral
+# Efeitos do Plano Amostral {#epa}
 
 ## Introdução
 

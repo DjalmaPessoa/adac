@@ -230,7 +230,7 @@ discute brevemente uma técnica baseada na idéia de
 pseudo-replicações da amostra, denominada `Jackknife`. A combinação
 dessas três idéias suporta os desenvolvimentos teóricos dos
 algoritmos empregados pelos principais pacotes estatísticos
-especializados em estimação de variâncias de aleatorização (veja discussão no Capítulo 10).
+especializados em estimação de variâncias de aleatorização (veja discussão no Capítulo \@ref{agregdesag}).
 
 ## Linearização de Taylor para Estimar variâncias {#taylor}
 

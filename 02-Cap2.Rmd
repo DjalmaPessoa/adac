@@ -1,4 +1,4 @@
-# Referencial para Inferência
+# Referencial para Inferência {#refinf}
 
 ## Modelagem - Primeiras Idéias
 
@@ -200,10 +200,10 @@ introduzida no processo pelo pesquisador para obtenção dos dados,
 através do planejamento amostral $p(a)$ utilizado [@Neyman] e as distribuições das estatísticas de interesse são
 derivadas a partir dessa `distribuição de aleatorização`. 
 Tais planos amostrais podem ser complexos, gerando observações com
-as características i) a iv) do Capítulo 1. Os dados obtidos são
+as características i) a iv) do Capítulo \@ref(introduc). Os dados obtidos são
 utilizados principalmente para descrição da população
 finita, sendo calculadas estimativas de totais, médias, razões, etc.
-Sob essa abordagem, os pontos i) a iv) do Capítulo 1 são devidamente
+Sob essa abordagem, os pontos i) a iv) do Capítulo \@ref(introduc) são devidamente
 considerados tanto na estimação de parâmetros descritivos desses tipos,
 como também na estimação de variâncias dos estimadores.
 
@@ -247,7 +247,7 @@ modelagem, traduzida nas seguintes perguntas.
 O objeto deste livro é exatamente discutir respostas para as
 questões aqui enumeradas. Para isso, vamos considerar uma abordagem que
 propõe um modelo parametrizado como na `abordagem 1`, e além
-disso incorpora na análise os pontos i) a iii) do Capítulo 1
+disso incorpora na análise os pontos i) a iii) do Capítulo \@ref(introduc)
 mediante aproveitamento da estrutura do planejamento amostral como na `abordagem 2`.
 
 ### Abordagem 3 - Modelagem de Superpopulação
@@ -363,7 +363,7 @@ A descrição da abordagem adotada neste livro foi apresentada de
 maneira propositadamente simplificada e vaga nesta seção, mas será aprofundada
 ao longo do texto. Admitiremos que o leitor esteja familiarizado com a 
 `abordagem 1` e com as noções básicas da `abordagem 2`. A
-título de recordação, serão apresentados no Capítulo 3
+título de recordação, serão apresentados no Capítulo \@ref(planamo)
 alguns resultados básicos da Teoria de Amostragem. A ênfase do
 texto, porém, será na apresentação da `abordagem 3`,
 sendo para isto apresentados os elementos indispensáveis das 

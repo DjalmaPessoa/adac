@@ -1,4 +1,4 @@
-# Modelos de Regressão
+# Modelos de Regressão {#modreg}
 
 ## Modelo de Regressão Linear Normal {#modlinear}
 
@@ -49,7 +49,7 @@ p.81), Chambers(1986, 1995). Eles são simples, mesmo assim
 frequentemente usados pelos analistas de dados, pelo menos como uma
 primeira aproximação. Além disto, eles satisfazem todas as condições padrões de regularidade. Assim eles são adequados a uma
 aplicação de procedimentos de máxima pseudo-verossimilhança
-descritos na Seção \@ref{modpar3}.
+descritos na Seção \@ref(modpar3).
 
 As funções escores para $\mathbf{\beta}$ e $\sigma _{e}$
 correspondentes ao modelo \@ref(eq:norm1) podem ser facilmente obtidas como 
@@ -164,7 +164,7 @@ pseudo-verossimilhança de $\mathbf{\beta }$ e $\sigma _{e}$, ou
 alternativamente de $\mathbf{B}$ e $S_{e}$, se as quantidades descritivas
 populacionais correspondentes forem escolhidas para alvo da inferência.
 Se os pesos $w_{i}$ satisfizerem às condições de regularidade
-discutidas na Seção \@ref{modpar3}, será imediato obter as equações de pseudo-verossimilhança correspondentes ao modelo \@ref(eq:norm1) como 
+discutidas na Seção \@ref(modpar3), será imediato obter as equações de pseudo-verossimilhança correspondentes ao modelo \@ref(eq:norm1) como 
 \begin{eqnarray}
 \sum\limits_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\hat{B}}_{w}\right)
 &=&\sum\limits_{i\in s}w_{i}\mathbf{z}_{i}\left( y_{i}-\mathbf{z}
@@ -896,7 +896,7 @@ empregado para estimar variâncias.
 
 Com a finalidade de melhorar a aproximação da distribuição
 da estatística de teste, podem ser utilizados ajustes e correções da estatística $X_{W}^{2}$, que são apresentados com mais
-detalhes nos Capítulos 7 e 8 para o caso da análise de dados
+detalhes nos Capítulos \@ref(testequalajust) e \@ref(testeta2) para o caso da análise de dados
 categóricos.
 
 A especificação de um procedimento para testar hipóteses sobre

@@ -1,4 +1,4 @@
-# Ajuste  de Modelos Paramétricos
+# Ajuste  de Modelos Paramétricos{#ajmodpar}
 
 ## Introdução {#modpar1}
 
@@ -32,7 +32,7 @@ sobre variáveis auxiliares, utilizadas ou não na especificação do plano amos
 ção dos parâmetros ou na própria formulação do
 modelo.
 
-Os exemplos apresentados no Capítulo 4 demonstram claramente a inadequa
+Os exemplos apresentados no Capítulo \@ref(epa) demonstram claramente a inadequa
 ção de ignorar o plano amostral ao efetuar análises de dados de
 pesquisas amostrais. Os valores dos EPAs calculados, tanto para
 estimadores de medidas descritivas tais como médias e totais, como para
@@ -40,7 +40,7 @@ estatísticas analíticas usadas em testes de hipóteses e os
 correspondentes efeitos nos níveis de significância reais, revelam
 que ignorar o plano amostral pode levar a decisões erradas e a avaliações inadequadas da precisão das estimativas amostrais.
 
-Embora as medidas propostas no Capítulo 4 para os efeitos de plano
+Embora as medidas propostas no Capítulo \@ref(epa) para os efeitos de plano
 amostral sirvam para avaliar o impacto de ignorar o plano amostral nas
 inferências descritivas ou mesmo analíticas baseadas em dados
 amostrais, elas não resolvem o problema de como incorporar o plano
@@ -304,7 +304,7 @@ dados do suplemento sobre trabalho da PNAD-90. Todos os ajustes efetuados
 ignoraram os pesos e o plano amostral da pesquisa. O problema foi revisitado
 por [@Pessoa], quando então esses aspectos
 foram devidamente incorporados na análise. Um resumo desse trabalho
-é discutido no Capítulo 6.
+é discutido no Capítulo \@ref(modreg).
 
 Vamos supor que haja interesse em regredir uma determinada variável de
 pesquisa $y$ contra algumas outras variáveis de pesquisa num vetor de
@@ -379,7 +379,7 @@ poderiam introduzir ou causar `vícios`;
 A `robustez dos procedimentos` que incorporam pesos é obtida pela
 mudança de foco da inferência para `quantidades da população finita`, que definem parâmetros-alvo alternativos aos
 parâmetros do modelo de superpopulação, conforme já
-discutido na Seção \@ref{superpop}.
+discutido na Seção \@ref(superpop).
 
 A questão da construção dos pesos não será tratada neste
 texto, usando-se sempre como peso o inverso da probabilidade de inclusão

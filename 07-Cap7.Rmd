@@ -1,4 +1,4 @@
-# Testes de Qualidade de Ajuste
+# Testes de Qualidade de Ajuste {testqualajust}
 
 ## Introdução
 
@@ -28,7 +28,7 @@ estratificação e/ou pesos desiguais. Neste capítulo examinaremos
 o impacto do plano amostral sobre as estatísticas de teste usuais
 notando que, em alguns casos, os valores observados dessas estatísticas
 de teste podem ser muito grandes, acarretando inferências incorretas,
-conforme já ilustrado no Exemplo \ref{exebin} do Capítulo 4. Isto
+conforme já ilustrado no Exemplo \ref{exebin} do Capítulo \@ref(epa). Isto
 ocorre porque a probabilidade de erros do tipo I (rejeitar a hipótese
 nula quando esta é verdadeira) é muito maior que o nível nominal
 de significância $\alpha$ especificado.
@@ -49,7 +49,7 @@ superpopulação.
 
 ### Correção de Estatísticas Clássicas
 
-No Exemplo \ref{exebin} do Capítulo 4 a estatística de teste $Z_{bin},$ que foi utilizada para comparar com um valor hipotético
+No Exemplo \ref{exebin} do Capítulo \@ref(epa) a estatística de teste $Z_{bin},$ que foi utilizada para comparar com um valor hipotético
 pré-fixado a proporção de empregados cobertos por plano de
 saúde, resultou num teste mais liberal do que o teste que empregou a
 estatística $Z_{p}$, baseada no plano amostral efetivamente adotado. A

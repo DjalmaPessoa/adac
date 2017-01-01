@@ -1,4 +1,4 @@
-# Testes em Tabelas de Duas Entradas
+# Testes em Tabelas de Duas Entradas {#testetab2}
 
 ## Introdução
 
@@ -169,7 +169,7 @@ assintótica qui-quadrado com um grau de liberdade.
 Por outro lado, é importante observar que as agências produtoras de
 dados estatísticos geralmente apresentam os resultados de suas pesquisas
 em tabelas contendo as estimativas $\hat{N}_{lc}$, como ilustrado no Exemplo 
-\ref{Analisec} do Capítulo 5. Se calcularmos as estatísticas 
+\ref{Analisec} do Capítulo \@ref(ajmodpar). Se calcularmos as estatísticas 
 $X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left( H\right)$ a partir dos
 valores dos $\hat{N}_{lc}$ fornecidos, com a estimativa do tamanho da popula
 ção $\hat{N}$ no lugar de $n$, os resultados assintóticos
@@ -757,7 +757,7 @@ Correções de EPA médio das estatísticas $X_{P}^{2}\left(
 I\right)$ e $X_{P}^{2}\left( H\right)$.
 \end{myex}
 
-Considerando os dados do Exemplo \ref{pnad90} do Capítulo 6, vamos
+Considerando os dados do Exemplo \ref{pnad90} do Capítulo \@ref(modreg), vamos
 testar a hipótese de independência entre as variáveis Sexo (sx)
 e Rendimento médio mensal (re). Vamos fazer também um teste de
 homogeneidade, para comparar as distribuições de renda para os dois
@@ -806,7 +806,7 @@ freqüências amostrais. Usando o programa Stata, calculamos as
 estimativas das proporções nas linhas da tabela. Nestas
 estimativas são considerados os pesos das unidades da amostra e o plano
 amostral utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo \ref
-{pnad90} do Capítulo 6.
+{pnad90} do Capítulo \@ref(modreg).
 
 Vamos considerar o teste de homogeneidade entre as variáveis Sexo e Renda
 \textbf{\ }e calcular o efeito de plano amostral médio das estimativas

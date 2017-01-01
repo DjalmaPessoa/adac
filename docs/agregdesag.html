@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Análise de Dados Amostrais Complexos</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Análise de Dados Amostrais Complexos" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="djalmapessoa/adac" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Análise de Dados Amostrais Complexos" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
+
+
+<meta name="date" content="2017-01-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="testetab2.html">
+<link rel="next" href="pacotes-para-analisar-dados-amostrais.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Análise de Dados Amostrais Complexos</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduc.html"><a href="introduc.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduc.html"><a href="introduc.html#motivacao"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
+<li class="chapter" data-level="1.2" data-path="introduc.html"><a href="introduc.html#ppv"><i class="fa fa-check"></i><b>1.2</b> Impacto dos pesos da amostra da PPV</a></li>
+<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.3</b> Objetivos do Livro</a></li>
+<li class="chapter" data-level="1.4" data-path="introduc.html"><a href="introduc.html#epa"><i class="fa fa-check"></i><b>1.4</b> Laboratório de R do Capítulo 1.</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="refinf.html"><a href="refinf.html"><i class="fa fa-check"></i><b>2</b> Referencial para Inferência</a><ul>
+<li class="chapter" data-level="2.1" data-path="refinf.html"><a href="refinf.html#modelagem---primeiras-ideias"><i class="fa fa-check"></i><b>2.1</b> Modelagem - Primeiras Idéias</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="refinf.html"><a href="refinf.html#classic"><i class="fa fa-check"></i><b>2.1.1</b> Abordagem 1 - Modelagem Clássica</a></li>
+<li class="chapter" data-level="2.1.2" data-path="refinf.html"><a href="refinf.html#abordagem-2---amostragem-probabilistica"><i class="fa fa-check"></i><b>2.1.2</b> Abordagem 2 - Amostragem Probabilística</a></li>
+<li class="chapter" data-level="2.1.3" data-path="refinf.html"><a href="refinf.html#discussao-das-abordagens-1-e-2"><i class="fa fa-check"></i><b>2.1.3</b> Discussão das Abordagens 1 e 2</a></li>
+<li class="chapter" data-level="2.1.4" data-path="refinf.html"><a href="refinf.html#abordagem-3---modelagem-de-superpopulacao"><i class="fa fa-check"></i><b>2.1.4</b> Abordagem 3 - Modelagem de Superpopulação</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="refinf.html"><a href="refinf.html#fontes-de-variacao"><i class="fa fa-check"></i><b>2.2</b> Fontes de Variação</a></li>
+<li class="chapter" data-level="2.3" data-path="refinf.html"><a href="refinf.html#modelos-de-superpopulacao"><i class="fa fa-check"></i><b>2.3</b> Modelos de Superpopulação</a></li>
+<li class="chapter" data-level="2.4" data-path="refinf.html"><a href="refinf.html#planamo"><i class="fa fa-check"></i><b>2.4</b> Planejamento Amostral</a></li>
+<li class="chapter" data-level="2.5" data-path="refinf.html"><a href="refinf.html#inform"><i class="fa fa-check"></i><b>2.5</b> Planos Amostrais Informativos e Ignoráveis</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="refinf.html"><a href="refinf.html#planamo"><i class="fa fa-check"></i><b>3</b> Estimação Baseada no Plano Amostral</a><ul>
+<li class="chapter" data-level="3.1" data-path="planamo.html"><a href="planamo.html"><i class="fa fa-check"></i><b>3.1</b> Estimação de Totais</a></li>
+<li class="chapter" data-level="3.2" data-path="planamo.html"><a href="planamo.html#por-que-estimar-variancias"><i class="fa fa-check"></i><b>3.2</b> Por que Estimar Variâncias</a></li>
+<li class="chapter" data-level="3.3" data-path="planamo.html"><a href="planamo.html#taylor"><i class="fa fa-check"></i><b>3.3</b> Linearização de Taylor para Estimar variâncias</a></li>
+<li class="chapter" data-level="3.4" data-path="planamo.html"><a href="planamo.html#metodo-do-conglomerado-primario"><i class="fa fa-check"></i><b>3.4</b> Método do Conglomerado Primário</a></li>
+<li class="chapter" data-level="3.5" data-path="planamo.html"><a href="planamo.html#metodos-de-replicacao"><i class="fa fa-check"></i><b>3.5</b> Métodos de Replicação</a></li>
+<li class="chapter" data-level="3.6" data-path="planamo.html"><a href="planamo.html#laboratorio-de-r"><i class="fa fa-check"></i><b>3.6</b> Laboratório de R</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="introduc.html"><a href="introduc.html#epa"><i class="fa fa-check"></i><b>4</b> Efeitos do Plano Amostral</a><ul>
+<li class="chapter" data-level="4.1" data-path="epa.html"><a href="epa.html"><i class="fa fa-check"></i><b>4.1</b> Introdução</a></li>
+<li class="chapter" data-level="4.2" data-path="epa.html"><a href="epa.html#efeito-do-plano-amostral-epa-de-kish"><i class="fa fa-check"></i><b>4.2</b> Efeito do Plano Amostral (EPA) de Kish</a></li>
+<li class="chapter" data-level="4.3" data-path="epa.html"><a href="epa.html#efeito-do-plano-amostral-ampliado"><i class="fa fa-check"></i><b>4.3</b> Efeito do Plano Amostral Ampliado</a></li>
+<li class="chapter" data-level="4.4" data-path="epa.html"><a href="epa.html#intervalos-de-confianca-e-testes-de-hipoteses"><i class="fa fa-check"></i><b>4.4</b> Intervalos de Confiança e Testes de Hipóteses</a></li>
+<li class="chapter" data-level="4.5" data-path="epa.html"><a href="epa.html#efeitos-multivariados-de-plano-amostral"><i class="fa fa-check"></i><b>4.5</b> Efeitos Multivariados de Plano Amostral</a></li>
+<li class="chapter" data-level="4.6" data-path="epa.html"><a href="epa.html#laboratorio-de-r-1"><i class="fa fa-check"></i><b>4.6</b> Laboratório de R</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ajmodpar.html"><a href="ajmodpar.html"><i class="fa fa-check"></i><b>5</b> Ajuste de Modelos Paramétricos</a><ul>
+<li class="chapter" data-level="5.1" data-path="ajmodpar.html"><a href="ajmodpar.html#modpar1"><i class="fa fa-check"></i><b>5.1</b> Introdução</a></li>
+<li class="chapter" data-level="5.2" data-path="ajmodpar.html"><a href="ajmodpar.html#metodo-de-maxima-verossimilhanca-mv"><i class="fa fa-check"></i><b>5.2</b> Método de Máxima Verossimilhança (MV)</a></li>
+<li class="chapter" data-level="5.3" data-path="ajmodpar.html"><a href="ajmodpar.html#ponderacao-de-dados-amostrais"><i class="fa fa-check"></i><b>5.3</b> Ponderação de Dados Amostrais</a></li>
+<li class="chapter" data-level="5.4" data-path="ajmodpar.html"><a href="ajmodpar.html#modpar3"><i class="fa fa-check"></i><b>5.4</b> Método de Máxima Pseudo-Verossimilhança label</a></li>
+<li class="chapter" data-level="5.5" data-path="ajmodpar.html"><a href="ajmodpar.html#robustez-do-procedimento-mpv"><i class="fa fa-check"></i><b>5.5</b> Robustez do Procedimento MPV</a></li>
+<li class="chapter" data-level="5.6" data-path="ajmodpar.html"><a href="ajmodpar.html#desvantagens-da-inferencia-de-aleatorizacao"><i class="fa fa-check"></i><b>5.6</b> Desvantagens da Inferência de Aleatorização</a></li>
+<li class="chapter" data-level="5.7" data-path="ajmodpar.html"><a href="ajmodpar.html#laboratorio-de-r-2"><i class="fa fa-check"></i><b>5.7</b> Laboratório de R</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="modreg.html"><a href="modreg.html"><i class="fa fa-check"></i><b>6</b> Modelos de Regressão</a><ul>
+<li class="chapter" data-level="6.1" data-path="modreg.html"><a href="modreg.html#modlinear"><i class="fa fa-check"></i><b>6.1</b> Modelo de Regressão Linear Normal</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="modreg.html"><a href="modreg.html#especificacao-do-modelo"><i class="fa fa-check"></i><b>6.1.1</b> Especificação do Modelo</a></li>
+<li class="chapter" data-level="6.1.2" data-path="modreg.html"><a href="modreg.html#pseudo-parametros-do-modelo"><i class="fa fa-check"></i><b>6.1.2</b> Pseudo-parâmetros do Modelo</a></li>
+<li class="chapter" data-level="6.1.3" data-path="modreg.html"><a href="modreg.html#estimadores-de-mpv-dos-parametros-do-modelo"><i class="fa fa-check"></i><b>6.1.3</b> Estimadores de MPV dos Parâmetros do Modelo</a></li>
+<li class="chapter" data-level="6.1.4" data-path="modreg.html"><a href="modreg.html#estimacao-da-variancia-de-estimadores-de-mpv"><i class="fa fa-check"></i><b>6.1.4</b> Estimação da Variância de Estimadores de MPV</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="modreg.html"><a href="modreg.html#modlogist"><i class="fa fa-check"></i><b>6.2</b> Modelo de Regressão Logística</a></li>
+<li class="chapter" data-level="6.3" data-path="modreg.html"><a href="modreg.html#teste-de-hipoteses"><i class="fa fa-check"></i><b>6.3</b> Teste de Hipóteses</a></li>
+<li class="chapter" data-level="6.4" data-path="modreg.html"><a href="modreg.html#laboratorio-de-r-3"><i class="fa fa-check"></i><b>6.4</b> Laboratório de R</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="testes-de-qualidade-de-ajuste-testqualajust.html"><a href="testes-de-qualidade-de-ajuste-testqualajust.html"><i class="fa fa-check"></i><b>7</b> Testes de Qualidade de Ajuste {testqualajust}</a><ul>
+<li class="chapter" data-level="7.1" data-path="testes-de-qualidade-de-ajuste-testqualajust.html"><a href="testes-de-qualidade-de-ajuste-testqualajust.html#introducao-1"><i class="fa fa-check"></i><b>7.1</b> Introdução</a></li>
+<li class="chapter" data-level="7.2" data-path="testes-de-qualidade-de-ajuste-testqualajust.html"><a href="testes-de-qualidade-de-ajuste-testqualajust.html#teste-para-uma-proporcao"><i class="fa fa-check"></i><b>7.2</b> Teste para uma Proporção</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="testes-de-qualidade-de-ajuste-testqualajust.html"><a href="testes-de-qualidade-de-ajuste-testqualajust.html#correcao-de-estatisticas-classicas"><i class="fa fa-check"></i><b>7.2.1</b> Correção de Estatísticas Clássicas</a></li>
+<li class="chapter" data-level="7.2.2" data-path="testes-de-qualidade-de-ajuste-testqualajust.html"><a href="testes-de-qualidade-de-ajuste-testqualajust.html#estatistica-de-wald"><i class="fa fa-check"></i><b>7.2.2</b> Estatística de Wald</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="testes-de-qualidade-de-ajuste-testqualajust.html"><a href="testes-de-qualidade-de-ajuste-testqualajust.html#teste-para-varias-proporcoes"><i class="fa fa-check"></i><b>7.3</b> Teste para Várias Proporções</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="testes-de-qualidade-de-ajuste-testqualajust.html"><a href="testes-de-qualidade-de-ajuste-testqualajust.html#estatistica-de-wald-baseada-no-plano-amostral"><i class="fa fa-check"></i><b>7.3.1</b> Estatística de Wald Baseada no Plano Amostral</a></li>
+<li class="chapter" data-level="7.3.2" data-path="testes-de-qualidade-de-ajuste-testqualajust.html"><a href="testes-de-qualidade-de-ajuste-testqualajust.html#estatistica-de-pearson-com-ajuste-de-rao-scott-raoscott"><i class="fa fa-check"></i><b>7.3.2</b> Estatística de Pearson com Ajuste de Rao-Scott (#raoscott)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="testes-de-qualidade-de-ajuste-testqualajust.html"><a href="testes-de-qualidade-de-ajuste-testqualajust.html#laboratorio-de-r-4"><i class="fa fa-check"></i><b>7.4</b> Laboratório de R</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="testetab2.html"><a href="testetab2.html"><i class="fa fa-check"></i><b>8</b> Testes em Tabelas de Duas Entradas</a><ul>
+<li class="chapter" data-level="8.1" data-path="testetab2.html"><a href="testetab2.html#introducao-2"><i class="fa fa-check"></i><b>8.1</b> Introdução</a></li>
+<li class="chapter" data-level="8.2" data-path="testetab2.html"><a href="testetab2.html#tabelas22"><i class="fa fa-check"></i><b>8.2</b> Tabelas 2x2</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="testetab2.html"><a href="testetab2.html#teste-de-independencia"><i class="fa fa-check"></i><b>8.2.1</b> Teste de Independência</a></li>
+<li class="chapter" data-level="8.2.2" data-path="testetab2.html"><a href="testetab2.html#teste-de-homogeneidade"><i class="fa fa-check"></i><b>8.2.2</b> Teste de Homogeneidade</a></li>
+<li class="chapter" data-level="8.2.3" data-path="testetab2.html"><a href="testetab2.html#efeitos-de-plano-amostral-nas-celas"><i class="fa fa-check"></i><b>8.2.3</b> Efeitos de Plano Amostral nas Celas</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="testetab2.html"><a href="testetab2.html#tabelas-de-duas-entradas-caso-geral"><i class="fa fa-check"></i><b>8.3</b> Tabelas de Duas Entradas (Caso Geral)</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="testetab2.html"><a href="testetab2.html#teste-de-homogeneidade-1"><i class="fa fa-check"></i><b>8.3.1</b> Teste de Homogeneidade</a></li>
+<li class="chapter" data-level="8.3.2" data-path="testetab2.html"><a href="testetab2.html#teste-de-independencia-1"><i class="fa fa-check"></i><b>8.3.2</b> Teste de Independência</a></li>
+<li class="chapter" data-level="8.3.3" data-path="testetab2.html"><a href="testetab2.html#estatistica-de-wald-baseada-no-plano-amostral-1"><i class="fa fa-check"></i><b>8.3.3</b> Estatística de Wald Baseada no Plano Amostral</a></li>
+<li class="chapter" data-level="8.3.4" data-path="testetab2.html"><a href="testetab2.html#estatistica-de-pearson-com-ajuste-de-rao-scott"><i class="fa fa-check"></i><b>8.3.4</b> Estatística de Pearson com Ajuste de Rao-Scott</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="testetab2.html"><a href="testetab2.html#laboratorio-de-r-5"><i class="fa fa-check"></i><b>8.4</b> Laboratório de R</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="agregdesag.html"><a href="agregdesag.html"><i class="fa fa-check"></i><b>9</b> Agregação vs. Desagregação</a><ul>
+<li class="chapter" data-level="9.1" data-path="agregdesag.html"><a href="agregdesag.html#introducao-3"><i class="fa fa-check"></i><b>9.1</b> Introdução</a></li>
+<li class="chapter" data-level="9.2" data-path="agregdesag.html"><a href="agregdesag.html#modelagem-da-estrutura-populacional"><i class="fa fa-check"></i><b>9.2</b> Modelagem da Estrutura Populacional</a></li>
+<li class="chapter" data-level="9.3" data-path="agregdesag.html"><a href="agregdesag.html#modelos-hierarquicos"><i class="fa fa-check"></i><b>9.3</b> Modelos Hierárquicos</a></li>
+<li class="chapter" data-level="9.4" data-path="agregdesag.html"><a href="agregdesag.html#analise-desagregada-pros-e-contras"><i class="fa fa-check"></i><b>9.4</b> Análise Desagregada: Prós e Contras</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html"><i class="fa fa-check"></i><b>10</b> Pacotes para Analisar Dados Amostrais</a><ul>
+<li class="chapter" data-level="10.1" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html#introducao-4"><i class="fa fa-check"></i><b>10.1</b> Introdução</a></li>
+<li class="chapter" data-level="10.2" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html#pacotes-computacionais"><i class="fa fa-check"></i><b>10.2</b> Pacotes Computacionais</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análise de Dados Amostrais Complexos</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="agregdesag" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Agregação vs. Desagregação</h1>
+<div id="introducao-3" class="section level2">
+<h2><span class="header-section-number">9.1</span> Introdução</h2>
+<p>Há duas abordagens principais para tratar a estrutura dos dados de pesquisas amostrais complexas. Numa delas, encaramos a estrutura dos dados como fator complicador ou aspecto indesejado, que invalida o uso de procedimentos padrões de análise, e mantemos inalterados os objetivos básicos da análise. Os métodos descritos nos capítulos anteriores se baseiam nesta abordagem, denominada de <code>análise agregada</code> ou <code>marginal</code>, pois os parâmetros de interesse são obtidos tomando-se a média ao longo de alguns aspectos da estrutura da população.</p>
+<p>Na outra abordagem, denominada <code>análise desagregada</code>, mudamos os objetivos, incorporando mais explicitamente a estrutura da população no procedimento de análise, construindo modelos para descrever a relação entre as variáveis de interesse. A complexidade da estrutura da população é então usada como evidência de que modelos simples e procedimentos padrões são também, em geral, inadequados.</p>
+<p>Para considerar a estrutura da população, os modelos requeridos são geralmente mais elaborados e às vezes requerem alteração dos alvos da inferência. Nos modelos modificados, os antigos parâmetros são abandonados e novos parâmetros são introduzidos, num processo iterativo que se baseia nos dados da pesquisa. Efeitos de conglomeração não mais são vistos como complicadores, que se interpõem entre dados e procedimentos bem aceitos, e sim como parte integral da estrutura da população, que deve ser adequadamente modelada e que pode contribuir para melhorar nossa compreensão das relações entre as variáveis.</p>
+<p>Este capítulo se dedica a apresentar uma introdução à abordagem de análise desagregada, em contraposição aos procedimentos indicados nos capítulos anteriores. Para um exame mais detalhado do tema, o leitor deve consultar cap. 10 a 13 de <span class="citation">(Skinner 1989a)</span> e <span class="citation">(Bryk and Raudenbush <a href="#ref-bryk">1992</a>)</span>.</p>
+</div>
+<div id="modelagem-da-estrutura-populacional" class="section level2">
+<h2><span class="header-section-number">9.2</span> Modelagem da Estrutura Populacional</h2>
+Para introduzir a abordagem de análise desagregada, vamos considerar um modelo simples de regressão linear, definido por
+<span class="math display" id="eq:hier1">\[\begin{equation}
+E_{M}\left( Y_{i}\left| X_{i}=x_{i}\right. \right) =\beta _{0}+\beta
+_{1}x_{i}  \tag{9.1}
+\end{equation}\]</span>
+<p>onde <span class="math inline">\(\beta _{0}\)</span> e <span class="math inline">\(\beta _{1}\)</span> são parâmetros desconhecidos e <span class="math inline">\(Y_{i}\)</span> e <span class="math inline">\(X_{i}\)</span> são as variáveis resposta e preditora para a <span class="math inline">\(i\)</span>-ésima unidade da população, respectivamente. Modelos dessa forma são frequentemente considerados na prática para representar relações entre variáveis, e a inferência é dirigida aos parâmetros <span class="math inline">\(\beta _{0}\)</span> e <span class="math inline">\(\beta _{1}.\)</span></p>
+<p>Vamos agora considerar o caso bem simples de uma população com unidades divididas em dois grupos disjuntos (ou estratos), seja para fins de amostragem estratificada (emprego de planos amostrais com estratificação das unidades elementares) ou mesmo apenas para fins de análise. Um exemplo simples é o caso de populações humanas, em que pessoas são separadas em grupos de acordo com o sexo.</p>
+Neste caso simples, para incorporar ao modelo efeitos de estratificação basta introduzir uma variável preditora de tipo indicador <span class="math inline">\(Z\)</span>, que indica se uma unidade pertence ao estrato 1, digamos. O modelo modificado fica então definido como
+<span class="math display" id="eq:hier2">\[\begin{equation}
+E_{M}\left( Y_{i}\left| X_{i}=x_{i}\;,Z_{i}=z_{i}\right. \right) =\beta
+_{0}+\beta _{1}x_{i}+\beta _{2}z_{i}+\beta _{3}x_{i}z_{i}  \tag{9.2}
+\end{equation}\]</span>
+<p>onde <span class="math inline">\(z_{i}=1\)</span> se a unidade pertence ao estrato 1 e <span class="math inline">\(z_{i}=0\)</span> caso contrário. Observe que neste novo modelo aparecem dois novos parâmetros, a saber <span class="math inline">\(\beta _{2}\)</span> e <span class="math inline">\(\beta _{3}\)</span> .</p>
+<p>Se <span class="math inline">\(\beta _{3}=0\)</span>, o efeito do estrato é modificar o intercepto de <span class="math inline">\(\beta _{0}\)</span> para <span class="math inline">\(\beta _{0}+\beta _{1}\)</span>, quando <span class="math inline">\(z_{i}\)</span> passa de <span class="math inline">\(0\)</span> a <span class="math inline">\(1\)</span>. Se <span class="math inline">\(\beta _{3}\neq 0\)</span> , além da variação do intercepto, há também modificação na declividade, que passa de <span class="math inline">\(\beta _{1}\)</span> para <span class="math inline">\(\beta _{1}+\beta _{3}\)</span> quando <span class="math inline">\(z_{i}\)</span> passa de <span class="math inline">\(0\)</span> a <span class="math inline">\(1\)</span>.</p>
+<p>Modelos com o efeito de estratificação aqui ilustrado podem ser facilmente generalizados para o caso de mais de dois estratos, bastanto para isso adicionar de forma similar variáveis indicadoras de pertinência aos diversos estratos, exceto o último. Tais modelos podem ser úteis em uma variedade de situações de interesse prático. Um caso importante é o do emprego de planos amostrais estratificados. Nesse caso, o analista pode optar por modificar seu modelo agregado <a href="agregdesag.html#eq:hier1">(9.1)</a> em favor de um modelo desagregado da forma <a href="agregdesag.html#eq:hier2">(9.2)</a>2}), pois acredita que este último representa melhor a realidade subjacente. Se o plano amostral for do tipo amostragem estratificada simples e os estratos (de seleção) coincidirem com os do modelo (de análise), a inferência para os parâmetros do modelo pode ser feita usando procedimentos e pacotes padrões, sem maiores problemas. O mesmo já não ocorre se os estratos de análise diferem dos de seleção ou se o plano amostral empregado envolver outros aspectos de complexidade, tais como conglomeração e/ou probabilidades desiguais de seleção dentro dos estratos.</p>
+<p>Outro caso de interesse prático é aquele em que os estratos de análise são definidos por razões substantivas ligadas à modelagem pretendida, independentemente de como foi selecionada a amostra da pesquisa que gerou os dados (este caso englobaria inclusive dados coletados mediante censos). Nesse caso, os efeitos de estratificação são intrínsecos ao modelo e a estimação dos parâmetros correspondentes é o alvo da inferência desejada. Um exemplo típico é a análise de efeitos de sexo sobre relações entre educação (medida em termos de anos de estudo, por exemplo) e renda, que sustenta discussões sobre preconceito contra mulheres no mercado de trabalho (estamos simplificando aqui a situação, pois em geral se precisa remover efeitos de profissão, posição na ocupação, número de horas trabalhadas e outros que afetam a renda de assalariados). Em casos como este, em que dados de pesquisas amostrais domiciliares são frequentemente usados para ajustar modelos com efeitos de estratificação, os estratos de análise (pessoas classificadas por sexo) são formados a posteriori, porque as pessoas da amostra não são selecionadas em grupos devido à inexistência de cadastros que suportassem esse tipo de plano amostral. Na prática, as amostras selecionadas são de domicílios e nestes investigadas todas as pessoas moradoras.</p>
+<p>Uma outra situação de interesse prático que pode requerer modificação dos modelos de interesse é a ocorrência de efeitos de conglomeração. Estes podem tanto se originar de necessidades administrativas que motivam a adoção de planos amostrais conglomerados (vide o caso das pesquisas por amostragem domiciliar, em que municípios, setores e domicílios formam conglomerados de pessoas, estas últimas as unidades de análise de interesse da modelagem), quanto de necessidades substantivas, em que os grupos de unidades elementares fazem parte de uma estrutura populacional cujas propriedades se deseja modelar de forma mais explícita. Um exemplo é o caso de estudos demográficos sobre mortalidade infantil, em que os filhos tidos por uma determinada mulher são considerados um conglomerado e se pretende identificar algum efeito potencial do tamanho dos conglomerados sobre os eventos de interesse, no caso a mortalidade infantil.</p>
+Efeitos de conglomeração podem ser introduzidos no modelo <a href="agregdesag.html#eq:hier1">(9.1)</a> de maneira simples, bastando para isso considerar um modelo da forma
+<span class="math display" id="eq:hier3">\[\begin{equation}
+Y_{ij}=\beta _{0}+\beta _{1}x_{ij}+\varepsilon _{ij}, \tag{9.3}
+\end{equation}\]</span>
+<p>no qual <span class="math inline">\(j\)</span> denota conglomerado e <span class="math inline">\(i\)</span> denota indivíduo no conglomerado.</p>
+Em dados de pesquisas amostrais, os erros <span class="math inline">\(\varepsilon _{ij}\)</span> não satisfazem, em geral, a hipótese de IID. Além disso, no modelo <a href="agregdesag.html#eq:hier3">(9.3)</a>, <span class="math inline">\(\beta _{0}\)</span> e <span class="math inline">\(\beta _{1}\)</span> não variam para os diferentes conglomerados. Pode ser adequado supor que <span class="math inline">\(\beta _{0}\)</span> e <span class="math inline">\(\beta _{1}\)</span> variam entre conglomerados. Isto pode ser obtido substituindo <span class="math inline">\(\beta _{0}\)</span> e <span class="math inline">\(\beta _{1}\)</span> em <a href="agregdesag.html#eq:hier3">(9.3)</a> por coeficientes aleatórios, que dependem dos conglomerados, isto é, adotando-se o modelo
+<span class="math display" id="eq:hier4">\[\begin{equation}
+\left\{ 
+\begin{array}{l}
+Y_{ij}=\beta _{0j}+\beta _{1j}x_{ij}+\varepsilon _{ij} \\ 
+\beta _{0j}=\beta _{0}+\eta _{0j} \\ 
+\beta _{1j}=\beta _{1}+\eta _{1j}
+\end{array}
+\right.  \tag{9.4}
+\end{equation}\]</span>
+com <span class="math inline">\(\beta _{0}\)</span> e <span class="math inline">\(\beta _{1}\)</span> fixos e desconhecidos e <span class="math inline">\(\varepsilon _{ij}\)</span>, <span class="math inline">\(\eta _{0j}\)</span> e <span class="math inline">\(\eta _{1j}\)</span> variáveis aleatórias, satisfazendo
+<span class="math display" id="eq:hier5">\[\begin{eqnarray}
+E_{M}\left( \varepsilon _{ij}\right) &amp;=&amp;E_{M}\left( \eta _{0j}\right)
+=E_{M}\left( \eta _{1j}\right) =0  \tag{9.5} \\
+V_{M}\left( \varepsilon _{ij}\right) &amp;=&amp;\sigma ^{2},\:\:V_{M}\left(
+\eta _{0j}\right) =\sigma _{0}^{2},\;V_{M}\left( \eta _{1j}\right)
+=\sigma _{1}^{2}\;,  \nonumber \\
+COV_{M}\left( \varepsilon _{ij},\eta _{0j^{^{\prime }}}\right)
+&amp;=&amp;COV_{M}\left( \varepsilon _{ij},\eta _{1j^{^{\prime }}}\right) =0\;, 
+\nonumber \\
+COV_{M}\left( \varepsilon _{ij},\varepsilon _{i^{^{\prime }}j^{^{\prime
+}}}\right) &amp;=&amp;0\;,\quad j\neq j^{^{\prime }}\mbox{ ou }i\neq i^{^{\prime
+}}\;,  \nonumber
+\end{eqnarray}\]</span>
+e
+<span class="math display" id="eq:hier6">\[\begin{equation}
+COV_{M}\left( \eta _{0j},\eta _{1j^{^{\prime }}}\right) =\left\{ 
+\begin{array}{l}
+\sigma _{01}\quad j=j^{^{\prime }} \\ 
+0\quad \quad j\neq j^{^{\prime }}
+\end{array}
+\right. \;\;.  \tag{9.6}
+\end{equation}\]</span>
+Podemos juntar as expressões em <a href="agregdesag.html#eq:hier4">(9.4)</a> e reescrever o modelo como
+<span class="math display" id="eq:hier7">\[\begin{eqnarray}
+Y_{ij} &amp;=&amp;\left( \beta _{0}+\eta _{0j}\right) +\left( \beta _{1}+\eta
+_{1j}\right) x_{ij}+\varepsilon _{ij}  \tag{9.7} \\
+&amp;=&amp;\beta _{0}+\beta _{1}x_{ij}+\eta _{0j}+\eta _{1j}x_{ij}+\varepsilon
+_{ij}\;\;.  \nonumber
+\end{eqnarray}\]</span>
+<p>Em <a href="agregdesag.html#eq:hier7">(9.7)</a>, os coeficientes <span class="math inline">\(\beta _{0}\)</span> e <span class="math inline">\(\beta _{1}\)</span> são fixos e os coeficientes <span class="math inline">\(\eta _{0j}\)</span> e <span class="math inline">\(\eta _{1c}\)</span> são aleatórios, sendo o modelo denominado de efeitos mistos: fixos e aleatórios (veja por exemplo <span class="citation">(Longford <a href="#ref-Longford">1993</a>)</span>, <span class="citation">(Diggle, Liang, and Zeger <a href="#ref-diggle">1994</a>)</span> e <span class="citation">(Bryk and Raudenbush <a href="#ref-bryk">1992</a>)</span>.</p>
+<p>Em <a href="agregdesag.html#eq:hier5">(9.5)</a> e <a href="agregdesag.html#eq:hier6">(9.6)</a> os valores de <span class="math inline">\(\sigma _{0}^{2}\)</span>, <span class="math inline">\(\sigma _{1}^{2}\)</span>, <span class="math inline">\(\sigma _{01}\)</span> e <span class="math inline">\(\sigma ^{2}\)</span> servem para medir a variação intra-conglomerados não explicada pelo modelo. O modelo pode ser mais elaborado, na tentativa de reduzir as variações não explicadas <span class="math inline">\(\sigma _{0}^{2}\)</span>, <span class="math inline">\(\sigma _{1}^{2}\)</span> e talvez reduzir a covariância <span class="math inline">\(\sigma _{01}\)</span>. Para isto, podemos introduzir no modelo uma outra variável preditora <span class="math inline">\(a_{j}\)</span>, definida no nível de conglomerados, e considerar o novo modelo dado por</p>
+<span class="math display" id="eq:hier8">\[\begin{equation}
+\left\{ 
+\begin{array}{l}
+Y_{ij}=\beta _{0j}+\beta _{1j}x_{ij}+\varepsilon _{ij} \\ 
+\beta _{0j}=\gamma _{00}+\gamma _{01}a_{j}+\eta _{0j} \\ 
+\beta _{1j}=\gamma _{10}+\gamma _{11}a_{j}+\eta _{1j}\;\;\;.
+\end{array}
+\right.  \tag{9.8}
+\end{equation}\]</span>
+<p>Mais uma vez o objetivo básico da inferência se altera, pois agora está centralizado nos parâmetros <span class="math inline">\(\left( \gamma _{00},\gamma_{01},\gamma _{10},\gamma _{11},\sigma _{0}^{2},\sigma _{1}^{2},\sigma^{2},\sigma _{01}\right)\)</span>, com intervalos de confiança e testes de hipóteses relativos a estes parâmetros. O modelo <a href="agregdesag.html#eq:hier8">(9.8)</a> é de efeitos mistos, com efeitos fixos <span class="math inline">\(\left( \gamma _{00},\gamma_{01},\gamma _{10},\gamma _{11}\right)\)</span> e efeitos aleatórios <span class="math inline">\(\left(\eta _{0j},\eta _{1j}\right)\)</span>.</p>
+<p>Modelos de efeitos mistos da forma <a href="agregdesag.html#eq:hier8">(9.8)</a> podem ser generalizados de diversas maneiras: mais variáveis preditoras <span class="math inline">\(x\)</span> podem ser introduzidas na equação que descreve os valores individuais da variável resposta <span class="math inline">\(y\)</span>; efeitos de estratificação podem ser adicionados mediante introdução de variáveis indicadoras de pertinência a estratos <span class="math inline">\(z\)</span>, como no modelo <a href="agregdesag.html#eq:hier2">(9.2)</a>; mais variáveis preditoras <span class="math inline">\(a\)</span> podem ser introduzidas nas equações que descrevem a variação dos parâmetros aleatórios a nível dos conglomerados; maior número de níveis de conglomeração podem ser considerados; etc. Aqui, o modelo ‘’simples’’ da forma <a href="agregdesag.html#eq:hier8">(9.8)</a> já basta para ilustrar a maior complexidade envolvida na modelagem ao se tentar incorporar efeitos de conglomeração nessa abordagem desagregada.</p>
+<p>Entre os modelos disponíveis para incorporar generalizações dos tipos aqui discutidos, uma classe de modelos bastante ampla e que tem sido objeto de grande interesse na literatura recente é a classe dos modelos hierárquicos, cujas idéias básicas introduziremos na próxima seção.</p>
+</div>
+<div id="modelos-hierarquicos" class="section level2">
+<h2><span class="header-section-number">9.3</span> Modelos Hierárquicos</h2>
+<p>Modelos hierárquicos são indicados quando a estrutura populacional é hierárquica, isto é, quando as unidades elementares de análise estão grupadas em unidades maiores, que por sua vez também podem ou não pertencer a uma estrutura de grupos, numa hierarquia bem definida. Algumas vezes, tal hierarquia é uma propriedade intrínseca da população estudada. Um exemplo interessante de estrutura populacional hierárquica é um sistema educacional. Nele, os estudantes são naturalmente agrupados em turmas, as turmas agrupadas em escolas, as escolas agrupadas por distritos escolares ou municípios, e assim por diante. O uso de modelos hierárquicos para descrever tais estruturas tem motivação nas próprias estruturas, independentemente do procedimento amostral usado para a obtenção dos dados eventualmente observados.</p>
+<p>Adotando como referência básica , vamos apresentar um resumo de alguns modelos hierárquicos básicos, iniciando com o caso de variáveis contínuas. Ainda no contexto de estudantes e turmas do exemplo discutido nesta seção, vamos considerar um modelo hierárquico de dois níveis com as seguintes variáveis:</p>
+<ul>
+<li><p><span class="math inline">\(ESC\)</span> - escore do aluno num teste de Matemática, considerada como variável resposta;</p></li>
+<li><p><span class="math inline">\(SEX\)</span> - sexo do aluno;</p></li>
+<li><p><span class="math inline">\(CSA\)</span> - classe social do aluno;</p></li>
+<li><p><span class="math inline">\(CST\)</span> - classe social média dos alunos da turma;</p></li>
+<li><p><span class="math inline">\(EXP\)</span>- anos de experiência do professor de Matemática.</p></li>
+</ul>
+<p>Observe que as variáveis <span class="math inline">\(SEX\)</span> e <span class="math inline">\(CSA\)</span> se referem ao aluno (nível 1 do modelo), enquanto as variáveis <span class="math inline">\(CST\)</span> e <span class="math inline">\(EXP\)</span> se referem à turma (nível 2 do modelo) à qual o aluno pertence. A variável <span class="math inline">\(EXP\)</span> é uma característica do professor, ao passo que <span class="math inline">\(CST\)</span> é uma variável ‘’contextual’’, baseada numa característica dos alunos agregada para o nível da turma.</p>
+<p>Para fixar idéias, vamos considerar um modelo (nível aluno, ou nível 1) diferente para cada turma, explicando <span class="math inline">\(ESC\)</span> pelas variáveis <span class="math inline">\(SEX\)</span> e <span class="math inline">\(CSA\)</span>:</p>
+<span class="math display" id="eq:hier9">\[\begin{equation}
+ESC_{ij}=\beta _{0j}+\beta _{1j}SEX_{ij}+\beta _{2j}CSA_{ij}+\varepsilon
+_{ij},  \tag{9.9}
+\end{equation}\]</span>
+<p>onde <span class="math inline">\(i=1,\ldots ,n_{j}\)</span> denota o aluno dentro da turma e <span class="math inline">\(j=1,\ldots ,J\)</span> denota a turma.</p>
+é possível que os coeficientes <span class="math inline">\(\beta _{0j}\)</span>, <span class="math inline">\(\beta _{1j}\)</span> e <span class="math inline">\(\beta _{2j}\)</span> variem entre as turmas. Além disso, parte desta variação tem uma componente não-sistemática, mas os coeficientes podem também depender de características das turmas. Vamos considerar as variáveis <span class="math inline">\(CST\)</span> e <span class="math inline">\(EXP\)</span>, medidas no nível da turma (nível 2), para explicar parte da variação dos coeficientes, através das seguintes equações (nível 2):
+<span class="math display" id="eq:hier10">\[\begin{equation}
+\left\{ 
+\begin{array}{l}
+\beta _{0j}=\gamma _{00}+\gamma _{01}CST_{j}+\gamma _{02}EXP_{j}+\eta
+_{0j}\;\;, \\ 
+\beta _{1j}=\gamma _{10}+\gamma _{11}CST_{j}+\gamma _{12}EXP_{j}+\eta
+_{1j}\;\;, \\ 
+\beta _{2j}=\gamma _{20}+\gamma _{21}CST_{j}+\gamma _{22}EXP_{j}+\eta
+_{2j}\;\;,
+\end{array}
+\right.  \tag{9.10}
+\end{equation}\]</span>
+onde <span class="math inline">\(\eta _{0j}\)</span>, <span class="math inline">\(\eta _{1j}\)</span> e <span class="math inline">\(\eta _{2j}\)</span> são erros no nível 2 satisfazendo as condições em <a href="agregdesag.html#eq:hier5">(9.5)</a>. As equações <a href="agregdesag.html#eq:hier9">(9.9)</a> e <a href="agregdesag.html#eq:hier10">(9.10)</a> definem um modelo hierárquico, que pode ser escrito de forma equivalente como
+<span class="math display" id="eq:hier11">\[\begin{eqnarray}
+ESC_{ij} &amp;=&amp;\gamma _{00}+\gamma _{01}CST_{j}+\gamma _{02}EXP_{j}
+\tag{9.11} \\
+&amp;&amp;+\left( \gamma _{10}+\gamma _{11}CST_{j}+\gamma _{12}EXP_{j}\right)
+SEX_{ij}  \nonumber \\
+&amp;&amp;+\left( \gamma _{20}+\gamma _{21}CST_{j}+\gamma _{22}EXP_{j}\right)
+CSA_{ij}  \nonumber \\
+&amp;&amp;+\eta _{0j}+\eta _{1j}SEX_{ij}+\eta _{2j}CSA_{ij}+\varepsilon _{ij}\;\;\;.
+\nonumber
+\end{eqnarray}\]</span>
+<p>A presença dos erros aleatórios <span class="math inline">\(\eta _{0j}\)</span>, <span class="math inline">\(\eta _{1j}\)</span> e <span class="math inline">\(\eta _{2j}\)</span> (de nível 2), torna <a href="agregdesag.html#eq:hier11">(9.11)</a> um modelo misto. Se os erros fossem suprimidos em <a href="agregdesag.html#eq:hier10">(9.10)</a>, o modelo especificado só teria efeitos fixos e a estimação dos parâmetros não traria qualquer problema. Entretanto, a exclusão dos erros de nível 2 em <a href="agregdesag.html#eq:hier10">(9.10)</a> não seria razoável, pois as variáveis definidas no nível 2 não determinam completamente os coeficientes dentro das turmas. Este aspecto fundamental do modelo deve ser incorporado no procedimento de estimação dos respectivos parâmetros de interesse.</p>
+Supondo que só os interceptos dos modelos dentro das turmas variam com as turmas, obtemos o seguinte modelo simplificado:
+<span class="math display" id="eq:hier12">\[\begin{eqnarray}
+ESC_{ij} &amp;=&amp;\gamma _{00}+\gamma _{01}CST_{j}+\gamma _{02}EXP_{j}
+\tag{9.12} \\
+&amp;&amp;+\beta _{1j}SEX_{ij}+\beta _{2j}CSA_{ij}+\left( \eta _{0j}+\varepsilon
+_{ij}\right) \;\;.  \nonumber
+\end{eqnarray}\]</span>
+Além da parte fixa, o modelo contém uma <code>parte residual</code>, om os erros aleatórios com média zero: <span class="math inline">\(\eta _{0j},\)</span> que representa o desvio da média dos indivíduos da turma <span class="math inline">\(j\)</span> com relação à média total, e <span class="math inline">\(\varepsilon _{ij},\)</span> que é o desvio do <span class="math inline">\(i\)</span>-ésimo aluno com relação à média da turma <span class="math inline">\(j\)</span>. Vamos supor, ainda, que os <span class="math inline">\(\eta _{0j}\)</span> e os <span class="math inline">\(\varepsilon _{ij}\)</span> são independentes entre si e os <span class="math inline">\(\eta _{0j}\)</span> são independentes dos <span class="math inline">\(\varepsilon _{ij}\)</span> , com
+<span class="math display" id="eq:hier13">\[\begin{equation}
+E_{M}\left( \eta _{0j}\right) =E_{M}\left( \varepsilon _{ij}\right)
+=0,\;V_{M}\left( \eta _{0j}\right) =\sigma _{0}^{2},\;V_{M}\left(
+\varepsilon _{ij}\right) =\sigma ^{2},\;\forall i,j\;.  \tag{9.13}
+\end{equation}\]</span>
+<p>A parte aleatória do modelo <a href="agregdesag.html#eq:hier12">(9.12)</a> é o termo <span class="math inline">\(\eta _{0j}+\varepsilon _{ij}\)</span>, com distribuição tendo parâmetros <span class="math inline">\(\sigma _{0}^{2}\)</span> e <span class="math inline">\(\sigma ^{2}\)</span> a serem estimados.</p>
+<p>O modelo <a href="agregdesag.html#eq:hier12">(9.12)</a> não permite estudar interações entre variáveis nos dois níveis hierárquicos. Para isto teríamos de supor, por exemplo, que a diferença de desempenho entre sexos varia com as turmas, requerendo que o modelo fosse alterado, fazendo <span class="math inline">\(\beta _{1j}\)</span> depender das variáveis <span class="math inline">\(CST_{j}\)</span> e <span class="math inline">\(EXP_{j}\)</span>. Isto introduziria mais erros aleatórios no modelo e mais parâmetros a serem estimados.</p>
+Voltando ao modelo básico de dois níveis hierárquicos <a href="agregdesag.html#eq:hier11">(9.11)</a>, verificamos que há uma correlação positiva entre respostas de alunos na mesma turma, mas uma correlação nula entre respostas de alunos em turmas diferentes. Assim
+<span class="math display" id="eq:hier14">\[\begin{equation}
+COV_{M}\left( ESC_{ij},ESC_{ij^{^{\prime }}}\right) =COV_{M}\left[ \left(
+\eta _{0j}+\varepsilon _{ij}\right) ,\left( \eta _{0j}+\varepsilon
+_{ij^{^{\prime }}}\right) \right] =\sigma _{0}^{2},  \tag{9.14}
+\end{equation}\]</span>
+<p>pois supusemos que <span class="math inline">\(\varepsilon _{ij}\)</span> e <span class="math inline">\(\varepsilon _{ij^{^{\prime }}}\)</span> são independentes. Por outro lado, condicionando na parte fixa do modelo, tem-se que <span class="math display">\[
+V_{M}\left( ESC_{ij}\right) =V_{M}\left( ESC_{ij^{^{\prime }}}\right)
+=\sigma _{0}^{2}+\sigma ^{2}, 
+\]</span> e portanto</p>
+<span class="math display" id="eq:hier15">\[\begin{equation}
+CORR_{M}\left( ESC_{ij},ESC_{ij^{^{\prime }}}\right) = \frac{\sigma_{0}^{2}}{\sigma _{0}^{2}+\sigma ^{2}}.  \tag{9.15}
+\end{equation}\]</span>
+<p>A expressão <a href="agregdesag.html#eq:hier15">(9.15)</a> define a <code>correlação intraclasse</code> usual que, em nosso exemplo, mede o grau de similaridade entre alunos dentro das turmas ou o grau de conglomeração da variável resposta <span class="math inline">\(ESC_{ij}\)</span> por turmas. Ela é a fração da variância residual atribuída à variância intra-conglomerado. No caso de se supor adicionalmente a normalidade dos dados, foram propostos vários métodos para estimação dos parâmetros do modelo <a href="agregdesag.html#eq:hier11">(9.11)</a>, entre os quais os métodos de Máxima Verossimilhança, de Máxima Verossimilhança Restrita e o Método Iterativo de Mínimos Quadrados Generalizados. Detalhes destes métodos de estimação não serão abordados neste texto, e o leitor interessado deve consultar, por exemplo, <span class="citation">(Bryk and Raudenbush <a href="#ref-bryk">1992</a>)</span>.</p>
+<p>Nas considerações anteriores, não mencionamos explicitamente o plano amostral utilizado. Os modelos hierárquicos, ao incorporarem covariáveis características da estrutura populacional e também do plano a-mos-tral, tais como efeitos de estratificação e de conglomeração, tornam o plano amostral ignorável, condicionalmente nestas características, no sentido definido por . Este raciocínio, porém, não é aplicável quando unidades em qualquer nível da hierarquia são selecionadas com probabilidades desiguais, de formas não consideradas pelas covariáveis. Por exemplo, quando as unidades são selecionadas com probabilidades proporcionais a uma medida de tamanho que é relacionada à variável resposta.  apresentam uma forma de incorporar pesos no ajuste de modelos hierárquicos para compensar diferentes probabilidades de inclusão das unidades na amostra.</p>
+
+<div class="example">
+<span id="ex:unnamed-chunk-53" class="example"><strong>Example 9.1 </strong></span>Plano amostral de pesquisa educacional (, , p. 297).
+</div>
+<p> Os dados deste exemplo se referem a uma pesquisa de avaliação de escolas (SNACS), na qual foi analisado o desempenho em Matemática de alunos da sexta série. A população de conglomerados consistiu em <span class="math inline">\(4.126\)</span> escolas, da qual foi selecionada uma amostra de <span class="math inline">\(53\)</span> escolas, que produziu <span class="math inline">\(1.071\)</span> alunos, numa população de <span class="math inline">\(60.934\)</span> alunos. O tamanho total da amostra de alunos não foi fixado, de início. O plano amostral utilizado foi uma a-mos-tra estratificada de escolas (conglomerados) com um estágio, selecionada de um cadastro de escolas. Foi usada estratificação regional e as amostras nos estratos foram proporcionais ao tamanhos dos estratos.</p>
+<p>A variável resposta binária <span class="math inline">\(DESEMP\)</span>, indica se o aluno atingiu ou não um nível de conhecimento desejado em matemática. As variáveis explicativas quantitativas são:</p>
+<ul>
+<li><p><span class="math inline">\(EXP\)</span> - tempo de experiência do professor;</p></li>
+<li><p><span class="math inline">\(TEMP\)</span> - tempo em minutos gasto pelo aluno em trabalhos de casa, no tempo livre.</p></li>
+</ul>
+<p>Cada preditor foi categorizado em três categorias, da forma a seguir:</p>
+<ul>
+<li><p><span class="math inline">\(EXP\)</span> - <span class="math inline">\(1\)</span>-<span class="math inline">\(10\)</span>; <span class="math inline">\(11\)</span>-<span class="math inline">\(20\)</span> e <span class="math inline">\(21\)</span> ou mais anos de experiência;</p></li>
+<li><p><span class="math inline">\(TEMP\)</span> - <span class="math inline">\(0\)</span>-<span class="math inline">\(14\)</span>; <span class="math inline">\(15\)</span>-<span class="math inline">\(30\)</span>; <span class="math inline">\(31\)</span> ou mais minutos.</p></li>
+</ul>
+<p>Observe que a variável <span class="math inline">\(EXP\)</span> se refere ao professor, enquanto a variável <span class="math inline">\(TEMP\)</span> se refere ao aluno.</p>
+Vários modelos foram ajustados, com complexidades e abordagens diferentes. Considerando inicialmente a abordagem agregada, e tomando as variáveis <span class="math inline">\(EXP\)</span> e <span class="math inline">\(TEMP\)</span> como contínuas, assumindo valores <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span> e <span class="math inline">\(3\)</span>, foi ajustado o modelo logístico
+<span class="math display" id="eq:hier16">\[\begin{equation}
+\log \left( \frac{p_{j}}{1-p_{j}}\right) =\beta _{0}+\beta
+_{1}(TEMP)_{j}+\beta _{2}\left( EXP\right) _{j},  \tag{9.16}
+\end{equation}\]</span>
+<p>no qual <span class="math inline">\(\beta _{0},\beta _{1}\)</span> e <span class="math inline">\(\beta _{2}\)</span> são coeficientes a serem estimados, e o índice <span class="math inline">\(j\)</span> se refere a um domínio de estudo, <span class="math inline">\(j=1,\ldots ,9\)</span> (tais domínios não foram identificados na referência citada).</p>
+Podemos analisar os dados considerando as observações como IID, ignorando a existência de conglomerados e de pesos distintos, que chamaremos aqui de <code>análise ingênua</code>. Neste caso, os coeficientes podem ser estimados pelo método padrão de Máxima Verossimilhança, utilizando um dos pacotes padrões. Os resultados dessa análise são apresentados na Tabela .
+
+<p>Os <span class="math inline">\(p\)</span>valores da Tabela  indicam que os coeficientes são significantemente diferentes de <span class="math inline">\(0\)</span> ao nível de significância <span class="math inline">\(\alpha =5\%\)</span>, sugerindo que todas as variáveis preditoras têm poder de explicação, e portanto devem permanecer no modelo.</p>
+<p>Outra opção é a <code>análise agregada</code>, que incorpora o plano amostral e os pesos através do método de MPV para estimar parâmetros, e do uso de estatísticas baseadas no plano amostral para testar hipóteses. Esta abordagem pode ser usada também na etapa de seleção de modelos, com testes de siginificância baseados, por exemplo, na estatística de Wald ou ajustes desta, no caso de instabilidade. Os resultados dessa análise são apresentados na Tabela .</p>
+
+<p>A coluna de <span class="math inline">\(p\)</span>valores da Tabela  indica que o coeficiente de <span class="math inline">\(% TEMP\)</span> é significantemente diferente de zero, e também que a hipótese de nulidade do coeficiente de <span class="math inline">\(EXP\)</span> não é rejeitada no nível de significância <span class="math inline">\(\alpha =5\%\)</span>.</p>
+<p>Neste exemplo, <span class="math inline">\(f=38\)</span> graus de liberdade para a estimação da matriz de covariância <span class="math inline">\(9\times 9\)</span> baseada no plano amostral. Como o estimador poderia ser instável, foi calculada a estatística corrigida de Wald. A correção usada foi a implementada no pacote PC-CARP, que difere da correção F antes mencionada. Os resultados da análise permanecem os mesmos que os da análise reportada na Tabela , conforme se pode verificar consultando os valores da Tabela . Em ambos os casos, observamos EPAs moderados com máximo em torno de <span class="math inline">\(2\)</span>.</p>
+
+<p>Finalmente, a <code>análise desagregada</code> que, neste exemplo, usaria um <code>modelo hierárquico</code> com dois níveis, a saber:</p>
+<ul>
+<li><p>nível 1 - alunos;</p></li>
+<li><p>nível 2 - turmas.</p></li>
+</ul>
+No modelo hierárquico, para cada nível se considera uma variação aleatória. Denotando por <span class="math inline">\(p_{jk}\)</span> a probabilidade de um aluno da turma <span class="math inline">\(k\)</span> no domínio <span class="math inline">\(j\)</span> atingir o nível desejado em Matemática, podemos modificar o modelo <a href="agregdesag.html#eq:hier16">(9.16)</a> para incluir o efeito da turma empregando
+<span class="math display" id="eq:hier17">\[\begin{equation}
+\log \left( \frac{p_{jk}}{1-p_{jk}}\right) =\beta _{0}+\beta
+_{1}TEMP_{jk}+\beta _{2}EXP_{j}+u_{k}.  \tag{9.17}
+\end{equation}\]</span>
+O erro aleatório <span class="math inline">\(u_{k}\sim N\left( 0,\sigma _{u}^{2}\right)\)</span> representa a variação aleatória no nível 2. A variação no nível 1, entre alunos, é introduzida da seguinte forma. Sob a hipótese binomial, em cada domínio, a proporção de alunos atingindo o nível adequado tem variância <span class="math inline">\(p_{jk}\left( 1-p_{jk}\right) /n_{jk}\)</span>. Vamos supor que a variação residual no nível 1 é denotada por <span class="math inline">\(\sigma _{e}^{2}\)</span>, e também que a variabilidade entre alunos acarreta uma variação extra-binomial
+<span class="math display" id="eq:hier18">\[\begin{equation}
+\frac{p_{jk}\left( 1-p_{jk}\right) \sigma _{e}^{2}}{n_{jk}}\;\;.
+\tag{9.18}
+\end{equation}\]</span>
+<p>Os resultados desta análise são apresentados na Tabela .</p>
+
+<p>A coluna de <span class="math inline">\(p\)</span>valores da Tabela  indica novamente que o coeficiente de <span class="math inline">\(EXP\)</span> não é significantemente diferente de zero ao nível <span class="math inline">\(\alpha =5\%\)</span>. A variação no nível 2 foi estimada por <span class="math inline">\(\sigma_{u}^{2}=0,42\)</span> com desvio-padrão <span class="math inline">\(0,189\)</span>, e portanto é significante ao nível <span class="math inline">\(\alpha =5\%\)</span>. Isto sugere a existência de diferença de avaliação dos professores sobre o aprendizado de Matemática dos alunos.</p>
+<p>No ajuste da Tabela , a variação entre alunos foi tomada como <span class="math inline">\(\sigma _{e}^{2}=1.\)</span> Uma alternativa seria estimar também este valor a partir dos dados.</p>
+<p>Este exemplo ilustra bem o efeito de ignorar efeitos de plano amostral, ao fazer a análise ingênua, cujas conclusões levariam a incluir a variável <span class="math inline">\(EXP\)</span> no modelo quando esta parece não ser importante, como revelaram as análises alternativas que levaram em conta o plano amostral ou a estrutura da população (análises agregada e desagregada, respectivamente).</p>
+
+<div class="example">
+<span id="ex:unnamed-chunk-54" class="example"><strong>Example 9.2 </strong></span>(, , Cap. 5)
+</div>
+<p></p>
+<p>Os dados consitiram em respostas de <span class="math inline">\(8.000\)</span> professores aninhados em <span class="math inline">\(357\)</span> escolas. A média de professores por escola foi <span class="math inline">\(8.000/357=22\)</span> professores por escola. Os níveis da estrutura hierárquica considerados e os índices usados para representá-los foram:</p>
+<ul>
+<li><p>Unidade Primária de Amostragem (UPA) = Escola;</p></li>
+<li><p>Unidade Elementar = Professor;</p></li>
+<li><p><span class="math inline">\(i=\)</span> Professor e <span class="math inline">\(j=\)</span> Escola.</p></li>
+</ul>
+<p>Foram observadas as seguintes variáveis:</p>
+<ul>
+<li>Variável resposta</li>
+</ul>
+<p><span class="math inline">\(y_{ij}=\)</span> Eficiência do Professor;</p>
+<ul>
+<li>Variáveis preditoras, relativas à Escola (unidade de nível 2)</li>
+</ul>
+<p><span class="math inline">\(x_{1j}=\)</span> Experiência Acadêmica Média antes da Escola Secundária;</p>
+<p><span class="math inline">\(x_{2j}=\)</span> Status Sócio-Econômico Médio;</p>
+<p><span class="math inline">\(x_{3j}=\)</span> Proporção Alta de Minorias;</p>
+<p><span class="math inline">\(x_{4j}=\)</span> Tamanho;</p>
+<p><span class="math inline">\(x_{5j}=\)</span> Mistura étnica;</p>
+<p><span class="math inline">\(x_{6j}=\)</span> Mistura de Status Sócio-Econômico;</p>
+<p><span class="math inline">\(x_{7j}=\)</span> Grau de Organização Comunitária (<span class="math inline">\(Comunit\)</span>).</p>
+<p>A idéia deste exemplo é ilustrar como diversos modelos alternativos podem ser usados para analisar os dados sobre eficiência do professor, buscando explicação em variáveis que refletem a estrutura da escola onde atua. Um primeiro modelo que se poderia ajustar, considerando a estrutura hierárquica da população, é o modelo de análise de variância com um fator e com efeitos aleatórios</p>
+<p>Análise de Variância com um Fator e com Efeitos Aleatórios.</p>
+<p>Modelo de nível 1 <span class="math display">\[
+Y_{ij}=\beta _{0j}+r_{ij},
+\]</span></p>
+<p>Modelo de nível 2 <span class="math display">\[
+\beta _{0j}=\gamma _{00}+u_{0j}.
+\]</span></p>
+<p>Ou juntando as duas equações <span class="math display">\[
+Y_{ij}=\gamma _{00}+u_{0j}+r_{ij},
+\]</span> com <span class="math inline">\(E_{M}\left( r_{ij}\right) =E_{M}\left( u_{0j}\right) =0\)</span> e <span class="math inline">\(V_{M}\left( r_{ij}\right) =\sigma ^{2}\)</span> , <span class="math inline">\(V_{M}\left( u_{0j}\right) =\tau _{00}\)</span>.</p>
+<p>Foram obtidas as seguintes estimativas para os parâmetros deste modelo: <span class="math display">\[
+\hat{\sigma}^{2}=0,915;\;\hat{\tau}_{00}=0,084\;\mbox{ e}
+\]</span> <span class="math display">\[
+\mbox{Correlação Intra-Escola}=\frac{\hat{\tau}_{00}}{\hat{
+\sigma}^{2}+\hat{\tau}_{00}}=0,092.
+\]</span></p>
+<p>Logo cerca de apenas <span class="math inline">\(9\%\)</span> da variação na eficiência do professor é explicada pelas diferenças entre as escolas. Como essa proporção da variação explicada é pequena, na tentativa de aumentar o poder explicativo do modelo, vamos introduzir no modelo algumas variáveis explicativas referentes à escola, a saber as variáveis <span class="math inline">\(\left( x_{1},\ldots ,x_{6}\right)\)</span>.</p>
+<p><strong>Modelo II:</strong> Hierárquico com dois níveis, usando as variáveis <span class="math inline">\(\left( x_{1},\ldots ,x_{6}\right)\)</span>, definidas no nível 2, para explicar a variação da eficiência média do professor por escola.</p>
+<p>Modelo de nível 1: <span class="math display">\[
+Y_{ij}=\beta _{0j}+r_{ij}.
+\]</span></p>
+<p>Modelo explanatório de nível 2: <span class="math display">\[
+\beta _{0j}=\gamma _{00}+\sum\limits_{k=1}^{6}\gamma _{0j}x_{kj}+u_{0j}.
+\]</span></p>
+<p>A Tabela  apresenta as estimativas dos parâmetros para este modelo.</p>
+
+<p>Com essas estimativas, a proporção da variação total entre escolas do parâmetro <span class="math inline">\(\beta _{0j}\)</span> (nível médio da eficácia dos professores por escola) explicada pelas variáveis <span class="math inline">\(\left(x_{1},\ldots ,x_{6}\right)\)</span> aumentou para <span class="math display">\[
+\frac{0,084-0,055}{0,084}=35.
+\]</span></p>
+<p>Embora esse aumento do poder explicativo do modelo já tenha sido subs-tan-cial, ainda é relativamente baixa a proporção de variação explicada, e portanto consideramos um terceiro modelo, em que foi adicionada ao Modelo II a variável preditora <span class="math inline">\(x_{7}=Comunit\)</span> ao nível da escola.</p>
+<p><strong>Modelo III:</strong> Modelo Hierárquico com dois níveis, usando as variáveis <span class="math inline">\(\left( x_{1},\ldots ,x_{7}\right)\)</span>, definidas no nível 2, para explicar a variação da eficiência média do professor por escola</p>
+<p>Modelo de nível 1 <span class="math display">\[
+Y_{ij}=\beta _{0j}+r_{ij},
+\]</span></p>
+<p>Modelo Explanatório de nível 2 <span class="math display">\[
+\beta _{0j}=\gamma _{00}+\sum\limits_{k=1}^{7}\gamma _{0j}x_{kj}+u_{0j}.
+\]</span></p>
+<p>A Tabela  apresenta as estimativas dos coeficientes do Modelo III e seus respectivos desvios padrões.</p>
+
+<p>A proporção da variação total entre escolas do parâmetro <span class="math inline">\(\beta _{0j}\)</span> (nível médio da eficácia dos professores por escola) explicada pelas variáveis <span class="math inline">\(\left( x_{1},\ldots ,x_{7}\right)\)</span> aumentou para <span class="math display">\[
+\frac{0,084-0,031}{0,084}=63.
+\]</span></p>
+<p>O incremento na variação explicada devido à introdução da variável <span class="math inline">\(Comunit\)</span> no modelo de nível 2, foi de <span class="math inline">\(63\%-35\%=28\%,\)</span> sugerindo que essa variável é importante para explicar a variação na eficácia do professor. O Modelo III já atinge um nível razoável de poder explicativo e poderia ser considerado satisfatório para algumas finalidades.</p>
+<p>Agora vamos ver o que teria ocorrido caso um analista procurasse ajus-tar um modelo aos dados de forma bastante ingênua, ignorando a estrutura hierárquica da população.</p>
+<p><strong>Modelo IV:</strong> Análise de Regressão Simples (nível 1).</p>
+<p>Vamos considerar um modelo de regressão linear simples, com o resultado do professor <span class="math inline">\(Y_{ij}\)</span> dependendo das características <span class="math inline">\(\left(x_{1j},\ldots ,x_{7j}\right)\)</span> da escola, que teriam seus valores “repetidos” para os professores de uma mesma escola. Esse modelo pode ser escrito como <span class="math display">\[
+Y_{ij}=\gamma _{0}+\sum\limits_{k=1}^{7}\gamma _{k}x_{kj}+e_{ij}.
+\]</span></p>
+<p>A Tabela  apresenta as estimativas de Mínimos Quadrados Ponderados de <span class="math inline">\(\left( \gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)\)</span> com pesos dados por <span class="math inline">\(n_{j}=\)</span> número de professores da escola <span class="math inline">\(j\)</span>.</p>
+
+<p>A proporção de variação explicada pelo Modelo IV é de apenas <span class="math inline">\(5,4\%\)</span>. Os coeficientes da análise de nível 2 (Modelo III, Tabela ) foram bem semelhantes neste exemplo, o que pode ser explicado em parte pela pequena variação do número de professores por escola.</p>
+<p>A introdução da variável <span class="math inline">\(Comunit\)</span>, neste modelo, só aumentou a quantidade de variação explicada em <span class="math inline">\(2,5\%\)</span>. A julgar por este resultado, a importância da variável <span class="math inline">\(Comunit\)</span> é pequena. Este resultado é enganador devido ao fato de usar, no cálculo da razão de variação explicada, a variação total <span class="math inline">\(\left( \tau _{00}+\sigma ^{2}\right)\)</span> no denominador. No modelo hierárquico correspondente (Modelo III) este denominador é <span class="math inline">\(\tau_{00}\)</span>, que é a parte explicável da variação. A estatística de variação explicada da análise hierárquica fornece uma evidência mais clara para se julgar a importância de preditores do nível 2.</p>
+<p>Com este exemplo, procuramos ilustrar uma situação em que a estrutura populacional hierárquica não pode ser ignorada na modelagem, sob pena de se chegar a conclusões incorretas sobre a importância de determinadas variáveis preditoras num modelo de regressão, quando este é ajustado de forma ingênua a dados provenientes de uma estrutura hierárquica. Os modelos hierárquicos II e III aqui considerados são modelos de interceptos aleatórios do tipo <span class="math inline">\(y_{ij}=\beta _{0j}+\mathbf{x}_{j}^{T}\mathbf{\beta +}v_{ij}\;\)</span>, onde os coeficientes de regressão <span class="math inline">\(\mathbf{\beta }\)</span> são considerados fixos e apenas os interceptos <span class="math inline">\(\beta _{0j}=\beta _{0}+u_{j}\)</span> são efeitos aleatórios. Tais modelos poderiam ser generalizados mediante suposição de que os coeficientes de regressão nas variáveis preditoras <span class="math inline">\(\mathbf{\beta}\)</span> também são aleatórios. O Modelo V a seguir é desse tipo.</p>
+<p><strong>Modelo V:</strong> Modelo de Coeficientes Aleatórios <span class="math display">\[
+Y_{ij}=\mathbf{x}_{ij}^{T}\mathbf{\beta }_{j}+v_{ij},
+\]</span> onde <span class="math display">\[
+\mathbf{\beta }_{j}=\mathbf{x}_{j}^{T}\mathbf{\gamma }+\mathbf{\delta }_{j},
+\]</span> com</p>
+<p><span class="math inline">\(\mathbf{\delta }_{j}(Q\times 1)\)</span> e <span class="math inline">\(E_{M}\left( \mathbf{\delta}_{j}\right) =\mathbf{0}\)</span>, <span class="math inline">\(E_{M}\left( v_{ij}\right) =0\)</span>, <span class="math inline">\(V_{M}\left(v_{ij}\right) =\sigma _{1}^{2}\)</span>, <span class="math inline">\(V_{M}\left( \mathbf{\delta }_{j}\right) =\mathbf{\Delta }\)</span>, <span class="math inline">\(\mathbf{\Delta}\)</span> podendo ser não-diagonal.</p>
+<p>Não foram fornecidas estimativas dos parâmetros para este último modelo na referência citada. Sua formulação foi aqui incluída apenas para indicar que o estudo de modelos para a situação prática de interesse não se esgotaria nas alternativas de modelagem aqui consideradas.</p>
+</div>
+<div id="analise-desagregada-pros-e-contras" class="section level2">
+<h2><span class="header-section-number">9.4</span> Análise Desagregada: Prós e Contras</h2>
+<p>Vamos inicialmente listar algumas dificuldades na análise de dados de pes-qui-sas complexas, indicando em cada caso como a análise desagregada poderia ajudar a solucionar o problema. Esta parte é um resumo da seção introdutória do Capítulo 5 do livro de , denominada ‘’Pontos básicos sobre efeitos organizacionais da pesquisa’’.</p>
+<p><strong>Vício de agregação</strong></p>
+<p>Pode ocorrer quando a variável tem significados diferentes e, portanto, pode ter efeitos distintos em níveis organizacionais diversos. Por exemplo, numa pesquisa educacional, a classe social média de uma escola pode ter um efeito sobre o desempenho do aluno diferente do efeito da classe social individual do aluno. Esta última fornece uma medida dos recursos intelectuais e materiais do ambiente familiar de cada aluno individualmente. Já a classe social média dos alunos da escola é uma proxy da medida dos recursos da escola e de seu ambiente normativo. Modelos Hierárquicos ajudam a solucionar este confundimento, fornecendo uma decomposição de qualquer relação entre variáveis, tais como desempenho e classe social, em componentes separadas no nível 1 (<code>indivíduo</code>) e no nível 2 (<code>organização</code>).</p>
+<p><strong>Desvios padrões mal estimados</strong></p>
+<p>Podem ocorrer com dados estruturados em vários níveis, quando não consideramos a dependência entre respostas individuais dentro da mesma organização. Tal dependência pode aparecer pelas experiências compartilhadas dentro da organização ou pela forma como os indivíduos são arregimentados pela organização. Modelos Hierárquicos solucionam este problema incorporando no modelo estatístico um efeito aleatório único para cada unidade organizacional. As estimativas dos desvios padrões dependem da variabilidade destes efeitos aleatórios ou, na terminologia de pesquisas amostrais, as estimativas dos desvios padrões são ajustadas pela correlação intraclasse (ou pelo efeito do plano amostral), que decorre da amostragem por conglomerado.</p>
+<p><strong>Heterogeneidade de regressão</strong></p>
+<p>Pode ocorrer quando as relações entre características individuais e resultados variam ao longo das organizações. Embora este fen^{o}meno seja, frequentemente, considerado como de distúrbio do ponto de vista metodológico, as causas da heterogeneidade da regressão são muitas vezes de interesse substantivo. Modelos hierárquicos possibilitam ao pesquisador estimar um conjunto de coeficientes de regressão para cada unidade organizacional e, então, modelar a variação de conjuntos de coeficientes entre organizações como resultados multivariados a serem explicados por fatores organizacionais.</p>
+<p>Se nos casos citados a abordagem de análise desagregada pode ser vista como uma solução que apresenta vantagens quando comparada com as abordagens tradicionais, em outras situações essa abordagem apresenta desvantagens claras quando comparada, por exemplo, com a abordagem agregada. A seguir listamos algumas dessas situações e discutimos suas implicações para a modelagem desagregada.</p>
+<p><strong>Complexidade do Modelo Desagregado</strong></p>
+<p>Os exemplos de modelagem desagregada discutidos anteriormente e na mai-o-ria dos livros sobre modelos hierárquicos são relativamente simples, ao menos em termos do número de variáveis consideradas. Apesar disso, representam situações mais complexas que as cobertas pelos pacotes padrões até recentemente, e frequentemente requerem o emprego de pacotes ou procedimentos especializados para seu ajuste e análise.</p>
+<p>Quando a modelagem for feita com a finalidade de incorporar aspectos do planejamento amostral, tais como estratificação, conglomeração e probabilidades desiguais de inclusão, a situação desejável é incorporar na formulação do modelo as informações necessárias para que o plano amostral seja ignorável na etapa de estimação dos parâmetros. Mesmo quando se pode incorporar no modelo as informações sobre a estrutura populacional, há casos nos quais o plano amostral é não ignorável e pesos precisam ser incorporados para ajustar o modelo (veja , .</p>
+<p>Para poder incorporar no modelo as informações sobre a estrutura populacional e/ou sobre o plano amostral, é geralmente necessário considerar variáveis indicadoras de pertinência a estratos, medidas de tamanho usadas para definir as probabilidades de inclusão e também informações sobre a estrutura de conglomeração da população e da amostra. Incluir todas essas variáveis num modelo pode apresentar desafios não triviais ao analista: a especificação detalhada da forma do modelo, a estimação de seus inúmeros parâmetros dada apenas uma amostra das unidades da população, a interpretação das estimativas dos parâmetros e o diagnóstico do ajuste efetuado podem todas se tornar tarefas bastante complexas. Essa dificuldade é também mencionada por .</p>
+<p><strong>Disponibilidade da Informação Desagregada</strong></p>
+<p>Outra dificuldade da abordagem desagregada é que esta abordagem requer conhecimento detalhado das variáveis consideradas no planejamento amostral, tais como as identidades dos estratos, conglomerados (em vários níveis) e probabilidades de seleção (possivelmente nos vários estágios de amostragem) para cada unidade amostral. Tais informações muitas vezes não estão disponíveis por razões de proteção da confidencialidade das informações ou outras razões práticas. Modelagem de dados de pesquisas a-mos-trais por analistas secundários é geralmente realizada em condições em que as informações sobre o plano amostral são parcial ou completamente ignoradas. Este é o caso das várias pesquisas para as quais já existe a prática de disseminar arquivos de microdados nos quais, entretanto, as informações de identificação do plano amostral são omitidas (total ou parcialmente) para evitar a revelação indesejada de informações individuais ‘’sensitivas’’.</p>
+<p>Estas dificuldades não podem ser ignoradas quando se optar por uma abordagem desagregada para analisar dados de pesquisas amostrais complexas. Sua consideração foi uma das razões que nos levou a discutir neste livro com maior detalhe a abordagem agregada, que também depende do acesso a informações como as citadas aqui, mas que pode ser aplicada nalguns casos em que uma abordagem desagregada seria impossível. Para citar um exemplo, numa pes-quisa amostral conglomerada em dois ou mais estágios, quando se pretende estimar variâncias pelo método do conglomerado primário numa abordagem agregada de análise, basta conhecer estratos e pertinência a Unidades Primárias de Amostragem, bem como os pesos das unidades individuais. Esse conhecimento pode ser insuficiente para permitir a modelagem de todos os níveis da hierarquia na população, numa abordagem desagregada.</p>
+<p>Apesar desta dificuldade, entretanto, há muitas situações em que uma abordagem desagregada pode oferecer alternativa adequada de análise, não podendo ser desprezada e devendo figurar no arsenal de que dispõe o analista para interpretar os dados da melhor maneira possível. Os progressos recentes nas técnicas e pacotes de modelagem hierárquica têm levado essas técnicas cada vez mais para o domínio da aplicação prática, e a maior disponibilidade de resultados de pesquisas amostrais na forma de arquivos de microdados deve contribuir com essa tendência. Para isso é imprescindível que as agências produtoras de dados estatísticos baseados em pesquisas (amostrais ou mesmo censitárias) passem a fornecer nesses arquivos de microdados as informações sobre a estrutura populacional necessárias à modelagem. Isto é um desafio pois precisa ser feito sem permitir que ocorra a revelação de informações sensitivas individuais, e requer o uso de técnicas apropriadas.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-bryk">
+<p>Bryk, A. S., and S. W. Raudenbush. 1992. <em>Hierarquical Linear Models: Applications and Data Analysis Methods</em>. Newbury Park: Sage.</p>
+</div>
+<div id="ref-Longford">
+<p>Longford, N.T. 1993. <em>Random Coefficient Models</em>. Oxford: Clarendon Press.</p>
+</div>
+<div id="ref-diggle">
+<p>Diggle, P. J., K. Y. Liang, and S. L. Zeger. 1994. <em>Analysis of Longitudinal Data</em>. Oxford: Clarendon Press.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="testetab2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pacotes-para-analisar-dados-amostrais.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-Cap9.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
