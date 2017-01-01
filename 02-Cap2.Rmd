@@ -1,12 +1,12 @@
 # Referencial para Inferência {#refinf}
 
-## Modelagem - Primeiras Idéias
+## Modelagem - Primeiras Idéias {#classic}
 
 Com o objetivo de dar uma primeira idéia sobre o assunto a ser tratado
 neste livro vamos considerar, numa situação simples, algumas
 abordagens alternativas de análise estatística.
 
-### Abordagem 1 - Modelagem Clássica {#classic}
+### Abordagem 1 - Modelagem Clássica 
 
 Seja $Y$ um vetor $P \times 1$ de variáveis de pesquisa (ou de interesse), e sejam $n$ vetores de observações destas variáveis para uma amostra de unidades de interesse denotados por $y_1,\ldots ,y_n$. Em Inferência Estatística, a abordagem que aqui chamamos de `Modelagem clássica` considera $y_1,\ldots ,y_n$ como valores (realizações) de vetores de variáveis aleatórias $y_1,\ldots ,y_n$. Podemos formular modelos bastante sofisticados para a distribuição conjunta destes vetores aleatórios, mas para simplificar a discussão, vamos inicialmente supor que $y_1,\ldots ,y_n$ são vetores aleatórios independentes e identicamente distribuídos (IID), com a mesma distribuição de $Y$, caracterizada pela função de densidade ou de frequência $f(y;\theta)$, onde $\theta \in \Theta$ é o parâmetro (um vetor de dimensão $K \times 1$) indexador da distribuição $f$, e $\Theta$ é o espaço paramétrico. A partir das observações $y_1,\ldots ,y_n$, são feitas inferências a respeito do parâmetro $\theta$. Uma representação gráfica esquemática dessa abordagem é apresentada na Figura \ref{fig:Figura21} a seguir, e uma descrição esquemática resumida é apresentada na Tabela \@ref(tab:modelclass).
 
@@ -83,7 +83,7 @@ questões relevantes da pesquisa são traduzidas em termos de perguntas sobre o 
 dados ajuda a responder tais questões. Esta abordagem é útil em
 estudos analíticos tais como, por exemplo, na investigação da
 natureza da associação entre variáveis (modelos de regressão
-linear ou logística, modelos log-lineares, etc.). Vários exemplos discutidos ao longo dos capítulos seis, sete e oito ilustram situações deste tipo. No capítulo nove o foco vai ser a estimação não paramétrica da forma da função $f(y;\theta )$. 
+linear ou logística, modelos log-lineares, etc.). Vários exemplos discutidos ao longo dos Capítulos \@ref(modreg), \@ref(testqualajust) e \@ref(testetab2 ilustram situações deste tipo. No capítulo nove o foco vai ser a estimação não paramétrica da forma da função $f(y;\theta )$. 
 
 
  Investigando a existência de diferenciais de salários por sexo e raça
@@ -547,7 +547,8 @@ dependa das variáveis de pesquisa, mas somente das variáveis auxiliares. Neste
 
 A definição precisa de ignorabilidade e as condições sob as quais um plano amostral é ignorável para inferência são bastante discutidas na literatura - veja por exemplo \citeonline{Sugden84} ou os capítulos 1 e 2 de \citeonline{CHSK2003}. Porém testar a ignorabilidade do plano amostral é muitas vezes complicado. Em caso de dificuldade, o uso de pesos tem papel fundamental.
 
-Uma forma simples de lidar com os efeitos do plano amostral na estimação pontual de quantidades descritivas populacionais de interesse é incorporar pesos adequados na análise, como se verá no Capítulo 3. Essa forma porém, não resolve por si só o problema de estimação da precisão das estimativas pontuais, nem mesmo o caso da estimação pontual de parâmetros em modelos de superpopulação, o que vai requerer métodos específicos discutidos no Capítulo 5.
+Uma forma simples de lidar com os efeitos do plano amostral na estimação pontual de quantidades descritivas populacionais de interesse é incorporar pesos adequados na análise, como se verá no Capítulo \@ref(capplanamo). Essa forma porém, não resolve por si só o problema de estimação da precisão das estimativas pontuais, nem mesmo o caso da estimação pontual de parâmetros em modelos de superpopulação, o que vai requerer métodos específicos discutidos no Capítulo 
+\@ref(ajmodpar).
 
 Como incluir os pesos para proteger contra planos amostrais \emph{não-ignoráveis} e a possibilidade de má especificação do modelo? Uma idéia é modificar os estimadores dos parâmetros de modo que sejam consistentes (em termos da distribuição de aleatorização) para quantidades descritivas da população finita da qual a amostra foi extraída, que por
 sua vez seriam boas aproximações para os parâmetros dos modelos de interesse. Afirmações probabilísticas são então feitas com respeito à distribuição de aleatorização das estatísticas amostrais $p$ ou com respeito à distribuição mista $Mp$.

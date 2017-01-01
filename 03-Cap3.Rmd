@@ -1,4 +1,4 @@
-# Estimação Baseada no Plano Amostral {#planamo}
+# Estimação Baseada no Plano Amostral {#capplanamo}
 
 ## Estimação de Totais {#estimatotais}
 

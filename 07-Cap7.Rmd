@@ -1,4 +1,4 @@
-# Testes de Qualidade de Ajuste {testqualajust}
+# Testes de Qualidade de Ajuste {#testqualajust}
 
 ## Introdução
 
@@ -85,15 +85,17 @@ Não cobertos & 2 & \multicolumn{1}{|r|}{$160$} & \multicolumn{1}{|r|}{$%
 \end{table}%
 %EndExpansion
 \end{center}
+-----------------------------------------------
+Categoria          $j$ $n_j$ $p_{0j}$
+----------------   --- ----- ---------
+Cobertos por        1   840    0.8
+planos de saúde
 
+Não cobertos        2   160    0.2
 
-```{r}
-obs <- c(840,160) # observados
-n <- sum(obs)
-pobs <- obs/n
-p0 <- c(.8, .2) # valores hipotéticos
-```
-
+Todos empregados    -   1000   1.0
+---------------------------------------------
+Table:(#tab:prophip) Frequências observadas e proporções hipotéticas
 
 As proporções populacionais desconhecidas nas categorias são $p_{j}=N_{j}/N$, onde $N$ é o tamanho total da população de empregados e $N_{j}$ é o número de elementos da população na categoria 
 $j,\ j=1,2$. Os parâmetros populacionais $p_{j}$
@@ -113,7 +115,11 @@ onde as proporções $\widehat{p}_{j}=n_{j}/n$ são estimativas
 amostrais usuais das proporções populacionais $p_{j}$, para $j=1,2$.
 
 ```{r}
-
+p0 <- c(.8, .2)
+obs<- c(840, 160)
+n<- sum(obs)
+phat <- obs/n
+# Estatística de Pearson
 X2P <- sum((obs-n*p0)^2/(n*p0))
 X2P
 ```
@@ -193,10 +199,13 @@ amostral
 ```{r}
 p <- p0[1]
 m <- 50
+# Efeito do plano amostral
 d <- (p*(1-p)/m)/ (p*(1-p)/n)
 d
+# Estatística de Peason corrigida
 X2Pd <- X2P/d
 X2Pd
+# valor-p do teste
 pchisq(X2Pd, 1, lower.tail = F)
 ```
 
@@ -229,8 +238,8 @@ teste da Razão de Verossimilhança e sua correção de
 Rao-Scott são dados respectivamente por 
 
 ```{r}
-# Estat'sitica da RV
-X2RV <- 2*n*sum(pobs*log(pobs/p0))
+# Estatística da RV
+X2RV <- 2*n*sum(phat*log(phat/p0))
 X2RV
 ```
 
@@ -245,6 +254,7 @@ com $p$valor $0,0012$, e
 # Estatística da RV corrigida
 X2RVd <- X2RV/d
 X2RVd
+# valor-p do teste
 pchisq(X2RVd, 1, lower.tail = FALSE)
 ```
 
@@ -323,8 +333,10 @@ distribuída assintoticamente como qui-quadrado com um grau de liberdade.
 O valor da estatística de Wald para esse exemplo é
 
 ```{r}
-Vp <- (pobs[1]*pobs[2])/m # variância usa número efetivo
-X2W <- ((pobs[1]-p0[1])^2)/Vp
+X2N <- 1000* sum((phat-p0)^2/phat)
+Vhatp <- (phat[1]*phat[2])/m # variância usa número efetivo
+# Estatística de Wald
+X2W <- ((phat[1]-p0[1])^2)/Vhatp
 X2W
 pchisq(X2W,1, lower.tail = FALSE)
 ```
@@ -392,12 +404,11 @@ knitr::kable(testprop, booktabs=TRUE,
 Nesta seção foram apresentadas as duas principais abordagens para
 incorporar o efeito do plano amostral na estatística de teste:
 
-\begin{enumerate}
-\item  a metodologia de ajuste de Rao-Scott para as estatísticas de
+1.  a metodologia de ajuste de Rao-Scott para as estatísticas de
 teste de Pearson e da Razão de Verossimilhança;
 
-\item  e a estatística de Wald baseada no plano amostral.
-\end{enumerate}
+2.  e a estatística de Wald baseada no plano amostral.
+
 
 Ambas as abordagens são facilmente generalizáveis para tabelas de
 uma ou duas entradas com número de linhas e colunas maior que dois.
@@ -707,46 +718,71 @@ número de estratos é $H=15$ e o número total de conglomerados
 (setores) na amostra da PPV é $m=276$ e portanto $f=m-H=261$. As informações utilizadas neste exemplo são apresentadas na Tabela \ref
 {tab73}.
 
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Vetores de proporções por classes de idade da PPV 96/97 e Contagem
-96 e EPAs calculados para a PPV - Região Sudeste }\bigskip \label{tab73} 
-\begin{tabular}{|c|c|c|c|c|}
-\hline\hline
-& Contagem & \multicolumn{3}{|c|}{PPV} \\ \cline{2-5}
-Idade & 
-\begin{tabular}{c}
-Proporção \\ 
-$\left( \mathbf{p}_{0}\right)$
-\end{tabular}
-& Frequência & 
-\begin{tabular}{c}
-Proporção \\ 
-$\left( \mathbf{\hat{p}}\right)$
-\end{tabular}
-& EPA \\ \hline\hline
-0 a 14 anos & $0,2842$ & \multicolumn{1}{|r|}{$2.516$} & 
-\multicolumn{1}{|r|}{$0,2845$} & \multicolumn{1}{|r|}{$2,2859$} \\ 
-15 a 29 anos & $0,2774$ & \multicolumn{1}{|r|}{$2.360$} & 
-\multicolumn{1}{|r|}{$0,2678$} & \multicolumn{1}{|r|}{$2,1864$} \\ 
-30 a 44 anos & $0,2263$ & \multicolumn{1}{|r|}{$2.018$} & 
-\multicolumn{1}{|r|}{$0,2225$} & \multicolumn{1}{|r|}{$2,2539$} \\ 
-45 a 59 anos & $0,1261$ & \multicolumn{1}{|r|}{$1.177$} & 
-\multicolumn{1}{|r|}{$0,1316$} & \multicolumn{1}{|r|}{$1,9903$} \\ 
-60 anos e mais & $0,0860$ & \multicolumn{1}{|r|}{$832$} & 
-\multicolumn{1}{|r|}{$0,0935$} & \multicolumn{1}{|r|}{$3,1627$} \\ 
-\hline\hline
-Total & $1,0000$ & \multicolumn{1}{|r|}{$8903$} & \multicolumn{1}{|r|}{$%
-0,9999$} & $-$ \\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Vetores de proporções por classes de idade da PPV 96/97 e Contagem -->
+<!-- 96 e EPAs calculados para a PPV - Região Sudeste }\bigskip \label{tab73}  -->
+<!-- \begin{tabular}{|c|c|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- & Contagem & \multicolumn{3}{|c|}{PPV} \\ \cline{2-5} -->
+<!-- Idade &  -->
+<!-- \begin{tabular}{c} -->
+<!-- Proporção \\  -->
+<!-- $\left( \mathbf{p}_{0}\right)$ -->
+<!-- \end{tabular} -->
+<!-- & Frequência &  -->
+<!-- \begin{tabular}{c} -->
+<!-- Proporção \\  -->
+<!-- $\left( \mathbf{\hat{p}}\right)$ -->
+<!-- \end{tabular} -->
+<!-- & EPA \\ \hline\hline -->
+<!-- 0 a 14 anos & $0,2842$ & \multicolumn{1}{|r|}{$2.516$} &  -->
+<!-- \multicolumn{1}{|r|}{$0,2845$} & \multicolumn{1}{|r|}{$2,2859$} \\  -->
+<!-- 15 a 29 anos & $0,2774$ & \multicolumn{1}{|r|}{$2.360$} &  -->
+<!-- \multicolumn{1}{|r|}{$0,2678$} & \multicolumn{1}{|r|}{$2,1864$} \\  -->
+<!-- 30 a 44 anos & $0,2263$ & \multicolumn{1}{|r|}{$2.018$} &  -->
+<!-- \multicolumn{1}{|r|}{$0,2225$} & \multicolumn{1}{|r|}{$2,2539$} \\  -->
+<!-- 45 a 59 anos & $0,1261$ & \multicolumn{1}{|r|}{$1.177$} &  -->
+<!-- \multicolumn{1}{|r|}{$0,1316$} & \multicolumn{1}{|r|}{$1,9903$} \\  -->
+<!-- 60 anos e mais & $0,0860$ & \multicolumn{1}{|r|}{$832$} &  -->
+<!-- \multicolumn{1}{|r|}{$0,0935$} & \multicolumn{1}{|r|}{$3,1627$} \\  -->
+<!-- \hline\hline -->
+<!-- Total & $1,0000$ & \multicolumn{1}{|r|}{$8903$} & \multicolumn{1}{|r|}{$% -->
+<!-- 0,9999$} & $-$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
+
+```{r, ppvcont, message=FALSE}
+library(survey)
+source("~\\GitHub\\adac\\data\\ppv1.R")
+# cria idade categorizada
+ppv1<-transform(ppv1,IDATAB=cut(V02A08,
+c(0,14,29,44,59,200), include.lowest=T), one=1)
+
+# Objeto de desenho da PPV
+ppv.des<-svydesign(id=~NSETOR,strat=~ESTRATOF,weights=~PESOF,
+data=ppv1,nest=TRUE)
+# Considera região sudeste
+ppv.se.des<-subset(ppv.des,REGIAO==2)
+# estima proporções nas classes de IDATAB
+ppv.id<-svymean(~IDATAB,ppv.se.des,deff=T)
+Vhat<-vcov(ppv.id)
+ppv.id <- data.frame(ppv.id)
+Freq <- svyby(~one, ~IDATAB, ppv.se.des, unwtd.count)$counts
+# matriz de variância-covariância estimada
+tab73 <- data.frame(Idade= levels(ppv1$IDATAB), Prop_Contagem= c(0.2842, 0.2747, 0.2263, 0.1261, 0.0860), Frequência= Freq, Prop_est_PPV= ppv.id$mean,EPA = ppv.id$deff) 
+knitr::kable(tab73, booktabs= TRUE, digits=c(0,4,0,4,4),
+  caption = "Vetores de proporções por classes de idade da PPV 96/97 e Contagem
+96 e EPAs calculados para a PPV - Região Sudeste")
+```
+
 
 Os valores dos EPAs observados na PPV ( coluna 5 da Tabela \ref{tab73})
 mostram que o plano amostral não pode ser ignorado na análise.
@@ -756,34 +792,53 @@ proporções populacionais $\mathbf{p}_{0}$ foi obtido dos resultados
 da Contagem Populacional de 96, que é uma pesquisa censitária. Neste exemplo, vamos calcular a estatística de Pearson e suas correções, e também a estatística de Wald baseada no plano amostral.
 Calculamos a matriz $\widehat{\mathbf{V}}_{p}$ pela aplicação do método de linearização de Taylor descrito na Seção \ref(#taylor) através da fórmula \@ref(eq:qual22) obtendo
 
-\[
-\widehat{\mathbf{V}}_{p}(\widehat{\mathbf{p}})=10^{-6}\times \left[ 
-\begin{tabular}{rrrr|r}
-$52,27$ & $-3,899$ & $-5,672$ & $-19,29$ & $-23,41$ \\ 
-$-3,899$ & $48,16$ & $-29,35$ & $-3,399$ & $-11,52$ \\ 
-$-5,672$ & $-29,35$ & $43,80$ & $-8,226$ & $-0,5558$ \\ 
-$-19,29$ & $-3,399$ & $-8,226$ & $25,55$ & $5,366$ \\ \hline
-$-23,41$ & $-11,52$ & $-0,5558$ & $5,366$ & $30,12$
-\end{tabular}
-\right] \mbox{ .} 
-\]
+<!-- \[ -->
+<!-- \widehat{\mathbf{V}}_{p}(\widehat{\mathbf{p}})=10^{-6}\times \left[  -->
+<!-- \begin{tabular}{rrrr|r} -->
+<!-- $52,27$ & $-3,899$ & $-5,672$ & $-19,29$ & $-23,41$ \\  -->
+<!-- $-3,899$ & $48,16$ & $-29,35$ & $-3,399$ & $-11,52$ \\  -->
+<!-- $-5,672$ & $-29,35$ & $43,80$ & $-8,226$ & $-0,5558$ \\  -->
+<!-- $-19,29$ & $-3,399$ & $-8,226$ & $25,55$ & $5,366$ \\ \hline -->
+<!-- $-23,41$ & $-11,52$ & $-0,5558$ & $5,366$ & $30,12$ -->
+<!-- \end{tabular} -->
+<!-- \right] \mbox{ .}  -->
+<!-- \] -->
+
+```{r}
+dimnames(Vhat)<- NULL
+knitr::kable(round(10^6*Vhat,3))
+```
+
+
+
+
 
 Para obter a estatística de Pearson \@ref(eq:qual11), vamos calcular a
 matriz de covariância populacional e uma estimativa dessa matriz de
 covariância sob suposição de distribuição multinomial,
-dada por 
-$\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}$, resultando em 
-\[
-\mathbf{P}_{0}/n=10^{-6}\times \left[ 
-\begin{tabular}{rrrr|r}
-$22,85$ & $-8,855$ & $-7,223$ & $-4,025$ & $-2,745$ \\ 
-$-8,855$ & $22,51$ & $-7,051$ & $-3,929$ & $-2,680$ \\ 
-$-7,223$ & $-7,051$ & $19,67$ & $-3,205$ & $-2,186$ \\ 
-$-4,025$ & $-3,929$ & $-3,205$ & $12,38$ & $-1,218$ \\ \hline
-$-2,745$ & $-2,680$ & $-2,186$ & $-1,218$ & $8,829$%
-\end{tabular}
-\right] \;. 
-\]
+dada por:
+
+<!-- $\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}$, resultando em  -->
+<!-- \[ -->
+<!-- \mathbf{P}_{0}/n=10^{-6}\times \left[  -->
+<!-- \begin{tabular}{rrrr|r} -->
+<!-- $22,85$ & $-8,855$ & $-7,223$ & $-4,025$ & $-2,745$ \\  -->
+<!-- $-8,855$ & $22,51$ & $-7,051$ & $-3,929$ & $-2,680$ \\  -->
+<!-- $-7,223$ & $-7,051$ & $19,67$ & $-3,205$ & $-2,186$ \\  -->
+<!-- $-4,025$ & $-3,929$ & $-3,205$ & $12,38$ & $-1,218$ \\ \hline -->
+<!-- $-2,745$ & $-2,680$ & $-2,186$ & $-1,218$ & $8,829$% -->
+<!-- \end{tabular} -->
+<!-- \right] \;.  -->
+<!-- \] -->
+
+
+```{r}
+p0 <- c(0.2842, 0.2774, 0.2263, 0.1261, 0.0860)
+n <- sum(Freq)
+p0v <- matrix(p0,ncol=1)
+P0n <- (diag(p0)-p0v%*%t(p0v))/n
+knitr::kable(round(10^6*P0n,3))
+```
 
 Para obter os diversos ajustes desta estatística precisamos usar os
 valores dos EPAs, listados na coluna 5 da Tabela \ref{tab73}. Estes valores

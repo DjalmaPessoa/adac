@@ -48,8 +48,9 @@ inferência sobre quantidades descritivas populacionais tais como
 médias, proporções, razões e totais.
 
 
-## Impacto dos pesos da amostra da PPV {#ppv}
-
+````{example}
+Distribuição dos pesos da amostra da PPV
+```
 
 Os dados deste exemplo são relativos à distribuição dos
 pesos na amostra da Pesquisa sobre Padrões de Vida (PPV), realizada pelo
