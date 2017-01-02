@@ -117,7 +117,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.1" data-path="refinf.html"><a href="refinf.html#abordagem-1---modelagem-classica"><i class="fa fa-check"></i><b>2.1.1</b> Abordagem 1 - Modelagem Clássica</a></li>
 <li class="chapter" data-level="2.1.2" data-path="refinf.html"><a href="refinf.html#abordagem-2---amostragem-probabilistica"><i class="fa fa-check"></i><b>2.1.2</b> Abordagem 2 - Amostragem Probabilística</a></li>
 <li class="chapter" data-level="2.1.3" data-path="refinf.html"><a href="refinf.html#discussao-das-abordagens-1-e-2"><i class="fa fa-check"></i><b>2.1.3</b> Discussão das Abordagens 1 e 2</a></li>
-<li class="chapter" data-level="2.1.4" data-path="refinf.html"><a href="refinf.html#abordagem-3---modelagem-de-superpopulacao"><i class="fa fa-check"></i><b>2.1.4</b> Abordagem 3 - Modelagem de Superpopulação</a></li>
+<li class="chapter" data-level="2.1.4" data-path="refinf.html"><a href="refinf.html#modelsuperpop"><i class="fa fa-check"></i><b>2.1.4</b> Abordagem 3 - Modelagem de Superpopulação</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="refinf.html"><a href="refinf.html#fontes-de-variacao"><i class="fa fa-check"></i><b>2.2</b> Fontes de Variação</a></li>
 <li class="chapter" data-level="2.3" data-path="refinf.html"><a href="refinf.html#modelos-de-superpopulacao"><i class="fa fa-check"></i><b>2.3</b> Modelos de Superpopulação</a></li>
@@ -197,7 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10.1" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html#introducao-4"><i class="fa fa-check"></i><b>10.1</b> Introdução</a></li>
 <li class="chapter" data-level="10.2" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html#pacotes-computacionais"><i class="fa fa-check"></i><b>10.2</b> Pacotes Computacionais</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -219,7 +219,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="epa" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Efeitos do Plano Amostral</h1>
+<h1><span class="header-section-number">Capítulo 4</span> Efeitos do Plano Amostral</h1>
 <div id="introducao" class="section level2">
 <h2><span class="header-section-number">4.1</span> Introdução</h2>
 <p>O cálculo de desvio padrão e o uso de testes de hipóteses desempenham papel fundamental em estudos analíticos. Além de estimativas pontuais, na inferência analítica é necessário transmitir a idéia de precisão associada a essas estimativas e construir intervalos de confiança associados. Valores de desvios padrões, ou alternativamente comprimentos de intervalos de confiança, permitem avaliar a precisão da estimação. O cálculo do desvio padrão também possibilita a construção de estatísticas para testar hipóteses relativas a parâmetros do modelo (tradição de modelagem) ou de parâmetros da população ão finita (tradição de amostragem). Testes de hipóteses são também usados na fase de seleção de modelos.</p>
@@ -231,7 +231,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Para medir o efeito do plano amostral sobre a variância de um estimador, Kish(1965) propôs uma medida que denominou <code>Efeito do Plano Amostral</code> (<span class="math inline">\(\mathbf{EPA}\)</span>) (em inglês, <em>design effect</em> ou, abreviadamente, <em>deff</em>). O objetivo desta medida é comparar planos amostrais no estágio de planejamento da pesquisa. O <span class="math inline">\(\mathbf{EPA}\)</span> de Kish é uma razão entre variâncias (de aleatorização) de um estimador, calculadas para dois planos amostrais alternativos. Vamos considerar um estimador <span class="math inline">\(\hat{\theta}\)</span> e calcular a variância de sua distribuição induzida pelo plano amostral complexo (verdadeiro) <span class="math inline">\(V_{VERD}\left( \hat{\theta}\right)\)</span> e a variância da distribuição do estimador induzida pelo plano de amostragem aleatória simples <span class="math inline">\(V_{AAS}\left(\hat{\theta}\right)\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-14" class="definition"><strong>Definition 4.1 </strong></span>O <strong>Efeito do Plano Amostral (<span class="math inline">\(EPA\)</span>)</strong> <strong>de Kish</strong> para um estimador <span class="math inline">\(\hat{\theta}\)</span> é
+<span id="def:unnamed-chunk-14" class="definition"><strong>Definição 4.1 </strong></span>O <strong>Efeito do Plano Amostral (<span class="math inline">\(EPA\)</span>)</strong> <strong>de Kish</strong> para um estimador <span class="math inline">\(\hat{\theta}\)</span> é
 </div>
 
 <span class="math display" id="eq:epa1">\[\begin{equation}
@@ -239,14 +239,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Para ilustrar o conceito do <span class="math inline">\(\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)\)</span>, vamos considerar um exemplo.</p>
 
 <div class="example">
-<span id="ex:epakish" class="example"><strong>Example 4.1 </strong></span>Efeitos de plano amostral de Kish para estimadores de totais com amostragem conglomerada em dois estágios.
+<span id="ex:epakish" class="example"><strong>Exemplo 4.1 </strong></span>Efeitos de plano amostral de Kish para estimadores de totais com amostragem conglomerada em dois estágios.
 </div>
 <p></p>
 <p><span class="citation">(Nascimento Silva and Moura <a href="#ref-SilvaMou">1990</a>)</span> estimaram o <span class="math inline">\(\mathbf{EPA}_{Kish}\)</span> para estimadores de totais de várias variáveis sócio-econômicas no nível das Regiões Metropolitanas (RMs) utilizando dados do questionário de amostra do Censo Demográfico de 1980. Essas medidas estimadas do efeito do plano amostral foram calculadas para três esquemas amostrais alternativos, todos considerando amostragem conglomerada de domicílios em dois estágios, tendo o setor censitário como unidade primária e o domicílio como unidade secundária de amostragem. Duas das alternativas consideraram seleção de setores com equiprobabilidade via amostragem aleatória simples sem reposição (AC2AAS) e fração amostral constante de domicílios no segundo estágio (uma usando o estimador simples ou <span class="math inline">\(\pi\)</span>-ponderado do total, e outra usando o estimador de razão para o total calibrando no número total de domicílios da população), e uma terceira alternativa considerou a seleção de setores com probabilidades proporcionais ao tamanho (número de domicílios por setor), denominada AC2PPT, e a seleção de <span class="math inline">\(15\)</span> domicílios em cada setor da amostra, e empregando o correspondente estimador <span class="math inline">\(\pi\)</span>-ponderado. Os resultados referentes à Região Metropolitana do Rio de Janeiro para algumas variáveis são apresentados na Tabela <a href="epa.html#tab:epakish">4.1</a> a título de ilustração. Note que a população alvo considera apenas moradores em domicílios particulares permanentes na Região Metropolitana do Rio de Janeiro.</p>
 
 <p>Plano amostral AC2AAS AC2PPT</p>
 <table>
-<caption><span id="tab:epakish">Table 4.1: </span> Efeitos de plano amostral de Kish para variáveis selecionadas - Região Metropolitana do Rio de Janeiro.</caption>
+<caption><span id="tab:epakish">Tabela 4.1: </span> Efeitos de plano amostral de Kish para variáveis selecionadas - Região Metropolitana do Rio de Janeiro.</caption>
 <colgroup>
 <col width="26%" />
 <col width="21%" />
@@ -332,7 +332,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Podemos desta forma introduzir uma medida de efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-15" class="definition"><strong>Definition 4.2 </strong></span>O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span> é
+<span id="def:unnamed-chunk-15" class="definition"><strong>Definição 4.2 </strong></span>O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span> é
 <span class="math display" id="eq:epa2">\[\begin{equation}
 \mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left( \hat{%
 \theta}\right) }{E_{VERD}\left( v_{0}\right) }\;.  \tag{4.2}
@@ -350,7 +350,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Combinações destes aspectos num mesmo plano amostral, resultando na especificação incorreta do plano amostral subjacente a <span class="math inline">\(v_{0},\)</span> podem inflacionar ou reduzir o <span class="math inline">\(\mathbf{EPA}\)</span>. Nesses casos é difícil prever o impacto de ignorar o plano amostral (ou modelo) verdadeiro sobre a análise baseada em hipóteses IID. Por essa razão, é recomendável ao menos estimar os EPAs antes de concluir a análise padrão, para poder então avaliar se há impactos importantes a considerar.</p>
 
 <div class="example">
-<span id="ex:deffuni" class="example"><strong>Example 4.2 </strong></span>Efeitos de plano amostral para estimação de médias na amostragem estratificada simples com alocação desproporcional
+<span id="ex:deffuni" class="example"><strong>Exemplo 4.2 </strong></span>Efeitos de plano amostral para estimação de médias na amostragem estratificada simples com alocação desproporcional
 </div>
 <p></p>
 <p>Neste exemplo consideramos uma população de <span class="math inline">\(N=749\)</span> empresas, para as quais foram observadas as seguintes variáveis:</p>
@@ -363,7 +363,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Para estimar estas médias, as empresas da população foram divididas em dois estratos, definidos a partir da variável PO, conforme indicado na Tabela .</p>
 
 <table>
-<caption><span id="tab:estempr">Table 4.2: </span> Definição da estratificação da população de empresas</caption>
+<caption><span id="tab:estempr">Tabela 4.2: </span> Definição da estratificação da população de empresas</caption>
 <thead>
 <tr class="header">
 <th align="left">Estrato</th>
@@ -408,7 +408,7 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 <p>Note que na apresentação dos resultados os valores dos salários foram expressos em milhares de Reais (R$ <span class="math inline">\(1.000,00\)</span>) e os valores das receitas em milhões de Reais (R$ <span class="math inline">\(1.000.000,00\)</span>). Como a população é conhecida, os parâmetros populacionais de interesse podem ser calculados, obtendo-se os valores na primeira linha da Tabela..</p>
 
 <table style="width:78%;">
-<caption><span id="tab:proestmed">Table 4.3: </span> Propriedades dos estimadores da média das variáveis de pesquisa</caption>
+<caption><span id="tab:proestmed">Tabela 4.3: </span> Propriedades dos estimadores da média das variáveis de pesquisa</caption>
 <colgroup>
 <col width="47%" />
 <col width="15%" />
@@ -445,7 +445,7 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 <p>Como neste exercício a população é conhecida, podemos calcular <span class="math inline">\(V_{AES}\left(\bar{y}_{w}\right)\)</span> através das variâncias de <span class="math inline">\(y\)</span> dentro dos estratos <span class="math inline">\(h=1,2\)</span> ou através da simulação. Esses valores são apresentados respectivamente na primeira e segunda linhas da Tabela , para as duas variáveis de pesquisa consideradas.</p>
 
 <table style="width:99%;">
-<caption><span id="tab:varest">Table 4.4: </span> Propriedades dos estimadore de variância do estimador <span class="math inline">\(\bar{y}_{w}\)</span></caption>
+<caption><span id="tab:varest">Tabela 4.4: </span> Propriedades dos estimadore de variância do estimador <span class="math inline">\(\bar{y}_{w}\)</span></caption>
 <colgroup>
 <col width="68%" />
 <col width="15%" />
@@ -503,7 +503,7 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 
 <p>\end{center}</p>
 <table style="width:61%;">
-<caption><span id="tab:eparec">Table 4.5: </span>Valores dos Efeitos de Plano amostral(EPA) para as médias de Salário e Receita.</caption>
+<caption><span id="tab:eparec">Tabela 4.5: </span>Valores dos Efeitos de Plano amostral(EPA) para as médias de Salário e Receita.</caption>
 <colgroup>
 <col width="13%" />
 <col width="16%" />
@@ -538,7 +538,7 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 <p>Um outro exemplo relevante é utilizado a seguir para ilustrar o fato de que o conceito do <span class="math inline">\(\mathbf{EPA}\)</span> adotado aqui é mais abrangente do que o definido por Kish, em particular porque a origem do efeito pode estar na estrutura da população e não no plano amostral usado para obter os dados.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-16" class="example"><strong>Example 4.3 </strong></span>População conglomerada com conglomerados de tamanho 2 <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, p. 25
+<span id="ex:unnamed-chunk-16" class="example"><strong>Exemplo 4.3 </strong></span>População conglomerada com conglomerados de tamanho 2 <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, p. 25
 </div>
 <p></p>
 <p>Considere uma população de conglomerados de tamanho 2, isto é, onde as unidades (elementares ou de referência) estão grupadas em pares (exemplos de tais populações incluem pares de irmãos gêmeos, casais, jogadores numa dupla de vôlei de praia ou tênis, etc.). Suponha que os valores de uma variável de pesquisa medida nessas unidades têm média <span class="math inline">\(\theta\)</span> e variância <span class="math inline">\(\sigma ^{2}\)</span>, além de uma correlação <span class="math inline">\(\rho\)</span> entre os valores dentro de cada par (correlação intraclasse, veja <span class="citation">(Nascimento Silva and Moura <a href="#ref-SilvaMou">1990</a>)</span>, cap. 2 e <span class="citation">(Haggard <a href="#ref-haggard">1958</a>)</span>. Suponha que um único par é sorteado ao acaso da população e que os valores <span class="math inline">\(y_{1}\)</span> e <span class="math inline">\(y_{2}\)</span> são observados para as duas unidades do par selecionado. O modelo assumido pode então ser representado como <span class="math display">\[
@@ -601,7 +601,7 @@ t_{0}\sim N\left[ 0;\mathbf{EPA}\left( \hat{\theta},v_{0}\right)
 \]</span> onde <span class="math inline">\(\Phi\)</span> é a função de distribuição acumulada de uma <span class="math inline">\(N\left( 0;1\right)\)</span>. Calculamos esta probabilidade para alguns valores do <span class="math inline">\(\mathbf{EPA}\)</span>, que apresentamos na Tabela .</p>
 
 <table>
-<caption><span id="tab:procob">Table 4.6: </span> Probabilidades de cobertura para níveis nominais de 95% e 99%</caption>
+<caption><span id="tab:procob">Tabela 4.6: </span> Probabilidades de cobertura para níveis nominais de 95% e 99%</caption>
 <thead>
 <tr class="header">
 <th align="left"><span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span></th>
@@ -661,7 +661,7 @@ t_{0}\sim N\left[ 0;\mathbf{EPA}\left( \hat{\theta},v_{0}\right)
 <p>Utilizando a correspondência existente entre intervalos de confiança e testes de hipóteses, podemos derivar os níveis de significância nominais e reais subtraindo de <span class="math inline">\(1\)</span> os valores da Tabela . Por exemplo, para <span class="math inline">\(\alpha =0,05\)</span> e <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =2\)</span>, o nível de significância real seria aproximadamente <span class="math inline">\(1-0,83=0,17\)</span>.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-17" class="example"><strong>Example 4.4 </strong></span>Teste de hipótese sobre proporção
+<span id="ex:unnamed-chunk-17" class="example"><strong>Exemplo 4.4 </strong></span>Teste de hipótese sobre proporção
 </div>
 <p> Vamos considerar um exemplo hipotético de teste de hipótese sobre uma proporção, semelhante ao de <span class="citation">(Sudman <a href="#ref-Sud76">1976</a>)</span>, apresentado em p. 196, <span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span>. Uma amostra de <span class="math inline">\(m=50\)</span> conglomerados é extraída de uma grande população de empresas industriais (conglomerados). Suponhamos que cada empresa <span class="math inline">\(i=1,\ldots ,50\)</span> da amostra tenha <span class="math inline">\(n_{i}=20\)</span> empregados. O tamanho total da amostra de empregados (unidades elementares) é <span class="math inline">\(n=\sum_{i}n_{i}=1.000\)</span>. Queremos estudar o acesso dos trabalhadores das empresas a planos de saúde.</p>
 <p>Usando-se conhecimento do ano anterior, foi estabelecida a hipótese de que a proporção de trabalhadores cobertos por planos de saúde é <span class="math inline">\(80\%\)</span>, ou seja <span class="math inline">\(H_{0}:p=p_{0}=0,8\)</span>. Vamos adotar o nível de significância <span class="math inline">\(\alpha =5\%\)</span>.</p>
@@ -701,7 +701,7 @@ Os autovalores <span class="math inline">\(\delta _{1}\geq \ldots \geq \delta _{
 <p>No caso particular onde <span class="math inline">\(\mathbf{\Delta =I}_{K\times K}\)</span> , temos <span class="math inline">\(\delta_{1}=\ldots =\delta _{K}=1\)</span> e os efeitos (univariados) do plano amostral das combinações lineares para componentes de <span class="math inline">\(\mathbf{\hat{\theta}}\)</span> são todos iguais a <span class="math inline">\(1\)</span>. Para ilustrar esse conceito, vamos reconsiderar o Exemplo <a href="epa.html#ex:deffuni">4.2</a> de estimação de médias com amostragem estratificada desproporcional anteriormente apresentado, mas agora considerando a natureza multivariada do problema (há duas variáveis de pesquisa).</p>
 
 <div class="example">
-<span id="ex:deffmult" class="example"><strong>Example 4.5 </strong></span>Efeitos Multivariados do Plano Amostral para as médias de Salários e de Receitas
+<span id="ex:deffmult" class="example"><strong>Exemplo 4.5 </strong></span>Efeitos Multivariados do Plano Amostral para as médias de Salários e de Receitas
 </div>
 <p></p>
 <p>Vamos considerar as variáveis Salário (em R$ <span class="math inline">\(1.000\)</span>) e Receita (em R$ <span class="math inline">\(1.000.000\)</span>) definidas na população de empresas do Exemplo <a href="epa.html#ex:deffuni">4.2</a> e calcular a matriz <span class="math inline">\(\mathbf{EMPA}\left( \mathbf{\hat{\theta},V}_{0}\right)\)</span>, onde <span class="math inline">\(\mathbf{\hat{\theta}=}\left( \overline{SAL}_{w},\overline{REC}_{w}\right) ^{\prime }\)</span>. Neste exemplo, os dados populacionais são conhecidos, e portanto podemos calcular a covariância dos estimadores <span class="math inline">\(\left( \overline{SAL}_{w},\overline{REC}_{w}\right)\)</span>. Usando a mesma notação do Exemplo <a href="epa.html#ex:deffuni">4.2</a>, temos que <span class="math display">\[
@@ -808,7 +808,7 @@ _{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) &gt;\chi _{\alpha
 
 <p>\end{table} \end{center}</p>
 <table>
-<caption><span id="tab:nivsig">Table 4.7: </span>Níveis de significância (%) verdadeiros do teste <span class="math inline">\(T^2\)</span> para o nível nominal de 5% assumindo autovalores iguais para <span class="math inline">\(Delta\)</span>.</caption>
+<caption><span id="tab:nivsig">Tabela 4.7: </span>Níveis de significância (%) verdadeiros do teste <span class="math inline">\(T^2\)</span> para o nível nominal de 5% assumindo autovalores iguais para <span class="math inline">\(Delta\)</span>.</caption>
 <thead>
 <tr class="header">
 <th></th>
@@ -894,7 +894,7 @@ mat.res[i,]&lt;-<span class="kw">c</span>(med_y,<span class="kw">coef</span>(med
 
 </div>
 </div>
-<h3>References</h3>
+<h3>Referências</h3>
 <div id="refs" class="references">
 <div id="ref-SilvaMou">
 <p>Nascimento Silva, P. L. D., and F. A. S. Moura. 1990. “Efeitos de Conglomeração Da Malha Setorial Do Censo Demográfico 80.” Série Textos para Discuss?o 32. Rio de Janeiro: IBGE, Diretoria de Pesquisas.</p>

@@ -250,7 +250,7 @@ propõe um modelo parametrizado como na `abordagem 1`, e além
 disso incorpora na análise os pontos i) a iii) do Capítulo \@ref(introduc)
 mediante aproveitamento da estrutura do planejamento amostral como na `abordagem 2`.
 
-### Abordagem 3 - Modelagem de Superpopulação
+### Abordagem 3 - Modelagem de Superpopulação {#modelsuperpop}
 
 Nesta abordagem, os valores $y_{1},\ldots ,y_{N}$ das variáveis de
 interesse $Y$ na população finita são considerados observações
@@ -263,12 +263,6 @@ Utilizando um plano amostral definido por $p(a)$, obtemos os valores das variáv
 ```{r, modsup,echo=FALSE}
 knitr::include_graphics("Figuras/figura23borda.pdf")
 ```
-
-
-
-
-
-
 
 
 <!-- ![Fig 2.3: Modelagem de Superpopulação](Figuras/figura23borda.pdf) -->

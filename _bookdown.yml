@@ -1,6 +1,32 @@
 book_filename: "bookdown-demo"
 language:
+
+  label:
+
+    fig:  "Figura "
+
+    tab:  "Tabela "
+
+    eq :  "Equação "
+
+    thm:  "Teorema "
+
+    lem:  "Lema "
+
+    def:  "Definição "
+
+    cor: "Corolário "
+
+    prp: "Proposição "
+
+    ex: "Exemplo "
+
+    proof: "Prova "
+
+    remark: "Observação "
+
   ui:
-    chapter_name: "Chapter "
+
+    chapter_name: "Capítulo "
 
 output_dir: "docs"
