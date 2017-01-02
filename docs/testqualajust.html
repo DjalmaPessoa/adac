@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-01-01">
+<meta name="date" content="2017-01-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -513,7 +513,7 @@ X_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{P}^{2}/\hat{\delta}_{.}\;\;\mbox{,}
 \left( J-1\right) \hat{\delta}_{.}=\sum_{j=1}^J\frac{\hat{p}_{j}}{p_{0j}}\left( 1-\hat{p}_{0j}\right)
  \hat{d}_{j}\mbox{,} 
 \]</span> sem estimar os próprios autovalores. Alternativamente, <span class="math inline">\(\hat{\delta}_{.}\)</span> pode ser obtido a partir da estimativa da matriz de efeitos multivariados <span class="math inline">\(\mathbf{\hat{\Delta}}=n\mathbf{P}_{0}^{-1}\mathbf{\hat{V}}_{p}\)</span>, pela equação <span class="math inline">\(\hat{\delta}_{.}=tr\left( \mathbf{\hat{\Delta}}\right) /\left(J-1\right)\)</span>, isto é, dividindo o traço de <span class="math inline">\(\mathbf{\hat{\Delta}}\)</span> pelo número de graus de liberdade.</p>
-<p>A estatística ajustada <span class="math inline">\(X_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span> só tem distribuição as$$toticamente qui-quadrado com <span class="math inline">\(\left( J-1\right)\)</span> graus de liberdade se os autovalores forem iguais. Na prática, esta estatística funciona bem se a variação dos autovalores estimados for pequena. No cálculo de <span class="math inline">\(X_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span> só são necessários os efeitos multivariados de plano amostral dos <span class="math inline">\(\hat{p}_{j}\)</span> que aparecem na diagonal da matriz <span class="math inline">\(\mathbf{\hat{\Delta}}\)</span>. Assim, esta estatística é adequada em análises secundárias de tabelas de contingência, se forem divulgadas as estimativas de efeito de plano amostral correspondentes. O ajuste de primeira ordem de Rao-Scott <span class="math inline">\(X_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span> é mais exato do que o ajuste do EPA médio da estatística <span class="math inline">\(X_{P}^{2}\left( \hat{d}_{.}\right)\)</span>, que é considerada uma alternativa conservadora de <span class="math inline">\(X_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span>.</p>
+<p>A estatística ajustada <span class="math inline">\(X_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span> só tem distribuição assintoticamente qui-quadrado com <span class="math inline">\(\left(J-1\right)\)</span> graus de liberdade se os autovalores forem iguais. Na prática, esta estatística funciona bem se a variação dos autovalores estimados for pequena. No cálculo de <span class="math inline">\(X_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span> só são necessários os efeitos multivariados de plano amostral dos <span class="math inline">\(\hat{p}_{j}\)</span> que aparecem na diagonal da matriz <span class="math inline">\(\mathbf{\hat{\Delta}}\)</span>. Assim, esta estatística é adequada em análises secundárias de tabelas de contingência, se forem divulgadas as estimativas de efeito de plano amostral correspondentes. O ajuste de primeira ordem de Rao-Scott <span class="math inline">\(X_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span> é mais exato do que o ajuste do EPA médio da estatística <span class="math inline">\(X_{P}^{2}\left( \hat{d}_{.}\right)\)</span>, que é considerada uma alternativa conservadora de <span class="math inline">\(X_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span>.</p>
 A correção de primeira ordem de Rao-Scott <a href="testqualajust.html#eq:qual13">(7.13)</a> é introduzida na estatística de Pearson com o objetivo de tornar a média assintótica da estatística ajustada igual ao número de graus de liberdade da distribuição de referência. Se a variação dos autovalores estimados <span class="math inline">\(\hat{\delta}_{j}\)</span> for grande, então será também necessária uma correção da variância de <span class="math inline">\(X_{P}^{2}\)</span>. Isto é obtido através de uma <code>correção de segunda ordem de Rao-Scott</code>, baseada no método de <span class="citation">(Satterthwaite <a href="#ref-sat">1946</a>)</span>. A estatística de Pearson com ajuste de Rao-Scott de segunda ordem é dada por
 <span class="math display" id="eq:qual14">\[\begin{equation}
 X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right) =
@@ -541,7 +541,7 @@ FX_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{W}^{2}/\left( \left( J-1\right)
 <span id="ex:unnamed-chunk-36" class="example"><strong>Example 7.1 </strong></span>Teste de bondade de ajuste para a distribuição etária da PPV 96-97 na Região Sudeste.
 </div>
 <p></p>
-<p>Vamos considerar um teste da bondade de ajuste da distribuição das idades para a Pesquisa sobre Padrões de Vida (PPV) 96/97, para os subgrupos de 0 a 14; de 15 a 29; de 30 a 44; de 45 a 59 e de 60 e mais anos de idade. As proporções correspondentes para a população foram obtidas da Contagem Populacional de 96. Na Região Sudeste, o número de estratos é <span class="math inline">\(H=15\)</span> e o número total de conglomerados (setores) na amostra da PPV é <span class="math inline">\(m=276\)</span> e portanto <span class="math inline">\(f=m-H=261\)</span>. As informações utilizadas neste exemplo são apresentadas na Tabela .</p>
+<p>Vamos considerar um teste da bondade de ajuste da distribuição das idades para a Pesquisa sobre Padrões de Vida (PPV) 96/97, para os subgrupos de 0 a 14; de 15 a 29; de 30 a 44; de 45 a 59 e de 60 e mais anos de idade. As proporções correspondentes para a população foram obtidas da Contagem Populacional de 96. Na Região Sudeste, o número de estratos é <span class="math inline">\(H=15\)</span> e o número total de conglomerados (setores) na amostra da PPV é <span class="math inline">\(m=276\)</span> e portanto <span class="math inline">\(f=m-H=261\)</span>. As informações utilizadas neste exemplo são apresentadas na Tabela <a href="testqualajust.html#tab:ppvcont">7.3</a>.</p>
 <!-- \begin{center} -->
 <!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
 <!-- %BeginExpansion -->
@@ -582,27 +582,6 @@ FX_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{W}^{2}/\left( \left( J-1\right)
 <!-- \end{table}% -->
 <!-- %EndExpansion -->
 <!-- \end{center} -->
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
-<span class="kw">source</span>(<span class="st">&quot;~</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">adac</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">ppv1.R&quot;</span>)
-<span class="co"># cria idade categorizada</span>
-ppv1&lt;-<span class="kw">transform</span>(ppv1,<span class="dt">IDATAB=</span><span class="kw">cut</span>(V02A08,
-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">14</span>,<span class="dv">29</span>,<span class="dv">44</span>,<span class="dv">59</span>,<span class="dv">200</span>), <span class="dt">include.lowest=</span>T), <span class="dt">one=</span><span class="dv">1</span>)
-
-<span class="co"># Objeto de desenho da PPV</span>
-ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span>~NSETOR,<span class="dt">strat=</span>~ESTRATOF,<span class="dt">weights=</span>~PESOF,
-<span class="dt">data=</span>ppv1,<span class="dt">nest=</span><span class="ot">TRUE</span>)
-<span class="co"># Considera região sudeste</span>
-ppv.se.des&lt;-<span class="kw">subset</span>(ppv.des,REGIAO==<span class="dv">2</span>)
-<span class="co"># estima proporções nas classes de IDATAB</span>
-ppv.id&lt;-<span class="kw">svymean</span>(~IDATAB,ppv.se.des,<span class="dt">deff=</span>T)
-Vhat&lt;-<span class="kw">vcov</span>(ppv.id)
-ppv.id &lt;-<span class="st"> </span><span class="kw">data.frame</span>(ppv.id)
-Freq &lt;-<span class="st"> </span><span class="kw">svyby</span>(~one, ~IDATAB, ppv.se.des, unwtd.count)$counts
-<span class="co"># matriz de variância-covariância estimada</span>
-tab73 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Idade=</span> <span class="kw">levels</span>(ppv1$IDATAB), <span class="dt">Prop_Contagem=</span> <span class="kw">c</span>(<span class="fl">0.2842</span>, <span class="fl">0.2747</span>, <span class="fl">0.2263</span>, <span class="fl">0.1261</span>, <span class="fl">0.0860</span>), Frequê<span class="dt">ncia=</span> Freq, <span class="dt">Prop_est_PPV=</span> ppv.id$mean,<span class="dt">EPA =</span> ppv.id$deff) 
-knitr::<span class="kw">kable</span>(tab73, <span class="dt">booktabs=</span> <span class="ot">TRUE</span>, <span class="dt">digits=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">4</span>),
-  <span class="dt">caption =</span> <span class="st">&quot;Vetores de proporções por classes de idade da PPV 96/97 e Contagem</span>
-<span class="st">96 e EPAs calculados para a PPV - Região Sudeste&quot;</span>)</code></pre></div>
 <table>
 <caption><span id="tab:ppvcont">Table 7.3: </span>Vetores de proporções por classes de idade da PPV 96/97 e Contagem 96 e EPAs calculados para a PPV - Região Sudeste</caption>
 <thead>
@@ -652,7 +631,7 @@ knitr::<span class="kw">kable</span>(tab73, <span class="dt">booktabs=</span> <s
 </tr>
 </tbody>
 </table>
-<p>Os valores dos EPAs observados na PPV ( coluna 5 da Tabela ) mostram que o plano amostral não pode ser ignorado na análise. Queremos testar a hipótese <span class="math inline">\(H_{0}:\mathbf{p=p}_{0}\)</span> usando as estimativas de proporções obtidas pela amostra da PPV. O vetor de proporções populacionais <span class="math inline">\(\mathbf{p}_{0}\)</span> foi obtido dos resultados da Contagem Populacional de 96, que é uma pesquisa censitária. Neste exemplo, vamos calcular a estatística de Pearson e suas correções, e também a estatística de Wald baseada no plano amostral. Calculamos a matriz <span class="math inline">\(\widehat{\mathbf{V}}_{p}\)</span> pela aplicação do método de linearização de Taylor descrito na Seção (#taylor) através da fórmula <a href="#eq:qual22">(<strong>??</strong>)</a> obtendo</p>
+<p>Os valores dos EPAs observados na PPV ( coluna 5 da Tabela ) mostram que o plano amostral não pode ser ignorado na análise. Queremos testar a hipótese <span class="math inline">\(H_{0}:\mathbf{p=p}_{0}\)</span> usando as estimativas de proporções obtidas pela amostra da PPV. O vetor de proporções populacionais <span class="math inline">\(\mathbf{p}_{0}\)</span> foi obtido dos resultados da Contagem Populacional de 96, que é uma pesquisa censitária. Neste exemplo, vamos calcular a estatística de Pearson e suas correções, e também a estatística de Wald baseada no plano amostral. Calculamos a matriz <span class="math inline">\(\widehat{\mathbf{V}}_{p}\)</span> pela aplicação do método de linearização de Taylor descrito na Seção <a href="capplanamo.html#taylor">3.3</a> através da fórmula <a href="capplanamo.html#eq:estpa22">(3.22)</a> obtendo</p>
 <!-- \[ -->
 <!-- \widehat{\mathbf{V}}_{p}(\widehat{\mathbf{p}})=10^{-6}\times \left[  -->
 <!-- \begin{tabular}{rrrr|r} -->
@@ -705,7 +684,7 @@ knitr::<span class="kw">kable</span>(<span class="kw">round</span>(<span class="
 </tr>
 </tbody>
 </table>
-<p>Para obter a estatística de Pearson <a href="testqualajust.html#eq:qual11">(7.11)</a>, vamos calcular a matriz de covariância populacional e uma estimativa dessa matriz de covariância sob suposição de distribuição multinomial, dada por:</p>
+<p>Para obter a estatística de Pearson <a href="testqualajust.html#eq:qual11">(7.11)</a>, vamos calcular a matriz de covariância populacional e uma estimativa dessa matriz de covariância sob suposição de distribuição multinomial, dada por <span class="math inline">\(\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}\)</span>, resultando em</p>
 <!-- $\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}$, resultando em  -->
 <!-- \[ -->
 <!-- \mathbf{P}_{0}/n=10^{-6}\times \left[  -->
@@ -718,11 +697,6 @@ knitr::<span class="kw">kable</span>(<span class="kw">round</span>(<span class="
 <!-- \end{tabular} -->
 <!-- \right] \;.  -->
 <!-- \] -->
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p0 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.2842</span>, <span class="fl">0.2774</span>, <span class="fl">0.2263</span>, <span class="fl">0.1261</span>, <span class="fl">0.0860</span>)
-n &lt;-<span class="st"> </span><span class="kw">sum</span>(Freq)
-p0v &lt;-<span class="st"> </span><span class="kw">matrix</span>(p0,<span class="dt">ncol=</span><span class="dv">1</span>)
-P0n &lt;-<span class="st"> </span>(<span class="kw">diag</span>(p0)-p0v%*%<span class="kw">t</span>(p0v))/n
-knitr::<span class="kw">kable</span>(<span class="kw">round</span>(<span class="dv">10</span>^<span class="dv">6</span>*P0n,<span class="dv">3</span>))</code></pre></div>
 <table>
 <tbody>
 <tr class="odd">
@@ -762,36 +736,97 @@ knitr::<span class="kw">kable</span>(<span class="kw">round</span>(<span class="
 </tr>
 </tbody>
 </table>
-<p>Para obter os diversos ajustes desta estatística precisamos usar os valores dos EPAs, listados na coluna 5 da Tabela . Estes valores foram obtidos através do pacote SUDAAN. Para obter as diferentes correções da estatística de Pearson, precisamos calcular as seguintes quantidades: <span class="math display">\[
+<p>Para obter os diversos ajustes desta estatística precisamos usar os valores dos EPAs, listados na coluna 5 da Tabela @ref{tab:ppvcont}. Estes valores foram obtidos através do pacote SUDAAN. Para obter as diferentes correções da estatística de Pearson, precisamos calcular as seguintes quantidades:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dhat &lt;-<span class="st"> </span>tab73$EPA
+dhatdot &lt;-<span class="st"> </span><span class="kw">mean</span>(dhat)
+dhatdot</code></pre></div>
+<pre><code>## [1] 2.376168</code></pre>
+<p><span class="math display">\[
 \hat{d}_{.}=\sum_{j=1}^{5}\hat{d}_{j}/5=2,376\;\;\mbox{,} 
-\]</span> <span class="math display">\[
+\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">phat &lt;-<span class="st"> </span>tab73$Prop_est_PPV
+deltahatdot &lt;-<span class="st"> </span><span class="kw">sum</span>(phat*(<span class="dv">1</span>-p0)*dhat/(<span class="dv">4</span>*p0))
+deltahatdot</code></pre></div>
+<pre><code>## [1] 2.459607</code></pre>
+<p><span class="math display">\[
 \hat{\delta}_{.}=\sum_{j=1}^5\frac{\hat{p}_{j}}{4p_{0j}}
 \left( 1-\hat{p}_{0j}\right) \hat{d}_{j}=2,457\;\;, 
-\]</span> <span class="math display">\[
+\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nppv &lt;-<span class="st"> </span><span class="kw">sum</span> (Freq)
+raz &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>,<span class="dv">5</span>,<span class="dv">5</span>)
+for(i in <span class="dv">1</span>:<span class="dv">5</span>){
+  for(j in <span class="dv">1</span>:<span class="dv">5</span>){
+    raz[i,j]&lt;-<span class="st"> </span>Vhat[i,j]^<span class="dv">2</span>/(p0[i]*p0[j])
+  }
+}
+ahat2_1 &lt;-<span class="st"> </span>nppv^<span class="dv">2</span>*<span class="st"> </span><span class="kw">sum</span>(raz)/(<span class="dv">4</span>*deltahatdot^<span class="dv">2</span>)
+ahat2_1</code></pre></div>
+<pre><code>## [1] 1.249524</code></pre>
+<p><span class="math display">\[
 1+\hat{a}^{2}=8903^{2}\sum\limits_{j=1}^{5}\sum\limits_{k=1}^{5}\left( \hat{V}_{p}^{2}\left( \hat{p}_{j},\hat{p}_{k}\right) /p_{0j}p_{0k}\right) /\left(
 4\times 2,457^{2}\right) =1,253\;\;. 
 \]</span></p>
-<p>Podemos então calcular a estatística <span class="math inline">\(X_{P}^{2}\)</span> de Pearson usando <a href="testqualajust.html#eq:qual11">(7.11)</a>, resultando em <span class="math display">\[
+<p>Podemos então calcular a estatística <span class="math inline">\(X_{P}^{2}\)</span> de Pearson usando <a href="testqualajust.html#eq:qual11">(7.11)</a>, resultando em</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X2P &lt;-nppv*<span class="st"> </span><span class="kw">sum</span>((phat -p0)^<span class="dv">2</span>/p0)
+X2P</code></pre></div>
+<pre><code>## [1] 11.50719</code></pre>
+<p><span class="math display">\[
 X_{P}^{2}=11,64 
 \]</span> com <span class="math inline">\(4\)</span> g.l. e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,020\)</span> .</p>
-<p>A estatística de Pearson com ajustamento de EPA médio é calculada usando <a href="testqualajust.html#eq:qual12">(7.12)</a>, resultando em <span class="math display">\[
+<p>A estatística de Pearson com ajustamento de EPA médio é calculada usando <a href="testqualajust.html#eq:qual12">(7.12)</a>, resultando em</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X2P/dhatdot</code></pre></div>
+<pre><code>## [1] 4.842751</code></pre>
+<p><span class="math display">\[
 X_{P}^{2}\left( \hat{d}_{.}\right) =11,64/2,376=4,901 
 \]</span> com <span class="math inline">\(4\)</span> g.l. e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,298\)</span> .</p>
-<p>A estatística de Pearson com ajustamento de Rao-Scott de primeira ordem, dada por <a href="testqualajust.html#eq:qual13">(7.13)</a>, resulta em <span class="math display">\[
+<p>A estatística de Pearson com ajustamento de Rao-Scott de primeira ordem, dada por <a href="testqualajust.html#eq:qual13">(7.13)</a>, resulta em</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X2P/deltahatdot </code></pre></div>
+<pre><code>## [1] 4.678467</code></pre>
+<p><span class="math display">\[
 X_{P}^{2}\left( \hat{\delta}_{.}\right) =11,64/2,457=4,74 
 \]</span> com <span class="math inline">\(4\)</span> g.l. e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,315\)</span> .</p>
-<p>O ajustamento de Rao-Scott de primeira ordem F-corrigido para a estatís-tica de Pearson, dado por <a href="testqualajust.html#eq:qual15">(7.15)</a>, resulta em <span class="math display">\[
+<p>O ajustamento de Rao-Scott de primeira ordem F-corrigido para a estatística de Pearson, dado por <a href="testqualajust.html#eq:qual15">(7.15)</a>, resulta em</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">J &lt;-<span class="st"> </span><span class="kw">length</span>(phat)
+X2P/<span class="st"> </span>((J<span class="dv">-1</span>)*deltahatdot)</code></pre></div>
+<pre><code>## [1] 1.169617</code></pre>
+<p><span class="math display">\[
 FX_{P}^{2}\left( \hat{\delta}_{.}\right) =4,74/4=1,85
 \]</span> com <span class="math inline">\(4\)</span> e <span class="math inline">\(261\)</span> g.l e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,318\)</span> .</p>
-<p>O ajustamento de Rao-Scott de segunda ordem para a estatística de Pearson, dado por <a href="testqualajust.html#eq:qual14">(7.14)</a>, resulta em <span class="math display">\[
+<p>O ajustamento de Rao-Scott de segunda ordem para a estatística de Pearson, dado por <a href="testqualajust.html#eq:qual14">(7.14)</a>, resulta em</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(X2P/deltahatdot)/ahat2_1</code></pre></div>
+<pre><code>## [1] 3.744199</code></pre>
+<p><span class="math display">\[
 X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right) =4,74/1,253=3,784 
 \]</span> com <span class="math inline">\(4\)</span>/<span class="math inline">\(1,253=3,19\)</span> g.l. e <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,314\)</span> .</p>
-<p>A estatística de Wald baseada no plano amostral (veja equação <a href="testqualajust.html#eq:qual8">(7.8)</a> resulta em <span class="math display">\[
+<p>A estatística de Wald baseada no plano amostral (veja equação <a href="testqualajust.html#eq:qual8">(7.8)</a> resulta em</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">phatv &lt;-<span class="st"> </span><span class="kw">matrix</span>(phat[-<span class="dv">5</span>], <span class="dt">ncol=</span><span class="dv">1</span>)
+p0v &lt;-<span class="st"> </span><span class="kw">matrix</span>(p0[-<span class="dv">5</span>], <span class="dt">ncol=</span><span class="dv">1</span>)
+Vhat0 &lt;-<span class="st"> </span>Vhat[-<span class="dv">5</span>,-<span class="dv">5</span>]
+X2W &lt;-<span class="st">  </span><span class="kw">t</span>(phatv-p0v)%*%<span class="st"> </span><span class="kw">solve</span>(Vhat0)%*%(phatv-p0v)
+X2W</code></pre></div>
+<pre><code>##          [,1]
+## [1,] 5.742022</code></pre>
+<p><span class="math display">\[
 X_{W}^{2}=5,691 
 \]</span> com <span class="math inline">\(4\)</span> g.l. e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,223\)</span> .</p>
-<p>As estatísticas F-corrigidas de Wald, definidas em <a href="testqualajust.html#eq:qual9">(7.9)</a> e <a href="testqualajust.html#eq:qual10">(7.10)</a>, resultam em <span class="math display">\[
+<p>As estatísticas F-corrigidas de Wald, definidas em <a href="testqualajust.html#eq:qual9">(7.9)</a> e <a href="testqualajust.html#eq:qual10">(7.10)</a>, resultam em</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># número de estratos da PPV-sudeste</span>
+nestrat &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(ppv1$ESTRATOF[ppv1$REGIAO==<span class="dv">2</span>]))
+<span class="co"># número de setores da PPV-sudeste</span>
+nsetor &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(ppv1$NSETOR[ppv1$REGIAO==<span class="dv">2</span>]))
+f &lt;-<span class="st"> </span>nsetor -nestrat
+F1p &lt;-<span class="st"> </span>((f-J<span class="dv">+2</span>)/(f*(J<span class="dv">-1</span>)))*X2W
+F1p</code></pre></div>
+<pre><code>##          [,1]
+## [1,] 1.419005</code></pre>
+<p><span class="math display">\[
 F_{1.p}=\frac{261-5+2}{261\times 4}\times 5,690661=1,406 
-\]</span> com <span class="math inline">\(4\)</span> e <span class="math inline">\(259\)</span> g.l. e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,232\)</span> , e <span class="math display">\[
+\]</span> com <span class="math inline">\(4\)</span> e <span class="math inline">\(259\)</span> g.l. e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,232\)</span> , e</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">F2p &lt;-<span class="st"> </span>X2W/(J<span class="dv">-1</span>)
+F2p</code></pre></div>
+<pre><code>##          [,1]
+## [1,] 1.435505</code></pre>
+<p><span class="math display">\[
 F_{2.p}=5,691/4\mbox{ }=1,423 
 \]</span> com 4 e 261 gl e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,228\)</span> .</p>
 <p>A Tabela  resume os valores das diversas estatísticas de teste calculadas, bem como das informações comparativas com as respectivas distribuições de referência.</p>

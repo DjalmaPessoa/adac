@@ -641,8 +641,8 @@ $\hat{\delta}_{.}=tr\left( \mathbf{\hat{\Delta}}\right) /\left(J-1\right)$,
 isto é, dividindo o traço de $\mathbf{\hat{\Delta}}$ pelo número de graus de liberdade.
 
 A estatística ajustada $X_{P}^{2}\left( \hat{\delta}_{.}\right)$ só
-tem distribuição as$\sin $toticamente qui-quadrado com $\left(
-J-1\right)$ graus de liberdade se os autovalores forem iguais. Na
+tem distribuição assintoticamente qui-quadrado com 
+$\left(J-1\right)$ graus de liberdade se os autovalores forem iguais. Na
 prática, esta estatística funciona bem se a variação dos
 autovalores estimados for pequena. No cálculo de $X_{P}^{2}\left( \hat{\delta}_{.}\right)$
 só são necessários os efeitos multivariados
@@ -715,8 +715,7 @@ subgrupos de 0 a 14; de 15 a 29; de 30 a 44; de 45 a 59 e de 60 e mais anos
 de idade. As proporções correspondentes para a população
 foram obtidas da Contagem Populacional de 96. Na Região Sudeste, o
 número de estratos é $H=15$ e o número total de conglomerados
-(setores) na amostra da PPV é $m=276$ e portanto $f=m-H=261$. As informações utilizadas neste exemplo são apresentadas na Tabela \ref
-{tab73}.
+(setores) na amostra da PPV é $m=276$ e portanto $f=m-H=261$. As informações utilizadas neste exemplo são apresentadas na Tabela \@ref(tab:ppvcont).
 
 <!-- \begin{center} -->
 <!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
@@ -759,7 +758,7 @@ número de estratos é $H=15$ e o número total de conglomerados
 <!-- %EndExpansion -->
 <!-- \end{center} -->
 
-```{r, ppvcont, message=FALSE}
+```{r, ppvcont, message=FALSE, echo=FALSE}
 library(survey)
 source("~\\GitHub\\adac\\data\\ppv1.R")
 # cria idade categorizada
@@ -790,7 +789,7 @@ Queremos testar a hipótese $H_{0}:\mathbf{p=p}_{0}$ usando as
 estimativas de proporções obtidas pela amostra da PPV. O vetor de
 proporções populacionais $\mathbf{p}_{0}$ foi obtido dos resultados
 da Contagem Populacional de 96, que é uma pesquisa censitária. Neste exemplo, vamos calcular a estatística de Pearson e suas correções, e também a estatística de Wald baseada no plano amostral.
-Calculamos a matriz $\widehat{\mathbf{V}}_{p}$ pela aplicação do método de linearização de Taylor descrito na Seção \ref(#taylor) através da fórmula \@ref(eq:qual22) obtendo
+Calculamos a matriz $\widehat{\mathbf{V}}_{p}$ pela aplicação do método de linearização de Taylor descrito na Seção \@ref(taylor) através da fórmula \@ref(eq:estpa22) obtendo
 
 <!-- \[ -->
 <!-- \widehat{\mathbf{V}}_{p}(\widehat{\mathbf{p}})=10^{-6}\times \left[  -->
@@ -816,7 +815,7 @@ knitr::kable(round(10^6*Vhat,3))
 Para obter a estatística de Pearson \@ref(eq:qual11), vamos calcular a
 matriz de covariância populacional e uma estimativa dessa matriz de
 covariância sob suposição de distribuição multinomial,
-dada por:
+dada por $\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}$, resultando em 
 
 <!-- $\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}$, resultando em  -->
 <!-- \[ -->
@@ -832,7 +831,7 @@ dada por:
 <!-- \] -->
 
 
-```{r}
+```{r, echo=FALSE}
 p0 <- c(0.2842, 0.2774, 0.2263, 0.1261, 0.0860)
 n <- sum(Freq)
 p0v <- matrix(p0,ncol=1)
@@ -841,22 +840,59 @@ knitr::kable(round(10^6*P0n,3))
 ```
 
 Para obter os diversos ajustes desta estatística precisamos usar os
-valores dos EPAs, listados na coluna 5 da Tabela \ref{tab73}. Estes valores
+valores dos EPAs, listados na coluna 5 da Tabela \@ref{tab:ppvcont}. Estes valores
 foram obtidos através do pacote SUDAAN. Para obter as diferentes correções da estatística de Pearson, precisamos calcular as seguintes
 quantidades: 
+
+```{r}
+dhat <- tab73$EPA
+dhatdot <- mean(dhat)
+dhatdot
+```
+
 \[
 \hat{d}_{.}=\sum_{j=1}^{5}\hat{d}_{j}/5=2,376\;\;\mbox{,} 
 \]
+
+```{r}
+phat <- tab73$Prop_est_PPV
+deltahatdot <- sum(phat*(1-p0)*dhat/(4*p0))
+deltahatdot
+```
+
+
 \[
 \hat{\delta}_{.}=\sum_{j=1}^5\frac{\hat{p}_{j}}{4p_{0j}}
 \left( 1-\hat{p}_{0j}\right) \hat{d}_{j}=2,457\;\;, 
 \]
+
+```{r}
+nppv <- sum (Freq)
+raz <- matrix(NA,5,5)
+for(i in 1:5){
+  for(j in 1:5){
+    raz[i,j]<- Vhat[i,j]^2/(p0[i]*p0[j])
+  }
+}
+ahat2_1 <- nppv^2* sum(raz)/(4*deltahatdot^2)
+ahat2_1
+```
+
+
+
 \[
 1+\hat{a}^{2}=8903^{2}\sum\limits_{j=1}^{5}\sum\limits_{k=1}^{5}\left( \hat{V}_{p}^{2}\left( \hat{p}_{j},\hat{p}_{k}\right) /p_{0j}p_{0k}\right) /\left(
 4\times 2,457^{2}\right) =1,253\;\;. 
 \]
 
 Podemos então calcular a estatística $X_{P}^{2}$ de Pearson usando \@ref(eq:qual11), resultando em 
+
+
+```{r}
+X2P <-nppv* sum((phat -p0)^2/p0)
+X2P
+```
+
 \[
 X_{P}^{2}=11,64 
 \]
@@ -864,27 +900,48 @@ com $4$ g.l. e um $p$valor $0,020$ .
 
 A estatística de Pearson com ajustamento de EPA médio é
 calculada usando \@ref(eq:qual12), resultando em 
+
+```{r}
+X2P/dhatdot
+```
+
+
 \[
 X_{P}^{2}\left( \hat{d}_{.}\right) =11,64/2,376=4,901 
 \]
 com $4$ g.l. e um $p$valor $0,298$ .
 
 A estatística de Pearson com ajustamento de Rao-Scott de primeira ordem,
-dada por \@ref(eq:qual13), resulta em 
+dada por \@ref(eq:qual13), resulta em
+```{r}
+X2P/deltahatdot 
+```
+
 \[
 X_{P}^{2}\left( \hat{\delta}_{.}\right) =11,64/2,457=4,74 
 \]
 com $4$ g.l. e um $p$valor $0,315$ .
 
+
 O ajustamento de Rao-Scott de primeira ordem F-corrigido para a
-estatís\-tica de Pearson, dado por \@ref(eq:qual15), resulta em 
+estatística de Pearson, dado por \@ref(eq:qual15), resulta em 
+```{r}
+J <- length(phat)
+X2P/ ((J-1)*deltahatdot)
+```
+
 \[
 FX_{P}^{2}\left( \hat{\delta}_{.}\right) =4,74/4=1,85
 \]
 com $4$ e $261$ g.l e um $p$valor $0,318$ .
 
 O ajustamento de Rao-Scott de segunda ordem para a estatística de
-Pearson, dado por \@ref(eq:qual14), resulta em 
+Pearson, dado por \@ref(eq:qual14), resulta em
+
+```{r}
+(X2P/deltahatdot)/ahat2_1
+```
+
 \[
 X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right) =4,74/1,253=3,784 
 \]
@@ -892,16 +949,46 @@ com $4$/$1,253=3,19$ g.l. e $p$valor $0,314$ .
 
 A estatística de Wald baseada no plano amostral (veja equação 
 \@ref(eq:qual8) resulta em 
+
+```{r}
+phatv <- matrix(phat[-5], ncol=1)
+p0v <- matrix(p0[-5], ncol=1)
+Vhat0 <- Vhat[-5,-5]
+X2W <-  t(phatv-p0v)%*% solve(Vhat0)%*%(phatv-p0v)
+X2W
+```
+
+
 \[
 X_{W}^{2}=5,691 
 \]
 com $4$ g.l. e um $p$valor $0,223$ .
 
 As estatísticas F-corrigidas de Wald, definidas em \@ref(eq:qual9) e \@ref(eq:qual10), resultam em 
+
+
+
+```{r}
+# número de estratos da PPV-sudeste
+nestrat <- length(unique(ppv1$ESTRATOF[ppv1$REGIAO==2]))
+# número de setores da PPV-sudeste
+nsetor <- length(unique(ppv1$NSETOR[ppv1$REGIAO==2]))
+f <- nsetor -nestrat
+F1p <- ((f-J+2)/(f*(J-1)))*X2W
+F1p
+```
+
 \[
 F_{1.p}=\frac{261-5+2}{261\times 4}\times 5,690661=1,406 
 \]
 com $4$ e $259$ g.l. e um $p$valor $0,232$ , e 
+
+
+```{r}
+F2p <- X2W/(J-1)
+F2p
+```
+
 \[
 F_{2.p}=5,691/4\mbox{ }=1,423 
 \]

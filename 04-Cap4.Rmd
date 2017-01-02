@@ -602,9 +602,9 @@ Table:(#tab:varest) Propriedades dos estimadore de variância do estimador $\bar
 Os valores de $E_{VERD}\left( v_{0}\left( \overline{SAL}_{w}\right) \right)$
 e de $E_{VERD}\left( v_{0}\left( \overline{REC}_{w}\right) \right)$ foram
 também calculados a partir das variâncias dentro e entre estratos na
-população, resultando nos valores na linha 3 da Tabela \@ref(tab:tab:varest),
+população, resultando nos valores na linha 3 da Tabela \@ref(tab:varest),
 e estimativas desses valores baseadas nas 500 amostras da simulação
-são apresentadas na linha 4 da Tabela \@ref(tab:tab:varest). Os valores para o 
+são apresentadas na linha 4 da Tabela \@ref(tab:varest). Os valores para o 
 $\mathbf{EPA}$ foram calculados tanto com base nas estimativas de simulação como nos valores populacionais das variâncias, cujos cálculos estão ilustrados a seguir:
 
 \begin{eqnarray*}

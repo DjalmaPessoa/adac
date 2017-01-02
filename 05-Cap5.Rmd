@@ -272,7 +272,7 @@ pesquisa $y$ num dado estrato usando os dados da PNAD é feita
 rotineiramente com estimadores ponderados de tipo razão 
 $\widehat{Y}_{R}=\widehat{Y}_{\pi }\,X\,/\,\widehat{X}_{\pi }=\sum_{i\in s}w_{i}^{R}y_{i}$
 (tal como definidos por \@ref(3.15), com pesos dados por 
-$w_{i}^{R}=\pi_{i}^{-1}X\,/\,\widehat{X}_{\pi }$ (veja \@ref(eq:modpar17), onde $X$ é o total
+$w_{i}^{R}=\pi_{i}^{-1}X\,/\,\widehat{X}_{\pi }$ (veja \@ref(eq:estpa17), onde $X$ é o total
 da população no estrato obtido por métodos demográficos de
 projeção, utilizado como variável auxiliar, e $\widehat{X}_{\pi}$ e $\widehat{Y}_{\pi}$ são os estimadores $\pi$-ponderados de $X$ e 
 $Y$ respectivamente. Para estimar para conjuntos de estratos basta somar as
@@ -379,7 +379,7 @@ poderiam introduzir ou causar `vícios`;
 A `robustez dos procedimentos` que incorporam pesos é obtida pela
 mudança de foco da inferência para `quantidades da população finita`, que definem parâmetros-alvo alternativos aos
 parâmetros do modelo de superpopulação, conforme já
-discutido na Seção \@ref(superpop).
+discutido na Seção \@ref(modelsuperpop).
 
 A questão da construção dos pesos não será tratada neste
 texto, usando-se sempre como peso o inverso da probabilidade de inclusão

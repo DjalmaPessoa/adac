@@ -896,7 +896,7 @@ empregado para estimar variâncias.
 
 Com a finalidade de melhorar a aproximação da distribuição
 da estatística de teste, podem ser utilizados ajustes e correções da estatística $X_{W}^{2}$, que são apresentados com mais
-detalhes nos Capítulos \@ref(testequalajust) e \@ref(testeta2) para o caso da análise de dados
+detalhes nos Capítulos \@ref(testqualajust) e \@ref(testetab2) para o caso da análise de dados
 categóricos.
 
 A especificação de um procedimento para testar hipóteses sobre
