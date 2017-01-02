@@ -829,9 +829,122 @@ F2p</code></pre></div>
 <p><span class="math display">\[
 F_{2.p}=5,691/4\mbox{ }=1,423 
 \]</span> com 4 e 261 gl e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,228\)</span> .</p>
-<p>A Tabela  resume os valores das diversas estatísticas de teste calculadas, bem como das informações comparativas com as respectivas distribuições de referência.</p>
-
-<p>Examinando os resultados da Tabela , verificamos que o teste clássico de Pearson rejeita a hipótese nula <span class="math inline">\(H_{0}\)</span> no nível <span class="math inline">\(% \alpha =5\%\)</span>, diferentemente de todos os outros testes<span class="math inline">\(.\)</span> Os valores das estatísticas com ajustes de Rao-Scott (com ou sem correção F) são semelhantes e parecem corrigir exagerademente o <span class="math inline">\(p\)</span>valor dos testes. A estatística de Wald baseada no plano amostral e suas correções F, que têm valores quase iguais, produzem uma correção menor no <span class="math inline">\(% p\)</span>valor do teste. Nesse exemplo, como o número de graus de liberdade (dado pelo número de unidades primárias na amostra menos o número de estratos)<span class="math inline">\(f=m-H=261\)</span> é grande, a correção F tem pouco efeito, tanto nas estatísticas com ajustes de primeira e segunda ordem de Rao-Scott, como na estatística Wald.</p>
+<p>A Tabela <a href="testqualajust.html#tab:estaltteste">7.4</a> resume os valores das diversas estatísticas de teste calculadas, bem como das informações comparativas com as respectivas distribuições de referência.</p>
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Valores e $p$valores de estatísticas alternativas de teste}\bigskip  -->
+<!-- \label{tab74}  -->
+<!-- \begin{tabular}{|c|c|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- Estatística & Tipo & Valor & Distribuição & $p$valor \\  -->
+<!-- \hline\hline -->
+<!-- $X_{P}^{2}$ &  -->
+<!-- \begin{tabular}{c} -->
+<!-- Adequada \\  -->
+<!-- para IID -->
+<!-- \end{tabular} -->
+<!-- & \multicolumn{1}{|r|}{$11,640$} & $\chi ^{2}(4)$ & $0,020$ \\ \hline -->
+<!-- $X_{P}^{2}\left( \hat{d}_{.}\right)$ & Ajustes e & \multicolumn{1}{|r|}{$% -->
+<!-- 4,901$} & $\chi ^{2}(4)$ & $0,298$ \\  -->
+<!-- $X_{P}^{2}\left( \hat{\delta}_{.}\right)$ & correções da &  -->
+<!-- \multicolumn{1}{|r|}{$4,740$} & $\chi ^{2}(4)$ & $0,315$ \\  -->
+<!-- $FX_{P}^{2}\left( \hat{\delta}_{.}\right)$ & Estatística &  -->
+<!-- \multicolumn{1}{|r|}{$1,850$} & $F\left( 4;261\right)$ & $0,318$ \\  -->
+<!-- $X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$ & $X_{P}^{2}$ &  -->
+<!-- \multicolumn{1}{|r|}{$3,784$} & $\chi ^{2}(3,19)$ & $0,314$ \\ \hline -->
+<!-- $X_{W}^{2}$ & Baseadas no & \multicolumn{1}{|r|}{$5,691$} & $\chi ^{2}(4)$ &  -->
+<!-- $0,223$ \\  -->
+<!-- $F_{1.p}$ & plano & \multicolumn{1}{|r|}{$1,406$} & $F\left( 4;259\right)$ -->
+<!-- & $0,232$ \\  -->
+<!-- $F_{2.p}$ & amostral & \multicolumn{1}{|r|}{$1,423$} & $F\left( 4;261\right)  -->
+<!-- $ & $0,228$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
+<table style="width:100%;">
+<caption><span id="tab:estaltteste">Tabela 7.4: </span>Valores e valores-p de estatísticas alternativas de teste</caption>
+<colgroup>
+<col width="45%" />
+<col width="16%" />
+<col width="5%" />
+<col width="22%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Estatística</th>
+<th align="center">Tipo</th>
+<th align="left">Valor</th>
+<th align="center">Distribuição</th>
+<th align="right">valor-<span class="math inline">\(p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(X_{P}^{2}\)</span></td>
+<td align="center">Adequada para IID</td>
+<td align="left">11.640</td>
+<td align="center"><span class="math inline">\(\chi ^{2}(4)\)</span></td>
+<td align="right">0.020</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(X_{P}^{2}\left( \hat{d}_{.}\right)\)</span></td>
+<td align="center">Ajustes e</td>
+<td align="left">4.901</td>
+<td align="center"><span class="math inline">\(\chi ^{2}(4)\)</span></td>
+<td align="right">0.298</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(X_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span></td>
+<td align="center">correções da</td>
+<td align="left">4.740</td>
+<td align="center"><span class="math inline">\(\chi ^{2}(4)\)</span></td>
+<td align="right">0.315</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(FX_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span></td>
+<td align="center">Estatística</td>
+<td align="left">1.850</td>
+<td align="center"><span class="math inline">\(F\left( 4;261\right)\)</span></td>
+<td align="right">0.318</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)\)</span></td>
+<td align="center"><span class="math inline">\(X_{P}^{2}\)</span></td>
+<td align="left">3.784</td>
+<td align="center"><span class="math inline">\(\chi ^{2}(3,19)\)</span></td>
+<td align="right">0.314</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(X_{W}^{2}\)</span></td>
+<td align="center">Baseadas no</td>
+<td align="left">5.691</td>
+<td align="center"><span class="math inline">\(\chi ^{2}(4)\)</span></td>
+<td align="right">0.223</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(F_{1.p}\)</span></td>
+<td align="center">plano</td>
+<td align="left">1.406</td>
+<td align="center"><span class="math inline">\(F\left( 4;259\right)\)</span></td>
+<td align="right">0.232</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(F_{2.p}\)</span></td>
+<td align="center">amostral</td>
+<td align="left">1.423</td>
+<td align="center"><span class="math inline">\(F\left( 4;261\right)\)</span></td>
+<td align="right">0.228</td>
+</tr>
+</tbody>
+</table>
+<p>Examinando os resultados da Tabela <a href="testqualajust.html#tab:estaltteste">7.4</a>, verificamos que o teste clássico de Pearson rejeita a hipótese nula <span class="math inline">\(H_{0}\)</span> no nível <span class="math inline">\(% \alpha =5\%\)</span>, diferentemente de todos os outros testes<span class="math inline">\(.\)</span> Os valores das estatísticas com ajustes de Rao-Scott (com ou sem correção F) são semelhantes e parecem corrigir exagerademente o <span class="math inline">\(p\)</span>valor dos testes. A estatística de Wald baseada no plano amostral e suas correções F, que têm valores quase iguais, produzem uma correção menor no <span class="math inline">\(% p\)</span>valor do teste. Nesse exemplo, como o número de graus de liberdade (dado pelo número de unidades primárias na amostra menos o número de estratos)<span class="math inline">\(f=m-H=261\)</span> é grande, a correção F tem pouco efeito, tanto nas estatísticas com ajustes de primeira e segunda ordem de Rao-Scott, como na estatística Wald.</p>
 </div>
 </div>
 <div id="laboratorio-de-r-4" class="section level2">
@@ -848,7 +961,7 @@ fr_ppv_id&lt;-<span class="st"> </span><span class="kw">data.frame</span>(ppv.id
 fr_ppv_id &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="dt">Idade=</span> <span class="kw">c</span>(<span class="st">&quot;0 a 14 anos&quot;</span>,<span class="st">&quot;15 a 29 anos&quot;</span>, <span class="st">&quot;30 a 44 anos&quot;</span>,<span class="st">&quot;45 a 59 anos&quot;</span>, <span class="st">&quot;60 anos e mais&quot;</span>), fr_ppv_id)
 knitr::<span class="kw">kable</span>(fr_ppv_id, <span class="dt">booktabs=</span> <span class="ot">TRUE</span>, <span class="dt">digits=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">3</span>), <span class="dt">caption=</span><span class="st">&quot;Estimativas das proporções nas classes&quot;</span>) </code></pre></div>
 <table>
-<caption><span id="tab:estpropclas">Tabela 7.4: </span>Estimativas das proporções nas classes</caption>
+<caption><span id="tab:estpropclas">Tabela 7.5: </span>Estimativas das proporções nas classes</caption>
 <thead>
 <tr class="header">
 <th align="left">Idade</th>

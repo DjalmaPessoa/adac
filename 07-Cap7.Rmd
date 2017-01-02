@@ -994,49 +994,78 @@ F_{2.p}=5,691/4\mbox{ }=1,423
 \]
 com 4 e 261 gl e um $p$valor $0,228$ .
 
-A Tabela \ref{tab74} resume os valores das diversas estatísticas de
+A Tabela \@ref(tab:estaltteste) resume os valores das diversas estatísticas de
 teste calculadas, bem como das informações comparativas com as
 respectivas distribuições de referência.
 
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Valores e $p$valores de estatísticas alternativas de teste}\bigskip 
-\label{tab74} 
-\begin{tabular}{|c|c|c|c|c|}
-\hline\hline
-Estatística & Tipo & Valor & Distribuição & $p$valor \\ 
-\hline\hline
-$X_{P}^{2}$ & 
-\begin{tabular}{c}
-Adequada \\ 
-para IID
-\end{tabular}
-& \multicolumn{1}{|r|}{$11,640$} & $\chi ^{2}(4)$ & $0,020$ \\ \hline
-$X_{P}^{2}\left( \hat{d}_{.}\right)$ & Ajustes e & \multicolumn{1}{|r|}{$%
-4,901$} & $\chi ^{2}(4)$ & $0,298$ \\ 
-$X_{P}^{2}\left( \hat{\delta}_{.}\right)$ & correções da & 
-\multicolumn{1}{|r|}{$4,740$} & $\chi ^{2}(4)$ & $0,315$ \\ 
-$FX_{P}^{2}\left( \hat{\delta}_{.}\right)$ & Estatística & 
-\multicolumn{1}{|r|}{$1,850$} & $F\left( 4;261\right)$ & $0,318$ \\ 
-$X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$ & $X_{P}^{2}$ & 
-\multicolumn{1}{|r|}{$3,784$} & $\chi ^{2}(3,19)$ & $0,314$ \\ \hline
-$X_{W}^{2}$ & Baseadas no & \multicolumn{1}{|r|}{$5,691$} & $\chi ^{2}(4)$ & 
-$0,223$ \\ 
-$F_{1.p}$ & plano & \multicolumn{1}{|r|}{$1,406$} & $F\left( 4;259\right)$
-& $0,232$ \\ 
-$F_{2.p}$ & amostral & \multicolumn{1}{|r|}{$1,423$} & $F\left( 4;261\right) 
-$ & $0,228$ \\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
 
-Examinando os resultados da Tabela \ref{tab74}, verificamos que o teste
+
+
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Valores e $p$valores de estatísticas alternativas de teste}\bigskip  -->
+<!-- \label{tab74}  -->
+<!-- \begin{tabular}{|c|c|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- Estatística & Tipo & Valor & Distribuição & $p$valor \\  -->
+<!-- \hline\hline -->
+<!-- $X_{P}^{2}$ &  -->
+<!-- \begin{tabular}{c} -->
+<!-- Adequada \\  -->
+<!-- para IID -->
+<!-- \end{tabular} -->
+<!-- & \multicolumn{1}{|r|}{$11,640$} & $\chi ^{2}(4)$ & $0,020$ \\ \hline -->
+<!-- $X_{P}^{2}\left( \hat{d}_{.}\right)$ & Ajustes e & \multicolumn{1}{|r|}{$% -->
+<!-- 4,901$} & $\chi ^{2}(4)$ & $0,298$ \\  -->
+<!-- $X_{P}^{2}\left( \hat{\delta}_{.}\right)$ & correções da &  -->
+<!-- \multicolumn{1}{|r|}{$4,740$} & $\chi ^{2}(4)$ & $0,315$ \\  -->
+<!-- $FX_{P}^{2}\left( \hat{\delta}_{.}\right)$ & Estatística &  -->
+<!-- \multicolumn{1}{|r|}{$1,850$} & $F\left( 4;261\right)$ & $0,318$ \\  -->
+<!-- $X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$ & $X_{P}^{2}$ &  -->
+<!-- \multicolumn{1}{|r|}{$3,784$} & $\chi ^{2}(3,19)$ & $0,314$ \\ \hline -->
+<!-- $X_{W}^{2}$ & Baseadas no & \multicolumn{1}{|r|}{$5,691$} & $\chi ^{2}(4)$ &  -->
+<!-- $0,223$ \\  -->
+<!-- $F_{1.p}$ & plano & \multicolumn{1}{|r|}{$1,406$} & $F\left( 4;259\right)$ -->
+<!-- & $0,232$ \\  -->
+<!-- $F_{2.p}$ & amostral & \multicolumn{1}{|r|}{$1,423$} & $F\left( 4;261\right)  -->
+<!-- $ & $0,228$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
+
+---------------------------------------------------------------------------------------------------------------------
+           Estatística                                      Tipo          Valor    Distribuição              valor-$p$
+----------------------------------------------------- ------------------  ------ -----------------------   ---------- 
+$X_{P}^{2}$                                            Adequada para IID  11.640    $\chi ^{2}(4)$            0.020
+
+$X_{P}^{2}\left( \hat{d}_{.}\right)$                   Ajustes e          4.901     $\chi ^{2}(4)$            0.298
+
+$X_{P}^{2}\left( \hat{\delta}_{.}\right)$              correções da       4.740     $\chi ^{2}(4)$            0.315
+
+$FX_{P}^{2}\left( \hat{\delta}_{.}\right)$             Estatística        1.850    $F\left( 4;261\right)$     0.318
+
+$X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$  $X_{P}^{2}$        3.784    $\chi ^{2}(3,19)$          0.314
+
+$X_{W}^{2}$                                            Baseadas no        5.691     $\chi ^{2}(4)$            0.223
+
+$F_{1.p}$                                              plano              1.406   $F\left( 4;259\right)$      0.232
+
+$F_{2.p}$                                              amostral           1.423   $F\left( 4;261\right)$      0.228 
+-----------------------------------------------------------------------------------------------------------------------
+Table:(#tab:estaltteste)Valores e valores-p de estatísticas alternativas de teste
+
+
+
+
+
+
+Examinando os resultados da Tabela \@ref(tab:estaltteste), verificamos que o teste
 clássico de Pearson rejeita a hipótese nula $H_{0}$ no nível $%
 \alpha =5\%$, diferentemente de todos os outros testes$.$ Os valores das
 estatísticas com ajustes de Rao-Scott (com ou sem correção F)
@@ -1115,6 +1144,7 @@ Cálculo do valor-p:
 ```{r}
 round(pchisq(X2_P,4,lower.tail=FALSE),digits=3)
 ```
+
 
 
 
