@@ -21,9 +21,9 @@ language:
 
     ex: "Exemplo "
 
-    proof: "Prova "
+    proof: "Prova. "
 
-    remark: "Observação "
+    remark: "Observação. "
 
   ui:
 

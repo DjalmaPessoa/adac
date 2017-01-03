@@ -646,22 +646,22 @@ variâncias associadas a estimativas pontuais de médias e totais. Tal
 situação se deve ao uso ingênuo de pacotes estatísticos
 padrões desenvolvidos para analisar amostras IID, sem a devida consideração dos pesos e plano amostral.
 
-\begin{center}
-\begin{table}[tbp] \centering
-\caption{Valores dos Efeitos de Plano Amostral (EPA) para as médias de
-Salário e de Receita }\bigskip \label{tab45} 
-\begin{tabular}{|c|c|c|c|}
-\hline\hline
-Variável & Estimativa & Simulação & População \\ 
-\hline\hline
-Salário & Variância & \multicolumn{1}{|r|}{$231,84$} & 
-\multicolumn{1}{|r|}{$244,18$} \\ 
-& \textbf{$EPA$} & \multicolumn{1}{|r|}{$0,142$} & \multicolumn{1}{|r|}{$0,151$} \\ \hline
-Receita & Variância & \multicolumn{1}{|r|}{$0,32569$} & 
-\multicolumn{1}{|r|}{$0,43500$} \\ 
-& \textbf{$EPA$} & \multicolumn{1}{|r|}{$0,269$} & \multicolumn{1}{|r|}{$0,366$} \\ \hline\hline
-\end{tabular}
-\end{center}
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Valores dos Efeitos de Plano Amostral (EPA) para as médias de -->
+<!-- Salário e de Receita }\bigskip \label{tab45}  -->
+<!-- \begin{tabular}{|c|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- Variável & Estimativa & Simulação & População \\  -->
+<!-- \hline\hline -->
+<!-- Salário & Variância & \multicolumn{1}{|r|}{$231,84$} &  -->
+<!-- \multicolumn{1}{|r|}{$244,18$} \\  -->
+<!-- & \textbf{$EPA$} & \multicolumn{1}{|r|}{$0,142$} & \multicolumn{1}{|r|}{$0,151$} \\ \hline -->
+<!-- Receita & Variância & \multicolumn{1}{|r|}{$0,32569$} &  -->
+<!-- \multicolumn{1}{|r|}{$0,43500$} \\  -->
+<!-- & \textbf{$EPA$} & \multicolumn{1}{|r|}{$0,269$} & \multicolumn{1}{|r|}{$0,366$} \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
 
 -----------------------------------------------------------------------
 Variável  Estimativa  Simulação  População
@@ -676,19 +676,19 @@ Table:(#tab:eparec)Valores dos Efeitos de Plano amostral(EPA) para as
 médias de Salário e Receita.
 
                   
-**Observação:**
+```{remark} 
 Neste exemplo não foi feito uso analítico dos dados e sim
 descritivo, onde é usual incorporar os pesos no cálculo de
 estimativas e variâncias.
 Não seria esperado usar um estimador ponderado para a média e
 não considerar os pesos no cálculo de variâncias, como fizemos
 neste exemplo.
+```
 
-
-**Observação:**
+```{remark}
 O exemplo mostra que ignorar a estratificação ao calcular $v_{0}$
 diminui o $\mathbf{EPA}$.
-
+```
 
 Um outro exemplo relevante é utilizado a seguir para ilustrar o fato de
 que o conceito do $\mathbf{EPA}$ adotado aqui é mais abrangente do que o
@@ -762,7 +762,7 @@ e
 A Figura 4.1 plota os valores de $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$ e $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ para valores de $\rho$ entre $0$ e $0,8$. Como se pode notar, o efeito da especificação inadequada do plano amostral ou da estrutura populacional pode ser severo, com valores de $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ chegando a $9$. Um aspecto importante a notar é que o $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$ tem variação muito mais modesta que o $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$.
 
 
-![Fig 2.1: Valores de EPA e EPA de Kish para conglomeração](Figuras/figura41borda.pdf)
+![Fig 4.1: Valores de EPA e EPA de Kish para conglomeração](Figuras/figura41borda.pdf)
 
 
 
@@ -790,7 +790,7 @@ planejamento amostral, mesmo em populações onde a conglomeração é imposta a
 ## Intervalos de Confiança e Testes de Hipóteses
 
 A partir da estimativa pontual $\hat{\theta}$ de um parâmetro 
-$\theta $ (da população finita ou do modelo de superpopulação) é
+$\theta$ (da população finita ou do modelo de superpopulação) é
 possível construir um intervalo de confiança de nível de confiança aproximado $\left( 1-\alpha \right)$ a partir da distribuição assintótica de 
 \[
 t_{0}=\frac{\hat{\theta}-\theta }{v_{0}^{1/2}} 
@@ -846,26 +846,26 @@ intervalo $\left[\hat{\theta}-z_{\alpha /2}v_{0}^{1/2},
 onde $\Phi$ é a função de distribuição acumulada de uma 
 $N\left( 0;1\right)$. Calculamos esta probabilidade para alguns valores do $\mathbf{EPA}$, que apresentamos na Tabela \ref{tab46}.
 
-\begin{center}
-\begin{table}[tbp] \centering
-\caption{Probabilidades de cobertura para níveis nominais de $95\%$ e
-$99\%$}\bigskip \label{tab46} 
-\begin{tabular}{|c|c|c|}
-\hline\hline
-$\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ & $1-\alpha =0,95$&
-$1-\alpha =0,99$ \\ \hline\hline
-$0,90$ & $0,96$ & $0,99$ \\ 
-$0,95$ & $0,96$ & $0,99$ \\ 
-$1,0$ & $0,95$ & $0,99$ \\ 
-$1,5$ & $0,89$ & $0,96$ \\ 
-$2,0$ & $0,83$ & $0,93$ \\ 
-$2,5$ & $0,78$ & $0,90$ \\ 
-$3,0$ & $0,74$ & $0,86$ \\ 
-$3,5$ & $0,71$ & $0,83$ \\ 
-$4,0$ & $0,67$ & $0,80$ \\ \hline\hline
-\end{tabular}
-\end{table}
-\end{center}
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Probabilidades de cobertura para níveis nominais de $95\%$ e -->
+<!-- $99\%$}\bigskip \label{tab46}  -->
+<!-- \begin{tabular}{|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ & $1-\alpha =0,95$& -->
+<!-- $1-\alpha =0,99$ \\ \hline\hline -->
+<!-- $0,90$ & $0,96$ & $0,99$ \\  -->
+<!-- $0,95$ & $0,96$ & $0,99$ \\  -->
+<!-- $1,0$ & $0,95$ & $0,99$ \\  -->
+<!-- $1,5$ & $0,89$ & $0,96$ \\  -->
+<!-- $2,0$ & $0,83$ & $0,93$ \\  -->
+<!-- $2,5$ & $0,78$ & $0,90$ \\  -->
+<!-- $3,0$ & $0,74$ & $0,86$ \\  -->
+<!-- $3,5$ & $0,71$ & $0,83$ \\  -->
+<!-- $4,0$ & $0,67$ & $0,80$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
 
  
 $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$    $1-\alpha=0.95$      $1-\alpha=0.99$
@@ -1164,9 +1164,9 @@ de uma distribuição $\chi ^{2}$ com $K$ graus de liberdade, isto
 é, o valor tal que 
 $P\left[ \chi ^{2}\left( K\right) >\chi _{\alpha}^{2}\left( K\right) \right] =\alpha$ .
 
-A Tabela \ref{tab47} apresenta os níveis de significância reais para 
+A Tabela \@ref(tab:nivsig) apresenta os níveis de significância reais para 
 $\alpha =5\%$ para vários valores de $K$ e $\delta$. Mesmo quando os
-valores dos $\delta _{i}$ são distintos, os valores da Tabela \ref{tab47}
+valores dos $\delta _{i}$ são distintos, os valores da Tabela \@ref(tab:nivsig)
 podem ser devidamente interpretados. Para isso, consideremos o $p$valor do
 teste da hipótese $H_{0}:\mathbf{\mu }=\mathbf{\mu }_{0}$, sob a
 hipótese de amostragem aleatória simples com reposição e sob
@@ -1185,8 +1185,8 @@ p\mbox{valor}_{VERD}\left( \mathbf{\bar{y}}\right) =P\left[ \chi ^{2}\left(K\rig
 (\#eq:epa13)
 \end{equation}
 
-Os valores na Tabela \ref{tab47} podem ser usados para quantificar a
-diferença entre estes $p$valores. Consideremos a região
+Os valores na Tabela \@ref(tab:nivsig) podem ser usados para quantificar a
+diferença entre estes valores-$p$. Consideremos a região
 crítica do teste de nível $\alpha$ baseado na hipótese de AAS: 
 \begin{eqnarray}
 RC_{AAS}\left( \mathbf{\bar{y}}\right) &=&\left\{ \mathbf{\bar{y}:}\left( 
@@ -1211,31 +1211,31 @@ ser interpretados como valores máximos de $p$valor$_{VERD}\left( \mathbf{\bar{y
 \mathbf{\bar{y}}\right)$, considerando-se $\delta _{1}$ no lugar de $\delta 
 $.
 
-\begin{center}
-\begin{table}[tbp] \centering
-\caption{Níveis de significância ($\%$) verdadeiros do teste $T^{2}$ para o
-nível nominal de $5\%$ assumindo autovalores iguais para $\mathbf{\Delta}}
-\label{tab47} 
-\begin{tabular}{|c|cccc|}
-\hline\hline
-&  & $K$ &  &  \\ \cline{2-5}
-$\delta $ & \multicolumn{1}{|r}{1} & \multicolumn{1}{r}{2} & 
-\multicolumn{1}{r}{3} & \multicolumn{1}{r|}{4} \\ \hline\hline
-\multicolumn{1}{|r|}{0,9} & \multicolumn{1}{|r}{4} & \multicolumn{1}{r}{4} & 
-\multicolumn{1}{r}{3} & \multicolumn{1}{r|}{3} \\ 
-\multicolumn{1}{|r|}{1,0} & \multicolumn{1}{|r}{5} & \multicolumn{1}{r}{5} & 
-\multicolumn{1}{r}{5} & \multicolumn{1}{r|}{5} \\ 
-\multicolumn{1}{|r|}{1,5} & \multicolumn{1}{|r}{11} & \multicolumn{1}{r}{14}
-& \multicolumn{1}{r}{16} & \multicolumn{1}{r|}{19} \\ 
-\multicolumn{1}{|r|}{2,0} & \multicolumn{1}{|r}{17} & \multicolumn{1}{r}{22}
-& \multicolumn{1}{r}{27} & \multicolumn{1}{r|}{32} \\ 
-\multicolumn{1}{|r|}{2,5} & \multicolumn{1}{|r}{22} & \multicolumn{1}{r}{30}
-& \multicolumn{1}{r}{37} & \multicolumn{1}{r|}{44} \\ 
-\multicolumn{1}{|r|}{3,0} & \multicolumn{1}{|r}{26} & \multicolumn{1}{r}{37}
-& \multicolumn{1}{r}{46} & \multicolumn{1}{r|}{53} \\ \hline\hline
-\end{tabular}
-\end{table}
-\end{center}
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Níveis de significância (%) verdadeiros do teste $T^{2}$ para o -->
+<!-- nível nominal de 5% assumindo autovalores iguais para $\mathbf{\Delta}$ -->
+<!-- \label{tab47}  -->
+<!-- \begin{tabular}{|c|cccc|} -->
+<!-- \hline\hline -->
+<!-- &  & $K$ &  &  \\ \cline{2-5} -->
+<!-- $\delta $ & \multicolumn{1}{|r}{1} & \multicolumn{1}{r}{2} &  -->
+<!-- \multicolumn{1}{r}{3} & \multicolumn{1}{r|}{4} \\ \hline\hline -->
+<!-- \multicolumn{1}{|r|}{0,9} & \multicolumn{1}{|r}{4} & \multicolumn{1}{r}{4} &  -->
+<!-- \multicolumn{1}{r}{3} & \multicolumn{1}{r|}{3} \\  -->
+<!-- \multicolumn{1}{|r|}{1,0} & \multicolumn{1}{|r}{5} & \multicolumn{1}{r}{5} &  -->
+<!-- \multicolumn{1}{r}{5} & \multicolumn{1}{r|}{5} \\  -->
+<!-- \multicolumn{1}{|r|}{1,5} & \multicolumn{1}{|r}{11} & \multicolumn{1}{r}{14} -->
+<!-- & \multicolumn{1}{r}{16} & \multicolumn{1}{r|}{19} \\  -->
+<!-- \multicolumn{1}{|r|}{2,0} & \multicolumn{1}{|r}{17} & \multicolumn{1}{r}{22} -->
+<!-- & \multicolumn{1}{r}{27} & \multicolumn{1}{r|}{32} \\  -->
+<!-- \multicolumn{1}{|r|}{2,5} & \multicolumn{1}{|r}{22} & \multicolumn{1}{r}{30} -->
+<!-- & \multicolumn{1}{r}{37} & \multicolumn{1}{r|}{44} \\  -->
+<!-- \multicolumn{1}{|r|}{3,0} & \multicolumn{1}{|r}{26} & \multicolumn{1}{r}{37} -->
+<!-- & \multicolumn{1}{r}{46} & \multicolumn{1}{r|}{53} \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
 
 
 ```{r, nivsig, echo=FALSE}
@@ -1265,15 +1265,16 @@ Exemplo 4.2. Parte de simulação do exemplo para salario
 ```{r}
 library(survey)
 source("~\\GitHub\\adac\\data\\popul.R")
+names(popul)<- c("ID","PO", "SAL","REC","ESTRAT")
 ```
 
-```{r, eval=FALSE}
+```{r}
 N<-nrow(popul)
 n1<-30; n2<-30
 nh=c(n1,n2)
 n<-sum(nh)
-Nh<-table(popul$estrato)
-fh<-nh/Nh ; Wh<-Nh/N ; f<-n/N
+Nh<-table(popul$ESTRAT)
+fh<-nh/Nh ; Wh<-Nh/N ; f<- n/N
 ``` 
 
 
@@ -1281,21 +1282,42 @@ Simulação (incluir?)
 
 
 
-```{r, eval=FALSE}
-mat.res<-matrix(NA,500,4)
-popul$salario<-popul$salario/1000
+```{r}
+SAL.mat.res<-matrix(NA,500,4)
+REC.mat.res<-matrix(NA,500,4)
+popul$SAL <- popul$SAL/1000
+popul$REC <- popul$REC/1000000
 library(sampling)
 #Geracão dos dados
 for(i in 1:500){
-s<-strata(popul, "estrato",c(30,30),method= "srswor")
+s<-strata(popul, "ESTRAT",c(30,30),method= "srswor")
 dados<-getdata(popul,s)
-med_y<-mean(dados$salario)
-var_AAS<-(1-f)*var(dados$salario)/n
-desenho<-svydesign(~1,strata=~estrato,data=dados,fpc=~Prob)
-med_yw<-svymean(~salario,desenho)
-mat.res[i,]<-c(med_y,coef(med_yw),var_AAS,SE(med_yw)^2)
+SAL_med_y<-mean(dados$SAL)
+REC_med_y<-mean(dados$REC)
+SAL_var_AAS<-(1-f)*var(dados$SAL)/n
+REC_var_AAS<-(1-f)*var(dados$REC)/n
+desenho<-svydesign(~1,strata=~ESTRAT,data=dados,fpc=~Prob)
+SAL_med_yw<-svymean(~SAL,desenho)
+REC_med_yw<-svymean(~REC,desenho)
+SAL.mat.res[i,]<-c(SAL_med_y,coef(SAL_med_yw),SAL_var_AAS,SE(SAL_med_yw)^2)
+REC.mat.res[i,]<-c(REC_med_y,coef(REC_med_yw),REC_var_AAS,SE(REC_med_yw)^2)
 }
-colMeans(mat.res)
+SAL_res_mean <-colMeans(SAL.mat.res)
+REC_res_mean <- colMeans(REC.mat.res)
+EPA_SAL1 <- SAL_res_mean[4]/SAL_res_mean[3]
+EPA_SAL1
+EPA_REC1 <- REC_res_mean[4]/REC_res_mean[3]
+EPA_REC1
+
+```
+```{r}
+# variância sob distr. de aleatorização verdadeira
+Vp_SAL_h <- aggregate(SAL~ESTRAT, popul, var)
+Vp_REC_h <- aggregate(REC~ESTRAT, popul, var)
+Vp_SAL <- sum(Wh^2*(1-fh)*Vp_SAL_h[,"SAL"]/nh)
+Vp_SAL <- sum(Wh^2*(1-fh)*Vp_REC_h[,"REC"]/nh)
+# valor esperado v0 usando população
+
 ```
 
 

@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-01-02">
+<meta name="date" content="2017-01-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -274,7 +274,7 @@ J\left( \mathbf{\hat{\theta}}\right) =\left. J\left( \mathbf{\theta }\right)
 <p>O papel da ponderação <code>na análise de dados amostrais</code> é alvo de controvérsia entre os estatísticos. Apesar de incorporada comumente na inferência descritiva, não há concordância com respeito a seu uso na inferência analítica, havendo um espectro de opiniões entre dois extremos. Num extremo estão os <code>modelistas</code>, que consideram o uso de pesos irrelevante, e no outro os <code>amostristas</code>, que incorporam pesos em qualquer análise.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-21" class="example"><strong>Exemplo 5.1 </strong></span>Uso analítico dos dados da Pesquisa Nacional por Amostra de Domicílios (PNAD)
+<span id="ex:unnamed-chunk-27" class="example"><strong>Exemplo 5.1 </strong></span>Uso analítico dos dados da Pesquisa Nacional por Amostra de Domicílios (PNAD)
 </div>
 <p></p>
 <p>A título de ilustração, consideremos uma pesquisa com uma amostra complexa como a da PNAD do IBGE, que emprega uma amostra estratificada de domicílios em três estágios, tendo como unidades primárias de amostragem (UPAs) os municípios, que são estratificados segundo as unidades da federação (UFs), e regiões menores dentro das UFs (veja IBGE, 1981, p. 67).</p>
@@ -454,7 +454,7 @@ onde
 <p>Seja <span class="math inline">\(\mathbf{T}=\sum_{i\in U}\mathbf{u}_{i}\left( \mathbf{\theta }\right)\)</span> a soma dos vetores de escores na população, o qual é um vetor de totais populacionais. Para estimar este vetor de totais, podemos então usar um estimador linear ponderado da forma <span class="math inline">\(\mathbf{\hat{T}}=\sum_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta }\right)\)</span> (veja capítulo 3) onde <span class="math inline">\(w_{i}\)</span> são pesos propriamente definidos. Com essa notação, podemos agora obter um estimador para <span class="math inline">\(\mathbf{\theta }_{U}\)</span> resolvendo o sistema de equações obtido igualando o estimador <span class="math inline">\(\mathbf{\hat{T}}\)</span> do total <span class="math inline">\(\mathbf{T}\)</span> a zero.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-22" class="definition"><strong>Definição 5.1 </strong></span>O estimador de Máxima Pseudo-Verossimilhança (MPV) <span class="math inline">\(\mathbf{\hat{\theta}}_{MPV}\)</span> de <span class="math inline">\(\mathbf{\theta }_{U}\)</span> (e consequentemente de <span class="math inline">\(\mathbf{\theta}\)</span>) será a solução das equações dePseudo-Verossimilhança dadas por
+<span id="def:unnamed-chunk-28" class="definition"><strong>Definição 5.1 </strong></span>O estimador de Máxima Pseudo-Verossimilhança (MPV) <span class="math inline">\(\mathbf{\hat{\theta}}_{MPV}\)</span> de <span class="math inline">\(\mathbf{\theta }_{U}\)</span> (e consequentemente de <span class="math inline">\(\mathbf{\theta}\)</span>) será a solução das equações dePseudo-Verossimilhança dadas por
 <span class="math display" id="eq:modpar7">\[\begin{equation}
 \mathbf{\hat{T}}=\sum_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta }
 \right) =\mathbf{0\;\;.}  
@@ -578,7 +578,7 @@ converge para o parâmetro <span class="math inline">\(\mathbf{\theta }\)</span>
 <p>Se o modelo postulado para os dados amostrais for correto, o uso de estimadores ponderados pode resultar em perda substancial de eficiência comparado com o estimador ótimo, sob o modelo. Em geral, a perda de eficiência aumenta quando diminui o tamanho da amostra e aumenta a varia ção dos pesos. Há casos onde a ponderação é a única alternativa. Por exemplo, se os dados disponíveis já estão na forma de estimativas amostrais ponderadas, então o uso de pesos é inevitável. Um exemplo clássico é discutido a seguir.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-23" class="example"><strong>Exemplo 5.2 </strong></span>Análise secundária de tabelas de contingência.(#Analisec)
+<span id="ex:unnamed-chunk-29" class="example"><strong>Exemplo 5.2 </strong></span>Análise secundária de tabelas de contingência.(#Analisec)
 </div>
 <p></p>
 <p>A pesquisa <code>Canada Health Survey</code> usa um plano amostral estratificado com vários estágios de seleção. Nessa pesquisa, a estimativa de contagem na cela <span class="math inline">\(k\)</span> de uma tabela de contingência qualquer é dada por <span class="math display">\[

@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-01-02">
+<meta name="date" content="2017-01-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -243,7 +243,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Para medir o efeito do plano amostral sobre a variância de um estimador, Kish(1965) propôs uma medida que denominou <code>Efeito do Plano Amostral</code> (<span class="math inline">\(\mathbf{EPA}\)</span>) (em inglês, <em>design effect</em> ou, abreviadamente, <em>deff</em>). O objetivo desta medida é comparar planos amostrais no estágio de planejamento da pesquisa. O <span class="math inline">\(\mathbf{EPA}\)</span> de Kish é uma razão entre variâncias (de aleatorização) de um estimador, calculadas para dois planos amostrais alternativos. Vamos considerar um estimador <span class="math inline">\(\hat{\theta}\)</span> e calcular a variância de sua distribuição induzida pelo plano amostral complexo (verdadeiro) <span class="math inline">\(V_{VERD}\left( \hat{\theta}\right)\)</span> e a variância da distribuição do estimador induzida pelo plano de amostragem aleatória simples <span class="math inline">\(V_{AAS}\left(\hat{\theta}\right)\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-14" class="definition"><strong>Definição 4.1 </strong></span>O <strong>Efeito do Plano Amostral (<span class="math inline">\(EPA\)</span>)</strong> <strong>de Kish</strong> para um estimador <span class="math inline">\(\hat{\theta}\)</span> é
+<span id="def:unnamed-chunk-17" class="definition"><strong>Definição 4.1 </strong></span>O <strong>Efeito do Plano Amostral (<span class="math inline">\(EPA\)</span>)</strong> <strong>de Kish</strong> para um estimador <span class="math inline">\(\hat{\theta}\)</span> é
 </div>
 
 <span class="math display" id="eq:epa1">\[\begin{equation}
@@ -344,7 +344,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Podemos desta forma introduzir uma medida de efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-15" class="definition"><strong>Definição 4.2 </strong></span>O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span> é
+<span id="def:unnamed-chunk-18" class="definition"><strong>Definição 4.2 </strong></span>O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span> é
 <span class="math display" id="eq:epa2">\[\begin{equation}
 \mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left( \hat{%
 \theta}\right) }{E_{VERD}\left( v_{0}\right) }\;.  \tag{4.2}
@@ -511,9 +511,22 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 <li><p>ignorar os pesos na estimação da variância do estimador ponderado <span class="math inline">\(\bar{y}_{w}\)</span> também provoca vícios substanciais, neste caso, superestimando a variância por ignorar o efeito de estratificação; os efeitos de plano amostral são substancialmente menores que <span class="math inline">\(1\)</span> para as duas variáveis de pesquisa consideradas (salários e receita); portanto o uso do estimador ingênuo de variância <span class="math inline">\(v_{0}\)</span> é desaconselhado.</p></li>
 </ol>
 <p>Essas conclusões são largamente aceitas pelos amostristas e produtores de dados baseados em pesquisas amostrais para o caso da estimação de médias e totais, e respectivas variâncias. Entretanto ainda há exemplos de usos indevidos de dados amostrais nos quais os pesos são ignorados, em particular para a estimação de variâncias associadas a estimativas pontuais de médias e totais. Tal situação se deve ao uso ingênuo de pacotes estatísticos padrões desenvolvidos para analisar amostras IID, sem a devida consideração dos pesos e plano amostral.</p>
-\begin{center} \begin{table}[tbp] 
-
-<p>\end{center}</p>
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Valores dos Efeitos de Plano Amostral (EPA) para as médias de -->
+<!-- Salário e de Receita }\bigskip \label{tab45}  -->
+<!-- \begin{tabular}{|c|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- Variável & Estimativa & Simulação & População \\  -->
+<!-- \hline\hline -->
+<!-- Salário & Variância & \multicolumn{1}{|r|}{$231,84$} &  -->
+<!-- \multicolumn{1}{|r|}{$244,18$} \\  -->
+<!-- & \textbf{$EPA$} & \multicolumn{1}{|r|}{$0,142$} & \multicolumn{1}{|r|}{$0,151$} \\ \hline -->
+<!-- Receita & Variância & \multicolumn{1}{|r|}{$0,32569$} &  -->
+<!-- \multicolumn{1}{|r|}{$0,43500$} \\  -->
+<!-- & \textbf{$EPA$} & \multicolumn{1}{|r|}{$0,269$} & \multicolumn{1}{|r|}{$0,366$} \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
 <table style="width:61%;">
 <caption><span id="tab:eparec">Tabela 4.5: </span>Valores dos Efeitos de Plano amostral(EPA) para as médias de Salário e Receita.</caption>
 <colgroup>
@@ -545,12 +558,20 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 </tr>
 </tbody>
 </table>
-<p><strong>Observação:</strong> Neste exemplo não foi feito uso analítico dos dados e sim descritivo, onde é usual incorporar os pesos no cálculo de estimativas e variâncias. Não seria esperado usar um estimador ponderado para a média e não considerar os pesos no cálculo de variâncias, como fizemos neste exemplo.</p>
-<p><strong>Observação:</strong> O exemplo mostra que ignorar a estratificação ao calcular <span class="math inline">\(v_{0}\)</span> diminui o <span class="math inline">\(\mathbf{EPA}\)</span>.</p>
+
+<div class="remark">
+<span class="remark"><em>Observação. </em></span> Neste exemplo não foi feito uso analítico dos dados e sim descritivo, onde é usual incorporar os pesos no cálculo de estimativas e variâncias. Não seria esperado usar um estimador ponderado para a média e não considerar os pesos no cálculo de variâncias, como fizemos neste exemplo.
+</div>
+<p></p>
+
+<div class="remark">
+<span class="remark"><em>Observação. </em></span> O exemplo mostra que ignorar a estratificação ao calcular <span class="math inline">\(v_{0}\)</span> diminui o <span class="math inline">\(\mathbf{EPA}\)</span>.
+</div>
+<p></p>
 <p>Um outro exemplo relevante é utilizado a seguir para ilustrar o fato de que o conceito do <span class="math inline">\(\mathbf{EPA}\)</span> adotado aqui é mais abrangente do que o definido por Kish, em particular porque a origem do efeito pode estar na estrutura da população e não no plano amostral usado para obter os dados.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-16" class="example"><strong>Exemplo 4.3 </strong></span>População conglomerada com conglomerados de tamanho 2 <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, p. 25
+<span id="ex:unnamed-chunk-21" class="example"><strong>Exemplo 4.3 </strong></span>População conglomerada com conglomerados de tamanho 2 <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, p. 25
 </div>
 <p></p>
 <p>Considere uma população de conglomerados de tamanho 2, isto é, onde as unidades (elementares ou de referência) estão grupadas em pares (exemplos de tais populações incluem pares de irmãos gêmeos, casais, jogadores numa dupla de vôlei de praia ou tênis, etc.). Suponha que os valores de uma variável de pesquisa medida nessas unidades têm média <span class="math inline">\(\theta\)</span> e variância <span class="math inline">\(\sigma ^{2}\)</span>, além de uma correlação <span class="math inline">\(\rho\)</span> entre os valores dentro de cada par (correlação intraclasse, veja <span class="citation">(Nascimento Silva and Moura <a href="#ref-SilvaMou">1990</a>)</span>, cap. 2 e <span class="citation">(Haggard <a href="#ref-haggard">1958</a>)</span>. Suponha que um único par é sorteado ao acaso da população e que os valores <span class="math inline">\(y_{1}\)</span> e <span class="math inline">\(y_{2}\)</span> são observados para as duas unidades do par selecionado. O modelo assumido pode então ser representado como <span class="math display">\[
@@ -582,14 +603,14 @@ E_{VERD}\left[ v_{0}\left( \widehat{\theta }\right) \right] =\sigma
 <p>A Figura 4.1 plota os valores de <span class="math inline">\(\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)\)</span> e <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> para valores de <span class="math inline">\(\rho\)</span> entre <span class="math inline">\(0\)</span> e <span class="math inline">\(0,8\)</span>. Como se pode notar, o efeito da especificação inadequada do plano amostral ou da estrutura populacional pode ser severo, com valores de <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> chegando a <span class="math inline">\(9\)</span>. Um aspecto importante a notar é que o <span class="math inline">\(\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)\)</span> tem variação muito mais modesta que o <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span>.</p>
 <div class="figure">
 <embed src="Figuras/figura41borda.pdf" />
-<p class="caption">Fig 2.1: Valores de EPA e EPA de Kish para conglomeração</p>
+<p class="caption">Fig 4.1: Valores de EPA e EPA de Kish para conglomeração</p>
 </div>
 <p>Este exemplo ilustra bem dois aspectos distintos do uso de medidas como o efeito de plano amostral. O primeiro é que as duas medidas são distintas,. No caso particular deste exemplo, o <span class="math inline">\(\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)\)</span> cresce pouco com o valor do coeficiente de correlação intraclasse <span class="math inline">\(\rho\)</span>, o que implica que um plano amostral conglomerado como o adotado (seleção ao acaso de um par da população) seria menos eficiente que um plano amostral aleatório simples (seleção de duas unidades ao acaso da população), mas a perda de eficiência seria modesta. Já se o interesse é medir, a posteriori, o efeito da má especificação do plano amostral no estimador de variância, o impacto, medido pelo <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span>, seria muito maior.</p>
 <p>Vale ainda notar que o <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> mede o impacto da má especificação do plano amostral ou do modelo para a estrutura populacional. Neste exemplo, ignorar a estrutura da população (o fato de que as observações são pareadas) poderia provocar subestimação da variância do estimador de média, que seria tanto maior quanto maior fosse o coeficiente de correlação intraclasse <span class="math inline">\(\rho\)</span>. Efeitos como esse são comuns também devido ao planejamento amostral, mesmo em populações onde a conglomeração é imposta artificialmente pelo amostrista.</p>
 </div>
 <div id="intervalos-de-confianca-e-testes-de-hipoteses" class="section level2">
 <h2><span class="header-section-number">4.4</span> Intervalos de Confiança e Testes de Hipóteses</h2>
-<p>A partir da estimativa pontual <span class="math inline">\(\hat{\theta}\)</span> de um parâmetro $$ (da população finita ou do modelo de superpopulação) é possível construir um intervalo de confiança de nível de confiança aproximado <span class="math inline">\(\left( 1-\alpha \right)\)</span> a partir da distribuição assintótica de <span class="math display">\[
+<p>A partir da estimativa pontual <span class="math inline">\(\hat{\theta}\)</span> de um parâmetro <span class="math inline">\(\theta\)</span> (da população finita ou do modelo de superpopulação) é possível construir um intervalo de confiança de nível de confiança aproximado <span class="math inline">\(\left( 1-\alpha \right)\)</span> a partir da distribuição assintótica de <span class="math display">\[
 t_{0}=\frac{\hat{\theta}-\theta }{v_{0}^{1/2}} 
 \]</span> que, sob a hipótese de que as observações são IID, frequentemente é <span class="math inline">\(N\left( 0;1\right)\)</span>.</p>
 <p>Neste caso, um intervalo de confiança de nível de confiança aproximado <span class="math inline">\(\left( 1-\alpha \right)\)</span> é dado por <span class="math inline">\(\left[ \hat{\theta}-z_{\alpha /2}v_{0}^{1/2},\hat{\theta}+z_{\alpha /2}v_{0}^{1/2}\right]\)</span>, onde <span class="math inline">\(z_{\alpha }\)</span> é definido por <span class="math inline">\(\int_{z_{\alpha }}^{+\infty }\varphi\left( t\right) dt=\alpha\)</span> , onde <span class="math inline">\(\varphi\)</span> é a função de densidade da distribuição normal padrão.</p>
@@ -611,7 +632,26 @@ t_{0}\sim N\left[ 0;\mathbf{EPA}\left( \hat{\theta},v_{0}\right)
 2\Phi \left( z_{\alpha /2}/\left[ \mathbf{EPA}\left( \hat{\theta}
 ,v_{0}\right) \right] ^{1/2}\right) -1\;\;, 
 \]</span> onde <span class="math inline">\(\Phi\)</span> é a função de distribuição acumulada de uma <span class="math inline">\(N\left( 0;1\right)\)</span>. Calculamos esta probabilidade para alguns valores do <span class="math inline">\(\mathbf{EPA}\)</span>, que apresentamos na Tabela .</p>
-
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Probabilidades de cobertura para níveis nominais de $95\%$ e -->
+<!-- $99\%$}\bigskip \label{tab46}  -->
+<!-- \begin{tabular}{|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ & $1-\alpha =0,95$& -->
+<!-- $1-\alpha =0,99$ \\ \hline\hline -->
+<!-- $0,90$ & $0,96$ & $0,99$ \\  -->
+<!-- $0,95$ & $0,96$ & $0,99$ \\  -->
+<!-- $1,0$ & $0,95$ & $0,99$ \\  -->
+<!-- $1,5$ & $0,89$ & $0,96$ \\  -->
+<!-- $2,0$ & $0,83$ & $0,93$ \\  -->
+<!-- $2,5$ & $0,78$ & $0,90$ \\  -->
+<!-- $3,0$ & $0,74$ & $0,86$ \\  -->
+<!-- $3,5$ & $0,71$ & $0,83$ \\  -->
+<!-- $4,0$ & $0,67$ & $0,80$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
 <table>
 <caption><span id="tab:procob">Tabela 4.6: </span> Probabilidades de cobertura para níveis nominais de 95% e 99%</caption>
 <thead>
@@ -673,7 +713,7 @@ t_{0}\sim N\left[ 0;\mathbf{EPA}\left( \hat{\theta},v_{0}\right)
 <p>Utilizando a correspondência existente entre intervalos de confiança e testes de hipóteses, podemos derivar os níveis de significância nominais e reais subtraindo de <span class="math inline">\(1\)</span> os valores da Tabela . Por exemplo, para <span class="math inline">\(\alpha =0,05\)</span> e <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =2\)</span>, o nível de significância real seria aproximadamente <span class="math inline">\(1-0,83=0,17\)</span>.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-17" class="example"><strong>Exemplo 4.4 </strong></span>Teste de hipótese sobre proporção
+<span id="ex:unnamed-chunk-22" class="example"><strong>Exemplo 4.4 </strong></span>Teste de hipótese sobre proporção
 </div>
 <p> Vamos considerar um exemplo hipotético de teste de hipótese sobre uma proporção, semelhante ao de <span class="citation">(Sudman <a href="#ref-Sud76">1976</a>)</span>, apresentado em p. 196, <span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span>. Uma amostra de <span class="math inline">\(m=50\)</span> conglomerados é extraída de uma grande população de empresas industriais (conglomerados). Suponhamos que cada empresa <span class="math inline">\(i=1,\ldots ,50\)</span> da amostra tenha <span class="math inline">\(n_{i}=20\)</span> empregados. O tamanho total da amostra de empregados (unidades elementares) é <span class="math inline">\(n=\sum_{i}n_{i}=1.000\)</span>. Queremos estudar o acesso dos trabalhadores das empresas a planos de saúde.</p>
 <p>Usando-se conhecimento do ano anterior, foi estabelecida a hipótese de que a proporção de trabalhadores cobertos por planos de saúde é <span class="math inline">\(80\%\)</span>, ou seja <span class="math inline">\(H_{0}:p=p_{0}=0,8\)</span>. Vamos adotar o nível de significância <span class="math inline">\(\alpha =5\%\)</span>.</p>
@@ -790,7 +830,7 @@ Vamos analisar o efeito do plano amostral sobre o nível de significância deste
 P\left(\chi ^{2}\left( K\right) &gt;\chi _{\alpha }^{2}\left( K\right) /\delta\right)  \tag{4.12}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(\chi _{\alpha }^{2}\left( K\right)\)</span> é o quantil superior <span class="math inline">\(\alpha\)</span> de uma distribuição <span class="math inline">\(\chi ^{2}\)</span> com <span class="math inline">\(K\)</span> graus de liberdade, isto é, o valor tal que <span class="math inline">\(P\left[ \chi ^{2}\left( K\right) &gt;\chi _{\alpha}^{2}\left( K\right) \right] =\alpha\)</span> .</p>
-<p>A Tabela  apresenta os níveis de significância reais para <span class="math inline">\(\alpha =5\%\)</span> para vários valores de <span class="math inline">\(K\)</span> e <span class="math inline">\(\delta\)</span>. Mesmo quando os valores dos <span class="math inline">\(\delta _{i}\)</span> são distintos, os valores da Tabela  podem ser devidamente interpretados. Para isso, consideremos o <span class="math inline">\(p\)</span>valor do teste da hipótese <span class="math inline">\(H_{0}:\mathbf{\mu }=\mathbf{\mu }_{0}\)</span>, sob a hipótese de amostragem aleatória simples com reposição e sob o plano amostral efetivamente utilizado. Por definição este valor é dado por <span class="math display">\[
+<p>A Tabela <a href="epa.html#tab:nivsig">4.7</a> apresenta os níveis de significância reais para <span class="math inline">\(\alpha =5\%\)</span> para vários valores de <span class="math inline">\(K\)</span> e <span class="math inline">\(\delta\)</span>. Mesmo quando os valores dos <span class="math inline">\(\delta _{i}\)</span> são distintos, os valores da Tabela <a href="epa.html#tab:nivsig">4.7</a> podem ser devidamente interpretados. Para isso, consideremos o <span class="math inline">\(p\)</span>valor do teste da hipótese <span class="math inline">\(H_{0}:\mathbf{\mu }=\mathbf{\mu }_{0}\)</span>, sob a hipótese de amostragem aleatória simples com reposição e sob o plano amostral efetivamente utilizado. Por definição este valor é dado por <span class="math display">\[
 p\mbox{valor}_{AAS}\left( \mathbf{\bar{y}}\right) =P\left[ \chi ^{2}\left(
 K\right) &gt;\left( \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{
 \Sigma }_{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) \right] 
@@ -800,7 +840,7 @@ O verdadeiro valor-<span class="math inline">\(p\)</span> pode ser definido anal
 p\mbox{valor}_{VERD}\left( \mathbf{\bar{y}}\right) =P\left[ \chi ^{2}\left(K\right) &gt;\left( \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{\Sigma }_{VERD}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) \right] \;.
 \tag{4.13}
 \end{equation}\]</span>
-Os valores na Tabela  podem ser usados para quantificar a diferença entre estes <span class="math inline">\(p\)</span>valores. Consideremos a região crítica do teste de nível <span class="math inline">\(\alpha\)</span> baseado na hipótese de AAS:
+Os valores na Tabela <a href="epa.html#tab:nivsig">4.7</a> podem ser usados para quantificar a diferença entre estes valores-<span class="math inline">\(p\)</span>. Consideremos a região crítica do teste de nível <span class="math inline">\(\alpha\)</span> baseado na hipótese de AAS:
 <span class="math display" id="eq:epa14">\[\begin{eqnarray}
 RC_{AAS}\left( \mathbf{\bar{y}}\right) &amp;=&amp;\left\{ \mathbf{\bar{y}:}\left( 
 \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{\Sigma }
@@ -816,9 +856,31 @@ _{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) &gt;\chi _{\alpha
 \tag{4.15}
 \end{equation}\]</span>
 <p>Observe que o segundo membro de <a href="epa.html#eq:epa15">(4.15)</a> é da mesma forma que o segundo membro de <a href="epa.html#eq:epa12">(4.12)</a>. Logo, os valores da Tabela  podem ser interpretados como valores máximos de <span class="math inline">\(p\)</span>valor<span class="math inline">\(_{VERD}\left( \mathbf{\bar{y}}\right)\)</span> para <span class="math inline">\(\mathbf{\bar{y}}\)</span> na região <span class="math inline">\(RC_{AAS}\left( \mathbf{\bar{y}}\right)\)</span>, considerando-se <span class="math inline">\(\delta _{1}\)</span> no lugar de $ $.</p>
-\begin{center} \begin{table}[tbp] \caption{Níveis de significância (<span class="math inline">\(\%\)</span>) verdadeiros do teste <span class="math inline">\(T^{2}\)</span> para o nível nominal de <span class="math inline">\(5\%\)</span> assumindo autovalores iguais para $} 
-
-<p>\end{table} \end{center}</p>
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Níveis de significância (%) verdadeiros do teste $T^{2}$ para o -->
+<!-- nível nominal de 5% assumindo autovalores iguais para $\mathbf{\Delta}$ -->
+<!-- \label{tab47}  -->
+<!-- \begin{tabular}{|c|cccc|} -->
+<!-- \hline\hline -->
+<!-- &  & $K$ &  &  \\ \cline{2-5} -->
+<!-- $\delta $ & \multicolumn{1}{|r}{1} & \multicolumn{1}{r}{2} &  -->
+<!-- \multicolumn{1}{r}{3} & \multicolumn{1}{r|}{4} \\ \hline\hline -->
+<!-- \multicolumn{1}{|r|}{0,9} & \multicolumn{1}{|r}{4} & \multicolumn{1}{r}{4} &  -->
+<!-- \multicolumn{1}{r}{3} & \multicolumn{1}{r|}{3} \\  -->
+<!-- \multicolumn{1}{|r|}{1,0} & \multicolumn{1}{|r}{5} & \multicolumn{1}{r}{5} &  -->
+<!-- \multicolumn{1}{r}{5} & \multicolumn{1}{r|}{5} \\  -->
+<!-- \multicolumn{1}{|r|}{1,5} & \multicolumn{1}{|r}{11} & \multicolumn{1}{r}{14} -->
+<!-- & \multicolumn{1}{r}{16} & \multicolumn{1}{r|}{19} \\  -->
+<!-- \multicolumn{1}{|r|}{2,0} & \multicolumn{1}{|r}{17} & \multicolumn{1}{r}{22} -->
+<!-- & \multicolumn{1}{r}{27} & \multicolumn{1}{r|}{32} \\  -->
+<!-- \multicolumn{1}{|r|}{2,5} & \multicolumn{1}{|r}{22} & \multicolumn{1}{r}{30} -->
+<!-- & \multicolumn{1}{r}{37} & \multicolumn{1}{r|}{44} \\  -->
+<!-- \multicolumn{1}{|r|}{3,0} & \multicolumn{1}{|r}{26} & \multicolumn{1}{r}{37} -->
+<!-- & \multicolumn{1}{r}{46} & \multicolumn{1}{r|}{53} \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
 <table>
 <caption><span id="tab:nivsig">Tabela 4.7: </span>Níveis de significância (%) verdadeiros do teste <span class="math inline">\(T^2\)</span> para o nível nominal de 5% assumindo autovalores iguais para <span class="math inline">\(Delta\)</span>.</caption>
 <thead>
@@ -881,28 +943,53 @@ _{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) &gt;\chi _{\alpha
 <p>Vale a pena incluir as contas que não dependem da simulação?</p>
 <p>Exemplo 4.2. Parte de simulação do exemplo para salario</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
-<span class="kw">source</span>(<span class="st">&quot;~</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">adac</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">popul.R&quot;</span>)</code></pre></div>
+<span class="kw">source</span>(<span class="st">&quot;~</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">adac</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">popul.R&quot;</span>)
+<span class="kw">names</span>(popul)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;PO&quot;</span>, <span class="st">&quot;SAL&quot;</span>,<span class="st">&quot;REC&quot;</span>,<span class="st">&quot;ESTRAT&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">N&lt;-<span class="kw">nrow</span>(popul)
 n1&lt;-<span class="dv">30</span>; n2&lt;-<span class="dv">30</span>
 nh=<span class="kw">c</span>(n1,n2)
 n&lt;-<span class="kw">sum</span>(nh)
-Nh&lt;-<span class="kw">table</span>(popul$estrato)
-fh&lt;-nh/Nh ; Wh&lt;-Nh/N ; f&lt;-n/N</code></pre></div>
+Nh&lt;-<span class="kw">table</span>(popul$ESTRAT)
+fh&lt;-nh/Nh ; Wh&lt;-Nh/N ; f&lt;-<span class="st"> </span>n/N</code></pre></div>
 <p>Simulação (incluir?)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat.res&lt;-<span class="kw">matrix</span>(<span class="ot">NA</span>,<span class="dv">500</span>,<span class="dv">4</span>)
-popul$salario&lt;-popul$salario/<span class="dv">1000</span>
-<span class="kw">library</span>(sampling)
-<span class="co">#Geracão dos dados</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SAL.mat.res&lt;-<span class="kw">matrix</span>(<span class="ot">NA</span>,<span class="dv">500</span>,<span class="dv">4</span>)
+REC.mat.res&lt;-<span class="kw">matrix</span>(<span class="ot">NA</span>,<span class="dv">500</span>,<span class="dv">4</span>)
+popul$SAL &lt;-<span class="st"> </span>popul$SAL/<span class="dv">1000</span>
+popul$REC &lt;-<span class="st"> </span>popul$REC/<span class="dv">1000000</span>
+<span class="kw">library</span>(sampling)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;sampling&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:survival&#39;:
+## 
+##     cluster, strata</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Geracão dos dados</span>
 for(i in <span class="dv">1</span>:<span class="dv">500</span>){
-s&lt;-<span class="kw">strata</span>(popul, <span class="st">&quot;estrato&quot;</span>,<span class="kw">c</span>(<span class="dv">30</span>,<span class="dv">30</span>),<span class="dt">method=</span> <span class="st">&quot;srswor&quot;</span>)
+s&lt;-<span class="kw">strata</span>(popul, <span class="st">&quot;ESTRAT&quot;</span>,<span class="kw">c</span>(<span class="dv">30</span>,<span class="dv">30</span>),<span class="dt">method=</span> <span class="st">&quot;srswor&quot;</span>)
 dados&lt;-<span class="kw">getdata</span>(popul,s)
-med_y&lt;-<span class="kw">mean</span>(dados$salario)
-var_AAS&lt;-(<span class="dv">1</span>-f)*<span class="kw">var</span>(dados$salario)/n
-desenho&lt;-<span class="kw">svydesign</span>(~<span class="dv">1</span>,<span class="dt">strata=</span>~estrato,<span class="dt">data=</span>dados,<span class="dt">fpc=</span>~Prob)
-med_yw&lt;-<span class="kw">svymean</span>(~salario,desenho)
-mat.res[i,]&lt;-<span class="kw">c</span>(med_y,<span class="kw">coef</span>(med_yw),var_AAS,<span class="kw">SE</span>(med_yw)^<span class="dv">2</span>)
+SAL_med_y&lt;-<span class="kw">mean</span>(dados$SAL)
+REC_med_y&lt;-<span class="kw">mean</span>(dados$REC)
+SAL_var_AAS&lt;-(<span class="dv">1</span>-f)*<span class="kw">var</span>(dados$SAL)/n
+REC_var_AAS&lt;-(<span class="dv">1</span>-f)*<span class="kw">var</span>(dados$REC)/n
+desenho&lt;-<span class="kw">svydesign</span>(~<span class="dv">1</span>,<span class="dt">strata=</span>~ESTRAT,<span class="dt">data=</span>dados,<span class="dt">fpc=</span>~Prob)
+SAL_med_yw&lt;-<span class="kw">svymean</span>(~SAL,desenho)
+REC_med_yw&lt;-<span class="kw">svymean</span>(~REC,desenho)
+SAL.mat.res[i,]&lt;-<span class="kw">c</span>(SAL_med_y,<span class="kw">coef</span>(SAL_med_yw),SAL_var_AAS,<span class="kw">SE</span>(SAL_med_yw)^<span class="dv">2</span>)
+REC.mat.res[i,]&lt;-<span class="kw">c</span>(REC_med_y,<span class="kw">coef</span>(REC_med_yw),REC_var_AAS,<span class="kw">SE</span>(REC_med_yw)^<span class="dv">2</span>)
 }
-<span class="kw">colMeans</span>(mat.res)</code></pre></div>
+SAL_res_mean &lt;-<span class="kw">colMeans</span>(SAL.mat.res)
+REC_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(REC.mat.res)
+EPA_SAL1 &lt;-<span class="st"> </span>SAL_res_mean[<span class="dv">4</span>]/SAL_res_mean[<span class="dv">3</span>]
+EPA_SAL1</code></pre></div>
+<pre><code>## [1] 0.1396074</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">EPA_REC1 &lt;-<span class="st"> </span>REC_res_mean[<span class="dv">4</span>]/REC_res_mean[<span class="dv">3</span>]
+EPA_REC1</code></pre></div>
+<pre><code>## [1] 0.3266742</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
+Vp_SAL_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(SAL~ESTRAT, popul, var)
+Vp_REC_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(REC~ESTRAT, popul, var)
+Vp_SAL &lt;-<span class="st"> </span><span class="kw">sum</span>(Wh^<span class="dv">2</span>*(<span class="dv">1</span>-fh)*Vp_SAL_h[,<span class="st">&quot;SAL&quot;</span>]/nh)
+Vp_SAL &lt;-<span class="st"> </span><span class="kw">sum</span>(Wh^<span class="dv">2</span>*(<span class="dv">1</span>-fh)*Vp_REC_h[,<span class="st">&quot;REC&quot;</span>]/nh)
+<span class="co"># valor esperado v0 usando população</span></code></pre></div>
 
 </div>
 </div>

@@ -167,8 +167,7 @@ sujeitos a incerteza, que não pode ser quantificada sem medidas de
 precisão amostral.
 
 Em geral, a obtenção de estimativas de variâncias
-(alternativamente, de desvios padrões ou mesmo de coeficientes de varia
-ção) é requerida para que intervalos de confiança possam ser
+(alternativamente, de desvios padrões ou mesmo de coeficientes de variação) é requerida para que intervalos de confiança possam ser
 calculados, e outras formas de inferência realizadas. Intervalos de
 confiança elaborados com estimativas amostrais são geralmente
 baseados em aproximações assintóticas da distribuição
@@ -230,7 +229,7 @@ discute brevemente uma técnica baseada na idéia de
 pseudo-replicações da amostra, denominada `Jackknife`. A combinação
 dessas três idéias suporta os desenvolvimentos teóricos dos
 algoritmos empregados pelos principais pacotes estatísticos
-especializados em estimação de variâncias de aleatorização (veja discussão no Capítulo \@ref{agregdesag}).
+especializados em estimação de variâncias de aleatorização (veja discussão no Capítulo \@ref(agregdesag).
 
 ## Linearização de Taylor para Estimar variâncias {#taylor}
 
@@ -600,25 +599,27 @@ ou
 }\sum_{g=1}^{G}\left( \widehat{\theta }_{\left( g\right) }-\widehat{\theta }%
 \right) ^{2}  (\#eq:estpa27)
 \end{equation}
-onde $\widehat{\theta }_{J}=\frac{1}{G}\sum_{g=1}^{G}\widehat{\theta }%
-_{\left( g\right) }$ é um estimador pontual \emph{jackknife} para $%
+onde $\widehat{\theta }_{J}=\frac{1}{G}\sum_{g=1}^{G}\widehat{\theta }_{\left( g\right)}$ é um estimador pontual *jackknife*  para $%
 \theta ,$ alternativo ao estimador da amostra inteira $\hat{\theta}$.
 
 
-**Observação:** A descrição do método \emph{jackknife }aqui apresentada não cobre o caso de planos amostrais estratificados, que é mais complexo.
-Para detalhes sobre este caso, consulte \citeonline[p. 174]{W85}.
+```{remark} 
+A descrição do método *jackknife* aqui apresentada não cobre o caso de planos amostrais estratificados, que é mais complexo. Para detalhes sobre este caso, consulte [@W85], pág. 174.
+```
  
-**Observação:** O estimador $\widehat{V}_{J2}\left( \widehat{\theta }\right)$ é maisconservador que o estimador $\widehat{V}_{J1}\left( \widehat{\theta }\right)$.
+```{remark} 
+O estimador $\widehat{V}_{J2}\left( \widehat{\theta }\right)$ é mais conservador que o estimador $\widehat{V}_{J1}\left( \widehat{\theta }\right)$.
+```
 
-**Observação:**
-é comum aplicar a técnica fazendo o número de grupos igual ao
+```{remark}
+É comum aplicar a técnica fazendo o número de grupos igual ao
 tamanho da amostra, isto é, tomando $G=n$ e portanto eliminando uma
 observação da amostra de cada vez ao calcular os pseudo-valores.
 Essa regra deve ser aplicada considerando o número de unidades
 primárias na amostra (UPAs) quando o plano amostral é em
 múltiplos estágios, pois as UPAs devem sempre ser eliminadas com
 todas as unidades subordinadas.
-
+```
 
 Os estimadores de variância do método `jackknife` fornecem
 resultado idêntico aos dos estimadores usuais de variância quando

@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-01-02">
+<meta name="date" content="2017-01-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -337,7 +337,7 @@ w_i^{REG} = \pi_i^{-1} g_i \mbox{ ,} \tag{3.18}
 <div id="por-que-estimar-variancias" class="section level2">
 <h2><span class="header-section-number">3.2</span> Por que Estimar Variâncias</h2>
 <p>Em Amostragem, como de resto na Estatística Clássica, a estimação de variâncias é um componente <code>essencial</code> da abordagem inferencial adotada: sem estimativas de variância, nenhuma indicação da precisão (e portanto, da qualidade) das estimativas de interesse está disponível. Nesse caso, uma tentação que assola muitos usuários incautos é esquecer que os resultados são baseados em dados apenas de uma amostra da população, e portanto sujeitos a incerteza, que não pode ser quantificada sem medidas de precisão amostral.</p>
-<p>Em geral, a obtenção de estimativas de variâncias (alternativamente, de desvios padrões ou mesmo de coeficientes de varia ção) é requerida para que intervalos de confiança possam ser calculados, e outras formas de inferência realizadas. Intervalos de confiança elaborados com estimativas amostrais são geralmente baseados em aproximações assintóticas da distribuição normal, tais que intervalos da forma <span class="math display">\[
+<p>Em geral, a obtenção de estimativas de variâncias (alternativamente, de desvios padrões ou mesmo de coeficientes de variação) é requerida para que intervalos de confiança possam ser calculados, e outras formas de inferência realizadas. Intervalos de confiança elaborados com estimativas amostrais são geralmente baseados em aproximações assintóticas da distribuição normal, tais que intervalos da forma <span class="math display">\[
 IC\left[ \widehat{\theta };\widehat{V}_{p}\left( \widehat{\theta }\right)
 \right] =\left[ \widehat{\theta }\pm z_{\alpha /2}\sqrt{\widehat{V}%
 _{p}\left( \widehat{\theta }\right) }\right] 
@@ -347,7 +347,7 @@ _{p}\left( \widehat{\theta }\right) }\right]
 <p>Para alguns planos amostrais utilizados na prática, as probabilidades de inclusão conjuntas podem ser nulas (caso de amostragem sistemática) ou difíceis de calcular (caso de alguns esquemas de seleção com probabilidades desiguais). Nesses casos, as expressões fornecidas na Seção <a href="capplanamo.html#estimatotais">3.1</a> para os estimadores das variâncias dos estimadores de totais não são mais válidas.</p>
 <p>Em muitos outros casos, como se verá no restante deste livro, os parâmetros de interesse são <code>não lineares</code> (diferentes de totais, médias e proporções, por exemplo). Casos comuns que consideraremos mais adiante são a estimação de razões, coeficientes de regressão, etc. Nesses casos é comum que as estatísticas empregadas para estimar tais parâmetros também sejam <code>não lineares</code>.</p>
 <p>Finalmente, alguns estimadores de variância podem, em alguns casos, produzir estimativas negativas da variância, que são inaceitáveis de um ponto de vista prático (tais como o estimador da expressão <a href="capplanamo.html#eq:estpa5">(3.5)</a> para alguns esquemas de seleção com probabilidades desiguais e determinadas configurações peculiares da amostra).</p>
-<p>Em todos esses casos, é requerido o emprego de técnicas especiais de estimação de variância. é de algumas dessas técnicas que tratam as seções seguintes deste capítulo. A seleção das técnicas discutidas aqui não é exaustiva, e um tratamento mais completo e aprofundado da questão pode ser encontrado no livro de <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>. Discutimos inicialmente a técnica de <code>Linearização de Taylor</code>, em seguida uma abordagem comumente adotada para estimar variâncias para planos amostrais estratificados em vários estágios, com seleção de unidades primárias com probabilidades desiguais, denominada <code>Método do Conglomerado Primário</code> (do inglês <em>Ultimate Cluster</em>, e finalmente se discute brevemente uma técnica baseada na idéia de pseudo-replicações da amostra, denominada <code>Jackknife</code>. A combinação dessas três idéias suporta os desenvolvimentos teóricos dos algoritmos empregados pelos principais pacotes estatísticos especializados em estimação de variâncias de aleatorização (veja discussão no Capítulo @ref{agregdesag}).</p>
+<p>Em todos esses casos, é requerido o emprego de técnicas especiais de estimação de variância. é de algumas dessas técnicas que tratam as seções seguintes deste capítulo. A seleção das técnicas discutidas aqui não é exaustiva, e um tratamento mais completo e aprofundado da questão pode ser encontrado no livro de <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>. Discutimos inicialmente a técnica de <code>Linearização de Taylor</code>, em seguida uma abordagem comumente adotada para estimar variâncias para planos amostrais estratificados em vários estágios, com seleção de unidades primárias com probabilidades desiguais, denominada <code>Método do Conglomerado Primário</code> (do inglês <em>Ultimate Cluster</em>, e finalmente se discute brevemente uma técnica baseada na idéia de pseudo-replicações da amostra, denominada <code>Jackknife</code>. A combinação dessas três idéias suporta os desenvolvimentos teóricos dos algoritmos empregados pelos principais pacotes estatísticos especializados em estimação de variâncias de aleatorização (veja discussão no Capítulo <a href="agregdesag.html#agregdesag">13</a>.</p>
 </div>
 <div id="taylor" class="section level2">
 <h2><span class="header-section-number">3.3</span> Linearização de Taylor para Estimar variâncias</h2>
@@ -525,10 +525,22 @@ ou
 }\sum_{g=1}^{G}\left( \widehat{\theta }_{\left( g\right) }-\widehat{\theta }%
 \right) ^{2}  \tag{3.27}
 \end{equation}\]</span>
-<p>onde <span class="math inline">\(\widehat{\theta }_{J}=\frac{1}{G}\sum_{g=1}^{G}\widehat{\theta }% _{\left( g\right) }\)</span> é um estimador pontual  para <span class="math inline">\(% \theta ,\)</span> alternativo ao estimador da amostra inteira <span class="math inline">\(\hat{\theta}\)</span>.</p>
-<p><strong>Observação:</strong> A descrição do método aqui apresentada não cobre o caso de planos amostrais estratificados, que é mais complexo. Para detalhes sobre este caso, consulte .</p>
-<p><strong>Observação:</strong> O estimador <span class="math inline">\(\widehat{V}_{J2}\left( \widehat{\theta }\right)\)</span> é maisconservador que o estimador <span class="math inline">\(\widehat{V}_{J1}\left( \widehat{\theta }\right)\)</span>.</p>
-<p><strong>Observação:</strong> é comum aplicar a técnica fazendo o número de grupos igual ao tamanho da amostra, isto é, tomando <span class="math inline">\(G=n\)</span> e portanto eliminando uma observação da amostra de cada vez ao calcular os pseudo-valores. Essa regra deve ser aplicada considerando o número de unidades primárias na amostra (UPAs) quando o plano amostral é em múltiplos estágios, pois as UPAs devem sempre ser eliminadas com todas as unidades subordinadas.</p>
+<p>onde <span class="math inline">\(\widehat{\theta }_{J}=\frac{1}{G}\sum_{g=1}^{G}\widehat{\theta }_{\left( g\right)}\)</span> é um estimador pontual <em>jackknife</em> para <span class="math inline">\(% \theta ,\)</span> alternativo ao estimador da amostra inteira <span class="math inline">\(\hat{\theta}\)</span>.</p>
+
+<div class="remark">
+<span class="remark"><em>Observação. </em></span> A descrição do método <em>jackknife</em> aqui apresentada não cobre o caso de planos amostrais estratificados, que é mais complexo. Para detalhes sobre este caso, consulte <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, pág. 174.
+</div>
+<p></p>
+
+<div class="remark">
+<span class="remark"><em>Observação. </em></span> O estimador <span class="math inline">\(\widehat{V}_{J2}\left( \widehat{\theta }\right)\)</span> é mais conservador que o estimador <span class="math inline">\(\widehat{V}_{J1}\left( \widehat{\theta }\right)\)</span>.
+</div>
+<p></p>
+
+<div class="remark">
+<span class="remark"><em>Observação. </em></span> É comum aplicar a técnica fazendo o número de grupos igual ao tamanho da amostra, isto é, tomando <span class="math inline">\(G=n\)</span> e portanto eliminando uma observação da amostra de cada vez ao calcular os pseudo-valores. Essa regra deve ser aplicada considerando o número de unidades primárias na amostra (UPAs) quando o plano amostral é em múltiplos estágios, pois as UPAs devem sempre ser eliminadas com todas as unidades subordinadas.
+</div>
+<p></p>
 <p>Os estimadores de variância do método <code>jackknife</code> fornecem resultado idêntico aos dos estimadores usuais de variância quando aplicados para o caso de estimadores lineares nas observações amostrais. Além disso, suas propriedades são razoáveis para vários outros casos de estimadores não lineares de interesse (veja, por exemplo, <span class="citation">(Cochran <a href="#ref-cochran">1977</a>)</span>, p. 321 e <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, p. 306. A situação merece maiores cuidados para o caso de quantis ou estatísticas de ordem, tais como a mediana e o máximo, pois neste caso essa técnica não funciona bem <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, p. 163.</p>
 <p>O pacote WesVarPC <span class="citation">(Westat <a href="#ref-Westat">1996</a>)</span> baseia suas estimativas de variância principalmente no método <code>jackknife</code>, embora também possua uma opção para usar outro método conhecido como de replicações de meias amostras balanceadas (do inglês <em>balanced half-sample replication</em>).</p>
 </div>
@@ -568,7 +580,7 @@ ANALF1.SE_FAIXA1.SE_RAZ_jkn&lt;-<span class="kw">svyratio</span>(~ANALF1.SE,~FAI
 ##            0.118689</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">SE</span>(ANALF1.SE_FAIXA1.SE_RAZ_jkn)</code></pre></div>
 <pre><code>## ANALF1.SE/FAIXA1.SE 
-##          0.01083103</code></pre>
+##          0.01200695</code></pre>
 
 </div>
 </div>
