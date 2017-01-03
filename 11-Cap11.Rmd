@@ -1,0 +1,7 @@
+# Não-Resposta
+
+## Introdução
+
+O capítulo onze trata da não resposta e suas conseqüências sobre a análise de dados. 
+As abordagens de tratamento usuais, reponderação e imputação, são descritas de maneira
+resumida, com apresentação de alguns exemplos ilustrativos, e referências à ampla literatura existente sobre o assunto. Em seguida destacamos a importância de considerar os efeitos da não-resposta e dos tratamentos compensatórios aplicados nas análises dos dados resultantes, destacando em particular as ferramentas disponíveis para a estimação de variâncias na presença de dados incompletos tratados mediante reponderação e/ou imputação.

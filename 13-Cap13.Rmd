@@ -1,0 +1,1110 @@
+# Agregação vs. Desagregação {#agregdesag}
+
+## Introdução 
+
+Há duas abordagens principais para tratar a estrutura dos dados de
+pesquisas amostrais complexas. Numa delas, encaramos a estrutura dos dados
+como fator complicador ou aspecto indesejado, que invalida o uso de
+procedimentos padrões de análise, e mantemos inalterados os
+objetivos básicos da análise. Os métodos descritos nos
+capítulos anteriores se baseiam nesta abordagem, denominada de `análise agregada`  ou `marginal`, pois os parâmetros de
+interesse são obtidos tomando-se a média ao longo de alguns aspectos
+da estrutura da população.
+
+Na outra abordagem, denominada `análise desagregada`, mudamos os
+objetivos, incorporando mais explicitamente a estrutura da população
+no procedimento de análise, construindo modelos para descrever a relação 
+entre as variáveis de interesse. A complexidade da estrutura da
+população é então usada como evidência de que modelos
+simples e procedimentos padrões são também, em geral,
+inadequados.
+
+Para considerar a estrutura da população, os modelos requeridos
+são geralmente mais elaborados e às vezes requerem alteração
+dos alvos da inferência. Nos modelos modificados, os antigos
+parâmetros são abandonados e novos parâmetros são
+introduzidos, num processo iterativo que se baseia nos dados da pesquisa.
+Efeitos de conglomeração não mais são vistos como
+complicadores, que se interpõem entre dados e procedimentos bem aceitos,
+e sim como parte integral da estrutura da população, que deve ser
+adequadamente modelada e que pode contribuir para melhorar nossa
+compreensão das relações entre as variáveis.
+
+Este capítulo se dedica a apresentar uma introdução à
+abordagem de análise desagregada, em contraposição aos
+procedimentos indicados nos capítulos anteriores. Para um exame mais
+detalhado do tema, o leitor deve consultar cap. 10 a 13 de [@Sk89a] e [@bryk].
+
+## Modelagem da Estrutura Populacional
+
+Para introduzir a abordagem de análise desagregada, vamos considerar um
+modelo simples de regressão linear, definido por 
+\begin{equation}
+E_{M}\left( Y_{i}\left| X_{i}=x_{i}\right. \right) =\beta _{0}+\beta
+_{1}x_{i}  (\#eq:hier1)
+\end{equation}
+onde $\beta _{0}$ e $\beta _{1}$ são parâmetros desconhecidos e $Y_{i}$ e $X_{i}$ são as variáveis resposta e preditora para a 
+$i$-ésima unidade da população, respectivamente. Modelos dessa
+forma são frequentemente considerados na prática para
+representar relações entre variáveis, e a inferência é
+dirigida aos parâmetros $\beta _{0}$ e $\beta _{1}.$
+
+Vamos agora considerar o caso bem simples de uma população com
+unidades divididas em dois grupos disjuntos (ou estratos), seja para fins de
+amostragem estratificada (emprego de planos amostrais com estratificação das unidades elementares) ou mesmo apenas para fins de análise.
+Um exemplo simples é o caso de populações humanas, em que
+pessoas são separadas em grupos de acordo com o sexo.
+
+Neste caso simples, para incorporar ao modelo efeitos de estratificação basta introduzir uma variável preditora de tipo indicador $Z$,
+que indica se uma unidade pertence ao estrato 1, digamos. O modelo
+modificado fica então definido como 
+\begin{equation}
+E_{M}\left( Y_{i}\left| X_{i}=x_{i}\;,Z_{i}=z_{i}\right. \right) =\beta
+_{0}+\beta _{1}x_{i}+\beta _{2}z_{i}+\beta _{3}x_{i}z_{i}  (\#eq:hier2)
+\end{equation}
+onde $z_{i}=1$ se a unidade pertence ao estrato 1 e $z_{i}=0$ caso
+contrário. Observe que neste novo modelo aparecem dois novos
+parâmetros, a saber $\beta _{2}$ e $\beta _{3}$ .
+
+Se $\beta _{3}=0$, o efeito do estrato é modificar o intercepto de $\beta _{0}$ para $\beta _{0}+\beta _{1}$, quando $z_{i}$ passa de $0$ a $1$.
+Se $\beta _{3}\neq 0$ , além da variação do intercepto, há
+também modificação na declividade, que passa de $\beta _{1}$
+para $\beta _{1}+\beta _{3}$ quando $z_{i}$ passa de $0$ a $1$.
+
+Modelos com o efeito de estratificação aqui ilustrado podem ser
+facilmente generalizados para o caso de mais de dois estratos, bastanto para
+isso adicionar de forma similar variáveis indicadoras de pertinência
+aos diversos estratos, exceto o último. Tais modelos podem ser úteis
+em uma variedade de situações de interesse prático. Um caso
+importante é o do emprego de planos amostrais estratificados. Nesse
+caso, o analista pode optar por modificar seu modelo agregado \@ref(eq:hier1) em
+favor de um modelo desagregado da forma \@ref(eq:hier2)2}), pois acredita que este
+último representa melhor a realidade subjacente. Se o plano
+amostral for do tipo amostragem estratificada simples e os estratos (de seleção) coincidirem com os do modelo (de análise), a inferência
+para os parâmetros do modelo pode ser feita usando procedimentos e
+pacotes padrões, sem maiores problemas. O mesmo já não ocorre se
+os estratos de análise diferem dos de seleção ou se o plano
+amostral empregado envolver outros aspectos de complexidade, tais como
+conglomeração e/ou probabilidades desiguais de seleção
+dentro dos estratos.
+
+Outro caso de interesse prático é aquele em que os estratos de
+análise são definidos por razões substantivas ligadas à
+modelagem pretendida, independentemente de como foi selecionada a amostra da
+pesquisa que gerou os dados (este caso englobaria inclusive dados coletados
+mediante censos). Nesse caso, os efeitos de estratificação são
+intrínsecos ao modelo e a estimação dos parâmetros
+correspondentes é o alvo da inferência desejada. Um exemplo
+típico é a análise de efeitos de sexo sobre relações
+entre educação (medida em termos de anos de estudo, por exemplo) e
+renda, que sustenta discussões sobre preconceito contra mulheres no
+mercado de trabalho (estamos simplificando aqui a situação, pois em
+geral se precisa remover efeitos de profissão, posição na ocupação, número de horas trabalhadas e outros que afetam a renda de
+assalariados). Em casos como este, em que dados de pesquisas amostrais
+domiciliares são frequentemente usados para ajustar modelos com
+efeitos de estratificação, os estratos de análise (pessoas
+classificadas por sexo) são formados a posteriori, porque as pessoas da
+amostra não são selecionadas em grupos devido à inexistência
+de cadastros que suportassem esse tipo de plano amostral. Na prática, as
+amostras selecionadas são de domicílios e nestes investigadas todas
+as pessoas moradoras.
+
+Uma outra situação de interesse prático que pode requerer
+modificação dos modelos de interesse é a ocorrência de
+efeitos de conglomeração. Estes podem tanto se originar de
+necessidades administrativas que motivam a adoção de planos
+amostrais conglomerados (vide o caso das pesquisas por amostragem
+domiciliar, em que municípios, setores e domicílios formam
+conglomerados de pessoas, estas últimas as unidades de análise de
+interesse da modelagem), quanto de necessidades substantivas, em que os
+grupos de unidades elementares fazem parte de uma estrutura populacional
+cujas propriedades se deseja modelar de forma mais explícita. Um exemplo
+é o caso de estudos demográficos sobre mortalidade infantil, em que
+os filhos tidos por uma determinada mulher são considerados um
+conglomerado e se pretende identificar algum efeito potencial do tamanho dos
+conglomerados sobre os eventos de interesse, no caso a mortalidade infantil.
+
+Efeitos de conglomeração podem ser introduzidos no modelo \@ref(eq:hier1) de maneira simples, bastando para isso considerar um modelo da forma 
+\begin{equation}
+Y_{ij}=\beta _{0}+\beta _{1}x_{ij}+\varepsilon _{ij}, (\#eq:hier3)
+\end{equation}
+no qual $j$ denota conglomerado e $i$ denota indivíduo no conglomerado.
+
+Em dados de pesquisas amostrais, os erros $\varepsilon _{ij}$ não
+satisfazem, em geral, a hipótese de IID. Além disso, no modelo \@ref(eq:hier3), $\beta _{0}$ e $\beta _{1}$ não variam para os diferentes
+conglomerados. Pode ser adequado supor que $\beta _{0}$ e $\beta _{1}$
+variam entre conglomerados. Isto pode ser obtido substituindo $\beta _{0}$ e 
+$\beta _{1}$ em \@ref(eq:hier3) por coeficientes aleatórios, que dependem
+dos conglomerados, isto é, adotando-se o modelo 
+\begin{equation}
+\left\{ 
+\begin{array}{l}
+Y_{ij}=\beta _{0j}+\beta _{1j}x_{ij}+\varepsilon _{ij} \\ 
+\beta _{0j}=\beta _{0}+\eta _{0j} \\ 
+\beta _{1j}=\beta _{1}+\eta _{1j}
+\end{array}
+\right.  (\#eq:hier4)
+\end{equation}
+com $\beta _{0}$ e $\beta _{1}$ fixos e desconhecidos e $\varepsilon _{ij}$, 
+$\eta _{0j}$ e $\eta _{1j}$ variáveis aleatórias, \allowbreak
+satisfazendo 
+\begin{eqnarray}
+E_{M}\left( \varepsilon _{ij}\right) &=&E_{M}\left( \eta _{0j}\right)
+=E_{M}\left( \eta _{1j}\right) =0  (\#eq:hier5) \\
+V_{M}\left( \varepsilon _{ij}\right) &=&\sigma ^{2},\:\:V_{M}\left(
+\eta _{0j}\right) =\sigma _{0}^{2},\;V_{M}\left( \eta _{1j}\right)
+=\sigma _{1}^{2}\;,  \nonumber \\
+COV_{M}\left( \varepsilon _{ij},\eta _{0j^{^{\prime }}}\right)
+&=&COV_{M}\left( \varepsilon _{ij},\eta _{1j^{^{\prime }}}\right) =0\;, 
+\nonumber \\
+COV_{M}\left( \varepsilon _{ij},\varepsilon _{i^{^{\prime }}j^{^{\prime
+}}}\right) &=&0\;,\quad j\neq j^{^{\prime }}\mbox{ ou }i\neq i^{^{\prime
+}}\;,  \nonumber
+\end{eqnarray}
+e 
+\begin{equation}
+COV_{M}\left( \eta _{0j},\eta _{1j^{^{\prime }}}\right) =\left\{ 
+\begin{array}{l}
+\sigma _{01}\quad j=j^{^{\prime }} \\ 
+0\quad \quad j\neq j^{^{\prime }}
+\end{array}
+\right. \;\;.  (\#eq:hier6)
+\end{equation}
+
+Podemos juntar as expressões em \@ref(eq:hier4) e reescrever o modelo como 
+\begin{eqnarray}
+Y_{ij} &=&\left( \beta _{0}+\eta _{0j}\right) +\left( \beta _{1}+\eta
+_{1j}\right) x_{ij}+\varepsilon _{ij}  (\#eq:hier7) \\
+&=&\beta _{0}+\beta _{1}x_{ij}+\eta _{0j}+\eta _{1j}x_{ij}+\varepsilon
+_{ij}\;\;.  \nonumber
+\end{eqnarray}
+
+Em \@ref(eq:hier7), os coeficientes $\beta _{0}$ e $\beta _{1}$ são fixos e
+os coeficientes $\eta _{0j}$ e $\eta _{1c}$ são aleatórios, sendo o
+modelo denominado de efeitos mistos: fixos e aleatórios (veja por
+exemplo [@Longford], [@diggle] e  [@bryk].
+
+Em \@ref(eq:hier5) e \@ref(eq:hier6) os valores de $\sigma _{0}^{2}$, $\sigma
+_{1}^{2}$, $\sigma _{01}$ e $\sigma ^{2}$ servem para medir a variação intra-conglomerados não explicada pelo modelo. O modelo pode ser
+mais elaborado, na tentativa de reduzir as variações não
+explicadas $\sigma _{0}^{2}$, $\sigma _{1}^{2}$ e talvez reduzir a
+covariância $\sigma _{01}$. Para isto, podemos introduzir no modelo uma
+outra variável preditora $a_{j}$, definida no nível de
+conglomerados, e considerar o novo modelo dado por
+
+\begin{equation}
+\left\{ 
+\begin{array}{l}
+Y_{ij}=\beta _{0j}+\beta _{1j}x_{ij}+\varepsilon _{ij} \\ 
+\beta _{0j}=\gamma _{00}+\gamma _{01}a_{j}+\eta _{0j} \\ 
+\beta _{1j}=\gamma _{10}+\gamma _{11}a_{j}+\eta _{1j}\;\;\;.
+\end{array}
+\right.  (\#eq:hier8)
+\end{equation}
+
+Mais uma vez o objetivo básico da inferência se altera, pois agora
+está centralizado nos parâmetros 
+$\left( \gamma _{00},\gamma_{01},\gamma _{10},\gamma _{11},\sigma _{0}^{2},\sigma _{1}^{2},\sigma^{2},\sigma _{01}\right)$, com intervalos de confiança e testes de
+hipóteses relativos a estes parâmetros. O modelo \@ref(eq:hier8) é
+de efeitos mistos, com efeitos fixos 
+$\left( \gamma _{00},\gamma_{01},\gamma _{10},\gamma _{11}\right)$ e efeitos aleatórios $\left(\eta _{0j},\eta _{1j}\right)$.
+
+Modelos de efeitos mistos da forma \@ref(eq:hier8) podem ser generalizados de
+diversas maneiras: mais variáveis preditoras $x$ podem ser introduzidas
+na equação que descreve os valores individuais da variável
+resposta $y$; efeitos de estratificação podem ser adicionados
+mediante introdução de variáveis indicadoras de pertinência
+a estratos $z$, como no modelo \@ref(eq:hier2); mais variáveis preditoras $a$
+podem ser introduzidas nas equações que descrevem a variação
+dos parâmetros aleatórios a nível dos conglomerados; maior
+número de níveis de conglomeração podem ser considerados;
+etc. Aqui, o modelo ''simples'' da forma \@ref(eq:hier8) já basta para
+ilustrar a maior complexidade envolvida na modelagem ao se tentar incorporar
+efeitos de conglomeração nessa abordagem desagregada.
+
+Entre os modelos disponíveis para incorporar generalizações dos
+tipos aqui discutidos, uma classe de modelos bastante ampla e que tem sido objeto de grande interesse na literatura recente é a classe dos modelos hierárquicos, cujas idéias básicas introduziremos na próxima seção.
+
+## Modelos Hierárquicos
+
+Modelos hierárquicos são indicados quando a estrutura populacional
+é hierárquica, isto é, quando as unidades elementares de
+análise estão grupadas em unidades maiores, que por sua vez
+também podem ou não pertencer a uma estrutura de grupos, numa
+hierarquia bem definida. Algumas vezes, tal hierarquia é uma propriedade
+intrínseca da população estudada. Um exemplo interessante de
+estrutura populacional hierárquica é um sistema educacional. Nele,
+os estudantes são naturalmente agrupados em turmas, as turmas agrupadas
+em escolas, as escolas agrupadas por distritos escolares ou municípios,
+e assim por diante. O uso de modelos hierárquicos para descrever tais
+estruturas tem motivação nas próprias estruturas,
+independentemente do procedimento amostral usado para a obtenção dos
+dados eventualmente observados.
+
+Adotando como referência básica \citeonline[cap.~11]{Sk89a}, vamos apresentar um resumo de alguns modelos hierárquicos
+básicos, iniciando com o caso de variáveis contínuas. Ainda no
+contexto de estudantes e turmas do exemplo discutido nesta seção,
+vamos considerar um modelo hierárquico de dois níveis com as
+seguintes variáveis:
+
+
+- $ESC$ - escore do aluno num teste de Matemática, considerada como
+variável resposta;
+
+-  $SEX$ - sexo do aluno;
+
+-  $CSA$ - classe social do aluno;
+
+-  $CST$ - classe social média dos alunos da turma;
+
+-  $EXP$- anos de experiência do professor de Matemática.
+
+Observe que as variáveis $SEX$ e $CSA$ se referem ao aluno (nível 1
+do modelo), enquanto as variáveis $CST$ e $EXP$ se referem à turma
+(nível 2 do modelo) à qual o aluno pertence. A variável $EXP$
+é uma característica do professor, ao passo que $CST$ é uma
+variável ''contextual'', baseada numa característica dos alunos
+agregada para o nível da turma.
+
+Para fixar idéias, vamos considerar um modelo (nível aluno, ou
+nível 1) diferente para cada turma, explicando $ESC$ pelas variáveis 
+$SEX$ e $CSA$:
+
+\begin{equation}
+ESC_{ij}=\beta _{0j}+\beta _{1j}SEX_{ij}+\beta _{2j}CSA_{ij}+\varepsilon
+_{ij},  (\#eq:hier9)
+\end{equation}
+onde $i=1,\ldots ,n_{j}$ denota o aluno dentro da turma e $j=1,\ldots ,J$
+denota a turma.
+
+é possível que os coeficientes $\beta _{0j}$, $\beta _{1j}$ e $\beta
+_{2j}$ variem entre as turmas. Além disso, parte desta variação
+tem uma componente não-sistemática, mas os coeficientes podem
+também depender de características das turmas. Vamos considerar as
+variáveis $CST$ e $EXP$, medidas no nível da turma (nível 2),
+para explicar parte da variação dos coeficientes, através das
+seguintes equações (nível 2): 
+\begin{equation}
+\left\{ 
+\begin{array}{l}
+\beta _{0j}=\gamma _{00}+\gamma _{01}CST_{j}+\gamma _{02}EXP_{j}+\eta
+_{0j}\;\;, \\ 
+\beta _{1j}=\gamma _{10}+\gamma _{11}CST_{j}+\gamma _{12}EXP_{j}+\eta
+_{1j}\;\;, \\ 
+\beta _{2j}=\gamma _{20}+\gamma _{21}CST_{j}+\gamma _{22}EXP_{j}+\eta
+_{2j}\;\;,
+\end{array}
+\right.  (\#eq:hier10)
+\end{equation}
+onde $\eta _{0j}$, $\eta _{1j}$ e $\eta _{2j}$ são erros no nível 2
+satisfazendo as condições em \@ref(eq:hier5). As equações \@ref(eq:hier9) e \@ref(eq:hier10) definem um modelo hierárquico, que pode ser
+escrito de forma equivalente como 
+\begin{eqnarray}
+ESC_{ij} &=&\gamma _{00}+\gamma _{01}CST_{j}+\gamma _{02}EXP_{j}
+(\#eq:hier11) \\
+&&+\left( \gamma _{10}+\gamma _{11}CST_{j}+\gamma _{12}EXP_{j}\right)
+SEX_{ij}  \nonumber \\
+&&+\left( \gamma _{20}+\gamma _{21}CST_{j}+\gamma _{22}EXP_{j}\right)
+CSA_{ij}  \nonumber \\
+&&+\eta _{0j}+\eta _{1j}SEX_{ij}+\eta _{2j}CSA_{ij}+\varepsilon _{ij}\;\;\;.
+\nonumber
+\end{eqnarray}
+
+A presença dos erros aleatórios $\eta _{0j}$, $\eta _{1j}$ e $\eta
+_{2j}$ (de nível 2), torna \@ref(eq:hier11) um modelo misto. Se os erros
+fossem suprimidos em \@ref(eq:hier10), o modelo especificado só teria
+efeitos fixos e a estimação dos parâmetros não traria
+qualquer problema. Entretanto, a exclusão dos erros de nível 2 em 
+\@ref(eq:hier10) não seria razoável, pois as variáveis definidas no
+nível 2 não determinam completamente os coeficientes dentro das
+turmas. Este aspecto fundamental do modelo deve ser incorporado no
+procedimento de estimação dos respectivos parâmetros de
+interesse.
+
+Supondo que só os interceptos dos modelos dentro das turmas variam com
+as turmas, obtemos o seguinte modelo simplificado: 
+\begin{eqnarray}
+ESC_{ij} &=&\gamma _{00}+\gamma _{01}CST_{j}+\gamma _{02}EXP_{j}
+(\#eq:hier12) \\
+&&+\beta _{1j}SEX_{ij}+\beta _{2j}CSA_{ij}+\left( \eta _{0j}+\varepsilon
+_{ij}\right) \;\;.  \nonumber
+\end{eqnarray}
+
+Além da parte fixa, o modelo contém uma `parte residual`, om
+os erros aleatórios com média zero: $\eta _{0j},$ que representa o
+desvio da média dos indivíduos da turma $j$ com relação
+à média total, e $\varepsilon _{ij},$ que é o desvio do $i$-ésimo aluno com relação à média da turma $j$. Vamos
+supor, ainda, que os $\eta _{0j}$ e os $\varepsilon _{ij}$ são
+independentes entre si e os $\eta _{0j}$ são independentes dos 
+$\varepsilon _{ij}$ , com 
+\begin{equation}
+E_{M}\left( \eta _{0j}\right) =E_{M}\left( \varepsilon _{ij}\right)
+=0,\;V_{M}\left( \eta _{0j}\right) =\sigma _{0}^{2},\;V_{M}\left(
+\varepsilon _{ij}\right) =\sigma ^{2},\;\forall i,j\;.  (\#eq:hier13)
+\end{equation}
+
+A parte aleatória do modelo \@ref(eq:hier12) é o termo $\eta
+_{0j}+\varepsilon _{ij}$, com distribuição tendo parâmetros 
+$\sigma _{0}^{2}$ e $\sigma ^{2}$ a serem estimados.
+
+O modelo \@ref(eq:hier12) não permite estudar interações entre
+variáveis nos dois níveis hierárquicos. Para isto teríamos
+de supor, por exemplo, que a diferença de desempenho entre sexos varia
+com as turmas, requerendo que o modelo fosse alterado, fazendo $\beta _{1j}$
+depender das variáveis $CST_{j}$ e $EXP_{j}$. Isto introduziria mais
+erros aleatórios no modelo e mais parâmetros a serem estimados.
+
+Voltando ao modelo básico de dois níveis hierárquicos \@ref(eq:hier11), verificamos que há uma correlação positiva entre respostas de
+alunos na mesma turma, mas uma correlação nula entre respostas de
+alunos em turmas diferentes. Assim 
+\begin{equation}
+COV_{M}\left( ESC_{ij},ESC_{ij^{^{\prime }}}\right) =COV_{M}\left[ \left(
+\eta _{0j}+\varepsilon _{ij}\right) ,\left( \eta _{0j}+\varepsilon
+_{ij^{^{\prime }}}\right) \right] =\sigma _{0}^{2},  (\#eq:hier14)
+\end{equation}
+pois supusemos que $\varepsilon _{ij}$ e $\varepsilon _{ij^{^{\prime }}}$
+são independentes. Por outro lado, condicionando na parte fixa do
+modelo, tem-se que 
+\[
+V_{M}\left( ESC_{ij}\right) =V_{M}\left( ESC_{ij^{^{\prime }}}\right)
+=\sigma _{0}^{2}+\sigma ^{2}, 
+\]
+e portanto
+
+\begin{equation}
+CORR_{M}\left( ESC_{ij},ESC_{ij^{^{\prime }}}\right) = \frac{\sigma_{0}^{2}}{\sigma _{0}^{2}+\sigma ^{2}}.  (\#eq:hier15)
+\end{equation}
+
+A expressão \@ref(eq:hier15) define a `correlação intraclasse`
+usual que, em nosso exemplo, mede o grau de similaridade entre alunos dentro
+das turmas ou o grau de conglomeração da variável resposta $ESC_{ij}$ por turmas. Ela é a fração da variância residual atribuída à variância intra-conglomerado.
+No caso de se supor adicionalmente a normalidade dos dados, foram propostos
+vários métodos para estimação dos parâmetros do modelo \@ref(eq:hier11), entre os quais os métodos de Máxima Verossimilhança, de Máxima Verossimilhança Restrita e o Método Iterativo de
+Mínimos Quadrados Generalizados. Detalhes destes métodos de estimação não serão abordados neste texto, e o leitor interessado
+deve consultar, por exemplo, [@bryk].
+
+Nas considerações anteriores, não mencionamos explicitamente o
+plano amostral utilizado. Os modelos hierárquicos, ao incorporarem
+covariáveis características da estrutura populacional e também
+do plano a\-mos\-tral, tais como efeitos de estratificação e de
+conglomeração, tornam o plano amostral ignorável,
+condicionalmente nestas características, no sentido definido por
+\citeonline{Rubin76}. Este raciocínio, porém, não é aplicável
+quando unidades em qualquer nível da hierarquia são selecionadas com
+probabilidades desiguais, de formas não consideradas pelas
+covariáveis. Por exemplo, quando as unidades são selecionadas com
+probabilidades proporcionais a uma medida de tamanho que é relacionada
+à variável resposta. \citeonline{Pfefetalli} apresentam uma forma
+de incorporar pesos no ajuste de modelos hierárquicos para compensar
+diferentes probabilidades de inclusão das unidades na amostra.
+
+```{example}
+Plano amostral de pesquisa educacional (\citeauthoronline{lethonen}, \citeyear{lethonen}, p. 297).
+```
+Os dados deste exemplo se referem a uma pesquisa de avaliação de
+escolas (SNACS), na qual foi analisado o desempenho em Matemática de
+alunos da sexta série. A população de conglomerados consistiu em 
+$4.126$ escolas, da qual foi selecionada uma amostra de $53$ escolas, que
+produziu $1.071$ alunos, numa população de $60.934$ alunos. O
+tamanho total da amostra de alunos não foi fixado, de início. O
+plano amostral utilizado foi uma a\-mos\-tra estratificada de escolas
+(conglomerados) com um estágio, selecionada de um cadastro de escolas.
+Foi usada estratificação regional e as amostras nos estratos foram
+proporcionais ao tamanhos dos estratos.
+
+A variável resposta binária $DESEMP$, indica se o aluno atingiu ou
+não um nível de conhecimento desejado em matemática. As
+variáveis explicativas quantitativas são:
+
+
+-  $EXP$ - tempo de experiência do professor;
+
+-  $TEMP$ - tempo em minutos gasto pelo aluno em trabalhos de casa, no
+tempo livre.
+
+
+Cada preditor foi categorizado em três categorias, da forma a seguir:
+
+
+-  $EXP$ - $1$-$10$; $11$-$20$ e $21$ ou mais anos de experiência;
+
+-  $TEMP$ - $0$-$14$; $15$-$30$; $31$ ou mais minutos.
+
+
+Observe que a variável $EXP$ se refere ao professor, enquanto a
+variável $TEMP$ se refere ao aluno.
+
+Vários modelos foram ajustados, com complexidades e abordagens
+diferentes. Considerando inicialmente a abordagem agregada, e tomando as
+variáveis $EXP$ e $TEMP$ como contínuas, assumindo valores $1$, $2$
+e $3$, foi ajustado o modelo logístico 
+\begin{equation}
+\log \left( \frac{p_{j}}{1-p_{j}}\right) =\beta _{0}+\beta
+_{1}(TEMP)_{j}+\beta _{2}\left( EXP\right) _{j},  (\#eq:hier16)
+\end{equation}
+no qual $\beta _{0},\beta _{1}$ e $\beta _{2}$ são coeficientes a serem
+estimados, e o índice $j$ se refere a um domínio de estudo, $j=1,\ldots ,9$ (tais domínios não foram identificados na
+referência citada).
+
+Podemos analisar os dados considerando as observações como IID,
+ignorando a existência de conglomerados e de pesos distintos, que
+chamaremos aqui de `análise ingênua`. Neste caso, os
+coeficientes podem ser estimados pelo método padrão de Máxima
+Verossimilhança, utilizando um dos pacotes padrões. Os resultados
+dessa análise são apresentados na Tabela \ref{tab91}.
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Análise do modelo (9.16) sob hipótese de observações
+IID, ignorando complexidades do plano amostral }\bigskip \label{tab91} 
+\begin{tabular}{|c|c|r|r|r|r|}
+\hline\hline
+Variável & Coeficiente & 
+\begin{tabular}{r}
+Desvio \\ 
+Padrão
+\end{tabular}
+& Teste-t & $p$valor & EPA \\ \hline\hline
+\multicolumn{1}{|l|}{Intercepto} & \multicolumn{1}{|r|}{$2,912$} & $0,427$ & 
+$6,82$ & $0,000$ & $1$ \\ 
+\multicolumn{1}{|l|}{$TEMP$} & \multicolumn{1}{|r|}{$-0,894$} & $0,174$ & $%
+-5,14$ & $0,000$ & $1$ \\ 
+\multicolumn{1}{|l|}{$EXP$} & \multicolumn{1}{|r|}{$0,254$} & $0,127$ & $%
+2,00 $ & $0,045$ & $1$ \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+Os $p$valores da Tabela \ref{tab91} indicam que os coeficientes são
+significantemente diferentes de $0$ ao nível de significância $\alpha =5\%$, sugerindo que todas as variáveis preditoras têm poder
+de explicação, e portanto devem permanecer no modelo.
+
+Outra opção é a `análise agregada`, que incorpora o
+plano amostral e os pesos através do método de MPV para estimar
+parâmetros, e do uso de estatísticas baseadas no plano amostral para
+testar hipóteses. Esta abordagem pode ser usada também na etapa de
+seleção de modelos, com testes de siginificância baseados, por
+exemplo, na estatística de Wald ou ajustes desta, no caso de
+instabilidade. Os resultados dessa análise são apresentados na
+Tabela \ref{tab92}.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Análise agregada do modelo (9.16), usando MPV e
+estatísticas de Wald ({\bf PROC LOGISTIC} do {\bf SUDAAN })}\bigskip \label%
+{tab92} 
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline\hline
+Variável & Coeficiente & 
+\begin{tabular}{r}
+Desvio \\ 
+Padrão
+\end{tabular}
+& Teste-t & $p$valor & EPA \\ \hline\hline
+Intercepto & \multicolumn{1}{|r|}{$2,899$} & \multicolumn{1}{|r|}{$0,578$} & 
+\multicolumn{1}{|r|}{$5,02$} & \multicolumn{1}{|r|}{$0,00$} & 
+\multicolumn{1}{|r|}{$1,83$} \\ 
+$TEMP$ & \multicolumn{1}{|r|}{$-0,906$} & \multicolumn{1}{|r|}{$0,211$} & 
+\multicolumn{1}{|r|}{$-4,29$} & \multicolumn{1}{|r|}{$0,00$} & 
+\multicolumn{1}{|r|}{$1,47$} \\ 
+$EXP$ & \multicolumn{1}{|r|}{$0,271$} & \multicolumn{1}{|r|}{$0,181$} & 
+\multicolumn{1}{|r|}{$1,50$} & \multicolumn{1}{|r|}{$0,14$} & 
+\multicolumn{1}{|r|}{$2,03$} \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+A coluna de $p$valores da Tabela \ref{tab92} indica que o coeficiente de $%
+TEMP$ é significantemente diferente de zero, e também que a
+hipótese de nulidade do coeficiente de $EXP$ não é rejeitada no
+nível de significância $\alpha =5\%$.
+
+Neste exemplo, $f=38$ graus de liberdade para a estimação da matriz
+de covariância $9\times 9$ baseada no plano amostral. Como o estimador
+poderia ser instável, foi calculada a estatística corrigida de Wald.
+A correção usada foi a implementada no pacote PC-CARP, que difere da
+correção F antes mencionada. Os resultados da análise permanecem
+os mesmos que os da análise reportada na Tabela \ref{tab92}, conforme se
+pode verificar consultando os valores da Tabela \ref{tab93}. Em ambos os
+casos, observamos EPAs moderados com máximo em torno de $2$.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Análise agregada do modelo (9.16), usando estatísticas
+de Wald corrigidas (programa {\bf PC CARP}) }\bigskip \label{tab93} 
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline\hline
+Variável & Coeficiente & 
+\begin{tabular}{r}
+Desvio \\ 
+Padrão
+\end{tabular}
+& Teste-t & $p$valor & EPA \\ \hline\hline
+\multicolumn{1}{|l|}{Intercepto} & \multicolumn{1}{|r|}{$2,899$} & 
+\multicolumn{1}{|r|}{$0,597$} & \multicolumn{1}{|r|}{$4,86$} & 
+\multicolumn{1}{|r|}{$0,00$} & \multicolumn{1}{|r|}{$1,95$} \\ 
+\multicolumn{1}{|l|}{$TEMP$} & \multicolumn{1}{|r|}{$-0,906$} & 
+\multicolumn{1}{|r|}{$0,219$} & \multicolumn{1}{|r|}{$-4,14$} & 
+\multicolumn{1}{|r|}{$0,00$} & \multicolumn{1}{|r|}{$1,58$} \\ 
+\multicolumn{1}{|l|}{$EXP$} & \multicolumn{1}{|r|}{$0,271$} & 
+\multicolumn{1}{|r|}{$0,186$} & \multicolumn{1}{|r|}{$1,46$} & 
+\multicolumn{1}{|r|}{$0,15$} & \multicolumn{1}{|r|}{$2,14$} \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+Finalmente, a `análise desagregada` que, neste exemplo, usaria um 
+`modelo hierárquico` com dois níveis, a saber:
+
+
+-  nível 1 - alunos;
+
+-  nível 2 - turmas.
+
+
+No modelo hierárquico, para cada nível se considera uma variação aleatória. Denotando por $p_{jk}$ a probabilidade de um
+aluno da turma $k$ no domínio $j$ atingir o nível desejado em
+Matemática, podemos modificar o modelo \@ref(eq:hier16) para incluir o
+efeito da turma empregando 
+\begin{equation}
+\log \left( \frac{p_{jk}}{1-p_{jk}}\right) =\beta _{0}+\beta
+_{1}TEMP_{jk}+\beta _{2}EXP_{j}+u_{k}.  (\#eq:hier17)
+\end{equation}
+
+O erro aleatório $u_{k}\sim N\left( 0,\sigma _{u}^{2}\right)$
+representa a variação aleatória no nível 2. A variação no nível 1, entre alunos, é introduzida da seguinte forma.
+Sob a hipótese binomial, em cada domínio, a proporção de
+alunos atingindo o nível adequado tem variância $p_{jk}\left(
+1-p_{jk}\right) /n_{jk}$. Vamos supor que a variação residual no
+nível 1 é denotada por $\sigma _{e}^{2}$, e também que a
+variabilidade entre alunos acarreta uma variação extra-binomial 
+\begin{equation}
+\frac{p_{jk}\left( 1-p_{jk}\right) \sigma _{e}^{2}}{n_{jk}}\;\;.
+(\#eq:hier18)
+\end{equation}
+
+Os resultados desta análise são apresentados na Tabela \ref{tab94}.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Análise desagregada do modelo (9.18) via programa {\bf ML3}}%
+\bigskip \label{tab94} 
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline\hline
+Variável & Coeficiente & 
+\begin{tabular}{r}
+Desvio \\ 
+Padrão
+\end{tabular}
+& Teste-t & $p$valor & EPA \\ \hline\hline
+\multicolumn{1}{|l|}{Intercepto} & \multicolumn{1}{|r|}{$2,941$} & 
+\multicolumn{1}{|r|}{$0,538$} & \multicolumn{1}{|r|}{$5,47$} & 
+\multicolumn{1}{|r|}{$0,00$} & \multicolumn{1}{|r|}{$1,58$} \\ 
+\multicolumn{1}{|l|}{$TEMP$} & \multicolumn{1}{|r|}{$-0,927$} & 
+\multicolumn{1}{|r|}{$0,179$} & \multicolumn{1}{|r|}{$-5,18$} & 
+\multicolumn{1}{|r|}{$0,00$} & \multicolumn{1}{|r|}{$1,06$} \\ 
+\multicolumn{1}{|l|}{$EXP$} & \multicolumn{1}{|r|}{$0,254$} & 
+\multicolumn{1}{|r|}{$0,188$} & \multicolumn{1}{|r|}{$1,35$} & 
+\multicolumn{1}{|r|}{$0,19$} & \multicolumn{1}{|r|}{$2,19$} \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+A coluna de $p$valores da Tabela \ref{tab94} indica novamente que o
+coeficiente de $EXP$ não é significantemente diferente de zero ao
+nível $\alpha =5\%$. A variação no nível 2 foi estimada por $\sigma_{u}^{2}=0,42$ com desvio-padrão $0,189$, e portanto é
+significante ao nível $\alpha =5\%$. Isto sugere a existência de
+diferença de avaliação dos professores sobre o aprendizado de
+Matemática dos alunos.
+
+No ajuste da Tabela \ref{tab94}, a variação entre alunos foi tomada
+como $\sigma _{e}^{2}=1.$ Uma alternativa seria estimar também este
+valor a partir dos dados.
+
+Este exemplo ilustra bem o efeito de ignorar efeitos de plano amostral, ao
+fazer a análise ingênua, cujas conclusões levariam a incluir a
+variável $EXP$ no modelo quando esta parece não ser importante, como
+revelaram as análises alternativas que levaram em conta o plano amostral
+ou a estrutura da população (análises agregada e desagregada,
+respectivamente).\pagebreak 
+
+```{example}
+(\citeauthoronline{bryk}, \citeyear{bryk}, Cap. 5)
+```
+
+Os dados consitiram em respostas de $8.000$ professores aninhados em $357$
+escolas. A média de professores por escola foi $8.000/357=22$
+professores por escola. Os níveis da estrutura hierárquica
+considerados e os índices usados para representá-los foram:
+
+
+-  Unidade Primária de Amostragem (UPA) = Escola;
+
+-  Unidade Elementar = Professor;
+
+-  $i=$ Professor e $j=$ Escola.
+
+
+Foram observadas as seguintes variáveis:
+
+
+-  Variável resposta
+
+
+$y_{ij}=$ Eficiência do Professor;
+
+
+-  Variáveis preditoras, relativas à Escola (unidade de
+nível 2)
+
+
+$x_{1j}=$ Experiência Acadêmica Média antes da Escola
+Secundária;
+
+$x_{2j}=$ Status Sócio-Econômico Médio;
+
+$x_{3j}=$ Proporção Alta de Minorias;
+
+$x_{4j}=$ Tamanho;
+
+$x_{5j}=$ Mistura étnica;
+
+$x_{6j}=$ Mistura de Status Sócio-Econômico;
+
+$x_{7j}=$ Grau de Organização Comunitária ($Comunit$).
+
+A idéia deste exemplo é ilustrar como diversos modelos alternativos
+podem ser usados para analisar os dados sobre eficiência do professor,
+buscando explicação em variáveis que refletem a estrutura da
+escola onde atua. Um primeiro modelo que se poderia ajustar, considerando a
+estrutura hierárquica da população, é o modelo de
+análise de variância com um fator e com efeitos aleatórios
+
+\textbf{Modelo I: }Análise de Variância com um Fator e com Efeitos
+Aleatórios.
+
+Modelo de nível 1
+\[
+Y_{ij}=\beta _{0j}+r_{ij},
+\]
+
+Modelo de nível 2
+\[
+\beta _{0j}=\gamma _{00}+u_{0j}.
+\]
+
+Ou juntando as duas equações
+\[
+Y_{ij}=\gamma _{00}+u_{0j}+r_{ij},
+\]
+com $E_{M}\left( r_{ij}\right) =E_{M}\left( u_{0j}\right) =0$ e $V_{M}\left(
+r_{ij}\right) =\sigma ^{2}$ , $V_{M}\left( u_{0j}\right) =\tau _{00}$.
+
+Foram obtidas as seguintes estimativas para os parâmetros deste modelo:
+\[
+\hat{\sigma}^{2}=0,915;\;\hat{\tau}_{00}=0,084\;\mbox{ e}
+\]
+\[
+\mbox{Correlação Intra-Escola}=\frac{\hat{\tau}_{00}}{\hat{
+\sigma}^{2}+\hat{\tau}_{00}}=0,092.
+\]
+
+Logo cerca de apenas $9\%$ da variação na eficiência do
+professor é explicada pelas diferenças entre as escolas. Como essa
+proporção da variação explicada é pequena, na tentativa
+de aumentar o poder explicativo do modelo, vamos introduzir no modelo
+algumas variáveis explicativas referentes à escola, a saber as
+variáveis $\left( x_{1},\ldots ,x_{6}\right)$.
+
+**Modelo II:** Hierárquico com dois níveis,
+usando as variáveis $\left( x_{1},\ldots ,x_{6}\right)$, definidas no
+nível 2, para explicar a variação da eficiência média do
+professor por escola.
+
+Modelo de nível 1:
+\[
+Y_{ij}=\beta _{0j}+r_{ij}.
+\]
+
+Modelo explanatório de nível 2:
+\[
+\beta _{0j}=\gamma _{00}+\sum\limits_{k=1}^{6}\gamma _{0j}x_{kj}+u_{0j}.
+\]
+
+A Tabela \ref{tab95} apresenta as estimativas dos parâmetros para este
+modelo.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Efeitos da escola na eficácia do professor (Modelo II)}\bigskip
+\label{tab95}
+\begin{tabular}{|c|c|c|}
+\hline\hline
+Coeficiente & Estimativa & Desvio Padrão \\ \hline\hline
+$\hat{\gamma}_{01}$ & \multicolumn{1}{|r|}{$0,044$} & \multicolumn{1}{|r|}{$%
+0,020$} \\
+$\hat{\gamma}_{02}$ & \multicolumn{1}{|r|}{$0,133$} & \multicolumn{1}{|r|}{$%
+0,023$} \\
+$\hat{\gamma}_{03}$ & \multicolumn{1}{|r|}{$0,031$} & \multicolumn{1}{|r|}{$%
+0,046$} \\
+$\hat{\gamma}_{04}$ & \multicolumn{1}{|r|}{$-0,066$} & \multicolumn{1}{|r|}{$%
+0,027$} \\
+$\hat{\gamma}_{05}$ & \multicolumn{1}{|r|}{$-0,014$} & \multicolumn{1}{|r|}{$%
+0,019$} \\
+$\hat{\gamma}_{06}$ & \multicolumn{1}{|r|}{$-0,028$} & \multicolumn{1}{|r|}{$%
+0,023$} \\
+$\hat{\sigma}^{2}$ & \multicolumn{1}{|r|}{$0,915$} & \multicolumn{1}{|r|}{-}
+\\
+$\hat{\tau}_{00}$ & \multicolumn{1}{|r|}{$0,055$} & \multicolumn{1}{|r|}{-}
+\\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+Com essas estimativas, a proporção da variação total entre
+escolas do parâmetro $\beta _{0j}$ (nível médio da eficácia
+dos professores por escola) explicada pelas variáveis 
+$\left(x_{1},\ldots ,x_{6}\right)$ aumentou para
+\[
+\frac{0,084-0,055}{0,084}=35.
+\]
+
+Embora esse aumento do poder explicativo do modelo já tenha sido
+subs\-tan\-cial, ainda é relativamente baixa a proporção de variação explicada, e portanto consideramos um terceiro modelo, em que
+foi adicionada ao Modelo II a variável preditora $x_{7}=Comunit$ ao
+nível da escola.
+
+**Modelo III:** Modelo Hierárquico com dois níveis,
+usando as variáveis $\left( x_{1},\ldots ,x_{7}\right)$, definidas no
+nível 2, para explicar a variação da eficiência média do
+professor por escola\textbf{.}
+
+Modelo de nível 1
+\[
+Y_{ij}=\beta _{0j}+r_{ij},
+\]
+
+Modelo Explanatório de nível 2
+\[
+\beta _{0j}=\gamma _{00}+\sum\limits_{k=1}^{7}\gamma _{0j}x_{kj}+u_{0j}.
+\]
+
+A Tabela \ref{tab96} apresenta as estimativas dos coeficientes do Modelo III
+e seus respectivos desvios padrões.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Efeitos da escola na eficácia do professor (Modelo III)}\bigskip
+\label{tab96}
+\begin{tabular}{|c|c|c|}
+\hline\hline
+Coeficiente & Estimativa & Desvio Padrão \\ \hline\hline
+$\hat{\gamma}_{01}$ & \multicolumn{1}{|r|}{$0,038$} & \multicolumn{1}{|r|}{$%
+0,017$} \\
+$\hat{\gamma}_{02}$ & \multicolumn{1}{|r|}{$0,015$} & \multicolumn{1}{|r|}{$%
+0,022$} \\
+$\hat{\gamma}_{03}$ & \multicolumn{1}{|r|}{$-0,055$} & \multicolumn{1}{|r|}{$%
+0,040$} \\
+$\hat{\gamma}_{04}$ & \multicolumn{1}{|r|}{$0,061$} & \multicolumn{1}{|r|}{$%
+0,026$} \\
+$\hat{\gamma}_{05}$ & \multicolumn{1}{|r|}{$-0,014$} & \multicolumn{1}{|r|}{$%
+0,016$} \\
+$\hat{\gamma}_{06}$ & \multicolumn{1}{|r|}{$-0,001$} & \multicolumn{1}{|r|}{$%
+0,020$} \\
+$\hat{\gamma}_{07}$ & \multicolumn{1}{|r|}{$0,504$} & \multicolumn{1}{|r|}{$%
+0,045$} \\
+$\hat{\sigma}^{2}$ & \multicolumn{1}{|r|}{$0,915$} & \multicolumn{1}{|r|}{-}
+\\
+$\hat{\tau}_{00}$ & \multicolumn{1}{|r|}{$0,031$} & \multicolumn{1}{|r|}{-}
+\\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+A proporção da variação total entre escolas do parâmetro
+$\beta _{0j}$ (nível médio da eficácia dos professores por
+escola) explicada pelas variáveis $\left( x_{1},\ldots ,x_{7}\right)$
+aumentou para
+\[
+\frac{0,084-0,031}{0,084}=63.
+\]
+
+O incremento na variação explicada devido à introdução
+da variável $Comunit$ no modelo de nível 2, foi de $63\%-35\%=28\%,$
+sugerindo que essa variável é importante para explicar a
+variação na eficácia do professor. O Modelo III já atinge um
+nível razoável de poder explicativo e poderia ser considerado
+satisfatório para algumas finalidades.
+
+Agora vamos ver o que teria ocorrido caso um analista procurasse ajus\-tar
+um modelo aos dados de forma bastante ingênua, ignorando a estrutura
+hierárquica da população.
+
+**Modelo IV:** Análise de Regressão Simples (nível 1).
+
+Vamos considerar um modelo de regressão linear simples, com o resultado
+do professor $Y_{ij}$ dependendo das características 
+$\left(x_{1j},\ldots ,x_{7j}\right)$ da escola, que teriam seus valores
+"repetidos" para os professores de uma mesma escola. Esse modelo pode ser
+escrito como
+\[
+Y_{ij}=\gamma _{0}+\sum\limits_{k=1}^{7}\gamma _{k}x_{kj}+e_{ij}.
+\]
+
+A Tabela \ref{tab97} apresenta as estimativas de Mínimos Quadrados
+Ponderados de $\left( \gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)$
+com pesos dados por $n_{j}=$ número de professores da escola $j$.
+
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Efeitos da escola na eficácia do professor (Modelo IV)}\bigskip
+\label{tab97}
+\begin{tabular}{|c|c|c|}
+\hline\hline
+Coeficiente & Estimativa & Desvio Padrão \\ \hline\hline
+$\hat{\gamma}_{1}$ & \multicolumn{1}{|r|}{$0,040$} & \multicolumn{1}{|r|}{$%
+0,013$} \\
+$\hat{\gamma}_{2}$ & \multicolumn{1}{|r|}{$0,015$} & \multicolumn{1}{|r|}{$%
+0,017$} \\
+$\hat{\gamma}_{3}$ & \multicolumn{1}{|r|}{$-0,056$} & \multicolumn{1}{|r|}{$%
+0,031$} \\
+$\hat{\gamma}_{4}$ & \multicolumn{1}{|r|}{$0,062$} & \multicolumn{1}{|r|}{$%
+0,021$} \\
+$\hat{\gamma}_{5}$ & \multicolumn{1}{|r|}{$-0,014$} & \multicolumn{1}{|r|}{$%
+0,013$} \\
+$\hat{\gamma}_{6}$ & \multicolumn{1}{|r|}{$0,002$} & \multicolumn{1}{|r|}{$%
+0,016$} \\
+$\hat{\gamma}_{7}$ & \multicolumn{1}{|r|}{$0,507$} & \multicolumn{1}{|r|}{$%
+0,035$} \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+A proporção de variação explicada pelo Modelo IV é de
+apenas $5,4\%$. Os coeficientes da análise de nível 2 (Modelo III,
+Tabela \ref{tab96}) foram bem semelhantes neste exemplo, o que pode ser
+explicado em parte pela pequena variação do número de
+professores por escola.
+
+A introdução da variável $Comunit$, neste modelo, só
+aumentou a quantidade de variação explicada em $2,5\%$. A julgar por
+este resultado, a importância da variável $Comunit$ é
+pequena. Este resultado é enganador devido ao fato de usar, no
+cálculo da razão de variação explicada, a variação
+total $\left( \tau _{00}+\sigma ^{2}\right)$ no denominador. No modelo
+hierárquico correspondente (Modelo III) este denominador é 
+$\tau_{00}$, que é a parte explicável da variação. A
+estatística de variação explicada da análise hierárquica
+fornece uma evidência mais clara para se julgar a importância de
+preditores do nível 2.
+
+Com este exemplo, procuramos ilustrar uma situação em que a
+estrutura populacional hierárquica não pode ser ignorada na
+modelagem, sob pena de se chegar a conclusões incorretas sobre a
+importância de determinadas variáveis preditoras num modelo de
+regressão, quando este é ajustado de forma ingênua a dados
+provenientes de uma estrutura hierárquica. Os modelos hierárquicos
+II e III aqui considerados são modelos de interceptos aleatórios do
+tipo $y_{ij}=\beta _{0j}+\mathbf{x}_{j}^{T}\mathbf{\beta +}v_{ij}\;$, onde
+os coeficientes de regressão $\mathbf{\beta }$ são considerados
+fixos e apenas os interceptos $\beta _{0j}=\beta _{0}+u_{j}$ são efeitos
+aleatórios. Tais modelos poderiam ser generalizados mediante suposição de que os coeficientes de regressão nas variáveis preditoras 
+$\mathbf{\beta}$ também são aleatórios. O Modelo V a seguir é desse tipo.
+
+**Modelo V:** Modelo de Coeficientes Aleatórios
+$$
+Y_{ij}=\mathbf{x}_{ij}^{T}\mathbf{\beta }_{j}+v_{ij},
+$$
+onde
+$$
+\mathbf{\beta }_{j}=\mathbf{x}_{j}^{T}\mathbf{\gamma }+\mathbf{\delta }_{j},
+$$
+com
+
+$\mathbf{\delta }_{j}(Q\times 1)$ e $E_{M}\left( \mathbf{\delta}_{j}\right) =\mathbf{0}$,
+$E_{M}\left( v_{ij}\right) =0$, $V_{M}\left(v_{ij}\right) =\sigma _{1}^{2}$,
+$V_{M}\left( \mathbf{\delta }_{j}\right) =\mathbf{\Delta }$, $\mathbf{\Delta}$ podendo ser não-diagonal.
+
+Não foram fornecidas estimativas dos parâmetros para este último modelo
+na referência citada. Sua formulação foi aqui incluída
+apenas para indicar que o estudo de modelos para a situação
+prática de interesse não se esgotaria nas alternativas de modelagem
+aqui consideradas.
+
+## Análise Desagregada: Prós e Contras
+
+Vamos inicialmente listar algumas dificuldades na análise de dados de
+\allowbreak pes\-qui\-sas complexas, indicando em cada caso como a
+análise desagregada poderia ajudar a solucionar o problema. Esta parte
+é um resumo da seção introdutória do Capítulo 5 do livro
+de \citeonline{bryk}, denominada ''Pontos básicos sobre efeitos
+organizacionais da pesquisa''.\medskip
+
+**Vício de agregação**
+
+Pode ocorrer quando a variável tem significados diferentes e, portanto,
+pode ter efeitos distintos em níveis organizacionais diversos. Por
+exemplo, numa pesquisa educacional, a classe social média de uma escola
+pode ter um efeito sobre o desempenho do aluno diferente do efeito da classe
+social individual do aluno. Esta última fornece uma medida dos recursos
+intelectuais e materiais do ambiente familiar de cada aluno individualmente.
+Já a classe social média dos alunos da escola é uma proxy da
+medida dos recursos da escola e de seu ambiente normativo. Modelos
+Hierárquicos ajudam a solucionar este confundimento, fornecendo uma
+decomposição de qualquer relação entre variáveis, tais
+como desempenho e classe social, em componentes separadas no nível 1 
+(`indivíduo`) e no nível 2 (`organização`).
+
+**Desvios padrões mal estimados**
+
+Podem ocorrer com dados estruturados em vários níveis, quando
+não consideramos a dependência entre respostas individuais dentro da
+mesma organização. Tal dependência pode aparecer pelas
+experiências compartilhadas dentro da organização ou pela forma
+como os indivíduos são arregimentados pela organização.
+Modelos Hierárquicos solucionam este problema incorporando no modelo
+estatístico um efeito aleatório único para cada unidade
+organizacional. As estimativas dos desvios padrões dependem da
+variabilidade destes efeitos aleatórios ou, na terminologia de pesquisas
+amostrais, as estimativas dos desvios padrões são ajustadas pela
+correlação intraclasse (ou pelo efeito do plano amostral), que
+decorre da amostragem por conglomerado.\medskip
+
+**Heterogeneidade de regressão**
+
+Pode ocorrer quando as relações entre características
+individuais e resultados variam ao longo das organizações. Embora
+este fen\^{o}meno seja, frequentemente, considerado como de
+distúrbio do ponto de vista metodológico, as causas da
+heterogeneidade da regressão são muitas vezes de interesse
+substantivo. Modelos hierárquicos possibilitam ao pesquisador estimar um
+conjunto de coeficientes de regressão para cada unidade organizacional
+e, então, modelar a variação de conjuntos de coeficientes entre
+organizações como resultados multivariados a serem explicados por
+fatores organizacionais.\medskip
+
+Se nos casos citados a abordagem de análise desagregada pode ser vista
+como uma solução que apresenta vantagens quando comparada com as
+abordagens tradicionais, em outras situações essa abordagem
+apresenta desvantagens claras quando comparada, por exemplo, com a abordagem
+agregada. A seguir listamos algumas dessas situações e discutimos
+suas implicações para a modelagem desagregada.\medskip
+
+**Complexidade do Modelo Desagregado**
+
+Os exemplos de modelagem desagregada discutidos anteriormente e na
+mai\-o\-ria dos livros sobre modelos hierárquicos são relativamente
+simples, ao menos em termos do número de variáveis consideradas.
+Apesar disso, representam situações mais complexas que as cobertas
+pelos pacotes padrões até recentemente, e frequentemente
+requerem o emprego de pacotes ou procedimentos especializados para seu
+ajuste e análise.
+
+Quando a modelagem for feita com a finalidade de incorporar aspectos do
+planejamento amostral, tais como estratificação, conglomeração e probabilidades desiguais de inclusão, a situação
+desejável é incorporar na formulação do modelo as informações necessárias para que o plano amostral seja ignorável na
+etapa de estimação dos parâmetros. Mesmo quando se pode
+incorporar no modelo as informações sobre a estrutura populacional,
+há casos nos quais o plano amostral é não ignorável e pesos
+precisam ser incorporados para ajustar o modelo (veja \citeauthoronline{Pfefetalli}, \citeyear{Pfefetalli}.
+
+Para poder incorporar no modelo as informações sobre a estrutura
+populacional e/ou sobre o plano amostral, é geralmente necessário
+considerar variáveis indicadoras de pertinência a estratos, medidas
+de tamanho usadas para definir as probabilidades de inclusão e
+também informações sobre a estrutura de conglomeração da
+população e da amostra. Incluir todas essas variáveis num modelo
+pode apresentar desafios não triviais ao analista: a especificação detalhada da forma do modelo, a estimação de seus
+inúmeros parâmetros dada apenas uma amostra das unidades da população, a interpretação das estimativas dos parâmetros e o
+diagnóstico do ajuste efetuado podem todas se tornar tarefas bastante
+complexas. Essa dificuldade é também mencionada por \citeonline[p.~9]{Sk89a}.
+
+**Disponibilidade da Informação Desagregada**
+
+Outra dificuldade da abordagem desagregada é que esta abordagem requer
+conhecimento detalhado das variáveis consideradas no planejamento
+amostral, tais como as identidades dos estratos, conglomerados (em
+vários níveis) e probabilidades de seleção (possivelmente
+nos vários estágios de amostragem) para cada unidade amostral. Tais
+informações muitas vezes não estão disponíveis por
+razões de proteção da confidencialidade das informações
+ou outras razões práticas. Modelagem de dados de pesquisas
+a\-mos\-trais por analistas secundários é geralmente realizada em
+condições em que as informações sobre o plano amostral
+são parcial ou completamente ignoradas. Este é o caso das várias
+pesquisas para as quais já existe a prática de disseminar arquivos
+de microdados nos quais, entretanto, as informações de identificação do plano amostral são omitidas (total ou parcialmente) para
+evitar a revelação indesejada de informações individuais
+''sensitivas''.\medskip
+
+Estas dificuldades não podem ser ignoradas quando se optar por uma
+abordagem desagregada para analisar dados de pesquisas amostrais complexas.
+Sua consideração foi uma das razões que nos levou a discutir
+neste livro com maior detalhe a abordagem agregada, que também depende
+do acesso a informações como as citadas aqui, mas que pode ser
+aplicada nalguns casos em que uma abordagem desagregada seria
+impossível. Para citar um exemplo, numa pes\-quisa amostral conglomerada
+em dois ou mais estágios, quando se pretende estimar variâncias pelo
+método do conglomerado primário numa abordagem agregada de
+análise, basta conhecer estratos e pertinência a Unidades
+Primárias de Amostragem, bem como os pesos das unidades individuais.
+Esse conhecimento pode ser insuficiente para permitir a modelagem de todos
+os níveis da hierarquia na população, numa abordagem desagregada.
+
+Apesar desta dificuldade, entretanto, há muitas situações em que
+uma abordagem desagregada pode oferecer alternativa adequada de análise,
+não podendo ser desprezada e devendo figurar no arsenal de que
+dispõe o analista para interpretar os dados da melhor maneira
+possível. Os progressos recentes nas técnicas e pacotes de modelagem
+hierárquica têm levado essas técnicas cada vez mais para o
+domínio da aplicação prática, e a maior disponibilidade de
+resultados de pesquisas amostrais na forma de arquivos de microdados deve
+contribuir com essa tendência. Para isso é imprescindível que as
+agências produtoras de dados estatísticos baseados em pesquisas
+(amostrais ou mesmo censitárias) passem a fornecer nesses arquivos de
+microdados as informações sobre a estrutura populacional
+necessárias à modelagem. Isto é um desafio pois precisa ser
+feito sem permitir que ocorra a revelação de informações
+sensitivas individuais, e requer o uso de técnicas apropriadas.
+

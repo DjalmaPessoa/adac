@@ -251,7 +251,7 @@ Estimativa = c(3.62, 10.70, 1208123, 1174220,4792344, 11.87, 10.87, 10817590, 10
 DP =c(0.05, 1.15, 146681, 127982, 318877, 1.18, 0.67, 322947, 323182, 87363, 0.03, 0.01),
 EPA= c(2.64, 2.97, 3.37,2.64, 4.17,2.46, 3.86, 2.02, 3.02, 2.03, 1.26, 1.99 )  
 )
-knitr::kable(epas, booktabs=TRUE,
+knitr::kable(epas, booktabs=TRUE, 
 caption="Estimativas de Efeitos de Plano Amostral (EPAs) 
 para variáveis selecionadas da PPV - Região Sudeste"
 )
@@ -424,9 +424,9 @@ e inferência usualmente associados à Estatística Clássica
 à prática da interpretação de dados provenientes de
 pesquisas amostrais. Apesar dessa evolução, sua adoção
 não é livre de controvérsia e uma breve revisão dessa
-discussão é apresentada no capítulo 2.
+discussão é apresentada no Capítulo \@ref(refinf).
 
-No Capítulo \@ref(planamo) apresentamos uma revisão sucinta, a título
+No Capítulo \@ref(capplanamo) apresentamos uma revisão sucinta, a título
 de recordação, de alguns resultados básicos da Teoria de
 Amostragem, requeridos nas partes subseqüentes do livro. São
 discutidos os procedimentos básicos para estimação de totais
