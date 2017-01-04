@@ -1294,32 +1294,39 @@ s<-strata(popul, "ESTRAT",c(30,30),method= "srswor")
 dados<-getdata(popul,s)
 SAL_med_y<-mean(dados$SAL)
 REC_med_y<-mean(dados$REC)
+# estimador v0
 SAL_var_AAS<-(1-f)*var(dados$SAL)/n
 REC_var_AAS<-(1-f)*var(dados$REC)/n
+# Vhat_AES estimador não-viciado
 desenho<-svydesign(~1,strata=~ESTRAT,data=dados,fpc=~Prob)
 SAL_med_yw<-svymean(~SAL,desenho)
 REC_med_yw<-svymean(~REC,desenho)
 SAL.mat.res[i,]<-c(SAL_med_y,coef(SAL_med_yw),SAL_var_AAS,SE(SAL_med_yw)^2)
 REC.mat.res[i,]<-c(REC_med_y,coef(REC_med_yw),REC_var_AAS,SE(REC_med_yw)^2)
 }
+# 1-media de ybar; 2- média de ybar_w; 3- média de v0; 4- média de Vhat_AES
 SAL_res_mean <-colMeans(SAL.mat.res)
 REC_res_mean <- colMeans(REC.mat.res)
+# EPA = média de Vhat_AES/ média de v0
+
 EPA_SAL1 <- SAL_res_mean[4]/SAL_res_mean[3]
 EPA_SAL1
 EPA_REC1 <- REC_res_mean[4]/REC_res_mean[3]
 EPA_REC1
-
 ```
+Usando a fórmula \@ref(eq:epa3)
+
 ```{r}
 # variância sob distr. de aleatorização verdadeira
 Vp_SAL_h <- aggregate(SAL~ESTRAT, popul, var)
 Vp_REC_h <- aggregate(REC~ESTRAT, popul, var)
 Vp_SAL <- sum(Wh^2*(1-fh)*Vp_SAL_h[,"SAL"]/nh)
 Vp_SAL <- sum(Wh^2*(1-fh)*Vp_REC_h[,"REC"]/nh)
-# valor esperado v0 usando população
-
 ```
 
+```{r}
+# valor esperado v0 usando população
+```
 
 
 

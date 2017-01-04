@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-01-03">
+<meta name="date" content="2017-01-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -968,28 +968,34 @@ s&lt;-<span class="kw">strata</span>(popul, <span class="st">&quot;ESTRAT&quot;<
 dados&lt;-<span class="kw">getdata</span>(popul,s)
 SAL_med_y&lt;-<span class="kw">mean</span>(dados$SAL)
 REC_med_y&lt;-<span class="kw">mean</span>(dados$REC)
+<span class="co"># estimador v0</span>
 SAL_var_AAS&lt;-(<span class="dv">1</span>-f)*<span class="kw">var</span>(dados$SAL)/n
 REC_var_AAS&lt;-(<span class="dv">1</span>-f)*<span class="kw">var</span>(dados$REC)/n
+<span class="co"># Vhat_AES estimador não-viciado</span>
 desenho&lt;-<span class="kw">svydesign</span>(~<span class="dv">1</span>,<span class="dt">strata=</span>~ESTRAT,<span class="dt">data=</span>dados,<span class="dt">fpc=</span>~Prob)
 SAL_med_yw&lt;-<span class="kw">svymean</span>(~SAL,desenho)
 REC_med_yw&lt;-<span class="kw">svymean</span>(~REC,desenho)
 SAL.mat.res[i,]&lt;-<span class="kw">c</span>(SAL_med_y,<span class="kw">coef</span>(SAL_med_yw),SAL_var_AAS,<span class="kw">SE</span>(SAL_med_yw)^<span class="dv">2</span>)
 REC.mat.res[i,]&lt;-<span class="kw">c</span>(REC_med_y,<span class="kw">coef</span>(REC_med_yw),REC_var_AAS,<span class="kw">SE</span>(REC_med_yw)^<span class="dv">2</span>)
 }
+<span class="co"># 1-media de ybar; 2- média de ybar_w; 3- média de v0; 4- média de Vhat_AES</span>
 SAL_res_mean &lt;-<span class="kw">colMeans</span>(SAL.mat.res)
 REC_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(REC.mat.res)
+<span class="co"># EPA = média de Vhat_AES/ média de v0</span>
+
 EPA_SAL1 &lt;-<span class="st"> </span>SAL_res_mean[<span class="dv">4</span>]/SAL_res_mean[<span class="dv">3</span>]
 EPA_SAL1</code></pre></div>
-<pre><code>## [1] 0.1396074</code></pre>
+<pre><code>## [1] 0.1416311</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">EPA_REC1 &lt;-<span class="st"> </span>REC_res_mean[<span class="dv">4</span>]/REC_res_mean[<span class="dv">3</span>]
 EPA_REC1</code></pre></div>
-<pre><code>## [1] 0.3266742</code></pre>
+<pre><code>## [1] 0.3706278</code></pre>
+<p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 Vp_SAL_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(SAL~ESTRAT, popul, var)
 Vp_REC_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(REC~ESTRAT, popul, var)
 Vp_SAL &lt;-<span class="st"> </span><span class="kw">sum</span>(Wh^<span class="dv">2</span>*(<span class="dv">1</span>-fh)*Vp_SAL_h[,<span class="st">&quot;SAL&quot;</span>]/nh)
-Vp_SAL &lt;-<span class="st"> </span><span class="kw">sum</span>(Wh^<span class="dv">2</span>*(<span class="dv">1</span>-fh)*Vp_REC_h[,<span class="st">&quot;REC&quot;</span>]/nh)
-<span class="co"># valor esperado v0 usando população</span></code></pre></div>
+Vp_SAL &lt;-<span class="st"> </span><span class="kw">sum</span>(Wh^<span class="dv">2</span>*(<span class="dv">1</span>-fh)*Vp_REC_h[,<span class="st">&quot;REC&quot;</span>]/nh)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># valor esperado v0 usando população</span></code></pre></div>
 
 </div>
 </div>
