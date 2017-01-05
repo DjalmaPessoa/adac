@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-01-04">
+<meta name="date" content="2017-01-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -110,7 +110,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="introduc.html"><a href="introduc.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduc.html"><a href="introduc.html#motivacao"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
 <li class="chapter" data-level="1.2" data-path="introduc.html"><a href="introduc.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.2</b> Objetivos do Livro</a></li>
-<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#epa"><i class="fa fa-check"></i><b>1.3</b> Laboratório de R do Capítulo 1.</a></li>
+<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#epa"><i class="fa fa-check"></i><b>1.3</b> Laboratório de R do Capítulo 1.</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introduc.html"><a href="introduc.html#estimativa-do-efeito-de-plano-amostral-epa"><i class="fa fa-check"></i><b>1.3.1</b> Estimativa do efeito de plano amostral (EPA)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="refinf.html"><a href="refinf.html"><i class="fa fa-check"></i><b>2</b> Referencial para Inferência</a><ul>
 <li class="chapter" data-level="2.1" data-path="refinf.html"><a href="refinf.html#classic"><i class="fa fa-check"></i><b>2.1</b> Modelagem - Primeiras Idéias</a><ul>
@@ -270,7 +272,7 @@ E_p \left[ \hat{V}_p \left( \mathbf{\hat{Y}}_{\pi} \right) \right] = V_p \left( 
 <p>Observe que embora as expressões da variância <a href="capplanamo.html#eq:estpa2">(3.2)</a> e <a href="capplanamo.html#eq:estpa3">(3.3)</a> coincidam para planos amostrais de tamanho fixo, o mesmo não vale para os estimadores de variância <a href="capplanamo.html#eq:estpa4">(3.4)</a> e <a href="capplanamo.html#eq:estpa6">(3.6)</a>, apesar de <span class="math inline">\(\hat{V}_{SYG} \left( \mathbf{\hat{Y}}_{\pi} \right)\)</span> ser também não-viciado para <span class="math inline">\(V_{p} \left( \mathbf{\hat{Y}}_{\pi} \right)\)</span> para planos amostrais de tamanho fixo.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-8" class="example"><strong>Exemplo 3.1 </strong></span>Amostragem Aleatória Simples Sem Reposição (AAS)
+<span id="ex:unnamed-chunk-16" class="example"><strong>Exemplo 3.1 </strong></span>Amostragem Aleatória Simples Sem Reposição (AAS)
 </div>
 <p></p>
 <p>Quando o plano é amostragem aleatória simples sem reposição (AAS), as expressões apresentadas para o estimador de total, sua variância e estimadores desta variância simplificam bastante, porque as probabilidades de inclusão ficam iguais a <span class="math display">\[
@@ -288,49 +290,49 @@ V_{AAS} \left( \mathbf{\hat{Y}}_{\pi} \right) = N^{2} \frac{1-f}{n} \frac{N}{N-1
 \end{equation}\]</span>
 <span class="math display" id="eq:estpa9">\[\begin{equation}
 \hat{V}_p \left( \mathbf{\hat{Y}}_{AAS} \right) = \hat{V}_{SYG} \left( 
-\mathbf{\hat{Y}}_{AAS} \right) = N^{2} \frac{1-f}{n} \frac{n}{n-1} \mathbf{\hat{S}}_y \mbox{ ,} \tag{3.9}
+\mathbf{\hat{Y}}_{AAS} \right) = N^{2} \frac{1-f}{n} \frac{n}{n-1} \mathbf{\hat{S}}_y \mbox{ ,} \tag{1.1}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(f=n/N\)</span> é a fração amostral e</p>
 <span class="math display" id="eq:estpa10">\[\begin{equation}
-\overline{\mathbf{y}} = n^{-1} \sum_{i \in a} \mathbf{y}_i \mbox{ ,} \tag{3.10}
+\overline{\mathbf{y}} = n^{-1} \sum_{i \in a} \mathbf{y}_i \mbox{ ,} \tag{3.9}
 \end{equation}\]</span>
 <span class="math display" id="eq:estpa11">\[\begin{equation}
 \mathbf{S}_y = N^{-1} \sum_{i \in U} \left( \mathbf{y}_i - \overline{\mathbf{Y}}
-\right) \left( \mathbf{y}_i - \overline{\mathbf{Y}} \right) ^{^{\prime }} \mbox{ ,}  \tag{3.11}
+\right) \left( \mathbf{y}_i - \overline{\mathbf{Y}} \right) ^{^{\prime }} \mbox{ ,}  \tag{3.10}
 \end{equation}\]</span>
 <span class="math display" id="eq:estpa12">\[\begin{equation}
-\overline{\mathbf{Y}} = N^{-1} \sum_{i \in U} \mathbf{y}_i = N^{-1} \mathbf{Y} \mbox{ ,}  \tag{3.12}
+\overline{\mathbf{Y}} = N^{-1} \sum_{i \in U} \mathbf{y}_i = N^{-1} \mathbf{Y} \mbox{ ,}  \tag{3.11}
 \end{equation}\]</span>
 <span class="math display" id="eq:estpa13">\[\begin{equation}
-\widehat{\mathbf{S}}_y = n^{-1} \sum_{i \in a} \left( \mathbf{y}_i - \overline{\mathbf{y}} \right) \left( \mathbf{y}_i - \overline{\mathbf{y}} \right) ^{^{\prime }} \;. \tag{3.13} 
+\widehat{\mathbf{S}}_y = n^{-1} \sum_{i \in a} \left( \mathbf{y}_i - \overline{\mathbf{y}} \right) \left( \mathbf{y}_i - \overline{\mathbf{y}} \right) ^{^{\prime }} \;. \tag{3.12} 
 \end{equation}\]</span>
 <p>Vários estimadores de totais estão disponíveis na literatura de amostragem, porém os que são comumente usados na prática são estimadores ponderados (lineares) da forma</p>
 <span class="math display" id="eq:estpa14">\[\begin{equation}
-\mathbf{\hat{Y}}_w = \sum\limits_{i \in a} w_i \mathbf{y}_i  \tag{3.14}
+\mathbf{\hat{Y}}_w = \sum\limits_{i \in a} w_i \mathbf{y}_i  \tag{3.13}
 \end{equation}\]</span>
-<p>onde <span class="math inline">\(w_i\)</span> é um peso associado à unidade <span class="math inline">\(i\)</span> da amostra (<span class="math inline">\(i \in a\)</span>). O estimador <span class="math inline">\(\pi\)</span> ou de  é um caso particular de <span class="math inline">\(\mathbf{\hat{Y}}_w\)</span> em <a href="capplanamo.html#eq:estpa14">(3.14)</a> quando os pesos <span class="math inline">\(w_i\)</span> são da forma</p>
+<p>onde <span class="math inline">\(w_i\)</span> é um peso associado à unidade <span class="math inline">\(i\)</span> da amostra (<span class="math inline">\(i \in a\)</span>). O estimador <span class="math inline">\(\pi\)</span> ou de  é um caso particular de <span class="math inline">\(\mathbf{\hat{Y}}_w\)</span> em <a href="capplanamo.html#eq:estpa14">(3.13)</a> quando os pesos <span class="math inline">\(w_i\)</span> são da forma</p>
 <p><span class="math display">\[
 w_i^{HT} = \pi_i ^{-1} \quad \forall \ \ i \in a. 
 \]</span></p>
 <p>Outros dois estimadores de totais comumente usados pelos praticantes de amostragem são o estimador de razão <span class="math inline">\(\mathbf{\hat{Y}}_R\)</span> e o estimador de regressão <span class="math inline">\(\mathbf{\hat{Y}}_{REG}\)</span>, dados respectivamente por</p>
 <span class="math display" id="eq:estpa15">\[\begin{equation}
-\mathbf{\hat{Y}}_R = \left( \sum_{i \in a} {\ \pi_i^{-1}} \mathbf{y}_i \right) \times \left( \sum_{i \in U}x_i \right) / \left( \sum_{i \in a} {\ \pi_i^{-1}} x_i \right)  \tag{3.15}
+\mathbf{\hat{Y}}_R = \left( \sum_{i \in a} {\ \pi_i^{-1}} \mathbf{y}_i \right) \times \left( \sum_{i \in U}x_i \right) / \left( \sum_{i \in a} {\ \pi_i^{-1}} x_i \right)  \tag{3.14}
 \end{equation}\]</span>
 <p>e</p>
 <span class="math display" id="eq:estpa16">\[\begin{equation}
-\mathbf{\hat{Y}}_{REG} = \sum\limits_{i \in a} {\pi_i^{-1}} \mathbf{y}_i + \left( \sum\limits_{i \in U} x_i - \sum\limits_{i \in a} {\pi_i^{-1}} x_i \right) b_{xy}  \tag{3.16}
+\mathbf{\hat{Y}}_{REG} = \sum\limits_{i \in a} {\pi_i^{-1}} \mathbf{y}_i + \left( \sum\limits_{i \in U} x_i - \sum\limits_{i \in a} {\pi_i^{-1}} x_i \right) b_{xy}  \tag{3.15}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(x\)</span> é uma variável auxiliar cujo total populacional <span class="math inline">\(\sum_{i \in U} x_i = X\)</span> é conhecido e <span class="math inline">\(b_{xy}\)</span> é um estimador dos coeficientes da regressão linear entre as variáveis de pesquisa <span class="math inline">\(\mathbf{y}\)</span> e a variável auxiliar <span class="math inline">\(x\)</span>.</p>
 <p>Ambos os estimadores <span class="math inline">\(\mathbf{\hat{Y}}_R\)</span> e <span class="math inline">\(\mathbf{\hat{Y}}_{REG}\)</span> podem ser escritos na forma <span class="math inline">\(\mathbf{\hat{Y}}_w = \sum\limits_{i \in a} w_i \mathbf{y}_i\)</span> com pesos <span class="math inline">\(w_i\)</span> dados respectivamente por</p>
 <span class="math display" id="eq:estpa17">\[\begin{equation}
-w_i^R = \frac{\pi_i^{-1} \sum_{k \in U} x_k} {\sum\limits_{k \in a} \pi_k^{-1} x_k} = \frac{\pi_i^{-1} X} {\widehat{X}_{\pi}} \tag{3.17} 
+w_i^R = \frac{\pi_i^{-1} \sum_{k \in U} x_k} {\sum\limits_{k \in a} \pi_k^{-1} x_k} = \frac{\pi_i^{-1} X} {\widehat{X}_{\pi}} \tag{3.16} 
 \end{equation}\]</span>
 <p>e</p>
 <span class="math display" id="eq:estpa18">\[\begin{equation}
-w_i^{REG} = \pi_i^{-1} g_i \mbox{ ,} \tag{3.18}
+w_i^{REG} = \pi_i^{-1} g_i \mbox{ ,} \tag{3.17}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(\widehat{X}_{\pi} = \sum\limits_{i \in a} \pi_i^{-1} x_i\)</span> é o estimador <span class="math inline">\(\pi\)</span> -ponderado de <span class="math inline">\(X\)</span> e <span class="math inline">\(g_{i} = 1 + x_{i \mbox{ }} (X - \widehat{X}_{\pi}) / \sum_{i \in a} \pi_i^{-1} x_i^2\)</span> .</p>
-<p>O estimador de regressão descrito em <a href="capplanamo.html#eq:estpa16">(3.16)</a> é um caso particular do estimador de regressão generalizado, obtido quando se consideram vetores de variáveis auxiliares em vez de uma única variável auxiliar <span class="math inline">\(x\)</span> como aqui. Outra forma de generalizar o estimador de regressão é considerar estimadores alternativos dos coeficientes de regressão em lugar do estimador simples <span class="math inline">\(b_{xy}\)</span> empregado aqui. Para uma discussão detalhada do estimador de regressão generalizado veja .</p>
+<p>O estimador de regressão descrito em <a href="capplanamo.html#eq:estpa16">(3.15)</a> é um caso particular do estimador de regressão generalizado, obtido quando se consideram vetores de variáveis auxiliares em vez de uma única variável auxiliar <span class="math inline">\(x\)</span> como aqui. Outra forma de generalizar o estimador de regressão é considerar estimadores alternativos dos coeficientes de regressão em lugar do estimador simples <span class="math inline">\(b_{xy}\)</span> empregado aqui. Para uma discussão detalhada do estimador de regressão generalizado veja .</p>
 <p>Para completar a descrição dos procedimentos de inferência para médias e totais baseados em estimadores ponderados do tipo razão ou regressão, é necessário identificar estimadores para as variâncias de aleatorização correspondentes. Entretanto, os estimadores de razão e regressão são viciados sob a distribuição de aleatorização para pequenas amostras. Em ambos os casos, o vício é desprezível para amostras grandes, e estão disponíveis expressões assintóticas para as respectivas variâncias de aleatorização. Partindo destas foram então construídos estimadores amostrais das variâncias dos estimadores de razão e regressão, que podem ser encontrados na excelente revisão sobre o tema contida em <span class="citation">(Särndal, Swensson, and Wretman <a href="#ref-SSW92">1992</a>)</span>, Seção 6.6 e cap. 7. Apesar de sua importância para os praticantes de amostragem, a discussão detalhada desse problema não será incluída neste livro.</p>
 <p>O problema da estimação das variâncias de aleatorização para estimadores como os de razão e regressão nos remete a uma questão central da teoria da amostragem. Trata-se dos métodos disponíveis para estimar variâncias de estimadores <code>complexos</code>. O caso dos estimadores de razão e regressão para totais e médias foi resolvido faz tempo, e não há muito o que discutir aqui. Entretanto, a variedade de métodos empregados para estimação de variâncias merece uma discussão em separado, pois as técnicas de ajuste consideradas neste livro para incorporar pesos e plano amostral na inferência partindo de dados de pesquisas amostrais complexas depende em grande medida da aplicação de tais técnicas.</p>
 </div>
@@ -373,26 +375,26 @@ V_{p}\left( \mathbf{\hat{\theta}}\right) =\mathbf{A}V_{p}\left( \mathbf{\hat{Y}}
 <p>Vamos considerar a expansão de <span class="math inline">\(\mathbf{g}\left( \mathbf{\hat{Y}}_{\pi }\right)\)</span> em torno de <span class="math inline">\(\mathbf{Y}\)</span>, até o termo de primeira ordem, desprezando o resto, dada por:</p>
 <span class="math display" id="eq:estpa19">\[\begin{equation}
 \mathbf{\hat{\theta}\simeq \hat{\theta}}_{L}=\mathbf{g(Y)+\Delta g(Y)}\left( 
-\mathbf{\hat{Y}}_{\pi }\mathbf{-Y}\right)  \tag{3.19}
+\mathbf{\hat{Y}}_{\pi }\mathbf{-Y}\right)  \tag{3.18}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(\mathbf{\Delta g(Y)}\)</span> é a matriz Jacobiana <span class="math inline">\(K\times R\)</span> cuja r-ésima coluna é <span class="math inline">\(\mathbf{\partial g(Y)/}\partial Y_{r}\)</span>,<br />
 para <span class="math inline">\(r=1,\ldots,R\)</span>.</p>
-Tomando as variâncias de aleatorização dos dois lados em <a href="capplanamo.html#eq:estpa19">(3.19)</a>, e notando que no lado direito o único termo que tem variância de aleatorização <span class="math inline">\(\mathbf{\Delta g(Y)}\left( \mathbf{\hat{Y}}_{\pi }\mathbf{-Y}\right)\)</span> é uma função linear de <span class="math inline">\(\mathbf{\hat{Y}}_{\pi}\)</span>, segue imediatamente que
+Tomando as variâncias de aleatorização dos dois lados em <a href="capplanamo.html#eq:estpa19">(3.18)</a>, e notando que no lado direito o único termo que tem variância de aleatorização <span class="math inline">\(\mathbf{\Delta g(Y)}\left( \mathbf{\hat{Y}}_{\pi }\mathbf{-Y}\right)\)</span> é uma função linear de <span class="math inline">\(\mathbf{\hat{Y}}_{\pi}\)</span>, segue imediatamente que
 <span class="math display" id="eq:estpa20">\[\begin{equation}
 V_{p}\left( \mathbf{\hat{\theta}}\right) \mathbf{\simeq \Delta g(Y)}
 V_{p}\left( \mathbf{\hat{Y}}_{\pi }\right) \mathbf{\Delta g(Y)}^{^{\prime }}
-\tag{3.20}
+\tag{3.19}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(V_{p}\left( \mathbf{\hat{Y}}_{\pi }\right)\)</span> é dado em <a href="capplanamo.html#eq:estpa2">(3.2)</a>. Um estimador consistente de <span class="math inline">\(V_{p}\left( \mathbf{\hat{\theta}}\right)\)</span> é dado por</p>
 <span class="math display" id="eq:estpa21">\[\begin{equation}
-\hat{V}_{p}\left( \mathbf{\hat{\theta}}\right) =\mathbf{\Delta g(\hat{Y}}_{\pi }\mathbf{)}\hat{V}_{p}\left( \mathbf{\hat{Y}}_{\pi }\right) \mathbf{\Delta g\mathbf{(\hat{Y}}_{\pi }\mathbf{)}}^{^{\prime }},  \tag{3.21}
+\hat{V}_{p}\left( \mathbf{\hat{\theta}}\right) =\mathbf{\Delta g(\hat{Y}}_{\pi }\mathbf{)}\hat{V}_{p}\left( \mathbf{\hat{Y}}_{\pi }\right) \mathbf{\Delta g\mathbf{(\hat{Y}}_{\pi }\mathbf{)}}^{^{\prime }},  \tag{3.20}
 \end{equation}\]</span>
-<p>onde <span class="math inline">\(\hat{V}_{p}\left( \mathbf{\hat{Y}}_{\pi }\right)\)</span> é dado em <a href="capplanamo.html#eq:estpa4">(3.4)</a>. Um outro estimador consistente seria obtido substituindo <span class="math inline">\(\hat{V}_{p}\left( \mathbf{\hat{Y}}_{\pi }\right)\)</span> por <span class="math inline">\(\hat{V}_{SYG}\left( \mathbf{\hat{Y}}_{\pi }\right)\)</span> dado em <a href="capplanamo.html#eq:estpa6">(3.6)</a> na expressão <a href="capplanamo.html#eq:estpa21">(3.21)</a>.</p>
+<p>onde <span class="math inline">\(\hat{V}_{p}\left( \mathbf{\hat{Y}}_{\pi }\right)\)</span> é dado em <a href="capplanamo.html#eq:estpa4">(3.4)</a>. Um outro estimador consistente seria obtido substituindo <span class="math inline">\(\hat{V}_{p}\left( \mathbf{\hat{Y}}_{\pi }\right)\)</span> por <span class="math inline">\(\hat{V}_{SYG}\left( \mathbf{\hat{Y}}_{\pi }\right)\)</span> dado em <a href="capplanamo.html#eq:estpa6">(3.6)</a> na expressão <a href="capplanamo.html#eq:estpa21">(3.20)</a>.</p>
 <p>Linearização de Taylor pode ser trabalhosa, porque para cada parâmetro/estimador de interesse são requeridas derivações e cálculos específicos. Felizmente, grande parte das situações de interesse prático estão hoje cobertas por pacotes estatísticos especializados na estimação de medidas descritivas e parâmetros de modelos, e suas respectivas variâncias de aleatorização empregando o método de linearização, de modo que essa desvantagem potencial tende a se diluir.</p>
 <p>Linearização de Taylor pode não ser imediatamente possível, pois as quantidades de interesse podem não ser expressas como funções de totais ou médias populacionais (este é o caso de quantis de distribuições, por exemplo).</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-9" class="example"><strong>Exemplo 3.2 </strong></span>Matriz de covariância para um vetor de razões
+<span id="ex:unnamed-chunk-17" class="example"><strong>Exemplo 3.2 </strong></span>Matriz de covariância para um vetor de razões
 </div>
 <p></p>
 <p>Para ilustrar a aplicação dos resultados anteriores, consideremos o problema de estimar a matriz de covariância de um vetor de razões. Sejam <span class="math inline">\(\mathbf{Y}=\left( Y_{1},\ldots Y_{u}\right) ^{^{\prime }}\)</span> e <span class="math inline">\(\mathbf{X}=\left( X_{1},\ldots ,X_{u}\right) ^{^{\prime }}\)</span> vetores de totais e consideremos o vetor de razões <span class="math inline">\(\mathbf{R=}\left( \frac{Y_{1}}{X_{1}},\ldots ,\frac{Y_{u}}{X_{u}}\right) ^{\prime }.\)</span> Conhecendo estimativas das matrizes <span class="math inline">\(V_{p}\left( \mathbf{\hat{Y}}_{\pi }\right)\)</span>, <span class="math inline">\(V_{p}\left( \mathbf{\hat{X}}_{\pi }\right)\)</span> e <span class="math inline">\(COV_{p}\left( \mathbf{\hat{Y}}_{\pi }\mathbf{;\hat{X}}_{\pi }\right)\)</span>, queremos calcular a matriz de variância de <span class="math display">\[
@@ -416,7 +418,7 @@ diag\left( \frac{1}{x_{1}},\ldots ,\frac{1}{x_{u}}\right) &amp;  &amp; diag\left
 \end{array}
 \right] \;. 
 \]</span></p>
-A partir deste resultado, aplicando <a href="capplanamo.html#eq:estpa21">(3.21)</a> podemos escrever:
+A partir deste resultado, aplicando <a href="capplanamo.html#eq:estpa21">(3.20)</a> podemos escrever:
 <span class="math display">\[\begin{eqnarray*}
 &amp;&amp; 
 \begin{array}{lll}
@@ -465,7 +467,7 @@ _{p}\left( \mathbf{\hat{X}}_{\pi }\right) \mathbf{D}_{\mathbf{\hat{X}}_{\pi
 &amp;&amp;-\mathbf{\mathbf{D}_{\widehat{\mathbf{R}}}}\left[ \mathbf{D}_{\mathbf{\hat{%
 Y}}_{\pi }}^{-1}\widehat{COV}_{p}\left( \mathbf{\hat{Y}}_{\pi }\mathbf{,\hat{%
 X}}_{\pi }\right) \mathbf{D}_{\mathbf{\hat{X}}_{\pi }}^{-1}\right.
-\tag{3.22} \\
+\tag{3.21} \\
 &amp;&amp;+\left. \mathbf{D}_{\mathbf{\hat{X}}_{\pi }}^{-1}\widehat{COV}_{p}\left( 
 \mathbf{\hat{X}}_{\pi }\mathbf{,\hat{Y}}_{\pi }\right) \mathbf{D}_{\mathbf{%
 \hat{Y}}_{\pi }}^{-1}\right] \mathbf{\mathbf{D}_{\widehat{\mathbf{R}}}}\;\;%
@@ -483,7 +485,7 @@ Para descrever o método, considere um plano amostral em vários estágios, no q
 <span class="math display" id="eq:estpa23">\[\begin{equation}
 \widehat{V}_{p}\left( \widehat{Y}_{CP}\right) =\sum_{h=1}^{H}\frac{n_{h}}{%
 n_{h}-1}\sum_{i=1}^{n_{h}}\left( \frac{\widehat{Y}_{hi}}{\pi _{hi}}-\frac{%
-\widehat{Y}_{h}}{n_{h}}\right) ^{2}  \tag{3.23}
+\widehat{Y}_{h}}{n_{h}}\right) ^{2}  \tag{3.22}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(\widehat{Y}_{h}=\sum_{i=1}^{n_{h}}\widehat{Y}_{hi}/\pi _{hi}\)</span> para <span class="math inline">\(% h=1,\ldots ,H\)</span>. (Veja por exemplo, <span class="citation">(Shah et al. <a href="#ref-Sudaan93">1993</a>)</span>, p. 4).</p>
 <p>Embora muitas vezes a seleção das unidades primárias possa ter sido feita sem reposição, o estimador de Conglomerados Primários aqui apresentado pode fornecer uma aproximação razoável da correspondente variância de aleatorização. Isso ocorre porque planos amostrais sem reposição são em geral mais eficientes que planos com reposição de igual tamanho. Tal aproximação é largamente utilizada pelos praticantes de amostragem para estimar variâncias de quantidades descritivas usuais tais como totais e médias (com a devida adaptação) devido à sua simplicidade, comparada com a complexidade muito maior envolvida com o emprego de estimadores de variância que tentam incorporar todas as etapas de planos amostrais em vários estágios. Uma discussão sobre a qualidade dessa aproximação e alternativas pode ser encontrada em .</p>
@@ -497,7 +499,7 @@ n_{h}-1}\sum_{i=1}^{n_{h}}\left( \frac{\widehat{Y}_{hi}}{\pi _{hi}}-\frac{%
 <span class="math display" id="eq:estpa24">\[\begin{equation}
 \widehat{V}_{R}\left( \widehat{\theta }_{R}\right) =\frac{1}{G\left(
 G-1\right) }\sum_{g=1}^{G}\left( \widehat{\theta }_{g}-\widehat{\theta }%
-_{R}\right) ^{2}  \tag{3.24}
+_{R}\right) ^{2}  \tag{3.23}
 \end{equation}\]</span>
 <p>é um estimador não viciado da variância do estimador (de replicação) <span class="math inline">\(\widehat{\theta }_{R}\)</span> .</p>
 <p>Note que desde que as replicações sejam construídas de forma independente conforme indicado, os estimadores <span class="math inline">\(\widehat{\theta }_{R}\)</span> e <span class="math inline">\(\widehat{V}_{R}\left( \widehat{\theta }_{R}\right)\)</span> são não viciados qualquer que seja o plano amostral empregado para selecionar a amostra de cada replicação, o que faz desta uma técnica flexível e genérica. Além disso, a abordagem de replicação é bastante geral, pois os estimadores aos quais se aplica não precisam ser necessariamente expressos como funções de totais, como ocorre com a técnica de linearização discutida na Seção <a href="capplanamo.html#taylor">3.3</a>. Apesar destas vantagens, a aplicação prática desta técnica de forma exata é restrita porque em geral é menos eficiente, inconveniente e mais caro selecionar <span class="math inline">\(G\)</span> amostras independentes com o mesmo esquema, se comparado à seleção de uma única amostra de tamanho <span class="math inline">\(n\)</span> diretamente. Além disto, se o número de replicações <span class="math inline">\(G\)</span> for pequeno, o estimador de variância pode ser instável. Uma pesquisa importante e de grande porte em que esta idéia é aplicada exatamente é a pesquisa de preços para formar o índice de Preços ao Consumidor (do inglês <em>Consumer Price Index - CPI</em> do <span class="citation">(Labor Statistics <a href="#ref-USBureau">1984</a>)</span>, p. 22, que utiliza duas replicações (meias amostras) para formar a amostra pesquisada.</p>
@@ -507,7 +509,7 @@ Além da modificação da interpretação das replicações no caso de serem for
 <span class="math display" id="eq:estpa25">\[\begin{equation}
 \widehat{V}_{RG}\left( \widehat{\theta }\right) =\frac{1}{G\left( G-1\right) 
 }\sum_{g=1}^{G}\left( \widehat{\theta }_{g}-\widehat{\theta }\right) ^{2}\;.
-\tag{3.25}
+\tag{3.24}
 \end{equation}\]</span>
 <p>Um exemplo de aplicação desta técnica pode ser encontrado na forma recomendada para estimação de variâncias a partir das Amostras de Uso Público do Censo Demográfico Brasileiro de 80 (veja <span class="citation">(IBGE <a href="#ref-IBGE85">1985</a>)</span>).</p>
 Nesta seção descreveremos uma outra dessas técnicas baseadas em replicações, talvez a mais conhecida e popular, o método de <code>jackknife</code>. Este método foi originalmente proposto por <span class="citation">(Quenoille <a href="#ref-Queno49">1949</a>)</span> e <span class="citation">(Quenoille <a href="#ref-Queno56">1956</a>)</span> como uma técnica para redução de vício de estimadores, num contexto da Estatística Clássica. A idéia central consiste em repartir a amostra (a posteriori, como no caso do método dos grupos aleatórios) em <span class="math inline">\(G\)</span> grupos mutuamente exclusivos de igual tamanho <span class="math inline">\(n/G\)</span>. Em seguida, para cada grupo formado calcular os chamados pseudo-estimadores dados por <span class="math display">\[
@@ -517,13 +519,13 @@ Nesta seção descreveremos uma outra dessas técnicas baseadas em replicações
 <span class="math display" id="eq:estpa26">\[\begin{equation}
 \widehat{V}_{J1}\left( \widehat{\theta }\right) =\frac{1}{G\left( G-1\right) 
 }\sum_{g=1}^{G}\left( \widehat{\theta }_{\left( g\right) }-\widehat{\theta }%
-_{J}\right) ^{2}  \tag{3.26}
+_{J}\right) ^{2}  \tag{3.25}
 \end{equation}\]</span>
 ou
 <span class="math display" id="eq:estpa27">\[\begin{equation}
 \widehat{V}_{J2}\left( \widehat{\theta }\right) =\frac{1}{G\left( G-1\right) 
 }\sum_{g=1}^{G}\left( \widehat{\theta }_{\left( g\right) }-\widehat{\theta }%
-\right) ^{2}  \tag{3.27}
+\right) ^{2}  \tag{3.26}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(\widehat{\theta }_{J}=\frac{1}{G}\sum_{g=1}^{G}\widehat{\theta }_{\left( g\right)}\)</span> é um estimador pontual <em>jackknife</em> para <span class="math inline">\(% \theta ,\)</span> alternativo ao estimador da amostra inteira <span class="math inline">\(\hat{\theta}\)</span>.</p>
 
@@ -546,41 +548,111 @@ ou
 </div>
 <div id="laboratorio-de-r" class="section level2">
 <h2><span class="header-section-number">3.6</span> Laboratório de R</h2>
-<p>Ilustração da linearização de Taylor:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tot.est&lt;-<span class="kw">svytotal</span>(~ANALF1.SE+FAIXA1.SE,ppv.des)
-<span class="co"># Estimativa de cada total</span>
-y1hat&lt;-<span class="kw">coef</span>(tot.est)[<span class="dv">1</span>]
+<p>Vamos utilizar dados da Pesquisa de Padrão de Vida (PPV) do IBGE para ilustrar alguns métodos de estimação de variâncias. Vamos considerar a estimação da proporção de analfabetos na faixa etária acima de 14 anos. Os dados da pesquisa encontram-se no data frame . A variável <code>analf2</code> é indicadora da condição de analfabetismo na faixa etária acima de 14 anos e a variável <code>faixa2</code> é indicadora da faixa etária acima de 14 anos. Queremos estimar a proporção de analfabetos na faixa etária acima de 14 anos na região Sudeste. Antes apresentamos o método de estimação de variância por linearização de Taylor</p>
+<p>Vamos criar duas variáveis:</p>
+<ul>
+<li>analf - variável indicadora da condição de analfabetismo: <code>v04a01</code> ou <code>v04a02</code> igual a 2;</li>
+<li>faixa - variável indicadora de faixa etária entre 7 e 14 anos.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.des&lt;-<span class="kw">update</span>(ppv.des,
+  <span class="dt">analf=</span>(v04a01 ==<span class="st"> </span><span class="dv">2</span> |<span class="st"> </span>v04a02 ==<span class="st"> </span><span class="dv">2</span>)*<span class="dv">1</span>,
+  <span class="dt">faixa=</span>(v02a08 &gt;=<span class="st"> </span><span class="dv">7</span> &amp;<span class="st"> </span>v02a08 &lt;=<span class="st"> </span><span class="dv">14</span>) *<span class="dv">1</span>
+)
+ppv.des&lt;-<span class="kw">update</span>(ppv.des,<span class="dt">analf.faixa=</span> (analf==<span class="dv">1</span> &amp;<span class="st"> </span>faixa==<span class="dv">1</span>)*<span class="dv">1</span>)</code></pre></div>
+<p>Como estamos interessados em estimativas relativas à Região Sudeste, vamos restringir o desenho a esse domínio:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.des &lt;-<span class="st"> </span><span class="kw">subset</span>(ppv.des, regiao ==<span class="st"> </span><span class="dv">2</span>)</code></pre></div>
+<p>Vamos estimar os totais das variáveis <code>analf.faixa</code> e <code>faixa</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tot.est&lt;-<span class="kw">svytotal</span>(~analf.faixa+faixa ,ppv.se.des )
+Vcov.Y1.Y2&lt;-<span class="kw">vcov</span>(tot.est) </code></pre></div>
+<p>Substituindo os valores na expressão <a href="capplanamo.html#eq:estpa21">(3.20)</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y1hat&lt;-<span class="kw">coef</span>(tot.est)[<span class="dv">1</span>]
 y2hat&lt;-<span class="kw">coef</span>(tot.est)[<span class="dv">2</span>]
-<span class="co"># Estimativa da matriz de covariâncias</span>
-Vcov.Y1.Y2&lt;-<span class="kw">vcov</span>(tot.est)</code></pre></div>
-<p>Calcular por meio da fórmula 3.22 do livro:?</p>
-<p>Estimação do se da razão obtida diretamente pela função <code>svyratio</code>da library survey</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ANALF1.SE_FAIXA1.SE_RAZ&lt;-<span class="kw">svyratio</span>(~ANALF1.SE,~FAIXA1.SE,ppv.des)
-<span class="kw">coef</span>(ANALF1.SE_FAIXA1.SE_RAZ)</code></pre></div>
-<pre><code>## ANALF1.SE/FAIXA1.SE 
-##            0.118689</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">SE</span>(ANALF1.SE_FAIXA1.SE_RAZ)</code></pre></div>
-<pre><code>## ANALF1.SE/FAIXA1.SE 
-##          0.01178896</code></pre>
-<p>Material da Seção 3.5:</p>
-<p>Jackknife:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.des.jkn&lt;-<span class="kw">as.svrepdesign</span>(ppv.des,<span class="dt">type=</span><span class="st">&quot;JKn&quot;</span>)
-ANALF1.SE_FAIXA1.SE_RAZ_jkn&lt;-<span class="kw">svyratio</span>(~ANALF1.SE,~FAIXA1.SE, ppv.des.jkn)
-<span class="kw">coef</span>(ANALF1.SE_FAIXA1.SE_RAZ_jkn)</code></pre></div>
-<pre><code>## ANALF1.SE/FAIXA1.SE 
-##            0.118689</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">SE</span>(ANALF1.SE_FAIXA1.SE_RAZ_jkn)</code></pre></div>
-<pre><code>## ANALF1.SE/FAIXA1.SE 
-##          0.01181434</code></pre>
-<p>Bootstrap:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.des.jkn&lt;-<span class="kw">as.svrepdesign</span>(ppv.des,<span class="dt">type=</span><span class="st">&quot;bootstrap&quot;</span>)
-ANALF1.SE_FAIXA1.SE_RAZ_jkn&lt;-<span class="kw">svyratio</span>(~ANALF1.SE,~FAIXA1.SE, ppv.des.jkn)
-<span class="kw">coef</span>(ANALF1.SE_FAIXA1.SE_RAZ_jkn)</code></pre></div>
-<pre><code>## ANALF1.SE/FAIXA1.SE 
-##            0.118689</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">SE</span>(ANALF1.SE_FAIXA1.SE_RAZ_jkn)</code></pre></div>
-<pre><code>## ANALF1.SE/FAIXA1.SE 
-##          0.01497701</code></pre>
+Var.raz&lt;-(<span class="dv">1</span>/y2hat)*(<span class="dv">1</span>/y2hat)*Vcov.Y1.Y2[<span class="dv">1</span>,<span class="dv">1</span>]+<span class="dv">2</span>*(<span class="dv">1</span>/y2hat)*(-y1hat/y2hat^<span class="dv">2</span>)*Vcov.Y1.Y2[<span class="dv">1</span>,<span class="dv">2</span>]+
+(-y1hat/y2hat^<span class="dv">2</span>)*(-y1hat/y2hat^<span class="dv">2</span>)*Vcov.Y1.Y2[<span class="dv">2</span>,<span class="dv">2</span>]
+<span class="kw">sqrt</span>(Var.raz)</code></pre></div>
+<pre><code>##      faixa 
+## 0.01178896</code></pre>
+<p>Podemos calcular diretamente o desvio-padrão:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyratio</span>(~analf.faixa, ~faixa, ppv.se.des)</code></pre></div>
+<pre><code>## Ratio estimator: svyratio.survey.design2(~analf.faixa, ~faixa, ppv.se.des)
+## Ratios=
+##                faixa
+## analf.faixa 0.118689
+## SEs=
+##                  faixa
+## analf.faixa 0.01178896</code></pre>
+<p>A estimativa do desvio-padrão obtida por meio da função <code>svyratio</code> coincide com a obtida diretamente pelo método de linearização, e é igual a 0.01179. O método default para estimar variâncias usado pela library <code>survey</code> do R é o de linearização de Taylor.</p>
+<p>A library <code>survey</code> dispõe de métodos alternativos para a estimação de variância. Vamos utilizar os métodos de replicação de <code>Jackknife</code> e de <code>Bootstrap</code> para estimar esta variância de razão. Inicialmente, vamos converter o objeto de desenho <code>ppv1.se.design</code> em um objeto de desenho de replicação de <em>Jackknife</em>, contendo as réplicas de pesos que vão gerar as réplicas de estimativas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.des.jkn&lt;-<span class="kw">as.svrepdesign</span>(ppv.se.des,<span class="dt">type=</span><span class="st">&quot;JKn&quot;</span>)
+<span class="kw">svyratio</span>(~analf.faixa, ~faixa, ppv.se.des.jkn)</code></pre></div>
+<pre><code>## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv.se.des.jkn)
+## Ratios=
+##                faixa
+## analf.faixa 0.118689
+## SEs=
+##            [,1]
+## [1,] 0.01181434</code></pre>
+<p>Para o método <code>Bootstrap</code>, temos:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.des.boot&lt;-<span class="kw">as.svrepdesign</span>(ppv.se.des,<span class="dt">type=</span><span class="st">&quot;bootstrap&quot;</span>)
+<span class="kw">svyratio</span>(~analf.faixa, ~faixa, ppv.se.des.boot)</code></pre></div>
+<pre><code>## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv.se.des.boot)
+## Ratios=
+##                faixa
+## analf.faixa 0.118689
+## SEs=
+##            [,1]
+## [1,] 0.01154402</code></pre>
+<p>Vamos apresentar mais detalhes sobre a obtenção dos estimadores de Jackknife e Bootstrap na library survey do R. A classe do objeto <code>ppv.se.des.jkn</code> é <code>svyrep.design</code> e ele contém as seguintes componentes:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(ppv.se.des.jkn)</code></pre></div>
+<pre><code>## [1] &quot;svyrep.design&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(ppv.se.des.jkn)</code></pre></div>
+<pre><code>##  [1] &quot;repweights&quot;       &quot;pweights&quot;         &quot;type&quot;            
+##  [4] &quot;rho&quot;              &quot;scale&quot;            &quot;rscales&quot;         
+##  [7] &quot;call&quot;             &quot;combined.weights&quot; &quot;selfrep&quot;         
+## [10] &quot;mse&quot;              &quot;variables&quot;        &quot;degf&quot;</code></pre>
+<p>A componente <code>repweights</code> é uma lista com duas componentes: <code>weights</code> e <code>index</code>. A componente <code>weights</code> é uma matriz de dimensão <span class="math inline">\(276 \times 276\)</span>, onde <span class="math inline">\(276\)</span> é o número de conglomerados primários do plano amostral da PPV na região Sudeste. A partir desta matriz, podemos obter <span class="math inline">\(276\)</span> réplicas de pesos de desenho de Jackknife.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se&lt;-ppv.se.des.jkn$variables
+<span class="kw">nrow</span>(ppv.se)</code></pre></div>
+<pre><code>## [1] 8903</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ncong&lt;-<span class="kw">sum</span>(<span class="kw">with</span>(ppv.se,<span class="kw">tapply</span>( nsetor,estratof, function(t) <span class="kw">length</span>(<span class="kw">unique</span>(t)))))
+ncong</code></pre></div>
+<pre><code>## [1] 276</code></pre>
+<p>O argumento <code>compress</code> da função <code>as.svrepdesign</code> permite especificar se, na saída da função, a matriz <code>weights</code> será na forma comprimida ou não. Na aplicação feita foi usado o valor default que é a forma comprimida. A forma não comprimida da matriz <code>weights</code> tem 8903 linhas e 276 colunas. A forma comprimida permite economizar memória, e pode ser facilmente convertida para a forma não comprimida, utilizando-se a componente<code>index</code>.</p>
+<p>No método jackknife, cada um dos conglomerados primários é removido, e a réplica correspondente dos pesos é o produto do peso amostral original por um fator apropriado, definido da forma a seguir. Suponhamos que foi removido um conglomerado no estrato <span class="math inline">\(h\)</span>, então os pesos do plano amostral serão multiplicados por:</p>
+<ul>
+<li><span class="math inline">\(0\)</span> para as unidades no conglomerado removido;</li>
+<li><span class="math inline">\(m_h/(m_h-1)\)</span> para unidades pertencentes a outros conglomerados do estrato <span class="math inline">\(h\)</span>;</li>
+<li><span class="math inline">\(1\)</span> para unidades em estratos <span class="math inline">\(h&#39;\neq h\)</span>.</li>
+</ul>
+<p>Podemos obter a matriz de fatores de correção do peso amostral na forma não comprimida da seguinte maneira:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fact.peso.comp&lt;-ppv.se.des.jkn$repweights[[<span class="dv">1</span>]]
+ind.cong&lt;-ppv.se.des.jkn$repweights[[<span class="dv">2</span>]]
+mat.fat.pesos&lt;-<span class="st"> </span>fact.peso.comp[ind.cong,]
+<span class="kw">str</span>(mat.fat.pesos)</code></pre></div>
+<pre><code>##  num [1:8903, 1:276] 0 0 1.06 1.06 1.06 ...</code></pre>
+<p>Podemos obter matriz de réplicas de pesos multiplicando cada coluna dessa matriz pelos pesos do plano amostra:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat.rep.pesos&lt;-<span class="kw">weights</span>(ppv.se.des)*mat.fat.pesos</code></pre></div>
+<p>Utilizando esta matriz de réplicas de pesos, podemos obter réplicas correspondentes de estimativas da razão.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rep.est.raz&lt;-<span class="kw">numeric</span>(<span class="kw">ncol</span>(mat.rep.pesos))
+for (i in <span class="dv">1</span>:<span class="kw">ncol</span>(mat.rep.pesos)){
+rep.est.raz[i]&lt;-<span class="kw">sum</span>(mat.rep.pesos[,i]*ppv.se$analf.faixa)/<span class="kw">sum</span>(mat.rep.pesos[,i]*ppv.se$faixa)
+}</code></pre></div>
+<p>A partir destas réplicas de estimativas da razão, finalmente estimamos a variância:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean.raz&lt;-<span class="kw">mean</span>( rep.est.raz[ppv.se.des.jkn$rscales&gt;<span class="dv">0</span>])
+var.jack.raz&lt;-<span class="st"> </span><span class="kw">sum</span>((rep.est.raz-mean.raz)^<span class="dv">2</span>*ppv.se.des.jkn$rscales)*ppv.se.des.jkn$scale
+<span class="kw">round</span>(<span class="kw">sqrt</span>(var.jack.raz),<span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] 0.01181</code></pre>
+<p>A library survey fornece uma função para estimar a variância de uma função de totais a partir das réplicas de pesos:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">var.raz.rep&lt;-<span class="kw">withReplicates</span>(ppv.se.des.jkn, function(w,ppv.se) <span class="kw">sum</span>(w*ppv.se$analf.faixa)/<span class="kw">sum</span>(w*ppv.se$faixa))
+var.raz.rep </code></pre></div>
+<pre><code>##        theta     SE
+## [1,] 0.11869 0.0118</code></pre>
+<p>Resultado que coincide com a estimativa obtida pela aplicação da função <code>svyratio</code>.</p>
+<p>A vantagem de utilizar métodos de replicação é a facilidade com que estimamos a variância de qualquer característica da população, cujo estimador é conhecido. Por exemplo, se quisermos estimar a variância da razão das taxas de analfabetos nas faixas etárias de 0 a 14 anos e acima de 14 anos podemos usar as mesmas réplicas de pesos:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">withReplicates</span>(ppv.se.des.jkn,function(w,ppv.se) <span class="kw">with</span>(ppv.se,
+(<span class="kw">sum</span>(w*(analf==<span class="dv">1</span>&amp;faixa==<span class="dv">1</span>))/<span class="kw">sum</span>(faixa==<span class="dv">1</span>))/(<span class="kw">sum</span>(w*(analf==<span class="dv">1</span>&amp;faixa==<span class="dv">0</span>))/<span class="kw">sum</span>(faixa==<span class="dv">0</span>))))</code></pre></div>
+<pre><code>##        theta     SE
+## [1,] 0.50623 0.0494</code></pre>
 
 </div>
 </div>
