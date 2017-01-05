@@ -567,7 +567,7 @@ dados do arquivo `ppv1.R`, através do comando `source`. Em seguida, vamos defin
 ```{r}
 source("~\\GitHub\\adac\\data\\ppv1.R")
 names(ppv1)
-# tranforma nomes de variáveis para minuscúlas
+# transforma nomes de variáveis para minúsculas
 names(ppv1)<- tolower(names(ppv1))
 ```
 Criação das variáveis analf1,analf2, faixa1 e faixa2:

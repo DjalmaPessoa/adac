@@ -638,7 +638,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>##  [1] &quot;SERIE&quot;    &quot;IDENT&quot;    &quot;CODMOR&quot;   &quot;V04A01&quot;   &quot;V04A02&quot;   &quot;V04A03&quot;  
 ##  [7] &quot;ESTRATOF&quot; &quot;PESO1&quot;    &quot;PESO2&quot;    &quot;PESOF&quot;    &quot;NSETOR&quot;   &quot;REGIAO&quot;  
 ## [13] &quot;V02A08&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># tranforma nomes de variáveis para minuscúlas</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># transforma nomes de variáveis para minúsculas</span>
 <span class="kw">names</span>(ppv1)&lt;-<span class="st"> </span><span class="kw">tolower</span>(<span class="kw">names</span>(ppv1))</code></pre></div>
 <p>Criação das variáveis analf1,analf2, faixa1 e faixa2:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv1 &lt;-<span class="st"> </span><span class="kw">transform</span>(ppv1, <span class="dt">analf1 =</span> ((v04a01 ==<span class="st"> </span><span class="dv">2</span> |<span class="st">    </span>v04a02 ==<span class="st"> </span><span class="dv">2</span>) &amp;<span class="st"> </span>(v02a08 &gt;=<span class="st"> </span><span class="dv">7</span> &amp;<span class="st"> </span>
