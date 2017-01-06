@@ -987,10 +987,10 @@ REC_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(REC.
 
 EPA_SAL1 &lt;-<span class="st"> </span>SAL_res_mean[<span class="dv">4</span>]/SAL_res_mean[<span class="dv">3</span>]
 EPA_SAL1</code></pre></div>
-<pre><code>## [1] 0.1407477</code></pre>
+<pre><code>## [1] 0.1411919</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">EPA_REC1 &lt;-<span class="st"> </span>REC_res_mean[<span class="dv">4</span>]/REC_res_mean[<span class="dv">3</span>]
 EPA_REC1</code></pre></div>
-<pre><code>## [1] 0.3993901</code></pre>
+<pre><code>## [1] 0.4262184</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 Vp_SAL_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(SAL~ESTRAT, popul, var)

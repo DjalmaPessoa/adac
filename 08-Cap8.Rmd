@@ -468,39 +468,36 @@ sem fixar marginais. Consideremos a Tabela \@ref(tab:??) com as propor
 ções nas celas a nível da população, onde agora
 novamente se tem $p_{lc}=N_{lc}/N$.
 
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Proporções por cela na população}\bigskip \label{tab83}$
-\begin{tabular}{|c|cccccc|c|}
-\hline\hline
-& \multicolumn{7}{|c|}{Variável 2} \\ \cline{2-8}
-Variável 1 & $1$ & $2$ & $\ldots $ & $c$ & $\ldots $ & $C$ & Total \\ 
-\hline\hline
-$1$ & $p_{11}$ & $p_{12}$ & $\ldots $ & $p_{1c}$ & $\ldots $ & $p_{1C}$ & $
-p_{1+}$ \\ 
-$2$ & $p_{21}$ & $p_{22}$ & $\ldots $ & $p_{2c}$ & $\ldots $ & $p_{2C}$ & $
-p_{2+}$ \\ 
-$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
-\\ 
-$l$ & $p_{l1}$ & $p_{l1}$ & $\ldots $ & $p_{lc}$ & $\ldots $ & $p_{lC}$ & $
-p_{l+}$ \\ 
-$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
-\\ 
-$L$ & $p_{L1}$ & $p_{L2}$ & $\ldots $ & $p_{Lc}$ & $\ldots $ & $p_{LC}$ & $
-p_{L+}$ \\ \hline\hline
-Total & $p_{+1}$ & $p_{+2}$ & $\ldots $ & $p_{+c}$ & $\ldots $ & $p_{+C}$ & $
-1$ \\ \hline\hline
-\end{tabular}
-$
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-
-
-
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Proporções por cela na população}\bigskip \label{tab83}$ -->
+<!-- \begin{tabular}{|c|cccccc|c|} -->
+<!-- \hline\hline -->
+<!-- & \multicolumn{7}{|c|}{Variável 2} \\ \cline{2-8} -->
+<!-- Variável 1 & $1$ & $2$ & $\ldots $ & $c$ & $\ldots $ & $C$ & Total \\  -->
+<!-- \hline\hline -->
+<!-- $1$ & $p_{11}$ & $p_{12}$ & $\ldots $ & $p_{1c}$ & $\ldots $ & $p_{1C}$ & $ -->
+<!-- p_{1+}$ \\  -->
+<!-- $2$ & $p_{21}$ & $p_{22}$ & $\ldots $ & $p_{2c}$ & $\ldots $ & $p_{2C}$ & $ -->
+<!-- p_{2+}$ \\  -->
+<!-- $\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $ -->
+<!-- \\  -->
+<!-- $l$ & $p_{l1}$ & $p_{l1}$ & $\ldots $ & $p_{lc}$ & $\ldots $ & $p_{lC}$ & $ -->
+<!-- p_{l+}$ \\  -->
+<!-- $\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $ -->
+<!-- \\  -->
+<!-- $L$ & $p_{L1}$ & $p_{L2}$ & $\ldots $ & $p_{Lc}$ & $\ldots $ & $p_{LC}$ & $ -->
+<!-- p_{L+}$ \\ \hline\hline -->
+<!-- Total & $p_{+1}$ & $p_{+2}$ & $\ldots $ & $p_{+c}$ & $\ldots $ & $p_{+C}$ & $ -->
+<!-- 1$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- $ -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
 
 
 
@@ -765,11 +762,11 @@ e Rendimento médio mensal (re). Vamos fazer também um teste de
 homogeneidade, para comparar as distribuições de renda para os dois
 sexos.
 
-A variável sx tem dois níveis: sx(1)-Homens, sx(2)- Mulheres e a
-variável re tem três níveis: re(1)- Menos de salário
+A variável `sx` tem dois níveis: sx(1)-Homens, sx(2)- Mulheres e a
+variável `re` tem três níveis: re(1)- Menos de salário
 mínimo, re(2) - de 1 a 5 salário mínimos e re(3)- mais de 5
 salários mínimos. A Tabela \@ref(tab:frqamost} apresenta as
-freqüências nas celas para a amostra pesquisada.
+frequências nas celas para a amostra pesquisada.
 
 <!-- \begin{center} -->
 <!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
@@ -797,25 +794,25 @@ freqüências nas celas para a amostra pesquisada.
 
 
 ```{r, frqamost, results='asis',echo=FALSE}
+library(xtable)
 source("~\\GitHub\\adac\\data\\pnadrj90.R")
 freq.sx.re <-table(pnadrj90$sx, pnadrj90$re , dnn= c("Sexo", "Renda"))
-print(xtable(freq.sx.re ,caption= "Frequências Amostrais por celas na PNADRJ90"), type="html" )
+knitr::kable(xtable(freq.sx.re ,caption= "Frequências Amostrais por celas na PNADRJ90"))
 ```
 
 No teste de homogeneidade das distribuições de renda, consideramos
 fixadas as marginais $4.276$ e $2.231$ da variável Sexo na tabela de
-freqüências amostrais. Usando o programa Stata, calculamos as
+frequências amostrais. Usando o programa Stata, calculamos as
 estimativas das proporções nas linhas da tabela. Nestas
 estimativas são considerados os pesos das unidades da amostra e o plano
-amostral utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo \ref
-{pnad90} do Capítulo \@ref(modreg).
+amostral utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo 
+\ref(ex:pnad90) do Capítulo \@ref(modreg).
 
 Vamos considerar o teste de homogeneidade entre as variáveis Sexo e Renda
 e calcular o efeito de plano amostral médio das estimativas
-das proporções nas celas da tabela. A Tabela \@ref{tab:proplinha} contém,
+das proporções nas celas da tabela. A Tabela \@ref(tab:proplinha) contém,
 em cada cela, as estimativas: da proporção na linha, do
-desvio-padrão da estimativa da proporção na linha ($\times
-10.000$), e do efeito de plano amostral da estimativa de proporção
+desvio-padrão da estimativa da proporção na linha ($\times10.000$), e do efeito de plano amostral da estimativa de proporção
 na linha.
 
 <!-- \begin{center} -->
@@ -909,8 +906,9 @@ na linha.
 <!-- \end{center} -->
 
 
-```{r, proplinha, echo=FALSE, eval=FALSE}
+```{r, proplinha, echo=FALSE}
 library(survey)
+library(pander)
 source("~\\GitHub\\adac\\data\\pnadrj90.R")
 pnadrj90<-transform(pnadrj90,sx=factor(sx),id=factor(id),ae=factor(ae),ht=factor(ht),re=factor(re))
 pnad.des<-svydesign(id=~psu,strata=~stra,weights=~pesopes,data=pnadrj90,nest=TRUE)
@@ -918,6 +916,8 @@ marg_re <- as.data.frame(svyby(~re,~sx,pnad.des,svymean,keep.var=T,deff = TRUE))
 marg_re <- transform (marg_re, se.re1= 10000*se.re1, se.re2= 10000*se.re2,se.re3= 10000*se.re3)
 tmarg_re <- t(marg_re)
 dimnames(tmarg_re)[[2]]<- c("sx_1","sx_2")
+
+# pander(tmarg_re, digits=3, caption="Proporções nas linha, desvios padrões e EPAs de re para cada nivel de sx")
 knitr::kable(tmarg_re[-1,] ,booktabs=TRUE, digits=3,
   caption="Proporções nas linha, desvios padrões e EPAs de re para cada nivel de sx")
 ```
@@ -946,10 +946,10 @@ cela é portanto igual a
 A estimativa do efeito médio de plano amostral para corrigir a
 estatística $X_{P}^{2}\left( H\right)$ é $\hat{d}_{.}=1,802$
 , calculada tomando a média dos EPAs das celas correspondentes aos
-níveis 1 e 2 da variável sx.
+níveis 1 e 2 da variável `sx`.
 
 Vamos agora considerar o teste de independência entre as variáveis
-Sexo e Renda\textbf{\ }e calcular o efeito de plano amostral médio das
+Sexo e Renda e calcular o efeito de plano amostral médio das
 estimativas das proporções nas celas da tabela. A Tabela \@ref(tab:propcelas} contém, em cada cela, as estimativas: da proporção na cela, do desvio-padrão da estimativa da proporção na cela ($\times 10.000$), e do efeito de plano amostral da estimativa de proporção na cela.
 
 <!-- \begin{center} -->
@@ -1050,7 +1050,7 @@ knitr::kable(frame_sx_re,booktabs=TRUE, digits=3,
   caption="Proporções nas cela, desvios padrões e EPAs")
 ```
 
-Tabela de proporções de sx para a população inteira:
+Tabela de proporções de `sx` para a população inteira:
 
 ```{r}
 marg_sx_pop <-data.frame(svymean(~sx,pnad.des, deff=TRUE ))
@@ -1075,13 +1075,13 @@ cela é
 \]
 
 Portanto, a estimativa do efeito médio de plano amostral requerida para
-corrigir a estatística $X_{P}^{2}\left( I\right)$ é $\hat{d}_{.}=1,640,$ calculada tomando a média dos EPAs das celas correspondentes aos níveis 1 e 2 da variável sx.
+corrigir a estatística $X_{P}^{2}\left( I\right)$ é $\hat{d}_{.}=1,640,$ calculada tomando a média dos EPAs das celas correspondentes aos níveis 1 e 2 da variável `sx`.
 
 Calculando as estatísticas $X_{P}^{2}\left( I\right)$ e 
 $X_{P}^{2}\left( H\right)$ para os testes clássicos de independência
 e homogeneidade a partir da Tabela \@ref{tab:propcelas}, obtemos os valores 
 $X_{P}^{2}\left( I\right) =X_{P}^{2}\left( H\right) =227,025$, com distribuição de referência $\chi ^{2}\left( 2\right)$, resultado que
-indica rejeição da hipótese de independência entre sx e re,
+indica rejeição da hipótese de independência entre `sx` e `re`,
 bem como da hipótese de igualdade de distribuição de renda para
 os dois sexos a partir do teste de homogeneidade. O valor comum das
 estatísticas $X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left( H\right)$
@@ -1150,7 +1150,7 @@ vcov(ht.mean)                         #estimativas de variâncias e covariância
 attr(ht.mean, "var")
 ```
 
-Podemos obter estimativas de proporções nas classes de renda por domínios definidos pela variável sx:
+Podemos obter estimativas de proporções nas classes de renda por domínios definidos pela variável `sx`:
 
 ```{r, results='asis'}
 library(xtable)
