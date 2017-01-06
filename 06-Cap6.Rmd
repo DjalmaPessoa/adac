@@ -397,7 +397,7 @@ Análise do perfil sócio-econômico das pessoas
 ocupadas no setor informal da economia na área urbana do Rio de Janeiro 
 ```
 
-Utilizando dados do Suplemento Trabalho da Pesquisa Nacional por Amos\-tra
+Utilizando dados do Suplemento Trabalho da Pesquisa Nacional por Amostra
 de Domicílios (**PNAD**) de 90, Leote(1996) analisou o perfil
 sócio-econômico das pessoas ocupadas no setor informal da economia
 na área urbana do Rio de Janeiro.

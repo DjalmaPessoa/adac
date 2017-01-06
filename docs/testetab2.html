@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-01-05">
+<meta name="date" content="2017-01-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -493,15 +493,15 @@ H_{0}:p_{lc}=p_{l+}p_{+c},\quad l=1,\ldots ,L-1,\ c=1,\ldots,C-1,
 H_{0}:f_{lc}=p_{lc}-p_{l+}p_{+c}=0,\quad l=1,\ldots ,L-1,\ c=1,\ldots
 ,C-1.
 \]</span></p>
-<p>Consideremos o vetor <span class="math inline">\(\mathbf{f}\)</span> com <span class="math inline">\(\left( L-1\right) \left( C-1\right)\)</span> componentes formado pelos contrastes <span class="math inline">\(f_{lc}\)</span> arranjados em ordem de linhas: <span class="math display">\[
+<p>Consideremos o vetor <span class="math inline">\(\mathbf{f}\)</span> com <span class="math inline">\(\left( L-1\right) \left( C-1\right)\)</span> componentes formado pelos contrastes <span class="math inline">\(f_{lc}\)</span> arranjados em ordem de linhas: <span class="math display" id="eq:Tab8">\[
 \mathbf{f}=\left( f_{11},\ldots ,f_{1\;C-1},\ldots ,f_{L-1\;1},\ldots
 ,f_{L-1\;C-1}\right) ^{\prime }. 
 \]</span></p>
-<p>Um teste da hipótese de independência pode ser definido em termos da distância entre uma estimativa consistente do vetor de contrastes $ $ e o vetor nulo com mesmo número de componentes. O vetor de estimativa consistente de <span class="math inline">\(\mathbf{f}\)</span> é denotado por <span class="math inline">\(\mathbf{\hat{f}} =\left( \hat{f}_{11},\ldots ,\hat{f}_{1\;C-1},\ldots ,\hat{f} _{L-1\;1},\ldots ,\hat{f}_{L-1\;C-1}\right) ^{^{\prime }}\)</span>, onde <span class="math inline">\(\hat{f} _{lc}=\hat{p}_{lc}-\hat{p}_{l+}\hat{p}_{+c}\)</span>, onde <span class="math inline">\(\hat{p}_{lc}=\hat{n} _{lc}/n\)</span>. Os <span class="math inline">\(\hat{n}_{lc}\)</span> são as frequências ponderadas nas celas, considerando as diferentes probabilidades de inclusão e ajustes por não-resposta, onde os pesos amostrais são normalizados de modo que <span class="math inline">\(\sum_{c=1}^{C}\sum_{l=1}^{L}\hat{n}_{lc}=n\)</span>. Se <span class="math inline">\(n\)</span> não for fixado de antemão, os <span class="math inline">\(\hat{p}_{lc}\)</span> serão estimadores de razões. Apenas <span class="math inline">\(\left( L-1\right) \left( C-1\right)\)</span> componentes são incluídos no vetores <span class="math inline">\(\mathbf{f}\)</span> e <span class="math inline">\(\mathbf{\hat{f}}\)</span>, pois a soma das proporç ões nas celas da tabela é igual a 1.</p>
+<p>Um teste da hipótese de independência pode ser definido em termos da distância entre uma estimativa consistente do vetor de contrastes <span class="math inline">\(\mathbf{f}\)</span> e o vetor nulo com mesmo número de componentes. O vetor de estimativa consistente de <span class="math inline">\(\mathbf{f}\)</span> é denotado por <span class="math inline">\(\mathbf{\hat{f}}=\left( \hat{f}_{11},\ldots ,\hat{f}_{1\;C-1},\ldots ,\hat{f} _{L-1\;1},\ldots ,\hat{f}_{L-1\;C-1}\right) ^{^{\prime }}\)</span>, onde <span class="math inline">\(\hat{f} _{lc}=\hat{p}_{lc}-\hat{p}_{l+}\hat{p}_{+c}\)</span>, onde <span class="math inline">\(\hat{p}_{lc}=\hat{n} _{lc}/n\)</span>. Os <span class="math inline">\(\hat{n}_{lc}\)</span> são as frequências ponderadas nas celas, considerando as diferentes probabilidades de inclusão e ajustes por não-resposta, onde os pesos amostrais são normalizados de modo que <span class="math inline">\(\sum_{c=1}^{C}\sum_{l=1}^{L}\hat{n}_{lc}=n\)</span>. Se <span class="math inline">\(n\)</span> não for fixado de antemão, os <span class="math inline">\(\hat{p}_{lc}\)</span> serão estimadores de razões. Apenas <span class="math inline">\(\left( L-1\right) \left( C-1\right)\)</span> componentes são incluídos no vetores <span class="math inline">\(\mathbf{f}\)</span> e <span class="math inline">\(\mathbf{\hat{f}}\)</span>, pois a soma das proporç ões nas celas da tabela é igual a 1.</p>
 </div>
 <div id="estatistica-de-wald-baseada-no-plano-amostral-1" class="section level3">
 <h3><span class="header-section-number">8.3.3</span> Estatística de Wald Baseada no Plano Amostral</h3>
-A estatística de Wald baseada no plano amostral <span class="math inline">\(X_{W}^{2}\left(I\right)\)</span>, para o teste de independência, tem a forma da expressão @ref(eq:Tab8, com <span class="math inline">\(\mathbf{\hat{f}}\)</span> no lugar de <span class="math inline">\(\mathbf{\hat{p}}\)</span>, o vetor <span class="math inline">\(\mathbf{0}_{\left( L-1\right)\left( C-1\right)}\)</span> no lugar de <span class="math inline">\(\mathbf{p}_{0}\)</span> e a estimativa baseada no plano amostral <span class="math inline">\(\mathbf{\hat{V}}_{\mathbf{f}}\)</span> da matriz de covariância de <span class="math inline">\(\mathbf{\hat{f}}\)</span> no lugar de <span class="math inline">\(\mathbf{ \hat{V}}_{p}\)</span>. Assim, a estatística de teste de independência de Wald é dada por
+A estatística de Wald baseada no plano amostral <span class="math inline">\(X_{W}^{2}\left(I\right)\)</span>, para o teste de independência, tem a forma da expressão \tag{8.8}, com <span class="math inline">\(\mathbf{\hat{f}}\)</span> no lugar de <span class="math inline">\(\mathbf{\hat{p}}\)</span>, o vetor <span class="math inline">\(\mathbf{0}_{\left( L-1\right)\left( C-1\right)}\)</span> no lugar de <span class="math inline">\(\mathbf{p}_{0}\)</span> e a estimativa baseada no plano amostral <span class="math inline">\(\mathbf{\hat{V}}_{\mathbf{f}}\)</span> da matriz de covariância de <span class="math inline">\(\mathbf{\hat{f}}\)</span> no lugar de <span class="math inline">\(\mathbf{ \hat{V}}_{p}\)</span>. Assim, a estatística de teste de independência de Wald é dada por
 <span class="math display" id="eq:Tab10">\[\begin{equation}
 X_{W}^{2}\left( I\right) =\mathbf{\hat{f}}^{\prime }\mathbf{\hat{V}}_{
 \mathbf{f}}^{-1}\mathbf{\hat{f}\;\;},  \tag{8.10}
@@ -519,7 +519,7 @@ X_{W}^{2}\left( I\right) =\mathbf{\hat{f}}^{\prime }\mathbf{\hat{V}}_{
 ,\partial \mathbf{g}/\partial p_{L-1\;1},\ldots ,\partial \mathbf{g}
 /\partial p_{L-1\;C-1}\right] 
 \]</span> e <span class="math inline">\(\mathbf{\hat{V}}_{p}\)</span> é uma estimativa consistente da matriz de covariância de <span class="math inline">\(\mathbf{\hat{p}}\)</span>.</p>
-<p>é possível ainda introduzir, no caso de se ter o número <span class="math inline">\(m\)</span> de unidades primárias pequeno, correção na estatística de Wald, utilizando as propostas alternativas de estatísticas F-corrigidas, como em <a href="testetab2.html#eq:Tab9">(8.9)</a> e <a href="testetab2.html#eq:Tab10">(8.10)</a>, com <span class="math inline">\(\left( L-1\right) \left( C-1\right)\)</span> no lugar de <span class="math inline">\(J-1\)</span>, obtendo-se <span class="math display">\[
+<p>é possível ainda introduzir, no caso de se ter o número <span class="math inline">\(m\)</span> de unidades primárias pequeno, correção na estatística de Wald, utilizando as propostas alternativas de estatísticas F-corrigidas, como em <a href="testqualajust.html#eq:qual9">(7.9)</a> e <a href="testqualajust.html#eq:qual10">(7.10)</a>, com <span class="math inline">\(\left( L-1\right) \left( C-1\right)\)</span> no lugar de <span class="math inline">\(J-1\)</span>, obtendo-se <span class="math display">\[
 F_{1.p}=\frac{f-\left( L-1\right) \left( C-1\right) -1}{f\left( L-1\right)
 \left( C-1\right) }X_{W}^{2}\left( I\right),
 \]</span> que tem distribuição assintótica <span class="math inline">\(\mathbf{F}\)</span> com <span class="math inline">\(\left(L-1\right) \left( C-1\right)\)</span> e <span class="math inline">\(f-\left( L-1\right) \left(C-1\right) -1\)</span> graus de liberdade e <span class="math display">\[
@@ -582,10 +582,12 @@ _{l+}-\sum\limits_{c=1}^{C}\left( 1-\hat{p}_{+c}\right) \hat{d}_{+c},
 <p>O ajuste de Rao-Scott de segunda ordem é definido por <span class="math display">\[
 X_{P}^{2}\left( I;\hat{\delta}_{.};\hat{a}^{2}\right) =X_{P}^{2}\left(
 I\right) /\left( \hat{\delta}_{.}\left( 1+\hat{a}^{2}\right) \right), 
-\]</span> onde <span class="math inline">\(\hat{\delta}_{.}\)</span> é um estimador da média dos autovalores de $ $, dado por <span class="math display">\[
+\]</span> onde <span class="math inline">\(\hat{\delta}_{.}\)</span> é um estimador da média dos autovalores de <span class="math inline">\(\mathbf{\hat{\Delta}}\)</span>, dado por</p>
+<p><span class="math display">\[
 \hat{\delta}_{.}=\frac{tr\left( \mathbf{\hat{\Delta}}\right) }{\left(
 L-1\right) \left( C-1\right) } 
-\]</span> e <span class="math inline">\(\hat{a}^{2}\)</span> é um estimador do quadrado do coeficiente de variaç ão dos autovalores desconhecidos de <span class="math inline">\(\mathbf{\Delta ,}\)</span> <span class="math inline">\(\delta _{k}\)</span>, $ k=1,,( L-1) ( C-1)$, dado por <span class="math display">\[
+\]</span> e <span class="math inline">\(\hat{a}^{2}\)</span> é um estimador do quadrado do coeficiente de variação dos autovalores desconhecidos de <span class="math inline">\(\mathbf{\Delta}\)</span>, <span class="math inline">\(\delta _{k}\)</span>, <span class="math inline">\(k=1,\ldots ,\left( L-1\right) \left( C-1\right)\)</span>, dado por</p>
+<p><span class="math display">\[
 \hat{a}^{2}=\sum\limits_{k=1}^{\left( L-1\right) \left( C-1\right) }\hat{
 \delta}_{k}^{2}/\left( \left( L-1\right) \left( C-1\right) \hat{\delta}
 _{.}^{2}\right) -1. 
@@ -603,10 +605,32 @@ _{.}\right) /\left( L-1\right) \left( C-1\right) \;\;.  \tag{8.16}
 <p>A estatística <a href="testetab2.html#eq:Tab16">(8.16)</a> tem distribuição de referência <span class="math inline">\(F\)</span> com <span class="math inline">\(\left( L-1\right)\)</span> <span class="math inline">\(\times\left( C-1\right)\)</span> e <span class="math inline">\(f\)</span> graus de liberdade.</p>
 
 <p>Considerando os dados do Exemplo  do Capítulo <a href="modreg.html#modreg">6</a>, vamos testar a hipótese de independência entre as variáveis Sexo (sx) e Rendimento médio mensal (re). Vamos fazer também um teste de homogeneidade, para comparar as distribuições de renda para os dois sexos.</p>
-<p>A variável sx tem dois níveis: sx(1)-Homens, sx(2)- Mulheres e a variável re tem três níveis: re(1)- Menos de salário mínimo, re(2) - de 1 a 5 salário mínimos e re(3)- mais de 5 salários mínimos. A Tabela  apresenta as freqüências nas celas para a amostra pesquisada.</p>
-
+<p>A variável sx tem dois níveis: sx(1)-Homens, sx(2)- Mulheres e a variável re tem três níveis: re(1)- Menos de salário mínimo, re(2) - de 1 a 5 salário mínimos e re(3)- mais de 5 salários mínimos. A Tabela @ref(tab:frqamost} apresenta as freqüências nas celas para a amostra pesquisada.</p>
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Freqüências amostrais por celas na PNAD 90}\bigskip \label{tab84}  -->
+<!-- \begin{tabular}{|c|cccc|} -->
+<!-- \hline\hline -->
+<!-- & \multicolumn{3}{|c}{\textbf{Renda Mensal}} &  \\  -->
+<!-- \textbf{Sexo} & 1 & 2 & 3 & \multicolumn{1}{|c|}{\textbf{Total}} \\  -->
+<!-- \hline\hline -->
+<!-- 1 & \multicolumn{1}{|r}{$476$} & \multicolumn{1}{r}{$2.527$} &  -->
+<!-- \multicolumn{1}{r}{$1.273$} & \multicolumn{1}{|r|}{$4.276$} \\  -->
+<!-- 2 & \multicolumn{1}{|r}{$539$} & \multicolumn{1}{r}{$1.270$} &  -->
+<!-- \multicolumn{1}{r}{$422$} & \multicolumn{1}{|r|}{$2.231$} \\ \hline\hline -->
+<!-- \textbf{Total} & \multicolumn{1}{|r}{$1.015$} & \multicolumn{1}{r}{$3.797$} -->
+<!-- & \multicolumn{1}{r}{$1.695$} & \multicolumn{1}{|r|}{$6.507$} \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
 <!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
-<!-- Thu Jan 05 12:26:54 2017 -->
+<!-- Fri Jan 06 11:32:50 2017 -->
 <table border="1">
 <caption align="bottom">
 Frequências Amostrais por celas na PNADRJ90
@@ -654,24 +678,313 @@ Frequências Amostrais por celas na PNADRJ90
 </tr>
 </table>
 <p>No teste de homogeneidade das distribuições de renda, consideramos fixadas as marginais <span class="math inline">\(4.276\)</span> e <span class="math inline">\(2.231\)</span> da variável Sexo na tabela de freqüências amostrais. Usando o programa Stata, calculamos as estimativas das proporções nas linhas da tabela. Nestas estimativas são considerados os pesos das unidades da amostra e o plano amostral utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo  do Capítulo <a href="modreg.html#modreg">6</a>.</p>
-<p>Vamos considerar o teste de homogeneidade entre as variáveis Sexo e Renda e calcular o efeito de plano amostral médio das estimativas das proporções nas celas da tabela. A Tabela  contém, em cada cela, as estimativas: da proporção na linha, do desvio-padrão da estimativa da proporção na linha ($10.000 $), e do efeito de plano amostral da estimativa de proporção na linha.</p>
-
+<p>Vamos considerar o teste de homogeneidade entre as variáveis Sexo e Renda e calcular o efeito de plano amostral médio das estimativas das proporções nas celas da tabela. A Tabela @ref{tab:proplinha} contém, em cada cela, as estimativas: da proporção na linha, do desvio-padrão da estimativa da proporção na linha (<span class="math inline">\(\times 10.000\)</span>), e do efeito de plano amostral da estimativa de proporção na linha.</p>
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Proporções nas linhas, desvios padrões e EPAs}\bigskip \label{tab85} -->
+<!-- \begin{tabular}{|c|ccc|c|} -->
+<!-- \hline\hline -->
+<!-- & \multicolumn{3}{|c|}{\textbf{Renda Mensal}} &  \\ \cline{2-4} -->
+<!-- \textbf{Sexo} & 1 & 2 & 3 & \textbf{Total} \\ \hline\hline -->
+<!-- 1 & \multicolumn{1}{|r}{$ -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,111$ \\  -->
+<!-- $57,269$ \\  -->
+<!-- $1,420$ -->
+<!-- \end{tabular} -->
+<!-- $} & \multicolumn{1}{r}{$ -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,591$ \\  -->
+<!-- $102,576$ \\  -->
+<!-- $1,861$ -->
+<!-- \end{tabular} -->
+<!-- $} & \multicolumn{1}{r|}{$ -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,298$ \\  -->
+<!-- $111,213$ \\  -->
+<!-- $2,527$ -->
+<!-- \end{tabular} -->
+<!-- $} &  -->
+<!-- \begin{tabular}{c} -->
+<!-- $1,00$ -->
+<!-- \end{tabular} -->
+<!-- \\ \hline -->
+<!-- 2 & \multicolumn{1}{|r}{$ -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,240$ \\  -->
+<!-- $125,026$ \\  -->
+<!-- $1,909$ -->
+<!-- \end{tabular} -->
+<!-- $} & \multicolumn{1}{r}{$ -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,570$ \\  -->
+<!-- $119,375$ \\  -->
+<!-- $1,297$ -->
+<!-- \end{tabular} -->
+<!-- $} & \multicolumn{1}{r|}{$ -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,190$ \\  -->
+<!-- $111,410$ \\  -->
+<!-- $1,800$ -->
+<!-- \end{tabular} -->
+<!-- $} &  -->
+<!-- \begin{tabular}{c} -->
+<!-- $1,00$ -->
+<!-- \end{tabular} -->
+<!-- \\ \hline\hline -->
+<!-- \begin{tabular}{c} -->
+<!-- Amostra \\  -->
+<!-- completa -->
+<!-- \end{tabular} -->
+<!-- & \multicolumn{1}{|r}{$ -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,155$ \\  -->
+<!-- $68,977$ \\  -->
+<!-- $2,358$ -->
+<!-- \end{tabular} -->
+<!-- $} & \multicolumn{1}{r}{$ -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,584$ \\  -->
+<!-- $82,001$ \\  -->
+<!-- $1,800$ -->
+<!-- \end{tabular} -->
+<!-- $} & \multicolumn{1}{r|}{$ -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,261$ \\  -->
+<!-- $96,1300$ \\  -->
+<!-- $3,117$ -->
+<!-- \end{tabular} -->
+<!-- $} &  -->
+<!-- \begin{tabular}{c} -->
+<!-- $1,00$ -->
+<!-- \end{tabular} -->
+<!-- \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">marg_re_pop &lt;-<span class="kw">as.data.frame</span>(<span class="kw">svymean</span>(~re,pnad.des, <span class="dt">deff=</span><span class="ot">TRUE</span> ))
+knitr::<span class="kw">kable</span>(marg_re_pop ,<span class="dt">booktabs=</span><span class="ot">TRUE</span>, <span class="dt">digits=</span><span class="dv">3</span>,
+  <span class="dt">caption=</span><span class="st">&quot;Proporções nas linha, desvios padrões e EPAs de `re` na população&quot;</span>)</code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-83">Tabela 8.2: </span>Proporções nas linha, desvios padrões e EPAs de <code>re</code> na população</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">mean</th>
+<th align="right">SE</th>
+<th align="right">deff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>re3</td>
+<td align="right">0.261</td>
+<td align="right">0.010</td>
+<td align="right">3.122</td>
+</tr>
+<tr class="even">
+<td>re1</td>
+<td align="right">0.155</td>
+<td align="right">0.007</td>
+<td align="right">2.361</td>
+</tr>
+<tr class="odd">
+<td>re2</td>
+<td align="right">0.584</td>
+<td align="right">0.008</td>
+<td align="right">1.803</td>
+</tr>
+</tbody>
+</table>
 <p>Vamos calcular, a título de ilustração, uma das celas de tabela de efeitos de plano amostral, digamos a cela (1,1). A estimativa da variância do estimador da proporção de linha nesta cela é <span class="math inline">\(\left( 0,0057269\right) ^{2}\)</span>. Sob amostragem aleatória simples com reposição, a estimativa da variância do estimador de proporção de linha na cela é: <span class="math inline">\(0,111\left( 1-0,111\right) /4.276\)</span>. A estimativa do efeito de plano amostral do estimador de proporção na cela é portanto igual a <span class="math display">\[
 \frac{\left( 0,0057269\right) ^{2}}{0,111\left( 1-0,111\right) /4.276}\cong
 1,420\;\;. 
 \]</span></p>
 <p>A estimativa do efeito médio de plano amostral para corrigir a estatística <span class="math inline">\(X_{P}^{2}\left( H\right)\)</span> é <span class="math inline">\(\hat{d}_{.}=1,802\)</span> , calculada tomando a média dos EPAs das celas correspondentes aos níveis 1 e 2 da variável sx.</p>
-<p>Vamos agora considerar o teste de independência entre as variáveis Sexo e Rendae calcular o efeito de plano amostral médio das estimativas das proporções nas celas da tabela. A Tabela  contém, em cada cela, as estimativas: da proporção na cela, do desvio-padrão da estimativa da proporção na cela ($ 10.000$), e do efeito de plano amostral da estimativa de proporç ão na cela.</p>
-
-<p>Vamos calcular, a título de ilustração, o efeito de plano amostral na cela (1,1) da Tabela . A estimativa da variância do estimador de proporção nesta cela é <span class="math inline">\(\left(0,0038343\right) ^{2}\)</span>. Sob amostragem aleatória simples com reposiç% ão, a estimativa da variância do estimador de proporção na cela é: <span class="math inline">\(0,073\times \left( 1-0,073\right) /6.507\)</span>. A estimativa do efeito de plano amostral do estimador de proporção na cela é</p>
+<p>Vamos agora considerar o teste de independência entre as variáveis Sexo e Rendae calcular o efeito de plano amostral médio das estimativas das proporções nas celas da tabela. A Tabela @ref(tab:propcelas} contém, em cada cela, as estimativas: da proporção na cela, do desvio-padrão da estimativa da proporção na cela (<span class="math inline">\(\times 10.000\)</span>), e do efeito de plano amostral da estimativa de proporção na cela.</p>
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Proporções nas celas, desvios padrões e EPAs}\bigskip \label{tab86}  -->
+<!-- \begin{tabular}{|c|ccc|c|} -->
+<!-- \hline\hline -->
+<!-- & \multicolumn{3}{|c|}{\textbf{Renda Mensal}} &  \\ \cline{2-4} -->
+<!-- \textbf{Sexo} & 1 & 2 & 3 & \textbf{Total} \\ \hline\hline -->
+<!-- 1 & \multicolumn{1}{|r}{$ -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,073$ \\  -->
+<!-- $38,343$ \\  -->
+<!-- $1,414$ -->
+<!-- \end{tabular} -->
+<!-- $} & \multicolumn{1}{r}{ -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,388$ \\  -->
+<!-- $80,435$ \\  -->
+<!-- $1,772$ -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{r|}{ -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,196$ \\  -->
+<!-- $71,772$ \\  -->
+<!-- $2,128$ -->
+<!-- \end{tabular} -->
+<!-- } & $ -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,657$ \\  -->
+<!-- $55,814$ \\  -->
+<!-- $0,899$ -->
+<!-- \end{tabular} -->
+<!-- $ \\ \hline -->
+<!-- 2 &  -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,082$ \\  -->
+<!-- $44,401$ \\  -->
+<!-- $1,695$ -->
+<!-- \end{tabular} -->
+<!-- &  -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,195$ \\  -->
+<!-- $51,582$ \\  -->
+<!-- $1,101$ -->
+<!-- \end{tabular} -->
+<!-- &  -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,065$ \\  -->
+<!-- $40,219$ \\  -->
+<!-- $1,729$ -->
+<!-- \end{tabular} -->
+<!-- &  -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,343$ \\  -->
+<!-- $55,814$ \\  -->
+<!-- $0,899$ -->
+<!-- \end{tabular} -->
+<!-- \\ \hline\hline -->
+<!-- \textbf{Total} &  -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,155$ \\  -->
+<!-- $68,977$ \\  -->
+<!-- $2,358$ -->
+<!-- \end{tabular} -->
+<!-- &  -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,584$ \\  -->
+<!-- $82,001$ \\  -->
+<!-- $1,800$ -->
+<!-- \end{tabular} -->
+<!-- &  -->
+<!-- \begin{tabular}{r} -->
+<!-- $0,261$ \\  -->
+<!-- $96,130$ \\  -->
+<!-- $3,117$ -->
+<!-- \end{tabular} -->
+<!-- & $ -->
+<!-- \begin{tabular}{r} -->
+<!-- $1,000$ -->
+<!-- \end{tabular} -->
+<!-- $ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
+<table>
+<caption><span id="tab:propcelas">Tabela 8.3: </span>Proporções nas cela, desvios padrões e EPAs</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">mean</th>
+<th align="right">SE</th>
+<th align="right">deff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>interaction(sx, re)2.3</td>
+<td align="right">0.065</td>
+<td align="right">40.219</td>
+<td align="right">1.731</td>
+</tr>
+<tr class="even">
+<td>interaction(sx, re)1.3</td>
+<td align="right">0.196</td>
+<td align="right">71.772</td>
+<td align="right">2.131</td>
+</tr>
+<tr class="odd">
+<td>interaction(sx, re)2.1</td>
+<td align="right">0.082</td>
+<td align="right">44.401</td>
+<td align="right">1.698</td>
+</tr>
+<tr class="even">
+<td>interaction(sx, re)1.1</td>
+<td align="right">0.073</td>
+<td align="right">38.343</td>
+<td align="right">1.416</td>
+</tr>
+<tr class="odd">
+<td>interaction(sx, re)2.2</td>
+<td align="right">0.195</td>
+<td align="right">51.582</td>
+<td align="right">1.103</td>
+</tr>
+<tr class="even">
+<td>interaction(sx, re)1.2</td>
+<td align="right">0.388</td>
+<td align="right">80.435</td>
+<td align="right">1.775</td>
+</tr>
+</tbody>
+</table>
+<p>Tabela de proporções de sx para a população inteira:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">marg_sx_pop &lt;-<span class="kw">data.frame</span>(<span class="kw">svymean</span>(~sx,pnad.des, <span class="dt">deff=</span><span class="ot">TRUE</span> ))
+marg_sx_pop &lt;-<span class="st"> </span><span class="kw">transform</span>(marg_sx_pop, <span class="dt">SE =</span> <span class="dv">10000</span>*SE)
+knitr::<span class="kw">kable</span>(marg_sx_pop, <span class="dt">digits=</span><span class="dv">3</span>,
+  <span class="dt">caption=</span><span class="st">&quot;Proporções nas linha, desvios padrões e EPAs de sx na população&quot;</span>)</code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-84">Tabela 8.4: </span>Proporções nas linha, desvios padrões e EPAs de sx na população</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">mean</th>
+<th align="right">SE</th>
+<th align="right">deff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>sx2</td>
+<td align="right">0.343</td>
+<td align="right">55.814</td>
+<td align="right">0.901</td>
+</tr>
+<tr class="even">
+<td>sx1</td>
+<td align="right">0.657</td>
+<td align="right">55.814</td>
+<td align="right">0.901</td>
+</tr>
+</tbody>
+</table>
+<p>Vamos calcular, a título de ilustração, o efeito de plano amostral na cela (1,1) da Tabela @ref{tab:propcelas}. A estimativa da variância do estimador de proporção nesta cela é <span class="math inline">\(\left(0,0038343\right) ^{2}\)</span>. Sob amostragem aleatória simples com reposição, a estimativa da variância do estimador de proporção na cela é: <span class="math inline">\(0,073\times \left( 1-0,073\right) /6.507\)</span>. A estimativa do efeito de plano amostral do estimador de proporção na cela é</p>
 <p><span class="math display">\[
 \frac{\left( 0,0038343\right) ^{2}}{0,073\left( 1-0,073\right) /6.507}\cong
 1,414\;\;. 
 \]</span></p>
 <p>Portanto, a estimativa do efeito médio de plano amostral requerida para corrigir a estatística <span class="math inline">\(X_{P}^{2}\left( I\right)\)</span> é <span class="math inline">\(\hat{d}_{.}=1,640,\)</span> calculada tomando a média dos EPAs das celas correspondentes aos níveis 1 e 2 da variável sx.</p>
-<p>Calculando as estatísticas <span class="math inline">\(X_{P}^{2}\left( I\right)\)</span> e <span class="math inline">\(X_{P}^{2}\left( H\right)\)</span> para os testes clássicos de independência e homogeneidade a partir da Tabela , obtemos os valores <span class="math inline">\(X_{P}^{2}\left( I\right) =X_{P}^{2}\left( H\right) =227,025\)</span>, com distribuição de referência <span class="math inline">\(\chi ^{2}\left( 2\right)\)</span>, resultado que indica rejeição da hipótese de independência entre sx e re, bem como da hipótese de igualdade de distribuição de renda para os dois sexos a partir do teste de homogeneidade. O valor comum das estatísticas <span class="math inline">\(X_{P}^{2}\left( I\right)\)</span> e <span class="math inline">\(X_{P}^{2}\left( H\right)\)</span> foi calculado sem considerar os pesos e o plano amostral. Considerando estes últimos, mediante a correção de EPA médio das estatísticas clássicas, obtemos os valores <span class="math inline">\(X_{P}^{2}\left( I;\hat{d} _{.}\right) =137,117\)</span> e <span class="math inline">\(X_{P}^{2}\left( H;\hat{d}_{.}\right) =124,742\)</span>, que também indicam a rejeição das hipóteses de independência e de homogeneidade.</p>
+<p>Calculando as estatísticas <span class="math inline">\(X_{P}^{2}\left( I\right)\)</span> e <span class="math inline">\(X_{P}^{2}\left( H\right)\)</span> para os testes clássicos de independência e homogeneidade a partir da Tabela @ref{tab:propcelas}, obtemos os valores <span class="math inline">\(X_{P}^{2}\left( I\right) =X_{P}^{2}\left( H\right) =227,025\)</span>, com distribuição de referência <span class="math inline">\(\chi ^{2}\left( 2\right)\)</span>, resultado que indica rejeição da hipótese de independência entre sx e re, bem como da hipótese de igualdade de distribuição de renda para os dois sexos a partir do teste de homogeneidade. O valor comum das estatísticas <span class="math inline">\(X_{P}^{2}\left( I\right)\)</span> e <span class="math inline">\(X_{P}^{2}\left( H\right)\)</span> foi calculado sem considerar os pesos e o plano amostral. Considerando estes últimos, mediante a correção de EPA médio das estatísticas clássicas, obtemos os valores <span class="math inline">\(X_{P}^{2}\left( I;\hat{d} _{.}\right) =137,117\)</span> e <span class="math inline">\(X_{P}^{2}\left( H;\hat{d}_{.}\right) =124,742\)</span>, que também indicam a rejeição das hipóteses de independência e de homogeneidade.</p>
 <p>Vale ressaltar que apesar de todos os testes mencionados indicarem forte rejeição das hipóteses de independência e de homogeneidade, os valores das estatísticas de teste <span class="math inline">\(137,117\)</span> e <span class="math inline">\(124,742\)</span> , calculados considerando os pesos e plano amostral, são bem menores que o valor <span class="math inline">\(227,025\)</span> obtido para o caso de amostra IID. Sob a hipótese nula, a distribuição de referência de todas essas estatísticas de teste é <span class="math inline">\(\chi ^{2}\left( 2\right)\)</span>, mostrando novamente que a estatística de teste calculada sob a hipótese de amostra IID tem maior tendência a rejeitar a hipótese nula.</p>
-<p>A partir da Tabela , examinando as estimativas das proporç ões nas celas da tabela para cada sexo, observamos uma ordenação estocástica das distribuições de renda para os dois sexos, com proporções maiores em valores mais altos para o nível 1 da variável sexo, que é o sexo masculino.</p>
+<p>A partir da Tabela <a href="testetab2.html#tab:propcelas">8.3</a>, examinando as estimativas das proporç ões nas celas da tabela para cada sexo, observamos uma ordenação estocástica das distribuições de renda para os dois sexos, com proporções maiores em valores mais altos para o nível 1 da variável sexo, que é o sexo masculino.</p>
 </div>
 </div>
 <div id="laboratorio-de-r-5" class="section level2">
@@ -679,7 +992,7 @@ Frequências Amostrais por celas na PNADRJ90
 <p>Vamos reproduzir alguns resultados usando dados da PNAD descritos na Seção ???</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-83" class="example"><strong>Exemplo 8.1 </strong></span>Estimativas de medidas descritivas em tabelas
+<span id="ex:unnamed-chunk-85" class="example"><strong>Exemplo 8.1 </strong></span>Estimativas de medidas descritivas em tabelas
 </div>
 <p></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
@@ -741,11 +1054,11 @@ Frequências Amostrais por celas na PNADRJ90
 ## ht1  3.666206e-05 -3.322546e-05 -3.436592e-06
 ## ht2 -3.322546e-05  6.758652e-05 -3.436106e-05
 ## ht3 -3.436592e-06 -3.436106e-05  3.779765e-05</code></pre>
-<p>Exemplo de formatação de tabela</p>
+<p>Podemos obter estimativas de proporções nas classes de renda por domínios definidos pela variável sx:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xtable)
 <span class="kw">print</span>(<span class="kw">xtable</span>(<span class="kw">svyby</span>(~re,~sx,pnad.des,svymean,<span class="dt">keep.var=</span><span class="ot">TRUE</span>),<span class="dt">caption=</span><span class="st">&quot;Proporções por sexo&quot;</span>),<span class="dt">type=</span><span class="st">&quot;html&quot;</span>, <span class="dt">size=</span><span class="st">&quot;small&quot;</span>, <span class="dt">include.rownames=</span><span class="ot">FALSE</span>)</code></pre></div>
 <!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
-<!-- Thu Jan 05 12:26:54 2017 -->
+<!-- Fri Jan 06 11:32:51 2017 -->
 <table border="1">
 <caption align="bottom">
 Proporções por sexo
@@ -820,6 +1133,7 @@ se.re3
 </td>
 </tr>
 </table>
+<p>As proporções estimadas nas classes de renda e a tabela cruzada das variáveis sexo e renda são obtidas a seguir:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svymean</span>(~re,pnad.des,<span class="dt">deff=</span>T)</code></pre></div>
 <pre><code>##          mean        SE   DEff
 ## re1 0.1554555 0.0068977 2.3611
@@ -837,73 +1151,22 @@ se.re3
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svymean</span>(~<span class="kw">I</span>((sx==<span class="dv">1</span>&amp;re==<span class="dv">1</span>)*<span class="dv">1</span>),pnad.des,<span class="dt">deff=</span>T)</code></pre></div>
 <pre><code>##                                 mean        SE   DEff
 ## I((sx == 1 &amp; re == 1) * 1) 0.0729904 0.0038343 1.4156</code></pre>
-<p>Reproduz Tabela 8.6:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytable</span>(~sx+re,pnad.des)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#proporções nas celas</span>
+<span class="kw">svytable</span>(~sx+re,pnad.des,<span class="dt">Ntotal=</span><span class="dv">1</span>)</code></pre></div>
 <pre><code>##    re
-## sx        1       2       3
-##   1  335454 1784191  900203
-##   2  378998  897784  299232</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytable</span>(~sx+re,pnad.des,<span class="dt">Ntotal=</span><span class="dv">100</span>)</code></pre></div>
+## sx           1          2          3
+##   1 0.07299044 0.38821684 0.19587250
+##   2 0.08246505 0.19534616 0.06510900</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># porcentagens nas celas</span>
+<span class="kw">svytable</span>(~sx+re,pnad.des,<span class="dt">Ntotal=</span><span class="dv">100</span>)</code></pre></div>
 <pre><code>##    re
 ## sx          1         2         3
 ##   1  7.299044 38.821684 19.587250
 ##   2  8.246505 19.534616  6.510900</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sx.re_mean&lt;-<span class="kw">svymean</span>(~<span class="kw">interaction</span>(sx,re),pnad.des,<span class="dt">deff=</span>T)
-frame_sx_re &lt;-<span class="st"> </span><span class="kw">data.frame</span>(sx.re_mean)
-frame_sx_re &lt;-<span class="st"> </span><span class="kw">transform</span>(frame_sx_re, <span class="dt">SE =</span> <span class="dv">10000</span>*SE)
-<span class="co">#b&lt;-ftable(sx.re_mean, rownames=list(sx=c(&quot;1&quot;,&quot;2&quot;),re=c(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;))) </span>
-knitr::<span class="kw">kable</span>(frame_sx_re,<span class="dt">booktabs=</span><span class="ot">TRUE</span>, <span class="dt">digits=</span><span class="dv">3</span>,
-  <span class="dt">caption=</span><span class="st">&quot;Proporções nas cela, desvios padrões e EPAs&quot;</span>)</code></pre></div>
-<table>
-<caption><span id="tab:unnamed-chunk-91">Tabela 8.2: </span>Proporções nas cela, desvios padrões e EPAs</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th align="right">mean</th>
-<th align="right">SE</th>
-<th align="right">deff</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>interaction(sx, re)1.1</td>
-<td align="right">0.073</td>
-<td align="right">38.343</td>
-<td align="right">1.416</td>
-</tr>
-<tr class="even">
-<td>interaction(sx, re)2.1</td>
-<td align="right">0.082</td>
-<td align="right">44.401</td>
-<td align="right">1.698</td>
-</tr>
-<tr class="odd">
-<td>interaction(sx, re)1.2</td>
-<td align="right">0.388</td>
-<td align="right">80.435</td>
-<td align="right">1.775</td>
-</tr>
-<tr class="even">
-<td>interaction(sx, re)2.2</td>
-<td align="right">0.195</td>
-<td align="right">51.582</td>
-<td align="right">1.103</td>
-</tr>
-<tr class="odd">
-<td>interaction(sx, re)1.3</td>
-<td align="right">0.196</td>
-<td align="right">71.772</td>
-<td align="right">2.131</td>
-</tr>
-<tr class="even">
-<td>interaction(sx, re)2.3</td>
-<td align="right">0.065</td>
-<td align="right">40.219</td>
-<td align="right">1.731</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># produz se e deff</span>
+sx.re_mean&lt;-<span class="kw">svymean</span>(~<span class="kw">interaction</span>(sx,re),pnad.des,<span class="dt">deff=</span>T)</code></pre></div>
 <p>Resultado dos testes obtidos pela survey são diferentes. Seriam incluídos?</p>
+<p>`</p>
 
 </div>
 </div>
