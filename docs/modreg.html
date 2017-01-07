@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-01-06">
+<meta name="date" content="2017-01-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -236,7 +236,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Capítulo 6</span> Modelos de Regressão</h1>
 <div id="modlinear" class="section level2">
 <h2><span class="header-section-number">6.1</span> Modelo de Regressão Linear Normal</h2>
-<p>O problema considerado nesta seção é o de estimar os parâmetros num modelo de regressão linear normal especificado para um subconjunto das variáveis da pesquisa. O procedimento de máxima pseudo-verossimilhança, descrito na Seção <a href="ajmodpar.html#modpar3">5.4</a>, é aplicado. Os resultados são derivados considerando pesos ordinários dados pelo inverso das probabilidades de inclusão das unidades na amostra. Resultados mais gerais considerando outros tipos de pesos (tais como os derivados de estimadores de razão ou regressão, por exemplo) estão discutidos em Nascimento Silva(1996, cap. 6).</p>
+<p>O problema considerado nesta seção é o de estimar os parâmetros num modelo de regressão linear normal especificado para um subconjunto das variáveis da pesquisa. O procedimento de máxima pseudo-verossimilhança, descrito na Seção <a href="ajmodpar.html#modpar3">5.4</a>, é aplicado. Os resultados são derivados considerando pesos ordinários dados pelo inverso das probabilidades de inclusão das unidades na amostra. Resultados mais gerais considerando outros tipos de pesos (tais como os derivados de estimadores de razão ou regressão, por exemplo) estão discutidos em <span class="citation">(Nascimento Silva <a href="#ref-Silva">1996</a>)</span>, cap. 6.</p>
 <div id="especificacao-do-modelo" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Especificação do Modelo</h3>
 Vamos supor que os dados da <span class="math inline">\(i\)</span>-ésima unidade da população pesquisada incluam um vetor <span class="math inline">\(\mathbf{z}_{i}=\left( z_{i1},\ldots ,z_{iP}\right) ^{^{\prime }}\)</span> de dimensão <span class="math inline">\(P\times 1\)</span> com os valores de variáveis <span class="math inline">\(\mathbf{z}\)</span>, que são <code>preditoras</code> ou explanatórias num modelo de regressão <span class="math inline">\(M\)</span>. Este modelo tem o objetivo de predizer ou explicar os valores de uma variável da pesquisa <span class="math inline">\(y\)</span>, queé considerada como variável <code>resposta</code>. Denotemos por <span class="math inline">\(Y_{i}\)</span> e <span class="math inline">\(\mathbf{Z}_{i}\)</span> a variável e o vetor aleat'{o}rios que geram <span class="math inline">\(y_{i}\)</span> e <span class="math inline">\(\mathbf{z}_{i}\)</span>, para <span class="math inline">\(i\in U\)</span>. Sem perda de generalidade, suponhamos também que a primeira componente do vetor <span class="math inline">\(\mathbf{z}_{i}\)</span> de variáveis preditorasé sempre igual a <span class="math inline">\(1\)</span>, de modo a incluir sempre um termo de intercepto nos modelos de regressão linear considerados (tal hipótese não é essencial, mas será adotada no restante deste capítulo). Suponhamos agora que <span class="math inline">\(\left( Y_{i},\mathbf{Z}_{i}^{^{\prime }}\right) ^{^{\prime }},\;i\in U\)</span>, são vetores aleatórios independentes e identicamente distribuídos tais que
@@ -246,7 +246,7 @@ f\left( \left. y_{i}\right|\mathbf{z}_{i};\mathbf{\beta },\sigma_{e}\right) =\le
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(\mathbf{\beta }=\left( \beta _{1},\ldots ,\beta _{P}\right) ^{^{\prime }}\)</span> e <span class="math inline">\(\sigma_{e}&gt;0\)</span> são parâmetros desconhecidos do modelo.</p>
 <p>Observe que <a href="modreg.html#eq:norm1">(6.1)</a> constitui-se numa especificação (parcial) de um modelo marginal para um conjunto de variáveis da pesquisa, e não faz nenhuma referência direta à forma como elas se relacionam com variáveis auxiliares <span class="math inline">\(\mathbf{x}\)</span> que eventualmente possam estar disponíveis. A atenção é focalizada na estimação de <span class="math inline">\(\mathbf{\beta }\)</span> e <span class="math inline">\(\sigma_{e}\)</span> e sua interpretação com respeito ao modelo agregado <a href="modreg.html#eq:norm1">(6.1)</a>.</p>
-<p>Modelos como <a href="modreg.html#eq:norm1">(6.1)</a> já foram considerados por vários autores, por exemplo Holt, Smith e Winter(1980), Nathan e Holt (1980), Skinner(1989b, p.81), Chambers(1986, 1995). Eles são simples, mesmo assim frequentemente usados pelos analistas de dados, pelo menos como uma primeira aproximação. Além disto, eles satisfazem todas as condições padrões de regularidade. Assim eles são adequados a uma aplicação de procedimentos de máxima pseudo-verossimilhança descritos na Seção <a href="ajmodpar.html#modpar3">5.4</a>.</p>
+<p>Modelos como <a href="modreg.html#eq:norm1">(6.1)</a> já foram considerados por vários autores, por exemplo <span class="citation">(Holt, Smith, and Winter <a href="#ref-holt80b">1980</a>)</span>, <span class="citation">(Nathan and Holt <a href="#ref-NH80">1980</a>)</span>, pág. 81 de <span class="citation">(Skinner 1989b)</span> , <span class="citation">(Chambers <a href="#ref-chambers86">1986</a>)</span>, <span class="citation">(Chambers <a href="#ref-chambers95">1995</a>)</span>. Eles são simples, mesmo assim frequentemente usados pelos analistas de dados, pelo menos como uma primeira aproximação. Além disto, eles satisfazem todas as condições padrões de regularidade. Assim eles são adequados a uma aplicação de procedimentos de máxima pseudo-verossimilhança descritos na Seção <a href="ajmodpar.html#modpar3">5.4</a>.</p>
 As funções escores para <span class="math inline">\(\mathbf{\beta}\)</span> e <span class="math inline">\(\sigma _{e}\)</span> correspondentes ao modelo <a href="modreg.html#eq:norm1">(6.1)</a> podem ser facilmente obtidas como
 <span class="math display" id="eq:norm2">\[\begin{eqnarray}
 \partial \log \left[ f\left( \left. y_{i}\right| \mathbf{z}_{i};\mathbf{
@@ -299,7 +299,7 @@ B}\right) ^{2}=N^{-1}\left( \mathbf{y}_{U}-\mathbf{z}_{U}^{\prime }\mathbf{B}
 \right) \;.  
 \tag{6.7}
 \end{equation}\]</span>
-<p>Com uma parametrização que isole o termo correspondente ao intercepto (primeira coluna do vetor <span class="math inline">\(\mathbf{z}_{i}\)</span>) do modelo de regressão <a href="modreg.html#eq:norm1">(6.1)</a>, pode ser facilmente mostrado (Nascimento Silva, 1996, p. 142) que os EMV de <span class="math inline">\(\mathbf{\beta }_{2}\)</span> (igual a <span class="math inline">\(\mathbf{\beta }\)</span> excluído o primeiro componente), <span class="math inline">\(\beta _{1}\)</span> e <span class="math inline">\(\sigma _{e}\)</span> são dados respectivamente por</p>
+<p>Com uma parametrização que isole o termo correspondente ao intercepto (primeira coluna do vetor <span class="math inline">\(\mathbf{z}_{i}\)</span>) do modelo de regressão <a href="modreg.html#eq:norm1">(6.1)</a>, pode ser facilmente mostrado (<span class="citation">(Nascimento Silva <a href="#ref-Silva">1996</a>)</span>, p. 142) que os EMV de <span class="math inline">\(\mathbf{\beta }_{2}\)</span> (igual a <span class="math inline">\(\mathbf{\beta }\)</span> excluído o primeiro componente), <span class="math inline">\(\beta _{1}\)</span> e <span class="math inline">\(\sigma _{e}\)</span> são dados respectivamente por</p>
 <span class="math display" id="eq:norm8">\[\begin{equation}
 \mathbf{B}_{2}=\mathbf{S}_{\mathbf{z}}^{-1}\mathbf{S}_{\mathbf{z}y}\;,
 \tag{6.8}
@@ -395,7 +395,7 @@ _{\pi }\right) ^{^{\prime }}\mathbf{\Pi }_{s}^{-1}\left( \mathbf{y}_{s}-
 </div>
 <div id="estimacao-da-variancia-de-estimadores-de-mpv" class="section level3">
 <h3><span class="header-section-number">6.1.4</span> Estimação da Variância de Estimadores de MPV</h3>
-<p>O exercício de ajustar um modelo não estará completo sem a avalia ção da precisão e significância das estimativas dos parâmetros. Para isto é necessária a estimação das variâncias correspondentes. Nesta seção concentramos nossa atenção na estimação das variâncias dos estimadores de MPV dos coeficientes de regressão <span class="math inline">\(\mathbf{\beta }\)</span>. As expressões a seguir são obtidas por aplicação direta dos resultados gerais fornecidos na Seção <a href="ajmodpar.html#modpar3">5.4</a>, observando-se que os escores correspondentes a <span class="math inline">\(\mathbf{\beta}\)</span> no <code>ajuste do censo</code> do modelo <a href="modreg.html#eq:norm1">(6.1)</a> são dados por <span class="math inline">\(\mathbf{u}_{i}\left( \mathbf{B}\right) =\mathbf{z}_{i}\left( y_{i}-\mathbf{z}_{i}^{\prime }\mathbf{B}\right) =\mathbf{z} _{i}e_{i}\)</span> , onde <span class="math inline">\(e_{i}=\left( y_{i}-\bar{Y}\right) -\left( \mathbf{z}_{i}-\mathbf{\bar{Z}}\right) ^{^{\prime }}\mathbf{B}\)</span> para <span class="math inline">\(i\in U\)</span>, com o Jacobiano correspondente dado por</p>
+<p>O exercício de ajustar um modelo não estará completo sem a avalia ção da precisão e significância das estimativas dos parâmetros. Para isto é necessária a estimação das variâncias correspondentes. Nesta seção concentramos nossa atenção na estimação das variâncias dos estimadores de MPV dos coeficientes de regressão <span class="math inline">\(\mathbf{\beta}\)</span>. As expressões a seguir são obtidas por aplicação direta dos resultados gerais fornecidos na Seção <a href="ajmodpar.html#modpar3">5.4</a>, observando-se que os escores correspondentes a <span class="math inline">\(\mathbf{\beta}\)</span> no <code>ajuste do censo</code> do modelo <a href="modreg.html#eq:norm1">(6.1)</a> são dados por <span class="math inline">\(\mathbf{u}_{i}\left( \mathbf{B}\right) =\mathbf{z}_{i}\left( y_{i}-\mathbf{z}_{i}^{\prime }\mathbf{B}\right) =\mathbf{z} _{i}e_{i}\)</span> , onde <span class="math inline">\(e_{i}=\left( y_{i}-\bar{Y}\right) -\left( \mathbf{z}_{i}-\mathbf{\bar{Z}}\right) ^{^{\prime }}\mathbf{B}\)</span> para <span class="math inline">\(i\in U\)</span>, com o Jacobiano correspondente dado por</p>
 <span class="math display" id="eq:norm20">\[\begin{eqnarray}
 J\left( \mathbf{B}\right) &amp;=&amp;\left. \sum\nolimits_{i\in U}\partial \mathbf{z}
 _{i}\left( y_{i}-\mathbf{z}_{i}^{\prime }\mathbf{\beta }\right) /\partial 
@@ -573,19 +573,394 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 <p>Os efeitos foram adicionados sequencialmente na ordem da Tabela . Depois de introduzidos os efeitos principais, as interações de dois fatores foram introduzidas na ordem definida pela <code>função step do S-Plus</code>.</p>
 <p>O <span class="math inline">\(p\)</span>valor do teste de nulidade das interações não incluídas no modelo é 0,0515, aceitando-se a hipótese de nulidade destes efeitos ao nível <span class="math inline">\(\alpha =0,05\)</span>. O modelo obtido difere do selecionado em Leote(1996) só pela inclusão de mais um efeito, referente à interação ae:ht.</p>
 <p>Uma descrição detalhada do plano amostral da PNAD 90 foi apresentada no Exemplo <a href="modreg.html#ex:pnad">6.1</a>. Como se pode observar dessa descrição, o plano amostral da PNAD apresenta todos os aspectos de um plano amostral complexo, incluindo estratificação (geográfica), seleção de unidades primárias (municípios, ou setores nos municípios auto-representativos) ou secundárias (setores nos municípios não auto-representativos) com probabilidades desiguais, conglomeração (de domicílios em setores, e de pessoas nos domicílios) e seleção sistemática sem reposição de unidades. Nesse caso, fica difícil admitir a priori com confiança as hipóteses usuais de modelagem das observações amostrais como IID. Por esse motivo foram considerados métodos alternativos de modelagem e ajuste.</p>
-<p>Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões, calculadas pela <strong>PROC LOGISTIC</strong> do pacote <strong>SUDAAN</strong>. Para facilitar a comparação incluímos na Tabela  os valores correspondentes estimados pelo <strong>S-Plus</strong>.</p>
-<p>As estimativas calculadas pelo pacote <strong>SUDAAN</strong> são feitas pelo <code>Método de Máxima Pseudo-Verossimilhança</code>, resolvendo a equação <a href="modreg.html#eq:norm27">(6.28)</a>. As estimativas dos desvios padrões são obtidas das variâncias calculadas pelo método de linearização descrito na Seção <a href="ajmodpar.html#modpar3">5.4</a>, equação (), considerando os escores tal como apresentados na equação <a href="modreg.html#eq:norm25a">(6.26)</a>. Para esses cálculos, os estimadores de variância considerados levaram em conta os pesos das observações, mas utilizaram uma aproximação que consiste em considerar que as unidades primárias de amostragem foram selecionadas com reposição, especificando a opção WR do pacote SUDAAN. Veja <span class="citation">(Shah et al. <a href="#ref-SUDAAN92">1992</a>)</span>, p. 4) e <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, eq. 7.7.2.</p>
-
-<p>Na Tabela  são apresentadas as probabilidades de significância dos tes-tes de nulidade dos efeitos do modelo. Todos os efeitos incluídos no modelo são significativos, nos níveis usuais de significância. A <strong>PROC LOGISTIC</strong> do pacote **SUDAAN*}** não inclui testes para os efeitos principais, por não ser possível separar tais efeitos das interações. A coluna de <span class="math inline">\(p\)</span> valores da Tabela , obtida pela PROC LOGISTIC do pacote SUDAAN, utiliza a estatística de Wald baseada no plano amostral com correção. Mais detalhes são encontrados em Shah et al.(1993).</p>
-<p>Os testes da Tabela  indicam a significância de todas as interações de 2 fatores que entraram no modelo selecionado. O teste de qualidade global de ajuste, na primeira linha da Tabela , indica a necessidade de serem introduzidas novas interações.</p>
-
+<p>Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões, calculadas pela função <code>svyglm</code>da library survey.</p>
+<p>As estimativas calculadas pela função <code>svyglm</code> são feitas pelo <code>Método de Máxima Pseudo-Verossimilhança</code>, resolvendo a equação <a href="modreg.html#eq:norm27">(6.28)</a>. As estimativas dos desvios padrões são obtidas das variâncias calculadas pelo método de linearização descrito na Seção <a href="ajmodpar.html#modpar3">5.4</a>, equação @ref(eq:modpar5}, considerando os escores tal como apresentados na equação <a href="modreg.html#eq:norm25a">(6.26)</a>. Para esses cálculos, os estimadores de variância considerados levaram em conta os pesos das observações, mas utilizaram uma aproximação que consiste em considerar que as unidades primárias de amostragem foram selecionadas com reposição, conforme descrito na Seção .</p>
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Estimativas dos efeitos e dos respectivos desvios padrões obtidas -->
+<!-- pelo {\bf SUDAAN} e pelo {\bf S-Plus} }\bigskip \label{tab62}  -->
+<!-- \begin{tabular}{|c|cc|cc|} -->
+<!-- \hline\hline -->
+<!-- Variáveis & \multicolumn{2}{|r}{Ajuste no \textbf{SUDAAN}} &  -->
+<!-- \multicolumn{2}{|r|}{Ajuste no \textbf{S-Plus}} \\ \cline{2-5} -->
+<!-- independentes & Estimativa & Desvio & Estimativa & Desvio \\  -->
+<!-- e efeitos & do efeito & Padrão & do efeito & Padrão \\ \hline\hline -->
+<!-- Intercepto & \multicolumn{1}{|r}{$-0,515$} & \multicolumn{1}{r|}{$0,260$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,514$} & \multicolumn{1}{r|}{$0,269$} \\  -->
+<!-- sx & \multicolumn{1}{|r}{$0,148$} & \multicolumn{1}{r|}{$0,222$} &  -->
+<!-- \multicolumn{1}{|r}{$0,156$} & \multicolumn{1}{r|}{$0,228$} \\  -->
+<!-- ae1 & \multicolumn{1}{|r}{$0,745$} & \multicolumn{1}{r|}{$0,165$} &  -->
+<!-- \multicolumn{1}{|r}{$0,740$} & \multicolumn{1}{r|}{$0,165$} \\  -->
+<!-- ae2 & \multicolumn{1}{|r}{$0,496$} & \multicolumn{1}{r|}{$0,156$} &  -->
+<!-- \multicolumn{1}{|r}{$0,497$} & \multicolumn{1}{r|}{$0,159$} \\  -->
+<!-- ht1 & \multicolumn{1}{|r}{$-0,377$} & \multicolumn{1}{r|}{$0,317$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,386$} & \multicolumn{1}{r|}{$0,312$} \\  -->
+<!-- ht2 & \multicolumn{1}{|r}{$-0,697$} & \multicolumn{1}{r|}{$0,275$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,698$} & \multicolumn{1}{r|}{$0,268$} \\  -->
+<!-- id1 & \multicolumn{1}{|r}{$-0,239$} & \multicolumn{1}{r|}{$0,540$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,243$} & \multicolumn{1}{r|}{$0,492$} \\  -->
+<!-- id2 & \multicolumn{1}{|r}{$-0,729$} & \multicolumn{1}{r|}{$0,302$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,724$} & \multicolumn{1}{r|}{$0,314$} \\  -->
+<!-- id3 & \multicolumn{1}{|r}{$0,227$} & \multicolumn{1}{r|}{$0,231$} &  -->
+<!-- \multicolumn{1}{|r}{$0,227$} & \multicolumn{1}{r|}{$0,234$} \\  -->
+<!-- re1 & \multicolumn{1}{|r}{$0,286$} & \multicolumn{1}{r|}{$0,277$} &  -->
+<!-- \multicolumn{1}{|r}{$0,293$} & \multicolumn{1}{r|}{$0,245$} \\  -->
+<!-- re2 & \multicolumn{1}{|r}{$0,065$} & \multicolumn{1}{r|}{$0,144$} &  -->
+<!-- \multicolumn{1}{|r}{$0,062$} & \multicolumn{1}{r|}{$0,145$} \\  -->
+<!-- ht1.re1 & \multicolumn{1}{|r}{$1,529$} & \multicolumn{1}{r|}{$0,356$} &  -->
+<!-- \multicolumn{1}{|r}{$1,531$} & \multicolumn{1}{r|}{$0,332$} \\  -->
+<!-- ht2.re1 & \multicolumn{1}{|r}{$0,338$} & \multicolumn{1}{r|}{$0,320$} &  -->
+<!-- \multicolumn{1}{|r}{$0,336$} & \multicolumn{1}{r|}{$0,284$} \\  -->
+<!-- ht1.re2 & \multicolumn{1}{|r}{$0,490$} & \multicolumn{1}{r|}{$0,233$} &  -->
+<!-- \multicolumn{1}{|r}{$0,498$} & \multicolumn{1}{r|}{$0,221$} \\  -->
+<!-- ht2.re2 & \multicolumn{1}{|r}{$-0,115$} & \multicolumn{1}{r|}{$0,183$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,112$} & \multicolumn{1}{r|}{$0,178$} \\  -->
+<!-- ht1.id1 & \multicolumn{1}{|r}{$-1,420$} & \multicolumn{1}{r|}{$0,605$} &  -->
+<!-- \multicolumn{1}{|r}{$-1,408$} & \multicolumn{1}{r|}{$0,515$} \\  -->
+<!-- ht2.id1 & \multicolumn{1}{|r}{$-0,413$} & \multicolumn{1}{r|}{$0,506$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,397$} & \multicolumn{1}{r|}{$0,465$} \\  -->
+<!-- ht1.id2 & \multicolumn{1}{|r}{$-0,124$} & \multicolumn{1}{r|}{$0,354$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,129$} & \multicolumn{1}{r|}{$0,351$} \\  -->
+<!-- ht2.id2 & \multicolumn{1}{|r}{$-0,109$} & \multicolumn{1}{r|}{$0,279$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,106$} & \multicolumn{1}{r|}{$0,286$} \\  -->
+<!-- ht1.id3 & \multicolumn{1}{|r}{$-0,220$} & \multicolumn{1}{r|}{$0,248$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,216$} & \multicolumn{1}{r|}{$0,253$} \\  -->
+<!-- ht2.id3 & \multicolumn{1}{|r}{$-0,537$} & \multicolumn{1}{r|}{$0,205$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,533$} & \multicolumn{1}{r|}{$0,201$} \\  -->
+<!-- sx.id1 & \multicolumn{1}{|r}{$0,878$} & \multicolumn{1}{r|}{$0,348$} &  -->
+<!-- \multicolumn{1}{|r}{$0,870$} & \multicolumn{1}{r|}{$0,335$} \\  -->
+<!-- sx.id2 & \multicolumn{1}{|r}{$0,300$} & \multicolumn{1}{r|}{$0,231$} &  -->
+<!-- \multicolumn{1}{|r}{$0,294$} & \multicolumn{1}{r|}{$0,226$} \\  -->
+<!-- sx.id3 & \multicolumn{1}{|r}{$-0,259$} & \multicolumn{1}{r|}{$0,190$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,263$} & \multicolumn{1}{r|}{$0,186$} \\  -->
+<!-- sx.ht1 & \multicolumn{1}{|r}{$-0,736$} & \multicolumn{1}{r|}{$0,206$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,737$} & \multicolumn{1}{r|}{$0,211$} \\  -->
+<!-- sx.ht2 & \multicolumn{1}{|r}{$-0,089$} & \multicolumn{1}{r|}{$0,185$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,093$} & \multicolumn{1}{r|}{$0,182$} \\  -->
+<!-- ae1.ht1 & \multicolumn{1}{|r}{$0,792$} & \multicolumn{1}{r|}{$0,240$} &  -->
+<!-- \multicolumn{1}{|r}{$0,792$} & \multicolumn{1}{r|}{$0,239$} \\  -->
+<!-- ae2.ht1 & \multicolumn{1}{|r}{$0,739$} & \multicolumn{1}{r|}{$0,227$} &  -->
+<!-- \multicolumn{1}{|r}{$0,735$} & \multicolumn{1}{r|}{$0,226$} \\  -->
+<!-- ae1.ht2 & \multicolumn{1}{|r}{$0,026$} & \multicolumn{1}{r|}{$0,197$} &  -->
+<!-- \multicolumn{1}{|r}{$0,029$} & \multicolumn{1}{r|}{$0,196$} \\  -->
+<!-- ae2.ht2 & \multicolumn{1}{|r}{$0,089$} & \multicolumn{1}{r|}{$0,183$} &  -->
+<!-- \multicolumn{1}{|r}{$0,087$} & \multicolumn{1}{r|}{$0,189$} \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
+<table>
+<caption><span id="tab:logit">Tabela 6.2: </span>Estmativas dos efeitos e respectivos erros padrões obtidos pela library survey do R</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Estimate</th>
+<th align="right">Std. Error</th>
+<th align="right">t value</th>
+<th align="right">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td align="right">-0.515</td>
+<td align="right">0.260</td>
+<td align="right">-1.978</td>
+<td align="right">0.048</td>
+</tr>
+<tr class="even">
+<td>sx1</td>
+<td align="right">0.148</td>
+<td align="right">0.222</td>
+<td align="right">0.666</td>
+<td align="right">0.506</td>
+</tr>
+<tr class="odd">
+<td>ae1</td>
+<td align="right">0.745</td>
+<td align="right">0.165</td>
+<td align="right">4.528</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td>ae2</td>
+<td align="right">0.496</td>
+<td align="right">0.156</td>
+<td align="right">3.176</td>
+<td align="right">0.002</td>
+</tr>
+<tr class="odd">
+<td>ht1</td>
+<td align="right">-0.377</td>
+<td align="right">0.317</td>
+<td align="right">-1.187</td>
+<td align="right">0.236</td>
+</tr>
+<tr class="even">
+<td>ht2</td>
+<td align="right">-0.697</td>
+<td align="right">0.275</td>
+<td align="right">-2.531</td>
+<td align="right">0.012</td>
+</tr>
+<tr class="odd">
+<td>id1</td>
+<td align="right">-0.239</td>
+<td align="right">0.540</td>
+<td align="right">-0.442</td>
+<td align="right">0.659</td>
+</tr>
+<tr class="even">
+<td>id2</td>
+<td align="right">-0.729</td>
+<td align="right">0.302</td>
+<td align="right">-2.412</td>
+<td align="right">0.016</td>
+</tr>
+<tr class="odd">
+<td>id3</td>
+<td align="right">0.227</td>
+<td align="right">0.231</td>
+<td align="right">0.982</td>
+<td align="right">0.327</td>
+</tr>
+<tr class="even">
+<td>re1</td>
+<td align="right">0.286</td>
+<td align="right">0.277</td>
+<td align="right">1.032</td>
+<td align="right">0.302</td>
+</tr>
+<tr class="odd">
+<td>re2</td>
+<td align="right">0.065</td>
+<td align="right">0.144</td>
+<td align="right">0.451</td>
+<td align="right">0.652</td>
+</tr>
+<tr class="even">
+<td>sx1:id1</td>
+<td align="right">0.878</td>
+<td align="right">0.348</td>
+<td align="right">2.521</td>
+<td align="right">0.012</td>
+</tr>
+<tr class="odd">
+<td>sx1:id2</td>
+<td align="right">0.300</td>
+<td align="right">0.231</td>
+<td align="right">1.296</td>
+<td align="right">0.195</td>
+</tr>
+<tr class="even">
+<td>sx1:id3</td>
+<td align="right">-0.259</td>
+<td align="right">0.190</td>
+<td align="right">-1.363</td>
+<td align="right">0.173</td>
+</tr>
+<tr class="odd">
+<td>sx1:ht1</td>
+<td align="right">-0.736</td>
+<td align="right">0.206</td>
+<td align="right">-3.572</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td>sx1:ht2</td>
+<td align="right">-0.089</td>
+<td align="right">0.185</td>
+<td align="right">-0.480</td>
+<td align="right">0.631</td>
+</tr>
+<tr class="odd">
+<td>ae1:ht1</td>
+<td align="right">0.792</td>
+<td align="right">0.240</td>
+<td align="right">3.294</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="even">
+<td>ae2:ht1</td>
+<td align="right">0.739</td>
+<td align="right">0.227</td>
+<td align="right">3.261</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="odd">
+<td>ae1:ht2</td>
+<td align="right">0.026</td>
+<td align="right">0.197</td>
+<td align="right">0.132</td>
+<td align="right">0.895</td>
+</tr>
+<tr class="even">
+<td>ae2:ht2</td>
+<td align="right">0.089</td>
+<td align="right">0.183</td>
+<td align="right">0.488</td>
+<td align="right">0.626</td>
+</tr>
+<tr class="odd">
+<td>ht1:id1</td>
+<td align="right">-1.420</td>
+<td align="right">0.605</td>
+<td align="right">-2.345</td>
+<td align="right">0.019</td>
+</tr>
+<tr class="even">
+<td>ht2:id1</td>
+<td align="right">-0.413</td>
+<td align="right">0.506</td>
+<td align="right">-0.817</td>
+<td align="right">0.414</td>
+</tr>
+<tr class="odd">
+<td>ht1:id2</td>
+<td align="right">-0.124</td>
+<td align="right">0.355</td>
+<td align="right">-0.351</td>
+<td align="right">0.726</td>
+</tr>
+<tr class="even">
+<td>ht2:id2</td>
+<td align="right">-0.109</td>
+<td align="right">0.279</td>
+<td align="right">-0.391</td>
+<td align="right">0.696</td>
+</tr>
+<tr class="odd">
+<td>ht1:id3</td>
+<td align="right">-0.220</td>
+<td align="right">0.248</td>
+<td align="right">-0.888</td>
+<td align="right">0.375</td>
+</tr>
+<tr class="even">
+<td>ht2:id3</td>
+<td align="right">-0.537</td>
+<td align="right">0.205</td>
+<td align="right">-2.619</td>
+<td align="right">0.009</td>
+</tr>
+<tr class="odd">
+<td>ht1:re1</td>
+<td align="right">1.529</td>
+<td align="right">0.356</td>
+<td align="right">4.293</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td>ht2:re1</td>
+<td align="right">0.338</td>
+<td align="right">0.320</td>
+<td align="right">1.056</td>
+<td align="right">0.292</td>
+</tr>
+<tr class="odd">
+<td>ht1:re2</td>
+<td align="right">0.490</td>
+<td align="right">0.233</td>
+<td align="right">2.100</td>
+<td align="right">0.036</td>
+</tr>
+<tr class="even">
+<td>ht2:re2</td>
+<td align="right">-0.115</td>
+<td align="right">0.183</td>
+<td align="right">-0.629</td>
+<td align="right">0.530</td>
+</tr>
+</tbody>
+</table>
+<p>Na Tabela  são apresentadas as probabilidades de significância dos testes de nulidade dos efeitos do modelo. Todos os efeitos incluídos no modelo são significativos, nos níveis usuais de significância. A <strong>PROC LOGISTIC</strong> do pacote <strong>SUDAAN</strong> não inclui testes para os efeitos principais, por não ser possível separar tais efeitos das interações. A coluna de <span class="math inline">\(p\)</span> valores da Tabela , obtida pela PROC LOGISTIC do pacote SUDAAN, utiliza a estatística de Wald baseada no plano amostral com correção. Mais detalhes são encontrados em Shah et al.(1993).</p>
+<p>Os testes da Tabela <a href="modreg.html#tab:testmodlogit">6.3</a> indicam a significância de todas as interações de 2 fatores que entraram no modelo selecionado. O teste de qualidade global de ajuste, na primeira linha da Tabela , indica a necessidade de serem introduzidas novas interações.</p>
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Testes de hipóteses de nulidade dos efeitos do modelo}\bigskip  -->
+<!-- \label{tab63}  -->
+<!-- \begin{tabular}{|c|c|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- &  & Graus de &  & $p$valor da \\  -->
+<!-- Contraste & Graus de & liberdade & Estatística F & estatística F \\  -->
+<!-- & liberdade & ajustados & ajustada & ajustada \\ \hline\hline -->
+<!-- Modelo Global & $30$ & $26,132$ & $37,510$ & $0,000$ \\  -->
+<!-- Bondade do ajuste & $29$ & $25,692$ & $28,179$ & $0,000$ \\  -->
+<!-- ht:re & $4$ & $3,946$ & $6,040$ & $0,000$ \\  -->
+<!-- ht:id & $6$ & $5,764$ & $4,110$ & $0,001$ \\  -->
+<!-- sx:id & $3$ & $2,969$ & $7,168$ & $0,000$ \\  -->
+<!-- sx:ht & $2$ & $1,993$ & $9,166$ & $0,000$ \\  -->
+<!-- ae$:$ht & $4$ & $3,959$ & $4,814$ & $0,001$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
+<table>
+<caption><span id="tab:testmodlogit">Tabela 6.3: </span>Testes de hipóteses de Wald de nulidade dos efeitos do modelo</caption>
+<thead>
+<tr class="header">
+<th align="left">Contraste</th>
+<th align="right">gl_num</th>
+<th align="right">gl_den</th>
+<th align="right">Estatística_F</th>
+<th align="right">valor_p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ht:re</td>
+<td align="right">4</td>
+<td align="right">616</td>
+<td align="right">6.743</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">ht:id</td>
+<td align="right">6</td>
+<td align="right">616</td>
+<td align="right">3.545</td>
+<td align="right">0.002</td>
+</tr>
+<tr class="odd">
+<td align="left">sx:id</td>
+<td align="right">3</td>
+<td align="right">616</td>
+<td align="right">6.996</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">sx:ht</td>
+<td align="right">2</td>
+<td align="right">616</td>
+<td align="right">9.540</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">ae:ht</td>
+<td align="right">4</td>
+<td align="right">616</td>
+<td align="right">4.722</td>
+<td align="right">0.001</td>
+</tr>
+</tbody>
+</table>
 <p>Para comparação, apresentamos na Tabela  algumas estimativas de razões de vantagens, relevantes na análise, calculadas tanto pela função glm do  como pela  do pacote  e, naTabela  os correspondentes intervalos de confiança de <span class="math inline">\(95\%\)</span>. Na construção destes intervalos foi necessário utilizar estimativas pontuais dos efeitos bem como a matriz de covariância estimada dos estimadores dos efeitos do modelo. Deste modo, estes intervalos sumarizam, ao mesmo tempo, discrepâncias existentes tanto nas estimativas pontuais dos efeitos como nas variâncias e covariâncias das estimativas.</p>
 
 <p>Além dos ajustes aqui comparados, foram feitos (embora não apresentados) os seguintes ajustes com a utilização do : 1) dados individuais (resposta 0-1) considerando os pesos; 2) dados da tabela estimada considerando os pesos e 3) dados individuais com pesos normalizados. Em todas estas análises, como esperado, as estimativas pontuais dos efeitos coincidiram com as obtidas pela  do pacote . Pode-se notar que, neste exemplo, há estreita concordância entre as estimativas pontuais obtidas pelos dois pacotes.</p>
 <p>A concordância das estimativas dos coeficientes pode ser explicada, em parte, pela pequena variabilidade dos pesos das unidades, tal como se pode verificar na Tabela , que apresenta a distribuição de frequências dos pesos.</p>
 
 <table>
-<caption><span id="tab:pesofreq">Tabela 6.2: </span>Distribuição de frequências dos pesos da amostra da PNAD-90 - Parte Urbana do Rio de Janeiro</caption>
+<caption><span id="tab:pesofreq">Tabela 6.4: </span>Distribuição de frequências dos pesos da amostra da PNAD-90 - Parte Urbana do Rio de Janeiro</caption>
 <thead>
 <tr class="header">
 <th align="left">Valor do peso</th>
@@ -684,7 +1059,7 @@ pnadrj90$informal&lt;-<span class="kw">ifelse</span>(pnadrj90$informal==<span cl
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xtable)
 <span class="kw">print</span>(<span class="kw">xtable</span>(inf.logit, <span class="dt">digits=</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>)),<span class="dt">type=</span><span class="st">&quot;html&quot;</span>)</code></pre></div>
 <!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
-<!-- Fri Jan 06 15:14:06 2017 -->
+<!-- Sat Jan 07 12:25:48 2017 -->
 <table border="1">
 <tr>
 <th>
@@ -1225,11 +1600,20 @@ ht2:re2
 </div>
 <h3>Referências</h3>
 <div id="refs" class="references">
-<div id="ref-SUDAAN92">
-<p>Shah, B. V., B. G. Barnwell, P. N. Hunt, and L. M. LaVange. 1992. <em>SUDAAN User’s Manual - Professional Software for Survey Analysis for Multistage Sample Designs - Realease 6.0</em>. Research Triangle Park, NC:Research Triangle Institute.</p>
+<div id="ref-Silva">
+<p>Nascimento Silva, P. L. D. 1996. “Utilizing Auxiliary Information for Estimation and Analysis in Sample Surveys.” PhD thesis, University of Southampton, Department of Social Statistics.</p>
 </div>
-<div id="ref-W85">
-<p>Wolter, K. M. 1985. <em>Introduction to Variance Estimation</em>. Nova Iorque: Springer-Verlag.</p>
+<div id="ref-holt80b">
+<p>Holt, D., T. M. F. Smith, and P. D. Winter. 1980. “Regression Analysis of Data from Complex Surveys.” <em>Journal of the Royal Statistical Society, A</em> 143: 474–87.</p>
+</div>
+<div id="ref-NH80">
+<p>Nathan, G., and D. Holt. 1980. “The Effect of Survey Design on Regression Analysis.” <em>Journal of the Royal Statistical Society B</em> 42: 377–86.</p>
+</div>
+<div id="ref-chambers86">
+<p>Chambers, R. L. 1986. “Design-Adjusted Parameter Estimation.” <em>Journal of the Royal Statistical Society</em> 149: 161–73.</p>
+</div>
+<div id="ref-chambers95">
+<p>Chambers, R. 1995. “Regression Analysis with Sample Survey Data.” <em>Manuscrito in?dito Cedido Por Cortesia Do Autor</em> 30: 70–87.</p>
 </div>
 </div>
             </section>

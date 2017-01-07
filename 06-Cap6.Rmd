@@ -11,7 +11,7 @@ aplicado. Os resultados são derivados considerando pesos ordinários
 dados pelo inverso das probabilidades de inclusão das unidades na
 amostra. Resultados mais gerais considerando outros tipos de pesos (tais
 como os derivados de estimadores de razão ou regressão, por exemplo)
-estão discutidos em Nascimento Silva(1996, cap. 6).
+estão discutidos em [@Silva], cap. 6.
 
 ### Especificação do Modelo
 
@@ -44,8 +44,8 @@ disponíveis. A atenção é focalizada na estimação de $\mathbf{\beta }$ e $\
 modelo agregado \@ref(eq:norm1).
 
 Modelos como \@ref(eq:norm1) já foram considerados por vários autores,
-por exemplo Holt, Smith e Winter(1980), Nathan e Holt (1980), Skinner(1989b,
-p.81), Chambers(1986, 1995). Eles são simples, mesmo assim
+por exemplo [@holt80b], [@NH80], pág. 81 de [@Sk89b] , [@chambers86], [@chambers95]. 
+Eles são simples, mesmo assim
 frequentemente usados pelos analistas de dados, pelo menos como uma
 primeira aproximação. Além disto, eles satisfazem todas as condições padrões de regularidade. Assim eles são adequados a uma
 aplicação de procedimentos de máxima pseudo-verossimilhança
@@ -113,8 +113,8 @@ B}\right) ^{2}=N^{-1}\left( \mathbf{y}_{U}-\mathbf{z}_{U}^{\prime }\mathbf{B}
 
 Com uma parametrização que isole o termo correspondente ao
 intercepto (primeira coluna do vetor $\mathbf{z}_{i}$) do modelo de
-regressão \@ref(eq:norm1), pode ser facilmente mostrado (Nascimento Silva,
-1996, p. 142) que os EMV de $\mathbf{\beta }_{2}$ (igual a $\mathbf{\beta }$
+regressão \@ref(eq:norm1), pode ser facilmente mostrado ([@Silva], p. 142)
+que os EMV de $\mathbf{\beta }_{2}$ (igual a $\mathbf{\beta }$
 excluído o primeiro componente), $\beta _{1}$ e $\sigma _{e}$ são
 dados respectivamente por
 
@@ -269,7 +269,7 @@ O exercício de ajustar um modelo não estará completo sem a avalia
 ção da precisão e significância das estimativas dos
 parâmetros. Para isto é necessária a estimação das
 variâncias correspondentes. Nesta seção concentramos nossa atenção na estimação das variâncias dos estimadores de MPV
-dos coeficientes de regressão $\mathbf{\beta }$. As expressões a
+dos coeficientes de regressão $\mathbf{\beta}$. As expressões a
 seguir são obtidas por aplicação direta dos resultados gerais
 fornecidos na Seção \@ref(modpar3), observando-se que os escores
 correspondentes a $\mathbf{\beta}$ no `ajuste do censo` do modelo \@ref(eq:norm1) são dados por 
@@ -522,137 +522,186 @@ modelagem das observações amostrais como IID. Por esse motivo foram
 considerados métodos alternativos de modelagem e ajuste.
 
 Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões,
-calculadas pela **PROC LOGISTIC** do pacote **SUDAAN**. Para
-facilitar a comparação incluímos na Tabela \ref{tab62} os
-valores correspondentes estimados pelo **S-Plus**.
+calculadas pela função `svyglm`da library survey. 
 
-As estimativas calculadas pelo pacote **SUDAAN** são feitas pelo 
+As estimativas calculadas pela função `svyglm` são feitas pelo 
 `Método de Máxima Pseudo-Verossimilhança`, resolvendo a equação \@ref(eq:norm27). As estimativas dos desvios padrões são
-obtidas das variâncias calculadas pelo método de linearização descrito na Seção \@ref(modpar3), equação (\ref{5.9}),
+obtidas das variâncias calculadas pelo método de linearização descrito na Seção \@ref(modpar3), equação \@ref(eq:modpar5},
 considerando os escores tal como apresentados na equação \@ref(eq:norm25a). Para esses cálculos, os estimadores de variância considerados
 levaram em conta os pesos das observações, mas utilizaram uma
 aproximação que consiste em considerar que as unidades primárias
-de amostragem foram selecionadas com reposição, especificando a opção WR do pacote SUDAAN. Veja [@SUDAAN92], p. 4) e [@W85], eq. 7.7.2.
+de amostragem foram selecionadas com reposição, conforme descrito na Seção .
 
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Estimativas dos efeitos e dos respectivos desvios padrões obtidas
-pelo {\bf SUDAAN} e pelo {\bf S-Plus} }\bigskip \label{tab62} 
-\begin{tabular}{|c|cc|cc|}
-\hline\hline
-Variáveis & \multicolumn{2}{|r}{Ajuste no \textbf{SUDAAN}} & 
-\multicolumn{2}{|r|}{Ajuste no \textbf{S-Plus}} \\ \cline{2-5}
-independentes & Estimativa & Desvio & Estimativa & Desvio \\ 
-e efeitos & do efeito & Padrão & do efeito & Padrão \\ \hline\hline
-Intercepto & \multicolumn{1}{|r}{$-0,515$} & \multicolumn{1}{r|}{$0,260$} & 
-\multicolumn{1}{|r}{$-0,514$} & \multicolumn{1}{r|}{$0,269$} \\ 
-sx & \multicolumn{1}{|r}{$0,148$} & \multicolumn{1}{r|}{$0,222$} & 
-\multicolumn{1}{|r}{$0,156$} & \multicolumn{1}{r|}{$0,228$} \\ 
-ae1 & \multicolumn{1}{|r}{$0,745$} & \multicolumn{1}{r|}{$0,165$} & 
-\multicolumn{1}{|r}{$0,740$} & \multicolumn{1}{r|}{$0,165$} \\ 
-ae2 & \multicolumn{1}{|r}{$0,496$} & \multicolumn{1}{r|}{$0,156$} & 
-\multicolumn{1}{|r}{$0,497$} & \multicolumn{1}{r|}{$0,159$} \\ 
-ht1 & \multicolumn{1}{|r}{$-0,377$} & \multicolumn{1}{r|}{$0,317$} & 
-\multicolumn{1}{|r}{$-0,386$} & \multicolumn{1}{r|}{$0,312$} \\ 
-ht2 & \multicolumn{1}{|r}{$-0,697$} & \multicolumn{1}{r|}{$0,275$} & 
-\multicolumn{1}{|r}{$-0,698$} & \multicolumn{1}{r|}{$0,268$} \\ 
-id1 & \multicolumn{1}{|r}{$-0,239$} & \multicolumn{1}{r|}{$0,540$} & 
-\multicolumn{1}{|r}{$-0,243$} & \multicolumn{1}{r|}{$0,492$} \\ 
-id2 & \multicolumn{1}{|r}{$-0,729$} & \multicolumn{1}{r|}{$0,302$} & 
-\multicolumn{1}{|r}{$-0,724$} & \multicolumn{1}{r|}{$0,314$} \\ 
-id3 & \multicolumn{1}{|r}{$0,227$} & \multicolumn{1}{r|}{$0,231$} & 
-\multicolumn{1}{|r}{$0,227$} & \multicolumn{1}{r|}{$0,234$} \\ 
-re1 & \multicolumn{1}{|r}{$0,286$} & \multicolumn{1}{r|}{$0,277$} & 
-\multicolumn{1}{|r}{$0,293$} & \multicolumn{1}{r|}{$0,245$} \\ 
-re2 & \multicolumn{1}{|r}{$0,065$} & \multicolumn{1}{r|}{$0,144$} & 
-\multicolumn{1}{|r}{$0,062$} & \multicolumn{1}{r|}{$0,145$} \\ 
-ht1.re1 & \multicolumn{1}{|r}{$1,529$} & \multicolumn{1}{r|}{$0,356$} & 
-\multicolumn{1}{|r}{$1,531$} & \multicolumn{1}{r|}{$0,332$} \\ 
-ht2.re1 & \multicolumn{1}{|r}{$0,338$} & \multicolumn{1}{r|}{$0,320$} & 
-\multicolumn{1}{|r}{$0,336$} & \multicolumn{1}{r|}{$0,284$} \\ 
-ht1.re2 & \multicolumn{1}{|r}{$0,490$} & \multicolumn{1}{r|}{$0,233$} & 
-\multicolumn{1}{|r}{$0,498$} & \multicolumn{1}{r|}{$0,221$} \\ 
-ht2.re2 & \multicolumn{1}{|r}{$-0,115$} & \multicolumn{1}{r|}{$0,183$} & 
-\multicolumn{1}{|r}{$-0,112$} & \multicolumn{1}{r|}{$0,178$} \\ 
-ht1.id1 & \multicolumn{1}{|r}{$-1,420$} & \multicolumn{1}{r|}{$0,605$} & 
-\multicolumn{1}{|r}{$-1,408$} & \multicolumn{1}{r|}{$0,515$} \\ 
-ht2.id1 & \multicolumn{1}{|r}{$-0,413$} & \multicolumn{1}{r|}{$0,506$} & 
-\multicolumn{1}{|r}{$-0,397$} & \multicolumn{1}{r|}{$0,465$} \\ 
-ht1.id2 & \multicolumn{1}{|r}{$-0,124$} & \multicolumn{1}{r|}{$0,354$} & 
-\multicolumn{1}{|r}{$-0,129$} & \multicolumn{1}{r|}{$0,351$} \\ 
-ht2.id2 & \multicolumn{1}{|r}{$-0,109$} & \multicolumn{1}{r|}{$0,279$} & 
-\multicolumn{1}{|r}{$-0,106$} & \multicolumn{1}{r|}{$0,286$} \\ 
-ht1.id3 & \multicolumn{1}{|r}{$-0,220$} & \multicolumn{1}{r|}{$0,248$} & 
-\multicolumn{1}{|r}{$-0,216$} & \multicolumn{1}{r|}{$0,253$} \\ 
-ht2.id3 & \multicolumn{1}{|r}{$-0,537$} & \multicolumn{1}{r|}{$0,205$} & 
-\multicolumn{1}{|r}{$-0,533$} & \multicolumn{1}{r|}{$0,201$} \\ 
-sx.id1 & \multicolumn{1}{|r}{$0,878$} & \multicolumn{1}{r|}{$0,348$} & 
-\multicolumn{1}{|r}{$0,870$} & \multicolumn{1}{r|}{$0,335$} \\ 
-sx.id2 & \multicolumn{1}{|r}{$0,300$} & \multicolumn{1}{r|}{$0,231$} & 
-\multicolumn{1}{|r}{$0,294$} & \multicolumn{1}{r|}{$0,226$} \\ 
-sx.id3 & \multicolumn{1}{|r}{$-0,259$} & \multicolumn{1}{r|}{$0,190$} & 
-\multicolumn{1}{|r}{$-0,263$} & \multicolumn{1}{r|}{$0,186$} \\ 
-sx.ht1 & \multicolumn{1}{|r}{$-0,736$} & \multicolumn{1}{r|}{$0,206$} & 
-\multicolumn{1}{|r}{$-0,737$} & \multicolumn{1}{r|}{$0,211$} \\ 
-sx.ht2 & \multicolumn{1}{|r}{$-0,089$} & \multicolumn{1}{r|}{$0,185$} & 
-\multicolumn{1}{|r}{$-0,093$} & \multicolumn{1}{r|}{$0,182$} \\ 
-ae1.ht1 & \multicolumn{1}{|r}{$0,792$} & \multicolumn{1}{r|}{$0,240$} & 
-\multicolumn{1}{|r}{$0,792$} & \multicolumn{1}{r|}{$0,239$} \\ 
-ae2.ht1 & \multicolumn{1}{|r}{$0,739$} & \multicolumn{1}{r|}{$0,227$} & 
-\multicolumn{1}{|r}{$0,735$} & \multicolumn{1}{r|}{$0,226$} \\ 
-ae1.ht2 & \multicolumn{1}{|r}{$0,026$} & \multicolumn{1}{r|}{$0,197$} & 
-\multicolumn{1}{|r}{$0,029$} & \multicolumn{1}{r|}{$0,196$} \\ 
-ae2.ht2 & \multicolumn{1}{|r}{$0,089$} & \multicolumn{1}{r|}{$0,183$} & 
-\multicolumn{1}{|r}{$0,087$} & \multicolumn{1}{r|}{$0,189$} \\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Estimativas dos efeitos e dos respectivos desvios padrões obtidas -->
+<!-- pelo {\bf SUDAAN} e pelo {\bf S-Plus} }\bigskip \label{tab62}  -->
+<!-- \begin{tabular}{|c|cc|cc|} -->
+<!-- \hline\hline -->
+<!-- Variáveis & \multicolumn{2}{|r}{Ajuste no \textbf{SUDAAN}} &  -->
+<!-- \multicolumn{2}{|r|}{Ajuste no \textbf{S-Plus}} \\ \cline{2-5} -->
+<!-- independentes & Estimativa & Desvio & Estimativa & Desvio \\  -->
+<!-- e efeitos & do efeito & Padrão & do efeito & Padrão \\ \hline\hline -->
+<!-- Intercepto & \multicolumn{1}{|r}{$-0,515$} & \multicolumn{1}{r|}{$0,260$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,514$} & \multicolumn{1}{r|}{$0,269$} \\  -->
+<!-- sx & \multicolumn{1}{|r}{$0,148$} & \multicolumn{1}{r|}{$0,222$} &  -->
+<!-- \multicolumn{1}{|r}{$0,156$} & \multicolumn{1}{r|}{$0,228$} \\  -->
+<!-- ae1 & \multicolumn{1}{|r}{$0,745$} & \multicolumn{1}{r|}{$0,165$} &  -->
+<!-- \multicolumn{1}{|r}{$0,740$} & \multicolumn{1}{r|}{$0,165$} \\  -->
+<!-- ae2 & \multicolumn{1}{|r}{$0,496$} & \multicolumn{1}{r|}{$0,156$} &  -->
+<!-- \multicolumn{1}{|r}{$0,497$} & \multicolumn{1}{r|}{$0,159$} \\  -->
+<!-- ht1 & \multicolumn{1}{|r}{$-0,377$} & \multicolumn{1}{r|}{$0,317$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,386$} & \multicolumn{1}{r|}{$0,312$} \\  -->
+<!-- ht2 & \multicolumn{1}{|r}{$-0,697$} & \multicolumn{1}{r|}{$0,275$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,698$} & \multicolumn{1}{r|}{$0,268$} \\  -->
+<!-- id1 & \multicolumn{1}{|r}{$-0,239$} & \multicolumn{1}{r|}{$0,540$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,243$} & \multicolumn{1}{r|}{$0,492$} \\  -->
+<!-- id2 & \multicolumn{1}{|r}{$-0,729$} & \multicolumn{1}{r|}{$0,302$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,724$} & \multicolumn{1}{r|}{$0,314$} \\  -->
+<!-- id3 & \multicolumn{1}{|r}{$0,227$} & \multicolumn{1}{r|}{$0,231$} &  -->
+<!-- \multicolumn{1}{|r}{$0,227$} & \multicolumn{1}{r|}{$0,234$} \\  -->
+<!-- re1 & \multicolumn{1}{|r}{$0,286$} & \multicolumn{1}{r|}{$0,277$} &  -->
+<!-- \multicolumn{1}{|r}{$0,293$} & \multicolumn{1}{r|}{$0,245$} \\  -->
+<!-- re2 & \multicolumn{1}{|r}{$0,065$} & \multicolumn{1}{r|}{$0,144$} &  -->
+<!-- \multicolumn{1}{|r}{$0,062$} & \multicolumn{1}{r|}{$0,145$} \\  -->
+<!-- ht1.re1 & \multicolumn{1}{|r}{$1,529$} & \multicolumn{1}{r|}{$0,356$} &  -->
+<!-- \multicolumn{1}{|r}{$1,531$} & \multicolumn{1}{r|}{$0,332$} \\  -->
+<!-- ht2.re1 & \multicolumn{1}{|r}{$0,338$} & \multicolumn{1}{r|}{$0,320$} &  -->
+<!-- \multicolumn{1}{|r}{$0,336$} & \multicolumn{1}{r|}{$0,284$} \\  -->
+<!-- ht1.re2 & \multicolumn{1}{|r}{$0,490$} & \multicolumn{1}{r|}{$0,233$} &  -->
+<!-- \multicolumn{1}{|r}{$0,498$} & \multicolumn{1}{r|}{$0,221$} \\  -->
+<!-- ht2.re2 & \multicolumn{1}{|r}{$-0,115$} & \multicolumn{1}{r|}{$0,183$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,112$} & \multicolumn{1}{r|}{$0,178$} \\  -->
+<!-- ht1.id1 & \multicolumn{1}{|r}{$-1,420$} & \multicolumn{1}{r|}{$0,605$} &  -->
+<!-- \multicolumn{1}{|r}{$-1,408$} & \multicolumn{1}{r|}{$0,515$} \\  -->
+<!-- ht2.id1 & \multicolumn{1}{|r}{$-0,413$} & \multicolumn{1}{r|}{$0,506$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,397$} & \multicolumn{1}{r|}{$0,465$} \\  -->
+<!-- ht1.id2 & \multicolumn{1}{|r}{$-0,124$} & \multicolumn{1}{r|}{$0,354$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,129$} & \multicolumn{1}{r|}{$0,351$} \\  -->
+<!-- ht2.id2 & \multicolumn{1}{|r}{$-0,109$} & \multicolumn{1}{r|}{$0,279$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,106$} & \multicolumn{1}{r|}{$0,286$} \\  -->
+<!-- ht1.id3 & \multicolumn{1}{|r}{$-0,220$} & \multicolumn{1}{r|}{$0,248$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,216$} & \multicolumn{1}{r|}{$0,253$} \\  -->
+<!-- ht2.id3 & \multicolumn{1}{|r}{$-0,537$} & \multicolumn{1}{r|}{$0,205$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,533$} & \multicolumn{1}{r|}{$0,201$} \\  -->
+<!-- sx.id1 & \multicolumn{1}{|r}{$0,878$} & \multicolumn{1}{r|}{$0,348$} &  -->
+<!-- \multicolumn{1}{|r}{$0,870$} & \multicolumn{1}{r|}{$0,335$} \\  -->
+<!-- sx.id2 & \multicolumn{1}{|r}{$0,300$} & \multicolumn{1}{r|}{$0,231$} &  -->
+<!-- \multicolumn{1}{|r}{$0,294$} & \multicolumn{1}{r|}{$0,226$} \\  -->
+<!-- sx.id3 & \multicolumn{1}{|r}{$-0,259$} & \multicolumn{1}{r|}{$0,190$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,263$} & \multicolumn{1}{r|}{$0,186$} \\  -->
+<!-- sx.ht1 & \multicolumn{1}{|r}{$-0,736$} & \multicolumn{1}{r|}{$0,206$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,737$} & \multicolumn{1}{r|}{$0,211$} \\  -->
+<!-- sx.ht2 & \multicolumn{1}{|r}{$-0,089$} & \multicolumn{1}{r|}{$0,185$} &  -->
+<!-- \multicolumn{1}{|r}{$-0,093$} & \multicolumn{1}{r|}{$0,182$} \\  -->
+<!-- ae1.ht1 & \multicolumn{1}{|r}{$0,792$} & \multicolumn{1}{r|}{$0,240$} &  -->
+<!-- \multicolumn{1}{|r}{$0,792$} & \multicolumn{1}{r|}{$0,239$} \\  -->
+<!-- ae2.ht1 & \multicolumn{1}{|r}{$0,739$} & \multicolumn{1}{r|}{$0,227$} &  -->
+<!-- \multicolumn{1}{|r}{$0,735$} & \multicolumn{1}{r|}{$0,226$} \\  -->
+<!-- ae1.ht2 & \multicolumn{1}{|r}{$0,026$} & \multicolumn{1}{r|}{$0,197$} &  -->
+<!-- \multicolumn{1}{|r}{$0,029$} & \multicolumn{1}{r|}{$0,196$} \\  -->
+<!-- ae2.ht2 & \multicolumn{1}{|r}{$0,089$} & \multicolumn{1}{r|}{$0,183$} &  -->
+<!-- \multicolumn{1}{|r}{$0,087$} & \multicolumn{1}{r|}{$0,189$} \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
+
+```{r, logit, echo=FALSE, warning=FALSE, message=FALSE}
+library(survey)
+source("~\\GitHub\\adac\\data\\pnadrj90.R")
+pnadrj90$sx<-as.factor(pnadrj90$sx)
+pnadrj90$sx<-relevel(pnadrj90$sx,ref="2")
+pnadrj90$id<-as.factor(pnadrj90$id)
+pnadrj90$id<-relevel(pnadrj90$id,ref="4")
+pnadrj90$ae<-as.factor(pnadrj90$ae)
+pnadrj90$ae<-relevel(pnadrj90$ae,ref="3")
+pnadrj90$ht<-as.factor(pnadrj90$ht)
+pnadrj90$ht<-relevel(pnadrj90$ht,ref="3")
+pnadrj90$re<-as.factor(pnadrj90$re)
+pnadrj90$re<-relevel(pnadrj90$re,ref="3")
+##transformar variável de resposta para 0,1:
+pnadrj90$informal<-ifelse(pnadrj90$informal==1,1,0)
+pnad.des<-svydesign(id=~psu,strata=~stra,weights=~pesopes,data=pnadrj90,nest=TRUE)
+inf.logit<-svyglm(informal~sx+ae+ht+id+re+sx*id+sx*ht+ae*ht+ht*id+ht*re,design=pnad.des,family=binomial)
+knitr::kable(summary(inf.logit)$coefficients, booktabs=TRUE, digits=3,
+  caption= "Estmativas dos efeitos e respectivos erros padrões obtidos pela library survey do R")
+```
+
+
 
 Na Tabela \ref{tab63} são apresentadas as probabilidades de
-significância dos tes\-tes de nulidade dos efeitos do modelo. Todos os
+significância dos testes de nulidade dos efeitos do modelo. Todos os
 efeitos incluídos no modelo são significativos, nos níveis
 usuais de significância. A **PROC LOGISTIC** do pacote 
-**SUDAAN*}** não inclui testes para os efeitos principais, por não ser
+**SUDAAN** não inclui testes para os efeitos principais, por não ser
 possível separar tais efeitos das interações. A coluna de $p$
 valores da Tabela \ref{tab63}, obtida pela PROC LOGISTIC do pacote SUDAAN,
 utiliza a estatística de Wald baseada no plano amostral com correção. Mais detalhes são encontrados em Shah et al.(1993).
 
-Os testes da Tabela \ref{tab63} indicam a significância de todas as
+Os testes da Tabela \@ref(tab:testmodlogit) indicam a significância de todas as
 interações de 2 fatores que entraram no modelo selecionado. O teste
 de qualidade global de ajuste, na primeira linha da Tabela \ref
 {tab63}, indica a necessidade de serem introduzidas novas interações.
 
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Testes de hipóteses de nulidade dos efeitos do modelo}\bigskip 
-\label{tab63} 
-\begin{tabular}{|c|c|c|c|c|}
-\hline\hline
-&  & Graus de &  & $p$valor da \\ 
-Contraste & Graus de & liberdade & Estatística F & estatística F \\ 
-& liberdade & ajustados & ajustada & ajustada \\ \hline\hline
-Modelo Global & $30$ & $26,132$ & $37,510$ & $0,000$ \\ 
-Bondade do ajuste & $29$ & $25,692$ & $28,179$ & $0,000$ \\ 
-ht:re & $4$ & $3,946$ & $6,040$ & $0,000$ \\ 
-ht:id & $6$ & $5,764$ & $4,110$ & $0,001$ \\ 
-sx:id & $3$ & $2,969$ & $7,168$ & $0,000$ \\ 
-sx:ht & $2$ & $1,993$ & $9,166$ & $0,000$ \\ 
-ae$:$ht & $4$ & $3,959$ & $4,814$ & $0,001$ \\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Testes de hipóteses de nulidade dos efeitos do modelo}\bigskip  -->
+<!-- \label{tab63}  -->
+<!-- \begin{tabular}{|c|c|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- &  & Graus de &  & $p$valor da \\  -->
+<!-- Contraste & Graus de & liberdade & Estatística F & estatística F \\  -->
+<!-- & liberdade & ajustados & ajustada & ajustada \\ \hline\hline -->
+<!-- Modelo Global & $30$ & $26,132$ & $37,510$ & $0,000$ \\  -->
+<!-- Bondade do ajuste & $29$ & $25,692$ & $28,179$ & $0,000$ \\  -->
+<!-- ht:re & $4$ & $3,946$ & $6,040$ & $0,000$ \\  -->
+<!-- ht:id & $6$ & $5,764$ & $4,110$ & $0,001$ \\  -->
+<!-- sx:id & $3$ & $2,969$ & $7,168$ & $0,000$ \\  -->
+<!-- sx:ht & $2$ & $1,993$ & $9,166$ & $0,000$ \\  -->
+<!-- ae$:$ht & $4$ & $3,959$ & $4,814$ & $0,001$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
+
+```{r, testmodlogit, echo=FALSE}
+testa_ht_re <- regTermTest(inf.logit,"ht:re")
+testa_ht_id <- regTermTest(inf.logit,"ht:id")
+testa_sx_id <- regTermTest(inf.logit,"sx:id")
+testa_sx_ht <- regTermTest(inf.logit,"sx:ht")
+testa_ae_ht <- regTermTest(inf.logit,"ae:ht")
+res.test <- data.frame(
+ Contraste = c(testa_ht_re$test.terms,testa_ht_id$test.terms,testa_sx_id$test.terms,
+testa_sx_ht$test.terms,testa_ae_ht$test.terms ),
+  gl_num = c(testa_ht_re$df,testa_ht_id$df,testa_sx_id$df,
+testa_sx_ht$df,testa_ae_ht$df),
+  gl_den = c(testa_ht_re$ddf,testa_ht_id$ddf,testa_sx_id$ddf,
+testa_sx_ht$ddf,testa_ae_ht$ddf),
+  Estatística_F= c(testa_ht_re$Ftest,testa_ht_id$Ftest,testa_sx_id$Ftest,
+testa_sx_ht$Ftest,testa_ae_ht$Ftest),
+  valor_p = c(testa_ht_re$p,testa_ht_id$p,testa_sx_id$p,
+testa_sx_ht$p,testa_ae_ht$p)
+)
+knitr::kable(res.test, booktabs=TRUE, digits=c(0,0,0,3,3),
+caption="Testes de hipóteses de Wald de nulidade dos efeitos do modelo"  
+  )
+
+```
+
+
+
+
 
 Para comparação, apresentamos na Tabela \ref{tab64} algumas
 estimativas de razões de vantagens, relevantes na análise,
@@ -712,8 +761,8 @@ ht & Mudança de & \textbf{S-Plus} & \textbf{SUDAAN} \\
 \end{center}
 
 Além dos ajustes aqui comparados, foram feitos (embora não
-apresentados) os seguintes ajustes com a utilização do \textbf{S-Plus%
-}: 1) dados individuais (resposta 0-1) considerando os pesos; 2) dados da
+apresentados) os seguintes ajustes com a utilização do 
+\textbf{S-Plus%}: 1) dados individuais (resposta 0-1) considerando os pesos; 2) dados da
 tabela estimada considerando os pesos e 3) dados individuais com pesos
 normalizados. Em todas estas análises, como esperado, as estimativas
 pontuais dos efeitos coincidiram com as obtidas pela \textbf{PROC LOGISTIC}
