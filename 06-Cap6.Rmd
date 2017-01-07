@@ -74,8 +74,8 @@ y_{i}-\mathbf{z}_{i}^{\prime }\mathbf{\beta }\right) ^{2}-\sigma _{e}\right]
 ### Pseudo-parâmetros do Modelo
 
 Se todos os elementos da população tivessem sido pesquisados, os
-EMVs de $\mathbf{\beta }$ e $\sigma _{e}$ do censo, denotados por $\mathbf{B}
-$ e $S_{e}$ respectivamente, poderiam ser facilmente obtidos como soluções das equações de verossimilhança do censo dadas por 
+EMVs de $\mathbf{\beta }$ e $\sigma _{e}$ do censo, denotados por 
+$\mathbf{B}$ e $S_{e}$ respectivamente, poderiam ser facilmente obtidos como soluções das equações de verossimilhança do censo dadas por 
 \begin{equation}
 \sum\limits_{i\in U}\mathbf{u}_{i}\left( \mathbf{B}\right)
 =\sum\limits_{i\in U}\mathbf{z}_{i}\left( y_{i}-\mathbf{z}_{i}^{\prime }%
@@ -184,8 +184,8 @@ _{w}\right) ^{2}-s_{e}^{w}\right]  (\#eq:norm13) \\
 _{s}\right) s_{e}^{w}=0  \nonumber
 \end{eqnarray}
 onde $\mathbf{z}_{s}$ e $\mathbf{y}_{s}$ são os análogos amostrais
-de $\mathbf{z}_{U}$ e $\mathbf{y}_{U}$, respectivamente, $\mathbf{W}
-_{s}=diag\left[ \left( w_{i_{1}},\ldots ,w_{i_{n}}\right) \right] $é
+de $\mathbf{z}_{U}$ e $\mathbf{y}_{U}$, respectivamente, 
+$\mathbf{W}_{s}=diag\left[ \left( w_{i_{1}},\ldots ,w_{i_{n}}\right) \right]$ é
 uma matriz diagonal $n\times n$ com os pesos dos elementos da amostra na
 diagonal principal, e $\mathbf{\hat{B}}_{w}$ e $s_{e}^{w}$ são
 estimadores MPV de $\mathbf{\beta }$ e $\sigma _{e}$ respectivamente.
@@ -216,8 +216,8 @@ sendo a segunda expressão para $s_{e}^{w}$ obtida mediante substituição do va
 linha de \@ref(eq:norm15).
 
 Observe que a hipótese de não-singularidade de $\mathbf{z}
-_{s}^{^{\prime }}\mathbf{W}_{s}\mathbf{z}_{s}$ não seria satisfeita se $
-w_{i}=0$ para algum $i\in s$. Para evitar que se percam de vista as
+_{s}^{^{\prime }}\mathbf{W}_{s}\mathbf{z}_{s}$ não seria satisfeita se 
+$w_{i}=0$ para algum $i\in s$. Para evitar que se percam de vista as
 questões principais com relação à estimação dos
 parâmetros do modelo, admitiremos de agora em diante que $\mathbf{z}
 _{s}^{^{\prime }}\mathbf{W}_{s}\mathbf{z}_{s}$ é não-singular.
@@ -289,8 +289,8 @@ _{U}\;\;.  \nonumber
 \end{eqnarray}
 
 Substituindo em \@ref(eq:norm8) e \@ref(eq:norm9)  os valores dos escores, do
-jacobiano e dos estimadores $\pi $-ponderados correspondentes, obtemos as
-seguintes expressões para a variância assintótica de aleatorização do estimador de MPV padrão $\widehat{\mathbf{B}}_{\pi }$ e
+jacobiano e dos estimadores $\pi$-ponderados correspondentes, obtemos as
+seguintes expressões para a variância assintótica de aleatorização do estimador de MPV padrão $\widehat{\mathbf{B}}_{\pi}$ e
 seu estimador consistente, dadas por
 
 \begin{equation}
@@ -377,9 +377,8 @@ onde $w_{i}$ é o peso da $i$-ésima observação amostral.
 
 A matriz de covariância do estimador de MPV de $\mathbf{\beta }$ pode
 ser obtida conforme indicado na Seção \@ref(modpar3), bastando
-substituir os valores dos escores $\mathbf{u}_{i}\left( \mathbf{\beta }
-\right) =\left[ y_{i}-p\left( \mathbf{z}_{i}^{\prime }\mathbf{\beta }\right)
-\right] \mathbf{z}_{i}$ e do jacobiano correspondentes. Para maiores
+substituir os valores dos escores 
+$\mathbf{u}_{i}\left( \mathbf{\beta}\right) =\left[ y_{i}-p\left(\mathbf{z}_{i}^{\prime }\mathbf{\beta }\right)\right] \mathbf{z}_{i}$ e do jacobiano correspondentes. Para maiores
 detalhes, o leitor interessado pode consultar Binder(1983), que aborda o
 problema da estimação da matriz de covariância dos estimadores
 de MPV na família de modelos lineares generalizados, da qual o modelo de
@@ -390,7 +389,7 @@ logística depende da solução por métodos numéricos de um
 sistema de equações. Portanto é importante dispor de um pacote
 computacional adequado para efetuar os cálculos. Hoje em dia já
 estão disponíveis vários pacotes com essa funcionalidade,
-conforme se discute no Capítulo 10.
+conforme se discute no Capítulo \@ref(pacotes).
 
 ```{example,label="pnad"}
 Análise do perfil sócio-econômico das pessoas
@@ -526,7 +525,7 @@ calculadas pela função `svyglm`da library survey.
 
 As estimativas calculadas pela função `svyglm` são feitas pelo 
 `Método de Máxima Pseudo-Verossimilhança`, resolvendo a equação \@ref(eq:norm27). As estimativas dos desvios padrões são
-obtidas das variâncias calculadas pelo método de linearização descrito na Seção \@ref(modpar3), equação \@ref(eq:modpar5},
+obtidas das variâncias calculadas pelo método de linearização descrito na Seção \@ref(modpar3), equação \@ref(eq:modpar5),
 considerando os escores tal como apresentados na equação \@ref(eq:norm25a). Para esses cálculos, os estimadores de variância considerados
 levaram em conta os pesos das observações, mas utilizaram uma
 aproximação que consiste em considerar que as unidades primárias
@@ -646,8 +645,7 @@ utiliza a estatística de Wald baseada no plano amostral com correção. Mais de
 
 Os testes da Tabela \@ref(tab:testmodlogit) indicam a significância de todas as
 interações de 2 fatores que entraram no modelo selecionado. O teste
-de qualidade global de ajuste, na primeira linha da Tabela \ref
-{tab63}, indica a necessidade de serem introduzidas novas interações.
+de qualidade global de ajuste, na primeira linha da Tabela \@ref(tab:testmodlogit), indica a necessidade de serem introduzidas novas interações.
 
 <!-- \begin{center} -->
 <!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
@@ -714,51 +712,129 @@ estimadores dos efeitos do modelo. Deste modo, estes intervalos sumarizam,
 ao mesmo tempo, discrepâncias existentes tanto nas estimativas pontuais
 dos efeitos como nas variâncias e covariâncias das estimativas.
 
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Estimativas das razões de vantagens, variando-se os níveis de ae
-para níveis fixos de ht }\bigskip \label{tab64} 
-\begin{tabular}{|c|c|c|c|}
-\hline\hline
-ht & Mudança de & \textbf{S-Plus} & \textbf{SUDAAN} \\ 
-& nível de ae & \hspace{1cm}\quad \hspace{1cm} &  \\ \hline\hline
-1 & 1 para 2 & $0,741$ & $0,739$ \\ 
-1 & 2 para 3 & $0,291$ & $0,291$ \\ \hline
-2 & 1 para 2 & $0,831$ & $0,830$ \\ 
-2 & 2 para 3 & $0,558$ & $0,557$ \\ \hline
-3 & 1 para 2 & $0,785$ & $0,780$ \\ 
-3 & 2 para 3 & $0,608$ & $0,608$ \\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Estimativas das razões de vantagens, variando-se os níveis de ae -->
+<!-- para níveis fixos de ht }\bigskip \label{tab64}  -->
+<!-- \begin{tabular}{|c|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- ht & Mudança de & \textbf{S-Plus} & \textbf{SUDAAN} \\  -->
+<!-- & nível de ae & \hspace{1cm}\quad \hspace{1cm} &  \\ \hline\hline -->
+<!-- 1 & 1 para 2 & $0,741$ & $0,739$ \\  -->
+<!-- 1 & 2 para 3 & $0,291$ & $0,291$ \\ \hline -->
+<!-- 2 & 1 para 2 & $0,831$ & $0,830$ \\  -->
+<!-- 2 & 2 para 3 & $0,558$ & $0,557$ \\ \hline -->
+<!-- 3 & 1 para 2 & $0,785$ & $0,780$ \\  -->
+<!-- 3 & 2 para 3 & $0,608$ & $0,608$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
 
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Intervalos de confiança de $95\%$ para razões de vantagens,
-variando-se os níveis de ae para níveis fixos de ht}\bigskip \label{tab65} 
-\begin{tabular}{|c|c|c|c|}
-\hline\hline
-ht & Mudança de & \textbf{S-Plus} & \textbf{SUDAAN} \\ 
-& nível de ae & \hspace{1cm}\quad \hspace{1cm} &  \\ \hline\hline
-1 & 1 para 2 & $(0,530;1,036).$ & $(0,516;1,059)$ \\ 
-1 & 2 para 3 & $(0,213;0,399)$ & $(0,212;0,398)$ \\ \hline
-2 & 1 para 2 & $(0,697;0,991)$ & $(0,693;0,994)$ \\ 
-2 & 2 para 3 & $(0,457;0,680)$ & $(0,452;0,687)$ \\ \hline
-3 & 1 para 2 & $(0,586;1,050)$ & $(0,577;1,053)$ \\ 
-3 & 2 para 3 & $(0,445;0,831)$ & $(0,448;0,827)$ \\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
+```{r, razvant, echo=FALSE}
+est_coef <- coef(inf.logit)
+one <- rep(0, length(coef(inf.logit)))
+names(one)<- names(coef(inf.logit))
+# ht=1 ae de 1 para 2
+raz112<- one
+raz112["ae2"]<-1; raz112["ae1"]<--1; raz112["ae2:ht1"]<- 1; raz112["ae1:ht1"]<- -1
+ht1_ae1_ae2 <- exp(sum(raz112*coef(inf.logit)))
+# ht=1 ae de 2 para 3
+raz123 <- one
+raz123["ae2"]<- -1;  raz123["ae2:ht1"]<- -1
+ht1_ae2_ae3 <- exp(sum(raz123*coef(inf.logit)))
+# ht=2 ae de 1 para 2
+raz212 <- one
+raz212["ae2"]<- 1;raz212["ae1"]<- -1;   raz212["ae2:ht2"]<- 1; raz212["ae1:ht2"]<- -1
+ht2_ae1_ae2 <- exp(sum(raz212*coef(inf.logit)))
+# ht=2 ae de 2 para 3
+raz223 <- one
+raz223["ae2"]<- -1;  raz223["ae2:ht2"]<- -1
+ht2_ae2_ae3 <- exp(sum(raz223*coef(inf.logit)))
+# ht=3 ae de 1 para 2
+raz312 <- one
+raz312["ae2"]<- 1;  raz312["ae1"]<- -1
+ht3_ae1_ae2 <- exp(sum(raz312*coef(inf.logit)))
+# ht=3 ae de 2 para 3
+raz323 <- one
+raz323["ae2"]<- -1  
+ht3_ae2_ae3 <- exp(sum(raz323*coef(inf.logit)))
+raz_vant <- data.frame (ht= c(1,1,2,2,3,3), 
+  varia_ae=c("1 para 2", "2 para 3", "1 para 2", "2 para 3", "1 para 2","2 para 3"),
+  raz_vantagem = c(ht1_ae1_ae2,ht1_ae2_ae3,ht2_ae1_ae2,ht2_ae2_ae3,ht3_ae1_ae2, ht3_ae2_ae3 )
+  )
+knitr::kable(raz_vant, booktabs=TRUE, digits=c(0,0,3),
+ caption="Estimativas das razões de vantagens, variando-se os níveis de ae para níveis fixos
+  de ht" )
+```
+
+
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Intervalos de confiança de $95\%$ para razões de vantagens, -->
+<!-- variando-se os níveis de ae para níveis fixos de ht}\bigskip \label{tab65}  -->
+<!-- \begin{tabular}{|c|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- ht & Mudança de & \textbf{S-Plus} & \textbf{SUDAAN} \\  -->
+<!-- & nível de ae & \hspace{1cm}\quad \hspace{1cm} &  \\ \hline\hline -->
+<!-- 1 & 1 para 2 & $(0,530;1,036).$ & $(0,516;1,059)$ \\  -->
+<!-- 1 & 2 para 3 & $(0,213;0,399)$ & $(0,212;0,398)$ \\ \hline -->
+<!-- 2 & 1 para 2 & $(0,697;0,991)$ & $(0,693;0,994)$ \\  -->
+<!-- 2 & 2 para 3 & $(0,457;0,680)$ & $(0,452;0,687)$ \\ \hline -->
+<!-- 3 & 1 para 2 & $(0,586;1,050)$ & $(0,577;1,053)$ \\  -->
+<!-- 3 & 2 para 3 & $(0,445;0,831)$ & $(0,448;0,827)$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
+
+```{r, icvant, echo=FALSE}
+var_raz112 <- matrix(raz112, nrow=1)%*% vcov(inf.logit)%*%matrix(raz112, ncol=1)
+ic_raz112 <- exp(sum(raz112*coef(inf.logit))*c(1,1)+1.96* sqrt(var_raz112)*c(-1,1))
+names(ic_raz112)<- NULL
+
+var_raz123 <- matrix(raz123, nrow=1)%*% vcov(inf.logit)%*%matrix(raz123, ncol=1)
+ic_raz123 <- exp(sum(raz123*coef(inf.logit))*c(1,1)+1.96* sqrt(var_raz123)*c(-1,1))
+names(ic_raz123)<- NULL
+
+var_raz212 <- matrix(raz212, nrow=1)%*% vcov(inf.logit)%*%matrix(raz212, ncol=1)
+ic_raz212 <- exp(sum(raz212*coef(inf.logit))*c(1,1)+1.96* sqrt(var_raz212)*c(-1,1))
+names(ic_raz212)<- NULL 
+
+var_raz223 <- matrix(raz223, nrow=1)%*% vcov(inf.logit)%*%matrix(raz223, ncol=1)
+ic_raz223 <- exp(sum(raz223*coef(inf.logit))*c(1,1)+1.96* sqrt(var_raz223)*c(-1,1))
+names(ic_raz223)<- NULL
+
+var_raz312 <- matrix(raz312, nrow=1)%*% vcov(inf.logit)%*%matrix(raz312, ncol=1)
+ic_raz312 <- exp(sum(raz223*coef(inf.logit))*c(1,1)+1.96* sqrt(var_raz312)*c(-1,1))
+names(ic_raz312)<- NULL
+
+var_raz323 <- matrix(raz323, nrow=1)%*% vcov(inf.logit)%*%matrix(raz323, ncol=1)
+ic_raz323 <- exp(sum(raz323*coef(inf.logit))*c(1,1)+1.96* sqrt(var_raz323)*c(-1,1))
+names(ic_raz323)<- NULL
+
+ic_frame <- data.frame(
+  ht= c(1,1,2,2,3,3),
+  varia_ae=c("1 para 2", "2 para 3", "1 para 2", "2 para 3", "1 para 2","2 para 3"),
+  LIC <- c(ic_raz112[1],ic_raz123[1], ic_raz212[1], ic_raz223[1], ic_raz312[1], ic_raz323[1]), 
+  LSC <- c(ic_raz112[2],ic_raz123[2], ic_raz212[2], ic_raz223[2], ic_raz312[2], ic_raz323[2]) 
+  )
+names(ic_frame)<- c("ht", "varia_ae","LIC", "LSC")
+knitr::kable(ic_frame, booktabs=TRUE, digits=c(0,0,3,3),
+ caption="Intervalos de confiança de 95% para razões de vantagens, variando-se os níveis de ae para níveis fixos
+  de ht" )
+
+
+```
+
 
 Além dos ajustes aqui comparados, foram feitos (embora não
 apresentados) os seguintes ajustes com a utilização do 

@@ -207,9 +207,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.3" data-path="agregdesag.html"><a href="agregdesag.html#modelos-hierarquicos-1"><i class="fa fa-check"></i><b>13.3</b> Modelos Hierárquicos</a></li>
 <li class="chapter" data-level="13.4" data-path="agregdesag.html"><a href="agregdesag.html#analise-desagregada-pros-e-contras"><i class="fa fa-check"></i><b>13.4</b> Análise Desagregada: Prós e Contras</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html"><i class="fa fa-check"></i><b>14</b> Pacotes para Analisar Dados Amostrais</a><ul>
-<li class="chapter" data-level="14.1" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html#introducao-8"><i class="fa fa-check"></i><b>14.1</b> Introdução</a></li>
-<li class="chapter" data-level="14.2" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html#pacotes-computacionais"><i class="fa fa-check"></i><b>14.2</b> Pacotes Computacionais</a></li>
+<li class="chapter" data-level="14" data-path="pacotes.html"><a href="pacotes.html"><i class="fa fa-check"></i><b>14</b> Pacotes para Analisar Dados Amostrais</a><ul>
+<li class="chapter" data-level="14.1" data-path="pacotes.html"><a href="pacotes.html#introducao-8"><i class="fa fa-check"></i><b>14.1</b> Introdução</a></li>
+<li class="chapter" data-level="14.2" data-path="pacotes.html"><a href="pacotes.html#pacotes-computacionais"><i class="fa fa-check"></i><b>14.2</b> Pacotes Computacionais</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
@@ -987,10 +987,10 @@ REC_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(REC.
 
 EPA_SAL1 &lt;-<span class="st"> </span>SAL_res_mean[<span class="dv">4</span>]/SAL_res_mean[<span class="dv">3</span>]
 EPA_SAL1</code></pre></div>
-<pre><code>## [1] 0.1394609</code></pre>
+<pre><code>## [1] 0.1402404</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">EPA_REC1 &lt;-<span class="st"> </span>REC_res_mean[<span class="dv">4</span>]/REC_res_mean[<span class="dv">3</span>]
 EPA_REC1</code></pre></div>
-<pre><code>## [1] 0.3304371</code></pre>
+<pre><code>## [1] 0.3369333</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 Vp_SAL_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(SAL~ESTRAT, popul, var)

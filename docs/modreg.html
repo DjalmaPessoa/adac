@@ -207,9 +207,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.3" data-path="agregdesag.html"><a href="agregdesag.html#modelos-hierarquicos-1"><i class="fa fa-check"></i><b>13.3</b> Modelos Hierárquicos</a></li>
 <li class="chapter" data-level="13.4" data-path="agregdesag.html"><a href="agregdesag.html#analise-desagregada-pros-e-contras"><i class="fa fa-check"></i><b>13.4</b> Análise Desagregada: Prós e Contras</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html"><i class="fa fa-check"></i><b>14</b> Pacotes para Analisar Dados Amostrais</a><ul>
-<li class="chapter" data-level="14.1" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html#introducao-8"><i class="fa fa-check"></i><b>14.1</b> Introdução</a></li>
-<li class="chapter" data-level="14.2" data-path="pacotes-para-analisar-dados-amostrais.html"><a href="pacotes-para-analisar-dados-amostrais.html#pacotes-computacionais"><i class="fa fa-check"></i><b>14.2</b> Pacotes Computacionais</a></li>
+<li class="chapter" data-level="14" data-path="pacotes.html"><a href="pacotes.html"><i class="fa fa-check"></i><b>14</b> Pacotes para Analisar Dados Amostrais</a><ul>
+<li class="chapter" data-level="14.1" data-path="pacotes.html"><a href="pacotes.html#introducao-8"><i class="fa fa-check"></i><b>14.1</b> Introdução</a></li>
+<li class="chapter" data-level="14.2" data-path="pacotes.html"><a href="pacotes.html#pacotes-computacionais"><i class="fa fa-check"></i><b>14.2</b> Pacotes Computacionais</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
@@ -268,7 +268,7 @@ y_{i}-\mathbf{z}_{i}^{\prime }\mathbf{\beta }\right) ^{2}-\sigma _{e}\right]
 </div>
 <div id="pseudo-parametros-do-modelo" class="section level3">
 <h3><span class="header-section-number">6.1.2</span> Pseudo-parâmetros do Modelo</h3>
-Se todos os elementos da população tivessem sido pesquisados, os EMVs de <span class="math inline">\(\mathbf{\beta }\)</span> e <span class="math inline">\(\sigma _{e}\)</span> do censo, denotados por $ $ e <span class="math inline">\(S_{e}\)</span> respectivamente, poderiam ser facilmente obtidos como soluções das equações de verossimilhança do censo dadas por
+Se todos os elementos da população tivessem sido pesquisados, os EMVs de <span class="math inline">\(\mathbf{\beta }\)</span> e <span class="math inline">\(\sigma _{e}\)</span> do censo, denotados por <span class="math inline">\(\mathbf{B}\)</span> e <span class="math inline">\(S_{e}\)</span> respectivamente, poderiam ser facilmente obtidos como soluções das equações de verossimilhança do censo dadas por
 <span class="math display" id="eq:norm4">\[\begin{equation}
 \sum\limits_{i\in U}\mathbf{u}_{i}\left( \mathbf{B}\right)
 =\sum\limits_{i\in U}\mathbf{z}_{i}\left( y_{i}-\mathbf{z}_{i}^{\prime }%
@@ -347,7 +347,7 @@ _{w}\right) ^{2}-s_{e}^{w}\right]  \tag{6.13} \\
 }}_{w}\right) -\left( \mathbf{1}_{s}^{^{\prime }}\mathbf{W}_{s}\mathbf{1}
 _{s}\right) s_{e}^{w}=0  \nonumber
 \end{eqnarray}\]</span>
-<p>onde <span class="math inline">\(\mathbf{z}_{s}\)</span> e <span class="math inline">\(\mathbf{y}_{s}\)</span> são os análogos amostrais de <span class="math inline">\(\mathbf{z}_{U}\)</span> e <span class="math inline">\(\mathbf{y}_{U}\)</span>, respectivamente, $ _{s}=diag$é uma matriz diagonal <span class="math inline">\(n\times n\)</span> com os pesos dos elementos da amostra na diagonal principal, e <span class="math inline">\(\mathbf{\hat{B}}_{w}\)</span> e <span class="math inline">\(s_{e}^{w}\)</span> são estimadores MPV de <span class="math inline">\(\mathbf{\beta }\)</span> e <span class="math inline">\(\sigma _{e}\)</span> respectivamente.</p>
+<p>onde <span class="math inline">\(\mathbf{z}_{s}\)</span> e <span class="math inline">\(\mathbf{y}_{s}\)</span> são os análogos amostrais de <span class="math inline">\(\mathbf{z}_{U}\)</span> e <span class="math inline">\(\mathbf{y}_{U}\)</span>, respectivamente, <span class="math inline">\(\mathbf{W}_{s}=diag\left[ \left( w_{i_{1}},\ldots ,w_{i_{n}}\right) \right]\)</span> é uma matriz diagonal <span class="math inline">\(n\times n\)</span> com os pesos dos elementos da amostra na diagonal principal, e <span class="math inline">\(\mathbf{\hat{B}}_{w}\)</span> e <span class="math inline">\(s_{e}^{w}\)</span> são estimadores MPV de <span class="math inline">\(\mathbf{\beta }\)</span> e <span class="math inline">\(\sigma _{e}\)</span> respectivamente.</p>
 Supondo que <span class="math inline">\(\mathbf{z}_{s}^{^{\prime }}\mathbf{W}_{s}\mathbf{z}_{s}\)</span> é não-singular e resolvendo <a href="modreg.html#eq:norm12">(6.12)</a> e <a href="modreg.html#eq:norm13">(6.13)</a> em <span class="math inline">\(\mathbf{\hat{B} }_{w}\)</span> e <span class="math inline">\(s_{e}^{w}\)</span> obtemos as seguintes expressões para os estimadores MPV dos parâmetros do modelo:
 <span class="math display" id="eq:norm14">\[\begin{equation}
 \widehat{\mathbf{B}}_{w}=\left( \mathbf{z}_{s}^{^{\prime }}\mathbf{W}_{s}
@@ -367,7 +367,7 @@ _{w}\right) ^{^{\prime }}\mathbf{W}_{s}\left( \mathbf{y}_{s}-\mathbf{z}_{s}
 \nonumber
 \end{eqnarray}\]</span>
 <p>sendo a segunda expressão para <span class="math inline">\(s_{e}^{w}\)</span> obtida mediante substituição do valor de <span class="math inline">\(\widehat{\mathbf{B}}_{w}\)</span> em <a href="modreg.html#eq:norm14">(6.14)</a> na primeira linha de <a href="modreg.html#eq:norm15">(6.15)</a>.</p>
-<p>Observe que a hipótese de não-singularidade de <span class="math inline">\(\mathbf{z} _{s}^{^{\prime }}\mathbf{W}_{s}\mathbf{z}_{s}\)</span> não seria satisfeita se $ w_{i}=0$ para algum <span class="math inline">\(i\in s\)</span>. Para evitar que se percam de vista as questões principais com relação à estimação dos parâmetros do modelo, admitiremos de agora em diante que <span class="math inline">\(\mathbf{z} _{s}^{^{\prime }}\mathbf{W}_{s}\mathbf{z}_{s}\)</span> é não-singular.</p>
+<p>Observe que a hipótese de não-singularidade de <span class="math inline">\(\mathbf{z} _{s}^{^{\prime }}\mathbf{W}_{s}\mathbf{z}_{s}\)</span> não seria satisfeita se <span class="math inline">\(w_{i}=0\)</span> para algum <span class="math inline">\(i\in s\)</span>. Para evitar que se percam de vista as questões principais com relação à estimação dos parâmetros do modelo, admitiremos de agora em diante que <span class="math inline">\(\mathbf{z} _{s}^{^{\prime }}\mathbf{W}_{s}\mathbf{z}_{s}\)</span> é não-singular.</p>
 Estimadores pontuais dos parâmetros do modelo podem ser derivados a partir de <a href="modreg.html#eq:norm14">(6.14)</a> e <a href="modreg.html#eq:norm15">(6.15)</a> para vários esquemas de ponderaão de interesse pela simples substituição da matriz apropriada de ponderação <span class="math inline">\(\mathbf{W}_{s}\)</span>. Se todos os elementos da pesquisa têm o mesmo peso (como no caso de planos amostrais autoponderados), ou seja, <span class="math inline">\(w_{i}=\bar{w}\)</span> e <span class="math inline">\(\mathbf{W}_{s}=\bar{w}\mathbf{I}_{n}\)</span>, os estimadores pontuais não dependem do valor <span class="math inline">\(\bar{w}\)</span> dos pesos. Neste caso, eles ficam reduzidos às expressões correspondentes dos estimadores de mínimos quadrados ordinários (que são também estimadores de máxima verossimilhança sob normalidade) dos parâmetros do modelo, dados por:
 <span class="math display" id="eq:norm16">\[\begin{equation}
 \widehat{\mathbf{B}}=\left( \mathbf{z}_{s}^{^{\prime }}\mathbf{z}_{s}\right)
@@ -405,7 +405,7 @@ _{U}^{\prime }\mathbf{z}_{U}\mathbf{\beta }\right) /\partial \mathbf{\beta }
 \right| _{\mathbf{\beta }=\mathbf{B}}=-\mathbf{z}_{U}^{\prime }\mathbf{z}
 _{U}\;\;.  \nonumber
 \end{eqnarray}\]</span>
-<p>Substituindo em <a href="modreg.html#eq:norm8">(6.8)</a> e <a href="modreg.html#eq:norm9">(6.9)</a> os valores dos escores, do jacobiano e dos estimadores $$-ponderados correspondentes, obtemos as seguintes expressões para a variância assintótica de aleatorização do estimador de MPV padrão <span class="math inline">\(\widehat{\mathbf{B}}_{\pi }\)</span> e seu estimador consistente, dadas por</p>
+<p>Substituindo em <a href="modreg.html#eq:norm8">(6.8)</a> e <a href="modreg.html#eq:norm9">(6.9)</a> os valores dos escores, do jacobiano e dos estimadores <span class="math inline">\(\pi\)</span>-ponderados correspondentes, obtemos as seguintes expressões para a variância assintótica de aleatorização do estimador de MPV padrão <span class="math inline">\(\widehat{\mathbf{B}}_{\pi}\)</span> e seu estimador consistente, dadas por</p>
 <span class="math display" id="eq:norm21">\[\begin{equation}
 V_{p}\left( \widehat{\mathbf{B}}_{\pi }\right) =\left( \mathbf{z}
 _{U}^{\prime }\mathbf{z}_{U}\right) ^{-1}V_{p}\left( \sum\limits_{i\in s}\pi
@@ -470,8 +470,8 @@ _{i}^{\prime }\mathbf{\beta }\right) \right] \mathbf{z}_{i}  \tag{6.26}
 \tag{6.28}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(w_{i}\)</span> é o peso da <span class="math inline">\(i\)</span>-ésima observação amostral.</p>
-<p>A matriz de covariância do estimador de MPV de <span class="math inline">\(\mathbf{\beta }\)</span> pode ser obtida conforme indicado na Seção <a href="ajmodpar.html#modpar3">5.4</a>, bastando substituir os valores dos escores <span class="math inline">\(\mathbf{u}_{i}\left( \mathbf{\beta } \right) =\left[ y_{i}-p\left( \mathbf{z}_{i}^{\prime }\mathbf{\beta }\right) \right] \mathbf{z}_{i}\)</span> e do jacobiano correspondentes. Para maiores detalhes, o leitor interessado pode consultar Binder(1983), que aborda o problema da estimação da matriz de covariância dos estimadores de MPV na família de modelos lineares generalizados, da qual o modelo de regressão logística é caso particular.</p>
-<p>Vale observar que, tal como no caso da modelagem clássica, a obtenção dos estimadores de MPV dos parâmetros no modelo de regressão logística depende da solução por métodos numéricos de um sistema de equações. Portanto é importante dispor de um pacote computacional adequado para efetuar os cálculos. Hoje em dia já estão disponíveis vários pacotes com essa funcionalidade, conforme se discute no Capítulo 10.</p>
+<p>A matriz de covariância do estimador de MPV de <span class="math inline">\(\mathbf{\beta }\)</span> pode ser obtida conforme indicado na Seção <a href="ajmodpar.html#modpar3">5.4</a>, bastando substituir os valores dos escores <span class="math inline">\(\mathbf{u}_{i}\left( \mathbf{\beta}\right) =\left[ y_{i}-p\left(\mathbf{z}_{i}^{\prime }\mathbf{\beta }\right)\right] \mathbf{z}_{i}\)</span> e do jacobiano correspondentes. Para maiores detalhes, o leitor interessado pode consultar Binder(1983), que aborda o problema da estimação da matriz de covariância dos estimadores de MPV na família de modelos lineares generalizados, da qual o modelo de regressão logística é caso particular.</p>
+<p>Vale observar que, tal como no caso da modelagem clássica, a obtenção dos estimadores de MPV dos parâmetros no modelo de regressão logística depende da solução por métodos numéricos de um sistema de equações. Portanto é importante dispor de um pacote computacional adequado para efetuar os cálculos. Hoje em dia já estão disponíveis vários pacotes com essa funcionalidade, conforme se discute no Capítulo <a href="pacotes.html#pacotes">14</a>.</p>
 
 <div class="example">
 <span id="ex:pnad" class="example"><strong>Exemplo 6.1 </strong></span>Análise do perfil sócio-econômico das pessoas ocupadas no setor informal da economia na área urbana do Rio de Janeiro
@@ -574,7 +574,7 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 <p>O <span class="math inline">\(p\)</span>valor do teste de nulidade das interações não incluídas no modelo é 0,0515, aceitando-se a hipótese de nulidade destes efeitos ao nível <span class="math inline">\(\alpha =0,05\)</span>. O modelo obtido difere do selecionado em Leote(1996) só pela inclusão de mais um efeito, referente à interação ae:ht.</p>
 <p>Uma descrição detalhada do plano amostral da PNAD 90 foi apresentada no Exemplo <a href="modreg.html#ex:pnad">6.1</a>. Como se pode observar dessa descrição, o plano amostral da PNAD apresenta todos os aspectos de um plano amostral complexo, incluindo estratificação (geográfica), seleção de unidades primárias (municípios, ou setores nos municípios auto-representativos) ou secundárias (setores nos municípios não auto-representativos) com probabilidades desiguais, conglomeração (de domicílios em setores, e de pessoas nos domicílios) e seleção sistemática sem reposição de unidades. Nesse caso, fica difícil admitir a priori com confiança as hipóteses usuais de modelagem das observações amostrais como IID. Por esse motivo foram considerados métodos alternativos de modelagem e ajuste.</p>
 <p>Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões, calculadas pela função <code>svyglm</code>da library survey.</p>
-<p>As estimativas calculadas pela função <code>svyglm</code> são feitas pelo <code>Método de Máxima Pseudo-Verossimilhança</code>, resolvendo a equação <a href="modreg.html#eq:norm27">(6.28)</a>. As estimativas dos desvios padrões são obtidas das variâncias calculadas pelo método de linearização descrito na Seção <a href="ajmodpar.html#modpar3">5.4</a>, equação @ref(eq:modpar5}, considerando os escores tal como apresentados na equação <a href="modreg.html#eq:norm25a">(6.26)</a>. Para esses cálculos, os estimadores de variância considerados levaram em conta os pesos das observações, mas utilizaram uma aproximação que consiste em considerar que as unidades primárias de amostragem foram selecionadas com reposição, conforme descrito na Seção .</p>
+<p>As estimativas calculadas pela função <code>svyglm</code> são feitas pelo <code>Método de Máxima Pseudo-Verossimilhança</code>, resolvendo a equação <a href="modreg.html#eq:norm27">(6.28)</a>. As estimativas dos desvios padrões são obtidas das variâncias calculadas pelo método de linearização descrito na Seção <a href="ajmodpar.html#modpar3">5.4</a>, equação <a href="ajmodpar.html#eq:modpar5">(5.5)</a>, considerando os escores tal como apresentados na equação <a href="modreg.html#eq:norm25a">(6.26)</a>. Para esses cálculos, os estimadores de variância considerados levaram em conta os pesos das observações, mas utilizaram uma aproximação que consiste em considerar que as unidades primárias de amostragem foram selecionadas com reposição, conforme descrito na Seção .</p>
 <!-- \begin{center} -->
 <!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
 <!-- %BeginExpansion -->
@@ -879,7 +879,7 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 </tbody>
 </table>
 <p>Na Tabela  são apresentadas as probabilidades de significância dos testes de nulidade dos efeitos do modelo. Todos os efeitos incluídos no modelo são significativos, nos níveis usuais de significância. A <strong>PROC LOGISTIC</strong> do pacote <strong>SUDAAN</strong> não inclui testes para os efeitos principais, por não ser possível separar tais efeitos das interações. A coluna de <span class="math inline">\(p\)</span> valores da Tabela , obtida pela PROC LOGISTIC do pacote SUDAAN, utiliza a estatística de Wald baseada no plano amostral com correção. Mais detalhes são encontrados em Shah et al.(1993).</p>
-<p>Os testes da Tabela <a href="modreg.html#tab:testmodlogit">6.3</a> indicam a significância de todas as interações de 2 fatores que entraram no modelo selecionado. O teste de qualidade global de ajuste, na primeira linha da Tabela , indica a necessidade de serem introduzidas novas interações.</p>
+<p>Os testes da Tabela <a href="modreg.html#tab:testmodlogit">6.3</a> indicam a significância de todas as interações de 2 fatores que entraram no modelo selecionado. O teste de qualidade global de ajuste, na primeira linha da Tabela <a href="modreg.html#tab:testmodlogit">6.3</a>, indica a necessidade de serem introduzidas novas interações.</p>
 <!-- \begin{center} -->
 <!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
 <!-- %BeginExpansion -->
@@ -955,12 +955,146 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 </tbody>
 </table>
 <p>Para comparação, apresentamos na Tabela  algumas estimativas de razões de vantagens, relevantes na análise, calculadas tanto pela função glm do  como pela  do pacote  e, naTabela  os correspondentes intervalos de confiança de <span class="math inline">\(95\%\)</span>. Na construção destes intervalos foi necessário utilizar estimativas pontuais dos efeitos bem como a matriz de covariância estimada dos estimadores dos efeitos do modelo. Deste modo, estes intervalos sumarizam, ao mesmo tempo, discrepâncias existentes tanto nas estimativas pontuais dos efeitos como nas variâncias e covariâncias das estimativas.</p>
-
+<!-- \begin{center} -->
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Estimativas das razões de vantagens, variando-se os níveis de ae -->
+<!-- para níveis fixos de ht }\bigskip \label{tab64}  -->
+<!-- \begin{tabular}{|c|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- ht & Mudança de & \textbf{S-Plus} & \textbf{SUDAAN} \\  -->
+<!-- & nível de ae & \hspace{1cm}\quad \hspace{1cm} &  \\ \hline\hline -->
+<!-- 1 & 1 para 2 & $0,741$ & $0,739$ \\  -->
+<!-- 1 & 2 para 3 & $0,291$ & $0,291$ \\ \hline -->
+<!-- 2 & 1 para 2 & $0,831$ & $0,830$ \\  -->
+<!-- 2 & 2 para 3 & $0,558$ & $0,557$ \\ \hline -->
+<!-- 3 & 1 para 2 & $0,785$ & $0,780$ \\  -->
+<!-- 3 & 2 para 3 & $0,608$ & $0,608$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<table>
+<caption><span id="tab:razvant">Tabela 6.4: </span>Estimativas das razões de vantagens, variando-se os níveis de ae para níveis fixos de ht</caption>
+<thead>
+<tr class="header">
+<th align="right">ht</th>
+<th align="left">varia_ae</th>
+<th align="right">raz_vantagem</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">1 para 2</td>
+<td align="right">0.739</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">2 para 3</td>
+<td align="right">0.291</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="left">1 para 2</td>
+<td align="right">0.830</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">2 para 3</td>
+<td align="right">0.557</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">1 para 2</td>
+<td align="right">0.779</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="left">2 para 3</td>
+<td align="right">0.609</td>
+</tr>
+</tbody>
+</table>
+<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
+<!-- %BeginExpansion -->
+<!-- \begin{table}[tbp] \centering% -->
+<!-- %EndExpansion -->
+<!-- \caption{Intervalos de confiança de $95\%$ para razões de vantagens, -->
+<!-- variando-se os níveis de ae para níveis fixos de ht}\bigskip \label{tab65}  -->
+<!-- \begin{tabular}{|c|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- ht & Mudança de & \textbf{S-Plus} & \textbf{SUDAAN} \\  -->
+<!-- & nível de ae & \hspace{1cm}\quad \hspace{1cm} &  \\ \hline\hline -->
+<!-- 1 & 1 para 2 & $(0,530;1,036).$ & $(0,516;1,059)$ \\  -->
+<!-- 1 & 2 para 3 & $(0,213;0,399)$ & $(0,212;0,398)$ \\ \hline -->
+<!-- 2 & 1 para 2 & $(0,697;0,991)$ & $(0,693;0,994)$ \\  -->
+<!-- 2 & 2 para 3 & $(0,457;0,680)$ & $(0,452;0,687)$ \\ \hline -->
+<!-- 3 & 1 para 2 & $(0,586;1,050)$ & $(0,577;1,053)$ \\  -->
+<!-- 3 & 2 para 3 & $(0,445;0,831)$ & $(0,448;0,827)$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
+<!-- %BeginExpansion -->
+<!-- \end{table}% -->
+<!-- %EndExpansion -->
+<!-- \end{center} -->
+<table>
+<caption><span id="tab:icvant">Tabela 6.5: </span>Intervalos de confiança de 95% para razões de vantagens, variando-se os níveis de ae para níveis fixos de ht</caption>
+<thead>
+<tr class="header">
+<th align="right">ht</th>
+<th align="left">varia_ae</th>
+<th align="right">LIC</th>
+<th align="right">LSC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">1 para 2</td>
+<td align="right">0.516</td>
+<td align="right">1.059</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">2 para 3</td>
+<td align="right">0.212</td>
+<td align="right">0.398</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="left">1 para 2</td>
+<td align="right">0.694</td>
+<td align="right">0.994</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">2 para 3</td>
+<td align="right">0.452</td>
+<td align="right">0.687</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">1 para 2</td>
+<td align="right">0.412</td>
+<td align="right">0.753</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="left">2 para 3</td>
+<td align="right">0.448</td>
+<td align="right">0.827</td>
+</tr>
+</tbody>
+</table>
 <p>Além dos ajustes aqui comparados, foram feitos (embora não apresentados) os seguintes ajustes com a utilização do : 1) dados individuais (resposta 0-1) considerando os pesos; 2) dados da tabela estimada considerando os pesos e 3) dados individuais com pesos normalizados. Em todas estas análises, como esperado, as estimativas pontuais dos efeitos coincidiram com as obtidas pela  do pacote . Pode-se notar que, neste exemplo, há estreita concordância entre as estimativas pontuais obtidas pelos dois pacotes.</p>
 <p>A concordância das estimativas dos coeficientes pode ser explicada, em parte, pela pequena variabilidade dos pesos das unidades, tal como se pode verificar na Tabela , que apresenta a distribuição de frequências dos pesos.</p>
 
 <table>
-<caption><span id="tab:pesofreq">Tabela 6.4: </span>Distribuição de frequências dos pesos da amostra da PNAD-90 - Parte Urbana do Rio de Janeiro</caption>
+<caption><span id="tab:pesofreq">Tabela 6.6: </span>Distribuição de frequências dos pesos da amostra da PNAD-90 - Parte Urbana do Rio de Janeiro</caption>
 <thead>
 <tr class="header">
 <th align="left">Valor do peso</th>
@@ -1059,7 +1193,7 @@ pnadrj90$informal&lt;-<span class="kw">ifelse</span>(pnadrj90$informal==<span cl
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xtable)
 <span class="kw">print</span>(<span class="kw">xtable</span>(inf.logit, <span class="dt">digits=</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>)),<span class="dt">type=</span><span class="st">&quot;html&quot;</span>)</code></pre></div>
 <!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
-<!-- Sat Jan 07 12:25:48 2017 -->
+<!-- Sat Jan 07 18:33:36 2017 -->
 <table border="1">
 <tr>
 <th>
