@@ -759,17 +759,17 @@ e
 \mathbf{EPA}\left( \hat{\theta},v_{0}\right) =(1+\rho )/(1-\rho )\;. 
 \]
 
-A Figura 4.1 plota os valores de $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$ e $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ para valores de $\rho$ entre $0$ e $0,8$. Como se pode notar, o efeito da especificação inadequada do plano amostral ou da estrutura populacional pode ser severo, com valores de $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ chegando a $9$. Um aspecto importante a notar é que o $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$ tem variação muito mais modesta que o $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$.
+A Figura \@ref(fig:epacong) plota os valores de $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$ e $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ para valores de $\rho$ entre $0$ e $0,8$. Como se pode notar, o efeito da especificação inadequada do plano amostral ou da estrutura populacional pode ser severo, com valores de $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ chegando a $9$. Um aspecto importante a notar é que o $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$ tem variação muito mais modesta que o $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$.
 
-
-![Fig 4.1: Valores de EPA e EPA de Kish para conglomeração](Figuras/figura41borda.pdf)
-
+```{r,epacong, echo=FALSE, fig.cap="Valores de EPA e EPA de Kish para conglomeração"}
+knitr::include_graphics("Figuras/fig41.png")
+```
 
 
 Este exemplo ilustra bem dois aspectos distintos do uso de medidas como o
 efeito de plano amostral. O primeiro é que as duas medidas são
-distintas,\emph{\ embora os respectivos estimadores baseados numa particular
-amostra coincidam}. No caso particular deste exemplo, o 
+distintas, `embora os respectivos estimadores baseados numa particular
+amostra coincidam`. No caso particular deste exemplo, o 
 $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$ cresce pouco com o valor do coeficiente
 de correlação intraclasse $\rho$, o que implica que um plano
 amostral conglomerado como o adotado (seleção ao acaso de um par da
@@ -844,7 +844,7 @@ intervalo $\left[\hat{\theta}-z_{\alpha /2}v_{0}^{1/2},
 ,v_{0}\right) \right] ^{1/2}\right) -1\;\;, 
 \]
 onde $\Phi$ é a função de distribuição acumulada de uma 
-$N\left( 0;1\right)$. Calculamos esta probabilidade para alguns valores do $\mathbf{EPA}$, que apresentamos na Tabela \ref{tab46}.
+$N\left( 0;1\right)$. Calculamos esta probabilidade para alguns valores do $\mathbf{EPA}$, que apresentamos na Tabela \@ref(tab:procob).
 
 <!-- \begin{center} -->
 <!-- \begin{table}[tbp] \centering -->
@@ -948,7 +948,7 @@ por plano de saúde, cada empregado dessa empresa terá acesso ao
 plano. Essa é uma informação importante que foi ignorada no
 teste anterior. De fato, selecionar mais de uma pessoa numa empresa não
 aumenta nosso conhecimento sobre a cobertura por plano de saúde no
-local. Portanto, o \emph{tamanho efetivo} da amostra é $\overline{n}=50$
+local. Portanto, o `tamanho efetivo` da amostra é $\overline{n}=50$
 , em contraste com o valor $1.000$ usado no teste anterior. O termo 
 `tamanho efetivo` foi introduzido em [@Kish65]  para
 designar o tamanho de uma amostra aleatória simples necessário para estimar $p$
