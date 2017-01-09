@@ -8,10 +8,10 @@ abordagens alternativas de análise estatística.
 
 ### Abordagem 1 - Modelagem Clássica 
 
-Seja $Y$ um vetor $P \times 1$ de variáveis de pesquisa (ou de interesse), e sejam $n$ vetores de observações destas variáveis para uma amostra de unidades de interesse denotados por $y_1,\ldots ,y_n$. Em Inferência Estatística, a abordagem que aqui chamamos de `Modelagem clássica` considera $y_1,\ldots ,y_n$ como valores (realizações) de vetores de variáveis aleatórias $y_1,\ldots ,y_n$. Podemos formular modelos bastante sofisticados para a distribuição conjunta destes vetores aleatórios, mas para simplificar a discussão, vamos inicialmente supor que $y_1,\ldots ,y_n$ são vetores aleatórios independentes e identicamente distribuídos (IID), com a mesma distribuição de $Y$, caracterizada pela função de densidade ou de frequência $f(y;\theta)$, onde $\theta \in \Theta$ é o parâmetro (um vetor de dimensão $K \times 1$) indexador da distribuição $f$, e $\Theta$ é o espaço paramétrico. A partir das observações $y_1,\ldots ,y_n$, são feitas inferências a respeito do parâmetro $\theta$. Uma representação gráfica esquemática dessa abordagem é apresentada na Figura \ref{fig:Figura21} a seguir, e uma descrição esquemática resumida é apresentada na Tabela \@ref(tab:modelclass).
+Seja $Y$ um vetor $P \times 1$ de variáveis de pesquisa (ou de interesse), e sejam $n$ vetores de observações destas variáveis para uma amostra de unidades de interesse denotados por $y_1,\ldots ,y_n$. Em Inferência Estatística, a abordagem que aqui chamamos de `Modelagem clássica` considera $y_1,\ldots ,y_n$ como valores (realizações) de vetores de variáveis aleatórias $y_1,\ldots ,y_n$. Podemos formular modelos bastante sofisticados para a distribuição conjunta destes vetores aleatórios, mas para simplificar a discussão, vamos inicialmente supor que $y_1,\ldots ,y_n$ são vetores aleatórios independentes e identicamente distribuídos (IID), com a mesma distribuição de $Y$, caracterizada pela função de densidade ou de frequência $f(y;\theta)$, onde $\theta \in \Theta$ é o parâmetro (um vetor de dimensão $K \times 1$) indexador da distribuição $f$, e $\Theta$ é o espaço paramétrico. A partir das observações $y_1,\ldots ,y_n$, são feitas inferências a respeito do parâmetro $\theta$. Uma representação gráfica esquemática dessa abordagem é apresentada na Figura \@ref(fig:modclas) a seguir, e uma descrição esquemática resumida é apresentada na Tabela \@ref(tab:modelclass).
 
-```{r,modclas,fig.cap="Modelagem Clássica", echo=FALSE}
-knitr::include_graphics("Figuras/Figura21Nova.pdf")
+```{r,modclas, echo=FALSE, fig.cap="Modelagem Clássica"}
+knitr::include_graphics("Figuras/fig21.png")
 ```
 
 
@@ -81,7 +81,7 @@ questões relevantes da pesquisa são traduzidas em termos de perguntas sobre o 
 dados ajuda a responder tais questões. Esta abordagem é útil em
 estudos analíticos tais como, por exemplo, na investigação da
 natureza da associação entre variáveis (modelos de regressão
-linear ou logística, modelos log-lineares, etc.). Vários exemplos discutidos ao longo dos Capítulos \@ref(modreg), \@ref(testqualajust) e \@ref(testetab2) ilustram situações deste tipo. No capítulo nove o foco vai ser a estimação não paramétrica da forma da função $f(y;\theta )$. 
+linear ou logística, modelos log-lineares, etc.). Vários exemplos discutidos ao longo dos Capítulos \@ref(modreg), \@ref(testqualajust) e \@ref(testetab2) ilustram situações deste tipo. No Capítulo \@ref(estimacao-de-densidades) o foco vai ser a estimação não paramétrica da forma da função $f(y;\theta)$. 
 
 
  Investigando a existência de diferenciais de salários por sexo e raça
@@ -112,8 +112,8 @@ proporções, razões, etc. Uma descrição esquemática resumida
 dessa abordagem é apresentada no Tabela \@ref(tab:modelamo), e uma representação
  gráfica resumida na Figura \@ref(fig:modamo).
 
-```{r, modamo,fig.cap="Amostragem Probabilística",echo=FALSE}
-knitr::include_graphics("Figuras/figura22borda.pdf")
+```{r, modamo,echo=FALSE, fig.cap="Amostragem Probabilística" }
+knitr::include_graphics("Figuras/fig22.png")
 ```
 
 -------------------   ----------------------------------------------
@@ -250,16 +250,12 @@ interesse $Y$ na população finita são considerados observações
  ou realizações dos vetores aleatórios $Y_{1},\ldots ,Y_{N}$, supostos IID com distribuição $f(y;\theta)$, onde $\theta \in \Theta$. Este modelo é denominado 
 `Modelo de Superpopulação`. Note que, em contraste com o que se faz na `abordagem 1`, o modelo probabilístico aqui é especificado para descrever o mecanismo aleatório que gera `a população`, não `a amostra`, muito embora na maioria das aplicações práticas a população não será jamais observada por inteiro. Não obstante, ao formular modelos para a população, nossas perguntas e respostas descritas em termos de valores ou regiões para o parâmetro $\theta$ passam a se referir à população de interesse ou populações similares, quer existam ao mesmo tempo, quer se refiram a estados futuros (ou passados) da mesma população.
 
-Utilizando um plano amostral definido por $p(a)$, obtemos os valores das variáveis de pesquisa na amostra $y_{i_1},\ldots ,y_{i_n}$. A partir de $y_{i_1},\ldots ,y_{i_n}$ (em geral não considerados como observações de vetores aleatórios IID) queremos fazer inferências sobre o parâmetro $\theta $, considerando os pontos i) a iii) do Capítulo 1. Veja uma representação gráfica resumida desta abordagem na Figura \@ref(fig:modsup).
+Utilizando um plano amostral definido por $p(a)$, obtemos os valores das variáveis de pesquisa na amostra $y_{i_1},\ldots ,y_{i_n}$. A partir de $y_{i_1},\ldots ,y_{i_n}$ (em geral não considerados como observações de vetores aleatórios IID) queremos fazer inferências sobre o parâmetro $\theta$, considerando os pontos i) a iii) do Capítulo 1. Veja uma representação gráfica resumida desta abordagem na Figura \@ref(fig:modsup).
 
 
-```{r, modsup,fig.cap="Modelagem de Superpopulação", echo=FALSE}
-knitr::include_graphics("Figuras/figura23borda.pdf")
+```{r, modsup, echo=FALSE, fig.cap="Modelagem de Superpopulação"}
+knitr::include_graphics("Figuras/fig23.png")
 ```
-
-
-
-
 
 Adotando o modelo de superpopulação e considerando métodos
 usuais disponíveis na `abordagem 1`, podemos utilizar funções
