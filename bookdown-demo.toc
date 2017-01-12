@@ -1,5 +1,4 @@
 \contentsline {chapter}{Prefácio}{5}{chapter*.2}
-\contentsline {section}{Agradecimentos}{5}{section*.3}
 \contentsline {chapter}{\numberline {1}Introdução}{7}{chapter.1}
 \contentsline {chapter}{\numberline {2}Referencial para Inferência}{9}{chapter.2}
 \contentsline {chapter}{\numberline {3}Estimação Baseada no Plano Amostral}{11}{chapter.3}

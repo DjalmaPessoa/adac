@@ -10,7 +10,8 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: djalmapessoa/adac
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+cover-image: "Figuras/capa.png"
+description: "Análise de dados de pesquisas amostrais complexas."
 ---
 
 
