@@ -1,6 +1,6 @@
 book_filename: "bookdown-demo"
 language:
-
+  tables: yes
   label:
 
     fig:  "Figura "
@@ -28,6 +28,7 @@ language:
   ui:
 
     chapter_name: "Capítulo "
+
 
 output_dir: "docs"
 

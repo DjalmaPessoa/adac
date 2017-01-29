@@ -157,12 +157,12 @@ efetivamente utilizado.
 
 Denotemos por $\hat{N}_{lc}$ o estimador do número de observações na cela $\left( l,c\right)$ na população, 
 e designemos por $\hat{n}_{lc}=$ $\left( \hat{N}_{lc}/\hat{N}\right) \times n$ o valor
-padronizado de $\hat{N}_{lc}$, de modo que $\sum\limits_{l=1}^{L}\sum
-\limits_{c=1}^{C}\hat{n}_{lc}=n$. Sejam, agora, os estimadores das proporções
+padronizado de $\hat{N}_{lc}$, de modo que 
+$\sum\limits_{l=1}^{L}\sum\limits_{c=1}^{C}\hat{n}_{lc}=n$. Sejam, agora, os estimadores das proporções
 nas celas dados por $\hat{p}_{lc}=\hat{n}_{lc}/n$ no caso do teste
 de independência e por $\hat{p}_{lc}=\hat{n}_{lc}/n_{l+}$ no caso do
-teste de homogeneidade. As estatísticas $X_{P}^{2}\left( I\right)$ e $
-X_{P}^{2}\left( H\right)$ calculadas com as estimativas $\hat{n}_{lc}$ no
+teste de homogeneidade. As estatísticas $X_{P}^{2}\left( I\right)$ e 
+$X_{P}^{2}\left(H\right)$ calculadas com as estimativas $\hat{n}_{lc}$ no
 lugar dos valores $n_{lc}$ não têm, como antes, distribuição
 assintótica qui-quadrado com um grau de liberdade.
 
@@ -176,15 +176,15 @@ valores dos $\hat{N}_{lc}$ fornecidos, com a estimativa do tamanho da popula
 obtidos para amostragem aleatória simples com reposição (IID)
 deixarão de ser válidos. Devemos calcular as estatísticas de
 teste $X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left( H\right)$ a partir dos 
-$\hat{n}_{lc}$ anteriormente definidos, que correspondem aos $\hat{N}
-_{lc}$ padronizados para totalizar $n$.
+$\hat{n}_{lc}$ anteriormente definidos, que correspondem aos 
+$\hat{N}_{lc}$ padronizados para totalizar $n$.
 
 As estatísticas baseadas nos valores estimados $\hat{n}_{lc}$ podem ser
 corrigidas para ter distribuição de referência qui-quadrado com
 um grau de liberdade, no caso de tabela $2\times 2$. Mas, é importante
 observar que os efeitos de plano amostral e as correções a serem
-considerados são distintos para as duas estatísticas $
-X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left( H\right)$.
+considerados são distintos para as duas estatísticas 
+$X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left(H\right)$.
 
 Para ilustrar esse ponto vamos considerar o \emph{ajuste de EPA médio},
 que será apresentado na próxima seção para o caso de tabelas 
@@ -326,17 +326,20 @@ _{2}\right) \right] ,$ onde $m$ e $H$ são os números totais de
 conglomerados e de estratos nas amostras das duas regiões,
 respectivamente. As correções F da estatística $X_{W}^{2}\left(
 H\right)$ são dadas por 
+
 \begin{equation}
 F_{1.p}=\frac{f-\left( C-1\right) +1}{f\left( C-1\right) }X_{W}^{2}\left(
 H\right) , (\#eq:Tab2) 
 \end{equation}
-que tem distribuição de referência F com $\left( C-1\right)$ e 
-$\left( f-\left( C-1\right) +1\right)$ graus de liberdade e, ainda, 
+
+que tem distribuição de referência $F$ com $\left(C-1\right)$ e 
+$\left( f-\left( C-1\right)+1\right)$ graus de liberdade e, ainda, 
+
 \begin{equation}
-F_{2.p}=X_{W}^{2}\left( H\right) /\left( C-1\right) (\#eq:Tab3)
+F_{2.p}=X_{W}^{2}\left( H\right) /\left(C-1\right) (\#eq:Tab3)
 \end{equation}
-que tem distribuição de referência \emph{F} com $\left(
-C-1\right)$ e $f$ graus de liberdade.
+
+que tem distribuição de referência \emph{F} com $\left(C-1\right)$ e $f$ graus de liberdade.
 
 As estatísticas $F_{1.p}$ e $F_{2.p}$ podem amenizar o efeito de
 instabilidade, quando $f$ não é grande relativamente ao número
@@ -457,8 +460,8 @@ caso de duas regiões, por
 FX_{P}^{2}\left( H;\hat{\delta}_{.}\right) =X_{P}^{2}\left( H;\hat{\delta}
 _{.}\right) /\left( C-1\right),
 \]
-e tem distribuição de referência \emph{F} com $\left( C-1\right) 
-$ e $f$ graus de liberdade.
+e tem distribuição de referência \emph{F} com $\left(C-1\right)$ e
+$f$ graus de liberdade.
 
 ### Teste de Independência
 
@@ -557,10 +560,8 @@ C-1\right) \right)$.
 A estimativa $\mathbf{\hat{V}}_{\mathbf{f}}$ da matriz de covariância de 
 $\mathbf{\hat{f}}$ pode ser obtida pelo método de linearização
 de Taylor apresentado na Seção \@ref(taylor), considerando o vetor de
-contrastes $\mathbf{f}$ como uma função (não-linear) do vetor $
-\mathbf{p}$, isto é, 
-$\mathbf{f=g}\left( \mathbf{p}\right) \mathbf{=g}\left( p_{11},\ldots ,p_{1\;C-1},\ldots ,p_{L-1\;1},\ldots
-,p_{L-1\;C-1}\right)$. Assim, a matriz de covariância de 
+contrastes $\mathbf{f}$ como uma função (não-linear) do vetor $\mathbf{p}$, isto é, 
+$\mathbf{f=g}\left( \mathbf{p}\right) \mathbf{=g}\left( p_{11},\ldots ,p_{1\;C-1},\ldots ,p_{L-1\;1},\ldots,p_{L-1\;C-1}\right)$. Assim, a matriz de covariância de 
 $\mathbf{\hat{f}}$ pode ser estimada por
 
 \begin{equation}
@@ -569,8 +570,8 @@ $\mathbf{\hat{f}}$ pode ser estimada por
 \right) ^{^{\prime }},  (\#eq:Tab11)
 \end{equation}
 onde $\mathbf{\Delta g}\left( \mathbf{p}\right)$ é a matriz jacobiana
-de dimensão $\left( L-1\right) \left( C-1\right) \times $
-$\left( L-1\right) \left( C-1\right)$ dada por 
+de dimensão $\left(L-1\right)\left( C-1\right)\times\left( L-1\right)\left( C-1\right)$ dada por
+
 \[
 \mathbf{\Delta g}\left( \mathbf{p}\right) =\left[ \partial \mathbf{g}
 /\partial p_{11},\ldots ,\partial \mathbf{g}/\partial p_{1\;C-1},\ldots
@@ -631,15 +632,15 @@ _{0}\mathbf{\hat{p}}_{0}^{^{\prime }},
 \]
 $\widehat{\mathbf{P}}_{0}/n$ estima a matriz $\left( L-1\right) \left(
 C-1\right) \times \left( L-1\right) \left( C-1\right)$ de covariância
-multinomial de $\mathbf{\hat{p}}$ sob a hipótese nula, $\mathbf{\hat{p}}
-_{0}$ é o vetor com componentes $\hat{p}_{l+}$ $\hat{p}_{+c}$, e $
-diag\left( \mathbf{\hat{p}}_{0}\right)$ representa a matriz diagonal com
+multinomial de $\mathbf{\hat{p}}$ sob a hipótese nula, $\mathbf{\hat{p}}_{0}$ 
+é o vetor com componentes $\hat{p}_{l+}$ $\hat{p}_{+c}$, e 
+$diag\left( \mathbf{\hat{p}}_{0}\right)$ representa a matriz diagonal com
 elementos $\hat{p}_{l+}$ $\hat{p}_{+c}$ na diagonal.
 
 Observemos que a forma de $X_{P}^{2}\left( I\right)$ como expressa em \@ref(eq:Tab12)
 é semelhante à da estatística de Wald dada em \@ref(eq:Tab10),
-a diferença sendo a estimativa da matriz de covariância de $
-\mathbf{\hat{f}}$ usada em cada uma dessas estatísticas.
+a diferença sendo a estimativa da matriz de covariância de 
+$\mathbf{\hat{f}}$ usada em cada uma dessas estatísticas.
 
 Como nos testes de qualidade de ajuste e de homogeneidade no caso de plano
 amostral complexo, podemos introduzir correções simples na
@@ -751,10 +752,9 @@ A estatística \@ref(eq:Tab16) tem distribuição de referência $F$
 com $\left( L-1\right)$ $\times\left( C-1\right)$ e $f$ graus
 de liberdade.
 
-\begin{myex}
-Correções de EPA médio das estatísticas $X_{P}^{2}\left(
-I\right)$ e $X_{P}^{2}\left( H\right)$.
-\end{myex}
+```{example}
+Correções de EPA médio das estatísticas $X_{P}^{2}\left(I\right)$ e $X_{P}^{2}\left(H\right)$.
+```
 
 Considerando os dados do Exemplo \ref{ex:pnad90} do Capítulo \@ref(modreg), vamos
 testar a hipótese de independência entre as variáveis Sexo (sx)

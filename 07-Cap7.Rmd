@@ -776,7 +776,8 @@ Vhat<-vcov(ppv.id)
 ppv.id <- data.frame(ppv.id)
 Freq <- svyby(~one, ~IDATAB, ppv.se.des, unwtd.count)$counts
 # matriz de variância-covariância estimada
-tab73 <- data.frame(Idade= levels(ppv1$IDATAB), Prop_Contagem= c(0.2842, 0.2747, 0.2263, 0.1261, 0.0860), Frequência= Freq, Prop_est_PPV= ppv.id$mean,EPA = ppv.id$deff) 
+idad_tab <- c("0-14", "15-29", "30-44","45-59","60+")
+tab73 <- data.frame(Idade= idad_tab, Prop_Contagem= c(0.2842, 0.2747, 0.2263, 0.1261, 0.0860), Frequência= Freq, Prop_est_PPV= ppv.id$mean,EPA = ppv.id$deff) 
 knitr::kable(tab73, booktabs= TRUE, digits=c(0,4,0,4,4),
   caption = "Vetores de proporções por classes de idade da PPV 96/97 e Contagem
 96 e EPAs calculados para a PPV - Região Sudeste")
@@ -1066,13 +1067,13 @@ Table:(#tab:estaltteste)Valores e valores-p de estatísticas alternativas de tes
 
 
 Examinando os resultados da Tabela \@ref(tab:estaltteste), verificamos que o teste
-clássico de Pearson rejeita a hipótese nula $H_{0}$ no nível $%
-\alpha =5\%$, diferentemente de todos os outros testes$.$ Os valores das
+clássico de Pearson rejeita a hipótese nula $H_{0}$ no nível 
+$\alpha =5\%$, diferentemente de todos os outros testes. Os valores das
 estatísticas com ajustes de Rao-Scott (com ou sem correção F)
-são semelhantes e parecem corrigir exagerademente o $p$valor dos testes.
+são semelhantes e parecem corrigir exagerademente o $p$-valor dos testes.
 A estatística de Wald baseada no plano amostral e suas correções
-F, que têm valores quase iguais, produzem uma correção menor no $%
-p$valor do teste. Nesse exemplo, como o número de graus de liberdade
+F, que têm valores quase iguais, produzem uma correção menor no 
+$p$-valor do teste. Nesse exemplo, como o número de graus de liberdade
 (dado pelo número de unidades primárias na amostra menos o
 número de estratos)$f=m-H=261$ é grande, a correção F tem
 pouco efeito, tanto nas estatísticas com ajustes de primeira e segunda

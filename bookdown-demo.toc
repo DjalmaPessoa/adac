@@ -1,16 +1,86 @@
+\select@language {brazil}
 \contentsline {chapter}{Prefácio}{5}{chapter*.2}
+\contentsline {section}{Agradecimentos}{5}{section*.3}
 \contentsline {chapter}{\numberline {1}Introdução}{7}{chapter.1}
-\contentsline {chapter}{\numberline {2}Referencial para Inferência}{9}{chapter.2}
-\contentsline {chapter}{\numberline {3}Estimação Baseada no Plano Amostral}{11}{chapter.3}
-\contentsline {chapter}{\numberline {4}Efeitos do Plano Amostral}{13}{chapter.4}
-\contentsline {chapter}{\numberline {5}Ajuste de Modelos Paramétricos}{15}{chapter.5}
-\contentsline {chapter}{\numberline {6}Modelos de Regressão}{17}{chapter.6}
-\contentsline {chapter}{\numberline {7}Testes de Qualidade de Ajuste}{19}{chapter.7}
-\contentsline {chapter}{\numberline {8}Testes em Tabelas de Duas Entradas}{21}{chapter.8}
-\contentsline {chapter}{\numberline {9}Estimação de densidades}{23}{chapter.9}
-\contentsline {chapter}{\numberline {10}Modelos Hierárquicos}{25}{chapter.10}
-\contentsline {chapter}{\numberline {11}Não-Resposta}{27}{chapter.11}
-\contentsline {chapter}{\numberline {12}Diagnóstico de ajuste de modelo}{29}{chapter.12}
-\contentsline {chapter}{\numberline {13}Agregação vs.\nobreakspace {}Desagregação}{31}{chapter.13}
-\contentsline {chapter}{\numberline {14}Pacotes para Analisar Dados Amostrais}{33}{chapter.14}
-\contentsline {chapter}{\numberline {15}Placeholder}{35}{chapter.15}
+\contentsline {section}{\numberline {1.1}Motivação}{7}{section.1.1}
+\contentsline {section}{\numberline {1.2}Objetivos do Livro}{10}{section.1.2}
+\contentsline {section}{\numberline {1.3}Laboratório de R do Capítulo 1.}{13}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Estimativa do efeito de plano amostral (EPA)}{15}{subsection.1.3.1}
+\contentsline {section}{\numberline {1.4}Modelagem - Primeiras Idéias}{17}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Abordagem 1 - Modelagem Clássica}{17}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Abordagem 2 - Amostragem Probabilística}{19}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}Discussão das Abordagens 1 e 2}{21}{subsection.1.4.3}
+\contentsline {subsection}{\numberline {1.4.4}Abordagem 3 - Modelagem de Superpopulação}{22}{subsection.1.4.4}
+\contentsline {section}{\numberline {1.5}Fontes de Variação}{24}{section.1.5}
+\contentsline {section}{\numberline {1.6}Modelos de Superpopulação}{25}{section.1.6}
+\contentsline {section}{\numberline {1.7}Planejamento Amostral}{26}{section.1.7}
+\contentsline {section}{\numberline {1.8}Planos Amostrais Informativos e Ignoráveis}{27}{section.1.8}
+\contentsline {chapter}{\numberline {2}Estimação Baseada no Plano Amostral}{33}{chapter.2}
+\contentsline {section}{\numberline {2.1}Estimação de Totais}{33}{section.2.1}
+\contentsline {section}{\numberline {2.2}Por que Estimar Variâncias}{36}{section.2.2}
+\contentsline {section}{\numberline {2.3}Linearização de Taylor para Estimar variâncias}{37}{section.2.3}
+\contentsline {section}{\numberline {2.4}Método do Conglomerado Primário}{39}{section.2.4}
+\contentsline {section}{\numberline {2.5}Métodos de Replicação}{40}{section.2.5}
+\contentsline {section}{\numberline {2.6}Laboratório de R}{42}{section.2.6}
+\contentsline {chapter}{\numberline {3}Efeitos do Plano Amostral}{47}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introdução}{47}{section.3.1}
+\contentsline {section}{\numberline {3.2}Efeito do Plano Amostral (EPA) de Kish}{47}{section.3.2}
+\contentsline {section}{\numberline {3.3}Efeito do Plano Amostral Ampliado}{49}{section.3.3}
+\contentsline {section}{\numberline {3.4}Intervalos de Confiança e Testes de Hipóteses}{56}{section.3.4}
+\contentsline {section}{\numberline {3.5}Efeitos Multivariados de Plano Amostral}{58}{section.3.5}
+\contentsline {section}{\numberline {3.6}Laboratório de R}{61}{section.3.6}
+\contentsline {chapter}{\numberline {4}Ajuste de Modelos Paramétricos}{63}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introdução}{63}{section.4.1}
+\contentsline {section}{\numberline {4.2}Método de Máxima Verossimilhança (MV)}{64}{section.4.2}
+\contentsline {section}{\numberline {4.3}Ponderação de Dados Amostrais}{65}{section.4.3}
+\contentsline {section}{\numberline {4.4}Método de Máxima Pseudo-Verossimilhança label}{67}{section.4.4}
+\contentsline {section}{\numberline {4.5}Robustez do Procedimento MPV}{70}{section.4.5}
+\contentsline {section}{\numberline {4.6}Desvantagens da Inferência de Aleatorização}{71}{section.4.6}
+\contentsline {section}{\numberline {4.7}Laboratório de R}{72}{section.4.7}
+\contentsline {chapter}{\numberline {5}Modelos de Regressão}{73}{chapter.5}
+\contentsline {section}{\numberline {5.1}Modelo de Regressão Linear Normal}{73}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Especificação do Modelo}{73}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Pseudo-parâmetros do Modelo}{74}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Estimadores de MPV dos Parâmetros do Modelo}{75}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}Estimação da Variância de Estimadores de MPV}{76}{subsection.5.1.4}
+\contentsline {section}{\numberline {5.2}Modelo de Regressão Logística}{77}{section.5.2}
+\contentsline {section}{\numberline {5.3}Teste de Hipóteses}{84}{section.5.3}
+\contentsline {section}{\numberline {5.4}Laboratório de R}{85}{section.5.4}
+\contentsline {chapter}{\numberline {6}Testes de Qualidade de Ajuste}{89}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introdução}{89}{section.6.1}
+\contentsline {section}{\numberline {6.2}Teste para uma Proporção}{90}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Correção de Estatísticas Clássicas}{90}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Estatística de Wald}{93}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}Teste para Várias Proporções}{95}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Estatística de Wald Baseada no Plano Amostral}{95}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Situações Instáveis}{96}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Estatística de Pearson com Ajuste de Rao-Scott (\#raoscott)}{96}{subsection.6.3.3}
+\contentsline {section}{\numberline {6.4}Laboratório de R}{103}{section.6.4}
+\contentsline {chapter}{\numberline {7}Testes em Tabelas de Duas Entradas}{105}{chapter.7}
+\contentsline {section}{\numberline {7.1}Introdução}{105}{section.7.1}
+\contentsline {section}{\numberline {7.2}Tabelas 2x2}{105}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Teste de Independência}{106}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Teste de Homogeneidade}{106}{subsection.7.2.2}
+\contentsline {subsection}{\numberline {7.2.3}Efeitos de Plano Amostral nas Celas}{107}{subsection.7.2.3}
+\contentsline {section}{\numberline {7.3}Tabelas de Duas Entradas (Caso Geral)}{107}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Teste de Homogeneidade}{107}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Teste de Independência}{110}{subsection.7.3.2}
+\contentsline {subsection}{\numberline {7.3.3}Estatística de Wald Baseada no Plano Amostral}{111}{subsection.7.3.3}
+\contentsline {subsection}{\numberline {7.3.4}Estatística de Pearson com Ajuste de Rao-Scott}{112}{subsection.7.3.4}
+\contentsline {section}{\numberline {7.4}Laboratório de R}{116}{section.7.4}
+\contentsline {chapter}{\numberline {8}Estimação de densidades}{121}{chapter.8}
+\contentsline {section}{\numberline {8.1}Introdução}{121}{section.8.1}
+\contentsline {chapter}{\numberline {9}Modelos Hierárquicos}{123}{chapter.9}
+\contentsline {section}{\numberline {9.1}Introdução}{123}{section.9.1}
+\contentsline {chapter}{\numberline {10}Não-Resposta}{125}{chapter.10}
+\contentsline {section}{\numberline {10.1}Introdução}{125}{section.10.1}
+\contentsline {chapter}{\numberline {11}Diagnóstico de ajuste de modelo}{127}{chapter.11}
+\contentsline {section}{\numberline {11.1}Introdução}{127}{section.11.1}
+\contentsline {chapter}{\numberline {12}Agregação vs.~Desagregação}{129}{chapter.12}
+\contentsline {section}{\numberline {12.1}Introdução}{129}{section.12.1}
+\contentsline {section}{\numberline {12.2}Modelagem da Estrutura Populacional}{129}{section.12.2}
+\contentsline {section}{\numberline {12.3}Modelos Hierárquicos}{132}{section.12.3}
+\contentsline {section}{\numberline {12.4}Análise Desagregada: Prós e Contras}{141}{section.12.4}
+\contentsline {chapter}{\numberline {13}Pacotes para Analisar Dados Amostrais}{145}{chapter.13}
+\contentsline {section}{\numberline {13.1}Introdução}{145}{section.13.1}
+\contentsline {section}{\numberline {13.2}Pacotes Computacionais}{145}{section.13.2}

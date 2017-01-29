@@ -1,4 +1,5 @@
-# Referencial para Inferência {#refinf}
+library(survey)
+source("~\\GitHub\\adac\\data\\ppv1.R")# Referencial para Inferência {#refinf}
 
 ## Modelagem - Primeiras Idéias {#classic}
 
@@ -528,7 +529,7 @@ amostrais desse tipo são raramente empregados na prática, por razões de efici
 Com amostragem complexa, porém, os modelos para a população e a amostra podem ser muito diferentes (plano amostral \emph{não-ignorável}), mesmo que o mecanismo de seleção não
 dependa das variáveis de pesquisa, mas somente das variáveis auxiliares. Neste caso, ignorar o plano amostral pode viciar a inferência. Veja o Exemplo \ref{Ex2.1} adiante.
 
-A definição precisa de ignorabilidade e as condições sob as quais um plano amostral é ignorável para inferência são bastante discutidas na literatura - veja por exemplo \citeonline{Sugden84} ou os capítulos 1 e 2 de \citeonline{CHSK2003}. Porém testar a ignorabilidade do plano amostral é muitas vezes complicado. Em caso de dificuldade, o uso de pesos tem papel fundamental.
+A definição precisa de ignorabilidade e as condições sob as quais um plano amostral é ignorável para inferência são bastante discutidas na literatura - veja por exemplo [@Sugden84] ou os Capítulos 1 e 2 de [@CHSK2003]. Porém testar a ignorabilidade do plano amostral é muitas vezes complicado. Em caso de dificuldade, o uso de pesos tem papel fundamental.
 
 Uma forma simples de lidar com os efeitos do plano amostral na estimação pontual de quantidades descritivas populacionais de interesse é incorporar pesos adequados na análise, como se verá no Capítulo \@ref(capplanamo). Essa forma porém, não resolve por si só o problema de estimação da precisão das estimativas pontuais, nem mesmo o caso da estimação pontual de parâmetros em modelos de superpopulação, o que vai requerer métodos específicos discutidos no Capítulo 
 \@ref(ajmodpar).

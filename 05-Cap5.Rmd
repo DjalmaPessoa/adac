@@ -355,7 +355,7 @@ estimadores de variância que incorporam o planejamento amostral e os
 pesos, tal como se verá mais adiante.
 
 O estimador $\widehat{\beta }_{w}$ foi proposto formalmente por
-\citeonline{fuller75}, que o concebeu como uma função de estimadores de
+[@fuller75], que o concebeu como uma função de estimadores de
 totais populacionais. A mesma idéia subsidiou vários outros autores
 que estudaram a estimação de coeficientes de regressão partindo
 de dados amostrais complexos, tais como [@NH80], [@PfefeNat]. Uma revisão abrangente da literatura existente sobre estimação de parâmetros em modelos de regressão linear com dados
@@ -428,18 +428,18 @@ onde
 \end{equation}
 é o vetor $K\times 1$ dos escores do elemento $i,i\in U$.
 
-Sob condições de regularidade (\citeonline[p. 281]{cox}), a 
+Sob condições de regularidade [@cox], p. 281, a 
 solução $\mathbf{\theta }_{U}$ deste sistema é o \emph{Estimador de
 Máxima Verossimilhança}\textbf{\ }de $\mathbf{\theta }$ no caso de um
 \textbf{\ }\emph{censo}. Podemos considerar $\mathbf{\theta }_{U}$ como uma 
 \emph{Quantidade Descritiva Populacional Correspondente (QDPC)} a 
-$\mathbf{\theta }$, no sentido definido por \citeonline{Pfeff}, sobre a qual se deseja
+$\mathbf{\theta }$, no sentido definido por [@Pfeff], sobre a qual se deseja
 fazer inferências com base em informações da amostra. Essa definição da QDPC $\mathbf{\theta }_{U}$ pode ser generalizada para
 contemplar outras abordagens de inferência além da abordagem
 clássica baseada em maximização da verossimilhança. Basta
 para isso especificar outra regra ou critério a otimizar e então
 definir a QDPC como a solução ótima segundo essa nova regra. Tal
-generalização, discutida em \citeonline{Pfeff}, não será aqui
+generalização, discutida em [@Pfeff], não será aqui
 considerada para manter a simplicidade.
 
 A QDPC\ $\mathbf{\theta }_{U}$ definida com base em \@ref(eq:modpar5) não
@@ -473,7 +473,7 @@ O estimador de Máxima Pseudo-Verossimilhança (MPV) $\mathbf{\hat{\theta}}_{MPV
 ```
 
 Através da linearização de Taylor (veja Seção \ref
-{taylor}) e considerando os resultados de \citeonline{binder83}, podemos obter a
+{taylor}) e considerando os resultados de [@binder83], podemos obter a
 variância de aleatorização assintótica do estimador $\mathbf{
 \hat{\theta}}_{MPV}$ e seu estimador correspondente, dados respectivamente
 por: 
@@ -513,7 +513,7 @@ J\left( \mathbf{\theta }_{U}\right) =\left. \frac{\partial T\left( \mathbf{
 (\#eq:modpar11)
 \end{equation}
 
-$V_{p}\left[\sum_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta}_{U}\right) \right]$ é a matriz de variância (de aleatorização) do estimador do total populacional dos escores e $\hat{V}_{p}\left[\sum_{i\ins}w_{i}\mathbf{u}_{i}\left( \mathbf{\hat{\theta}}_{MPV}\right)\right]$ é um estimador consistente para esta variância.
+$V_{p}\left[\sum_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta}_{U}\right) \right]$ é a matriz de variância (de aleatorização) do estimador do total populacional dos escores e $\hat{V}_{p}\left[\sum_{i\in s}w_{i}\mathbf{u}_{i}\left(\mathbf{\hat{\theta}}_{MPV}\right)\right]$ é um estimador consistente para esta variância.
 Binder(1983) mostrou também que a distribuição assintótica
 de $\mathbf{\hat{\theta}}_{MPV}$ é Normal Multivariada, isto é, que 
 \begin{equation}
@@ -525,7 +525,7 @@ o que fornece uma base para a inferência sobre $\mathbf{\theta }_{U}$ (ou $\mat
 Muitos modelos paramétricos, com vários planos amostrais e
 estimadores de totais diferentes, podem ser ajustados resolvendo-se as equa
 ções de Pseudo-Verossimilhança \@ref(eq:modpar7), satisfeitas algumas
-condições de regularidade enunciadas em \citeonline[apêndice] e
+condições de regularidade enunciadas em [@apêndice] e
 revistas em [@Silva], p. 126. Entretanto, os estimadores de
 MPV não serão únicos, já que existem diversas maneiras
 de se definir os pesos $w_{i}$.
@@ -585,11 +585,11 @@ s}\pi _{i}^{-1}\left. \frac{\partial \mathbf{u}_{i}\left( \mathbf{\theta }
 (\#eq:modpar15)
 \end{equation}
 
-\item  Usar $\mathbf{\hat{\theta}}_{\pi }$ e 
+3. Usar $\mathbf{\hat{\theta}}_{\pi }$ e 
 $\hat{V}_{p}\left( \mathbf{\hat{\theta}}_{\pi }\right)$ para calcular regiões ou intervalos de confiança e/ou estatísticas de teste baseadas na distribuição
 normal e utilizá-las para fazer inferência sobre os componentes de 
 $\mathbf{\theta}$.
-\end{enumerate}
+
 
 **Observação:**
 No Método de Máxima Pseudo-Verossimilhança, os pesos amostrais
@@ -679,19 +679,18 @@ robustez, vamos considerar dois casos.
 
 -  Caso 1: o modelo para a população é adequado.
 
-Então quando $N\rightarrow \infty $\ \ a QDPC $\mathbf{\theta }_{U}$\
-converge para o parâmetro $\mathbf{\theta }$, isto é, $\mathbf{
-\theta }_{U}-\mathbf{\theta }\rightarrow \mathbf{0}$ em probabilidade,
-segundo a distribuição de probabilidades do modelo $M$. Se $\mathbf{
-\hat{\theta}}_{MPV}$ for consistente, então quando $n\rightarrow \infty $
-temos que $\mathbf{\hat{\theta}}_{MPV}-\mathbf{\theta }_{U}\rightarrow 
-\mathbf{0}$ em probabilidade, segundo a distribuição de aleatoriza\c{
-c}ão $p$.\ Juntando essas condições obtemos que
+Então quando $N\rightarrow \infty$  a QDPC $\mathbf{\theta }_{U}$
+converge para o parâmetro $\mathbf{\theta }$, isto é, 
+$\mathbf{\theta }_{U}-\mathbf{\theta }\rightarrow \mathbf{0}$ em probabilidade,
+segundo a distribuição de probabilidades do modelo $M$. Se 
+$\mathbf{\hat{\theta}}_{MPV}$ for consistente, então quando $n\rightarrow \infty$
+temos que 
+$\mathbf{\hat{\theta}}_{MPV}-\mathbf{\theta }_{U}\rightarrow\mathbf{0}$ em probabilidade, segundo a distribuição de aleatorização $p$. Juntando essas condições obtemos que
 
 \[
 \mathbf{\hat{\theta}}_{MPV}\stackrel{P}{\rightarrow }\mathbf{\theta } 
 \]
-em probabilidade segundo a mistura $Mp.$ Esse resultado segue porque
+em probabilidade segundo a mistura $Mp$. Esse resultado segue porque
 
 \begin{eqnarray*}
 \mathbf{\hat{\theta}}_{MPV}-\mathbf{\theta } &=&(\mathbf{\hat{\theta}}_{MPV}-
@@ -709,12 +708,12 @@ com interpretação clara, independente da validade do modelo. Como
 $\mathbf{\hat{\theta}}_{MPV}$ é consistente para a QDPC 
 $\mathbf{\theta}_{U}$, a inferência baseada no procedimento MPV segue válida para
 este pseudo-parâmetro, independente da inadequação do modelo
-para a população. \citeonline[p. 81]{Sk89b} discute essa situaç
-ão, mos\-trando que $\mathbf{\theta }_{U}$ pode ainda ser um alvo
-válido para inferência mesmo quando o modelo $f\left( \mathbf{y};
-\mathbf{\theta }\right)$ especificado para a população é
-inadequado, ao menos no sentido de que $f\left( \mathbf{y};\mathbf{\theta }
-_{U}\right)$ forneceria a \emph{melhor aproximação possível}
+para a população. [@Sk89b], p. 81,  discute essa situação, mostrando que 
+$\mathbf{\theta }_{U}$ pode ainda ser um alvo
+válido para inferência mesmo quando o modelo 
+$f\left( \mathbf{y};\mathbf{\theta }\right)$ especificado para a população é
+inadequado, ao menos no sentido de que 
+$f\left( \mathbf{y};\mathbf{\theta}_{U}\right)$ forneceria a `melhor aproximação possível`
 (em certo sentido) para o verdadeiro modelo que gera as observações
 populacionais ($f^{*}\left( \mathbf{y};\mathbf{\eta }\right)$, digamos).
 Skinner(1989b) reconhece que a \emph{melhor aproximação possível}
@@ -777,10 +776,10 @@ Quando as contagens \emph{expandidas} $\widehat{N}_{k}$ são usadas, os
 testes de homogeneidade e de qualidade de ajuste de modelos loglineares
 baseados em amostragem Multinomial e Poisson independentes não
 são mais válidos. A estatística clássica $X^{2}$ não
-tem mais distribuição $\chi ^{2}$ e sim uma soma ponderada $
-\sum_{k}\delta _{k}X_{k}$ de variáveis $X_{k}$ IID com distribuiç
-ão $\chi ^{2}\left( 1\right)$. Esse exemplo será rediscutido com
-mais detalhes na Seção \ref{raoscott}.
+tem mais distribuição $\chi ^{2}$ e sim uma soma ponderada 
+$\sum_{k}\delta _{k}X_{k}$ de variáveis $X_{k}$ IID com 
+distribuição $\chi ^{2}\left( 1\right)$. Esse exemplo será rediscutido com
+mais detalhes na Seção \@ref(raoscott).
 
 A importância desse exemplo é ilustrar que mesmo quando o
 usuário pensa estar livre das complicações causadas pelo plano

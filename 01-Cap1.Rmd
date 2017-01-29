@@ -1,5 +1,11 @@
 # Introdução {#introduc}
 
+
+```{r,echo=FALSE, message=FALSE}
+library(survey)
+source("~\\GitHub\\adac\\data\\ppv1.R")
+```
+
 ## Motivação
 
 Este livro trata de problema de grande importância para os usuários
@@ -48,7 +54,7 @@ inferência sobre quantidades descritivas populacionais tais como
 médias, proporções, razões e totais.
 
 
-````{example,ex:distppv}
+````{example}
 Distribuição dos pesos da amostra da PPV
 ```
 
@@ -643,7 +649,7 @@ Observe que as estimativas de totais e desvios padrão obtidas coincidem com as 
 Esse assunto será tratado em detalhes no Capítulo \@ref(epa) . Por enquanto, apresentaremos uma 
 introdução necessária para compreender os valores na Tabela \@ref(tab:epas).
 
-O efeito de plano amostral (EPA) de Kish é definido na fórmula 4.1, na página 54 do livro. Vamos considerar o caso particular em que $\hat{\theta}$ é um estimador de totao de uma variável $Y$.Ou seja
+O efeito de plano amostral (EPA) de Kish é definido na fórmula 4.1, na página 54 do livro. Vamos considerar o caso particular em que $\hat{\theta}$ é um estimador de total de uma variável $Y$.Ou seja
 \[
 EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
 \]
@@ -654,7 +660,7 @@ Supondo conhecido o tamanho da população $N$ e a fração amostral $f=n/N$ peq
 \[
 \widehat{V}_{AAS}\left(\widehat{Y}\right)=N^2\frac{\widehat{S}_y}{n-1}
 \]
-onde $\widehat{S}_y= n^{-1}\sum_{i\in s}\left(y_i-\overline{y}\right)^2 $ é a estimativa de $S_y=N^{-1}\sum_{i\in U}\left(y_i-\overline{Y}\right)^2$, com $\overline{Y}=N^{-1}Y$.
+onde $\widehat{S}_y= n^{-1}\sum_{i\in s}\left(y_i-\overline{y}\right)^2$ é a estimativa de $S_y=N^{-1}\sum_{i\in U}\left(y_i-\overline{Y}\right)^2$, com $\overline{Y}=N^{-1}Y$.
 
 No lugar dessa estimativa, vamos utilizar os pesos do plano amostral verdadeiro 
 para estimar $S_y$. Vamos ainda estimar $N$, em geral é desconhecido, por 

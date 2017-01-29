@@ -241,7 +241,7 @@ estruturas tem motivação nas próprias estruturas,
 independentemente do procedimento amostral usado para a obtenção dos
 dados eventualmente observados.
 
-Adotando como referência básica \citeonline[cap.~11]{Sk89a}, vamos apresentar um resumo de alguns modelos hierárquicos
+Adotando como referência básica [@Sk89a], Cap.11, vamos apresentar um resumo de alguns modelos hierárquicos
 básicos, iniciando com o caso de variáveis contínuas. Ainda no
 contexto de estudantes e turmas do exemplo discutido nesta seção,
 vamos considerar um modelo hierárquico de dois níveis com as
@@ -389,17 +389,17 @@ covariáveis características da estrutura populacional e também
 do plano a\-mos\-tral, tais como efeitos de estratificação e de
 conglomeração, tornam o plano amostral ignorável,
 condicionalmente nestas características, no sentido definido por
-\citeonline{Rubin76}. Este raciocínio, porém, não é aplicável
+[@Rubin76]. Este raciocínio, porém, não é aplicável
 quando unidades em qualquer nível da hierarquia são selecionadas com
 probabilidades desiguais, de formas não consideradas pelas
 covariáveis. Por exemplo, quando as unidades são selecionadas com
 probabilidades proporcionais a uma medida de tamanho que é relacionada
-à variável resposta. \citeonline{Pfefetalli} apresentam uma forma
+à variável resposta. [@Pfefetalli] apresentam uma forma
 de incorporar pesos no ajuste de modelos hierárquicos para compensar
 diferentes probabilidades de inclusão das unidades na amostra.
 
 ```{example}
-Plano amostral de pesquisa educacional (\citeauthoronline{lethonen}, \citeyear{lethonen}, p. 297).
+Plano amostral de pesquisa educacional ([@lethonen], p. 297).
 ```
 Os dados deste exemplo se referem a uma pesquisa de avaliação de
 escolas (SNACS), na qual foi analisado o desempenho em Matemática de
@@ -525,8 +525,8 @@ $EXP$ & \multicolumn{1}{|r|}{$0,271$} & \multicolumn{1}{|r|}{$0,181$} &
 %EndExpansion
 \end{center}
 
-A coluna de $p$valores da Tabela \ref{tab92} indica que o coeficiente de $%
-TEMP$ é significantemente diferente de zero, e também que a
+A coluna de $p$valores da Tabela \ref{tab92} indica que o coeficiente de 
+$TEMP$ é significantemente diferente de zero, e também que a
 hipótese de nulidade do coeficiente de $EXP$ não é rejeitada no
 nível de significância $\alpha =5\%$.
 
@@ -652,7 +652,7 @@ ou a estrutura da população (análises agregada e desagregada,
 respectivamente).\pagebreak 
 
 ```{example}
-(\citeauthoronline{bryk}, \citeyear{bryk}, Cap. 5)
+([@bryk],  Cap. 5)
 ```
 
 Os dados consitiram em respostas de $8.000$ professores aninhados em $357$
@@ -975,11 +975,11 @@ aqui consideradas.
 ## Análise Desagregada: Prós e Contras
 
 Vamos inicialmente listar algumas dificuldades na análise de dados de
-\allowbreak pes\-qui\-sas complexas, indicando em cada caso como a
+pesquisas complexas, indicando em cada caso como a
 análise desagregada poderia ajudar a solucionar o problema. Esta parte
 é um resumo da seção introdutória do Capítulo 5 do livro
-de \citeonline{bryk}, denominada ''Pontos básicos sobre efeitos
-organizacionais da pesquisa''.\medskip
+de [@bryk], denominada ''Pontos básicos sobre efeitos
+organizacionais da pesquisa''.
 
 **Vício de agregação**
 
@@ -1009,7 +1009,7 @@ organizacional. As estimativas dos desvios padrões dependem da
 variabilidade destes efeitos aleatórios ou, na terminologia de pesquisas
 amostrais, as estimativas dos desvios padrões são ajustadas pela
 correlação intraclasse (ou pelo efeito do plano amostral), que
-decorre da amostragem por conglomerado.\medskip
+decorre da amostragem por conglomerado.
 
 **Heterogeneidade de regressão**
 
@@ -1022,14 +1022,14 @@ substantivo. Modelos hierárquicos possibilitam ao pesquisador estimar um
 conjunto de coeficientes de regressão para cada unidade organizacional
 e, então, modelar a variação de conjuntos de coeficientes entre
 organizações como resultados multivariados a serem explicados por
-fatores organizacionais.\medskip
+fatores organizacionais.
 
 Se nos casos citados a abordagem de análise desagregada pode ser vista
 como uma solução que apresenta vantagens quando comparada com as
 abordagens tradicionais, em outras situações essa abordagem
 apresenta desvantagens claras quando comparada, por exemplo, com a abordagem
 agregada. A seguir listamos algumas dessas situações e discutimos
-suas implicações para a modelagem desagregada.\medskip
+suas implicações para a modelagem desagregada.
 
 **Complexidade do Modelo Desagregado**
 
@@ -1047,7 +1047,7 @@ desejável é incorporar na formulação do modelo as informações necessárias
 etapa de estimação dos parâmetros. Mesmo quando se pode
 incorporar no modelo as informações sobre a estrutura populacional,
 há casos nos quais o plano amostral é não ignorável e pesos
-precisam ser incorporados para ajustar o modelo (veja \citeauthoronline{Pfefetalli}, \citeyear{Pfefetalli}.
+precisam ser incorporados para ajustar o modelo (veja [@Pfefetalli].
 
 Para poder incorporar no modelo as informações sobre a estrutura
 populacional e/ou sobre o plano amostral, é geralmente necessário
@@ -1058,7 +1058,7 @@ população e da amostra. Incluir todas essas variáveis num modelo
 pode apresentar desafios não triviais ao analista: a especificação detalhada da forma do modelo, a estimação de seus
 inúmeros parâmetros dada apenas uma amostra das unidades da população, a interpretação das estimativas dos parâmetros e o
 diagnóstico do ajuste efetuado podem todas se tornar tarefas bastante
-complexas. Essa dificuldade é também mencionada por \citeonline[p.~9]{Sk89a}.
+complexas. Essa dificuldade é também mencionada por [@Sk89a], pág. 9.
 
 **Disponibilidade da Informação Desagregada**
 
@@ -1076,7 +1076,7 @@ são parcial ou completamente ignoradas. Este é o caso das várias
 pesquisas para as quais já existe a prática de disseminar arquivos
 de microdados nos quais, entretanto, as informações de identificação do plano amostral são omitidas (total ou parcialmente) para
 evitar a revelação indesejada de informações individuais
-''sensitivas''.\medskip
+''sensitivas''.
 
 Estas dificuldades não podem ser ignoradas quando se optar por uma
 abordagem desagregada para analisar dados de pesquisas amostrais complexas.

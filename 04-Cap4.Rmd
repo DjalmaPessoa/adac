@@ -1039,8 +1039,8 @@ U_{h}}\left( SAL_{hi}-\overline{SAL}_{h}\right) \left( REC_{hi}-\overline{REC
 }_{h}\right) \;. 
 \]
 
-Substituindo os valores conhecidos na população das variáveis $%
-SAL_{hi}$ e $REC_{hi}$, obtemos para esta covariância o valor 
+Substituindo os valores conhecidos na população das variáveis 
+$SAL_{hi}$ e $REC_{hi}$, obtemos para esta covariância o valor 
 \[
 COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3,2358
 \]
@@ -1111,8 +1111,8 @@ A partir da simulação foram obtidos os seguintes resultados:
 \right] \;\;.  (\#eq:epa10)
 \end{equation}
 
-Os autovalores $\delta _{1}=0,447$ e $\delta _{2}=0,139$ de $\mathbf{\Delta }
-$ fornecem os efeitos generalizados do plano amostral.
+Os autovalores $\delta_{1}=0,447$ e $\delta_{2}=0,139$ de 
+$\mathbf{\Delta}$ fornecem os efeitos generalizados do plano amostral.
 
 Da mesma forma que o $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$
 definido em \@ref(eq:epa2) para o caso uniparamétrico foi utilizado para
@@ -1145,7 +1145,7 @@ $\frac{\left( n-1\right) }{\left( n-K\right)}\mathbf{F}\left( K;n-K\right)$ sob 
 distribuição $\mathbf{F}$ com $K$ e $\left( n-K\right)$ graus de
 liberdade. Mesmo se as observações $\mathbf{y}_{i}$ não forem
 normais, $T^{2}$ tem distribuição assintótica 
-$\chi ^{2}\left(K\right)$ quando $n\rightarrow \infty$ (\citeonline[p.191]{Johnson}).
+$\chi ^{2}\left(K\right)$ quando $n\rightarrow \infty$, [@Johnson], p.191.
 
 Contudo, se for utilizado um plano amostral complexo, $T^{2}$ tem
 aproximadamente a distribuição da variável $\sum\limits_{i=1}^{K}$ $\delta _{i}Z_{i}^{2}$, onde $Z_{1},\ldots ,Z_{K}$
@@ -1208,8 +1208,8 @@ Pode-se mostrar que o máximo de $p$valor$_{VERD}\left( \mathbf{\bar{y}}\right)$
 Observe que o segundo membro de \@ref(eq:epa15) é da mesma forma que o
 segundo membro de \@ref(eq:epa12). Logo, os valores da Tabela \ref{tab47} podem
 ser interpretados como valores máximos de $p$valor$_{VERD}\left( \mathbf{\bar{y}}\right)$ para $\mathbf{\bar{y}}$ na região $RC_{AAS}\left( 
-\mathbf{\bar{y}}\right)$, considerando-se $\delta _{1}$ no lugar de $\delta 
-$.
+\mathbf{\bar{y}}\right)$, considerando-se $\delta _{1}$ no lugar de 
+$\delta$.
 
 <!-- \begin{center} -->
 <!-- \begin{table}[tbp] \centering -->

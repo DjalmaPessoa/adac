@@ -838,9 +838,15 @@ knitr::kable(ic_frame, booktabs=TRUE, digits=c(0,0,3,3),
 
 Além dos ajustes aqui comparados, foram feitos (embora não
 apresentados) os seguintes ajustes com a utilização do 
-\textbf{S-Plus%}: 1) dados individuais (resposta 0-1) considerando os pesos; 2) dados da
-tabela estimada considerando os pesos e 3) dados individuais com pesos
-normalizados. Em todas estas análises, como esperado, as estimativas
+\textbf{S-Plus}:
+
+1) dados individuais (resposta 0-1) considerando os pesos; 
+
+2) dados da tabela estimada considerando os pesos e 
+
+3) dados individuais com pesos normalizados. 
+
+Em todas estas análises, como esperado, as estimativas
 pontuais dos efeitos coincidiram com as obtidas pela \textbf{PROC LOGISTIC}
 do pacote \textbf{SUDAAN}. Pode-se notar que, neste exemplo, há estreita
 concordância entre as estimativas pontuais obtidas pelos dois pacotes.
@@ -971,16 +977,15 @@ pleno $R=P-Q$ e $\mathbf{c}$ é um vetor $R$ $\times 1.$
 Um caso particular de interesse é testar a hipótese aninhada 
 $H_{0}:\mathbf{\beta }_{2}=\mathbf{0}_{R}\mathbf{,}$ onde 
 $\mathbf{\beta }^{\prime}=\left( \mathbf{\beta }_{1}^{\prime },\mathbf{\beta }_{2}^{\prime }\right)$
-, com $\mathbf{\beta }_{1}$ de dimensão 
-$Q\times 1$ e $\mathbf{\beta}_{2}$ de dimensão $R\times 1,$ $\mathbf{C}=\left[ 
-\begin{array}{lll}
-\mathbf{0}_{R\times Q} &  & \mathbf{I}_{R}
-\end{array}
-\right] $ e $c=\mathbf{0}_{R}$ , sendo $\mathbf{0}_{R\times Q}$ matriz de
+, com $\mathbf{\beta }_{1}$ de dimensão  $Q\times 1$ e $\mathbf{\beta}_{2}$ de dimensão $R\times 1$, 
+
+$\mathbf{C}= \left[\begin{array}{lll}\mathbf{0}_{R\times Q} &  & \mathbf{I}_{R}\end{array}\right]$ e 
+$c=\mathbf{0}_{R}$ , sendo $\mathbf{0}_{R\times Q}$ matriz de
 zeros de dimensão $R\times Q$ e $\mathbf{I}_{R}$ a matriz identidade de
 ordem $R$.
 
-A estatística de Wald clássica para testar a hipótese nula \@ref(eq:norm30) é definida por 
+A estatística de Wald clássica para testar a hipótese nula \@ref(eq:norm30) é definida por
+
 \begin{equation}
 X_{W}^{2}=\left( \mathbf{C}\widehat{\mathbf{\beta }}-\mathbf{c}\right)
 ^{\prime }\left( \mathbf{C}\widehat{\mathbf{V}}\left( \mathbf{\hat{\beta}}
@@ -1084,8 +1089,7 @@ inf.logit<-svyglm(informal~sx+ae+ht+id+re+sx*id+sx*ht+ae*ht+ht*id+ht*re,design=p
 
 
 ```{r, results='asis'}
-library(xtable)
-print(xtable(inf.logit, digits= c(0,3,3,2,3)),type="html")
+knitr::kable(summary(inf.logit)$coefficients,booktabs=TRUE, digits= c(0,3,3,2,3))
 ```
 
 

@@ -146,7 +146,7 @@ w_i^{REG} = \pi_i^{-1} g_i \mbox{ ,} (\#eq:estpa18)
 
 onde $\widehat{X}_{\pi} = \sum\limits_{i \in a} \pi_i^{-1} x_i$ é o estimador $\pi$ -ponderado de $X$ e $g_{i} = 1 + x_{i \mbox{ }} (X - \widehat{X}_{\pi}) / \sum_{i \in a} \pi_i^{-1} x_i^2$ .
 
-O estimador de regressão descrito em \@ref(eq:estpa16) é um caso particular do estimador de regressão generalizado, obtido quando se consideram vetores de variáveis auxiliares em vez de uma única variável auxiliar $x$ como aqui. Outra forma de generalizar o estimador de regressão é considerar estimadores alternativos dos coeficientes de regressão em lugar do estimador simples $b_{xy}$ empregado aqui. Para uma discussão detalhada do estimador de regressão generalizado veja \citeonline[cap. 3]{Silva}.
+O estimador de regressão descrito em \@ref(eq:estpa16) é um caso particular do estimador de regressão generalizado, obtido quando se consideram vetores de variáveis auxiliares em vez de uma única variável auxiliar $x$ como aqui. Outra forma de generalizar o estimador de regressão é considerar estimadores alternativos dos coeficientes de regressão em lugar do estimador simples $b_{xy}$ empregado aqui. Para uma discussão detalhada do estimador de regressão generalizado veja [@Silva], Cap.3.
 
 Para completar a descrição dos procedimentos de inferência para médias e totais baseados em estimadores ponderados do tipo razão ou regressão, é necessário identificar estimadores para as variâncias de aleatorização correspondentes. Entretanto, os estimadores de razão e regressão são viciados sob a distribuição de aleatorização para pequenas amostras. Em ambos os
 casos, o vício é desprezível para amostras grandes, e estão disponíveis expressões assintóticas para as respectivas variâncias de aleatorização. Partindo destas foram então
@@ -453,10 +453,10 @@ considerando o plano amostral, tais como SUDAAN, CENVAR, STATA ou PC-CARP
 Para descrever o método, considere um plano amostral em vários
 estágios, no qual $n_{h}$ unidades primárias de amostragem (UPAs)
 são selecionadas no estrato $h,$ $h=1,\ldots ,H$. Denotemos por 
-$\pi_{hi}$ a probabilidade de inclusão na amostra da unidade primária de amostragem (conglomerado primário) $i$ do estrato $h$, e por $\widehat{Y}%
-_{hi}$ um estimador não viciado do total $Y_{hi}$ da variável de
-pesquisa $y$ no $i$-ésimo conglomerado primário do estrato $h$, $%
-h=1,\ldots ,H$. Então um estimador não viciado do total 
+$\pi_{hi}$ a probabilidade de inclusão na amostra da unidade primária de amostragem (conglomerado primário) $i$ do estrato $h$, e por 
+$\widehat{Y}_{hi}$ um estimador não viciado do total $Y_{hi}$ da variável de
+pesquisa $y$ no $i$-ésimo conglomerado primário do estrato $h$, 
+$h=1,\ldots ,H$. Então um estimador não viciado do total 
 $Y=\sum_{h=1}^{H}\sum_{i=1}^{N_{h}}Y_{hi}$ da variável de pesquisa $y$ na população é dado por 
 $$
 \widehat{Y}_{CP}=\sum_{h=1}^{H}\sum_{i=1}^{n_{h}}\widehat{Y}_{hi}/\pi _{hi} 
@@ -468,8 +468,8 @@ correspondente por
 n_{h}-1}\sum_{i=1}^{n_{h}}\left( \frac{\widehat{Y}_{hi}}{\pi _{hi}}-\frac{%
 \widehat{Y}_{h}}{n_{h}}\right) ^{2}  (\#eq:estpa23)
 \end{equation}
-onde $\widehat{Y}_{h}=\sum_{i=1}^{n_{h}}\widehat{Y}_{hi}/\pi _{hi}$ para $%
-h=1,\ldots ,H$. (Veja por exemplo, [@Sudaan93], p. 4).
+onde $\widehat{Y}_{h}=\sum_{i=1}^{n_{h}}\widehat{Y}_{hi}/\pi _{hi}$ para 
+$h=1,\ldots ,H$. (Veja por exemplo, [@Sudaan93], p. 4).
 
 Embora muitas vezes a seleção das unidades primárias possa ter
 sido feita sem reposição, o estimador de Conglomerados Primários
@@ -483,7 +483,7 @@ médias (com a devida adaptação) devido à sua simplicidade,
 comparada com a complexidade muito maior envolvida com o emprego de
 estimadores de variância que tentam incorporar todas as etapas de planos
 amostrais em vários estágios. Uma discussão sobre a qualidade
-dessa aproximação e alternativas pode ser encontrada em \citeonline[p. 153]{SSW92}.
+dessa aproximação e alternativas pode ser encontrada em  [@SSW92], p. 153.
 
 ## Métodos de Replicação
 
@@ -599,8 +599,7 @@ ou
 }\sum_{g=1}^{G}\left( \widehat{\theta }_{\left( g\right) }-\widehat{\theta }%
 \right) ^{2}  (\#eq:estpa27)
 \end{equation}
-onde $\widehat{\theta }_{J}=\frac{1}{G}\sum_{g=1}^{G}\widehat{\theta }_{\left( g\right)}$ é um estimador pontual *jackknife*  para $%
-\theta ,$ alternativo ao estimador da amostra inteira $\hat{\theta}$.
+onde $\widehat{\theta }_{J}=\frac{1}{G}\sum_{g=1}^{G}\widehat{\theta }_{\left( g\right)}$ é um estimador pontual *jackknife*  para $\theta$,  alternativo ao estimador da amostra inteira $\hat{\theta}$.
 
 
 ```{remark} 
@@ -648,10 +647,18 @@ Vamos criar duas variáveis:
 
 
 ```{r}
+library(survey)
+source("~\\GitHub\\adac\\data\\ppv1.R")
+names(ppv1)<- tolower(names(ppv1))
+library(survey)
+ppv.des<-svydesign(ids = ~nsetor, strata = ~estratof,
+data = ppv1, nest = TRUE, weights = ~pesof)
+
 ppv.des<-update(ppv.des,
   analf=(v04a01 == 2 | v04a02 == 2)*1,
   faixa=(v02a08 >= 7 & v02a08 <= 14) *1
 )
+ppv.se.des <- subset(ppv.des, regiao == 2)
 ppv.des<-update(ppv.des,analf.faixa= (analf==1 & faixa==1)*1)
 ```
 
