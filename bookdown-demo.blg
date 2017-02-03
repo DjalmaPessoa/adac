@@ -1,12 +1,6 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: bookdown-demo.aux
 The style file: apalike.bst
 Database file #1: packages.bib
-Repeated entry---line 38 of file packages.bib
- : @article{R-survey
- :                  ,
-I'm skipping whatever remains of this entry
 Database file #2: book.bib
 Warning--I didn't find a database entry for "apêndice"
-Warning--empty institution in USBureau
-Warning--empty institution in Sudaan93
-(There was 1 error message)
+(There was 1 warning)

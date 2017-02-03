@@ -1,5 +1,4 @@
-library(survey)
-source("~\\GitHub\\adac\\data\\ppv1.R")# Referencial para Inferência {#refinf}
+# Referencial para Inferência {#refinf}
 
 ## Modelagem - Primeiras Idéias {#classic}
 
@@ -354,10 +353,10 @@ sendo para isto apresentados os elementos indispensáveis das
 `abordagens 1 e 2`.
 
 Ao construir e ajustar modelos a partir de dados de pesquisas amostrais
-``complexas'', tais como as executadas pelo IBGE, o usuário precisa
+`complexas`, tais como as executadas pelo IBGE, o usuário precisa
 incorporar as informações sobre pesos e planos amostrais utilizados.
 Em geral, ao publicar os resultados das pesquisas, os pesos são
-considerados, sendo possível produzir estimativas pontuais ``corretas''
+considerados, sendo possível produzir estimativas pontuais `corretas`
 utilizando os pacotes tradicionais. Por outro lado, para construir
 intervalos de confiança e testar hipóteses sobre parâmetros de
 modelos, seria preciso o conhecimento das estimativas de variâncias e
@@ -369,7 +368,7 @@ Pseudo-Verossimilhança e de Linearização, que serão descritos mais adiante.
 
 Em outras palavras, o uso dos pacotes usuais para analisar dados produzidos
 por pesquisas com planos amostrais complexos, tal como o uso de muitos
-remédios, pode ter contra-indicações. Cabe ao usuário "ler a bula" e identificar situações em que o uso de tais pacotes pode ser inadequado, e buscar opções de rotinas específicas ou de pacotes especializados capazes de incorporar adequadamente a estrutura do plano amostral nas análises. Ao longo deste livro faremos uso intensivo da library `survey` disponível no R, mas o leitor encontrará funcionalidade semelhante em vários outros pacotes. Nossa escolha se deveu a dois fatores principais: primeiro ao fato do pacote R ser aberto, livre e gratuito, dispensando o usuário de custos de licenciamento, bem como possibilitando aos interessados o acesso ao código fonte e a capacidade de modificar as rotinas de análise, caso necessário. O segundo fator é de natureza mais técnica, porém transitória. No presente momento, a library `survey` é a coleção de rotinas mais completa e genérica para análise de dados amostrais complexos existente, dispondo de rotinas capazes de ajustar os modelos usuais mas também de ajustar modelos não convencionais mediante maximização de verossimilhanças especificadas pelo usuário. Sabemos, entretanto, que muitos usuários habituados à facilidade de uso de pacotes com interfaces gráficas do tipo "aponte e clique" terão dificuldade adicional de adaptar-se à linguagem de comandos utilizada pelo pacote R, mas acreditamos que os benefícios do aprendizado desta nova ferramenta compensam largamente os custos adicionais do aprendizado.
+remédios, pode ter contra-indicações. Cabe ao usuário `ler a bula` e identificar situações em que o uso de tais pacotes pode ser inadequado, e buscar opções de rotinas específicas ou de pacotes especializados capazes de incorporar adequadamente a estrutura do plano amostral nas análises. Ao longo deste livro faremos uso intensivo da library `survey` disponível no R, mas o leitor encontrará funcionalidade semelhante em vários outros pacotes. Nossa escolha se deveu a dois fatores principais: primeiro ao fato do pacote R ser aberto, livre e gratuito, dispensando o usuário de custos de licenciamento, bem como possibilitando aos interessados o acesso ao código fonte e a capacidade de modificar as rotinas de análise, caso necessário. O segundo fator é de natureza mais técnica, porém transitória. No presente momento, a library `survey` é a coleção de rotinas mais completa e genérica para análise de dados amostrais complexos existente, dispondo de rotinas capazes de ajustar os modelos usuais mas também de ajustar modelos não convencionais mediante maximização de verossimilhanças especificadas pelo usuário. Sabemos, entretanto, que muitos usuários habituados à facilidade de uso de pacotes com interfaces gráficas do tipo `aponte e clique` terão dificuldade adicional de adaptar-se à linguagem de comandos utilizada pelo pacote R, mas acreditamos que os benefícios do aprendizado desta nova ferramenta compensam largamente os custos adicionais do aprendizado.
 
 ## Fontes de Variação
 
@@ -411,7 +410,7 @@ A fonte de variação (1) será considerada porque usos
 analíticos das pesquisas são amplamente discutidos neste texto,
 os quais só têm sentido quando é especificado um modelo
 estocástico para o processo subjacente que gera as medidas na população.
- A fonte de variação (3) será considerada porque a atenção será focalizada na análise de dados obtidos através de pesquisas amostrais ''complexas''. Aqui a discussão se restringirá a planos amostrais aleatorizados ou de amostragem probabilística, não sendo
+ A fonte de variação (3) será considerada porque a atenção será focalizada na análise de dados obtidos através de pesquisas amostrais `complexas. Aqui a discussão se restringirá a planos amostrais aleatorizados ou de amostragem probabilística, não sendo
 considerados métodos intencionais ou outros métodos não-aleatórios de seleção de amostras.
 
 ## Modelos de Superpopulação
@@ -527,19 +526,18 @@ Entre os planos amostrais \emph{não-informativos}, precisamos ainda distingüir
 amostrais desse tipo são raramente empregados na prática, por razões de eficiência e custo. Em vez disso, são geralmente empregados planos amostrais envolvendo estratificação, conglomeração e probabilidades desiguais de seleção (amostragem complexa).
 
 Com amostragem complexa, porém, os modelos para a população e a amostra podem ser muito diferentes (plano amostral \emph{não-ignorável}), mesmo que o mecanismo de seleção não
-dependa das variáveis de pesquisa, mas somente das variáveis auxiliares. Neste caso, ignorar o plano amostral pode viciar a inferência. Veja o Exemplo \ref{Ex2.1} adiante.
+dependa das variáveis de pesquisa, mas somente das variáveis auxiliares. Neste caso, ignorar o plano amostral pode viciar a inferência. Veja o Exemplo \@ref(ex:nonigno) adiante.
 
 A definição precisa de ignorabilidade e as condições sob as quais um plano amostral é ignorável para inferência são bastante discutidas na literatura - veja por exemplo [@Sugden84] ou os Capítulos 1 e 2 de [@CHSK2003]. Porém testar a ignorabilidade do plano amostral é muitas vezes complicado. Em caso de dificuldade, o uso de pesos tem papel fundamental.
 
-Uma forma simples de lidar com os efeitos do plano amostral na estimação pontual de quantidades descritivas populacionais de interesse é incorporar pesos adequados na análise, como se verá no Capítulo \@ref(capplanamo). Essa forma porém, não resolve por si só o problema de estimação da precisão das estimativas pontuais, nem mesmo o caso da estimação pontual de parâmetros em modelos de superpopulação, o que vai requerer métodos específicos discutidos no Capítulo 
-\@ref(ajmodpar).
+Uma forma simples de lidar com os efeitos do plano amostral na estimação pontual de quantidades descritivas populacionais de interesse é incorporar pesos adequados na análise, como se verá no Capítulo \@ref(capplanamo). Essa forma porém, não resolve por si só o problema de estimação da precisão das estimativas pontuais, nem mesmo o caso da estimação pontual de parâmetros em modelos de superpopulação, o que vai requerer métodos específicos discutidos no Capítulo \@ref(ajmodpar).
 
 Como incluir os pesos para proteger contra planos amostrais \emph{não-ignoráveis} e a possibilidade de má especificação do modelo? Uma idéia é modificar os estimadores dos parâmetros de modo que sejam consistentes (em termos da distribuição de aleatorização) para quantidades descritivas da população finita da qual a amostra foi extraída, que por
 sua vez seriam boas aproximações para os parâmetros dos modelos de interesse. Afirmações probabilísticas são então feitas com respeito à distribuição de aleatorização das estatísticas amostrais $p$ ou com respeito à distribuição mista $Mp$.
 
 A seguir apresentamos um exemplo com a finalidade de ilustrar uma situação de plano amostral não-ignorável.
 
-```{example}
+```{example, label="nonigno"}
 Efeito da amostragem estratificada simples com alocação desproporcional
 ```
 

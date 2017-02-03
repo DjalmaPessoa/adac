@@ -23,7 +23,7 @@ language:
 
     proof: "Prova. "
 
-    remark: "Observação. "
+    remark: "Observação "
 
   ui:
 
