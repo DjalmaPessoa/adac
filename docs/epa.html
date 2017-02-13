@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-02-03">
+<meta name="date" content="2017-02-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -170,7 +170,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="testqualajust.html"><a href="testqualajust.html#teste-para-varias-proporcoes"><i class="fa fa-check"></i><b>7.3</b> Teste para Várias Proporções</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="testqualajust.html"><a href="testqualajust.html#estatistica-de-wald-baseada-no-plano-amostral"><i class="fa fa-check"></i><b>7.3.1</b> Estatística de Wald Baseada no Plano Amostral</a></li>
-<li class="chapter" data-level="7.3.2" data-path="testqualajust.html"><a href="testqualajust.html#estatistica-de-pearson-com-ajuste-de-rao-scott-raoscott"><i class="fa fa-check"></i><b>7.3.2</b> Estatística de Pearson com Ajuste de Rao-Scott (#raoscott)</a></li>
+<li class="chapter" data-level="7.3.2" data-path="testqualajust.html"><a href="testqualajust.html#raoscott"><i class="fa fa-check"></i><b>7.3.2</b> Estatística de Pearson com Ajuste de Rao-Scott</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="testqualajust.html"><a href="testqualajust.html#laboratorio-de-r-4"><i class="fa fa-check"></i><b>7.4</b> Laboratório de R</a></li>
 </ul></li>
@@ -1147,10 +1147,10 @@ REC_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(REC.
 
 EPA_SAL1 &lt;-<span class="st"> </span>SAL_res_mean[<span class="dv">4</span>]/SAL_res_mean[<span class="dv">3</span>]
 EPA_SAL1</code></pre></div>
-<pre><code>## [1] 0.1425256</code></pre>
+<pre><code>## [1] 0.1414929</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">EPA_REC1 &lt;-<span class="st"> </span>REC_res_mean[<span class="dv">4</span>]/REC_res_mean[<span class="dv">3</span>]
 EPA_REC1</code></pre></div>
-<pre><code>## [1] 0.3116952</code></pre>
+<pre><code>## [1] 0.3790281</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 Vp_SAL_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(SAL~ESTRAT, popul, var)
@@ -1164,7 +1164,7 @@ Vp_SAL &lt;-<span class="st"> </span><span class="kw">sum</span>(Wh^<span class=
 <h3>Referências</h3>
 <div id="refs" class="references">
 <div id="ref-SilvaMou">
-<p>Nascimento Silva, P. L. D., and F. A. S. Moura. 1990. “Efeitos de Conglomeração Da Malha Setorial Do Censo Demográfico 80.” Série Textos para Discuss?o 32. Rio de Janeiro: IBGE, Diretoria de Pesquisas.</p>
+<p>Nascimento Silva, P. L. D., and F. A. S. Moura. 1990. “Efeitos de Conglomeração Da Malha Setorial Do Censo Demográfico 80.” Série Textos para Discussão 32. Rio de Janeiro: IBGE, Diretoria de Pesquisas.</p>
 </div>
 <div id="ref-SHS89">
 <p>Skinner, C. J., D. Holt, and T. M. F. Smith, eds. 1989. <em>Analysis of Complex Surveys</em>. Chichester: John Wiley; Sons.</p>

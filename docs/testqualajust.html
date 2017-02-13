@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-02-03">
+<meta name="date" content="2017-02-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -170,7 +170,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="testqualajust.html"><a href="testqualajust.html#teste-para-varias-proporcoes"><i class="fa fa-check"></i><b>7.3</b> Teste para Várias Proporções</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="testqualajust.html"><a href="testqualajust.html#estatistica-de-wald-baseada-no-plano-amostral"><i class="fa fa-check"></i><b>7.3.1</b> Estatística de Wald Baseada no Plano Amostral</a></li>
-<li class="chapter" data-level="7.3.2" data-path="testqualajust.html"><a href="testqualajust.html#estatistica-de-pearson-com-ajuste-de-rao-scott-raoscott"><i class="fa fa-check"></i><b>7.3.2</b> Estatística de Pearson com Ajuste de Rao-Scott (#raoscott)</a></li>
+<li class="chapter" data-level="7.3.2" data-path="testqualajust.html"><a href="testqualajust.html#raoscott"><i class="fa fa-check"></i><b>7.3.2</b> Estatística de Pearson com Ajuste de Rao-Scott</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="testqualajust.html"><a href="testqualajust.html#laboratorio-de-r-4"><i class="fa fa-check"></i><b>7.4</b> Laboratório de R</a></li>
 </ul></li>
@@ -494,8 +494,8 @@ F_{2.p}=\frac{X_{W}^{2}}{\left( J-1\right) },
 <p>O efeito de uma correção <span class="math inline">\(\mathbf{F}\)</span> à estatística <span class="math inline">\(X_{W}^{2}\)</span> pode ser visualizado facilmente no caso de duas celas. Se <span class="math inline">\(f\)</span> for pequeno, então o <span class="math inline">\(p\)</span>valor de <span class="math inline">\(X_{W}^{2}\)</span>, obtido a partir de uma distribuição  com <span class="math inline">\(1\)</span> e <span class="math inline">\(f\)</span> graus, é maior que o <span class="math inline">\(p\)</span> valor obtido numa distribuição qui-quadrado com um grau de liberdade. Quando <span class="math inline">\(f\)</span> aumenta a diferença diminui, tornando a correção desprezível, quando <span class="math inline">\(f\)</span> for grande.</p>
 <p>Thomas e Rao(1987) analisaram o desempenho das diferentes estatísticas de teste de bondade de ajuste, no caso de instabilidade. Eles verificaram que a estatística de Wald F-corrigida <span class="math inline">\(F_{1.p}\)</span> não apresentou, em geral, o melhor desempenho nesta comparação, contudo, comportou-se relativamente bem nos casos padrões, onde a instabilidade não era muito grave. As estatísticas F-corrigidas de Wald são bastante utilizadas na prática, e estão implementadas em pacotes para análise de dados de pesquisas amostrais complexas.</p>
 </div>
-<div id="estatistica-de-pearson-com-ajuste-de-rao-scott-raoscott" class="section level3">
-<h3><span class="header-section-number">7.3.2</span> Estatística de Pearson com Ajuste de Rao-Scott (#raoscott)</h3>
+<div id="raoscott" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Estatística de Pearson com Ajuste de Rao-Scott</h3>
 O exemplo introdutório serviu para mostrar que, na presença de efeitos de plano amostral importantes, as estatísticas clássicas de teste precisam ser ajus-tadas para terem a mesma distribuição assintótica de referência que a obtida para o caso de amostragem aleatória simples. Inicialmente, vamos considerar a estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> de Pearson<span class="math inline">\(.\)</span> Essa estatística pode ser escrita em forma matricial como
 <span class="math display" id="eq:qual11">\[\begin{equation}
 X_{P}^{2}=n\sum\limits_{j=1}^{J}\left( \widehat{p}_{j}-p_{0j}\right)

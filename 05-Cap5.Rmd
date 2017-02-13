@@ -32,7 +32,7 @@ sobre variáveis auxiliares, utilizadas ou não na especificação do plano amos
 ção dos parâmetros ou na própria formulação do
 modelo.
 
-Os exemplos apresentados no Capítulo \@ref(efeitos-do-plano-amostral) demonstram claramente a inadequa
+Os exemplos apresentados no Capítulo \@ref(epa) demonstram claramente a inadequa
 ção de ignorar o plano amostral ao efetuar análises de dados de
 pesquisas amostrais. Os valores dos EPAs calculados, tanto para
 estimadores de medidas descritivas tais como médias e totais, como para
@@ -457,7 +457,7 @@ Seja $\mathbf{T}=\sum_{i\in U}\mathbf{u}_{i}\left( \mathbf{\theta }\right)$
 a soma dos vetores de escores na população, o qual é um vetor de
 totais populacionais. Para estimar este vetor de totais, podemos então
 usar um estimador linear ponderado da forma $\mathbf{\hat{T}}=\sum_{i\in
-s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta }\right)$ (veja Capítulo \@ref(estimacao-baseada-no-plano-amostral))
+s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta }\right)$ (veja Capítulo \@ref(planamo))
 onde $w_{i}$ são pesos propriamente definidos. Com essa notação,
 podemos agora obter um estimador para $\mathbf{\theta }_{U}$ resolvendo o
 sistema de equações obtido igualando o estimador $\mathbf{\hat{T}}$
@@ -524,7 +524,7 @@ o que fornece uma base para a inferência sobre $\mathbf{\theta }_{U}$ (ou $\mat
 Muitos modelos paramétricos, com vários planos amostrais e
 estimadores de totais diferentes, podem ser ajustados resolvendo-se as equa
 ções de Pseudo-Verossimilhança \@ref(eq:modpar7), satisfeitas algumas
-condições de regularidade enunciadas em [@apêndice] e
+condições de regularidade enunciadas no apêndice de  [@binder83] e
 revistas em [@Silva], p. 126. Entretanto, os estimadores de
 MPV não serão únicos, já que existem diversas maneiras
 de se definir os pesos $w_{i}$.

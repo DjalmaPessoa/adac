@@ -471,7 +471,7 @@ especializado, a library `survey` (Lumley, 2004), e através de um programa de
 uso geral, a library glm do pacote R. As referências centrais são 
 cap6 em [@Silva] e Binder(1983), além de [@Pessoa].
 
-Os Capítulos \@ref(testqualajust) e  \@ref(testes-em-tabelas-de-duas-entradas) tratam da análise de dados
+Os Capítulos \@ref(testqualajust) e  \@ref(testetab2) tratam da análise de dados
 categóricos com ênfase na adaptação dos testes clássicos
 para proporções, de independência e de homogeneidade em tabelas
 de contingência, para dados provenientes de pesquisas amostrais

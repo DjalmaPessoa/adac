@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-02-03">
+<meta name="date" content="2017-02-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -170,7 +170,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="testqualajust.html"><a href="testqualajust.html#teste-para-varias-proporcoes"><i class="fa fa-check"></i><b>7.3</b> Teste para Várias Proporções</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="testqualajust.html"><a href="testqualajust.html#estatistica-de-wald-baseada-no-plano-amostral"><i class="fa fa-check"></i><b>7.3.1</b> Estatística de Wald Baseada no Plano Amostral</a></li>
-<li class="chapter" data-level="7.3.2" data-path="testqualajust.html"><a href="testqualajust.html#estatistica-de-pearson-com-ajuste-de-rao-scott-raoscott"><i class="fa fa-check"></i><b>7.3.2</b> Estatística de Pearson com Ajuste de Rao-Scott (#raoscott)</a></li>
+<li class="chapter" data-level="7.3.2" data-path="testqualajust.html"><a href="testqualajust.html#raoscott"><i class="fa fa-check"></i><b>7.3.2</b> Estatística de Pearson com Ajuste de Rao-Scott</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="testqualajust.html"><a href="testqualajust.html#laboratorio-de-r-4"><i class="fa fa-check"></i><b>7.4</b> Laboratório de R</a></li>
 </ul></li>
@@ -1120,7 +1120,7 @@ knitr::<span class="kw">kable</span>(marg_sx_pop, <span class="dt">digits=</span
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xtable)
 <span class="kw">print</span>(<span class="kw">xtable</span>(<span class="kw">svyby</span>(~re,~sx,pnad.des,svymean,<span class="dt">keep.var=</span><span class="ot">TRUE</span>),<span class="dt">caption=</span><span class="st">&quot;Proporções por sexo&quot;</span>),<span class="dt">type=</span><span class="st">&quot;html&quot;</span>, <span class="dt">size=</span><span class="st">&quot;small&quot;</span>, <span class="dt">include.rownames=</span><span class="ot">FALSE</span>)</code></pre></div>
 <!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
-<!-- Fri Feb 03 15:48:35 2017 -->
+<!-- Mon Feb 13 14:04:37 2017 -->
 <table border="1">
 <caption align="bottom">
 Proporções por sexo

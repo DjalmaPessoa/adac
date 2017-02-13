@@ -514,7 +514,7 @@ muito grave. As estatísticas F-corrigidas de Wald são bastante
 utilizadas na prática, e estão implementadas em pacotes para
 análise de dados de pesquisas amostrais complexas.
 
-### Estatística de Pearson com Ajuste de Rao-Scott (#raoscott)
+### Estatística de Pearson com Ajuste de Rao-Scott {#raoscott}
 
 O exemplo introdutório serviu para mostrar que, na presença de
 efeitos de plano amostral importantes, as estatísticas clássicas de
