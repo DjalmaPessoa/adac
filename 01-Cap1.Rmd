@@ -87,30 +87,30 @@ Em seguida foi feita uma alocação proporcional, com base no
 número de domicílios particulares permanentes ocupados do estrato de
 renda no universo de cada estrato geográfico, obtidos pelo Censo de 1991.
 No final foram obtidos 554 setores na amostra, distribuídos tal como
-revela a Tabela \@ref(tab:numset).
+revela a Tabela \ref{table:Tab11}.
 
 
 
-```{r, numset, echo=FALSE}
-estrat <- data.frame (Estrato =
- c("RM Fortaleza", "RM Recife", "RM Salvador", 
-"Restante Nordeste Urbano", "Restante Nordeste Rural",
-"RM Belo Horizonte", "RM Rio de Janeiro", "RM São Paulo",
-"Restante Sudeste Urbano", "Restante Sudeste Rural","Total")
-, População = c(2263, 2309,2186,15057,23711,3283, 10420,
- 14931, 25855, 12001, 112016), Amostra = c(62, 61, 61, 61, 33, 62,
-   61, 61, 61,31,554) 
-    )
-knitr::kable(estrat,booktabs = TRUE, 
-  caption = "Número de setores na população e na amostra, por estrato geográfico"
-  )
-```
+<!-- ```{r, numset, echo=FALSE} -->
+<!-- estrat <- data.frame (Estrato = -->
+<!--  c("RM Fortaleza", "RM Recife", "RM Salvador",  -->
+<!-- "Restante Nordeste Urbano", "Restante Nordeste Rural", -->
+<!-- "RM Belo Horizonte", "RM Rio de Janeiro", "RM São Paulo", -->
+<!-- "Restante Sudeste Urbano", "Restante Sudeste Rural","Total") -->
+<!-- , População = c(2263, 2309,2186,15057,23711,3283, 10420, -->
+<!--  14931, 25855, 12001, 112016), Amostra = c(62, 61, 61, 61, 33, 62, -->
+<!--    61, 61, 61,31,554)  -->
+<!--     ) -->
+<!-- knitr::kable(estrat,booktabs = TRUE,  -->
+<!--   caption = "Número de setores na população e na amostra, por estrato geográfico" -->
+<!--   ) -->
+<!-- ``` -->
 
 \begin{center}
 \begin{table}[htbp] \centering
 
 \caption{Número de setores na população e na amostra, por estrato geográfico}
-\bigskip \label{Tab11}
+\bigskip \label{table:Tab11}
 \begin{tabular}{|l|c|c|}
 \hline\hline
 & \multicolumn{2}{|l|}{Número de setores} \\ \cline{2-3}
@@ -144,7 +144,7 @@ Total & \multicolumn{1}{|r|}{$112.016$} & \multicolumn{1}{|r|}{$554$} \\
 
 
 
-A Tabela \@ref(tab:dispesos) apresenta um resumo das distribuições dos pesos
+A Tabela \ref{table:Tab12} apresenta um resumo das distribuições dos pesos
 amostrais para as Regiões Nordeste (5 estratos geográficos) e
 Sudeste (5 estratos geográficos) separadamente e para o conjunto da
 amostra da PPV.
@@ -152,7 +152,7 @@ amostra da PPV.
 \begin{center}
 \begin{table}[htbp] \centering
 
-\caption{Distribuição dos pesos da amostra da PPV}\bigskip \label{Tab12} 
+\caption{Distribuição dos pesos da amostra da PPV}\bigskip \label{table:Tab12} 
 \begin{tabular}{|c|r|c|r|c|r|}
 \hline\hline
 Região & Mínimo & Q1 & Mediana & Q3 & Máximo \\ \hline\hline
@@ -168,15 +168,15 @@ Nordeste + Sudeste & $724$ & \multicolumn{1}{|r|}{$1.364$} & $4.034$ &
 
 \end{center}
 
-```{r, dispesos, echo=FALSE}
-source("~\\GitHub\\adac\\data\\ppv1.R")
-Nordeste <- summary(ppv1$PESOF[ppv1$REGIAO=="1"])
-Sudeste <- summary(ppv1$PESOF[ppv1$REGIAO=="2"])
-Nordeste_Sudeste <- summary(ppv1$PESOF)
-Pesos <- rbind(Nordeste, Sudeste, Nordeste_Sudeste)
-knitr::kable(Pesos,booktabs = TRUE,
-  caption = "Distribuição dos pesos da amostra da PPV")
-```
+<!-- ```{r, dispesos, echo=FALSE} -->
+<!-- source("~\\GitHub\\adac\\data\\ppv1.R") -->
+<!-- Nordeste <- summary(ppv1$PESOF[ppv1$REGIAO=="1"]) -->
+<!-- Sudeste <- summary(ppv1$PESOF[ppv1$REGIAO=="2"]) -->
+<!-- Nordeste_Sudeste <- summary(ppv1$PESOF) -->
+<!-- Pesos <- rbind(Nordeste, Sudeste, Nordeste_Sudeste) -->
+<!-- knitr::kable(Pesos,booktabs = TRUE, -->
+<!--   caption = "Distribuição dos pesos da amostra da PPV") -->
+<!-- ``` -->
 
 
 
@@ -230,48 +230,49 @@ aleatória simples foi calculada para cada uma das estimativas consideradas
 usando a library `survey` do R [@R-survey] . Essa razão fornece uma
 medida do efeito de ignorar o plano amostral . Os resultados das
 estimativas ponderadas e variâncias considerando o plano amostral
-são apresentados na Tabela \@ref(tab:epas), juntamente com as medidas dos
-efeitos de plano amostral (EPA). Exemplos de utilização da library `survey` para obtenção de estimativas apresentadas na \@ref(tab:epas) estão na Seção \@ref(epa). As outras estimativas da Tabela \@ref(tab:epas) podem ser obtidas de maneira análoga.
+são apresentados na Tabela \ref{table:Tab13}, juntamente com as medidas dos
+efeitos de plano amostral (EPA). Exemplos de utilização da library `survey` para obtenção de estimativas apresentadas na \ref{table:Tab13} estão na Seção \@ref(epa). As outras estimativas da Tabela \ref{table:Tab13} podem ser obtidas de maneira análoga.
 
-Na Tabela \@ref(tab:epas) apresentamos as estimativas dos seguintes parâmetros populacionais:
+<!-- Na Tabela \@ref(tab:epas) apresentamos as estimativas dos seguintes parâmetros populacionais: -->
 
-1. Número médio de pessoas por domicílio;
-2. % de domicílios alugados;
-3. Número total de pessoas que avaliaram seu estado de de saúde como ruim;
-4. Total de analfabetos de 7 a 14 anos;
-5. Total de analfabetos de mais de 14 anos;
-6. % de analfabetos de 7 a 14 anos;
-7. % de analfabetos de mais de 14 anos;
-8. Total de mulheres de 12 a 49 anos que tiveram filhos;
-9. Total de mulheres de 12 a 49 anos que tiveram filhos vivos;
-10.Total de mulheres de 12 a 49 anos que tiveram filhos mortos;
-11. Número médio de filhos tidos por mulheres de 12 a 49 anos;
-12. Razão de dependência.
+<!-- 1. Número médio de pessoas por domicílio; -->
+<!-- 2. % de domicílios alugados; -->
+<!-- 3. Número total de pessoas que avaliaram seu estado de de saúde como ruim; -->
+<!-- 4. Total de analfabetos de 7 a 14 anos; -->
+<!-- 5. Total de analfabetos de mais de 14 anos; -->
+<!-- 6. % de analfabetos de 7 a 14 anos; -->
+<!-- 7. % de analfabetos de mais de 14 anos; -->
+<!-- 8. Total de mulheres de 12 a 49 anos que tiveram filhos; -->
+<!-- 9. Total de mulheres de 12 a 49 anos que tiveram filhos vivos; -->
+<!-- 10.Total de mulheres de 12 a 49 anos que tiveram filhos mortos; -->
+<!-- 11. Número médio de filhos tidos por mulheres de 12 a 49 anos; -->
+<!-- 12. Razão de dependência. -->
 
 
-```{r,epas, echo=FALSE}
-epas <- data.frame(
-Estimativa = c(3.62, 10.70, 1208123, 1174220,4792344, 11.87, 10.87, 10817590, 10804511,709145,1.39,0.53),
-DP =c(0.05, 1.15, 146681, 127982, 318877, 1.18, 0.67, 322947, 323182, 87363, 0.03, 0.01),
-EPA= c(2.64, 2.97, 3.37,2.64, 4.17,2.46, 3.86, 2.02, 3.02, 2.03, 1.26, 1.99 )  
-)
-knitr::kable(epas, booktabs=TRUE, 
-caption="Estimativas de Efeitos de Plano Amostral (EPAs) 
-para variáveis selecionadas da PPV - Região Sudeste"
-)
-  
-```
+
+<!-- ```{r,epas, echo=FALSE} -->
+<!-- epas <- data.frame( -->
+<!-- Estimativa = c(3.62, 10.70, 1208123, 1174220,4792344, 11.87, 10.87, 10817590, 10804511,709145,1.39,0.53), -->
+<!-- DP =c(0.05, 1.15, 146681, 127982, 318877, 1.18, 0.67, 322947, 323182, 87363, 0.03, 0.01), -->
+<!-- EPA= c(2.64, 2.97, 3.37,2.64, 4.17,2.46, 3.86, 2.02, 3.02, 2.03, 1.26, 1.99 )   -->
+<!-- ) -->
+<!-- knitr::kable(epas, booktabs=TRUE,  -->
+<!-- caption="Estimativas de Efeitos de Plano Amostral (EPAs)  -->
+<!-- para variáveis selecionadas da PPV - Região Sudeste" -->
+<!-- ) -->
+
+<!-- ``` -->
 
 \begin{center}
 
 \begin{table}[htbp] \centering
 
 \caption{Estimativas de Efeitos de Plano Amostral (EPAs)
-para variáveis selecionadas da PPV - Região Sudeste }\bigskip \label{Tab13}
+para variáveis selecionadas da PPV - Região Sudeste }\bigskip \label{table:Tab13}
 \begin{tabular}{|c|c|c|c|}
 \hline\hline
 \begin{tabular}{l}
-``Parâmetro'' \\
+Parâmetro \\
 Populacional
 \end{tabular}
 \  & Estimativa &
@@ -371,7 +372,7 @@ de 12 a 49 anos
 \end{table}
 \end{center}
 
-Como se pode observar da quarta coluna da Tabela \@ref(tab:epas), os valores do
+Como se pode observar da quarta coluna da Tabela \ref{table:Tab13}, os valores do
 efeito do plano amostral variam de um modesto 1,26 para o número
 médio de filhos tidos por mulheres em idade fértil (12 a 49 anos de
 idade) até um substancial 4,17 para o total de analfabetos entre pessoas
@@ -381,7 +382,7 @@ simples implicaria em subestimar consideravelmente a variância da
 estimativa pontual, que é mais que 4 vezes maior se consideramos o plano
 amostral efetivamente utilizado.
 
-Note que as variáveis e parâmetros cujas estimativas são apresentadas na Tabela \@ref(tab:epas) não foram escolhidas de forma a acentuar os efeitos ilustrados, mas tão somente para representar distintos parâmetros (médias, razões, totais, proporções) e variáveis de interesse. Os resultados apresentados para as estimativas de EPA ilustram bem o cenário típico em pesquisas amostrais complexas: o impacto do plano amostral sobre a inferência varia conforme a variável e o tipo de parâmetro de interesse. Note ainda que à exceção do menor valor, todas as demais estimativas de EPA apresentaram valores superiores a 2.
+Note que as variáveis e parâmetros cujas estimativas são apresentadas na Tabela \ref{table:Tab13} não foram escolhidas de forma a acentuar os efeitos ilustrados, mas tão somente para representar distintos parâmetros (médias, razões, totais, proporções) e variáveis de interesse. Os resultados apresentados para as estimativas de EPA ilustram bem o cenário típico em pesquisas amostrais complexas: o impacto do plano amostral sobre a inferência varia conforme a variável e o tipo de parâmetro de interesse. Note ainda que à exceção do menor valor, todas as demais estimativas de EPA apresentaram valores superiores a 2.
 
 ## Objetivos do Livro
 
@@ -565,9 +566,10 @@ opção interessante.
 ```{example}
 Utilização da library survey do R para estimar totais e razões na PPV 
 ```
-Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref{ex:distppv} . Inicialmente, vamos ler os
+Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref(ex:distppv) . Inicialmente, vamos ler os
 dados do arquivo `ppv1.R`, através do comando `source`. Em seguida, vamos definir variáveis de interesse por meio de transformação de variáveis existentes.
 ```{r,echo=FALSE, message=FALSE}
+source("~\\GitHub\\adac\\data\\ppv1.R")
 library(survey)
 # transforma nomes de variáveis para minúsculas
 names(ppv1)<- tolower(names(ppv1))
@@ -580,7 +582,7 @@ v02a08 <= 14)) *   1, analf2 = ((v04a01 == 2 | v04a02 == 2) &
 (v02a08 >14)) * 1, faixa1 = (v02a08 >= 7 & v02a08 <= 14) *1, faixa2 = (v02a08 > 14) * 1)
 ```
 
-A seguir, mostramos a utilização da library survey do R para obter algumas estimativas da Tabela \@ref(tab:epas). Vamos supor que os dados da pesquisa estão contidos no data frame `ppv1`, que contém as variáveis  que caracterizam o plano amostral
+A seguir, mostramos a utilização da library survey do R para obter algumas estimativas da Tabela \ref{table:Tab13}. Vamos supor que os dados da pesquisa estão contidos no data frame `ppv1`, que contém as variáveis  que caracterizam o plano amostral
 
 - nsetor - conglomerados;
 - estratof - estratos;
@@ -612,9 +614,7 @@ restringir o desenho a esse domínio:
 ```{r}
 ppv.se.des <- subset(ppv.des, regiao == 2)
 ```
-Para exemplificar, vamos estimar algumas características da população, descritas na
-\@ref(tab:epas). Os totais das variáveis `analf1` e `analf2` para
-a região Sudeste fornecem os resultados nas linhas 4) e 5 da  Tabela \@ref(tab:epas):
+Para exemplificar, vamos estimar algumas características da população, descritas na Tabela \ref{table:Tab13}. Os totais das variáveis `analf1` e `analf2` para a região Sudeste fornecem os resultados nas linhas 4) e 5 da  Tabela \ref{table:Tab13}:
 
 Vamos estimar os totais de analfabetos nas faixas etárias de 7 a 14 anos e acima de 14 anos.
 
@@ -625,7 +625,7 @@ svytotal(~analf2, ppv.se.des, deff = TRUE)
 ```
 
 Queremos ainda estimar o percentual de analfabetos nas faixas 
-etárias consideradas, que fornece os resultados nas linhas 6 e 7 da Tabela \@ref(tab:epas):
+etárias consideradas, que fornece os resultados nas linhas 6 e 7 da Tabela \ref{table:Tab13}:
 
 ```{r}
 svyratio(~analf1, ~faixa1, ppv.se.des)
@@ -637,15 +637,16 @@ Poderíamos estimar os totais da variável `analf1` para as regiões `Nordeste (
 ```{r}
 svyby(~analf1, ~regiao, ppv.des, svytotal, deff = TRUE)
 ```
-Observe que as estimativas de totais e desvios padrão obtidas coincidem com as Tabela \@ref(tab:epas), porém as estimativas de Efeitos de Plano Amostral(DEff) são distintas.
+Observe que as estimativas de totais e desvios padrão obtidas coincidem com as Tabela \ref{table:Tab13}, porém as estimativas de Efeitos de Plano Amostral(DEff) são distintas.
 
 
 ### Estimativa do efeito de plano amostral (EPA)
 
 Esse assunto será tratado em detalhes no Capítulo \@ref(epa) . Por enquanto, apresentaremos uma 
-introdução necessária para compreender os valores na Tabela \@ref(tab:epas).
+introdução necessária para compreender os valores na Tabela \ref{table:Tab13}.
 
-O efeito de plano amostral (EPA) de Kish é definido na fórmula 4.1, na página 54 do livro. Vamos considerar o caso particular em que $\hat{\theta}$ é um estimador de total de uma variável $Y$.Ou seja
+O efeito de plano amostral (EPA) de Kish é definido na fórmula 
+\@ref(eq:epa1), na página 54 do livro. Vamos considerar o caso particular em que $\hat{\theta}$ é um estimador de total de uma variável $Y$.Ou seja
 \[
 EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
 \]
@@ -707,8 +708,8 @@ attr(svytotal(~analf2, ppv.se.des),"var")/VAAS2
 ```
 
 Esses valores do EPA coicidem com os obtidos acima através da library survey e 
-são distintos daqueles apresentados na Tabela \@ref(tab:epas). Para obter os valores 
-correspondentes aos da Tabela \@ref(tab:epas), através da library survey, vamos definir as variáveis:
+são distintos daqueles apresentados na Tabela \ref{table:Tab13}. Para obter os valores 
+correspondentes aos da Tabela \ref{table:Tab13}, através da library survey, vamos definir as variáveis:
 
 ```{r}
 analf1.se<-with(ppv1,((v04a01==2|v04a02==2) & (v02a08>=7&v02a08<=14))&(regiao==2))

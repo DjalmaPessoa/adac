@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  13 FEB 2017 14:10
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  28 MAR 2017 16:07
 entering extended mode
 **./bookdown-demo.tex
 (bookdown-demo.tex
@@ -915,23 +915,7 @@ Package babel Info: Making " an active character on input line 145.
 \c@example=\count168
 \c@remark=\count169
 \c@definition=\count170
-(bookdown-demo.aux
-
-LaTeX Warning: Label `eq:estpa9' multiply defined.
-
-
-LaTeX Warning: Label `epa' multiply defined.
-
-
-LaTeX Warning: Label `eq:qual1' multiply defined.
-
-
-LaTeX Warning: Label `eq:Tab8' multiply defined.
-
-
-LaTeX Warning: Label `tab:proplinha' multiply defined.
-
-)
+(bookdown-demo.aux)
 \openout1 = `bookdown-demo.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 139.
@@ -1030,7 +1014,7 @@ LaTeX Info: Redefining \nameref on input line 139.
 ] [2
 
 ] (bookdown-demo.toc
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 3.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 7.
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1038,25 +1022,25 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `lmr' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 3.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 7.
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 3.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 7.
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 3.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 7.
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 3.
+(Font)              <10> on input line 7.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 3.
+(Font)              <7> on input line 7.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 3.
-LaTeX Font Info:    Try loading font information for U+msa on input line 3.
+(Font)              <5> on input line 7.
+LaTeX Font Info:    Try loading font information for U+msa on input line 7.
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -1064,262 +1048,142 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 fg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 3.
+LaTeX Font Info:    Try loading font information for U+msb on input line 7.
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-msb.c
 fg"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [3])
+))
 \tf@toc=\write5
 \openout5 = `bookdown-demo.toc'.
 
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 148.
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 167
-.
-("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmtt.fd"
-File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OMS+lmtt on input line 177
-.
-LaTeX Font Info:    No file OMSlmtt.fd. on input line 177.
+[3] [4
 
-LaTeX Font Warning: Font shape `OMS/lmtt/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 177.
+] [5] [6
 
-[4] [5
-
-] [6]
+]
 Cap\'{\i }tulo 1.
-[7
+[7] [8
 
-] [8] [9] [10] [11]
-Underfull \hbox (badness 1077) in paragraph at lines 769--778
-\TU/lmr/m/n/10 amostrais complexas, e introduzimos um método geral, denominado 
-\TU/lmtt/m/n/10 Método de Máxima Pseudo
- []
+]
+Cap\'{\i }tulo 2.
+[9] [10
 
-[12] [13]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 910.
+]
+Cap\'{\i }tulo 3.
+[11] [12
+
+]
+Cap\'{\i }tulo 4.
+[13] [14] [15] [16] [17]
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 605.
+
+("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [18]
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 722.
 
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 910.
-[14] [15] [16] [17] [18]
-Cap\'{\i }tulo 2.
-File: Figuras/fig21.png Graphic file (type QTm)
-<use  "Figuras/fig21.png" > [19
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 722.
 
-] [20]
-File: Figuras/fig22.png Graphic file (type QTm)
-<use  "Figuras/fig22.png" > [21] [22] [23]
-File: Figuras/fig23.png Graphic file (type QTm)
-<use  "Figuras/fig23.png" > [24] [25] [26] [27] [28] [29]
+Underfull \vbox (badness 4543) has occurred while \output is active []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[30] [31] [32] [33] [34
-
-]
-Cap\'{\i }tulo 3.
-[35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48
-
-]
-Cap\'{\i }tulo 4.
-[49]
-LaTeX Font Info:    Try loading font information for OML+lmr on input line 3596
-.
-("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllmr.fd"
-File: omllmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `OML/lmr/m/n' in size <10> not available
-(Font)              Font shape `OML/lmm/m/it' tried instead on input line 3596.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[50] [51] [52]
-Overfull \vbox (79.11185pt too high) has occurred while \output is active []
-
-[53]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 3893
-.
-("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-
-LaTeX Warning: Reference `tab43' on page 54 undefined on input line 3897.
-
-
-LaTeX Warning: Reference `tab44' on page 54 undefined on input line 3983.
-
-
-Overfull \vbox (1.0859pt too high) has occurred while \output is active []
-
-[54]
-
-LaTeX Warning: Reference `tab45' on page 55 undefined on input line 4064.
-
-[55]
+[19] [20]
 File: Figuras/fig41.png Graphic file (type QTm)
-<use  "Figuras/fig41.png" > [56] [57]
-Overfull \hbox (37.50438pt too wide) in paragraph at lines 4269--4275
+<use  "Figuras/fig41.png" > [21] [22]
+Overfull \hbox (37.50438pt too wide) in paragraph at lines 920--926
 []\TU/lmr/m/n/10 Neste caso, um intervalo de confiança de nível de confiança ap
 roximado $[]$ é dado por $[]$,
  []
 
-[58]
+[23] [24] [25] [26] [27]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1390.
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 140
+9.
+("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmtt.fd"
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmtt on input line 141
+9.
+LaTeX Font Info:    No file OMSlmtt.fd. on input line 1419.
 
-LaTeX Warning: Reference `tab46' on page 59 undefined on input line 4353.
+LaTeX Font Warning: Font shape `OMS/lmtt/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbackslash' on input line 1419.
 
-[59] [60] [61] [62]
+[28] [29] [30
 
-LaTeX Warning: Reference `tab47' on page 63 undefined on input line 4703.
-
-[63] [64]
+]
 Cap\'{\i }tulo 5.
-[65
+[31] [32
 
-] [66] [67] [68] [69] [70] [71] [72] [73] [74]
+]
 Cap\'{\i }tulo 6.
-[75
-
-] [76] [77] [78] [79]
-Overfull \hbox (19.68164pt too wide) in paragraph at lines 6192--6194
-[]|\TU/lmr/m/n/10 ae(1)ae(2)ae(3)|  
- []
-
-
-Overfull \hbox (18.87164pt too wide) in paragraph at lines 6199--6201
-[]|\TU/lmr/m/n/10 ht(1)ht(2)ht(3)|  
- []
-
-
-Overfull \hbox (37.50165pt too wide) in paragraph at lines 6206--6208
-[]|\TU/lmr/m/n/10 id(1)id(2)id(3)id(4)|  
- []
-
-
-Overfull \hbox (16.44164pt too wide) in paragraph at lines 6213--6215
-[]|\TU/lmr/m/n/10 re(1)re(2)re(3)|  
- []
-
-[80] [81]
-
-LaTeX Warning: Reference `tab61' on page 82 undefined on input line 6246.
-
-
-LaTeX Warning: Reference `tab63' on page 82 undefined on input line 6329.
-
-
-LaTeX Warning: Reference `tab63' on page 82 undefined on input line 6335.
-
-[82] [83]
-
-LaTeX Warning: Reference `tab64' on page 84 undefined on input line 6362.
-
-
-LaTeX Warning: Reference `tab65' on page 84 undefined on input line 6366.
-
-[84]
-
-LaTeX Warning: Reference `tab62' on page 85 undefined on input line 6473.
-
-[85] [86] [87]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[88] [89] [90
+[33] [34
 
 ]
 Cap\'{\i }tulo 7.
+[35] [36
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[91]
-Overfull \vbox (78.28964pt too high) has occurred while \output is active []
-
-[92] [93] [94] [95] [96] [97] [98] [99] [100]
-
-LaTeX Warning: Reference `tab73' on page 101 undefined on input line 7684.
-
-[101] [102] [103]
-Overfull \hbox (4.29082pt too wide) in paragraph at lines 7987--7989
-[]|\TU/lmr/m/n/10 11.640|  
- []
-
-[104] [105] [106]
+]
 Cap\'{\i }tulo 8.
-[107
-
-] [108]
-
-LaTeX Warning: Reference `Analisec' on page 109 undefined on input line 8357.
-
-[109] [110] [111] [112] [113] [114] [115]
-
-LaTeX Warning: Reference `ex:pnad90' on page 116 undefined on input line 8924.
-
-
-LaTeX Warning: Reference `(' on page 116 undefined on input line 8952.
-
-[116] [117] [118] [119] [120] [121] [122
+[37] [38
 
 ]
 Cap\'{\i }tulo 9.
-[123] [124
+[39] [40
 
 ]
 Cap\'{\i }tulo 10.
-[125] [126
+[41] [42
 
 ]
 Cap\'{\i }tulo 11.
-[127] [128
+[43] [44
 
 ]
 Cap\'{\i }tulo 12.
-[129] [130
+[45] [46
 
 ]
 Cap\'{\i }tulo 13.
-[131] [132] [133] [134] [135] [136] [137] [138]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[139] [140] [141] [142] [143] [144] [145] [146
+[47] [48
 
 ]
 Cap\'{\i }tulo 14.
-[147] [148] [149] [150] [151] (bookdown-demo.bbl [152] [153
+[49] [50
 
-] [154])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 11054.
-[155]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 11054.
+]
+Cap\'{\i }tulo 15.
+(bookdown-demo.bbl [51] [52
+
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1545.
+[53]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1545.
 (bookdown-demo.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 11054.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 11054.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1545.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1545.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 23371 strings out of 427918
- 439885 string characters out of 3149834
- 549109 words of memory out of 3000000
- 26989 multiletter control sequences out of 15000+200000
- 25906 words of font info for 56 fonts, out of 3000000 for 9000
+ 22858 strings out of 427918
+ 432500 string characters out of 3149834
+ 524386 words of memory out of 3000000
+ 26491 multiletter control sequences out of 15000+200000
+ 25866 words of font info for 51 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
- 41i,21n,68p,10413b,527s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,18n,68p,10413b,417s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bookdown-demo.pdf (155 pages).
+Output written on bookdown-demo.pdf (53 pages).

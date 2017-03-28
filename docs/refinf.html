@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-02-13">
+<meta name="date" content="2017-03-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -239,34 +239,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Com o objetivo de dar uma primeira idéia sobre o assunto a ser tratado neste livro vamos considerar, numa situação simples, algumas abordagens alternativas de análise estatística.</p>
 <div id="abordagem-1---modelagem-classica" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Abordagem 1 - Modelagem Clássica</h3>
-<p>Seja <span class="math inline">\(Y\)</span> um vetor <span class="math inline">\(P \times 1\)</span> de variáveis de pesquisa (ou de interesse), e sejam <span class="math inline">\(n\)</span> vetores de observações destas variáveis para uma amostra de unidades de interesse denotados por <span class="math inline">\(y_1,\ldots ,y_n\)</span>. Em Inferência Estatística, a abordagem que aqui chamamos de <code>Modelagem clássica</code> considera <span class="math inline">\(y_1,\ldots ,y_n\)</span> como valores (realizações) de vetores de variáveis aleatórias <span class="math inline">\(y_1,\ldots ,y_n\)</span>. Podemos formular modelos bastante sofisticados para a distribuição conjunta destes vetores aleatórios, mas para simplificar a discussão, vamos inicialmente supor que <span class="math inline">\(y_1,\ldots ,y_n\)</span> são vetores aleatórios independentes e identicamente distribuídos (IID), com a mesma distribuição de <span class="math inline">\(Y\)</span>, caracterizada pela função de densidade ou de frequência <span class="math inline">\(f(y;\theta)\)</span>, onde <span class="math inline">\(\theta \in \Theta\)</span> é o parâmetro (um vetor de dimensão <span class="math inline">\(K \times 1\)</span>) indexador da distribuição <span class="math inline">\(f\)</span>, e <span class="math inline">\(\Theta\)</span> é o espaço paramétrico. A partir das observações <span class="math inline">\(y_1,\ldots ,y_n\)</span>, são feitas inferências a respeito do parâmetro <span class="math inline">\(\theta\)</span>. Uma representação gráfica esquemática dessa abordagem é apresentada na Figura <a href="refinf.html#fig:modclas">2.1</a> a seguir, e uma descrição esquemática resumida é apresentada na Tabela <a href="refinf.html#tab:modelclass">2.1</a>.</p>
+<p>Seja <span class="math inline">\(Y\)</span> um vetor <span class="math inline">\(P \times 1\)</span> de variáveis de pesquisa (ou de interesse), e sejam <span class="math inline">\(n\)</span> vetores de observações destas variáveis para uma amostra de unidades de interesse denotados por <span class="math inline">\(y_1,\ldots ,y_n\)</span>. Em Inferência Estatística, a abordagem que aqui chamamos de <code>Modelagem clássica</code> considera <span class="math inline">\(y_1,\ldots ,y_n\)</span> como valores (realizações) de vetores de variáveis aleatórias <span class="math inline">\(y_1,\ldots ,y_n\)</span>. Podemos formular modelos bastante sofisticados para a distribuição conjunta destes vetores aleatórios, mas para simplificar a discussão, vamos inicialmente supor que <span class="math inline">\(y_1,\ldots ,y_n\)</span> são vetores aleatórios independentes e identicamente distribuídos (IID), com a mesma distribuição de <span class="math inline">\(Y\)</span>, caracterizada pela função de densidade ou de frequência <span class="math inline">\(f(y;\theta)\)</span>, onde <span class="math inline">\(\theta \in \Theta\)</span> é o parâmetro (um vetor de dimensão <span class="math inline">\(K \times 1\)</span>) indexador da distribuição <span class="math inline">\(f\)</span>, e <span class="math inline">\(\Theta\)</span> é o espaço paramétrico. A partir das observações <span class="math inline">\(y_1,\ldots ,y_n\)</span>, são feitas inferências a respeito do parâmetro <span class="math inline">\(\theta\)</span>. Uma representação gráfica esquemática dessa abordagem é apresentada na Figura <a href="refinf.html#fig:modclas">2.1</a> a seguir, e uma descrição esquemática resumida é apresentada na Tabela .</p>
 <div class="figure"><span id="fig:modclas"></span>
 <img src="Figuras/fig21.png" alt="Modelagem Clássica"  />
 <p class="caption">
 Figura 2.1: Modelagem Clássica
 </p>
 </div>
-<table style="width:94%;">
-<caption><span id="tab:modelclass">Tabela 2.1: </span> Representação esquemática da abordagem 1.</caption>
-<colgroup>
-<col width="30%" />
-<col width="63%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td align="left">Dados Amostrais</td>
-<td align="left"><span class="math inline">\(Y_1=y_1,\ldots, Y_n=y_n\)</span></td>
-</tr>
-<tr class="even">
-<td align="left">Modelo Paramétrico/ Hipóteses</td>
-<td align="left"><span class="math inline">\(Y_1,\ldots,Y_n\)</span> variáveis aleatórias IID com distribuição <span class="math inline">\(f(y,\theta)\)</span>, onde <span class="math inline">\(\theta \in \Theta\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left">Objetivo</td>
-<td align="left">Inferir sobre <span class="math inline">\(\theta\)</span> usando as observações <span class="math inline">\(y_1, \ldots,y_n\)</span></td>
-</tr>
-</tbody>
-</table>
+<!-- -------------------   ---------------------------------------------- -->
+<!-- Dados Amostrais       $Y_1=y_1,\ldots, Y_n=y_n$ -->
+<!-- Modelo Paramétrico/   $Y_1,\ldots,Y_n$ variáveis aleatórias IID -->
+<!-- Hipóteses             com distribuição $f(y,\theta)$, -->
+<!--                       onde $\theta \in \Theta$ -->
+<!-- Objetivo              Inferir sobre $\theta$ usando as -->
+<!--                       observações $y_1, \ldots,y_n$ -->
+<!-- ------------------    ----------------------------------------------- -->
+<!--  Table: (#tab:modelclass) Representação esquemática da abordagem 1. -->
 
 <p>Do ponto de vista matemático, o parâmetro <span class="math inline">\(\theta\)</span> serve para indexar os elementos da família de distribuições <span class="math inline">\(\left\{f\left( y;\theta \right);\theta \in \Theta \right\}\)</span>. Na prática, as questões relevantes da pesquisa são traduzidas em termos de perguntas sobre o valor ou região a que pertence o parâmetro <span class="math inline">\(\theta\)</span>, e a inferência sobre <span class="math inline">\(\theta\)</span> a partir dos dados ajuda a responder tais questões. Esta abordagem é útil em estudos analíticos tais como, por exemplo, na investigação da natureza da associação entre variáveis (modelos de regressão linear ou logística, modelos log-lineares, etc.). Vários exemplos discutidos ao longo dos Capítulos <a href="modreg.html#modreg">6</a>, <a href="testqualajust.html#testqualajust">7</a> e <a href="testetab2.html#testetab2">8</a> ilustram situações deste tipo. No Capítulo <a href="estimacao-de-densidades.html#estimacao-de-densidades">9</a> o foco vai ser a estimação não paramétrica da forma da função <span class="math inline">\(f(y;\theta)\)</span>.</p>
 <p>Investigando a existência de diferenciais de salários por sexo e raça</p>
@@ -275,34 +263,21 @@ Figura 2.1: Modelagem Clássica
 <div id="abordagem-2---amostragem-probabilistica" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Abordagem 2 - Amostragem Probabilística</h3>
 <p>A abordagem adotada pelos praticantes de amostragem (amostristas) considera uma população finita <span class="math inline">\(U=\{1,\ldots ,N\}\)</span>, da qual é selecionada uma amostra <span class="math inline">\(a=\left\{ i_{1},\ldots ,i_{n}\right\}\)</span>, segundo um plano amostral caracterizado por <span class="math inline">\(p\left( a\right)\)</span>, probabilidade de ser selecionada a amostra <span class="math inline">\(a\)</span>, suposta calculável para todas as possíveis amostras. Os valores <span class="math inline">\(y_{1},\ldots ,y_{N}\)</span> das variáveis de interesse <span class="math inline">\(Y\)</span> na população finita são considerados fixos, porém desconhecidos. Sem perda de generalidade, podemos reindexar a população de tal forma que a amostra observada seja formada pelos índices <span class="math inline">\(s=\{1,\ldots,n\}\)</span> |</p>
-<p>A partir dos valores observados na amostra, denotados por <span class="math inline">\(y_{i_{1}},\ldots,y_{i_{n}}\)</span>, são feitas inferências a respeito de funções dos valores populacionais, digamos <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right)\)</span>. Os valores de tais funções são quantidades descritivas populacionais (QDPs), também denominadas <code>parâmetros da população finita</code> pelos amostristas. Em geral, o objetivo desta abordagem é fazer estudos descritivos utilizando funções <span class="math inline">\(g\)</span> particulares, tais como totais <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right) =\sum_{i=1}^{N}y_{i}\)</span> , médias <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right) =N^{-1}\sum_{i=1}^{N}y_{i}\)</span>, proporções, razões, etc. Uma descrição esquemática resumida dessa abordagem é apresentada no Tabela <a href="refinf.html#tab:modelamo">2.2</a>, e uma representação gráfica resumida na Figura <a href="refinf.html#fig:modamo">2.2</a>.</p>
+<p>A partir dos valores observados na amostra, denotados por <span class="math inline">\(y_{i_{1}},\ldots,y_{i_{n}}\)</span>, são feitas inferências a respeito de funções dos valores populacionais, digamos <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right)\)</span>. Os valores de tais funções são quantidades descritivas populacionais (QDPs), também denominadas <code>parâmetros da população finita</code> pelos amostristas. Em geral, o objetivo desta abordagem é fazer estudos descritivos utilizando funções <span class="math inline">\(g\)</span> particulares, tais como totais <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right) =\sum_{i=1}^{N}y_{i}\)</span> , médias <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right) =N^{-1}\sum_{i=1}^{N}y_{i}\)</span>, proporções, razões, etc. Uma descrição esquemática resumida dessa abordagem é apresentada no Tabela , e uma representação gráfica resumida na Figura <a href="refinf.html#fig:modamo">2.2</a>.</p>
 <div class="figure"><span id="fig:modamo"></span>
 <img src="Figuras/fig22.png" alt="Amostragem Probabilística"  />
 <p class="caption">
 Figura 2.2: Amostragem Probabilística
 </p>
 </div>
-<table style="width:94%;">
-<caption><span id="tab:modelamo">Tabela 2.2: </span> Representação esquemática da abordagem 2.</caption>
-<colgroup>
-<col width="30%" />
-<col width="63%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td align="left">Dados Amostrais</td>
-<td align="left"><span class="math inline">\(Y_1=y_1,\ldots, Y_n=y_n\)</span></td>
-</tr>
-<tr class="even">
-<td align="left">Hipóteses/Modelo Hipóteses</td>
-<td align="left">extraídos de <span class="math inline">\(y_1,\ldots,y_N\)</span> segundo <span class="math inline">\(p(s)\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left">Objetivo</td>
-<td align="left">Inferir sobre funções <span class="math inline">\(g(y_1, \ldots, y_N)\)</span> usando <span class="math inline">\(y_1, \ldots,y_n\)</span></td>
-</tr>
-</tbody>
-</table>
+<!-- -------------------   ---------------------------------------------- -->
+<!-- Dados Amostrais       $Y_1=y_1,\ldots, Y_n=y_n$ -->
+<!-- Hipóteses/Modelo      extraídos de $y_1,\ldots,y_N$  segundo $p(s)$ -->
+<!-- Hipóteses -->
+<!-- Objetivo              Inferir sobre funções $g(y_1, \ldots, y_N)$ -->
+<!--                       usando $y_1, \ldots,y_n$ -->
+<!-- ------------------    ----------------------------------------------- -->
+<!--  Table: (#tab:modelamo) Representação esquemática da abordagem 2. -->
 
 <p>Investigando a existência de diferenciais de salários por sexo e raça</p>
 <p>Ainda no contexto do exemplo da investigação da existência de diferenciais de salários por sexo e raça, os dados da Pesquisa sobre Padrões de Vida do IBGE podem ser utilizados para obter uma tabela cruzada tendo como entradas de linha o sexo dos trabalhadores, e como entrada das colunas um indicador de trabalhadores de raça / cor = branco, sendo as celas da tabela utilizadas para apresentar estimativas dos valores médios dos salários dos trabalhadores nas várias classes definidas pelos valores dos indicadores de linha e coluna. Tabelas como esta são habitualmente produzidas como resultado da realização de pesquisas amostrais pelas agências oficiais de estatísticas no Brasil e em muitos outros países. Embora capazes de revelar diferenças nos salários médios de trabalhadores de sexo e raça distintos, tais tabelas são insuficientes para investigar a questão da discriminação de gênero ou raça no mercado de trabalho, pois tais diferenças de salários médios poderiam ser explicadas por diferenças de características dos trabalhadores tais como escolaridade, que poderiam ter origem fora do mercado de trabalho. Por outro lado, ilustram bem os alvos de inferência freqüentemente definidos para pesquisas amostrais de populações finitas. Aqui o que se busca estimar é o valor médio de uma característica de interesse (no caso, o salário) para a população finita de onde foi extraída a amostra disponível para análise. Apesar de úteis, tais estimativas representam apenas medidas descritivas da população alvo.</p>
@@ -337,36 +312,18 @@ Figura 2.2: Amostragem Probabilística
 Figura 2.3: Modelagem de Superpopulação
 </p>
 </div>
-<p>Adotando o modelo de superpopulação e considerando métodos usuais disponíveis na <code>abordagem 1</code>, podemos utilizar funções de <span class="math inline">\(y_{1},\ldots ,y_{N}\)</span> , digamos <span class="math inline">\(g( y_{1},\ldots ,y_{N})\)</span>, para fazer inferências sobre <span class="math inline">\(\theta\)</span>. Desta forma, definimos estatísticas <span class="math inline">\(\left( y_{1},\ldots ,y_{N}\right)\)</span> (no sentido da <code>abordagem 1</code>) que são quantidades descritivas populacionais (parâmetros populacionais no contexto da <code>abordagem 2</code>), que passam a ser os novos parâmetros-alvo. O passo seguinte é utilizar métodos diponíveis na <code>abordagem 2</code> para fazer inferência sobre <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right)\)</span> baseada em <span class="math inline">\(y_{i_1},\ldots ,y_{i_n}\)</span>. Note que não é possível basear a inferência nos valores populacionais <span class="math inline">\(y_{1},\ldots ,y_{N}\)</span>, já que estes não são conhecidos ou observados. Este último passo adiciona a informação sobre o plano amostral utilizado, contida em <span class="math inline">\(p(s)\)</span>, à informação estrutural contida no modelo <span class="math inline">\(\left\{ f\left( y;\theta \right) ;\theta \in \Theta\right\}\)</span>. Uma representação esquemática dessa abordagem é apresentada no Tabela <a href="refinf.html#tab:modelsuperpop">2.3</a>.</p>
-<table style="width:94%;">
-<caption><span id="tab:modelsuperpop">Tabela 2.3: </span> Representação esquemática da abordagem 3.</caption>
-<colgroup>
-<col width="30%" />
-<col width="63%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td align="left">Dados Amostrais</td>
-<td align="left"><span class="math inline">\(Y_1=y_1,\ldots, Y_n=y_n\)</span></td>
-</tr>
-<tr class="even">
-<td align="left">População e esquema de seleção</td>
-<td align="left">Extraídos de <span class="math inline">\(y_1,\dots,y_n\)</span> segundo <span class="math inline">\(p(s)\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left">Modelo para poulação</td>
-<td align="left"><span class="math inline">\(Y_1,\dots,Y_N\)</span> variáveis aleatórias IID com distribuição <span class="math inline">\(f(y,\theta)\)</span>, onde <span class="math inline">\(\theta \in \Theta\)</span></td>
-</tr>
-<tr class="even">
-<td align="left">Parâmetro-alvo</td>
-<td align="left">associar <span class="math inline">\(\theta \longleftrightarrow g\left(Y_{1},\ldots Y_{N}\right)\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left">Objetivo</td>
-<td align="left">Inferir sobre <span class="math inline">\(g\left( Y_{1},\ldots Y_{N}\right)\)</span> partir de <span class="math inline">\(y_{i_1},\ldots ,y_{i_n}\)</span> usando <span class="math inline">\(p\left( s\right)\)</span></td>
-</tr>
-</tbody>
-</table>
+<p>Adotando o modelo de superpopulação e considerando métodos usuais disponíveis na <code>abordagem 1</code>, podemos utilizar funções de <span class="math inline">\(y_{1},\ldots ,y_{N}\)</span> , digamos <span class="math inline">\(g( y_{1},\ldots ,y_{N})\)</span>, para fazer inferências sobre <span class="math inline">\(\theta\)</span>. Desta forma, definimos estatísticas <span class="math inline">\(\left( y_{1},\ldots ,y_{N}\right)\)</span> (no sentido da <code>abordagem 1</code>) que são quantidades descritivas populacionais (parâmetros populacionais no contexto da <code>abordagem 2</code>), que passam a ser os novos parâmetros-alvo. O passo seguinte é utilizar métodos diponíveis na <code>abordagem 2</code> para fazer inferência sobre <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right)\)</span> baseada em <span class="math inline">\(y_{i_1},\ldots ,y_{i_n}\)</span>. Note que não é possível basear a inferência nos valores populacionais <span class="math inline">\(y_{1},\ldots ,y_{N}\)</span>, já que estes não são conhecidos ou observados. Este último passo adiciona a informação sobre o plano amostral utilizado, contida em <span class="math inline">\(p(s)\)</span>, à informação estrutural contida no modelo <span class="math inline">\(\left\{ f\left( y;\theta \right) ;\theta \in \Theta\right\}\)</span>. Uma representação esquemática dessa abordagem é apresentada no Tabela .</p>
+<!-- -------------------   ---------------------------------------------- -->
+<!-- Dados Amostrais       $Y_1=y_1,\ldots, Y_n=y_n$ -->
+<!-- População e           Extraídos de $y_1,\dots,y_n$ segundo $p(s)$ -->
+<!-- esquema de seleção     -->
+<!-- Modelo para           $Y_1,\dots,Y_N$ variáveis aleatórias IID -->
+<!-- poulação              com distribuição $f(y,\theta)$, onde $\theta \in \Theta$ -->
+<!-- Parâmetro-alvo        associar $\theta \longleftrightarrow g\left(Y_{1},\ldots Y_{N}\right)$   -->
+<!-- Objetivo              Inferir sobre $g\left( Y_{1},\ldots Y_{N}\right)$ partir de  -->
+<!--                       $y_{i_1},\ldots ,y_{i_n}$ usando $p\left( s\right)$ -->
+<!-- ------------------    -----------------------------------------------                      -->
+<!--  Table: (#tab:modelsuperpop) Representação esquemática da abordagem 3.  -->
 
 <p>A descrição da abordagem adotada neste livro foi apresentada de maneira propositadamente simplificada e vaga nesta seção, mas será aprofundada ao longo do texto. Admitiremos que o leitor esteja familiarizado com a <code>abordagem 1</code> e com as noções básicas da <code>abordagem 2</code>. A título de recordação, serão apresentados no Capítulo <a href="refinf.html#planamo">2.4</a> alguns resultados básicos da Teoria de Amostragem. A ênfase do texto, porém, será na apresentação da <code>abordagem 3</code>, sendo para isto apresentados os elementos indispensáveis das <code>abordagens 1 e 2</code>.</p>
 <p>Ao construir e ajustar modelos a partir de dados de pesquisas amostrais <code>complexas</code>, tais como as executadas pelo IBGE, o usuário precisa incorporar as informações sobre pesos e planos amostrais utilizados. Em geral, ao publicar os resultados das pesquisas, os pesos são considerados, sendo possível produzir estimativas pontuais <code>corretas</code> utilizando os pacotes tradicionais. Por outro lado, para construir intervalos de confiança e testar hipóteses sobre parâmetros de modelos, seria preciso o conhecimento das estimativas de variâncias e covariâncias das estimativas, obtidas a partir do plano amostral utilizado. Mesmo conhecendo o plano amostral, geralmente não é simples incorporar pesos e plano amostral na análise sem o uso de pacotes especializados, ou de rotinas específicas já agora disponíveis em alguns dos pacotes mais comumente utilizados (por exemplo, SAS, Stata, SPSS, ou R entre outros). Tais pacotes especializados ou rotinas específicas utilizam na maioria métodos aproximados para estimar matrizes de covariância, tais como os de Máxima Pseudo-Verossimilhança e de Linearização, que serão descritos mais adiante.</p>
