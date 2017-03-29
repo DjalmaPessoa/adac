@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-03-21">
+<meta name="date" content="2017-03-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -460,6 +460,76 @@ ppv.des &lt;-<span class="st"> </span><span class="kw">update</span> (ppv.des,<s
 <pre><code>##                                     total      SE   DEff
 ## I(ifelse(regiao == 2, analf2, 0)) 4792344  318877 4.1667</code></pre>
 <p>Observe que as estimativas de variância para o desenho verdadeiro (numerador do EPA) são iguais quando usamos: a variável <code>analf1.se</code> com o objeto de desenho <code>ppv.des</code> ou a variável <code>analf1</code> com o objeto <code>ppv.se.des</code>. Porém na estimativa do denominador do EPA, obtida a partir da função <code>Vwaas</code>, obtemos resultados diferentes quando usamos <code>analf1.se</code> ou <code>analf1</code>, com os pesos correspondentes. No segundo caso, a soma dos pesos não estima <span class="math inline">\(N\)</span>. Deve-se ter o cuidado, quando estimamos em um domínio, de trabalhar com pesos cuja soma seja um estimador do tamanho da população.</p>
+
+<div class="example">
+<span id="ex:unnamed-chunk-16" class="example"><strong>Exemplo 1.3 </strong></span>Utilização da library survey do R para estimar taxa de desocupação para um trimestre na PNADC
+</div>
+<p></p>
+<ul>
+<li>Instala library lodown do github:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools)
+<span class="kw">install_github</span>(<span class="st">&quot;ajdamico/lodown&quot;</span>)</code></pre></div>
+<ul>
+<li>carrega a library para ler os dados da PNADC</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lodown)</code></pre></div>
+<ul>
+<li>Baixa catálogo da PNADC com arquivos disponíveis:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnadc_cat &lt;-<span class="st"> </span><span class="kw">get_catalog</span>( <span class="st">&quot;pnadc&quot;</span> , <span class="dt">output_dir =</span><span class="kw">tempdir</span>() )</code></pre></div>
+<p>Os microdados de interesse são terceiro trimestre de 2016. Vamos ler os microdados e salvá-los em um data frame <code>x</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lodown</span>( <span class="st">&quot;pnadc&quot;</span> , <span class="kw">subset</span>( pnadc_cat , year ==<span class="st"> </span><span class="dv">2016</span> &amp;<span class="st"> </span>quarter ==<span class="st"> &#39;03&#39;</span> ) )
+x &lt;-<span class="st"> </span><span class="kw">readRDS</span>( <span class="kw">paste0</span>( <span class="kw">tempdir</span>() , <span class="st">&quot;/pnadc 2016 03.rds&quot;</span> ) )</code></pre></div>
+<p>vamos salvar o data frame <code>x</code> para uso posterior, :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(x, <span class="dt">file=</span><span class="st">&quot;C:/adac/pnadc/pnadc 2016 03.rds&quot;</span>)</code></pre></div>
+<p>Partindo do arquivo <code>pnadc 2016 03.rds</code>, podemos recuperar o data frame <code>x</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;C:/adac/pnadc/pnadc 2016 03.rds&quot;</span>)
+<span class="kw">dim</span>(x)</code></pre></div>
+<pre><code>## [1] 572023    170</code></pre>
+<ul>
+<li>Carrega a library <code>survey</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)</code></pre></div>
+<ul>
+<li>Fixa opção para caso de UPA única no estrato</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>( <span class="dt">survey.lonely.psu =</span> <span class="st">&quot;adjust&quot;</span> )</code></pre></div>
+<ul>
+<li>Cria versão inicial de objeto de desenho:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pre_w &lt;-<span class="st"> </span><span class="kw">svydesign</span>(<span class="dt">ids =</span>~upa, <span class="dt">strata=</span>~estrato, 
+  <span class="dt">weights=</span>~v1027, <span class="dt">data =</span> x, <span class="dt">nest=</span><span class="ot">TRUE</span>)</code></pre></div>
+<ul>
+<li>Especifica totais de pós-estratos na população:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df_pos &lt;-<span class="kw">data.frame</span>(<span class="dt">posest=</span><span class="kw">unique</span>(x$posest), 
+  <span class="dt">Freq=</span><span class="kw">unique</span>(x$v1029))</code></pre></div>
+<ul>
+<li>Pós-estratifica objeto de desenho inicial:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">w &lt;-<span class="kw">postStratify</span>(pre_w, ~posest, df_pos)</code></pre></div>
+<p>Para calcular a taxa de desocupação, o IBGE considera pessoas de 14 anos ou mais (PIA) na semana de referência e calcula a razão de dois totais:</p>
+<ol style="list-style-type: decimal">
+<li><p>Numerador: total de pessoas desocupadas (vd4002==2)</p></li>
+<li><p>Denominador: total de pessoas na força de trabalho (vd4001==1)</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># estima taxa de desocupação</span>
+taxa_des &lt;-<span class="st"> </span><span class="kw">svyratio</span>(~<span class="st"> </span>vd4002==<span class="st">&quot;2&quot;</span> ,
+  ~<span class="st"> </span>vd4001 ==<span class="st"> &quot;1&quot;</span> , w , <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+<span class="co"># organiza saída</span>
+result &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+  <span class="dv">100</span>*<span class="kw">coef</span>(taxa_des),
+  <span class="dv">100</span>*<span class="kw">SE</span>(taxa_des), 
+  <span class="dv">100</span>*<span class="kw">cv</span>(taxa_des)
+)
+<span class="kw">row.names</span>(result)&lt;-<span class="st"> </span><span class="ot">NULL</span>
+<span class="kw">names</span>(result) &lt;-<span class="ot">NULL</span>
+<span class="kw">names</span>(result) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Taxa&quot;</span>, <span class="st">&quot;Erro_Padrao&quot;</span>, <span class="st">&quot;CV&quot;</span>)
+<span class="co"># taxa de desocupação</span>
+result</code></pre></div>
+<pre><code>##       Taxa Erro_Padrao        CV
+## 1 11.80303   0.1174791 0.9953299</code></pre>
 
 </div>
 </div>

@@ -735,5 +735,118 @@ obtemos resultados diferentes quando usamos `analf1.se` ou `analf1`,   com os pe
 No segundo caso, a soma dos pesos não estima $N$. Deve-se ter o cuidado, quando estimamos em um domínio, de trabalhar 
 com pesos cuja soma seja um estimador do tamanho da população.
 
+```{example}
+Utilização da library survey do R para estimar taxa de desocupação para um trimestre na  PNADC 
+```
+
+- Instala library lodown do github:
+  
+ 
+
+```{r, eval=FALSE}
+library(devtools)
+install_github("ajdamico/lodown")
+```
+
+
+- carrega a library para ler os dados da PNADC
+
+```{r}
+library(lodown)
+```
+
+- Baixa catálogo da PNADC com arquivos disponíveis:
+  
+```{r, eval=FALSE}
+pnadc_cat <- get_catalog( "pnadc" , output_dir =tempdir() )
+```
+
+Os microdados de interesse são terceiro trimestre de 2016. Vamos ler os microdados
+e salvá-los em um data frame `x`.
+
+```{r, eval=FALSE}
+lodown( "pnadc" , subset( pnadc_cat , year == 2016 & quarter == '03' ) )
+x <- readRDS( paste0( tempdir() , "/pnadc 2016 03.rds" ) )
+```
+
+vamos salvar o data frame `x` para uso posterior, :
+
+```{r , eval=FALSE}
+saveRDS(x, file="C:/adac/pnadc/pnadc 2016 03.rds")
+```
+
+
+Partindo do arquivo `pnadc 2016 03.rds`, podemos recuperar o data frame `x`: 
+
+ 
+```{r}
+x <- readRDS("C:/adac/pnadc/pnadc 2016 03.rds")
+dim(x)
+```
+
+
+-  Carrega a library `survey`
+
+```{r, message=FALSE, warning=FALSE}
+library(survey)
+```
+
+- Fixa opção para caso de UPA única no estrato
+```{r}
+options( survey.lonely.psu = "adjust" )
+```
+-  Cria versão inicial de objeto de desenho:
+ 
+
+```{r}
+pre_w <- svydesign(ids =~upa, strata=~estrato, 
+  weights=~v1027, data = x, nest=TRUE)
+```
+
+
+- Especifica totais de pós-estratos na população:
+  
+```{r}
+df_pos <-data.frame(posest=unique(x$posest), 
+  Freq=unique(x$v1029))
+```
+-   Pós-estratifica objeto de desenho inicial:
+
+```{r}
+w <-postStratify(pre_w, ~posest, df_pos)
+```
+  
+Para calcular a taxa de desocupação, o IBGE considera pessoas de 14 anos
+ou mais (PIA) na semana de referência e calcula a razão de dois totais:
+
+1. Numerador: total de pessoas desocupadas (vd4002==2)
+
+2. Denominador: total de pessoas na força de trabalho (vd4001==1)
+
+
+
+```{r}
+# estima taxa de desocupação
+taxa_des <- svyratio(~ vd4002=="2" ,
+  ~ vd4001 == "1" , w , na.rm = TRUE)
+# organiza saída
+result <- data.frame(
+  100*coef(taxa_des),
+  100*SE(taxa_des), 
+  100*cv(taxa_des)
+)
+row.names(result)<- NULL
+names(result) <-NULL
+names(result) <- c("Taxa", "Erro_Padrao", "CV")
+# taxa de desocupação
+result
+```
+
+
+
+
+
+
+
 
 

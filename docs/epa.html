@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-03-21">
+<meta name="date" content="2017-03-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -245,7 +245,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Para medir o efeito do plano amostral sobre a variância de um estimador, Kish(1965) propôs uma medida que denominou <code>Efeito do Plano Amostral</code> (<span class="math inline">\(\mathbf{EPA}\)</span>) (em inglês, <em>design effect</em> ou, abreviadamente, <em>deff</em>). O objetivo desta medida é comparar planos amostrais no estágio de planejamento da pesquisa. O <span class="math inline">\(\mathbf{EPA}\)</span> de Kish é uma razão entre variâncias (de aleatorização) de um estimador, calculadas para dois planos amostrais alternativos. Vamos considerar um estimador <span class="math inline">\(\hat{\theta}\)</span> e calcular a variância de sua distribuição induzida pelo plano amostral complexo (verdadeiro) <span class="math inline">\(V_{VERD}\left( \hat{\theta}\right)\)</span> e a variância da distribuição do estimador induzida pelo plano de amostragem aleatória simples <span class="math inline">\(V_{AAS}\left(\hat{\theta}\right)\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-36" class="definition"><strong>Definição 4.1 </strong></span>O <strong>Efeito do Plano Amostral (<span class="math inline">\(EPA\)</span>)</strong> <strong>de Kish</strong> para um estimador <span class="math inline">\(\hat{\theta}\)</span> é
+<span id="def:unnamed-chunk-49" class="definition"><strong>Definição 4.1 </strong></span>O <strong>Efeito do Plano Amostral (<span class="math inline">\(EPA\)</span>)</strong> <strong>de Kish</strong> para um estimador <span class="math inline">\(\hat{\theta}\)</span> é
 </div>
 
 <span class="math display" id="eq:epa1">\[\begin{equation}
@@ -305,7 +305,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Podemos desta forma introduzir uma medida de efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-37" class="definition"><strong>Definição 4.2 </strong></span>O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span> é
+<span id="def:unnamed-chunk-50" class="definition"><strong>Definição 4.2 </strong></span>O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span> é
 <span class="math display" id="eq:epa2">\[\begin{equation}
 \mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left( \hat{%
 \theta}\right) }{E_{VERD}\left( v_{0}\right) }\;.  \tag{4.2}
@@ -435,7 +435,7 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 <p>Um outro exemplo relevante é utilizado a seguir para ilustrar o fato de que o conceito do <span class="math inline">\(\mathbf{EPA}\)</span> adotado aqui é mais abrangente do que o definido por Kish, em particular porque a origem do efeito pode estar na estrutura da população e não no plano amostral usado para obter os dados.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-40" class="example"><strong>Exemplo 4.3 </strong></span>População conglomerada com conglomerados de tamanho 2 <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, p. 25
+<span id="ex:unnamed-chunk-53" class="example"><strong>Exemplo 4.3 </strong></span>População conglomerada com conglomerados de tamanho 2 <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, p. 25
 </div>
 <p></p>
 <p>Considere uma população de conglomerados de tamanho 2, isto é, onde as unidades (elementares ou de referência) estão grupadas em pares (exemplos de tais populações incluem pares de irmãos gêmeos, casais, jogadores numa dupla de vôlei de praia ou tênis, etc.). Suponha que os valores de uma variável de pesquisa medida nessas unidades têm média <span class="math inline">\(\theta\)</span> e variância <span class="math inline">\(\sigma ^{2}\)</span>, além de uma correlação <span class="math inline">\(\rho\)</span> entre os valores dentro de cada par (correlação intraclasse, veja <span class="citation">(Nascimento Silva and Moura <a href="#ref-SilvaMou">1990</a>)</span>, cap. 2 e <span class="citation">(Haggard <a href="#ref-haggard">1958</a>)</span>. Suponha que um único par é sorteado ao acaso da população e que os valores <span class="math inline">\(y_{1}\)</span> e <span class="math inline">\(y_{2}\)</span> são observados para as duas unidades do par selecionado. O modelo assumido pode então ser representado como <span class="math display">\[
@@ -515,7 +515,7 @@ t_{0}\sim N\left[ 0;\mathbf{EPA}\left( \hat{\theta},v_{0}\right)
 <p>Utilizando a correspondência existente entre intervalos de confiança e testes de hipóteses, podemos derivar os níveis de significância nominais e reais subtraindo de <span class="math inline">\(1\)</span> os valores da Tabela . Por exemplo, para <span class="math inline">\(\alpha =0,05\)</span> e <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =2\)</span>, o nível de significância real seria aproximadamente <span class="math inline">\(1-0,83=0,17\)</span>.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-41" class="example"><strong>Exemplo 4.4 </strong></span>Teste de hipótese sobre proporção
+<span id="ex:unnamed-chunk-54" class="example"><strong>Exemplo 4.4 </strong></span>Teste de hipótese sobre proporção
 </div>
 <p> Vamos considerar um exemplo hipotético de teste de hipótese sobre uma proporção, semelhante ao de <span class="citation">(Sudman <a href="#ref-Sud76">1976</a>)</span>, apresentado em p. 196, <span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span>. Uma amostra de <span class="math inline">\(m=50\)</span> conglomerados é extraída de uma grande população de empresas industriais (conglomerados). Suponhamos que cada empresa <span class="math inline">\(i=1,\ldots ,50\)</span> da amostra tenha <span class="math inline">\(n_{i}=20\)</span> empregados. O tamanho total da amostra de empregados (unidades elementares) é <span class="math inline">\(n=\sum_{i}n_{i}=1.000\)</span>. Queremos estudar o acesso dos trabalhadores das empresas a planos de saúde.</p>
 <p>Usando-se conhecimento do ano anterior, foi estabelecida a hipótese de que a proporção de trabalhadores cobertos por planos de saúde é <span class="math inline">\(80\%\)</span>, ou seja <span class="math inline">\(H_{0}:p=p_{0}=0,8\)</span>. Vamos adotar o nível de significância <span class="math inline">\(\alpha =5\%\)</span>.</p>
@@ -658,14 +658,12 @@ _{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) &gt;\chi _{\alpha
 \tag{4.15}
 \end{equation}\]</span>
 <p>Observe que o segundo membro de <a href="epa.html#eq:epa15">(4.15)</a> é da mesma forma que o segundo membro de <a href="epa.html#eq:epa12">(4.12)</a>. Logo, os valores da Tabela  podem ser interpretados como valores máximos de <span class="math inline">\(p\)</span>valor<span class="math inline">\(_{VERD}\left( \mathbf{\bar{y}}\right)\)</span> para <span class="math inline">\(\mathbf{\bar{y}}\)</span> na região <span class="math inline">\(RC_{AAS}\left(\mathbf{\bar{y}}\right)\)</span>, considerando-se <span class="math inline">\(\delta_{1}\)</span> no lugar de <span class="math inline">\(\delta\)</span>.</p>
-\begin{center} \begin{table}[tbp] \caption{Níveis de significância (%) verdadeiros do teste <span class="math inline">\(T^{2}\)</span> para o nível nominal de 5% assumindo autovalores iguais para <span class="math inline">\(\mathbf{\Delta}\)</span> } 
 
-<p>\end{table} \end{center}</p>
 </div>
 <div id="laboratorio-de-r-1" class="section level2">
 <h2><span class="header-section-number">4.6</span> Laboratório de R</h2>
 <p>Vale a pena incluir as contas que não dependem da simulação?</p>
-<p>Exemplo 4.2. Parte de simulação do exemplo para salario</p>
+<p>Exemplo <a href="epa.html#ex:deffuni">4.2</a> Parte de simulação do exemplo para salario</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
 <span class="kw">source</span>(<span class="st">&quot;~</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">adac</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">popul.R&quot;</span>)
 <span class="kw">names</span>(popul)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;PO&quot;</span>, <span class="st">&quot;SAL&quot;</span>,<span class="st">&quot;REC&quot;</span>,<span class="st">&quot;ESTRAT&quot;</span>)</code></pre></div>
@@ -680,8 +678,13 @@ fh&lt;-nh/Nh ; Wh&lt;-Nh/N ; f&lt;-<span class="st"> </span>n/N</code></pre></di
 REC.mat.res&lt;-<span class="kw">matrix</span>(<span class="ot">NA</span>,<span class="dv">500</span>,<span class="dv">4</span>)
 popul$SAL &lt;-<span class="st"> </span>popul$SAL/<span class="dv">1000</span>
 popul$REC &lt;-<span class="st"> </span>popul$REC/<span class="dv">1000000</span>
-<span class="kw">library</span>(sampling)
-<span class="co">#Geracão dos dados</span>
+<span class="kw">library</span>(sampling)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;sampling&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:survival&#39;:
+## 
+##     cluster, strata</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Geracão dos dados</span>
 for(i in <span class="dv">1</span>:<span class="dv">500</span>){
 s&lt;-<span class="kw">strata</span>(popul, <span class="st">&quot;ESTRAT&quot;</span>,<span class="kw">c</span>(<span class="dv">30</span>,<span class="dv">30</span>),<span class="dt">method=</span> <span class="st">&quot;srswor&quot;</span>)
 dados&lt;-<span class="kw">getdata</span>(popul,s)
@@ -704,10 +707,10 @@ REC_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(REC.
 
 EPA_SAL1 &lt;-<span class="st"> </span>SAL_res_mean[<span class="dv">4</span>]/SAL_res_mean[<span class="dv">3</span>]
 EPA_SAL1</code></pre></div>
-<pre><code>## [1] 0.1410125</code></pre>
+<pre><code>## [1] 0.1386135</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">EPA_REC1 &lt;-<span class="st"> </span>REC_res_mean[<span class="dv">4</span>]/REC_res_mean[<span class="dv">3</span>]
 EPA_REC1</code></pre></div>
-<pre><code>## [1] 0.3437428</code></pre>
+<pre><code>## [1] 0.4239609</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 Vp_SAL_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(SAL~ESTRAT, popul, var)

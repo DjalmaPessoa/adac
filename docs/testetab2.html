@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-03-21">
+<meta name="date" content="2017-03-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -633,7 +633,7 @@ _{.}\right) /\left( L-1\right) \left( C-1\right) \;\;.  \tag{8.16}
 <p>A estatística <a href="testetab2.html#eq:Tab16">(8.16)</a> tem distribuição de referência <span class="math inline">\(F\)</span> com <span class="math inline">\(\left( L-1\right)\)</span> <span class="math inline">\(\times\left( C-1\right)\)</span> e <span class="math inline">\(f\)</span> graus de liberdade.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-86" class="example"><strong>Exemplo 8.1 </strong></span>Correções de EPA médio das estatísticas <span class="math inline">\(X_{P}^{2}\left(I\right)\)</span> e <span class="math inline">\(X_{P}^{2}\left(H\right)\)</span>.
+<span id="ex:unnamed-chunk-99" class="example"><strong>Exemplo 8.1 </strong></span>Correções de EPA médio das estatísticas <span class="math inline">\(X_{P}^{2}\left(I\right)\)</span> e <span class="math inline">\(X_{P}^{2}\left(H\right)\)</span>.
 </div>
 <p></p>
 <p>Considerando os dados do Exemplo  do Capítulo <a href="modreg.html#modreg">6</a>, vamos testar a hipótese de independência entre as variáveis Sexo (sx) e Rendimento médio mensal (re). Vamos fazer também um teste de homogeneidade, para comparar as distribuições de renda para os dois sexos.</p>
@@ -834,7 +834,7 @@ _{.}\right) /\left( L-1\right) \left( C-1\right) \;\;.  \tag{8.16}
 knitr::<span class="kw">kable</span>(marg_re_pop ,<span class="dt">booktabs=</span><span class="ot">TRUE</span>, <span class="dt">digits=</span><span class="dv">3</span>,
   <span class="dt">caption=</span><span class="st">&quot;Proporções nas linha, desvios padrões e EPAs de `re` na população&quot;</span>)</code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-87">Tabela 8.2: </span>Proporções nas linha, desvios padrões e EPAs de <code>re</code> na população</caption>
+<caption><span id="tab:unnamed-chunk-100">Tabela 8.2: </span>Proporções nas linha, desvios padrões e EPAs de <code>re</code> na população</caption>
 <thead>
 <tr class="header">
 <th></th>
@@ -1014,7 +1014,7 @@ marg_sx_pop &lt;-<span class="st"> </span><span class="kw">transform</span>(marg
 knitr::<span class="kw">kable</span>(marg_sx_pop, <span class="dt">digits=</span><span class="dv">3</span>,
   <span class="dt">caption=</span><span class="st">&quot;Proporções nas linha, desvios padrões e EPAs de sx na população&quot;</span>)</code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-88">Tabela 8.4: </span>Proporções nas linha, desvios padrões e EPAs de sx na população</caption>
+<caption><span id="tab:unnamed-chunk-101">Tabela 8.4: </span>Proporções nas linha, desvios padrões e EPAs de sx na população</caption>
 <thead>
 <tr class="header">
 <th></th>
@@ -1054,7 +1054,7 @@ knitr::<span class="kw">kable</span>(marg_sx_pop, <span class="dt">digits=</span
 <p>Vamos reproduzir alguns resultados usando dados da PNAD descritos na Seção ???</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-89" class="example"><strong>Exemplo 8.2 </strong></span>Estimativas de medidas descritivas em tabelas
+<span id="ex:unnamed-chunk-102" class="example"><strong>Exemplo 8.2 </strong></span>Estimativas de medidas descritivas em tabelas
 </div>
 <p></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
@@ -1120,7 +1120,7 @@ knitr::<span class="kw">kable</span>(marg_sx_pop, <span class="dt">digits=</span
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xtable)
 <span class="kw">print</span>(<span class="kw">xtable</span>(<span class="kw">svyby</span>(~re,~sx,pnad.des,svymean,<span class="dt">keep.var=</span><span class="ot">TRUE</span>),<span class="dt">caption=</span><span class="st">&quot;Proporções por sexo&quot;</span>),<span class="dt">type=</span><span class="st">&quot;html&quot;</span>, <span class="dt">size=</span><span class="st">&quot;small&quot;</span>, <span class="dt">include.rownames=</span><span class="ot">FALSE</span>)</code></pre></div>
 <!-- html table generated in R 3.3.3 by xtable 1.8-2 package -->
-<!-- Tue Mar 21 11:33:00 2017 -->
+<!-- Wed Mar 29 11:44:03 2017 -->
 <table border="1">
 <caption align="bottom">
 Proporções por sexo
