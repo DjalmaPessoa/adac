@@ -393,7 +393,7 @@ processo de inferência. A principal que será adotada ao longo deste
 texto será o método de `Máxima Pseudo-Verossimilhança`,
 que descrevemos na próxima seção.
 
-## Método de Máxima Pseudo-Verossimilhança label {#modpar3}
+## Método de Máxima Pseudo-Verossimilhança {#modpar3}
 
 Suponha que os vetores observados $\mathbf{y}_{i}$ das variáveis de
 pesquisa do elemento$\ i$ são gerados por vetores aleatórios 

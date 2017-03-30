@@ -268,8 +268,8 @@ afetam a inferência sobre quantidades descritivas populacionais tais
 como médias, proporções, razões e totais.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-1}{}{\label{ex:unnamed-chunk-1}}Distribuição
-dos pesos da amostra da PPV
+\protect\hypertarget{ex:distppv}{}{\label{ex:distppv}}Distribuição dos pesos
+da amostra da PPV
 \EndKnitrBlock{example}
 
 Os dados deste exemplo são relativos à distribuição dos pesos na amostra
@@ -770,7 +770,7 @@ nosso, o livro de \citep{lethonen} pode ser uma opção interessante.
 \section{Laboratório de R do Capítulo 1.}\label{epa}
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-2}{}{\label{ex:unnamed-chunk-2}}Utilização
+\protect\hypertarget{ex:unnamed-chunk-1}{}{\label{ex:unnamed-chunk-1}}Utilização
 da library survey do R para estimar totais e razões na PPV
 \EndKnitrBlock{example} Os exemplos a seguir utilizam dados da Pesquisa
 de Padrões de Vida (\texttt{PPV}) de 2004 do IBGE, cujo plano amostral
@@ -947,9 +947,9 @@ enquanto, apresentaremos uma introdução necessária para compreender os
 valores na Tabela \ref{table:Tab13}.
 
 O efeito de plano amostral (EPA) de Kish é definido na fórmula
-\eqref{eq:epa1}, na página 54 do livro. Vamos considerar o caso particular
-em que \(\hat{\theta}\) é um estimador de total de uma variável \(Y\).Ou
-seja \[
+\eqref{eq:epa1}. Vamos considerar o caso particular em que
+\(\hat{\theta}\) é um estimador de total de uma variável \(Y\).Ou seja
+\[
 EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
 \]
 
@@ -1112,7 +1112,7 @@ quando estimamos em um domínio, de trabalhar com pesos cuja soma seja um
 estimador do tamanho da população.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-15}{}{\label{ex:unnamed-chunk-15}}Utilização
+\protect\hypertarget{ex:unnamed-chunk-14}{}{\label{ex:unnamed-chunk-14}}Utilização
 da library survey do R para estimar taxa de desocupação para um
 trimestre na PNADC
 \EndKnitrBlock{example}
@@ -2412,7 +2412,7 @@ não-viciado para \(V_{p} \left( \mathbf{\hat{Y}}_{\pi} \right)\) para
 planos amostrais de tamanho fixo.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-28}{}{\label{ex:unnamed-chunk-28}}Amostragem
+\protect\hypertarget{ex:unnamed-chunk-27}{}{\label{ex:unnamed-chunk-27}}Amostragem
 Aleatória Simples Sem Reposição (AAS)
 \EndKnitrBlock{example}
 
@@ -2722,7 +2722,7 @@ ou médias populacionais (este é o caso de quantis de distribuições, por
 exemplo).\medskip 
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-29}{}{\label{ex:unnamed-chunk-29}}Matriz
+\protect\hypertarget{ex:unnamed-chunk-28}{}{\label{ex:unnamed-chunk-28}}Matriz
 de covariância para um vetor de razões
 \EndKnitrBlock{example}
 
@@ -3201,7 +3201,7 @@ Para o método \texttt{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01333716
+## [1,] 0.01070905
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -3425,7 +3425,7 @@ distribuição do estimador induzida pelo plano de amostragem aleatória
 simples \(V_{AAS}\left(\hat{\theta}\right)\).
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-48}{}{\label{def:unnamed-chunk-48}}O
+\protect\hypertarget{def:unnamed-chunk-47}{}{\label{def:unnamed-chunk-47}}O
 \textbf{Efeito do Plano Amostral (\(EPA\))} \textbf{de Kish} para um
 estimador \(\hat{\theta}\) é
 \EndKnitrBlock{definition}
@@ -3652,7 +3652,7 @@ incorreta do plano amostral (ou do modelo) sobre a estimativa \(v_{0}\)
 da variância do estimador \(\hat{\theta}\).
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-49}{}{\label{def:unnamed-chunk-49}}O
+\protect\hypertarget{def:unnamed-chunk-48}{}{\label{def:unnamed-chunk-48}}O
 efeito da especificação incorreta do plano amostral (ou do modelo) sobre
 a estimativa \(v_{0}\) da variância do estimador \(\hat{\theta}\) é
 
@@ -4033,7 +4033,7 @@ na estrutura da população e não no plano amostral usado para obter os
 dados.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-52}{}{\label{ex:unnamed-chunk-52}}População
+\protect\hypertarget{ex:unnamed-chunk-51}{}{\label{ex:unnamed-chunk-51}}População
 conglomerada com conglomerados de tamanho 2 \citep{SHS89}, p.~25
 \EndKnitrBlock{example}
 
@@ -4224,7 +4224,7 @@ exemplo, para \(\alpha =0,05\) e
 significância real seria aproximadamente \(1-0,83=0,17\).
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-53}{}{\label{ex:unnamed-chunk-53}}\label{exebin}Teste
+\protect\hypertarget{ex:unnamed-chunk-52}{}{\label{ex:unnamed-chunk-52}}\label{exebin}Teste
 de hipótese sobre proporção
 \EndKnitrBlock{example} Vamos considerar um exemplo hipotético de teste
 de hipótese sobre uma proporção, semelhante ao de \citep{Sud76},
@@ -4661,7 +4661,7 @@ Simulação (incluir?)
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1398658
+## [1] 0.1400405
 \end{verbatim}
 
 \begin{Shaded}
@@ -4672,7 +4672,7 @@ Simulação (incluir?)
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3548295
+## [1] 0.2955681
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -4824,7 +4824,7 @@ de pesos irrelevante, e no outro os \texttt{amostristas}, que incorporam
 pesos em qualquer análise.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-59}{}{\label{ex:unnamed-chunk-59}}Uso
+\protect\hypertarget{ex:unnamed-chunk-58}{}{\label{ex:unnamed-chunk-58}}Uso
 analítico dos dados da Pesquisa Nacional por Amostra de Domicílios
 (PNAD)
 \EndKnitrBlock{example}
@@ -5068,7 +5068,7 @@ processo de inferência. A principal que será adotada ao longo deste
 texto será o método de \texttt{Máxima\ Pseudo-Verossimilhança}, que
 descrevemos na próxima seção.
 
-\section{Método de Máxima Pseudo-Verossimilhança label}\label{modpar3}
+\section{Método de Máxima Pseudo-Verossimilhança}\label{modpar3}
 
 Suponha que os vetores observados \(\mathbf{y}_{i}\) das variáveis de
 pesquisa do elemento\(\ i\) são gerados por vetores aleatórios
@@ -5151,7 +5151,7 @@ igualando o estimador \(\mathbf{\hat{T}}\) do total \(\mathbf{T}\) a
 zero.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-60}{}{\label{def:unnamed-chunk-60}}O
+\protect\hypertarget{def:unnamed-chunk-59}{}{\label{def:unnamed-chunk-59}}O
 estimador de Máxima Pseudo-Verossimilhança (MPV)
 \(\mathbf{\hat{\theta}}_{MPV}\) de \(\mathbf{\theta }_{U}\) (e
 consequentemente de \(\mathbf{\theta}\)) será a solução das equações
@@ -7501,7 +7501,7 @@ Thomas e Rao(1987) observaram que esta estatística, em situações
 instáveis, é melhor que a estatística sem correção de primeira ordem.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-77}{}{\label{ex:unnamed-chunk-77}}Teste
+\protect\hypertarget{ex:unnamed-chunk-76}{}{\label{ex:unnamed-chunk-76}}Teste
 de bondade de ajuste para a distribuição etária da PPV 96-97 na Região
 Sudeste.
 \EndKnitrBlock{example}
@@ -8768,7 +8768,7 @@ A estatística \eqref{eq:Tab16} tem distribuição de referência \(F\) com
 liberdade.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-98}{}{\label{ex:unnamed-chunk-98}}Correções
+\protect\hypertarget{ex:unnamed-chunk-97}{}{\label{ex:unnamed-chunk-97}}Correções
 de EPA médio das estatísticas \(X_{P}^{2}\left(I\right)\) e
 \(X_{P}^{2}\left(H\right)\).
 \EndKnitrBlock{example}
@@ -8842,7 +8842,7 @@ DEff.re3 & 2.530639 & 1.802043\\
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-99}Proporções nas linha, desvios padrões e EPAs de `re` na população}
+\caption{\label{tab:unnamed-chunk-98}Proporções nas linha, desvios padrões e EPAs de `re` na população}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
@@ -8910,7 +8910,7 @@ Tabela de proporções de \texttt{sx} para a população inteira:
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-100}Proporções nas linha, desvios padrões e EPAs de sx na população}
+\caption{\label{tab:unnamed-chunk-99}Proporções nas linha, desvios padrões e EPAs de sx na população}
 \centering
 \begin{tabular}[t]{l|r|r|r}
 \hline
@@ -8979,7 +8979,7 @@ Vamos reproduzir alguns resultados usando dados da PNAD descritos na
 Seção ???
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-101}{}{\label{ex:unnamed-chunk-101}}Estimativas
+\protect\hypertarget{ex:unnamed-chunk-100}{}{\label{ex:unnamed-chunk-100}}Estimativas
 de medidas descritivas em tabelas
 \EndKnitrBlock{example}
 
@@ -9773,7 +9773,7 @@ ajuste de modelos hierárquicos para compensar diferentes probabilidades
 de inclusão das unidades na amostra.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-110}{}{\label{ex:unnamed-chunk-110}}Plano
+\protect\hypertarget{ex:unnamed-chunk-109}{}{\label{ex:unnamed-chunk-109}}Plano
 amostral de pesquisa educacional (\citep{lethonen}, p.~297).
 \EndKnitrBlock{example} Os dados deste exemplo se referem a uma pesquisa
 de avaliação de escolas (SNACS), na qual foi analisado o desempenho em
@@ -10039,7 +10039,7 @@ ou a estrutura da população (análises agregada e desagregada,
 respectivamente).\pagebreak 
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-111}{}{\label{ex:unnamed-chunk-111}}(\citep{bryk},
+\protect\hypertarget{ex:unnamed-chunk-110}{}{\label{ex:unnamed-chunk-110}}(\citep{bryk},
 Cap. 5)
 \EndKnitrBlock{example}
 

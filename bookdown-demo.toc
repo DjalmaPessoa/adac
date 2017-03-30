@@ -34,7 +34,7 @@
 \contentsline {section}{\numberline {5.1}Introdução}{67}{section.5.1}
 \contentsline {section}{\numberline {5.2}Método de Máxima Verossimilhança (MV)}{68}{section.5.2}
 \contentsline {section}{\numberline {5.3}Ponderação de Dados Amostrais}{68}{section.5.3}
-\contentsline {section}{\numberline {5.4}Método de Máxima Pseudo-Verossimilhança label}{71}{section.5.4}
+\contentsline {section}{\numberline {5.4}Método de Máxima Pseudo-Verossimilhança}{71}{section.5.4}
 \contentsline {section}{\numberline {5.5}Robustez do Procedimento MPV}{74}{section.5.5}
 \contentsline {section}{\numberline {5.6}Desvantagens da Inferência de Aleatorização}{75}{section.5.6}
 \contentsline {section}{\numberline {5.7}Laboratório de R}{76}{section.5.7}
