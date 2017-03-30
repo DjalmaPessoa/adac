@@ -646,10 +646,9 @@ Vamos criar duas variáveis:
 - faixa - variável indicadora de faixa etária entre 7 e 14 anos.
 
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(survey)
-source("~\\GitHub\\adac\\data\\ppv1.R")
-names(ppv1)<- tolower(names(ppv1))
+ppv1 <-readRDS("~\\GitHub\\adac\\data\\ppv.rds") 
 library(survey)
 ppv.des<-svydesign(ids = ~nsetor, strata = ~estratof,
 data = ppv1, nest = TRUE, weights = ~pesof)

@@ -28,11 +28,6 @@ description: "Análise de dados de pesquisas amostrais complexas."
 ---
 
 
-```{r}
-library(survey)
-source("~\\GitHub\\adac\\data\\ppv1.R")
-```
-
 
 # Prefácio {-}
 

@@ -16,43 +16,8 @@ description: "This is a minimal example of using the bookdown package to write a
 
 
 
-```r
-library(survey)
-```
 
-```
-## Carregando pacotes exigidos: grid
-```
-
-```
-## Carregando pacotes exigidos: methods
-```
-
-```
-## Carregando pacotes exigidos: Matrix
-```
-
-```
-## Carregando pacotes exigidos: survival
-```
-
-```
-## 
-## Attaching package: 'survey'
-```
-
-```
-## The following object is masked from 'package:graphics':
-## 
-##     dotchart
-```
-
-```r
-source("~\\GitHub\\adac\\data\\ppv1.R")
-```
-
-
-# Prefácio {-}
+ Prefácio {-}
 
 Uma preocupação básica de toda instituição produtora de
 informações estatísticas é com a utilização

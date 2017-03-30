@@ -120,8 +120,8 @@ obs<- c(840, 160)
 n<- sum(obs)
 phat <- obs/n
 # Estatística de Pearson
-X2P <- sum((obs-n*p0)^2/(n*p0))
-X2P
+x2p <- sum((obs-n*p0)^2/(n*p0))
+x2p
 ```
 
 
@@ -203,10 +203,10 @@ m <- 50
 d <- (p*(1-p)/m)/ (p*(1-p)/n)
 d
 # Estatística de Peason corrigida
-X2Pd <- X2P/d
-X2Pd
+x2pd <- x2p/d
+x2pd
 # valor-p do teste
-pchisq(X2Pd, 1, lower.tail = F)
+pchisq(x2pd, 1, lower.tail = F)
 ```
 
 
@@ -239,8 +239,8 @@ Rao-Scott são dados respectivamente por
 
 ```{r}
 # Estatística da RV
-X2RV <- 2*n*sum(phat*log(phat/p0))
-X2RV
+x2rv <- 2*n*sum(phat*log(phat/p0))
+x2rv
 ```
 
 \[
@@ -252,10 +252,10 @@ com $p$valor $0,0012$, e
 
 ```{r}
 # Estatística da RV corrigida
-X2RVd <- X2RV/d
-X2RVd
+x2rvd <- x2rv/d
+x2rvd
 # valor-p do teste
-pchisq(X2RVd, 1, lower.tail = FALSE)
+pchisq(x2rvd, 1, lower.tail = FALSE)
 ```
 
 
@@ -333,12 +333,12 @@ distribuída assintoticamente como qui-quadrado com um grau de liberdade.
 O valor da estatística de Wald para esse exemplo é
 
 ```{r}
-X2N <- 1000* sum((phat-p0)^2/phat)
-Vhatp <- (phat[1]*phat[2])/m # variância usa número efetivo
+x2n <- 1000* sum((phat-p0)^2/phat)
+vhatp <- (phat[1]*phat[2])/m # variância usa número efetivo
 # Estatística de Wald
-X2W <- ((phat[1]-p0[1])^2)/Vhatp
-X2W
-pchisq(X2W,1, lower.tail = FALSE)
+x2w <- ((phat[1]-p0[1])^2)/vhatp
+x2w
+pchisq(x2w,1, lower.tail = FALSE)
 ```
 
 
@@ -389,8 +389,8 @@ Estatística de teste & gl & Valor observado & $p$valor \\ \hline\hline
 \end{center}
 
 ```{r, testprop, echo=FALSE}
-Valor_observado= round(c(X2P, X2Pd,X2RV, X2RVd, X2W ),2)
-valorp = round(c(pchisq(c(X2P, X2Pd,X2RV, X2RVd, X2W), 1, lower.tail = FALSE)),4)
+Valor_observado= round(c(x2p, x2pd,x2rv, x2rvd, x2w ),2)
+valorp = round(c(pchisq(c(x2p, x2pd,x2rv, x2rvd, x2w), 1, lower.tail = FALSE)),4)
 
 testprop <- data.frame(Estatística = c("Pearson","Pearson ajustada","RV", "RV ajustada", "Wald"),
   gl = rep(1, 5), Valor_observado,valorp)
@@ -760,24 +760,24 @@ número de estratos é $H=15$ e o número total de conglomerados
 
 ```{r, ppvcont, message=FALSE, echo=FALSE}
 library(survey)
-source("~\\GitHub\\adac\\data\\ppv1.R")
+ppv1 <- readRDS("~\\GitHub\\adac\\data\\ppv.rds")
 # cria idade categorizada
-ppv1<-transform(ppv1,IDATAB=cut(V02A08,
+ppv1<-transform(ppv1,idatab=cut(v02a08,
 c(0,14,29,44,59,200), include.lowest=T), one=1)
 
 # Objeto de desenho da PPV
-ppv.des<-svydesign(id=~NSETOR,strat=~ESTRATOF,weights=~PESOF,
+ppv.des<-svydesign(id=~nsetor,strat=~estratof,weights=~pesof,
 data=ppv1,nest=TRUE)
 # Considera região sudeste
-ppv.se.des<-subset(ppv.des,REGIAO==2)
+ppv.se.des<-subset(ppv.des,regiao==2)
 # estima proporções nas classes de IDATAB
-ppv.id<-svymean(~IDATAB,ppv.se.des,deff=T)
-Vhat<-vcov(ppv.id)
+ppv.id<-svymean(~idatab,ppv.se.des,deff=T)
+vhat<-vcov(ppv.id)
 ppv.id <- data.frame(ppv.id)
-Freq <- svyby(~one, ~IDATAB, ppv.se.des, unwtd.count)$counts
+freq <- svyby(~one, ~idatab, ppv.se.des, unwtd.count)$counts
 # matriz de variância-covariância estimada
 idad_tab <- c("0-14", "15-29", "30-44","45-59","60+")
-tab73 <- data.frame(Idade= idad_tab, Prop_Contagem= c(0.2842, 0.2747, 0.2263, 0.1261, 0.0860), Frequência= Freq, Prop_est_PPV= ppv.id$mean,EPA = ppv.id$deff) 
+tab73 <- data.frame(idade= idad_tab, prop_contagem= c(0.2842, 0.2747, 0.2263, 0.1261, 0.0860), frequência= freq, prop_est_ppv= ppv.id$mean,epa = ppv.id$deff) 
 knitr::kable(tab73, booktabs= TRUE, digits=c(0,4,0,4,4),
   caption = "Vetores de proporções por classes de idade da PPV 96/97 e Contagem
 96 e EPAs calculados para a PPV - Região Sudeste")
@@ -805,8 +805,8 @@ Calculamos a matriz $\widehat{\mathbf{V}}_{p}$ pela aplicação do método de li
 <!-- \] -->
 
 ```{r}
-dimnames(Vhat)<- NULL
-knitr::kable(round(10^6*Vhat,3))
+dimnames(vhat)<- NULL
+knitr::kable(round(10^6*vhat,3))
 ```
 
 
@@ -834,10 +834,10 @@ dada por $\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0
 
 ```{r, echo=FALSE}
 p0 <- c(0.2842, 0.2774, 0.2263, 0.1261, 0.0860)
-n <- sum(Freq)
+n <- sum(freq)
 p0v <- matrix(p0,ncol=1)
-P0n <- (diag(p0)-p0v%*%t(p0v))/n
-knitr::kable(round(10^6*P0n,3))
+p0n <- (diag(p0)-p0v%*%t(p0v))/n
+knitr::kable(round(10^6*p0n,3))
 ```
 
 Para obter os diversos ajustes desta estatística precisamos usar os
@@ -846,7 +846,7 @@ foram obtidos através do pacote SUDAAN. Para obter as diferentes correções da
 quantidades: 
 
 ```{r}
-dhat <- tab73$EPA
+dhat <- tab73$epa
 dhatdot <- mean(dhat)
 dhatdot
 ```
@@ -856,7 +856,7 @@ dhatdot
 \]
 
 ```{r}
-phat <- tab73$Prop_est_PPV
+phat <- tab73$prop_est_ppv
 deltahatdot <- sum(phat*(1-p0)*dhat/(4*p0))
 deltahatdot
 ```
@@ -868,11 +868,11 @@ deltahatdot
 \]
 
 ```{r}
-nppv <- sum (Freq)
+nppv <- sum (freq)
 raz <- matrix(NA,5,5)
 for(i in 1:5){
   for(j in 1:5){
-    raz[i,j]<- Vhat[i,j]^2/(p0[i]*p0[j])
+    raz[i,j]<- vhat[i,j]^2/(p0[i]*p0[j])
   }
 }
 ahat2_1 <- nppv^2* sum(raz)/(4*deltahatdot^2)
@@ -890,8 +890,8 @@ Podemos então calcular a estatística $X_{P}^{2}$ de Pearson usando \@ref(eq:qu
 
 
 ```{r}
-X2P <-nppv* sum((phat -p0)^2/p0)
-X2P
+x2p <-nppv* sum((phat -p0)^2/p0)
+x2p
 ```
 
 \[
@@ -903,7 +903,7 @@ A estatística de Pearson com ajustamento de EPA médio é
 calculada usando \@ref(eq:qual12), resultando em 
 
 ```{r}
-X2P/dhatdot
+x2p/dhatdot
 ```
 
 
@@ -915,7 +915,7 @@ com $4$ g.l. e um $p$valor $0,298$ .
 A estatística de Pearson com ajustamento de Rao-Scott de primeira ordem,
 dada por \@ref(eq:qual13), resulta em
 ```{r}
-X2P/deltahatdot 
+x2p/deltahatdot 
 ```
 
 \[
@@ -928,7 +928,7 @@ O ajustamento de Rao-Scott de primeira ordem F-corrigido para a
 estatística de Pearson, dado por \@ref(eq:qual15), resulta em 
 ```{r}
 J <- length(phat)
-X2P/ ((J-1)*deltahatdot)
+x2p/ ((J-1)*deltahatdot)
 ```
 
 \[
@@ -940,7 +940,7 @@ O ajustamento de Rao-Scott de segunda ordem para a estatística de
 Pearson, dado por \@ref(eq:qual14), resulta em
 
 ```{r}
-(X2P/deltahatdot)/ahat2_1
+(x2p/deltahatdot)/ahat2_1
 ```
 
 \[
@@ -954,9 +954,9 @@ A estatística de Wald baseada no plano amostral (veja equação
 ```{r}
 phatv <- matrix(phat[-5], ncol=1)
 p0v <- matrix(p0[-5], ncol=1)
-Vhat0 <- Vhat[-5,-5]
-X2W <-  t(phatv-p0v)%*% solve(Vhat0)%*%(phatv-p0v)
-X2W
+vhat0 <- vhat[-5,-5]
+x2w <-  t(phatv-p0v)%*% solve(vhat0)%*%(phatv-p0v)
+x2w
 ```
 
 
@@ -971,12 +971,12 @@ As estatísticas F-corrigidas de Wald, definidas em \@ref(eq:qual9) e \@ref(eq:q
 
 ```{r}
 # número de estratos da PPV-sudeste
-nestrat <- length(unique(ppv1$ESTRATOF[ppv1$REGIAO==2]))
+nestrat <- length(unique(ppv1$estratof[ppv1$regiao == 2]))
 # número de setores da PPV-sudeste
-nsetor <- length(unique(ppv1$NSETOR[ppv1$REGIAO==2]))
+nsetor <- length(unique(ppv1$nsetor[ppv1$regiao == 2]))
 f <- nsetor -nestrat
-F1p <- ((f-J+2)/(f*(J-1)))*X2W
-F1p
+f1p <- ((f-J+2)/(f*(J-1)))*x2w
+f1p
 ```
 
 \[
@@ -986,8 +986,8 @@ com $4$ e $259$ g.l. e um $p$valor $0,232$ , e
 
 
 ```{r}
-F2p <- X2W/(J-1)
-F2p
+f2p <- x2w/(J-1)
+f2p
 ```
 
 \[
@@ -1084,27 +1084,27 @@ ordem de Rao-Scott, como na estatística Wald.
 Exemplo 7.1 pode ser substituído por: Criar variável ITAB (Não aparece)
 
 ```{r, echo=FALSE}
-ppv1<-transform(ppv1,IDATAB=cut(V02A08,
+ppv1<-transform(ppv1,idatab = cut(v02a08,
 c(0,14,29,44,59,200),include.lowest=T))
 ```
 
 ```{r}
-ppv.des<-svydesign(id=~NSETOR,strat=~ESTRATOF,weights=~PESOF,
+ppv.des<-svydesign(id=~nsetor,strat=~estratof,weights=~pesof,
 data=ppv1,nest=TRUE)
-ppv.se.des<-subset(ppv.des,REGIAO==2)
+ppv.se.des<-subset(ppv.des,regiao==2)
 ```
 
 
 ```{r}
-ppv.id<-svymean(~IDATAB,ppv.se.des,deff=T)
-Vhat<-vcov(ppv.id)
+ppv.id<-svymean(~idatab,ppv.se.des,deff=T)
+vhvat<-vcov(ppv.id)
 ```
 
 ```{r, estpropclas, results='asis'}
 library(xtable)
 fr_ppv_id<- data.frame(ppv.id)
 row.names(fr_ppv_id) <- NULL
-fr_ppv_id <- cbind(Idade= c("0 a 14 anos","15 a 29 anos", "30 a 44 anos","45 a 59 anos", "60 anos e mais"), fr_ppv_id)
+fr_ppv_id <- cbind(idade= c("0 a 14 anos","15 a 29 anos", "30 a 44 anos","45 a 59 anos", "60 anos e mais"), fr_ppv_id)
 knitr::kable(fr_ppv_id, booktabs= TRUE, digits=c(0,4,4,3), caption="Estimativas das proporções nas classes") 
 
 ```
@@ -1119,14 +1119,14 @@ phat<-coefficients(ppv.id)
 # Vetor de proporções obtido na Contagem Populacional de 1996
 p0<-c(.2842,.2774,.2263,.1261,.086)
 # Estatística de Wald
-X2_W<-matrix((phat-p0)[-5],nrow=1)%*%solve(Vhat[-5,-5])%*%
+x2_w<-matrix((phat-p0)[-5],nrow=1)%*%solve(vhat[-5,-5])%*%
 matrix((phat-p0)[-5],ncol=1)
-X2_W
+x2_w
 ```
 
 ```{r}
 #Cálculo do p-valor
-round(pchisq(X2_W,4,lower.tail=FALSE),digits=3)
+round(pchisq(x2_w,4,lower.tail=FALSE),digits=3)
 ```
 
 
@@ -1135,15 +1135,15 @@ Estatística de Pearson calculada a partir da fórmula 7.11
 ```{r}
 n<-8903
 P0<-diag(p0)-matrix(p0,ncol=1)%*%matrix(p0,nrow=1)
-X2_P<-n*matrix((phat-p0)[-5],nrow=1)%*%solve(P0[-5,-5])%*%
+x2_p<-n*matrix((phat-p0)[-5],nrow=1)%*%solve(P0[-5,-5])%*%
 matrix((phat-p0)[-5],ncol=1)
-X2_P
+x2_p
 ```
 
 Cálculo do valor-p:
 
 ```{r}
-round(pchisq(X2_P,4,lower.tail=FALSE),digits=3)
+round(pchisq(x2_p,4,lower.tail=FALSE),digits=3)
 ```
 
 

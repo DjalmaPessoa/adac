@@ -795,7 +795,7 @@ frequências nas celas para a amostra pesquisada.
 
 ```{r, frqamost, results='asis',echo=FALSE}
 library(xtable)
-source("~\\GitHub\\adac\\data\\pnadrj90.R")
+pnadrj90 <- readRDS("~\\GitHub\\adac\\data\\pnadrj90.rds")
 freq.sx.re <-table(pnadrj90$sx, pnadrj90$re , dnn= c("Sexo", "Renda"))
 knitr::kable(xtable(freq.sx.re ,caption= "Frequências Amostrais por celas na PNADRJ90"))
 ```
@@ -909,7 +909,6 @@ na linha.
 ```{r, proplinha, echo=FALSE}
 library(survey)
 library(pander)
-source("~\\GitHub\\adac\\data\\pnadrj90.R")
 pnadrj90<-transform(pnadrj90,sx=factor(sx),id=factor(id),ae=factor(ae),ht=factor(ht),re=factor(re))
 pnad.des<-svydesign(id=~psu,strata=~stra,weights=~pesopes,data=pnadrj90,nest=TRUE)
 marg_re <- as.data.frame(svyby(~re,~sx,pnad.des,svymean,keep.var=T,deff = TRUE))
@@ -1117,7 +1116,7 @@ Estimativas de medidas descritivas em tabelas
 ```
 ```{r}
 library(survey)
-source("~\\GitHub\\adac\\data\\pnadrj90.R")
+pnadrj90 <- readRDS("~\\GitHub\\adac\\data\\pnadrj90.rds")
 names(pnadrj90)
 ```
 Tranformação em fatores:

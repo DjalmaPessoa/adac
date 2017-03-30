@@ -613,7 +613,7 @@ de amostragem foram selecionadas com reposição, conforme descrito na Seção .
 
 ```{r, logit, echo=FALSE, warning=FALSE, message=FALSE}
 library(survey)
-source("~\\GitHub\\adac\\data\\pnadrj90.R")
+pnadrj90 <- readRDS("~\\GitHub\\adac\\data\\pnadrj90.rds")
 pnadrj90$sx<-as.factor(pnadrj90$sx)
 pnadrj90$sx<-relevel(pnadrj90$sx,ref="2")
 pnadrj90$id<-as.factor(pnadrj90$id)
@@ -879,7 +879,6 @@ $712$ & $712$ \\ \hline\hline
 
 
 ```{r,pesofreq, echo=FALSE}
-source("~\\GitHub\\adac\\data\\pnadrj90.R")
 tab_peso <-table(pnadrj90$pesopes)
 fr_peso <- data.frame (tab_peso)
 names(fr_peso)<- c("Valor do peso","Frequência")
@@ -1050,7 +1049,7 @@ Reproduzir usando a survey os resultados do Exemplo 6.1???
 
 ```{r}
 library(survey)
-source("~\\GitHub\\adac\\data\\pnadrj90.R")
+pnadrj90 <- readRDS("~\\GitHub\\adac\\data\\pnadrj90.rds")
 names(pnadrj90)
 ```
 Preparação dos dados: Variáveis explicativas são fatores.
@@ -1083,7 +1082,7 @@ pnad.des<-svydesign(id=~psu,strata=~stra,weights=~pesopes,data=pnadrj90,nest=TRU
 Ajusta modelo de regressão logística na Tabela 6.2
 Comparar resultado com o da página 106 de Pessoa e Silva (1998)
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 inf.logit<-svyglm(informal~sx+ae+ht+id+re+sx*id+sx*ht+ae*ht+ht*id+ht*re,design=pnad.des,family=binomial)
 ```
 

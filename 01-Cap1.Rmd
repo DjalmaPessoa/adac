@@ -568,11 +568,9 @@ Utilização da library survey do R para estimar totais e razões na PPV
 ```
 Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref(ex:distppv) . Inicialmente, vamos ler os
 dados do arquivo `ppv1.R`, através do comando `source`. Em seguida, vamos definir variáveis de interesse por meio de transformação de variáveis existentes.
-```{r,echo=FALSE, message=FALSE}
-source("~\\GitHub\\adac\\data\\ppv1.R")
+```{r, message=FALSE, warning=FALSE}
+ppv1 <- readRDS("~\\GitHub\\adac\\data\\ppv.rds")
 library(survey)
-# transforma nomes de variáveis para minúsculas
-names(ppv1)<- tolower(names(ppv1))
 ```
 Criação das variáveis analf1,analf2, faixa1 e faixa2:
 
@@ -601,7 +599,6 @@ O passo fundamental para utilização da library `survey` é criar um objeto que
 As variáveis que definem estratos, conglomerados e pesos na `PPV` são respectivamente, `estratof`, `nsetor` e `pesof`. O objeto de desenho amostral, `ppv.des` incorpora as informações do plano amostral adotado na `PPV`.
 
 ```{r, message=FALSE, warning=FALSE}
-
 library(survey)
 ppv.des<-svydesign(ids = ~nsetor, strata = ~estratof,
 data = ppv1, nest = TRUE, weights = ~pesof)
