@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-03-30}
+  \date{2017-03-31}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -775,24 +775,26 @@ da library survey do R para estimar totais e razões na PPV
 \EndKnitrBlock{example} Os exemplos a seguir utilizam dados da Pesquisa
 de Padrões de Vida (\texttt{PPV}) de 2004 do IBGE, cujo plano amostral
 encontra-se descrito no Exemplo \ref{ex:distppv} . Inicialmente, vamos
-ler os dados do arquivo \texttt{ppv1.R}, através do comando
-\texttt{source}. Em seguida, vamos definir variáveis de interesse por
-meio de transformação de variáveis existentes.
+ler os e definir variáveis de interesse por meio de transformação de
+variáveis existentes.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# leitura dos dados}
 \NormalTok{ppv1 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{ppv.rds"}\NormalTok{)}
 \KeywordTok{library}\NormalTok{(survey)}
 \end{Highlighting}
 \end{Shaded}
 
-Criação das variáveis analf1,analf2, faixa1 e faixa2:
+Criação das variáveis analf1, analf2, faixa1 e faixa2:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ppv1 <-}\StringTok{ }\KeywordTok{transform}\NormalTok{(ppv1, }\DataTypeTok{analf1 =} \NormalTok{((v04a01 ==}\StringTok{ }\DecValTok{2} \NormalTok{|}\StringTok{    }\NormalTok{v04a02 ==}\StringTok{ }\DecValTok{2}\NormalTok{) &}\StringTok{ }\NormalTok{(v02a08 >=}\StringTok{ }\DecValTok{7} \NormalTok{&}\StringTok{ }
-\NormalTok{v02a08 <=}\StringTok{ }\DecValTok{14}\NormalTok{)) *}\StringTok{   }\DecValTok{1}\NormalTok{, }\DataTypeTok{analf2 =} \NormalTok{((v04a01 ==}\StringTok{ }\DecValTok{2} \NormalTok{|}\StringTok{ }\NormalTok{v04a02 ==}\StringTok{ }\DecValTok{2}\NormalTok{) &}\StringTok{ }
-\NormalTok{(v02a08 >}\DecValTok{14}\NormalTok{)) *}\StringTok{ }\DecValTok{1}\NormalTok{, }\DataTypeTok{faixa1 =} \NormalTok{(v02a08 >=}\StringTok{ }\DecValTok{7} \NormalTok{&}\StringTok{ }\NormalTok{v02a08 <=}\StringTok{ }\DecValTok{14}\NormalTok{) *}\DecValTok{1}\NormalTok{, }\DataTypeTok{faixa2 =} \NormalTok{(v02a08 >}\StringTok{ }\DecValTok{14}\NormalTok{) *}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{ppv1 <-}\StringTok{ }\KeywordTok{transform}\NormalTok{(ppv1, }
+\DataTypeTok{analf1 =} \NormalTok{((v04a01 ==}\StringTok{ }\DecValTok{2} \NormalTok{|}\StringTok{ }\NormalTok{v04a02 ==}\StringTok{ }\DecValTok{2}\NormalTok{) &}\StringTok{ }\NormalTok{(v02a08 >=}\StringTok{ }\DecValTok{7} \NormalTok{&}\StringTok{ }\NormalTok{v02a08 <=}\StringTok{ }\DecValTok{14}\NormalTok{)) *}\StringTok{ }\DecValTok{1}\NormalTok{, }
+\DataTypeTok{analf2 =} \NormalTok{((v04a01 ==}\StringTok{ }\DecValTok{2} \NormalTok{|}\StringTok{ }\NormalTok{v04a02 ==}\StringTok{ }\DecValTok{2}\NormalTok{) &}\StringTok{ }\NormalTok{(v02a08 >}\DecValTok{14}\NormalTok{)) *}\StringTok{ }\DecValTok{1}\NormalTok{, }
+\DataTypeTok{faixa1 =} \NormalTok{(v02a08 >=}\StringTok{ }\DecValTok{7} \NormalTok{&}\StringTok{ }\NormalTok{v02a08 <=}\StringTok{ }\DecValTok{14}\NormalTok{) *}\DecValTok{1}\NormalTok{, }
+\DataTypeTok{faixa2 =} \NormalTok{(v02a08 >}\StringTok{ }\DecValTok{14}\NormalTok{) *}\StringTok{ }\DecValTok{1}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -855,10 +857,14 @@ Sudeste, vamos restringir o desenho a esse domínio:
 Para exemplificar, vamos estimar algumas características da população,
 descritas na Tabela \ref{table:Tab13}. Os totais das variáveis
 \texttt{analf1} e \texttt{analf2} para a região Sudeste fornecem os
-resultados nas linhas 4) e 5 da Tabela \ref{table:Tab13}:
+resultados nas linhas 4 e 5 da Tabela \ref{table:Tab13}:
 
-Vamos estimar os totais de analfabetos nas faixas etárias de 7 a 14 anos
-e acima de 14 anos.
+\begin{itemize}
+\tightlist
+\item
+  totais de analfabetos nas faixas etárias de 7 a 14 anos e acima de 14
+  anos.
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -882,9 +888,12 @@ e acima de 14 anos.
 ## analf2 4792344  318877 3.3237
 \end{verbatim}
 
-Queremos ainda estimar o percentual de analfabetos nas faixas etárias
-consideradas, que fornece os resultados nas linhas 6 e 7 da Tabela
-\ref{table:Tab13}:
+\begin{itemize}
+\tightlist
+\item
+  percentual de analfabetos nas faixas etárias consideradas, que fornece
+  os resultados nas linhas 6 e 7 da Tabela \ref{table:Tab13}:
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -953,16 +962,18 @@ O efeito de plano amostral (EPA) de Kish é definido na fórmula
 EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
 \]
 
-Na definição do EPA, a estimativa do numerador pode ser obtida
-diretamente a partir da library \texttt{survey}, a partir do objeto de
-\texttt{ppv.se.des} que incorpora as características do plano amostral
-utilizado para coletar os dados. Não é possível estimar diretamente o
-denominador, pois o plano amostral AAS (Amostragem Aleatória Simples)
-não foi adotado na coleta dos dados. Devemos estimar o denominador a
-partir de dados obtidos através do plano amostral VERD, como se eles
-tivessem sido obtidos através de AAS. Supondo conhecido o tamanho da
-população \(N\) e a fração amostral \(f=n/N\) pequena, a estimativa da
-variância de \(\widehat{Y}\) é dada na expressão @ref:\label{eq:estpa9} \[
+Na definição do EPA, a estimativa do numerador pode ser obtida usando-se
+a library \texttt{survey}, a partir do objeto de \texttt{ppv.se.des} que
+incorpora as características do plano amostral utilizado para coletar os
+dados. Não é possível estimar diretamente o denominador, pois o plano
+amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta
+dos dados. Devemos estimar o denominador a partir de dados obtidos
+através do plano amostral VERD, como se eles tivessem sido obtidos
+através de AAS.
+
+Supondo conhecido o tamanho da população \(N\) e a fração amostral
+\(f=n/N\) pequena, a estimativa da variância de \(\widehat{Y}\) é dada
+na expressão @ref:\label{eq:estpa9} \[
 \widehat{V}_{AAS}\left(\widehat{Y}\right)=N^2\frac{\widehat{S}_y}{n-1}
 \] onde
 \(\widehat{S}_y= n^{-1}\sum_{i\in s}\left(y_i-\overline{y}\right)^2\) é
@@ -1249,7 +1260,7 @@ data frame \texttt{x}:
 \end{Shaded}
 
 Para calcular a taxa de desocupação, o IBGE considera pessoas de 14 anos
-ou mais (PIA) na semana de referência e calcula a razão de dois totais:
+ou mais na semana de referência(PIA) e calcula a razão de dois totais:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3201,7 +3212,7 @@ Para o método \texttt{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01070905
+## [1,] 0.01246083
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -4661,7 +4672,7 @@ Simulação (incluir?)
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1400405
+## [1] 0.1406414
 \end{verbatim}
 
 \begin{Shaded}
@@ -4672,7 +4683,7 @@ Simulação (incluir?)
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.2955681
+## [1] 0.3530373
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -6013,66 +6024,37 @@ fatores na análise. A variável ht foi considerada como a soma de horas
 trabalhadas em todos os trabalhos, por semana. A variável re compreende
 a renda média mensal de todos os trabalhos, em salários mínimos.
 
-\begin{longtable}[]{@{}lll@{}}
-\caption{\label{tab:varexp}Descrição das variáveis
-explicativas}\tabularnewline
-\toprule
-\begin{minipage}[b]{0.38\columnwidth}\raggedright\strut
-Fatores\strut
-\end{minipage} & \begin{minipage}[b]{0.10\columnwidth}\raggedright\strut
-Níveis\strut
-\end{minipage} & \begin{minipage}[b]{0.25\columnwidth}\raggedright\strut
-Descrição dos níveis\strut
-\end{minipage}\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-\begin{minipage}[b]{0.38\columnwidth}\raggedright\strut
-Fatores\strut
-\end{minipage} & \begin{minipage}[b]{0.10\columnwidth}\raggedright\strut
-Níveis\strut
-\end{minipage} & \begin{minipage}[b]{0.25\columnwidth}\raggedright\strut
-Descrição dos níveis\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.38\columnwidth}\raggedright\strut
-Sexo(sx)\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
-sx(1)sx(2)\strut
-\end{minipage} & \begin{minipage}[t]{0.25\columnwidth}\raggedright\strut
-HomensMulheres\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.38\columnwidth}\raggedright\strut
-Anos de estudo(ht)\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
-ae(1)ae(2)ae(3)\strut
-\end{minipage} & \begin{minipage}[t]{0.25\columnwidth}\raggedright\strut
-Até 4De 5 a 89 ou mais\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.38\columnwidth}\raggedright\strut
-Horas trabalhadas(ht)\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
-ht(1)ht(2)ht(3)\strut
-\end{minipage} & \begin{minipage}[t]{0.25\columnwidth}\raggedright\strut
-Menos de 40De 40 a 48Mais de 48\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.38\columnwidth}\raggedright\strut
-Idade em anos completos(id)\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
-id(1)id(2)id(3)id(4)\strut
-\end{minipage} & \begin{minipage}[t]{0.25\columnwidth}\raggedright\strut
-Até 17De 18 a 25De 26 a 4950 ou mais\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.38\columnwidth}\raggedright\strut
-Rendimento médio mensal(re)\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
-re(1)re(2)re(3)\strut
-\end{minipage} & \begin{minipage}[t]{0.25\columnwidth}\raggedright\strut
-Menos de 1De 1 a 5Mais de 5\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Descrição das variáveis explicativas }\bigskip \label{tab61}
+\begin{tabular}{|c|c|c|}
+\hline\hline
+\textbf{Fatores} & \textbf{Níveis} & \textbf{Descrição dos
+níveis} \\ \hline\hline
+Sexo (sx) & sx(1) & Homens \\
+& sx(2) & Mulheres \\ \hline
+Anos de estudo (ae) & ae(1) & Até 4 \\
+& ae(2) & De 5 a 8 \\
+& ae(3) & 9 ou mais \\ \hline
+Horas trabalhadas (ht) & ht(1) & Menos de 40 \\
+& ht(2) & De 40 a 48 \\
+& ht(3) & Mais de 48 \\ \hline
+Idade em anos completos (id) & id(1) & Até 17 \\
+& id(2) & De 18 a 25 \\
+& id(3) & De 26 a 49 \\
+& id(4) & 50 ou mais \\ \hline
+Rendimento médio mensal (re) & re(1) & Menos de 1 \\
+& re(2) & De 1 a 5 \\
+& re(3) & Mais de 5 \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
 
 Os fatores considerados foram tomados como explicativos e a variável
 resposta foi o indicador de pertinência ao setor informal da economia.
@@ -6653,10 +6635,10 @@ estratificação e/ou pesos desiguais. Neste capítulo examinaremos o
 impacto do plano amostral sobre as estatísticas de teste usuais notando
 que, em alguns casos, os valores observados dessas estatísticas de teste
 podem ser muito grandes, acarretando inferências incorretas, conforme já
-ilustrado no Exemplo \ref{exebin} do Capítulo \ref{epa}. Isto ocorre
-porque a probabilidade de erros do tipo I (rejeitar a hipótese nula
-quando esta é verdadeira) é muito maior que o nível nominal de
-significância \(\alpha\) especificado.
+ilustrado no Exemplo \ref{exebin}. Isto ocorre porque a probabilidade de
+erros do tipo I (rejeitar a hipótese nula quando esta é verdadeira) é
+muito maior que o nível nominal de significância \(\alpha\)
+especificado.
 
 Para obter inferências válidas usando amostras complexas podemos
 introduzir correções na estatística de teste de Pearson, tais como os
@@ -6674,19 +6656,18 @@ parâmetros especificam algum modelo de superpopulação.
 \subsection{Correção de Estatísticas
 Clássicas}\label{correcao-de-estatisticas-classicas}
 
-No Exemplo \ref{exebin} do Capítulo \ref{epa} a estatística de teste
-\(Z_{bin},\) que foi utilizada para comparar com um valor hipotético
-pré-fixado a proporção de empregados cobertos por plano de saúde,
-resultou num teste mais liberal do que o teste que empregou a
-estatística \(Z_{p}\), baseada no plano amostral efetivamente adotado. A
-causa disto foi o fato de \(Z_{bin}\) não considerar o efeito de
-conglomeração existente. Vamos examinar com mais detalhes o
-comportamento assintótico da estatística de teste \(Z_{bin}\),
-construindo a estatística de teste \(X_{P}^{2}\) de Pearson para o
-exemplo correspondente. Para isto, consideremos a Tabela \ref{tab71}
-contendo a distribuição de frequências, onde \(n_{j}\) e \(p_{oj}\) são
-as frequências (absolutas) observadas na amostra e as proporções
-hipotéticas nas categorias de interesse, respectivamente.
+No Exemplo \ref{exebin} a estatística de teste \(Z_{bin},\) que foi
+utilizada para comparar com um valor hipotético pré-fixado a proporção
+de empregados cobertos por plano de saúde, resultou num teste mais
+liberal do que o teste que empregou a estatística \(Z_{p}\), baseada no
+plano amostral efetivamente adotado. A causa disto foi o fato de
+\(Z_{bin}\) não considerar o efeito de conglomeração existente. Vamos
+examinar com mais detalhes o comportamento assintótico da estatística de
+teste \(Z_{bin}\), construindo a estatística de teste \(X_{P}^{2}\) de
+Pearson para o exemplo correspondente. Para isto, consideremos a Tabela
+\ref{tab71} contendo a distribuição de frequências, onde \(n_{j}\) e
+\(p_{oj}\) são as frequências (absolutas) observadas na amostra e as
+proporções hipotéticas nas categorias de interesse, respectivamente.
 
 \begin{center}
 %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
@@ -6713,63 +6694,6 @@ Não cobertos & 2 & \multicolumn{1}{|r|}{$160$} & \multicolumn{1}{|r|}{$%
 \end{table}%
 %EndExpansion
 \end{center}
-
-\begin{longtable}[]{@{}llll@{}}
-\caption{\label{tab:prophip} Frequências observadas e proporções
-hipotéticas}\tabularnewline
-\toprule
-\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
-Categoria\strut
-\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
-\(j\)\strut
-\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
-\(n_j\)\strut
-\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\raggedright\strut
-\(p_{0j}\)\strut
-\end{minipage}\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
-Categoria\strut
-\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
-\(j\)\strut
-\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
-\(n_j\)\strut
-\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\raggedright\strut
-\(p_{0j}\)\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Cobertos por planos de saúde\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
-1\strut
-\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
-840\strut
-\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
-0.8\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Não cobertos\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
-2\strut
-\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
-160\strut
-\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
-0.2\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Todos empregados\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
--\strut
-\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
-1000\strut
-\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
-1.0\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
 
 As proporções populacionais desconhecidas nas categorias são
 \(p_{j}=N_{j}/N\), onde \(N\) é o tamanho total da população de
@@ -6891,8 +6815,9 @@ X_{RV}^{2}(d)=X_{RV}^{2}/d\;\;.
 \end{equation}
 
 Vamos calcular os valores das estatísticas de Pearson e de RV, com suas
-correções de Rao-Scott, para os dados do Exemplo \ref{exebin}. Para as
-correções, primeiro é preciso calcular o efeito do plano amostral
+correções de Rao-Scott, para os dados do Exemplo @ref\{exe: exebin\}.
+Para as correções, primeiro é preciso calcular o efeito do plano
+amostral
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7109,7 +7034,7 @@ caso de mais de duas celas, pode haver desvantagens no uso da
 estatística de Wald baseada no plano amostral, devido à instabilidade
 nas estimativas de variância em pequenas amostras.
 
-Reproduzimos na Tabela \ref{tab:testprop} os resultados para todas as
+Reproduzimos na Tabela @ref\{tab72\} os resultados para todas as
 estatísticas de teste consideradas até agora, para facilidade de
 comparação.
 
@@ -7137,23 +7062,6 @@ Estatística de teste & gl & Valor observado & $p$valor \\ \hline\hline
 \end{table}%
 %EndExpansion
 \end{center}
-
-\begin{table}
-
-\caption{\label{tab:testprop}Valores e valores-p de estatísticas de testes para os dados do Exemplo 4.4}
-\centering
-\begin{tabular}[t]{lrrr}
-\toprule
-Estatística & gl & Valor\_observado & valorp\\
-\midrule
-Pearson & 1 & 10.00 & 0.0016\\
-Pearson ajustada & 1 & 0.50 & 0.4795\\
-RV & 1 & 10.56 & 0.0012\\
-RV ajustada & 1 & 0.53 & 0.4674\\
-Wald & 1 & 0.60 & 0.4404\\
-\bottomrule
-\end{tabular}
-\end{table}
 
 Nesta seção foram apresentadas as duas principais abordagens para
 incorporar o efeito do plano amostral na estatística de teste:
@@ -7240,7 +7148,7 @@ selecionadas for grande e o número de celas componentes do vetor
 estimador estável de \(\mathbf{V}_{p}\). Observe que \eqref{eq:qual7} é um
 caso particular de \eqref{eq:qual8}.
 
-\subsection{Situações Instáveis}
+\subsection{Situações Instáveis}\label{situacoes-instaveis}
 
 Se o número \(m\) de unidades primárias de amostragem disponíveis for
 pequeno, pode ocorrer um problema de instabilidade na estimativa
@@ -7271,7 +7179,7 @@ que tem distribuição assintótica de referência \(F\) com \(J-1\) e \(f\)
 graus de liberdade. No caso \(J=2\), as duas correções reproduzem a
 estatística original.
 
-O~efeito de uma correção \(\mathbf{F}\) à estatística \(X_{W}^{2}\) pode
+O efeito de uma correção \(\mathbf{F}\) à estatística \(X_{W}^{2}\) pode
 ser visualizado facilmente no caso de duas celas. Se \(f\) for pequeno,
 então o \(p\)valor de \(X_{W}^{2}\), obtido a partir de uma distribuição
 \textbf{F} com \(1\) e \(f\) graus, é maior que o \(p\) valor obtido
@@ -7279,21 +7187,21 @@ numa distribuição qui-quadrado com um grau de liberdade. Quando \(f\)
 aumenta a diferença diminui, tornando a correção desprezível, quando
 \(f\) for grande.
 
-Thomas e Rao(1987) analisaram o desempenho das diferentes estatísticas
-de teste de bondade de ajuste, no caso de instabilidade. Eles
-verificaram que a estatística de Wald F-corrigida \(F_{1.p}\) não
-apresentou, em geral, o melhor desempenho nesta comparação, contudo,
-comportou-se relativamente bem nos casos padrões, onde a instabilidade
-não era muito grave. As estatísticas F-corrigidas de Wald são bastante
-utilizadas na prática, e estão implementadas em pacotes para análise de
-dados de pesquisas amostrais complexas.
+\citep{TR87} analisaram o desempenho das diferentes estatísticas de
+teste de bondade de ajuste, no caso de instabilidade. Eles verificaram
+que a estatística de Wald F-corrigida \(F_{1.p}\) não apresentou, em
+geral, o melhor desempenho nesta comparação, contudo, comportou-se
+relativamente bem nos casos padrões, onde a instabilidade não era muito
+grave. As estatísticas F-corrigidas de Wald são bastante utilizadas na
+prática, e estão implementadas em pacotes para análise de dados de
+pesquisas amostrais complexas.
 
 \subsection{Estatística de Pearson com Ajuste de
 Rao-Scott}\label{raoscott}
 
 O exemplo introdutório serviu para mostrar que, na presença de efeitos
 de plano amostral importantes, as estatísticas clássicas de teste
-precisam ser ajus-tadas para terem a mesma distribuição assintótica de
+precisam ser ajustadas para terem a mesma distribuição assintótica de
 referência que a obtida para o caso de amostragem aleatória simples.
 Inicialmente, vamos considerar a estatística de teste \(X_{P}^{2}\) de
 Pearson\(.\) Essa estatística pode ser escrita em forma matricial como
@@ -7335,12 +7243,12 @@ plano amostral \(\mathbf{\Delta }=\mathbf{P}_{0}^{-1}\mathbf{V}_{p}\),
 onde \(\mathbf{V}_{p}\mathbf{/}n\) é a matriz de covariância do
 estimador \(\widehat{\mathbf{p}}\) do vetor de proporção \(\mathbf{p}\)
 baseada no plano amostral verdadeiro. Tais autovalores são também
-chamados efeitos generalizados de plano a-mos-tral. Observe que, em
-geral, eles não coincidem com os efeitos univariados de plano amostral
+chamados efeitos generalizados de plano amostral. Observe que, em geral,
+eles não coincidem com os efeitos univariados de plano amostral
 \(d_{j}\).
 
 No caso de amostragem aleatória simples, os efeitos generalizados de
-plano amostral \(\delta _{j}\) são todos iguais a um, pois neste caso
+plano amostral \(\delta_{j}\) são todos iguais a um, pois neste caso
 \(\mathbf{\Delta =I}\), matriz identidade. Neste caso, a soma
 \(\sum_{j=1}^{J-1}\delta _{j}W_{j}\) se reduz a
 \(\sum_{j=1}^{J-1}W_{j},\) cuja distribuição é \(\chi ^{2}\) com \(J-1\)
@@ -7374,7 +7282,7 @@ Quando esta estimativa está disponível, deve-se usar o ajuste mais
 preciso de segunda ordem.
 
 O ajuste de EPA médio é baseado nos efeitos univariados de plano
-a-mos-tral estimados \(\hat{d}_{j}\) das estimativas \(\hat{p}_{j}\). O
+amostral estimados \(\hat{d}_{j}\) das estimativas \(\hat{p}_{j}\). O
 ajuste da estatística \eqref{eq:qual11} é feito dividindo o valor
 observado da estatística \(X_{P}^{2}\) de Pearson pela média
 \(\hat{d}_{.}\) dos efeitos univariados de plano amostral:
@@ -7513,25 +7421,75 @@ anos de idade. As proporções correspondentes para a população foram
 obtidas da Contagem Populacional de 96. Na Região Sudeste, o número de
 estratos é \(H=15\) e o número total de conglomerados (setores) na
 amostra da PPV é \(m=276\) e portanto \(f=m-H=261\). As informações
-utilizadas neste exemplo são apresentadas na Tabela \ref{tab:ppvcont}.
+utilizadas neste exemplo são apresentadas na Tabela \ref{tab73}.
 
-\begin{table}
-
-\caption{\label{tab:ppvcont}Vetores de proporções por classes de idade da PPV 96/97 e Contagem
-96 e EPAs calculados para a PPV - Região Sudeste}
-\centering
-\begin{tabular}[t]{lrrrr}
-\toprule
-idade & prop\_contagem & frequência & prop\_est\_ppv & epa\\
-\midrule
-0-14 & 0.2842 & 2516 & 0.2845 & 2.2862\\
-15-29 & 0.2747 & 2360 & 0.2678 & 2.1867\\
-30-44 & 0.2263 & 2018 & 0.2225 & 2.2542\\
-45-59 & 0.1261 & 1177 & 0.1316 & 1.9906\\
-60+ & 0.0860 & 832 & 0.0935 & 3.1632\\
-\bottomrule
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Vetores de proporções por classes de idade da PPV 96/97 e Contagem
+96 e EPAs calculados para a PPV - Região Sudeste }\bigskip \label{tab73}
+\begin{tabular}{|c|c|c|c|c|}
+\hline\hline
+& Contagem & \multicolumn{3}{|c|}{PPV} \\ \cline{2-5}
+Idade &
+\begin{tabular}{c}
+Proporção \\
+$\left( \mathbf{p}_{0}\right)$
 \end{tabular}
-\end{table}
+& Frequência &
+\begin{tabular}{c}
+Proporção \\
+$\left( \mathbf{\hat{p}}\right)$
+\end{tabular}
+& EPA \\ \hline\hline
+0 a 14 anos & $0,2842$ & \multicolumn{1}{|r|}{$2.516$} &
+\multicolumn{1}{|r|}{$0,2845$} & \multicolumn{1}{|r|}{$2,2859$} \\
+15 a 29 anos & $0,2774$ & \multicolumn{1}{|r|}{$2.360$} &
+\multicolumn{1}{|r|}{$0,2678$} & \multicolumn{1}{|r|}{$2,1864$} \\
+30 a 44 anos & $0,2263$ & \multicolumn{1}{|r|}{$2.018$} &
+\multicolumn{1}{|r|}{$0,2225$} & \multicolumn{1}{|r|}{$2,2539$} \\
+45 a 59 anos & $0,1261$ & \multicolumn{1}{|r|}{$1.177$} &
+\multicolumn{1}{|r|}{$0,1316$} & \multicolumn{1}{|r|}{$1,9903$} \\
+60 anos e mais & $0,0860$ & \multicolumn{1}{|r|}{$832$} &
+\multicolumn{1}{|r|}{$0,0935$} & \multicolumn{1}{|r|}{$3,1627$} \\
+\hline\hline
+Total & $1,0000$ & \multicolumn{1}{|r|}{$8903$} & \multicolumn{1}{|r|}{$%
+0,9999$} & $-$ \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(survey)}
+\NormalTok{ppv1 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{ppv.rds"}\NormalTok{)}
+\CommentTok{# cria idade categorizada}
+\NormalTok{ppv1<-}\KeywordTok{transform}\NormalTok{(ppv1,}\DataTypeTok{idatab=}\KeywordTok{cut}\NormalTok{(v02a08,}
+\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{14}\NormalTok{,}\DecValTok{29}\NormalTok{,}\DecValTok{44}\NormalTok{,}\DecValTok{59}\NormalTok{,}\DecValTok{200}\NormalTok{), }\DataTypeTok{include.lowest=}\NormalTok{T), }\DataTypeTok{one=}\DecValTok{1}\NormalTok{)}
+
+\CommentTok{# Objeto de desenho da PPV}
+\NormalTok{ppv.des<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{id=}\NormalTok{~nsetor,}\DataTypeTok{strat=}\NormalTok{~estratof,}\DataTypeTok{weights=}\NormalTok{~pesof,}
+\DataTypeTok{data=}\NormalTok{ppv1,}\DataTypeTok{nest=}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{# Considera região sudeste}
+\NormalTok{ppv.se.des<-}\KeywordTok{subset}\NormalTok{(ppv.des,regiao==}\DecValTok{2}\NormalTok{)}
+\CommentTok{# estima proporções nas classes de IDATAB}
+\NormalTok{ppv.id<-}\KeywordTok{svymean}\NormalTok{(~idatab,ppv.se.des,}\DataTypeTok{deff=}\NormalTok{T)}
+\NormalTok{vhat<-}\KeywordTok{vcov}\NormalTok{(ppv.id)}
+\NormalTok{ppv.id <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(ppv.id)}
+\NormalTok{freq <-}\StringTok{ }\KeywordTok{svyby}\NormalTok{(~one, ~idatab, ppv.se.des, unwtd.count)$counts}
+\CommentTok{# matriz de variância-covariância estimada}
+\NormalTok{idad_tab <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"0-14"}\NormalTok{, }\StringTok{"15-29"}\NormalTok{, }\StringTok{"30-44"}\NormalTok{,}\StringTok{"45-59"}\NormalTok{,}\StringTok{"60+"}\NormalTok{)}
+\NormalTok{tab73 <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{idade=} \NormalTok{idad_tab, }\DataTypeTok{prop_contagem=} \KeywordTok{c}\NormalTok{(}\FloatTok{0.2842}\NormalTok{, }\FloatTok{0.2747}\NormalTok{, }\FloatTok{0.2263}\NormalTok{, }\FloatTok{0.1261}\NormalTok{, }\FloatTok{0.0860}\NormalTok{), frequê}\DataTypeTok{ncia=} \NormalTok{freq, }\DataTypeTok{prop_est_ppv=} \NormalTok{ppv.id$mean,}\DataTypeTok{epa =} \NormalTok{ppv.id$deff) }
+\CommentTok{# knitr::kable(tab73, booktabs= TRUE, digits=c(0,4,0,4,4),}
+\CommentTok{#   caption = "Vetores de proporções por classes de idade da PPV 96/97 e Contagem}
+\CommentTok{# 96 e EPAs calculados para a PPV - Região Sudeste")}
+\end{Highlighting}
+\end{Shaded}
 
 Os valores dos EPAs observados na PPV ( coluna 5 da Tabela \ref{tab73})
 mostram que o plano amostral não pode ser ignorado na análise. Queremos
@@ -7547,22 +7505,24 @@ Taylor descrito na Seção \ref{taylor} através da fórmula
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{dimnames}\NormalTok{(vhat)<-}\StringTok{ }\OtherTok{NULL}
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{10}\NormalTok{^}\DecValTok{6}\NormalTok{*vhat,}\DecValTok{3}\NormalTok{))}
+\KeywordTok{dimnames}\NormalTok{(vhat) <-}\StringTok{ }\KeywordTok{list}\NormalTok{(idad_tab, idad_tab)}
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}\DecValTok{10}\NormalTok{^}\DecValTok{6}\NormalTok{*vhat, }\DataTypeTok{format=}\StringTok{"latex"}\NormalTok{, }\DataTypeTok{digits=}\DecValTok{3}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tabular}{r|r|r|r|r}
+\begin{tabular}{l|r|r|r|r|r}
 \hline
-52.274 & -3.899 & -5.672 & -19.292 & -23.411\\
+  & 0-14 & 15-29 & 30-44 & 45-59 & 60+\\
 \hline
--3.899 & 48.164 & -29.346 & -3.399 & -11.520\\
+0-14 & 52.274 & -3.899 & -5.672 & -19.292 & -23.411\\
 \hline
--5.672 & -29.346 & 43.799 & -8.226 & -0.556\\
+15-29 & -3.899 & 48.164 & -29.346 & -3.399 & -11.520\\
 \hline
--19.292 & -3.399 & -8.226 & 25.551 & 5.366\\
+30-44 & -5.672 & -29.346 & 43.799 & -8.226 & -0.556\\
 \hline
--23.411 & -11.520 & -0.556 & 5.366 & 30.120\\
+45-59 & -19.292 & -3.399 & -8.226 & 25.551 & 5.366\\
+\hline
+60+ & -23.411 & -11.520 & -0.556 & 5.366 & 30.120\\
 \hline
 \end{tabular}
 
@@ -7587,10 +7547,10 @@ resultando em
 \end{tabular}
 
 Para obter os diversos ajustes desta estatística precisamos usar os
-valores dos EPAs, listados na coluna 5 da Tabela @ref\{tab:ppvcont\}.
-Estes valores foram obtidos através do pacote SUDAAN. Para obter as
-diferentes correções da estatística de Pearson, precisamos calcular as
-seguintes quantidades:
+valores dos EPAs, listados na coluna 5 da Tabela \ref{tab73}. Estes
+valores foram obtidos através do pacote SUDAAN. Para obter as diferentes
+correções da estatística de Pearson, precisamos calcular as seguintes
+quantidades:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7797,141 +7757,57 @@ F_{1.p}=\frac{261-5+2}{261\times 4}\times 5,690661=1,406
 F_{2.p}=5,691/4\mbox{ }=1,423 
 \] com 4 e 261 gl e um \(p\)valor \(0,228\) .
 
-A Tabela \ref{tab:estaltteste} resume os valores das diversas
-estatísticas de teste calculadas, bem como das informações comparativas
-com as respectivas distribuições de referência.
+A Tabela \ref{tab74} resume os valores das diversas estatísticas de
+teste calculadas, bem como das informações comparativas com as
+respectivas distribuições de referência.
 
-\begin{longtable}[]{@{}cclcr@{}}
-\caption{\label{tab:estaltteste}Valores e valores-p de estatísticas
-alternativas de teste}\tabularnewline
-\toprule
-\begin{minipage}[b]{0.39\columnwidth}\centering\strut
-Estatística\strut
-\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\centering\strut
-Tipo\strut
-\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
-Valor\strut
-\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\centering\strut
-Distribuição\strut
-\end{minipage} & \begin{minipage}[b]{0.08\columnwidth}\raggedleft\strut
-valor-\(p\)\strut
-\end{minipage}\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-\begin{minipage}[b]{0.39\columnwidth}\centering\strut
-Estatística\strut
-\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\centering\strut
-Tipo\strut
-\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
-Valor\strut
-\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\centering\strut
-Distribuição\strut
-\end{minipage} & \begin{minipage}[b]{0.08\columnwidth}\raggedleft\strut
-valor-\(p\)\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.39\columnwidth}\centering\strut
-\(X_{P}^{2}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
-Adequada para IID\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
-11.640\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-\(\chi ^{2}(4)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedleft\strut
-0.020\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.39\columnwidth}\centering\strut
-\(X_{P}^{2}\left( \hat{d}_{.}\right)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
-Ajustes e\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
-4.901\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-\(\chi ^{2}(4)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedleft\strut
-0.298\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.39\columnwidth}\centering\strut
-\(X_{P}^{2}\left( \hat{\delta}_{.}\right)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
-correções da\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
-4.740\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-\(\chi ^{2}(4)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedleft\strut
-0.315\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.39\columnwidth}\centering\strut
-\(FX_{P}^{2}\left( \hat{\delta}_{.}\right)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
-Estatística\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
-1.850\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-\(F\left( 4;261\right)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedleft\strut
-0.318\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.39\columnwidth}\centering\strut
-\(X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
-\(X_{P}^{2}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
-3.784\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-\(\chi ^{2}(3,19)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedleft\strut
-0.314\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.39\columnwidth}\centering\strut
-\(X_{W}^{2}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
-Baseadas no\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
-5.691\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-\(\chi ^{2}(4)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedleft\strut
-0.223\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.39\columnwidth}\centering\strut
-\(F_{1.p}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
-plano\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
-1.406\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-\(F\left( 4;259\right)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedleft\strut
-0.232\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.39\columnwidth}\centering\strut
-\(F_{2.p}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
-amostral\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
-1.423\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-\(F\left( 4;261\right)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedleft\strut
-0.228\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Valores e $p$valores de estatísticas alternativas de teste}\bigskip
+\label{tab74}
+\begin{tabular}{|c|c|c|c|c|}
+\hline\hline
+Estatística & Tipo & Valor & Distribuição & $p$valor \\
+\hline\hline
+$X_{P}^{2}$ &
+\begin{tabular}{c}
+Adequada \\
+para IID
+\end{tabular}
+& \multicolumn{1}{|r|}{$11,640$} & $\chi ^{2}(4)$ & $0,020$ \\ \hline
+$X_{P}^{2}\left( \hat{d}_{.}\right)$ & Ajustes e & \multicolumn{1}{|r|}{$%
+4,901$} & $\chi ^{2}(4)$ & $0,298$ \\
+$X_{P}^{2}\left( \hat{\delta}_{.}\right)$ & correções da &
+\multicolumn{1}{|r|}{$4,740$} & $\chi ^{2}(4)$ & $0,315$ \\
+$FX_{P}^{2}\left( \hat{\delta}_{.}\right)$ & Estatística &
+\multicolumn{1}{|r|}{$1,850$} & $F\left( 4;261\right)$ & $0,318$ \\
+$X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$ & $X_{P}^{2}$ &
+\multicolumn{1}{|r|}{$3,784$} & $\chi ^{2}(3,19)$ & $0,314$ \\ \hline
+$X_{W}^{2}$ & Baseadas no & \multicolumn{1}{|r|}{$5,691$} & $\chi ^{2}(4)$ &
+$0,223$ \\
+$F_{1.p}$ & plano & \multicolumn{1}{|r|}{$1,406$} & $F\left( 4;259\right)$
+& $0,232$ \\
+$F_{2.p}$ & amostral & \multicolumn{1}{|r|}{$1,423$} & $F\left( 4;261\right)
+$ & $0,228$ \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
 
-Examinando os resultados da Tabela \ref{tab:estaltteste}, verificamos
-que o teste clássico de Pearson rejeita a hipótese nula \(H_{0}\) no
-nível \(\alpha =5\%\), diferentemente de todos os outros testes. Os
-valores das estatísticas com ajustes de Rao-Scott (com ou sem correção
-F) são semelhantes e parecem corrigir exagerademente o \(p\)-valor dos
-testes. A estatística de Wald baseada no plano amostral e suas correções
-F, que têm valores quase iguais, produzem uma correção menor no
-\(p\)-valor do teste. Nesse exemplo, como o número de graus de liberdade
-(dado pelo número de unidades primárias na amostra menos o número de
+Examinando os resultados da Tabela \ref{tab74}, verificamos que o teste
+clássico de Pearson rejeita a hipótese nula \(H_{0}\) no nível
+\(\alpha =5\%\), diferentemente de todos os outros testes. Os valores
+das estatísticas com ajustes de Rao-Scott (com ou sem correção F) são
+semelhantes e parecem corrigir exagerademente o \(p\)-valor dos testes.
+A estatística de Wald baseada no plano amostral e suas correções F, que
+têm valores quase iguais, produzem uma correção menor no \(p\)-valor do
+teste. Nesse exemplo, como o número de graus de liberdade (dado pelo
+número de unidades primárias na amostra menos o número de
 estratos)\(f=m-H=261\) é grande, a correção F tem pouco efeito, tanto
 nas estatísticas com ajustes de primeira e segunda ordem de Rao-Scott,
 como na estatística Wald.
@@ -8096,11 +7972,8 @@ proporções marginais na tabela por \(p_{l+}=\sum\nolimits_{c}p_{lc}\) e
 \(p_{+c}=\sum_{l}p_{lc}\).
 
 \begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Tabela 2x2 de proporções }\bigskip \label{tab81}$
+\begin{table}[tbp] \centering
+\caption{Tabela 2x2 de proporções }\bigskip \label{tab81}
 \begin{tabular}{|c|c|c|c|}
 \hline
 & \multicolumn{3}{|c|}{Var 2} \\ \cline{2-4}
@@ -8109,11 +7982,7 @@ Var 1 & 1 & 2 & Total \\ \hline
 2 & $p_{21}$ & $p_{22}$ & $p_{2+}$ \\ \hline
 Total & $p_{+1}$ & $p_{+2}$ & $1$ \\ \hline
 \end{tabular}
-$%
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
+\end{table}
 \end{center}
 
 \subsection{Teste de Independência}\label{teste-de-independencia}
@@ -8206,7 +8075,7 @@ distribuição assintótica qui-quadrado com um grau de liberdade.
 Por outro lado, é importante observar que as agências produtoras de
 dados estatísticos geralmente apresentam os resultados de suas pesquisas
 em tabelas contendo as estimativas \(\hat{N}_{lc}\), como ilustrado no
-Exemplo \ref{Analisec} do Capítulo \ref{ajmodpar}. Se calcularmos as
+Exemplo \ref{exe:Analisec} do Capítulo \ref{ajmodpar}. Se calcularmos as
 estatísticas \(X_{P}^{2}\left( I\right)\) e \(X_{P}^{2}\left( H\right)\)
 a partir dos valores dos \(\hat{N}_{lc}\) fornecidos, com a estimativa
 do tamanho da popula ção \(\hat{N}\) no lugar de \(n\), os resultados
@@ -8252,37 +8121,31 @@ tabela \(L\times C\) e supor que as colunas da tabela correspondem às
 classes da variável resposta e as linhas correspondem às regiões, de
 modo que as somas da proporções nas linhas na tabela de proporções são
 iguais a \(1\). A tabela para a população é da forma da Tabela
-\ref{tab:proplinha}.
+\ref{tab82}.
 
-\begin{longtable}[]{@{}llllllll@{}}
-\caption{\label{tab:proplinha} Proporções de linhas em tabela
-\(L\times C\).}\tabularnewline
-\toprule
-Região & \(1\) & \(2\) & \(\ldots\) & \(c\) & \(\ldots\) & \(C\) &
-Total\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-Região & \(1\) & \(2\) & \(\ldots\) & \(c\) & \(\ldots\) & \(C\) &
-Total\tabularnewline
-\midrule
-\endhead
-\(1\) & \(p_{11}\) & \(p_{12}\) & \(\ldots\) & \(p_{1c}\) & \(\ldots\) &
-\(p_{1C}\) & \(1\)\tabularnewline
-\(2\) & \(p_{21}\) & \(p_{22}\) & \(\ldots\) & \(p_{2c}\) & \(\ldots\) &
-\(p_{2C}\) & \(1\)\tabularnewline
-\(\vdots\) & \(\vdots\) & \(\vdots\) & . & \(\vdots\) & . & \(\vdots\) &
-\(\vdots\)\tabularnewline
-\(l\) & \(p_{l1}\) & \(p_{l1}\) & \(\ldots\) & \(p_{lc}\) & \(\ldots\) &
-\(p_{lC}\) & \(1\)\tabularnewline
-\(\vdots\) & \(\vdots\) & \(\vdots\) & . & \(\vdots\) & . & \(\vdots\) &
-\(\vdots\)\tabularnewline
-\(L\) & \(p_{L1}\) & \(p_{L2}\) & \(\ldots\) & \(p_{Lc}\) & \(\ldots\) &
-\(p_{LC}\) & \(1\)\tabularnewline
-Total & \(p_{+1}\) & \(p_{+2}\) & \(\ldots\) & \(p_{+c}\) & \(\ldots\) &
-\(p_{+C}\) & \(1\)\tabularnewline
-\bottomrule
-\end{longtable}
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Proporções de linhas em tabela $L\times C$}
+\bigskip \label{tab82}
+\begin{tabular}{|c|cccccc|c|}
+\hline\hline
+Região & $1$ & $2$ & $\ldots $ & $c$ & $\ldots $ & $C$ & Total \\
+\hline\hline
+$1$ & $p_{11}$ & $p_{12}$ & $\ldots $ & $p_{1c}$ & $\ldots $ & $p_{1C}$ & $1$
+\\
+$2$ & $p_{21}$ & $p_{22}$ & $\ldots $ & $p_{2c}$ & $\ldots $ & $p_{2C}$ & $1$
+\\
+$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
+\\
+$l$ & $p_{l1}$ & $p_{l1}$ & $\ldots $ & $p_{lc}$ & $\ldots $ & $p_{lC}$ & $1$
+\\
+$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
+\\
+$L$ & $p_{L1}$ & $p_{L2}$ & $\ldots $ & $p_{Lc}$ & $\ldots $ & $p_{LC}$ & $1$
+\\ \hline\hline
+\end{tabular}
+\end{table}
+\end{center}
 
 Note que aqui as proporções que aparecem nas linhas da tabela são
 proporções calculadas em relação à freqüência total da linha, e não
@@ -8336,7 +8199,7 @@ _{2}\right) ^{^{\prime }}\left[ \mathbf{\hat{V}}_{p}\left( \widehat{\mathbf{p
 pois as amostras são disjuntas e supostas independentes.
 
 No caso, a estatística de Wald \(X_{W}^{2}\left( H\right)\) tem
-distribui ção assintótica qui-quadrado com
+distribuição assintótica qui-quadrado com
 \(\left( 2-1\right) \times \left( C-1\right)\) graus de liberdade.
 Quando o número de unidades primárias de amostragem na amostra de cada
 região é grande, a estatística de Wald funciona adequadamente. Caso
@@ -8507,9 +8370,35 @@ _{.}\right) /\left( C-1\right),
 
 Vamos considerar o teste de independência no caso geral de tabela
 \(L\times C\), onde os dados são extraídos de uma única população, sem
-fixar marginais. Consideremos a Tabela @ref(tab:??) com as propor ções
+fixar marginais. Consideremos a Tabela \ref{tab83} com as propor ções
 nas celas a nível da população, onde agora novamente se tem
 \(p_{lc}=N_{lc}/N\).
+
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Proporções por cela na população}\bigskip \label{tab83}
+\begin{tabular}{|c|cccccc|c|}
+\hline\hline
+& \multicolumn{7}{|c|}{Variável 2} \\ \cline{2-8}
+Variável 1 & $1$ & $2$ & $\ldots $ & $c$ & $\ldots $ & $C$ & Total \\
+\hline\hline
+$1$ & $p_{11}$ & $p_{12}$ & $\ldots $ & $p_{1c}$ & $\ldots $ & $p_{1C}$ & $
+p_{1+}$ \\
+$2$ & $p_{21}$ & $p_{22}$ & $\ldots $ & $p_{2c}$ & $\ldots $ & $p_{2C}$ & $
+p_{2+}$ \\
+$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
+\\
+$l$ & $p_{l1}$ & $p_{l1}$ & $\ldots $ & $p_{lc}$ & $\ldots $ & $p_{lC}$ & $
+p_{l+}$ \\
+$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
+\\
+$L$ & $p_{L1}$ & $p_{L2}$ & $\ldots $ & $p_{Lc}$ & $\ldots $ & $p_{LC}$ & $
+p_{L+}$ \\ \hline\hline
+Total & $p_{+1}$ & $p_{+2}$ & $\ldots $ & $p_{+c}$ & $\ldots $ & $p_{+C}$ & $
+1$ \\ \hline\hline
+\end{tabular}
+\end{table}
+\end{center}
 
 Estamos interessados em testar a hipótese de independência \[
 H_{0}:p_{lc}=p_{l+}p_{+c},\quad l=1,\ldots ,L-1,\ c=1,\ldots,C-1, 
@@ -8543,7 +8432,7 @@ normalizados de modo que \(\sum_{c=1}^{C}\sum_{l=1}^{L}\hat{n}_{lc}=n\).
 Se \(n\) não for fixado de antemão, os \(\hat{p}_{lc}\) serão
 estimadores de razões. Apenas \(\left( L-1\right) \left( C-1\right)\)
 componentes são incluídos no vetores \(\mathbf{f}\) e
-\(\mathbf{\hat{f}}\), pois a soma das proporç ões nas celas da tabela é
+\(\mathbf{\hat{f}}\), pois a soma das proporções nas celas da tabela é
 igual a 1.
 
 \subsection{Estatística de Wald Baseada no Plano
@@ -8551,7 +8440,7 @@ Amostral}\label{estatistica-de-wald-baseada-no-plano-amostral-1}
 
 A estatística de Wald baseada no plano amostral
 \(X_{W}^{2}\left(I\right)\), para o teste de independência, tem a forma
-da expressão \label{eq:Tab8}, com \(\mathbf{\hat{f}}\) no lugar de
+da expressão \eqref{eq:Tab8}, com \(\mathbf{\hat{f}}\) no lugar de
 \(\mathbf{\hat{p}}\), o vetor
 \(\mathbf{0}_{\left( L-1\right)\left( C-1\right)}\) no lugar de
 \(\mathbf{p}_{0}\) e a estimativa baseada no plano amostral
@@ -8675,7 +8564,7 @@ _{.},
 desconhecidos.
 
 Estimamos os efeitos do plano amostral por
-\(\hat{d}_{lc}=\hat{V}_{p}\left( \hat{p}_{lc}\right) /\)\linebreak \(\left( \hat{p}_{lc}\left( 1-\hat{p} _{lc}\right) /n\right)\),
+\(\hat{d}_{lc}=\hat{V}_{p}\left(\hat{p}_{lc}\right) /\left( \hat{p}_{lc}\left( 1-\hat{p}_{lc}\right) /n\right)\),
 onde \(\hat{V}_{p}\left( \hat{p}_{lc}\right)\) é a estimativa da
 variância de aleatorização do estimador de proporção \(\hat{p}_{lc}\).
 Este ajustamento requer que estejam disponíveis as estimativas dos
@@ -8782,18 +8671,26 @@ os dois sexos.
 A variável \texttt{sx} tem dois níveis: sx(1)-Homens, sx(2)- Mulheres e
 a variável \texttt{re} tem três níveis: re(1)- Menos de salário mínimo,
 re(2) - de 1 a 5 salário mínimos e re(3)- mais de 5 salários mínimos. A
-Tabela @ref(tab:frqamost\} apresenta as frequências nas celas para a
-amostra pesquisada.
+Tabela \ref{tab84} apresenta as frequências nas celas para a amostra
+pesquisada.
 
-\begin{tabular}{r|r|r}
-\hline
-1 & 2 & 3\\
-\hline
-476 & 2527 & 1273\\
-\hline
-539 & 1270 & 422\\
-\hline
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Freqüências amostrais por celas na PNAD 90}\bigskip \label{tab84}
+\begin{tabular}{|c|cccc|}
+\hline\hline
+& \multicolumn{3}{|c}{\textbf{Renda Mensal}} &  \\
+\textbf{Sexo} & 1 & 2 & 3 & \multicolumn{1}{|c|}{\textbf{Total}} \\
+\hline\hline
+1 & \multicolumn{1}{|r}{$476$} & \multicolumn{1}{r}{$2.527$} &
+\multicolumn{1}{r}{$1.273$} & \multicolumn{1}{|r|}{$4.276$} \\
+2 & \multicolumn{1}{|r}{$539$} & \multicolumn{1}{r}{$1.270$} &
+\multicolumn{1}{r}{$422$} & \multicolumn{1}{|r|}{$2.231$} \\ \hline\hline
+\textbf{Total} & \multicolumn{1}{|r}{$1.015$} & \multicolumn{1}{r}{$3.797$}
+& \multicolumn{1}{r}{$1.695$} & \multicolumn{1}{|r|}{$6.507$} \\ \hline\hline
 \end{tabular}
+\end{table}
+\end{center}
 
 No teste de homogeneidade das distribuições de renda, consideramos
 fixadas as marginais \(4.276\) e \(2.231\) da variável Sexo na tabela de
@@ -8805,32 +8702,94 @@ utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo
 
 Vamos considerar o teste de homogeneidade entre as variáveis Sexo e
 Renda e calcular o efeito de plano amostral médio das estimativas das
-proporções nas celas da tabela. A Tabela \ref{tab:proplinha} contém, em
-cada cela, as estimativas: da proporção na linha, do desvio-padrão da
+proporções nas celas da tabela. A Tabela \ref{tab85} contém, em cada
+cela, as estimativas: da proporção na linha, do desvio-padrão da
 estimativa da proporção na linha (\(\times10.000\)), e do efeito de
 plano amostral da estimativa de proporção na linha.
 
-\begin{table}
-
-\caption{\label{tab:proplinha}Proporções nas linha, desvios padrões e EPAs de re para cada nivel de sx}
-\centering
-\begin{tabular}[t]{lll}
-\toprule
-  & sx\_1 & sx\_2\\
-\midrule
-re1 & 0.1110831 & 0.2404788\\
-re2 & 0.5908215 & 0.5696548\\
-re3 & 0.2980955 & 0.1898663\\
-se.re1 & 57.26888 & 125.02636\\
-se.re2 & 102.5759 & 119.3753\\
-\addlinespace
-se.re3 & 111.2131 & 111.4102\\
-DEff.re1 & 1.421935 & 1.911202\\
-DEff.re2 & 1.863257 & 1.298137\\
-DEff.re3 & 2.530639 & 1.802043\\
-\bottomrule
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Proporções nas linhas, desvios padrões e EPAs}\bigskip \label{tab85}
+\begin{tabular}{|c|ccc|c|}
+\hline\hline
+& \multicolumn{3}{|c|}{\textbf{Renda Mensal}} &  \\ \cline{2-4}
+\textbf{Sexo} & 1 & 2 & 3 & \textbf{Total} \\ \hline\hline
+1 & \multicolumn{1}{|r}{$
+\begin{tabular}{r}
+$0,111$ \\
+$57,269$ \\
+$1,420$
+\end{tabular}
+$} & \multicolumn{1}{r}{$
+\begin{tabular}{r}
+$0,591$ \\
+$102,576$ \\
+$1,861$
+\end{tabular}
+$} & \multicolumn{1}{r|}{$
+\begin{tabular}{r}
+$0,298$ \\
+$111,213$ \\
+$2,527$
+\end{tabular}
+$} &
+\begin{tabular}{c}
+$1,00$
+\end{tabular}
+\\ \hline
+2 & \multicolumn{1}{|r}{$
+\begin{tabular}{r}
+$0,240$ \\
+$125,026$ \\
+$1,909$
+\end{tabular}
+$} & \multicolumn{1}{r}{$
+\begin{tabular}{r}
+$0,570$ \\
+$119,375$ \\
+$1,297$
+\end{tabular}
+$} & \multicolumn{1}{r|}{$
+\begin{tabular}{r}
+$0,190$ \\
+$111,410$ \\
+$1,800$
+\end{tabular}
+$} &
+\begin{tabular}{c}
+$1,00$
+\end{tabular}
+\\ \hline\hline
+\begin{tabular}{c}
+Amostra \\
+completa
+\end{tabular}
+& \multicolumn{1}{|r}{$
+\begin{tabular}{r}
+$0,155$ \\
+$68,977$ \\
+$2,358$
+\end{tabular}
+$} & \multicolumn{1}{r}{$
+\begin{tabular}{r}
+$0,584$ \\
+$82,001$ \\
+$1,800$
+\end{tabular}
+$} & \multicolumn{1}{r|}{$
+\begin{tabular}{r}
+$0,261$ \\
+$96,1300$ \\
+$3,117$
+\end{tabular}
+$} &
+\begin{tabular}{c}
+$1,00$
+\end{tabular}
+\\ \hline\hline
 \end{tabular}
 \end{table}
+\end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8839,21 +8798,6 @@ DEff.re3 & 2.530639 & 1.802043\\
   \DataTypeTok{caption=}\StringTok{"Proporções nas linha, desvios padrões e EPAs de `re` na população"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-98}Proporções nas linha, desvios padrões e EPAs de `re` na população}
-\centering
-\begin{tabular}[t]{lrrr}
-\toprule
-  & mean & SE & deff\\
-\midrule
-re1 & 0.155 & 0.007 & 2.361\\
-re2 & 0.584 & 0.008 & 1.803\\
-re3 & 0.261 & 0.010 & 3.122\\
-\bottomrule
-\end{tabular}
-\end{table}
 
 Vamos calcular, a título de ilustração, uma das celas de tabela de
 efeitos de plano amostral, digamos a cela (1,1). A estimativa da
@@ -8874,28 +8818,94 @@ calculada tomando a média dos EPAs das celas correspondentes aos níveis
 
 Vamos agora considerar o teste de independência entre as variáveis Sexo
 e Renda e calcular o efeito de plano amostral médio das estimativas das
-proporções nas celas da tabela. A Tabela @ref(tab:propcelas\} contém, em
-cada cela, as estimativas: da proporção na cela, do desvio-padrão da
+proporções nas celas da tabela. A Tabela \ref{tab86} contém, em cada
+cela, as estimativas: da proporção na cela, do desvio-padrão da
 estimativa da proporção na cela (\(\times 10.000\)), e do efeito de
 plano amostral da estimativa de proporção na cela.
 
-\begin{table}
-
-\caption{\label{tab:propcelas}Proporções nas cela, desvios padrões e EPAs}
-\centering
-\begin{tabular}[t]{lrrr}
-\toprule
-  & mean & SE & deff\\
-\midrule
-interaction(sx, re)1.1 & 0.073 & 38.343 & 1.416\\
-interaction(sx, re)2.1 & 0.082 & 44.401 & 1.698\\
-interaction(sx, re)1.2 & 0.388 & 80.435 & 1.775\\
-interaction(sx, re)2.2 & 0.195 & 51.582 & 1.103\\
-interaction(sx, re)1.3 & 0.196 & 71.772 & 2.131\\
-interaction(sx, re)2.3 & 0.065 & 40.219 & 1.731\\
-\bottomrule
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Proporções nas celas, desvios padrões e EPAs}\bigskip \label{tab86}
+\begin{tabular}{|c|ccc|c|}
+\hline\hline
+& \multicolumn{3}{|c|}{\textbf{Renda Mensal}} &  \\ \cline{2-4}
+\textbf{Sexo} & 1 & 2 & 3 & \textbf{Total} \\ \hline\hline
+1 & \multicolumn{1}{|r}{$
+\begin{tabular}{r}
+$0,073$ \\
+$38,343$ \\
+$1,414$
+\end{tabular}
+$} & \multicolumn{1}{r}{
+\begin{tabular}{r}
+$0,388$ \\
+$80,435$ \\
+$1,772$
+\end{tabular}
+} & \multicolumn{1}{r|}{
+\begin{tabular}{r}
+$0,196$ \\
+$71,772$ \\
+$2,128$
+\end{tabular}
+} & $
+\begin{tabular}{r}
+$0,657$ \\
+$55,814$ \\
+$0,899$
+\end{tabular}
+$ \\ \hline
+2 &
+\begin{tabular}{r}
+$0,082$ \\
+$44,401$ \\
+$1,695$
+\end{tabular}
+&
+\begin{tabular}{r}
+$0,195$ \\
+$51,582$ \\
+$1,101$
+\end{tabular}
+&
+\begin{tabular}{r}
+$0,065$ \\
+$40,219$ \\
+$1,729$
+\end{tabular}
+&
+\begin{tabular}{r}
+$0,343$ \\
+$55,814$ \\
+$0,899$
+\end{tabular}
+\\ \hline\hline
+\textbf{Total} &
+\begin{tabular}{r}
+$0,155$ \\
+$68,977$ \\
+$2,358$
+\end{tabular}
+&
+\begin{tabular}{r}
+$0,584$ \\
+$82,001$ \\
+$1,800$
+\end{tabular}
+&
+\begin{tabular}{r}
+$0,261$ \\
+$96,130$ \\
+$3,117$
+\end{tabular}
+& $
+\begin{tabular}{r}
+$1,000$
+\end{tabular}
+$ \\ \hline\hline
 \end{tabular}
 \end{table}
+\end{center}
 
 Tabela de proporções de \texttt{sx} para a população inteira:
 
@@ -8908,24 +8918,9 @@ Tabela de proporções de \texttt{sx} para a população inteira:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-99}Proporções nas linha, desvios padrões e EPAs de sx na população}
-\centering
-\begin{tabular}[t]{l|r|r|r}
-\hline
-  & mean & SE & deff\\
-\hline
-sx1 & 0.657 & 55.814 & 0.901\\
-\hline
-sx2 & 0.343 & 55.814 & 0.901\\
-\hline
-\end{tabular}
-\end{table}
-
 Vamos calcular, a título de ilustração, o efeito de plano amostral na
-cela (1,1) da Tabela @ref\{tab:propcelas\}. A estimativa da variância do
-estimador de proporção nesta cela é \(\left(0,0038343\right) ^{2}\). Sob
+cela (1,1) da Tabela \ref{tab86}. A estimativa da variância do estimador
+de proporção nesta cela é \(\left(0,0038343\right) ^{2}\). Sob
 amostragem aleatória simples com reposição, a estimativa da variância do
 estimador de proporção na cela é:
 \(0,073\times \left( 1-0,073\right) /6.507\). A estimativa do efeito de
@@ -8943,10 +8938,10 @@ correspondentes aos níveis 1 e 2 da variável \texttt{sx}.
 
 Calculando as estatísticas \(X_{P}^{2}\left( I\right)\) e
 \(X_{P}^{2}\left( H\right)\) para os testes clássicos de independência e
-homogeneidade a partir da Tabela @ref\{tab:propcelas\}, obtemos os
-valores \(X_{P}^{2}\left( I\right) =X_{P}^{2}\left( H\right) =227,025\),
-com distribuição de referência \(\chi ^{2}\left( 2\right)\), resultado
-que indica rejeição da hipótese de independência entre \texttt{sx} e
+homogeneidade a partir da Tabela \ref{tab86}, obtemos os valores
+\(X_{P}^{2}\left( I\right) =X_{P}^{2}\left( H\right) =227,025\), com
+distribuição de referência \(\chi ^{2}\left( 2\right)\), resultado que
+indica rejeição da hipótese de independência entre \texttt{sx} e
 \texttt{re}, bem como da hipótese de igualdade de distribuição de renda
 para os dois sexos a partir do teste de homogeneidade. O valor comum das
 estatísticas \(X_{P}^{2}\left( I\right)\) e \(X_{P}^{2}\left( H\right)\)
@@ -8967,8 +8962,8 @@ distribuição de referência de todas essas estatísticas de teste é
 teste calculada sob a hipótese de amostra IID tem maior tendência a
 rejeitar a hipótese nula.
 
-A partir da Tabela \ref{tab:propcelas}, examinando as estimativas das
-proporç ões nas celas da tabela para cada sexo, observamos uma ordenação
+A partir da Tabela \ref{tab86}, examinando as estimativas das proporç
+ões nas celas da tabela para cada sexo, observamos uma ordenação
 estocástica das distribuições de renda para os dois sexos, com
 proporções maiores em valores mais altos para o nível 1 da variável
 sexo, que é o sexo masculino.
@@ -9142,50 +9137,6 @@ domínios definidos pela variável \texttt{sx}:
 \KeywordTok{print}\NormalTok{(}\KeywordTok{xtable}\NormalTok{(}\KeywordTok{svyby}\NormalTok{(~re,~sx,pnad.des,svymean,}\DataTypeTok{keep.var=}\OtherTok{TRUE}\NormalTok{),}\DataTypeTok{caption=}\StringTok{"Proporções por sexo"}\NormalTok{),}\DataTypeTok{type=}\StringTok{"html"}\NormalTok{, }\DataTypeTok{size=}\StringTok{"small"}\NormalTok{, }\DataTypeTok{include.rownames=}\OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-Proporções por sexo
-
-sx
-
-re1
-
-re2
-
-re3
-
-se.re1
-
-se.re2
-
-se.re3
-
-1
-
-0.11
-
-0.59
-
-0.30
-
-0.01
-
-0.01
-
-0.01
-
-2
-
-0.24
-
-0.57
-
-0.19
-
-0.01
-
-0.01
-
-0.01
 
 As proporções estimadas nas classes de renda e a tabela cruzada das
 variáveis sexo e renda são obtidas a seguir:

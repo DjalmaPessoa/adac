@@ -430,48 +430,48 @@ horas trabalhadas em todos os trabalhos, por semana. A variável re
 compreende a renda média mensal de todos os trabalhos, em salários
 mínimos.
 
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Descrição das variáveis explicativas }\bigskip \label{tab61}  -->
-<!-- \begin{tabular}{|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- \textbf{Fatores} & \textbf{Níveis} & \textbf{Descrição dos -->
-<!-- níveis} \\ \hline\hline -->
-<!-- Sexo (sx) & sx(1) & Homens \\  -->
-<!-- & sx(2) & Mulheres \\ \hline -->
-<!-- Anos de estudo (ae) & ae(1) & Até 4 \\  -->
-<!-- & ae(2) & De 5 a 8 \\  -->
-<!-- & ae(3) & 9 ou mais \\ \hline -->
-<!-- Horas trabalhadas (ht) & ht(1) & Menos de 40 \\  -->
-<!-- & ht(2) & De 40 a 48 \\  -->
-<!-- & ht(3) & Mais de 48 \\ \hline -->
-<!-- Idade em anos completos (id) & id(1) & Até 17 \\  -->
-<!-- & id(2) & De 18 a 25 \\  -->
-<!-- & id(3) & De 26 a 49 \\  -->
-<!-- & id(4) & 50 ou mais \\ \hline -->
-<!-- Rendimento médio mensal (re) & re(1) & Menos de 1 \\  -->
-<!-- & re(2) & De 1 a 5 \\  -->
-<!-- & re(3) & Mais de 5 \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Descrição das variáveis explicativas }\bigskip \label{tab61}
+\begin{tabular}{|c|c|c|}
+\hline\hline
+\textbf{Fatores} & \textbf{Níveis} & \textbf{Descrição dos
+níveis} \\ \hline\hline
+Sexo (sx) & sx(1) & Homens \\
+& sx(2) & Mulheres \\ \hline
+Anos de estudo (ae) & ae(1) & Até 4 \\
+& ae(2) & De 5 a 8 \\
+& ae(3) & 9 ou mais \\ \hline
+Horas trabalhadas (ht) & ht(1) & Menos de 40 \\
+& ht(2) & De 40 a 48 \\
+& ht(3) & Mais de 48 \\ \hline
+Idade em anos completos (id) & id(1) & Até 17 \\
+& id(2) & De 18 a 25 \\
+& id(3) & De 26 a 49 \\
+& id(4) & 50 ou mais \\ \hline
+Rendimento médio mensal (re) & re(1) & Menos de 1 \\
+& re(2) & De 1 a 5 \\
+& re(3) & Mais de 5 \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
 
-  
-|       Fatores                 | Níveis  |Descrição dos níveis |
-| ----------------------------- | ------- | ------------------- |
-| Sexo(sx)| sx(1)<br>sx(2)| Homens<br>Mulheres|                              
-| Anos de estudo(ht)| ae(1)<br>ae(2)<br>ae(3)| Até 4<br>De 5 a 8<br>9 ou mais |                    
-| Horas trabalhadas(ht) | ht(1)<br>ht(2)<br>ht(3) | Menos de 40<br>De 40 a 48<br>Mais de 48 |
-| Idade em anos completos(id) | id(1)<br>id(2)<br>id(3)<br>id(4) | Até 17<br>De 18 a 25<br>De 26 a 49<br>50 ou mais |
-| Rendimento médio mensal(re) | re(1)<br>re(2)<br>re(3) |Menos de 1<br>De 1 a 5<br>Mais de 5
 
-Table:(#tab:varexp)Descrição das variáveis explicativas
+<!-- |       Fatores                 | Níveis  |Descrição dos níveis | -->
+<!-- | ----------------------------- | ------- | ------------------- | -->
+<!-- | Sexo(sx)| sx(1)<br>sx(2)| Homens<br>Mulheres|                               -->
+<!-- | Anos de estudo(ht)| ae(1)<br>ae(2)<br>ae(3)| Até 4<br>De 5 a 8<br>9 ou mais |                     -->
+<!-- | Horas trabalhadas(ht) | ht(1)<br>ht(2)<br>ht(3) | Menos de 40<br>De 40 a 48<br>Mais de 48 | -->
+<!-- | Idade em anos completos(id) | id(1)<br>id(2)<br>id(3)<br>id(4) | Até 17<br>De 18 a 25<br>De 26 a 49<br>50 ou mais | -->
+<!-- | Rendimento médio mensal(re) | re(1)<br>re(2)<br>re(3) |Menos de 1<br>De 1 a 5<br>Mais de 5 -->
+
+<!-- Table:(#tab:varexp)Descrição das variáveis explicativas -->
 
 Os fatores considerados foram tomados como explicativos e a variável
 resposta foi o indicador de pertinência ao setor informal da

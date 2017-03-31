@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Testes de Qualidade de Ajuste {#testqualajust}
 
 ## Introdução
@@ -28,7 +33,7 @@ estratificação e/ou pesos desiguais. Neste capítulo examinaremos
 o impacto do plano amostral sobre as estatísticas de teste usuais
 notando que, em alguns casos, os valores observados dessas estatísticas
 de teste podem ser muito grandes, acarretando inferências incorretas,
-conforme já ilustrado no Exemplo \ref{exebin} do Capítulo \@ref(epa). Isto
+conforme já ilustrado no Exemplo \ref{exebin}. Isto
 ocorre porque a probabilidade de erros do tipo I (rejeitar a hipótese
 nula quando esta é verdadeira) é muito maior que o nível nominal
 de significância $\alpha$ especificado.
@@ -49,8 +54,7 @@ superpopulação.
 
 ### Correção de Estatísticas Clássicas
 
-No Exemplo \ref{exebin} do Capítulo \@ref(epa) a estatística de teste $Z_{bin},$ que foi utilizada para comparar com um valor hipotético
-pré-fixado a proporção de empregados cobertos por plano de
+No Exemplo \ref{exebin} a estatística de teste $Z_{bin},$ que foi utilizada para comparar com um valor hipotético pré-fixado a proporção de empregados cobertos por plano de
 saúde, resultou num teste mais liberal do que o teste que empregou a
 estatística $Z_{p}$, baseada no plano amostral efetivamente adotado. A
 causa disto foi o fato de $Z_{bin}$ não considerar o efeito de conglomeração existente. Vamos examinar com mais detalhes o comportamento
@@ -85,17 +89,20 @@ Não cobertos & 2 & \multicolumn{1}{|r|}{$160$} & \multicolumn{1}{|r|}{$%
 \end{table}%
 %EndExpansion
 \end{center}
------------------------------------------------
-Categoria          $j$ $n_j$ $p_{0j}$
-----------------   --- ----- ---------
-Cobertos por        1   840    0.8
-planos de saúde
 
-Não cobertos        2   160    0.2
 
-Todos empregados    -   1000   1.0
----------------------------------------------
-Table:(#tab:prophip) Frequências observadas e proporções hipotéticas
+<!-- ----------------------------------------------- -->
+<!-- Categoria          $j$ $n_j$ $p_{0j}$ -->
+<!-- ----------------   --- ----- --------- -->
+<!-- Cobertos por        1   840    0.8 -->
+<!-- planos de saúde -->
+
+<!-- Não cobertos        2   160    0.2 -->
+
+<!-- Todos empregados    -   1000   1.0 -->
+<!-- --------------------------------------------- -->
+<!-- Table:(#tab:prophip) Frequências observadas e proporções hipotéticas -->
+
 
 As proporções populacionais desconhecidas nas categorias são $p_{j}=N_{j}/N$, onde $N$ é o tamanho total da população de empregados e $N_{j}$ é o número de elementos da população na categoria 
 $j,\ j=1,2$. Os parâmetros populacionais $p_{j}$
@@ -128,7 +135,8 @@ x2p
 Como há apenas duas categorias e as proporções devem somar $1$,
 observa-se que $p_{2}=1-p_{1},$ $\widehat{p}_{2}=1-\widehat{p}_{1}$ e 
 $p_{02}=1-p_{01}$. Isto acarreta na equivalência entre as
-estatísticas $Z_{bin}$ e $X_{P}^{2}$ demonstrada pela relação 
+estatísticas $Z_{bin}$ e $X_{P}^{2}$ demonstrada pela relação
+
 \begin{equation}
 X_{P}^{2}=n\sum\limits_{j=1}^{2}\left( \widehat{p}%
 _{j}-p_{0j}\right) ^{2}/p_{0j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{%
@@ -164,7 +172,8 @@ procedimento de teste válido. Isto é feito introduzindo uma correção em $X_{
 assintótica de $X_{P}^{2}$ é $E_{p}\left( X_{P}^{2}\right) =d$. Como 
 $E_{p}\left( X_{P}^{2}/d\right) =$ 
 $E\left( \chi ^{2}\left( 1\right) \right)=1$, obtemos então a correção simples de Rao-Scott para $X_{P}^{2}$ dividindo o valor observado da estatística de teste pelo
-efeito do plano amostral $d$, isto é, 
+efeito do plano amostral $d$, isto é,
+
 \begin{equation}
 X_{P}^{2}(d)=X_{P}^{2}/d\mbox{,}  
 (\#eq:qual3)
@@ -191,7 +200,7 @@ X_{RV}^{2}(d)=X_{RV}^{2}/d\;\;.
 \end{equation}
 
 Vamos calcular os valores das estatísticas de Pearson e de RV, com suas
-correções de Rao-Scott, para os dados do Exemplo \ref{exebin}. Para
+correções de Rao-Scott, para os dados do Exemplo \@ref{exe: exebin}. Para
 as correções, primeiro é preciso calcular o efeito do plano
 amostral
 
@@ -359,7 +368,7 @@ desvantagens no uso da estatística de Wald baseada no plano amostral,
 devido à instabilidade nas estimativas de variância em pequenas
 amostras.
 
-Reproduzimos na Tabela \@ref(tab:testprop) os resultados para todas as
+Reproduzimos na Tabela \@ref{tab72} os resultados para todas as
 estatísticas de teste consideradas até agora, para facilidade de
 comparação.
 
@@ -388,7 +397,7 @@ Estatística de teste & gl & Valor observado & $p$valor \\ \hline\hline
 %EndExpansion
 \end{center}
 
-```{r, testprop, echo=FALSE}
+```{r, testprop, echo=FALSE, eval=FALSE}
 Valor_observado= round(c(x2p, x2pd,x2rv, x2rvd, x2w ),2)
 valorp = round(c(pchisq(c(x2p, x2pd,x2rv, x2rvd, x2w), 1, lower.tail = FALSE)),4)
 
@@ -473,7 +482,7 @@ grande e o número de celas componentes do vetor $\mathbf{p}$ for
 relativamente pequeno. Neste caso, podemos obter um estimador estável de 
 $\mathbf{V}_{p}$. Observe que \@ref(eq:qual7) é um caso particular de \@ref(eq:qual8).
 
-\subsection{Situações Instáveis}
+### Situações Instáveis
 
 Se o número $m$ de unidades primárias de amostragem disponíveis
 for pequeno, pode ocorrer um problema de instabilidade na estimativa $\widehat{\mathbf{V}}_{p}$, devido ao pequeno número de graus de
@@ -499,13 +508,13 @@ que tem distribuição assintótica de referência $F$ com $J-1$
 e $f$ graus de liberdade. No caso $J=2$, as duas correções
 reproduzem a estatística original.
 
-O\ efeito de uma correção $\mathbf{F}$ à estatística $X_{W}^{2}$ pode ser visualizado facilmente no caso de duas celas. Se $f$ for
+O efeito de uma correção $\mathbf{F}$ à estatística $X_{W}^{2}$ pode ser visualizado facilmente no caso de duas celas. Se $f$ for
 pequeno, então o $p$valor de $X_{W}^{2}$, obtido a partir de uma
 distribuição \textbf{F} com $1$ e $f$ graus, é maior que o $p$
 valor obtido numa distribuição qui-quadrado com um grau de
 liberdade. Quando $f$ aumenta a diferença diminui, tornando a correção desprezível, quando $f$ for grande.
 
-Thomas e Rao(1987) analisaram o desempenho das diferentes estatísticas
+[@TR87] analisaram o desempenho das diferentes estatísticas
 de teste de bondade de ajuste, no caso de instabilidade. Eles verificaram
 que a estatística de Wald F-corrigida $F_{1.p}$ não apresentou, em
 geral, o melhor desempenho nesta comparação, contudo, comportou-se
@@ -518,7 +527,7 @@ análise de dados de pesquisas amostrais complexas.
 
 O exemplo introdutório serviu para mostrar que, na presença de
 efeitos de plano amostral importantes, as estatísticas clássicas de
-teste precisam ser ajus\-tadas para terem a mesma distribuição
+teste precisam ser ajustadas para terem a mesma distribuição
 assintótica de referência que a obtida para o caso de amostragem
 aleatória simples. Inicialmente, vamos considerar a estatística de
 teste $X_{P}^{2}$ de Pearson$.$ Essa estatística pode ser escrita em
@@ -553,11 +562,11 @@ são os autovalores da matriz de efeito multivariado de plano amostral
 $\mathbf{\Delta }=\mathbf{P}_{0}^{-1}\mathbf{V}_{p}$, onde 
 $\mathbf{V}_{p}\mathbf{/}n$ é a matriz de covariância do estimador $\widehat{\mathbf{p}}$ do vetor de proporção $\mathbf{p}$ baseada no plano
 amostral verdadeiro. Tais autovalores são também chamados efeitos
-generalizados de plano a\-mos\-tral. Observe que, em geral, eles não
+generalizados de plano amostral. Observe que, em geral, eles não
 coincidem com os efeitos univariados de plano amostral $d_{j}$.
 
 No caso de amostragem aleatória simples, os efeitos generalizados de
-plano amostral $\delta _{j}$ são todos iguais a um, pois neste caso 
+plano amostral $\delta_{j}$ são todos iguais a um, pois neste caso 
 $\mathbf{\Delta =I}$, matriz identidade. Neste caso, a soma 
 $\sum_{j=1}^{J-1}\delta _{j}W_{j}$ se reduz a $\sum_{j=1}^{J-1}W_{j},$ cuja
 distribuição é $\chi ^{2}$ com $J-1$ graus de liberdade. Assim,
@@ -591,7 +600,7 @@ de aletorização. Quando esta estimativa está disponível,
 deve-se usar o ajuste mais preciso de segunda ordem.
 
 O ajuste de EPA médio é baseado nos efeitos univariados de plano
-a\-mos\-tral estimados $\hat{d}_{j}$ das estimativas $\hat{p}_{j}$. O ajuste
+amostral estimados $\hat{d}_{j}$ das estimativas $\hat{p}_{j}$. O ajuste
 da estatística \@ref(eq:qual11) é feito dividindo o valor observado da
 estatística $X_{P}^{2}$ de Pearson pela média $\hat{d}_{.}$ dos
 efeitos univariados de plano amostral: 
@@ -715,50 +724,50 @@ subgrupos de 0 a 14; de 15 a 29; de 30 a 44; de 45 a 59 e de 60 e mais anos
 de idade. As proporções correspondentes para a população
 foram obtidas da Contagem Populacional de 96. Na Região Sudeste, o
 número de estratos é $H=15$ e o número total de conglomerados
-(setores) na amostra da PPV é $m=276$ e portanto $f=m-H=261$. As informações utilizadas neste exemplo são apresentadas na Tabela \@ref(tab:ppvcont).
+(setores) na amostra da PPV é $m=276$ e portanto $f=m-H=261$. As informações utilizadas neste exemplo são apresentadas na Tabela \ref{tab73}.
 
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Vetores de proporções por classes de idade da PPV 96/97 e Contagem -->
-<!-- 96 e EPAs calculados para a PPV - Região Sudeste }\bigskip \label{tab73}  -->
-<!-- \begin{tabular}{|c|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- & Contagem & \multicolumn{3}{|c|}{PPV} \\ \cline{2-5} -->
-<!-- Idade &  -->
-<!-- \begin{tabular}{c} -->
-<!-- Proporção \\  -->
-<!-- $\left( \mathbf{p}_{0}\right)$ -->
-<!-- \end{tabular} -->
-<!-- & Frequência &  -->
-<!-- \begin{tabular}{c} -->
-<!-- Proporção \\  -->
-<!-- $\left( \mathbf{\hat{p}}\right)$ -->
-<!-- \end{tabular} -->
-<!-- & EPA \\ \hline\hline -->
-<!-- 0 a 14 anos & $0,2842$ & \multicolumn{1}{|r|}{$2.516$} &  -->
-<!-- \multicolumn{1}{|r|}{$0,2845$} & \multicolumn{1}{|r|}{$2,2859$} \\  -->
-<!-- 15 a 29 anos & $0,2774$ & \multicolumn{1}{|r|}{$2.360$} &  -->
-<!-- \multicolumn{1}{|r|}{$0,2678$} & \multicolumn{1}{|r|}{$2,1864$} \\  -->
-<!-- 30 a 44 anos & $0,2263$ & \multicolumn{1}{|r|}{$2.018$} &  -->
-<!-- \multicolumn{1}{|r|}{$0,2225$} & \multicolumn{1}{|r|}{$2,2539$} \\  -->
-<!-- 45 a 59 anos & $0,1261$ & \multicolumn{1}{|r|}{$1.177$} &  -->
-<!-- \multicolumn{1}{|r|}{$0,1316$} & \multicolumn{1}{|r|}{$1,9903$} \\  -->
-<!-- 60 anos e mais & $0,0860$ & \multicolumn{1}{|r|}{$832$} &  -->
-<!-- \multicolumn{1}{|r|}{$0,0935$} & \multicolumn{1}{|r|}{$3,1627$} \\  -->
-<!-- \hline\hline -->
-<!-- Total & $1,0000$ & \multicolumn{1}{|r|}{$8903$} & \multicolumn{1}{|r|}{$% -->
-<!-- 0,9999$} & $-$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Vetores de proporções por classes de idade da PPV 96/97 e Contagem
+96 e EPAs calculados para a PPV - Região Sudeste }\bigskip \label{tab73}
+\begin{tabular}{|c|c|c|c|c|}
+\hline\hline
+& Contagem & \multicolumn{3}{|c|}{PPV} \\ \cline{2-5}
+Idade &
+\begin{tabular}{c}
+Proporção \\
+$\left( \mathbf{p}_{0}\right)$
+\end{tabular}
+& Frequência &
+\begin{tabular}{c}
+Proporção \\
+$\left( \mathbf{\hat{p}}\right)$
+\end{tabular}
+& EPA \\ \hline\hline
+0 a 14 anos & $0,2842$ & \multicolumn{1}{|r|}{$2.516$} &
+\multicolumn{1}{|r|}{$0,2845$} & \multicolumn{1}{|r|}{$2,2859$} \\
+15 a 29 anos & $0,2774$ & \multicolumn{1}{|r|}{$2.360$} &
+\multicolumn{1}{|r|}{$0,2678$} & \multicolumn{1}{|r|}{$2,1864$} \\
+30 a 44 anos & $0,2263$ & \multicolumn{1}{|r|}{$2.018$} &
+\multicolumn{1}{|r|}{$0,2225$} & \multicolumn{1}{|r|}{$2,2539$} \\
+45 a 59 anos & $0,1261$ & \multicolumn{1}{|r|}{$1.177$} &
+\multicolumn{1}{|r|}{$0,1316$} & \multicolumn{1}{|r|}{$1,9903$} \\
+60 anos e mais & $0,0860$ & \multicolumn{1}{|r|}{$832$} &
+\multicolumn{1}{|r|}{$0,0935$} & \multicolumn{1}{|r|}{$3,1627$} \\
+\hline\hline
+Total & $1,0000$ & \multicolumn{1}{|r|}{$8903$} & \multicolumn{1}{|r|}{$%
+0,9999$} & $-$ \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
 
-```{r, ppvcont, message=FALSE, echo=FALSE}
+```{r, ppvcont , message=FALSE, warning=FALSE}
 library(survey)
 ppv1 <- readRDS("~\\GitHub\\adac\\data\\ppv.rds")
 # cria idade categorizada
@@ -778,9 +787,9 @@ freq <- svyby(~one, ~idatab, ppv.se.des, unwtd.count)$counts
 # matriz de variância-covariância estimada
 idad_tab <- c("0-14", "15-29", "30-44","45-59","60+")
 tab73 <- data.frame(idade= idad_tab, prop_contagem= c(0.2842, 0.2747, 0.2263, 0.1261, 0.0860), frequência= freq, prop_est_ppv= ppv.id$mean,epa = ppv.id$deff) 
-knitr::kable(tab73, booktabs= TRUE, digits=c(0,4,0,4,4),
-  caption = "Vetores de proporções por classes de idade da PPV 96/97 e Contagem
-96 e EPAs calculados para a PPV - Região Sudeste")
+# knitr::kable(tab73, booktabs= TRUE, digits=c(0,4,0,4,4),
+#   caption = "Vetores de proporções por classes de idade da PPV 96/97 e Contagem
+# 96 e EPAs calculados para a PPV - Região Sudeste")
 ```
 
 
@@ -805,8 +814,9 @@ Calculamos a matriz $\widehat{\mathbf{V}}_{p}$ pela aplicação do método de li
 <!-- \] -->
 
 ```{r}
-dimnames(vhat)<- NULL
-knitr::kable(round(10^6*vhat,3))
+
+dimnames(vhat) <- list(idad_tab, idad_tab)
+knitr::kable(10^6*vhat, format="latex", digits=3)
 ```
 
 
@@ -841,7 +851,7 @@ knitr::kable(round(10^6*p0n,3))
 ```
 
 Para obter os diversos ajustes desta estatística precisamos usar os
-valores dos EPAs, listados na coluna 5 da Tabela \@ref{tab:ppvcont}. Estes valores
+valores dos EPAs, listados na coluna 5 da Tabela \ref{tab73}. Estes valores
 foram obtidos através do pacote SUDAAN. Para obter as diferentes correções da estatística de Pearson, precisamos calcular as seguintes
 quantidades: 
 
@@ -995,78 +1005,72 @@ F_{2.p}=5,691/4\mbox{ }=1,423
 \]
 com 4 e 261 gl e um $p$valor $0,228$ .
 
-A Tabela \@ref(tab:estaltteste) resume os valores das diversas estatísticas de
+A Tabela \ref{tab74} resume os valores das diversas estatísticas de
 teste calculadas, bem como das informações comparativas com as
 respectivas distribuições de referência.
 
 
+\begin{center}
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\caption{Valores e $p$valores de estatísticas alternativas de teste}\bigskip
+\label{tab74}
+\begin{tabular}{|c|c|c|c|c|}
+\hline\hline
+Estatística & Tipo & Valor & Distribuição & $p$valor \\
+\hline\hline
+$X_{P}^{2}$ &
+\begin{tabular}{c}
+Adequada \\
+para IID
+\end{tabular}
+& \multicolumn{1}{|r|}{$11,640$} & $\chi ^{2}(4)$ & $0,020$ \\ \hline
+$X_{P}^{2}\left( \hat{d}_{.}\right)$ & Ajustes e & \multicolumn{1}{|r|}{$%
+4,901$} & $\chi ^{2}(4)$ & $0,298$ \\
+$X_{P}^{2}\left( \hat{\delta}_{.}\right)$ & correções da &
+\multicolumn{1}{|r|}{$4,740$} & $\chi ^{2}(4)$ & $0,315$ \\
+$FX_{P}^{2}\left( \hat{\delta}_{.}\right)$ & Estatística &
+\multicolumn{1}{|r|}{$1,850$} & $F\left( 4;261\right)$ & $0,318$ \\
+$X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$ & $X_{P}^{2}$ &
+\multicolumn{1}{|r|}{$3,784$} & $\chi ^{2}(3,19)$ & $0,314$ \\ \hline
+$X_{W}^{2}$ & Baseadas no & \multicolumn{1}{|r|}{$5,691$} & $\chi ^{2}(4)$ &
+$0,223$ \\
+$F_{1.p}$ & plano & \multicolumn{1}{|r|}{$1,406$} & $F\left( 4;259\right)$
+& $0,232$ \\
+$F_{2.p}$ & amostral & \multicolumn{1}{|r|}{$1,423$} & $F\left( 4;261\right)
+$ & $0,228$ \\ \hline\hline
+\end{tabular}
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+\end{center}
+
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
+<!--            Estatística                                      Tipo          Valor    Distribuição              valor-$p$ -->
+<!-- ----------------------------------------------------- ------------------  ------ -----------------------   ----------  -->
+<!-- $X_{P}^{2}$                                            Adequada para IID  11.640    $\chi ^{2}(4)$            0.020 -->
+
+<!-- $X_{P}^{2}\left( \hat{d}_{.}\right)$                   Ajustes e          4.901     $\chi ^{2}(4)$            0.298 -->
+
+<!-- $X_{P}^{2}\left( \hat{\delta}_{.}\right)$              correções da       4.740     $\chi ^{2}(4)$            0.315 -->
+
+<!-- $FX_{P}^{2}\left( \hat{\delta}_{.}\right)$             Estatística        1.850    $F\left( 4;261\right)$     0.318 -->
+
+<!-- $X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$  $X_{P}^{2}$        3.784    $\chi ^{2}(3,19)$          0.314 -->
+
+<!-- $X_{W}^{2}$                                            Baseadas no        5.691     $\chi ^{2}(4)$            0.223 -->
+
+<!-- $F_{1.p}$                                              plano              1.406   $F\left( 4;259\right)$      0.232 -->
+
+<!-- $F_{2.p}$                                              amostral           1.423   $F\left( 4;261\right)$      0.228  -->
+<!-- ----------------------------------------------------------------------------------------------------------------------- -->
+<!-- Table:(#tab:estaltteste)Valores e valores-p de estatísticas alternativas de teste -->
 
 
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Valores e $p$valores de estatísticas alternativas de teste}\bigskip  -->
-<!-- \label{tab74}  -->
-<!-- \begin{tabular}{|c|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- Estatística & Tipo & Valor & Distribuição & $p$valor \\  -->
-<!-- \hline\hline -->
-<!-- $X_{P}^{2}$ &  -->
-<!-- \begin{tabular}{c} -->
-<!-- Adequada \\  -->
-<!-- para IID -->
-<!-- \end{tabular} -->
-<!-- & \multicolumn{1}{|r|}{$11,640$} & $\chi ^{2}(4)$ & $0,020$ \\ \hline -->
-<!-- $X_{P}^{2}\left( \hat{d}_{.}\right)$ & Ajustes e & \multicolumn{1}{|r|}{$% -->
-<!-- 4,901$} & $\chi ^{2}(4)$ & $0,298$ \\  -->
-<!-- $X_{P}^{2}\left( \hat{\delta}_{.}\right)$ & correções da &  -->
-<!-- \multicolumn{1}{|r|}{$4,740$} & $\chi ^{2}(4)$ & $0,315$ \\  -->
-<!-- $FX_{P}^{2}\left( \hat{\delta}_{.}\right)$ & Estatística &  -->
-<!-- \multicolumn{1}{|r|}{$1,850$} & $F\left( 4;261\right)$ & $0,318$ \\  -->
-<!-- $X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$ & $X_{P}^{2}$ &  -->
-<!-- \multicolumn{1}{|r|}{$3,784$} & $\chi ^{2}(3,19)$ & $0,314$ \\ \hline -->
-<!-- $X_{W}^{2}$ & Baseadas no & \multicolumn{1}{|r|}{$5,691$} & $\chi ^{2}(4)$ &  -->
-<!-- $0,223$ \\  -->
-<!-- $F_{1.p}$ & plano & \multicolumn{1}{|r|}{$1,406$} & $F\left( 4;259\right)$ -->
-<!-- & $0,232$ \\  -->
-<!-- $F_{2.p}$ & amostral & \multicolumn{1}{|r|}{$1,423$} & $F\left( 4;261\right)  -->
-<!-- $ & $0,228$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
-
----------------------------------------------------------------------------------------------------------------------
-           Estatística                                      Tipo          Valor    Distribuição              valor-$p$
------------------------------------------------------ ------------------  ------ -----------------------   ---------- 
-$X_{P}^{2}$                                            Adequada para IID  11.640    $\chi ^{2}(4)$            0.020
-
-$X_{P}^{2}\left( \hat{d}_{.}\right)$                   Ajustes e          4.901     $\chi ^{2}(4)$            0.298
-
-$X_{P}^{2}\left( \hat{\delta}_{.}\right)$              correções da       4.740     $\chi ^{2}(4)$            0.315
-
-$FX_{P}^{2}\left( \hat{\delta}_{.}\right)$             Estatística        1.850    $F\left( 4;261\right)$     0.318
-
-$X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$  $X_{P}^{2}$        3.784    $\chi ^{2}(3,19)$          0.314
-
-$X_{W}^{2}$                                            Baseadas no        5.691     $\chi ^{2}(4)$            0.223
-
-$F_{1.p}$                                              plano              1.406   $F\left( 4;259\right)$      0.232
-
-$F_{2.p}$                                              amostral           1.423   $F\left( 4;261\right)$      0.228 
------------------------------------------------------------------------------------------------------------------------
-Table:(#tab:estaltteste)Valores e valores-p de estatísticas alternativas de teste
-
-
-
-
-
-
-Examinando os resultados da Tabela \@ref(tab:estaltteste), verificamos que o teste
+Examinando os resultados da Tabela \ref{tab74}, verificamos que o teste
 clássico de Pearson rejeita a hipótese nula $H_{0}$ no nível 
 $\alpha =5\%$, diferentemente de todos os outros testes. Os valores das
 estatísticas com ajustes de Rao-Scott (com ou sem correção F)

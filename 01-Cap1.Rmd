@@ -567,17 +567,20 @@ opção interessante.
 Utilização da library survey do R para estimar totais e razões na PPV 
 ```
 Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref(ex:distppv) . Inicialmente, vamos ler os
-dados do arquivo `ppv1.R`, através do comando `source`. Em seguida, vamos definir variáveis de interesse por meio de transformação de variáveis existentes.
+e definir variáveis de interesse por meio de transformação de variáveis existentes.
 ```{r, message=FALSE, warning=FALSE}
+# leitura dos dados
 ppv1 <- readRDS("~\\GitHub\\adac\\data\\ppv.rds")
 library(survey)
 ```
-Criação das variáveis analf1,analf2, faixa1 e faixa2:
+Criação das variáveis analf1, analf2, faixa1 e faixa2:
 
 ```{r}
-ppv1 <- transform(ppv1, analf1 = ((v04a01 == 2 |    v04a02 == 2) & (v02a08 >= 7 & 
-v02a08 <= 14)) *   1, analf2 = ((v04a01 == 2 | v04a02 == 2) & 
-(v02a08 >14)) * 1, faixa1 = (v02a08 >= 7 & v02a08 <= 14) *1, faixa2 = (v02a08 > 14) * 1)
+ppv1 <- transform(ppv1, 
+analf1 = ((v04a01 == 2 | v04a02 == 2) & (v02a08 >= 7 & v02a08 <= 14)) * 1, 
+analf2 = ((v04a01 == 2 | v04a02 == 2) & (v02a08 >14)) * 1, 
+faixa1 = (v02a08 >= 7 & v02a08 <= 14) *1, 
+faixa2 = (v02a08 > 14) * 1)
 ```
 
 A seguir, mostramos a utilização da library survey do R para obter algumas estimativas da Tabela \ref{table:Tab13}. Vamos supor que os dados da pesquisa estão contidos no data frame `ppv1`, que contém as variáveis  que caracterizam o plano amostral
@@ -611,9 +614,9 @@ restringir o desenho a esse domínio:
 ```{r}
 ppv.se.des <- subset(ppv.des, regiao == 2)
 ```
-Para exemplificar, vamos estimar algumas características da população, descritas na Tabela \ref{table:Tab13}. Os totais das variáveis `analf1` e `analf2` para a região Sudeste fornecem os resultados nas linhas 4) e 5 da  Tabela \ref{table:Tab13}:
+Para exemplificar, vamos estimar algumas características da população, descritas na Tabela \ref{table:Tab13}. Os totais das variáveis `analf1` e `analf2` para a região Sudeste fornecem os resultados nas linhas 4 e 5 da  Tabela \ref{table:Tab13}:
 
-Vamos estimar os totais de analfabetos nas faixas etárias de 7 a 14 anos e acima de 14 anos.
+- totais de analfabetos nas faixas etárias de 7 a 14 anos e acima de 14 anos.
 
 
 ```{r}
@@ -621,15 +624,14 @@ svytotal(~analf1, ppv.se.des, deff = TRUE)
 svytotal(~analf2, ppv.se.des, deff = TRUE)
 ```
 
-Queremos ainda estimar o percentual de analfabetos nas faixas 
+-  percentual de analfabetos nas faixas 
 etárias consideradas, que fornece os resultados nas linhas 6 e 7 da Tabela \ref{table:Tab13}:
 
 ```{r}
 svyratio(~analf1, ~faixa1, ppv.se.des)
 svyratio(~analf2, ~faixa2, ppv.se.des)
 ```
-Na library `survey`, uma alternativa para estimar por domínio é utililizar a função `svyby`.
-Poderíamos estimar os totais da variável `analf1` para as regiões `Nordeste (1)` e  `Sudeste(2)` da seguinte forma:
+Na library `survey`, uma alternativa para estimar por domínio é utililizar a função `svyby`. Poderíamos estimar os totais da variável `analf1` para as regiões `Nordeste (1)` e  `Sudeste(2)` da seguinte forma:
 
 ```{r}
 svyby(~analf1, ~regiao, ppv.des, svytotal, deff = TRUE)
@@ -639,8 +641,7 @@ Observe que as estimativas de totais e desvios padrão obtidas coincidem com as 
 
 ### Estimativa do efeito de plano amostral (EPA)
 
-Esse assunto será tratado em detalhes no Capítulo \@ref(epa) . Por enquanto, apresentaremos uma 
-introdução necessária para compreender os valores na Tabela \ref{table:Tab13}.
+Esse assunto será tratado em detalhes no Capítulo \@ref(epa) . Por enquanto, apresentaremos uma introdução necessária para compreender os valores na Tabela \ref{table:Tab13}.
 
 O efeito de plano amostral (EPA) de Kish é definido na fórmula 
 \@ref(eq:epa1). Vamos considerar o caso particular em que $\hat{\theta}$ é um estimador de total de uma variável $Y$.Ou seja
@@ -648,8 +649,8 @@ O efeito de plano amostral (EPA) de Kish é definido na fórmula
 EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
 \]
 
-Na definição do EPA,  a estimativa do numerador pode ser obtida diretamente a partir da library `survey`, a partir do objeto de 
-`ppv.se.des` que incorpora as características do plano amostral utilizado para coletar os dados. Não é possível estimar diretamente o denominador, pois o plano amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta dos dados. Devemos estimar o denominador a partir de dados obtidos através do plano amostral VERD, como se eles tivessem sido obtidos através de AAS.
+Na definição do EPA,  a estimativa do numerador pode ser obtida usando-se a library `survey`, a partir do objeto de `ppv.se.des` que incorpora as características do plano amostral utilizado para coletar os dados. Não é possível estimar diretamente o denominador, pois o plano amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta dos dados. Devemos estimar o denominador a partir de dados obtidos através do plano amostral VERD, como se eles tivessem sido obtidos através de AAS.
+
 Supondo conhecido o tamanho da população $N$ e a fração amostral $f=n/N$ pequena, a estimativa da variância de $\widehat{Y}$ é dada na expressão \@ref:(\#eq:estpa9)
 \[
 \widehat{V}_{AAS}\left(\widehat{Y}\right)=N^2\frac{\widehat{S}_y}{n-1}
@@ -814,7 +815,7 @@ w <-postStratify(pre_w, ~posest, df_pos)
 ```
   
 Para calcular a taxa de desocupação, o IBGE considera pessoas de 14 anos
-ou mais (PIA) na semana de referência e calcula a razão de dois totais:
+ou mais na semana de referência(PIA) e calcula a razão de dois totais:
 
 1. Numerador: total de pessoas desocupadas (vd4002==2)
 

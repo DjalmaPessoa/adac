@@ -46,16 +46,16 @@
 \contentsline {subsection}{\numberline {6.1.4}Estimação da Variância de Estimadores de MPV}{80}{subsection.6.1.4}
 \contentsline {section}{\numberline {6.2}Modelo de Regressão Logística}{81}{section.6.2}
 \contentsline {section}{\numberline {6.3}Teste de Hipóteses}{86}{section.6.3}
-\contentsline {section}{\numberline {6.4}Laboratório de R}{87}{section.6.4}
+\contentsline {section}{\numberline {6.4}Laboratório de R}{88}{section.6.4}
 \contentsline {chapter}{\numberline {7}Testes de Qualidade de Ajuste}{91}{chapter.7}
 \contentsline {section}{\numberline {7.1}Introdução}{91}{section.7.1}
 \contentsline {section}{\numberline {7.2}Teste para uma Proporção}{91}{section.7.2}
 \contentsline {subsection}{\numberline {7.2.1}Correção de Estatísticas Clássicas}{91}{subsection.7.2.1}
 \contentsline {subsection}{\numberline {7.2.2}Estatística de Wald}{95}{subsection.7.2.2}
 \contentsline {section}{\numberline {7.3}Teste para Várias Proporções}{96}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Estatística de Wald Baseada no Plano Amostral}{97}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.1}Estatística de Wald Baseada no Plano Amostral}{96}{subsection.7.3.1}
 \contentsline {subsection}{\numberline {7.3.2}Situações Instáveis}{97}{subsection.7.3.2}
-\contentsline {subsection}{\numberline {7.3.3}Estatística de Pearson com Ajuste de Rao-Scott}{98}{subsection.7.3.3}
+\contentsline {subsection}{\numberline {7.3.3}Estatística de Pearson com Ajuste de Rao-Scott}{97}{subsection.7.3.3}
 \contentsline {section}{\numberline {7.4}Laboratório de R}{104}{section.7.4}
 \contentsline {chapter}{\numberline {8}Testes em Tabelas de Duas Entradas}{107}{chapter.8}
 \contentsline {section}{\numberline {8.1}Introdução}{107}{section.8.1}
@@ -67,7 +67,7 @@
 \contentsline {subsection}{\numberline {8.3.1}Teste de Homogeneidade}{109}{subsection.8.3.1}
 \contentsline {subsection}{\numberline {8.3.2}Teste de Independência}{112}{subsection.8.3.2}
 \contentsline {subsection}{\numberline {8.3.3}Estatística de Wald Baseada no Plano Amostral}{113}{subsection.8.3.3}
-\contentsline {subsection}{\numberline {8.3.4}Estatística de Pearson com Ajuste de Rao-Scott}{113}{subsection.8.3.4}
+\contentsline {subsection}{\numberline {8.3.4}Estatística de Pearson com Ajuste de Rao-Scott}{114}{subsection.8.3.4}
 \contentsline {section}{\numberline {8.4}Laboratório de R}{118}{section.8.4}
 \contentsline {chapter}{\numberline {9}Estimação de densidades}{121}{chapter.9}
 \contentsline {section}{\numberline {9.1}Introdução}{121}{section.9.1}

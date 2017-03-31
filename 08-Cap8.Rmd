@@ -54,11 +54,8 @@ proporções marginais na tabela por $p_{l+}=\sum\nolimits_{c}p_{lc}$
 e $p_{+c}=\sum_{l}p_{lc}$.
 
 \begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Tabela 2x2 de proporções }\bigskip \label{tab81}$
+\begin{table}[tbp] \centering
+\caption{Tabela 2x2 de proporções }\bigskip \label{tab81}
 \begin{tabular}{|c|c|c|c|}
 \hline
 & \multicolumn{3}{|c|}{Var 2} \\ \cline{2-4}
@@ -67,11 +64,7 @@ Var 1 & 1 & 2 & Total \\ \hline
 2 & $p_{21}$ & $p_{22}$ & $p_{2+}$ \\ \hline
 Total & $p_{+1}$ & $p_{+2}$ & $1$ \\ \hline
 \end{tabular}
-$%
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
+\end{table}
 \end{center}
 
 ### Teste de Independência
@@ -169,7 +162,7 @@ assintótica qui-quadrado com um grau de liberdade.
 Por outro lado, é importante observar que as agências produtoras de
 dados estatísticos geralmente apresentam os resultados de suas pesquisas
 em tabelas contendo as estimativas $\hat{N}_{lc}$, como ilustrado no Exemplo 
-\ref{Analisec} do Capítulo \@ref(ajmodpar). Se calcularmos as estatísticas 
+\@ref(exe:Analisec) do Capítulo \@ref(ajmodpar). Se calcularmos as estatísticas 
 $X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left( H\right)$ a partir dos
 valores dos $\hat{N}_{lc}$ fornecidos, com a estimativa do tamanho da popula
 ção $\hat{N}$ no lugar de $n$, os resultados assintóticos
@@ -215,49 +208,43 @@ considerar uma tabela $L\times C$ e supor que as colunas da tabela
 correspondem às classes da variável resposta e as linhas
 correspondem às regiões, de modo que as somas da proporções
 nas linhas na tabela de proporções são iguais a $1$. A tabela
-para a população é da forma da Tabela \@ref(tab:proplinha).
+para a população é da forma da Tabela \ref{tab82}.
 
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Proporções de linhas em tabela $L\times C$}\bigskip \label{tab82}$ -->
-<!-- \begin{tabular}{|c|cccccc|c|} -->
-<!-- \hline\hline -->
-<!-- Região & $1$ & $2$ & $\ldots $ & $c$ & $\ldots $ & $C$ & Total \\  -->
-<!-- \hline\hline -->
-<!-- $1$ & $p_{11}$ & $p_{12}$ & $\ldots $ & $p_{1c}$ & $\ldots $ & $p_{1C}$ & $1$ -->
-<!-- \\  -->
-<!-- $2$ & $p_{21}$ & $p_{22}$ & $\ldots $ & $p_{2c}$ & $\ldots $ & $p_{2C}$ & $1$ -->
-<!-- \\  -->
-<!-- $\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $ -->
-<!-- \\  -->
-<!-- $l$ & $p_{l1}$ & $p_{l1}$ & $\ldots $ & $p_{lc}$ & $\ldots $ & $p_{lC}$ & $1$ -->
-<!-- \\  -->
-<!-- $\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $ -->
-<!-- \\  -->
-<!-- $L$ & $p_{L1}$ & $p_{L2}$ & $\ldots $ & $p_{Lc}$ & $\ldots $ & $p_{LC}$ & $1$ -->
-<!-- \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- $% -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Proporções de linhas em tabela $L\times C$}
+\bigskip \label{tab82}
+\begin{tabular}{|c|cccccc|c|}
+\hline\hline
+Região & $1$ & $2$ & $\ldots $ & $c$ & $\ldots $ & $C$ & Total \\
+\hline\hline
+$1$ & $p_{11}$ & $p_{12}$ & $\ldots $ & $p_{1c}$ & $\ldots $ & $p_{1C}$ & $1$
+\\
+$2$ & $p_{21}$ & $p_{22}$ & $\ldots $ & $p_{2c}$ & $\ldots $ & $p_{2C}$ & $1$
+\\
+$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
+\\
+$l$ & $p_{l1}$ & $p_{l1}$ & $\ldots $ & $p_{lc}$ & $\ldots $ & $p_{lC}$ & $1$
+\\
+$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
+\\
+$L$ & $p_{L1}$ & $p_{L2}$ & $\ldots $ & $p_{Lc}$ & $\ldots $ & $p_{LC}$ & $1$
+\\ \hline\hline
+\end{tabular}
+\end{table}
+\end{center}
 
-|Região | $1$ | $2$ | $\ldots$ | $c$ | $\ldots$ | $C$ | Total | 
-|-------|-----|-----|-----------|-----|-----------|-----|-------|
-$1$ | $p_{11}$ | $p_{12}$ | $\ldots$ | $p_{1c}$ | $\ldots$ | $p_{1C}$ | $1$ |
-$2$ | $p_{21}$ | $p_{22}$ | $\ldots$ | $p_{2c}$ | $\ldots$ | $p_{2C}$ | $1$ |
-$\vdots$ | $\vdots$ | $\vdots$ | . | $\vdots$ | . | $\vdots$ | $\vdots$ |
-$l$ | $p_{l1}$ | $p_{l1}$ | $\ldots$ | $p_{lc}$ | $\ldots$ | $p_{lC}$ | $1$ |
-$\vdots$ | $\vdots$ | $\vdots$ | . | $\vdots$ | . | $\vdots$  | $\vdots$ |
-$L$ | $p_{L1}$ | $p_{L2}$ | $\ldots$ | $p_{Lc}$ | $\ldots$ | $p_{LC}$ | $1$ |
-Total| $p_{+1}$ |$p_{+2}$ | $\ldots$ | $p_{+c}$ | $\ldots$ | $p_{+C}$ | $1$ |
+<!-- |Região | $1$ | $2$ | $\ldots$ | $c$ | $\ldots$ | $C$ | Total |  -->
+<!-- |-------|-----|-----|-----------|-----|-----------|-----|-------| -->
+<!-- $1$ | $p_{11}$ | $p_{12}$ | $\ldots$ | $p_{1c}$ | $\ldots$ | $p_{1C}$ | $1$ | -->
+<!-- $2$ | $p_{21}$ | $p_{22}$ | $\ldots$ | $p_{2c}$ | $\ldots$ | $p_{2C}$ | $1$ | -->
+<!-- $\vdots$ | $\vdots$ | $\vdots$ | . | $\vdots$ | . | $\vdots$ | $\vdots$ | -->
+<!-- $l$ | $p_{l1}$ | $p_{l1}$ | $\ldots$ | $p_{lc}$ | $\ldots$ | $p_{lC}$ | $1$ | -->
+<!-- $\vdots$ | $\vdots$ | $\vdots$ | . | $\vdots$ | . | $\vdots$  | $\vdots$ | -->
+<!-- $L$ | $p_{L1}$ | $p_{L2}$ | $\ldots$ | $p_{Lc}$ | $\ldots$ | $p_{LC}$ | $1$ | -->
+<!-- Total| $p_{+1}$ |$p_{+2}$ | $\ldots$ | $p_{+c}$ | $\ldots$ | $p_{+C}$ | $1$ | -->
 
-Table:(#tab:proplinha) Proporções de linhas em tabela $L\times C$.
+<!-- Table:(#tab:proplinha) Proporções de linhas em tabela $L\times C$. -->
 
 Note que aqui as proporções que aparecem nas linhas da tabela
 são proporções calculadas em relação à
@@ -305,8 +292,7 @@ _{2}\right) ^{^{\prime }}\left[ \mathbf{\hat{V}}_{p}\left( \widehat{\mathbf{p
 \end{equation}
 pois as amostras são disjuntas e supostas independentes.
 
-No caso, a estatística de Wald $X_{W}^{2}\left( H\right)$ tem distribui
-ção assintótica qui-quadrado com $\left( 2-1\right) \times
+No caso, a estatística de Wald $X_{W}^{2}\left( H\right)$ tem distribuição assintótica qui-quadrado com $\left( 2-1\right) \times
 \left( C-1\right)$ graus de liberdade. Quando o número de unidades
 primárias de amostragem na amostra de cada região é grande, a
 estatística de Wald funciona adequadamente. Caso contrário, ocorre
@@ -467,40 +453,36 @@ $f$ graus de liberdade.
 
 Vamos considerar o teste de independência no caso geral de tabela 
 $L\times C$, onde os dados são extraídos de uma única população, 
-sem fixar marginais. Consideremos a Tabela \@ref(tab:??) com as propor
+sem fixar marginais. Consideremos a Tabela \ref{tab83} com as propor
 ções nas celas a nível da população, onde agora
 novamente se tem $p_{lc}=N_{lc}/N$.
 
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Proporções por cela na população}\bigskip \label{tab83}$ -->
-<!-- \begin{tabular}{|c|cccccc|c|} -->
-<!-- \hline\hline -->
-<!-- & \multicolumn{7}{|c|}{Variável 2} \\ \cline{2-8} -->
-<!-- Variável 1 & $1$ & $2$ & $\ldots $ & $c$ & $\ldots $ & $C$ & Total \\  -->
-<!-- \hline\hline -->
-<!-- $1$ & $p_{11}$ & $p_{12}$ & $\ldots $ & $p_{1c}$ & $\ldots $ & $p_{1C}$ & $ -->
-<!-- p_{1+}$ \\  -->
-<!-- $2$ & $p_{21}$ & $p_{22}$ & $\ldots $ & $p_{2c}$ & $\ldots $ & $p_{2C}$ & $ -->
-<!-- p_{2+}$ \\  -->
-<!-- $\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $ -->
-<!-- \\  -->
-<!-- $l$ & $p_{l1}$ & $p_{l1}$ & $\ldots $ & $p_{lc}$ & $\ldots $ & $p_{lC}$ & $ -->
-<!-- p_{l+}$ \\  -->
-<!-- $\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $ -->
-<!-- \\  -->
-<!-- $L$ & $p_{L1}$ & $p_{L2}$ & $\ldots $ & $p_{Lc}$ & $\ldots $ & $p_{LC}$ & $ -->
-<!-- p_{L+}$ \\ \hline\hline -->
-<!-- Total & $p_{+1}$ & $p_{+2}$ & $\ldots $ & $p_{+c}$ & $\ldots $ & $p_{+C}$ & $ -->
-<!-- 1$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- $ -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Proporções por cela na população}\bigskip \label{tab83}
+\begin{tabular}{|c|cccccc|c|}
+\hline\hline
+& \multicolumn{7}{|c|}{Variável 2} \\ \cline{2-8}
+Variável 1 & $1$ & $2$ & $\ldots $ & $c$ & $\ldots $ & $C$ & Total \\
+\hline\hline
+$1$ & $p_{11}$ & $p_{12}$ & $\ldots $ & $p_{1c}$ & $\ldots $ & $p_{1C}$ & $
+p_{1+}$ \\
+$2$ & $p_{21}$ & $p_{22}$ & $\ldots $ & $p_{2c}$ & $\ldots $ & $p_{2C}$ & $
+p_{2+}$ \\
+$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
+\\
+$l$ & $p_{l1}$ & $p_{l1}$ & $\ldots $ & $p_{lc}$ & $\ldots $ & $p_{lC}$ & $
+p_{l+}$ \\
+$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
+\\
+$L$ & $p_{L1}$ & $p_{L2}$ & $\ldots $ & $p_{Lc}$ & $\ldots $ & $p_{LC}$ & $
+p_{L+}$ \\ \hline\hline
+Total & $p_{+1}$ & $p_{+2}$ & $\ldots $ & $p_{+c}$ & $\ldots $ & $p_{+C}$ & $
+1$ \\ \hline\hline
+\end{tabular}
+\end{table}
+\end{center}
+
 
 
 
@@ -538,13 +520,13 @@ não-resposta, onde os pesos amostrais são normalizados de modo que
 $\sum_{c=1}^{C}\sum_{l=1}^{L}\hat{n}_{lc}=n$. Se $n$ não for fixado de
 antemão, os $\hat{p}_{lc}$ serão estimadores de razões. Apenas 
 $\left( L-1\right) \left( C-1\right)$ componentes são incluídos no
-vetores $\mathbf{f}$ e $\mathbf{\hat{f}}$, pois a soma das proporç
-ões nas celas da tabela é igual a 1.
+vetores $\mathbf{f}$ e $\mathbf{\hat{f}}$, pois a soma das 
+proporções nas celas da tabela é igual a 1.
 
 ### Estatística de Wald Baseada no Plano Amostral
 
 A estatística de Wald baseada no plano amostral $X_{W}^{2}\left(I\right)$, 
-para o teste de independência, tem a forma da expressão (\#eq:Tab8), com $\mathbf{\hat{f}}$ no lugar de 
+para o teste de independência, tem a forma da expressão \@ref(eq:Tab8), com $\mathbf{\hat{f}}$ no lugar de 
 $\mathbf{\hat{p}}$, o vetor $\mathbf{0}_{\left( L-1\right)\left( C-1\right)}$ no lugar de 
 $\mathbf{p}_{0}$ e a estimativa baseada no plano amostral 
 $\mathbf{\hat{V}}_{\mathbf{f}}$ da matriz de covariância de $\mathbf{\hat{f}}$ no lugar de $\mathbf{
@@ -660,9 +642,8 @@ onde $\hat{d}_{.}=\sum_{c=1}^{C}\sum_{l=1}^{L}\hat{d}_{lc}/\left(
 LC\right)$ é um estimador da média dos efeitos univariados de plano
 amostral desconhecidos.
 
-Estimamos os efeitos do plano amostral por $\hat{d}_{lc}=\hat{V}_{p}\left( 
-\hat{p}_{lc}\right) /$\linebreak $\left( \hat{p}_{lc}\left( 1-\hat{p}
-_{lc}\right) /n\right)$, onde $\hat{V}_{p}\left( \hat{p}_{lc}\right)$
+Estimamos os efeitos do plano amostral por 
+$\hat{d}_{lc}=\hat{V}_{p}\left(\hat{p}_{lc}\right) /\left( \hat{p}_{lc}\left( 1-\hat{p}_{lc}\right) /n\right)$, onde $\hat{V}_{p}\left( \hat{p}_{lc}\right)$
 é a estimativa da variância de aleatorização do estimador de
 proporção $\hat{p}_{lc}$. Este ajustamento requer que estejam
 disponíveis as estimativas dos efeitos de plano amostral dos
@@ -756,7 +737,7 @@ de liberdade.
 Correções de EPA médio das estatísticas $X_{P}^{2}\left(I\right)$ e $X_{P}^{2}\left(H\right)$.
 ```
 
-Considerando os dados do Exemplo \ref{ex:pnad90} do Capítulo \@ref(modreg), vamos
+Considerando os dados do Exemplo \@ref(ex:pnad90) do Capítulo \@ref(modreg), vamos
 testar a hipótese de independência entre as variáveis Sexo (sx)
 e Rendimento médio mensal (re). Vamos fazer também um teste de
 homogeneidade, para comparar as distribuições de renda para os dois
@@ -765,35 +746,29 @@ sexos.
 A variável `sx` tem dois níveis: sx(1)-Homens, sx(2)- Mulheres e a
 variável `re` tem três níveis: re(1)- Menos de salário
 mínimo, re(2) - de 1 a 5 salário mínimos e re(3)- mais de 5
-salários mínimos. A Tabela \@ref(tab:frqamost} apresenta as
+salários mínimos. A Tabela \ref{tab84} apresenta as
 frequências nas celas para a amostra pesquisada.
 
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Freqüências amostrais por celas na PNAD 90}\bigskip \label{tab84}  -->
-<!-- \begin{tabular}{|c|cccc|} -->
-<!-- \hline\hline -->
-<!-- & \multicolumn{3}{|c}{\textbf{Renda Mensal}} &  \\  -->
-<!-- \textbf{Sexo} & 1 & 2 & 3 & \multicolumn{1}{|c|}{\textbf{Total}} \\  -->
-<!-- \hline\hline -->
-<!-- 1 & \multicolumn{1}{|r}{$476$} & \multicolumn{1}{r}{$2.527$} &  -->
-<!-- \multicolumn{1}{r}{$1.273$} & \multicolumn{1}{|r|}{$4.276$} \\  -->
-<!-- 2 & \multicolumn{1}{|r}{$539$} & \multicolumn{1}{r}{$1.270$} &  -->
-<!-- \multicolumn{1}{r}{$422$} & \multicolumn{1}{|r|}{$2.231$} \\ \hline\hline -->
-<!-- \textbf{Total} & \multicolumn{1}{|r}{$1.015$} & \multicolumn{1}{r}{$3.797$} -->
-<!-- & \multicolumn{1}{r}{$1.695$} & \multicolumn{1}{|r|}{$6.507$} \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Freqüências amostrais por celas na PNAD 90}\bigskip \label{tab84}
+\begin{tabular}{|c|cccc|}
+\hline\hline
+& \multicolumn{3}{|c}{\textbf{Renda Mensal}} &  \\
+\textbf{Sexo} & 1 & 2 & 3 & \multicolumn{1}{|c|}{\textbf{Total}} \\
+\hline\hline
+1 & \multicolumn{1}{|r}{$476$} & \multicolumn{1}{r}{$2.527$} &
+\multicolumn{1}{r}{$1.273$} & \multicolumn{1}{|r|}{$4.276$} \\
+2 & \multicolumn{1}{|r}{$539$} & \multicolumn{1}{r}{$1.270$} &
+\multicolumn{1}{r}{$422$} & \multicolumn{1}{|r|}{$2.231$} \\ \hline\hline
+\textbf{Total} & \multicolumn{1}{|r}{$1.015$} & \multicolumn{1}{r}{$3.797$}
+& \multicolumn{1}{r}{$1.695$} & \multicolumn{1}{|r|}{$6.507$} \\ \hline\hline
+\end{tabular}
+\end{table}
+\end{center}
 
 
-```{r, frqamost, results='asis',echo=FALSE}
+```{r, frqamost, eval=FALSE,echo=FALSE}
 library(xtable)
 pnadrj90 <- readRDS("~\\GitHub\\adac\\data\\pnadrj90.rds")
 freq.sx.re <-table(pnadrj90$sx, pnadrj90$re , dnn= c("Sexo", "Renda"))
@@ -810,103 +785,97 @@ amostral utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo
 
 Vamos considerar o teste de homogeneidade entre as variáveis Sexo e Renda
 e calcular o efeito de plano amostral médio das estimativas
-das proporções nas celas da tabela. A Tabela \@ref(tab:proplinha) contém,
+das proporções nas celas da tabela. A Tabela \ref{tab85} contém,
 em cada cela, as estimativas: da proporção na linha, do
 desvio-padrão da estimativa da proporção na linha ($\times10.000$), e do efeito de plano amostral da estimativa de proporção
 na linha.
 
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Proporções nas linhas, desvios padrões e EPAs}\bigskip \label{tab85} -->
-<!-- \begin{tabular}{|c|ccc|c|} -->
-<!-- \hline\hline -->
-<!-- & \multicolumn{3}{|c|}{\textbf{Renda Mensal}} &  \\ \cline{2-4} -->
-<!-- \textbf{Sexo} & 1 & 2 & 3 & \textbf{Total} \\ \hline\hline -->
-<!-- 1 & \multicolumn{1}{|r}{$ -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,111$ \\  -->
-<!-- $57,269$ \\  -->
-<!-- $1,420$ -->
-<!-- \end{tabular} -->
-<!-- $} & \multicolumn{1}{r}{$ -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,591$ \\  -->
-<!-- $102,576$ \\  -->
-<!-- $1,861$ -->
-<!-- \end{tabular} -->
-<!-- $} & \multicolumn{1}{r|}{$ -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,298$ \\  -->
-<!-- $111,213$ \\  -->
-<!-- $2,527$ -->
-<!-- \end{tabular} -->
-<!-- $} &  -->
-<!-- \begin{tabular}{c} -->
-<!-- $1,00$ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline -->
-<!-- 2 & \multicolumn{1}{|r}{$ -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,240$ \\  -->
-<!-- $125,026$ \\  -->
-<!-- $1,909$ -->
-<!-- \end{tabular} -->
-<!-- $} & \multicolumn{1}{r}{$ -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,570$ \\  -->
-<!-- $119,375$ \\  -->
-<!-- $1,297$ -->
-<!-- \end{tabular} -->
-<!-- $} & \multicolumn{1}{r|}{$ -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,190$ \\  -->
-<!-- $111,410$ \\  -->
-<!-- $1,800$ -->
-<!-- \end{tabular} -->
-<!-- $} &  -->
-<!-- \begin{tabular}{c} -->
-<!-- $1,00$ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline\hline -->
-<!-- \begin{tabular}{c} -->
-<!-- Amostra \\  -->
-<!-- completa -->
-<!-- \end{tabular} -->
-<!-- & \multicolumn{1}{|r}{$ -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,155$ \\  -->
-<!-- $68,977$ \\  -->
-<!-- $2,358$ -->
-<!-- \end{tabular} -->
-<!-- $} & \multicolumn{1}{r}{$ -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,584$ \\  -->
-<!-- $82,001$ \\  -->
-<!-- $1,800$ -->
-<!-- \end{tabular} -->
-<!-- $} & \multicolumn{1}{r|}{$ -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,261$ \\  -->
-<!-- $96,1300$ \\  -->
-<!-- $3,117$ -->
-<!-- \end{tabular} -->
-<!-- $} &  -->
-<!-- \begin{tabular}{c} -->
-<!-- $1,00$ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Proporções nas linhas, desvios padrões e EPAs}\bigskip \label{tab85}
+\begin{tabular}{|c|ccc|c|}
+\hline\hline
+& \multicolumn{3}{|c|}{\textbf{Renda Mensal}} &  \\ \cline{2-4}
+\textbf{Sexo} & 1 & 2 & 3 & \textbf{Total} \\ \hline\hline
+1 & \multicolumn{1}{|r}{$
+\begin{tabular}{r}
+$0,111$ \\
+$57,269$ \\
+$1,420$
+\end{tabular}
+$} & \multicolumn{1}{r}{$
+\begin{tabular}{r}
+$0,591$ \\
+$102,576$ \\
+$1,861$
+\end{tabular}
+$} & \multicolumn{1}{r|}{$
+\begin{tabular}{r}
+$0,298$ \\
+$111,213$ \\
+$2,527$
+\end{tabular}
+$} &
+\begin{tabular}{c}
+$1,00$
+\end{tabular}
+\\ \hline
+2 & \multicolumn{1}{|r}{$
+\begin{tabular}{r}
+$0,240$ \\
+$125,026$ \\
+$1,909$
+\end{tabular}
+$} & \multicolumn{1}{r}{$
+\begin{tabular}{r}
+$0,570$ \\
+$119,375$ \\
+$1,297$
+\end{tabular}
+$} & \multicolumn{1}{r|}{$
+\begin{tabular}{r}
+$0,190$ \\
+$111,410$ \\
+$1,800$
+\end{tabular}
+$} &
+\begin{tabular}{c}
+$1,00$
+\end{tabular}
+\\ \hline\hline
+\begin{tabular}{c}
+Amostra \\
+completa
+\end{tabular}
+& \multicolumn{1}{|r}{$
+\begin{tabular}{r}
+$0,155$ \\
+$68,977$ \\
+$2,358$
+\end{tabular}
+$} & \multicolumn{1}{r}{$
+\begin{tabular}{r}
+$0,584$ \\
+$82,001$ \\
+$1,800$
+\end{tabular}
+$} & \multicolumn{1}{r|}{$
+\begin{tabular}{r}
+$0,261$ \\
+$96,1300$ \\
+$3,117$
+\end{tabular}
+$} &
+\begin{tabular}{c}
+$1,00$
+\end{tabular}
+\\ \hline\hline
+\end{tabular}
+\end{table}
+\end{center}
 
 
-```{r, proplinha, echo=FALSE}
+```{r, proplinha, eval=FALSE, echo=FALSE}
 library(survey)
 library(pander)
 pnadrj90<-transform(pnadrj90,sx=factor(sx),id=factor(id),ae=factor(ae),ht=factor(ht),re=factor(re))
@@ -920,7 +889,7 @@ dimnames(tmarg_re)[[2]]<- c("sx_1","sx_2")
 knitr::kable(tmarg_re[-1,] ,booktabs=TRUE, digits=3,
   caption="Proporções nas linha, desvios padrões e EPAs de re para cada nivel de sx")
 ```
-```{r}
+```{r, eval=FALSE}
 marg_re_pop <-as.data.frame(svymean(~re,pnad.des, deff=TRUE ))
 knitr::kable(marg_re_pop ,booktabs=TRUE, digits=3,
   caption="Proporções nas linha, desvios padrões e EPAs de `re` na população")
@@ -949,99 +918,93 @@ níveis 1 e 2 da variável `sx`.
 
 Vamos agora considerar o teste de independência entre as variáveis
 Sexo e Renda e calcular o efeito de plano amostral médio das
-estimativas das proporções nas celas da tabela. A Tabela \@ref(tab:propcelas} contém, em cada cela, as estimativas: da proporção na cela, do desvio-padrão da estimativa da proporção na cela ($\times 10.000$), e do efeito de plano amostral da estimativa de proporção na cela.
+estimativas das proporções nas celas da tabela. A Tabela \ref{tab86} contém, em cada cela, as estimativas: da proporção na cela, do desvio-padrão da estimativa da proporção na cela ($\times 10.000$), e do efeito de plano amostral da estimativa de proporção na cela.
 
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Proporções nas celas, desvios padrões e EPAs}\bigskip \label{tab86}  -->
-<!-- \begin{tabular}{|c|ccc|c|} -->
-<!-- \hline\hline -->
-<!-- & \multicolumn{3}{|c|}{\textbf{Renda Mensal}} &  \\ \cline{2-4} -->
-<!-- \textbf{Sexo} & 1 & 2 & 3 & \textbf{Total} \\ \hline\hline -->
-<!-- 1 & \multicolumn{1}{|r}{$ -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,073$ \\  -->
-<!-- $38,343$ \\  -->
-<!-- $1,414$ -->
-<!-- \end{tabular} -->
-<!-- $} & \multicolumn{1}{r}{ -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,388$ \\  -->
-<!-- $80,435$ \\  -->
-<!-- $1,772$ -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{r|}{ -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,196$ \\  -->
-<!-- $71,772$ \\  -->
-<!-- $2,128$ -->
-<!-- \end{tabular} -->
-<!-- } & $ -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,657$ \\  -->
-<!-- $55,814$ \\  -->
-<!-- $0,899$ -->
-<!-- \end{tabular} -->
-<!-- $ \\ \hline -->
-<!-- 2 &  -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,082$ \\  -->
-<!-- $44,401$ \\  -->
-<!-- $1,695$ -->
-<!-- \end{tabular} -->
-<!-- &  -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,195$ \\  -->
-<!-- $51,582$ \\  -->
-<!-- $1,101$ -->
-<!-- \end{tabular} -->
-<!-- &  -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,065$ \\  -->
-<!-- $40,219$ \\  -->
-<!-- $1,729$ -->
-<!-- \end{tabular} -->
-<!-- &  -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,343$ \\  -->
-<!-- $55,814$ \\  -->
-<!-- $0,899$ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline\hline -->
-<!-- \textbf{Total} &  -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,155$ \\  -->
-<!-- $68,977$ \\  -->
-<!-- $2,358$ -->
-<!-- \end{tabular} -->
-<!-- &  -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,584$ \\  -->
-<!-- $82,001$ \\  -->
-<!-- $1,800$ -->
-<!-- \end{tabular} -->
-<!-- &  -->
-<!-- \begin{tabular}{r} -->
-<!-- $0,261$ \\  -->
-<!-- $96,130$ \\  -->
-<!-- $3,117$ -->
-<!-- \end{tabular} -->
-<!-- & $ -->
-<!-- \begin{tabular}{r} -->
-<!-- $1,000$ -->
-<!-- \end{tabular} -->
-<!-- $ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
+\begin{center}
+\begin{table}[tbp] \centering
+\caption{Proporções nas celas, desvios padrões e EPAs}\bigskip \label{tab86}
+\begin{tabular}{|c|ccc|c|}
+\hline\hline
+& \multicolumn{3}{|c|}{\textbf{Renda Mensal}} &  \\ \cline{2-4}
+\textbf{Sexo} & 1 & 2 & 3 & \textbf{Total} \\ \hline\hline
+1 & \multicolumn{1}{|r}{$
+\begin{tabular}{r}
+$0,073$ \\
+$38,343$ \\
+$1,414$
+\end{tabular}
+$} & \multicolumn{1}{r}{
+\begin{tabular}{r}
+$0,388$ \\
+$80,435$ \\
+$1,772$
+\end{tabular}
+} & \multicolumn{1}{r|}{
+\begin{tabular}{r}
+$0,196$ \\
+$71,772$ \\
+$2,128$
+\end{tabular}
+} & $
+\begin{tabular}{r}
+$0,657$ \\
+$55,814$ \\
+$0,899$
+\end{tabular}
+$ \\ \hline
+2 &
+\begin{tabular}{r}
+$0,082$ \\
+$44,401$ \\
+$1,695$
+\end{tabular}
+&
+\begin{tabular}{r}
+$0,195$ \\
+$51,582$ \\
+$1,101$
+\end{tabular}
+&
+\begin{tabular}{r}
+$0,065$ \\
+$40,219$ \\
+$1,729$
+\end{tabular}
+&
+\begin{tabular}{r}
+$0,343$ \\
+$55,814$ \\
+$0,899$
+\end{tabular}
+\\ \hline\hline
+\textbf{Total} &
+\begin{tabular}{r}
+$0,155$ \\
+$68,977$ \\
+$2,358$
+\end{tabular}
+&
+\begin{tabular}{r}
+$0,584$ \\
+$82,001$ \\
+$1,800$
+\end{tabular}
+&
+\begin{tabular}{r}
+$0,261$ \\
+$96,130$ \\
+$3,117$
+\end{tabular}
+& $
+\begin{tabular}{r}
+$1,000$
+\end{tabular}
+$ \\ \hline\hline
+\end{tabular}
+\end{table}
+\end{center}
 
-```{r, propcelas, echo=FALSE}
+```{r, propcelas, echo=FALSE, eval=FALSE}
 sx.re_mean<-svymean(~interaction(sx,re),pnad.des,deff=T)
 frame_sx_re <- as.data.frame(sx.re_mean)
 frame_sx_re <- transform(frame_sx_re, SE = 10000*SE)
@@ -1051,7 +1014,7 @@ knitr::kable(frame_sx_re,booktabs=TRUE, digits=3,
 
 Tabela de proporções de `sx` para a população inteira:
 
-```{r}
+```{r,eval=FALSE}
 marg_sx_pop <-data.frame(svymean(~sx,pnad.des, deff=TRUE ))
 marg_sx_pop <- transform(marg_sx_pop, SE = 10000*SE)
 knitr::kable(marg_sx_pop, digits=3,
@@ -1061,7 +1024,7 @@ knitr::kable(marg_sx_pop, digits=3,
 
 
 Vamos calcular, a título de ilustração, o efeito de plano
-amostral na cela (1,1) da Tabela \@ref{tab:propcelas}. A estimativa da variância
+amostral na cela (1,1) da Tabela \ref{tab86}. A estimativa da variância
 do estimador de proporção nesta cela é 
 $\left(0,0038343\right) ^{2}$. Sob amostragem aleatória simples com reposição, a estimativa da variância do estimador de proporção na
 cela é: $0,073\times \left( 1-0,073\right) /6.507$. A
@@ -1078,7 +1041,7 @@ corrigir a estatística $X_{P}^{2}\left( I\right)$ é $\hat{d}_{.}=1,640,$ calcu
 
 Calculando as estatísticas $X_{P}^{2}\left( I\right)$ e 
 $X_{P}^{2}\left( H\right)$ para os testes clássicos de independência
-e homogeneidade a partir da Tabela \@ref{tab:propcelas}, obtemos os valores 
+e homogeneidade a partir da Tabela \ref{tab86}, obtemos os valores 
 $X_{P}^{2}\left( I\right) =X_{P}^{2}\left( H\right) =227,025$, com distribuição de referência $\chi ^{2}\left( 2\right)$, resultado que
 indica rejeição da hipótese de independência entre `sx` e `re`,
 bem como da hipótese de igualdade de distribuição de renda para
@@ -1101,7 +1064,7 @@ teste é $\chi ^{2}\left( 2\right)$, mostrando novamente que a
 estatística de teste calculada sob a hipótese de amostra IID tem
 maior tendência a rejeitar a hipótese nula.
 
-A partir da Tabela \@ref(tab:propcelas), examinando as estimativas das proporç
+A partir da Tabela \ref{tab86}, examinando as estimativas das proporç
 ões nas celas da tabela para cada sexo, observamos uma ordenação
 estocástica das distribuições de renda para os dois sexos, com
 proporções maiores em valores mais altos para o nível 1 da
@@ -1151,7 +1114,7 @@ attr(ht.mean, "var")
 
 Podemos obter estimativas de proporções nas classes de renda por domínios definidos pela variável `sx`:
 
-```{r, results='asis'}
+```{r, results='asis', eval=FALSE}
 library(xtable)
 print(xtable(svyby(~re,~sx,pnad.des,svymean,keep.var=TRUE),caption="Proporções por sexo"),type="html", size="small", include.rownames=FALSE)
 ```
