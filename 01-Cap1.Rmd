@@ -1,8 +1,6 @@
 # Introdução {#introduc}
 
 
-
-
 ## Motivação
 
 Este livro trata de problema de grande importância para os usuários
@@ -839,6 +837,239 @@ names(result) <- c("Taxa", "Erro_Padrao", "CV")
 # taxa de desocupação
 result
 ```
+```{example}
+Utilização da library survey do R para análise de microdados da  PNS 
+```
+Leitura dos microdados usando a library `lodown`
+
+```{r ,eval = FALSE}
+library(lodown)
+lodown( "pns" , output_dir = "C:/adac/PNS")
+```
+
+
+Salva dados para pessoas com 18 ou mais anos de idade
+
+```{r}
+pes_sel <- readRDS("C:/adac/PNS/2013 long questionnaire survey.rds")
+dim(pes_sel)
+```
+
+O data frame `pes_sel` contém as variáveis descritas no dicionário da PNS e algumas variáveis obtidas por transformação. Os comandos a seguir ilustram como seriam obtidas as novas variáveis a partir das variáveis no dicionário da PNS contidas em um data frame `x`. Os comandos não precisam ser executados, pois o data frame lido já contém essas variáveis.
+
+```{r, eval=FALSE}
+# x data frame só com as variáveis do dicionário
+# Pessoas que se auto avaliam com saúde boa e muito boa
+pes_sel <- transform( x , saude_b_mb = as.numeric( n001 %in% c( '1' , '2' ) ) )
+# urbano / rural
+pes_sel <- transform( x , situ = factor( substr( v0024 , 7 , 7 ) , labels = c( 'urbano' , 'rural' ) ) )
+
+# sexo
+pes_sel <- transform( x , c006 = factor( c006 , labels = c( 'masculino' , 'feminino' ) ) )
+
+# uf
+estado_names <- c( "Rondônia" , "Acre" , "Amazonas" , "Roraima" , "Pará" , "Amapá" , "Tocantins" , "Maranhão" , "Piauí" , "Ceará" , "Rio Grande do Norte" , "Paraíba" , "Pernambuco" , "Alagoas" , "Sergipe" , "Bahia" , "Minas Gerais" , "Espírito Santo" , "Rio de Janeiro" , "São Paulo" , "Paraná" , "Santa Catarina" , "Rio Grande do Sul" , "Mato Grosso do Sul" , "Mato Grosso" , "Goiás" , "Distrito Federal" )
+pes_sel <- transform( x , uf = factor( v0001 , labels = estado_names ) )
+
+# região
+pes_sel <- transform( x , region = factor( substr( v0001 , 1 , 1 ) , labels = c( "Norte" , "Nordeste" , "Sudeste" , "Sul" , "Centro-Oeste" ) ) )
+
+# recodifica para numérico
+pes_sel[ , c( 'p04101' , 'p04102' , 'p04301' , 'p04302' ) ] <- sapply( x[ , c( 'p04101' , 'p04102' , 'p04301' , 'p04302' ) ] , as.numeric )
+# recodifica deslocamento para trabalho
+pes_sel <-
+	transform(
+		x ,
+		tempo_desl_trab = ifelse( is.na( p04101 ) , 0 , p04101 * 60 + p04102 ) ,
+		tempo_desl_athab = ifelse( is.na( p04301 ) , 0 , p04301 * 60 + p04302 ) )
+
+pes_sel <- transform( x , tempo_desl = tempo_desl_trab + tempo_desl_athab )
+
+pes_sel <- transform( x , atfi04 = as.numeric( tempo_desl >= 30 ) )
+
+
+# idade categórica
+pes_sel$age_cat <- factor( 1 + findInterval( as.numeric( x$c008 ) , c( 18 , 30 , 40 , 60 ) ) , labels = c( "0-17" , "18-29" , "30-39" , "40-59" , "60+" ) )
+
+# race
+pes_sel$raca <- as.numeric( pes_sel$c009 )
+pes_sel[ pes_sel$raca == 9 , 'raca' ] <- NA
+pes_sel$raca <- factor( pes_sel$raca , labels = c( 'Branca' , 'Preta' , 'Amarela' , 'Parda' , 'Indígena' ) )
+
+# educação
+pes_sel$educ <- factor( 1 + findInterval( as.numeric( pes_sel$vdd004 ) , c( 3 , 5 , 7 ) ) , labels = c( "SinstFundi" , "FundcMedi" , "MedcSupi" , "Supc" ) )
+
+# número de pessoas no domicílio
+pes_sel$c001 <- as.numeric(pes_sel$c001)
+
+# coluna com 1
+pes_sel$one <- 1                   
+```
+
+
+Criação do objeto de desenho: 
+
+```{r, message=FALSE, warning=FALSE}
+library(survey)
+pes_sel_des <-
+	svydesign(
+		id = ~ upa_pns ,
+		strata = ~ v0024 ,
+		data = pes_sel ,
+		weights = ~ pre_pes_long ,
+		nest = TRUE
+	)
+```
+
+Totais populacionais usados na pós-estratificação
+```{r}
+post_pop <- unique( pes_sel[ c( 'v00293.y' , 'v00292.y' ) ] )
+names( post_pop ) <- c( "v00293.y" , "Freq" )
+```
+
+Objeto de desenho pós-estratificado
+
+```{r}
+pes_sel_des_pos <- postStratify( pes_sel_des , ~v00293.y , post_pop )
+```
+
+Salva objeto de desenho pós-estratificado
+
+```{r, eval= FALSE}
+saveRDS(pes_sel_des_pos,"C:/adac/PNS/2013 long questionnaire survey design.rds" )
+```
+
+Vamos agora reproduzir estimativas na Tabela 6.42.1.1 da publicação em 
+ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf.
+
+A variável de interesse tem código Q092 e sua descrição é: 
+"Algum médico ou profissional de saúde mental (como psiquiatra ou psicólogo) já lhe deu o diagnóstico de depressão?"
+
+Essa variável é de classe character e tem dois valores 1 e 2:
+
+```{r}
+class(pes_sel$q092)
+table(pes_sel$q092)
+```
+
+
+Antes vamos definir uma nova variável `diag_dep` que é igual a 1 se recebe diagnóstico de depressão e zero caso contário:
+
+```{r}
+diag_dep <- as.numeric (pes_sel$q092=="1")
+```
+
+Vamos atualizar o objeto de desenho `pes_sel_des_pos` para incluir a variável `diad_dep` na componente `variables`:
+
+```{r}
+pes_sel_des_pos <- update (pes_sel_des_pos, diag_dep = diag_dep )
+```
+Para calcular a proporção de pessoas que receberam diagnóstico de depressão para
+o país inteiro:
+
+```{r}
+diagdepbr <- svymean(~diag_dep, pes_sel_des_pos)
+# estimativa em e % e erro padrão
+round(100* coef(diagdepbr),1)
+round(100*SE(diagdepbr),1)
+```
+
+
+Um intervalo de confiança aproximado de nível de confiança de 95% é dado por
+
+```{r}
+round(100* c(coef(diagdepbr) - 2*SE(diagdepbr),coef(diagdepbr) + 2*SE(diagdepbr)  ), 1)
+```
+
+O cálculo da estimativa e do intervalo pode ser colocado em uma função
+
+
+
+```{r}
+three_stats <- function(z) round(100 * c(coef(z), coef(z) - 
+  2 * SE(z), coef(z) + 2 * SE(z)), 1)
+
+```
+
+Aplicando para o exemplo, obtemos para o país inteiro:
+
+```{r}
+three_stats(diagdepbr)
+```
+
+Para o país por sexo:
+
+
+```{r}
+diagdepsex <- svyby(~diag_dep, ~c006, design = pes_sel_des_pos, 
+  svymean)
+res <- three_stats(diagdepsex)
+dfsex <- data.frame( sexo = names(res)[1:2], prop = res[1:2], l.i.c. = res[3:4],l.s.c =res[5:6])
+knitr::kable(dfsex,booktabs = TRUE, row.names = FALSE, format = "latex", 
+caption = "Proporção de diagnóstico de depressão por sexo")
+
+```
+
+Por situação (rural e urbano)
+
+```{r}
+diagdepsitu <- svyby(~diag_dep, ~situ, design = pes_sel_des_pos, 
+  svymean)
+res <- three_stats(diagdepsitu)
+dfsitu <- data.frame( situ = names(res)[1:2], prop = res[1:2], l.i.c. = res[3:4],l.s.c =res[5:6])
+knitr::kable(dfsitu,booktabs = TRUE, row.names = FALSE, 
+caption = "Proporção de diagnóstico de depressão por situação")
+```
+
+Situação por sexo:
+ 
+
+```{r}
+diagdepsitusex <- svyby(~diag_dep, ~situ + c006, design = pes_sel_des_pos, 
+  svymean)
+res <- three_stats(diagdepsitusex)
+dfsitusex <- data.frame(situ.sex = names(res)[1:4],prop = res[1:4], l.i.c = res[5:8], l.s.c=res[9:12] )
+knitr::kable(dfsitusex,booktabs = TRUE, row.names = FALSE,
+caption = "Proporção de diagnóstico de depressão por situação e sexo")
+```
+
+Por Unidade da Federação:
+
+```{r}
+diagdepuf <- svyby(~diag_dep, ~uf, design = pes_sel_des_pos, svymean)
+res <- three_stats(diagdepuf)
+dfuf <- data.frame(uf = names(res)[1:27], prop = res[1:27], L.I.C. = res[28:54],L.S.C =res[55:81]  )
+knitr::kable(dfuf,booktabs = TRUE, row.names = FALSE, 
+caption = "Proporção de diagnóstico de depressão por uf")
+```
+
+ UF por sexo:
+
+
+```{r}
+diagdepufsex <- svyby(~diag_dep, ~uf + c006, design = pes_sel_des_pos, 
+  svymean)
+res <- three_stats(diagdepufsex)
+dfufsex <- data.frame (uf.sex =names(res)[1:54], prop = res[1: 54], L.I.C = res[55:108],L.S.C=res[109:162] )
+knitr::kable(dfufsex,booktabs = TRUE, row.names = FALSE, 
+caption = "Proporção de diagnóstico de depressão por uf e sexo")
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 
 
 

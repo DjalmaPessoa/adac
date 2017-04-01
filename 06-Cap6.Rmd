@@ -11,7 +11,7 @@ aplicado. Os resultados são derivados considerando pesos ordinários
 dados pelo inverso das probabilidades de inclusão das unidades na
 amostra. Resultados mais gerais considerando outros tipos de pesos (tais
 como os derivados de estimadores de razão ou regressão, por exemplo)
-estão discutidos em [@Silva], cap. 6.
+estão discutidos em [@Silva], Cap. 6.
 
 ### Especificação do Modelo
 
@@ -705,7 +705,7 @@ Para comparação, apresentamos na Tabela \ref{tab64} algumas
 estimativas de razões de vantagens, relevantes na análise,
 calculadas tanto pela função glm do \textbf{S-Plus} como pela 
 \textbf{PROC LOGISTIC} do pacote \textbf{SUDAAN} e, na\textbf{\ }Tabela \ref
-{tab65}\textbf{,} os correspondentes intervalos de confiança de $95\%$. Na
+{tab65} os correspondentes intervalos de confiança de $95\%$. Na
 construção destes intervalos foi necessário utilizar estimativas
 pontuais dos efeitos bem como a matriz de covariância estimada dos
 estimadores dos efeitos do modelo. Deste modo, estes intervalos sumarizam,
@@ -847,8 +847,8 @@ apresentados) os seguintes ajustes com a utilização do
 3) dados individuais com pesos normalizados. 
 
 Em todas estas análises, como esperado, as estimativas
-pontuais dos efeitos coincidiram com as obtidas pela \textbf{PROC LOGISTIC}
-do pacote \textbf{SUDAAN}. Pode-se notar que, neste exemplo, há estreita
+pontuais dos efeitos coincidiram com as obtidas pela __PROC LOGISTIC__
+do pacote __SUDAAN__. Pode-se notar que, neste exemplo, há estreita
 concordância entre as estimativas pontuais obtidas pelos dois pacotes.
 
 A concordância das estimativas dos coeficientes pode ser explicada, em
@@ -901,11 +901,11 @@ até chegar em uma estimativa pontual dos coeficientes bem próxima de
 quando levamos ambos em conta, mas as estimativas dos desvios padrões
 são mais sensíveis a esta diferença entre as análises. A
 tendência revelada é de subestimação dos desvios padrões
-pelo **S-Plus** ao ignorar o plano amostral e a variação dos
+pelo __S-Plus__ ao ignorar o plano amostral e a variação dos
 pesos.
 
-Neste exemplo, foi utilizada a função glm do **S-Plus** na seleção do modelo. Feita a seleção, o mesmo modelo foi ajustado
-através da **PROC LOGISTIC** do  **SUDAAN**. O propósito
+Neste exemplo, foi utilizada a função glm do __S-Plus__ na seleção do modelo. Feita a seleção, o mesmo modelo foi ajustado
+através da __PROC LOGISTIC__ do  __SUDAAN__. O propósito
 foi imitar uma situação onde o modelo já tivesse sido
 selecionado e ajustado por usuário secundário dos dados, sem
 considerar os pesos e o plano amostral, tal como é usual. Outra
