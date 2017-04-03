@@ -162,7 +162,7 @@ assintótica qui-quadrado com um grau de liberdade.
 Por outro lado, é importante observar que as agências produtoras de
 dados estatísticos geralmente apresentam os resultados de suas pesquisas
 em tabelas contendo as estimativas $\hat{N}_{lc}$, como ilustrado no Exemplo 
-\@ref(exe:Analisec) do Capítulo \@ref(ajmodpar). Se calcularmos as estatísticas 
+\@ref(ex:Analisec) do Capítulo \@ref(ajmodpar). Se calcularmos as estatísticas 
 $X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left( H\right)$ a partir dos
 valores dos $\hat{N}_{lc}$ fornecidos, com a estimativa do tamanho da popula
 ção $\hat{N}$ no lugar de $n$, os resultados assintóticos
@@ -737,7 +737,7 @@ de liberdade.
 Correções de EPA médio das estatísticas $X_{P}^{2}\left(I\right)$ e $X_{P}^{2}\left(H\right)$.
 ```
 
-Considerando os dados do Exemplo \@ref(ex:pnad90) do Capítulo \@ref(modreg), vamos
+Considerando os dados do Exemplo \@ref(ex:pnad) do Capítulo \@ref(modreg), vamos
 testar a hipótese de independência entre as variáveis Sexo (sx)
 e Rendimento médio mensal (re). Vamos fazer também um teste de
 homogeneidade, para comparar as distribuições de renda para os dois
