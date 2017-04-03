@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-03-29">
+<meta name="date" content="2017-04-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -146,7 +146,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1" data-path="ajmodpar.html"><a href="ajmodpar.html#modpar1"><i class="fa fa-check"></i><b>5.1</b> Introdução</a></li>
 <li class="chapter" data-level="5.2" data-path="ajmodpar.html"><a href="ajmodpar.html#metodo-de-maxima-verossimilhanca-mv"><i class="fa fa-check"></i><b>5.2</b> Método de Máxima Verossimilhança (MV)</a></li>
 <li class="chapter" data-level="5.3" data-path="ajmodpar.html"><a href="ajmodpar.html#ponderacao-de-dados-amostrais"><i class="fa fa-check"></i><b>5.3</b> Ponderação de Dados Amostrais</a></li>
-<li class="chapter" data-level="5.4" data-path="ajmodpar.html"><a href="ajmodpar.html#modpar3"><i class="fa fa-check"></i><b>5.4</b> Método de Máxima Pseudo-Verossimilhança label</a></li>
+<li class="chapter" data-level="5.4" data-path="ajmodpar.html"><a href="ajmodpar.html#modpar3"><i class="fa fa-check"></i><b>5.4</b> Método de Máxima Pseudo-Verossimilhança</a></li>
 <li class="chapter" data-level="5.5" data-path="ajmodpar.html"><a href="ajmodpar.html#robustez-do-procedimento-mpv"><i class="fa fa-check"></i><b>5.5</b> Robustez do Procedimento MPV</a></li>
 <li class="chapter" data-level="5.6" data-path="ajmodpar.html"><a href="ajmodpar.html#desvantagens-da-inferencia-de-aleatorizacao"><i class="fa fa-check"></i><b>5.6</b> Desvantagens da Inferência de Aleatorização</a></li>
 <li class="chapter" data-level="5.7" data-path="ajmodpar.html"><a href="ajmodpar.html#laboratorio-de-r-2"><i class="fa fa-check"></i><b>5.7</b> Laboratório de R</a></li>
@@ -170,7 +170,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="testqualajust.html"><a href="testqualajust.html#teste-para-varias-proporcoes"><i class="fa fa-check"></i><b>7.3</b> Teste para Várias Proporções</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="testqualajust.html"><a href="testqualajust.html#estatistica-de-wald-baseada-no-plano-amostral"><i class="fa fa-check"></i><b>7.3.1</b> Estatística de Wald Baseada no Plano Amostral</a></li>
-<li class="chapter" data-level="7.3.2" data-path="testqualajust.html"><a href="testqualajust.html#raoscott"><i class="fa fa-check"></i><b>7.3.2</b> Estatística de Pearson com Ajuste de Rao-Scott</a></li>
+<li class="chapter" data-level="7.3.2" data-path="testqualajust.html"><a href="testqualajust.html#situacoes-instaveis"><i class="fa fa-check"></i><b>7.3.2</b> Situações Instáveis</a></li>
+<li class="chapter" data-level="7.3.3" data-path="testqualajust.html"><a href="testqualajust.html#raoscott"><i class="fa fa-check"></i><b>7.3.3</b> Estatística de Pearson com Ajuste de Rao-Scott</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="testqualajust.html"><a href="testqualajust.html#laboratorio-de-r-4"><i class="fa fa-check"></i><b>7.4</b> Laboratório de R</a></li>
 </ul></li>
@@ -246,7 +247,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>A seguir vamos apresentar um exemplo de uso de dados de uma pesquisa amostral real para ilustrar como os pontos i) a iv) acima mencionados afetam a inferência sobre quantidades descritivas populacionais tais como médias, proporções, razões e totais.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-2" class="example"><strong>Exemplo 1.1 </strong></span>Distribuição dos pesos da amostra da PPV
+<span id="ex:distppv" class="example"><strong>Exemplo 1.1 </strong></span>Distribuição dos pesos da amostra da PPV
 </div>
 <p></p>
 <p>Os dados deste exemplo são relativos à distribuição dos pesos na amostra da Pesquisa sobre Padrões de Vida (PPV), realizada pelo IBGE nos anos 1996-97. <span class="citation">(Albieri and Bianchini <a href="#ref-albieri">1997</a>)</span> descrevem resumidamente a Pesquisa sobre Padrões de Vida (PPV), que foi realizada nas Regiões Nordeste e Sudeste do País, considerando 10 estratos geográficos, a saber: Região Metropolitana de Fortaleza, Região Metropolitana de Recife, Região Metropolitana de Salvador, restante da área urbana do Nordeste, restante da área rural do Nordeste, Região Metropolitana de Belo Horizonte, Região Metropolitana do Rio de Janeiro, Região Metropolitana de São Paulo, restante da área urbana do Sudeste e restante da área rural do Sudeste.</p>
@@ -343,13 +344,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">1.3</span> Laboratório de R do Capítulo 1.</h2>
 
 <div class="example">
-<span id="ex:unnamed-chunk-3" class="example"><strong>Exemplo 1.2 </strong></span>Utilização da library survey do R para estimar totais e razões na PPV
+<span id="ex:unnamed-chunk-1" class="example"><strong>Exemplo 1.2 </strong></span>Utilização da library survey do R para estimar totais e razões na PPV
 </div>
-<p> Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (<code>PPV</code>) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo <a href="#ex:distppv"><strong>??</strong></a> . Inicialmente, vamos ler os dados do arquivo <code>ppv1.R</code>, através do comando <code>source</code>. Em seguida, vamos definir variáveis de interesse por meio de transformação de variáveis existentes.</p>
-<p>Criação das variáveis analf1,analf2, faixa1 e faixa2:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv1 &lt;-<span class="st"> </span><span class="kw">transform</span>(ppv1, <span class="dt">analf1 =</span> ((v04a01 ==<span class="st"> </span><span class="dv">2</span> |<span class="st">    </span>v04a02 ==<span class="st"> </span><span class="dv">2</span>) &amp;<span class="st"> </span>(v02a08 &gt;=<span class="st"> </span><span class="dv">7</span> &amp;<span class="st"> </span>
-v02a08 &lt;=<span class="st"> </span><span class="dv">14</span>)) *<span class="st">   </span><span class="dv">1</span>, <span class="dt">analf2 =</span> ((v04a01 ==<span class="st"> </span><span class="dv">2</span> |<span class="st"> </span>v04a02 ==<span class="st"> </span><span class="dv">2</span>) &amp;<span class="st"> </span>
-(v02a08 &gt;<span class="dv">14</span>)) *<span class="st"> </span><span class="dv">1</span>, <span class="dt">faixa1 =</span> (v02a08 &gt;=<span class="st"> </span><span class="dv">7</span> &amp;<span class="st"> </span>v02a08 &lt;=<span class="st"> </span><span class="dv">14</span>) *<span class="dv">1</span>, <span class="dt">faixa2 =</span> (v02a08 &gt;<span class="st"> </span><span class="dv">14</span>) *<span class="st"> </span><span class="dv">1</span>)</code></pre></div>
+<p> Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (<code>PPV</code>) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo <a href="introduc.html#ex:distppv">1.1</a> . Inicialmente, vamos ler os e definir variáveis de interesse por meio de transformação de variáveis existentes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># leitura dos dados</span>
+ppv1 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;~</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">adac</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">ppv.rds&quot;</span>)
+<span class="kw">library</span>(survey)</code></pre></div>
+<p>Criação das variáveis analf1, analf2, faixa1 e faixa2:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv1 &lt;-<span class="st"> </span><span class="kw">transform</span>(ppv1, 
+<span class="dt">analf1 =</span> ((v04a01 ==<span class="st"> </span><span class="dv">2</span> |<span class="st"> </span>v04a02 ==<span class="st"> </span><span class="dv">2</span>) &amp;<span class="st"> </span>(v02a08 &gt;=<span class="st"> </span><span class="dv">7</span> &amp;<span class="st"> </span>v02a08 &lt;=<span class="st"> </span><span class="dv">14</span>)) *<span class="st"> </span><span class="dv">1</span>, 
+<span class="dt">analf2 =</span> ((v04a01 ==<span class="st"> </span><span class="dv">2</span> |<span class="st"> </span>v04a02 ==<span class="st"> </span><span class="dv">2</span>) &amp;<span class="st"> </span>(v02a08 &gt;<span class="dv">14</span>)) *<span class="st"> </span><span class="dv">1</span>, 
+<span class="dt">faixa1 =</span> (v02a08 &gt;=<span class="st"> </span><span class="dv">7</span> &amp;<span class="st"> </span>v02a08 &lt;=<span class="st"> </span><span class="dv">14</span>) *<span class="dv">1</span>, 
+<span class="dt">faixa2 =</span> (v02a08 &gt;<span class="st"> </span><span class="dv">14</span>) *<span class="st"> </span><span class="dv">1</span>)</code></pre></div>
 <p>A seguir, mostramos a utilização da library survey do R para obter algumas estimativas da Tabela . Vamos supor que os dados da pesquisa estão contidos no data frame <code>ppv1</code>, que contém as variáveis que caracterizam o plano amostral</p>
 <ul>
 <li>nsetor - conglomerados;</li>
@@ -370,15 +376,19 @@ ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> ~nse
 <span class="dt">data =</span> ppv1, <span class="dt">nest =</span> <span class="ot">TRUE</span>, <span class="dt">weights =</span> ~pesof)</code></pre></div>
 <p>Como todos os exemplos a seguir serão relativos a estimativas na Região Sudeste, vamos restringir o desenho a esse domínio:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.des &lt;-<span class="st"> </span><span class="kw">subset</span>(ppv.des, regiao ==<span class="st"> </span><span class="dv">2</span>)</code></pre></div>
-<p>Para exemplificar, vamos estimar algumas características da população, descritas na Tabela . Os totais das variáveis <code>analf1</code> e <code>analf2</code> para a região Sudeste fornecem os resultados nas linhas 4) e 5 da Tabela :</p>
-<p>Vamos estimar os totais de analfabetos nas faixas etárias de 7 a 14 anos e acima de 14 anos.</p>
+<p>Para exemplificar, vamos estimar algumas características da população, descritas na Tabela . Os totais das variáveis <code>analf1</code> e <code>analf2</code> para a região Sudeste fornecem os resultados nas linhas 4 e 5 da Tabela :</p>
+<ul>
+<li>totais de analfabetos nas faixas etárias de 7 a 14 anos e acima de 14 anos.</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(~analf1, ppv.se.des, <span class="dt">deff =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>##          total      SE   DEff
 ## analf1 1174220  127982 2.0543</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(~analf2, ppv.se.des, <span class="dt">deff =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>##          total      SE   DEff
 ## analf2 4792344  318877 3.3237</code></pre>
-<p>Queremos ainda estimar o percentual de analfabetos nas faixas etárias consideradas, que fornece os resultados nas linhas 6 e 7 da Tabela :</p>
+<ul>
+<li>percentual de analfabetos nas faixas etárias consideradas, que fornece os resultados nas linhas 6 e 7 da Tabela :</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyratio</span>(~analf1, ~faixa1, ppv.se.des)</code></pre></div>
 <pre><code>## Ratio estimator: svyratio.survey.design2(~analf1, ~faixa1, ppv.se.des)
 ## Ratios=
@@ -404,10 +414,11 @@ ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> ~nse
 <div id="estimativa-do-efeito-de-plano-amostral-epa" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Estimativa do efeito de plano amostral (EPA)</h3>
 <p>Esse assunto será tratado em detalhes no Capítulo <a href="introduc.html#epa">1.3</a> . Por enquanto, apresentaremos uma introdução necessária para compreender os valores na Tabela .</p>
-<p>O efeito de plano amostral (EPA) de Kish é definido na fórmula <a href="epa.html#eq:epa1">(4.1)</a>, na página 54 do livro. Vamos considerar o caso particular em que <span class="math inline">\(\hat{\theta}\)</span> é um estimador de total de uma variável <span class="math inline">\(Y\)</span>.Ou seja <span class="math display">\[
+<p>O efeito de plano amostral (EPA) de Kish é definido na fórmula <a href="epa.html#eq:epa1">(4.1)</a>. Vamos considerar o caso particular em que <span class="math inline">\(\hat{\theta}\)</span> é um estimador de total de uma variável <span class="math inline">\(Y\)</span>.Ou seja <span class="math display">\[
 EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
 \]</span></p>
-<p>Na definição do EPA, a estimativa do numerador pode ser obtida diretamente a partir da library <code>survey</code>, a partir do objeto de <code>ppv.se.des</code> que incorpora as características do plano amostral utilizado para coletar os dados. Não é possível estimar diretamente o denominador, pois o plano amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta dos dados. Devemos estimar o denominador a partir de dados obtidos através do plano amostral VERD, como se eles tivessem sido obtidos através de AAS. Supondo conhecido o tamanho da população <span class="math inline">\(N\)</span> e a fração amostral <span class="math inline">\(f=n/N\)</span> pequena, a estimativa da variância de <span class="math inline">\(\widehat{Y}\)</span> é dada na expressão @ref:\tag{1.1} <span class="math display" id="eq:estpa9">\[
+<p>Na definição do EPA, a estimativa do numerador pode ser obtida usando-se a library <code>survey</code>, a partir do objeto de <code>ppv.se.des</code> que incorpora as características do plano amostral utilizado para coletar os dados. Não é possível estimar diretamente o denominador, pois o plano amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta dos dados. Devemos estimar o denominador a partir de dados obtidos através do plano amostral VERD, como se eles tivessem sido obtidos através de AAS.</p>
+<p>Supondo conhecido o tamanho da população <span class="math inline">\(N\)</span> e a fração amostral <span class="math inline">\(f=n/N\)</span> pequena, a estimativa da variância de <span class="math inline">\(\widehat{Y}\)</span> é dada na expressão @ref:\tag{1.1} <span class="math display" id="eq:estpa9">\[
 \widehat{V}_{AAS}\left(\widehat{Y}\right)=N^2\frac{\widehat{S}_y}{n-1}
 \]</span> onde <span class="math inline">\(\widehat{S}_y= n^{-1}\sum_{i\in s}\left(y_i-\overline{y}\right)^2\)</span> é a estimativa de <span class="math inline">\(S_y=N^{-1}\sum_{i\in U}\left(y_i-\overline{Y}\right)^2\)</span>, com <span class="math inline">\(\overline{Y}=N^{-1}Y\)</span>.</p>
 No lugar dessa estimativa, vamos utilizar os pesos do plano amostral verdadeiro para estimar <span class="math inline">\(S_y\)</span>. Vamos ainda estimar <span class="math inline">\(N\)</span>, em geral é desconhecido, por <span class="math inline">\(\widehat{N}=\sum_{i \in s} w_i\)</span>. Dessa forma obtemos a estimativa
@@ -462,7 +473,7 @@ ppv.des &lt;-<span class="st"> </span><span class="kw">update</span> (ppv.des,<s
 <p>Observe que as estimativas de variância para o desenho verdadeiro (numerador do EPA) são iguais quando usamos: a variável <code>analf1.se</code> com o objeto de desenho <code>ppv.des</code> ou a variável <code>analf1</code> com o objeto <code>ppv.se.des</code>. Porém na estimativa do denominador do EPA, obtida a partir da função <code>Vwaas</code>, obtemos resultados diferentes quando usamos <code>analf1.se</code> ou <code>analf1</code>, com os pesos correspondentes. No segundo caso, a soma dos pesos não estima <span class="math inline">\(N\)</span>. Deve-se ter o cuidado, quando estimamos em um domínio, de trabalhar com pesos cuja soma seja um estimador do tamanho da população.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-16" class="example"><strong>Exemplo 1.3 </strong></span>Utilização da library survey do R para estimar taxa de desocupação para um trimestre na PNADC
+<span id="ex:unnamed-chunk-14" class="example"><strong>Exemplo 1.3 </strong></span>Utilização da library survey do R para estimar taxa de desocupação para um trimestre na PNADC
 </div>
 <p></p>
 <ul>
@@ -509,7 +520,7 @@ x &lt;-<span class="st"> </span><span class="kw">readRDS</span>( <span class="kw
 <li>Pós-estratifica objeto de desenho inicial:</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">w &lt;-<span class="kw">postStratify</span>(pre_w, ~posest, df_pos)</code></pre></div>
-<p>Para calcular a taxa de desocupação, o IBGE considera pessoas de 14 anos ou mais (PIA) na semana de referência e calcula a razão de dois totais:</p>
+<p>Para calcular a taxa de desocupação, o IBGE considera pessoas de 14 anos ou mais na semana de referência(PIA) e calcula a razão de dois totais:</p>
 <ol style="list-style-type: decimal">
 <li><p>Numerador: total de pessoas desocupadas (vd4002==2)</p></li>
 <li><p>Denominador: total de pessoas na força de trabalho (vd4001==1)</p></li>
@@ -530,6 +541,691 @@ result &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
 result</code></pre></div>
 <pre><code>##       Taxa Erro_Padrao        CV
 ## 1 11.80303   0.1174791 0.9953299</code></pre>
+
+<div class="example">
+<span id="ex:unnamed-chunk-27" class="example"><strong>Exemplo 1.4 </strong></span>Utilização da library survey do R para análise de microdados da PNS
+</div>
+<p> Leitura dos microdados usando a library <code>lodown</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lodown)
+<span class="kw">lodown</span>( <span class="st">&quot;pns&quot;</span> , <span class="dt">output_dir =</span> <span class="st">&quot;C:/adac/PNS&quot;</span>)</code></pre></div>
+<p>Depois de baixar os dados, são criados os seuintes arquivos no diretório <code>C:/adac/PNS</code> :</p>
+<ol style="list-style-type: decimal">
+<li><p><code>2013 all questionnaire survey design.rds</code> que contém o objeto de desenho para todos as pessoas na amostra;</p></li>
+<li><p><code>2013 all questionnaire survey.rds</code> que contém os microdados para todos as pessoas da amostra</p></li>
+<li><p><code>2013 long questionnaire survey design.rds</code> que contém o objeto de desenho para uma subamostra de pessoas com 18 anos ou mais que responderam um questionário mais longo;</p></li>
+<li><p><code>2013 long questionnaire survey.rds</code> que contém os microdados para uma subamostra de pessoas com 18 anos ou mais que responderam um questionário mais longo;</p></li>
+</ol>
+
+<div class="remark">
+<span class="remark"><em>Observação </em></span> Nos arquivos acima, além de as variáveis contidas no dicionário da PNS, foram acrescentadas variáveis derivadas, utilizadas nos exemplos no site <a href="https://github.com/ajdamico/asdfree/tree/master/Pesquisa%20Nacional%20De%20Saude">asdfree.com</a>
+</div>
+<p></p>
+<p>Inicialmente, vamos estimar características de pessoas com 18 anos ou mais mais que responderam o questionário longo e salvar os microdados dessa amostra no data frame <code>pes_sel</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;C:/adac/PNS/2013 long questionnaire survey.rds&quot;</span>)
+<span class="kw">dim</span>(pes_sel)</code></pre></div>
+<pre><code>## [1] 60202  1019</code></pre>
+
+<div class="remark">
+<span class="remark"><em>Observação </em></span> No data frame pes_sel os códigos das variáveis foram transformados para letras minúsculas.
+</div>
+<p> O data frame <code>pes_sel</code> contém as variáveis descritas no dicionário da <code>PNS</code> e algumas variáveis obtidas derivadas.</p>
+<p>O passo inicial para a análise dos microdados é definir um objeto de desenho que salva as características do plano amostral da pesquisa. Isso é feito por meio da função <code>svydesign()</code> da library `survey.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
+pes_sel_des &lt;-
+<span class="st">    </span><span class="kw">svydesign</span>(
+        <span class="dt">id =</span> ~<span class="st"> </span>upa_pns ,
+        <span class="dt">strata =</span> ~<span class="st"> </span>v0024 ,
+        <span class="dt">data =</span> pes_sel ,
+        <span class="dt">weights =</span> ~<span class="st"> </span>pre_pes_long ,
+        <span class="dt">nest =</span> <span class="ot">TRUE</span>
+    )</code></pre></div>
+<p>O objeto de desenho <code>pes_sel_des</code> deve ser modificado para incorporar informações de totais disponíveis a partir do Censo Demográfico. Para isso, são definidos <code>post-pop</code>, definido a seguir.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post_pop &lt;-<span class="st"> </span><span class="kw">unique</span>( pes_sel[ <span class="kw">c</span>( <span class="st">&#39;v00293.y&#39;</span> , <span class="st">&#39;v00292.y&#39;</span> ) ] )
+<span class="kw">names</span>( post_pop ) &lt;-<span class="st"> </span><span class="kw">c</span>( <span class="st">&quot;v00293.y&quot;</span> , <span class="st">&quot;Freq&quot;</span> )</code></pre></div>
+<p>Utilizando a função <code>postStratify()</code> da library <code>survey</code> incorpora-se no objeto de desenho <code>pes_sel_des</code> as informações contidas no data frame <code>post_pop</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel_des_pos &lt;-<span class="st"> </span><span class="kw">postStratify</span>( pes_sel_des , ~v00293.y , post_pop )</code></pre></div>
+<p>Os comandos acimas foram apresentados apenas para ilustrar como, a partir dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não seria necessária a execução desses comandos pois o objeto de desenho <code>pes_sel_des_pos</code> já se encontra disponível no arquivo 1 <code>2013 all questionnaire survey design.rds</code>.</p>
+<p>Para exemplificar, vamos agora reproduzir estimativas na Tabela 6.42.1.1 da publicação em <a href="ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf" class="uri">ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf</a>.</p>
+<p>A variável de interesse tem código Q092 e sua descrição é: “Algum médico ou profissional de saúde mental (como psiquiatra ou psicólogo) já lhe deu o diagnóstico de depressão?”</p>
+<p>Essa variável é de classe character e tem dois valores 1 e 2:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(pes_sel$q092)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(pes_sel$q092)</code></pre></div>
+<pre><code>## 
+##     1     2 
+##  4235 55967</code></pre>
+<p>Antes vamos definir uma nova variável <code>diag_dep</code> que é igual a 1 se recebe diagnóstico de depressão e zero caso contrário:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diag_dep &lt;-<span class="st"> </span><span class="kw">as.numeric</span> (pes_sel$q092==<span class="st">&quot;1&quot;</span>)</code></pre></div>
+<p>Como mencionado, o objeto de desenho pós-estratificado <code>pes_sel_des_pos</code> pode ser lido do arquivo <code>2013 all questionnaire survey design.rds</code>. Vamos atualizar o objeto de desenho <code>pes_sel_des_pos</code> para incluir a variável <code>diad_dep</code> na componente <code>variables</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel_des_pos &lt;-<span class="st"> </span><span class="kw">update</span> (pes_sel_des_pos, <span class="dt">diag_dep =</span> diag_dep )</code></pre></div>
+<p>Para calcular a proporção de pessoas que receberam diagnóstico de depressão para o país inteiro:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepbr &lt;-<span class="st"> </span><span class="kw">svymean</span>(~diag_dep, pes_sel_des_pos)
+<span class="co"># estimativa em e % e erro padrão</span>
+<span class="kw">round</span>(<span class="dv">100</span>*<span class="st"> </span><span class="kw">coef</span>(diagdepbr),<span class="dv">1</span>)</code></pre></div>
+<pre><code>## diag_dep 
+##      7.6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="dv">100</span>*<span class="kw">SE</span>(diagdepbr),<span class="dv">1</span>)</code></pre></div>
+<pre><code>##          diag_dep
+## diag_dep      0.2</code></pre>
+<p>Um intervalo de confiança aproximado de nível de confiança de 95% é dado por</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="dv">100</span>*<span class="st"> </span><span class="kw">c</span>(<span class="kw">coef</span>(diagdepbr) -<span class="st"> </span><span class="dv">2</span>*<span class="kw">SE</span>(diagdepbr),<span class="kw">coef</span>(diagdepbr) +<span class="st"> </span><span class="dv">2</span>*<span class="kw">SE</span>(diagdepbr)  ), <span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 7.2 8.1</code></pre>
+<p>As estimativas e os limites do intervalo de confiança aproximado com 95% de nível de confiança podem ser obtidos por meio da função:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">three_stats &lt;-<span class="st"> </span>function(z) <span class="kw">round</span>(<span class="dv">100</span> *<span class="st"> </span><span class="kw">c</span>(<span class="kw">coef</span>(z), <span class="kw">coef</span>(z) -<span class="st"> </span>
+<span class="st">  </span><span class="dv">2</span> *<span class="st"> </span><span class="kw">SE</span>(z), <span class="kw">coef</span>(z) +<span class="st"> </span><span class="dv">2</span> *<span class="st"> </span><span class="kw">SE</span>(z)), <span class="dv">1</span>)</code></pre></div>
+<p>Aplicando para o exemplo, obtemos para o país inteiro:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">three_stats</span>(diagdepbr)</code></pre></div>
+<pre><code>## diag_dep                   
+##      7.6      7.2      8.1</code></pre>
+<p>Para o país por sexo:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepsex &lt;-<span class="st"> </span><span class="kw">svyby</span>(~diag_dep, ~c006, <span class="dt">design =</span> pes_sel_des_pos, 
+  svymean)
+res &lt;-<span class="st"> </span><span class="kw">three_stats</span>(diagdepsex)
+dfsex &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">sexo =</span> <span class="kw">names</span>(res)[<span class="dv">1</span>:<span class="dv">2</span>], <span class="dt">prop =</span> res[<span class="dv">1</span>:<span class="dv">2</span>], <span class="dt">l.i.c. =</span> res[<span class="dv">3</span>:<span class="dv">4</span>],<span class="dt">l.s.c =</span>res[<span class="dv">5</span>:<span class="dv">6</span>])
+knitr::<span class="kw">kable</span>(dfsex,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span> <span class="st">&quot;latex&quot;</span>, 
+<span class="dt">caption =</span> <span class="st">&quot;Proporção de diagnóstico de depressão por sexo&quot;</span>)</code></pre></div>
+
+<p>Por situação (rural e urbano)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepsitu &lt;-<span class="st"> </span><span class="kw">svyby</span>(~diag_dep, ~situ, <span class="dt">design =</span> pes_sel_des_pos, 
+  svymean)
+res &lt;-<span class="st"> </span><span class="kw">three_stats</span>(diagdepsitu)
+dfsitu &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">situ =</span> <span class="kw">names</span>(res)[<span class="dv">1</span>:<span class="dv">2</span>], <span class="dt">prop =</span> res[<span class="dv">1</span>:<span class="dv">2</span>], <span class="dt">l.i.c. =</span> res[<span class="dv">3</span>:<span class="dv">4</span>],<span class="dt">l.s.c =</span>res[<span class="dv">5</span>:<span class="dv">6</span>])
+knitr::<span class="kw">kable</span>(dfsitu,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, 
+<span class="dt">caption =</span> <span class="st">&quot;Proporção de diagnóstico de depressão por situação&quot;</span>)</code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-43">Tabela 1.1: </span>Proporção de diagnóstico de depressão por situação</caption>
+<thead>
+<tr class="header">
+<th align="left">situ</th>
+<th align="right">prop</th>
+<th align="right">l.i.c.</th>
+<th align="right">l.s.c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">urbano</td>
+<td align="right">8.0</td>
+<td align="right">7.5</td>
+<td align="right">8.4</td>
+</tr>
+<tr class="even">
+<td align="left">rural</td>
+<td align="right">5.6</td>
+<td align="right">4.9</td>
+<td align="right">6.3</td>
+</tr>
+</tbody>
+</table>
+<p>Situação por sexo:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepsitusex &lt;-<span class="st"> </span><span class="kw">svyby</span>(~diag_dep, ~situ +<span class="st"> </span>c006, <span class="dt">design =</span> pes_sel_des_pos, 
+  svymean)
+res &lt;-<span class="st"> </span><span class="kw">three_stats</span>(diagdepsitusex)
+dfsitusex &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">situ.sex =</span> <span class="kw">names</span>(res)[<span class="dv">1</span>:<span class="dv">4</span>],<span class="dt">prop =</span> res[<span class="dv">1</span>:<span class="dv">4</span>], <span class="dt">l.i.c =</span> res[<span class="dv">5</span>:<span class="dv">8</span>], <span class="dt">l.s.c=</span>res[<span class="dv">9</span>:<span class="dv">12</span>] )
+knitr::<span class="kw">kable</span>(dfsitusex,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>,
+<span class="dt">caption =</span> <span class="st">&quot;Proporção de diagnóstico de depressão por situação e sexo&quot;</span>)</code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-44">Tabela 1.2: </span>Proporção de diagnóstico de depressão por situação e sexo</caption>
+<thead>
+<tr class="header">
+<th align="left">situ.sex</th>
+<th align="right">prop</th>
+<th align="right">l.i.c</th>
+<th align="right">l.s.c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">urbano.masculino</td>
+<td align="right">4.1</td>
+<td align="right">3.6</td>
+<td align="right">4.7</td>
+</tr>
+<tr class="even">
+<td align="left">rural.masculino</td>
+<td align="right">2.7</td>
+<td align="right">1.9</td>
+<td align="right">3.6</td>
+</tr>
+<tr class="odd">
+<td align="left">urbano.feminino</td>
+<td align="right">11.3</td>
+<td align="right">10.5</td>
+<td align="right">12.0</td>
+</tr>
+<tr class="even">
+<td align="left">rural.feminino</td>
+<td align="right">8.6</td>
+<td align="right">7.5</td>
+<td align="right">9.8</td>
+</tr>
+</tbody>
+</table>
+<p>Por Unidade da Federação:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepuf &lt;-<span class="st"> </span><span class="kw">svyby</span>(~diag_dep, ~uf, <span class="dt">design =</span> pes_sel_des_pos, svymean)
+res &lt;-<span class="st"> </span><span class="kw">three_stats</span>(diagdepuf)
+dfuf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">uf =</span> <span class="kw">names</span>(res)[<span class="dv">1</span>:<span class="dv">27</span>], <span class="dt">prop =</span> res[<span class="dv">1</span>:<span class="dv">27</span>], <span class="dt">L.I.C. =</span> res[<span class="dv">28</span>:<span class="dv">54</span>],<span class="dt">L.S.C =</span>res[<span class="dv">55</span>:<span class="dv">81</span>]  )
+knitr::<span class="kw">kable</span>(dfuf,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, 
+<span class="dt">caption =</span> <span class="st">&quot;Proporção de diagnóstico de depressão por uf&quot;</span>)</code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-45">Tabela 1.3: </span>Proporção de diagnóstico de depressão por uf</caption>
+<thead>
+<tr class="header">
+<th align="left">uf</th>
+<th align="right">prop</th>
+<th align="right">L.I.C.</th>
+<th align="right">L.S.C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Rondonia</td>
+<td align="right">5.6</td>
+<td align="right">4.1</td>
+<td align="right">7.2</td>
+</tr>
+<tr class="even">
+<td align="left">Acre</td>
+<td align="right">5.8</td>
+<td align="right">4.5</td>
+<td align="right">7.2</td>
+</tr>
+<tr class="odd">
+<td align="left">Amazonas</td>
+<td align="right">2.7</td>
+<td align="right">1.9</td>
+<td align="right">3.5</td>
+</tr>
+<tr class="even">
+<td align="left">Roraima</td>
+<td align="right">4.4</td>
+<td align="right">3.2</td>
+<td align="right">5.7</td>
+</tr>
+<tr class="odd">
+<td align="left">Para</td>
+<td align="right">1.6</td>
+<td align="right">1.0</td>
+<td align="right">2.1</td>
+</tr>
+<tr class="even">
+<td align="left">Amapa</td>
+<td align="right">3.4</td>
+<td align="right">2.0</td>
+<td align="right">4.7</td>
+</tr>
+<tr class="odd">
+<td align="left">Tocantins</td>
+<td align="right">7.1</td>
+<td align="right">5.2</td>
+<td align="right">8.9</td>
+</tr>
+<tr class="even">
+<td align="left">Maranhao</td>
+<td align="right">3.8</td>
+<td align="right">2.4</td>
+<td align="right">5.1</td>
+</tr>
+<tr class="odd">
+<td align="left">Piaui</td>
+<td align="right">3.9</td>
+<td align="right">2.8</td>
+<td align="right">5.1</td>
+</tr>
+<tr class="even">
+<td align="left">Ceara</td>
+<td align="right">4.4</td>
+<td align="right">3.3</td>
+<td align="right">5.4</td>
+</tr>
+<tr class="odd">
+<td align="left">Rio Grande do Norte</td>
+<td align="right">6.9</td>
+<td align="right">5.4</td>
+<td align="right">8.4</td>
+</tr>
+<tr class="even">
+<td align="left">Paraiba</td>
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">6.2</td>
+</tr>
+<tr class="odd">
+<td align="left">Pernambuco</td>
+<td align="right">7.2</td>
+<td align="right">5.7</td>
+<td align="right">8.6</td>
+</tr>
+<tr class="even">
+<td align="left">Alagoas</td>
+<td align="right">6.2</td>
+<td align="right">4.6</td>
+<td align="right">7.9</td>
+</tr>
+<tr class="odd">
+<td align="left">Sergipe</td>
+<td align="right">6.2</td>
+<td align="right">4.9</td>
+<td align="right">7.5</td>
+</tr>
+<tr class="even">
+<td align="left">Bahia</td>
+<td align="right">4.0</td>
+<td align="right">2.7</td>
+<td align="right">5.3</td>
+</tr>
+<tr class="odd">
+<td align="left">Minas Gerais</td>
+<td align="right">11.1</td>
+<td align="right">9.0</td>
+<td align="right">13.1</td>
+</tr>
+<tr class="even">
+<td align="left">Espirito Santo</td>
+<td align="right">5.5</td>
+<td align="right">3.7</td>
+<td align="right">7.2</td>
+</tr>
+<tr class="odd">
+<td align="left">Rio de Janeiro</td>
+<td align="right">6.0</td>
+<td align="right">5.0</td>
+<td align="right">7.0</td>
+</tr>
+<tr class="even">
+<td align="left">Sao Paulo</td>
+<td align="right">8.4</td>
+<td align="right">7.3</td>
+<td align="right">9.5</td>
+</tr>
+<tr class="odd">
+<td align="left">Parana</td>
+<td align="right">11.7</td>
+<td align="right">9.4</td>
+<td align="right">14.0</td>
+</tr>
+<tr class="even">
+<td align="left">Santa Catarina</td>
+<td align="right">12.9</td>
+<td align="right">9.7</td>
+<td align="right">16.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Rio Grande do Sul</td>
+<td align="right">13.2</td>
+<td align="right">11.5</td>
+<td align="right">15.0</td>
+</tr>
+<tr class="even">
+<td align="left">Mato Grosso do Sul</td>
+<td align="right">8.8</td>
+<td align="right">7.3</td>
+<td align="right">10.4</td>
+</tr>
+<tr class="odd">
+<td align="left">Mato Grosso</td>
+<td align="right">6.9</td>
+<td align="right">5.1</td>
+<td align="right">8.7</td>
+</tr>
+<tr class="even">
+<td align="left">Goias</td>
+<td align="right">7.1</td>
+<td align="right">5.7</td>
+<td align="right">8.5</td>
+</tr>
+<tr class="odd">
+<td align="left">Distrito Federal</td>
+<td align="right">6.2</td>
+<td align="right">4.9</td>
+<td align="right">7.5</td>
+</tr>
+</tbody>
+</table>
+<p>UF por sexo:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepufsex &lt;-<span class="st"> </span><span class="kw">svyby</span>(~diag_dep, ~uf +<span class="st"> </span>c006, <span class="dt">design =</span> pes_sel_des_pos, 
+  svymean)
+res &lt;-<span class="st"> </span><span class="kw">three_stats</span>(diagdepufsex)
+dfufsex &lt;-<span class="st"> </span><span class="kw">data.frame</span> (<span class="dt">uf.sex =</span><span class="kw">names</span>(res)[<span class="dv">1</span>:<span class="dv">54</span>], <span class="dt">prop =</span> res[<span class="dv">1</span>:<span class="st"> </span><span class="dv">54</span>], <span class="dt">L.I.C =</span> res[<span class="dv">55</span>:<span class="dv">108</span>],<span class="dt">L.S.C=</span>res[<span class="dv">109</span>:<span class="dv">162</span>] )
+knitr::<span class="kw">kable</span>(dfufsex,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, 
+<span class="dt">caption =</span> <span class="st">&quot;Proporção de diagnóstico de depressão por uf e sexo&quot;</span>)</code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-46">Tabela 1.4: </span>Proporção de diagnóstico de depressão por uf e sexo</caption>
+<thead>
+<tr class="header">
+<th align="left">uf.sex</th>
+<th align="right">prop</th>
+<th align="right">L.I.C</th>
+<th align="right">L.S.C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Rondonia.masculino</td>
+<td align="right">2.8</td>
+<td align="right">1.3</td>
+<td align="right">4.3</td>
+</tr>
+<tr class="even">
+<td align="left">Acre.masculino</td>
+<td align="right">4.3</td>
+<td align="right">2.2</td>
+<td align="right">6.4</td>
+</tr>
+<tr class="odd">
+<td align="left">Amazonas.masculino</td>
+<td align="right">2.0</td>
+<td align="right">1.1</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="even">
+<td align="left">Roraima.masculino</td>
+<td align="right">2.7</td>
+<td align="right">1.2</td>
+<td align="right">4.1</td>
+</tr>
+<tr class="odd">
+<td align="left">Para.masculino</td>
+<td align="right">0.6</td>
+<td align="right">0.1</td>
+<td align="right">1.1</td>
+</tr>
+<tr class="even">
+<td align="left">Amapa.masculino</td>
+<td align="right">1.8</td>
+<td align="right">0.0</td>
+<td align="right">3.6</td>
+</tr>
+<tr class="odd">
+<td align="left">Tocantins.masculino</td>
+<td align="right">3.6</td>
+<td align="right">1.8</td>
+<td align="right">5.4</td>
+</tr>
+<tr class="even">
+<td align="left">Maranhao.masculino</td>
+<td align="right">1.4</td>
+<td align="right">0.0</td>
+<td align="right">2.9</td>
+</tr>
+<tr class="odd">
+<td align="left">Piaui.masculino</td>
+<td align="right">1.9</td>
+<td align="right">0.8</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="even">
+<td align="left">Ceara.masculino</td>
+<td align="right">1.8</td>
+<td align="right">0.8</td>
+<td align="right">2.8</td>
+</tr>
+<tr class="odd">
+<td align="left">Rio Grande do Norte.masculino</td>
+<td align="right">3.5</td>
+<td align="right">1.9</td>
+<td align="right">5.1</td>
+</tr>
+<tr class="even">
+<td align="left">Paraiba.masculino</td>
+<td align="right">2.7</td>
+<td align="right">1.2</td>
+<td align="right">4.2</td>
+</tr>
+<tr class="odd">
+<td align="left">Pernambuco.masculino</td>
+<td align="right">3.8</td>
+<td align="right">2.4</td>
+<td align="right">5.2</td>
+</tr>
+<tr class="even">
+<td align="left">Alagoas.masculino</td>
+<td align="right">3.6</td>
+<td align="right">2.0</td>
+<td align="right">5.2</td>
+</tr>
+<tr class="odd">
+<td align="left">Sergipe.masculino</td>
+<td align="right">4.2</td>
+<td align="right">2.4</td>
+<td align="right">6.0</td>
+</tr>
+<tr class="even">
+<td align="left">Bahia.masculino</td>
+<td align="right">1.2</td>
+<td align="right">0.4</td>
+<td align="right">2.1</td>
+</tr>
+<tr class="odd">
+<td align="left">Minas Gerais.masculino</td>
+<td align="right">6.6</td>
+<td align="right">4.3</td>
+<td align="right">8.9</td>
+</tr>
+<tr class="even">
+<td align="left">Espirito Santo.masculino</td>
+<td align="right">2.9</td>
+<td align="right">0.7</td>
+<td align="right">5.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Rio de Janeiro.masculino</td>
+<td align="right">3.3</td>
+<td align="right">2.0</td>
+<td align="right">4.5</td>
+</tr>
+<tr class="even">
+<td align="left">Sao Paulo.masculino</td>
+<td align="right">4.7</td>
+<td align="right">3.3</td>
+<td align="right">6.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Parana.masculino</td>
+<td align="right">4.9</td>
+<td align="right">3.3</td>
+<td align="right">6.6</td>
+</tr>
+<tr class="even">
+<td align="left">Santa Catarina.masculino</td>
+<td align="right">7.0</td>
+<td align="right">4.0</td>
+<td align="right">10.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Rio Grande do Sul.masculino</td>
+<td align="right">6.7</td>
+<td align="right">4.7</td>
+<td align="right">8.8</td>
+</tr>
+<tr class="even">
+<td align="left">Mato Grosso do Sul.masculino</td>
+<td align="right">3.7</td>
+<td align="right">2.1</td>
+<td align="right">5.3</td>
+</tr>
+<tr class="odd">
+<td align="left">Mato Grosso.masculino</td>
+<td align="right">2.9</td>
+<td align="right">1.4</td>
+<td align="right">4.4</td>
+</tr>
+<tr class="even">
+<td align="left">Goias.masculino</td>
+<td align="right">2.5</td>
+<td align="right">1.0</td>
+<td align="right">4.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Distrito Federal.masculino</td>
+<td align="right">2.5</td>
+<td align="right">1.2</td>
+<td align="right">3.8</td>
+</tr>
+<tr class="even">
+<td align="left">Rondonia.feminino</td>
+<td align="right">8.3</td>
+<td align="right">5.5</td>
+<td align="right">11.2</td>
+</tr>
+<tr class="odd">
+<td align="left">Acre.feminino</td>
+<td align="right">7.2</td>
+<td align="right">5.4</td>
+<td align="right">9.1</td>
+</tr>
+<tr class="even">
+<td align="left">Amazonas.feminino</td>
+<td align="right">3.3</td>
+<td align="right">2.1</td>
+<td align="right">4.5</td>
+</tr>
+<tr class="odd">
+<td align="left">Roraima.feminino</td>
+<td align="right">6.2</td>
+<td align="right">4.2</td>
+<td align="right">8.2</td>
+</tr>
+<tr class="even">
+<td align="left">Para.feminino</td>
+<td align="right">2.5</td>
+<td align="right">1.5</td>
+<td align="right">3.5</td>
+</tr>
+<tr class="odd">
+<td align="left">Amapa.feminino</td>
+<td align="right">4.8</td>
+<td align="right">2.7</td>
+<td align="right">6.9</td>
+</tr>
+<tr class="even">
+<td align="left">Tocantins.feminino</td>
+<td align="right">10.3</td>
+<td align="right">7.3</td>
+<td align="right">13.3</td>
+</tr>
+<tr class="odd">
+<td align="left">Maranhao.feminino</td>
+<td align="right">5.9</td>
+<td align="right">3.6</td>
+<td align="right">8.2</td>
+</tr>
+<tr class="even">
+<td align="left">Piaui.feminino</td>
+<td align="right">5.8</td>
+<td align="right">4.0</td>
+<td align="right">7.6</td>
+</tr>
+<tr class="odd">
+<td align="left">Ceara.feminino</td>
+<td align="right">6.7</td>
+<td align="right">4.9</td>
+<td align="right">8.4</td>
+</tr>
+<tr class="even">
+<td align="left">Rio Grande do Norte.feminino</td>
+<td align="right">9.8</td>
+<td align="right">7.4</td>
+<td align="right">12.2</td>
+</tr>
+<tr class="odd">
+<td align="left">Paraiba.feminino</td>
+<td align="right">6.6</td>
+<td align="right">4.4</td>
+<td align="right">8.9</td>
+</tr>
+<tr class="even">
+<td align="left">Pernambuco.feminino</td>
+<td align="right">10.1</td>
+<td align="right">7.7</td>
+<td align="right">12.5</td>
+</tr>
+<tr class="odd">
+<td align="left">Alagoas.feminino</td>
+<td align="right">8.4</td>
+<td align="right">5.9</td>
+<td align="right">11.0</td>
+</tr>
+<tr class="even">
+<td align="left">Sergipe.feminino</td>
+<td align="right">8.0</td>
+<td align="right">6.1</td>
+<td align="right">9.9</td>
+</tr>
+<tr class="odd">
+<td align="left">Bahia.feminino</td>
+<td align="right">6.4</td>
+<td align="right">4.3</td>
+<td align="right">8.5</td>
+</tr>
+<tr class="even">
+<td align="left">Minas Gerais.feminino</td>
+<td align="right">15.1</td>
+<td align="right">11.9</td>
+<td align="right">18.2</td>
+</tr>
+<tr class="odd">
+<td align="left">Espirito Santo.feminino</td>
+<td align="right">7.8</td>
+<td align="right">5.2</td>
+<td align="right">10.5</td>
+</tr>
+<tr class="even">
+<td align="left">Rio de Janeiro.feminino</td>
+<td align="right">8.3</td>
+<td align="right">6.7</td>
+<td align="right">9.8</td>
+</tr>
+<tr class="odd">
+<td align="left">Sao Paulo.feminino</td>
+<td align="right">11.7</td>
+<td align="right">10.0</td>
+<td align="right">13.4</td>
+</tr>
+<tr class="even">
+<td align="left">Parana.feminino</td>
+<td align="right">17.8</td>
+<td align="right">14.0</td>
+<td align="right">21.5</td>
+</tr>
+<tr class="odd">
+<td align="left">Santa Catarina.feminino</td>
+<td align="right">18.4</td>
+<td align="right">13.8</td>
+<td align="right">23.0</td>
+</tr>
+<tr class="even">
+<td align="left">Rio Grande do Sul.feminino</td>
+<td align="right">18.9</td>
+<td align="right">16.4</td>
+<td align="right">21.4</td>
+</tr>
+<tr class="odd">
+<td align="left">Mato Grosso do Sul.feminino</td>
+<td align="right">13.5</td>
+<td align="right">10.8</td>
+<td align="right">16.3</td>
+</tr>
+<tr class="even">
+<td align="left">Mato Grosso.feminino</td>
+<td align="right">10.8</td>
+<td align="right">7.6</td>
+<td align="right">13.9</td>
+</tr>
+<tr class="odd">
+<td align="left">Goias.feminino</td>
+<td align="right">11.3</td>
+<td align="right">9.1</td>
+<td align="right">13.6</td>
+</tr>
+<tr class="even">
+<td align="left">Distrito Federal.feminino</td>
+<td align="right">9.3</td>
+<td align="right">7.3</td>
+<td align="right">11.3</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>

@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-03-29">
+<meta name="date" content="2017-04-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -146,7 +146,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1" data-path="ajmodpar.html"><a href="ajmodpar.html#modpar1"><i class="fa fa-check"></i><b>5.1</b> Introdução</a></li>
 <li class="chapter" data-level="5.2" data-path="ajmodpar.html"><a href="ajmodpar.html#metodo-de-maxima-verossimilhanca-mv"><i class="fa fa-check"></i><b>5.2</b> Método de Máxima Verossimilhança (MV)</a></li>
 <li class="chapter" data-level="5.3" data-path="ajmodpar.html"><a href="ajmodpar.html#ponderacao-de-dados-amostrais"><i class="fa fa-check"></i><b>5.3</b> Ponderação de Dados Amostrais</a></li>
-<li class="chapter" data-level="5.4" data-path="ajmodpar.html"><a href="ajmodpar.html#modpar3"><i class="fa fa-check"></i><b>5.4</b> Método de Máxima Pseudo-Verossimilhança label</a></li>
+<li class="chapter" data-level="5.4" data-path="ajmodpar.html"><a href="ajmodpar.html#modpar3"><i class="fa fa-check"></i><b>5.4</b> Método de Máxima Pseudo-Verossimilhança</a></li>
 <li class="chapter" data-level="5.5" data-path="ajmodpar.html"><a href="ajmodpar.html#robustez-do-procedimento-mpv"><i class="fa fa-check"></i><b>5.5</b> Robustez do Procedimento MPV</a></li>
 <li class="chapter" data-level="5.6" data-path="ajmodpar.html"><a href="ajmodpar.html#desvantagens-da-inferencia-de-aleatorizacao"><i class="fa fa-check"></i><b>5.6</b> Desvantagens da Inferência de Aleatorização</a></li>
 <li class="chapter" data-level="5.7" data-path="ajmodpar.html"><a href="ajmodpar.html#laboratorio-de-r-2"><i class="fa fa-check"></i><b>5.7</b> Laboratório de R</a></li>
@@ -170,7 +170,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="testqualajust.html"><a href="testqualajust.html#teste-para-varias-proporcoes"><i class="fa fa-check"></i><b>7.3</b> Teste para Várias Proporções</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="testqualajust.html"><a href="testqualajust.html#estatistica-de-wald-baseada-no-plano-amostral"><i class="fa fa-check"></i><b>7.3.1</b> Estatística de Wald Baseada no Plano Amostral</a></li>
-<li class="chapter" data-level="7.3.2" data-path="testqualajust.html"><a href="testqualajust.html#raoscott"><i class="fa fa-check"></i><b>7.3.2</b> Estatística de Pearson com Ajuste de Rao-Scott</a></li>
+<li class="chapter" data-level="7.3.2" data-path="testqualajust.html"><a href="testqualajust.html#situacoes-instaveis"><i class="fa fa-check"></i><b>7.3.2</b> Situações Instáveis</a></li>
+<li class="chapter" data-level="7.3.3" data-path="testqualajust.html"><a href="testqualajust.html#raoscott"><i class="fa fa-check"></i><b>7.3.3</b> Estatística de Pearson com Ajuste de Rao-Scott</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="testqualajust.html"><a href="testqualajust.html#laboratorio-de-r-4"><i class="fa fa-check"></i><b>7.4</b> Laboratório de R</a></li>
 </ul></li>
@@ -238,52 +239,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">7.1</span> Introdução</h2>
 <p>Tabelas de distribuições de frequências ocorrem comumente na análise de dados de pesquisas complexas. Tais tabelas são formadas pela classificação e cálculo de frequências dos dados da amostra disponível segundo níveis de uma variável categórica - tabelas de uma entrada - ou segundo celas de uma classificação cruzada de duas (ou mais) variáveis categóricas - tabelas de duas (ou mais) entradas. Neste capítulo concentraremos a atenção em tabelas de uma entrada, ou equivalentemente nas frequências absolutas e relativas (ou proporções) correspondentes.</p>
 <p>Em muitos casos, o objetivo da análise é testar hipóteses de bondade de ajuste de modelos para descrever essas distribuições de frequências. Sob a hipótese de observações IID (distribuição Multinomial) ou equivalentemente, de amostragem aleatória simples, inferências válidas para testar tais hipóteses podem ser baseadas na estatística padrão de teste qui-quadrado de Pearson. Tais testes podem ser facilmente executados usando procedimentos prontos em pacotes estatísticos padrões tais como o SAS, S-Plus, SPSS, GLIM e outros.</p>
-<p>No caso de planos amostrais complexos, entretanto, os procedimentos de teste precisam ser ajustados devido aos efeitos de conglomeração, estratificação e/ou pesos desiguais. Neste capítulo examinaremos o impacto do plano amostral sobre as estatísticas de teste usuais notando que, em alguns casos, os valores observados dessas estatísticas de teste podem ser muito grandes, acarretando inferências incorretas, conforme já ilustrado no Exemplo  do Capítulo <a href="introduc.html#epa">1.3</a>. Isto ocorre porque a probabilidade de erros do tipo I (rejeitar a hipótese nula quando esta é verdadeira) é muito maior que o nível nominal de significância <span class="math inline">\(\alpha\)</span> especificado.</p>
+<p>No caso de planos amostrais complexos, entretanto, os procedimentos de teste precisam ser ajustados devido aos efeitos de conglomeração, estratificação e/ou pesos desiguais. Neste capítulo examinaremos o impacto do plano amostral sobre as estatísticas de teste usuais notando que, em alguns casos, os valores observados dessas estatísticas de teste podem ser muito grandes, acarretando inferências incorretas, conforme já ilustrado no Exemplo . Isto ocorre porque a probabilidade de erros do tipo I (rejeitar a hipótese nula quando esta é verdadeira) é muito maior que o nível nominal de significância <span class="math inline">\(\alpha\)</span> especificado.</p>
 <p>Para obter inferências válidas usando amostras complexas podemos introduzir correções na estatística de teste de Pearson, tais como os ajustes de Rao-Scott, ou alternativamente usar outras estatísticas de teste que já incorporem o plano amostral, tais como a estatística de Wald. Os dois enfoques serão ilustrados através de um exemplo introdutório simples de teste de bondade de ajuste. Os resultados discutidos neste capítulo são adequados tanto para uma abordagem de aleatorização, em que os parâmetros se referem à população finita em questão, quanto para uma abordagem baseada em modelos, em que os parâmetros especificam algum modelo de superpopulação.</p>
 </div>
 <div id="teste-para-uma-proporcao" class="section level2">
 <h2><span class="header-section-number">7.2</span> Teste para uma Proporção</h2>
 <div id="correcao-de-estatisticas-classicas" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Correção de Estatísticas Clássicas</h3>
-<p>No Exemplo  do Capítulo <a href="introduc.html#epa">1.3</a> a estatística de teste <span class="math inline">\(Z_{bin},\)</span> que foi utilizada para comparar com um valor hipotético pré-fixado a proporção de empregados cobertos por plano de saúde, resultou num teste mais liberal do que o teste que empregou a estatística <span class="math inline">\(Z_{p}\)</span>, baseada no plano amostral efetivamente adotado. A causa disto foi o fato de <span class="math inline">\(Z_{bin}\)</span> não considerar o efeito de conglomeração existente. Vamos examinar com mais detalhes o comportamento assintótico da estatística de teste <span class="math inline">\(Z_{bin}\)</span>, construindo a estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> de Pearson para o exemplo correspondente. Para isto, consideremos a Tabela  contendo a distribuição de frequências, onde <span class="math inline">\(n_{j}\)</span> e <span class="math inline">\(p_{oj}\)</span> são as frequências (absolutas) observadas na amostra e as proporções hipotéticas nas categorias de interesse, respectivamente.</p>
+<p>No Exemplo  a estatística de teste <span class="math inline">\(Z_{bin},\)</span> que foi utilizada para comparar com um valor hipotético pré-fixado a proporção de empregados cobertos por plano de saúde, resultou num teste mais liberal do que o teste que empregou a estatística <span class="math inline">\(Z_{p}\)</span>, baseada no plano amostral efetivamente adotado. A causa disto foi o fato de <span class="math inline">\(Z_{bin}\)</span> não considerar o efeito de conglomeração existente. Vamos examinar com mais detalhes o comportamento assintótico da estatística de teste <span class="math inline">\(Z_{bin}\)</span>, construindo a estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> de Pearson para o exemplo correspondente. Para isto, consideremos a Tabela  contendo a distribuição de frequências, onde <span class="math inline">\(n_{j}\)</span> e <span class="math inline">\(p_{oj}\)</span> são as frequências (absolutas) observadas na amostra e as proporções hipotéticas nas categorias de interesse, respectivamente.</p>
 
-<table style="width:53%;">
-<caption><span id="tab:prophip">Tabela 7.1: </span> Frequências observadas e proporções hipotéticas</caption>
-<colgroup>
-<col width="26%" />
-<col width="5%" />
-<col width="8%" />
-<col width="12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Categoria</th>
-<th><span class="math inline">\(j\)</span></th>
-<th><span class="math inline">\(n_j\)</span></th>
-<th align="left"><span class="math inline">\(p_{0j}\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Cobertos por planos de saúde</td>
-<td>1</td>
-<td>840</td>
-<td align="left">0.8</td>
-</tr>
-<tr class="even">
-<td align="left">Não cobertos</td>
-<td>2</td>
-<td>160</td>
-<td align="left">0.2</td>
-</tr>
-<tr class="odd">
-<td align="left">Todos empregados</td>
-<td>-</td>
-<td>1000</td>
-<td align="left">1.0</td>
-</tr>
-</tbody>
-</table>
+<!-- ----------------------------------------------- -->
+<!-- Categoria          $j$ $n_j$ $p_{0j}$ -->
+<!-- ----------------   --- ----- --------- -->
+<!-- Cobertos por        1   840    0.8 -->
+<!-- planos de saúde -->
+<!-- Não cobertos        2   160    0.2 -->
+<!-- Todos empregados    -   1000   1.0 -->
+<!-- --------------------------------------------- -->
+<!-- Table:(#tab:prophip) Frequências observadas e proporções hipotéticas -->
 <p>As proporções populacionais desconhecidas nas categorias são <span class="math inline">\(p_{j}=N_{j}/N\)</span>, onde <span class="math inline">\(N\)</span> é o tamanho total da população de empregados e <span class="math inline">\(N_{j}\)</span> é o número de elementos da população na categoria <span class="math inline">\(j,\ j=1,2\)</span>. Os parâmetros populacionais <span class="math inline">\(p_{j}\)</span> poderiam também ser considerados como pseudo-parâmetros, se vistos como estimativas de censo para as probabilidades desconhecidas (<span class="math inline">\(\pi _{j}\)</span>, digamos) no contexto de um modelo de superpopulação.</p>
 A estatística de teste de Pearson para a hipótese simples de bondade de ajuste <span class="math inline">\(H_{0}:p_{j}=p_{0j},\ j=1,2\)</span>, é dada por
 <span class="math display" id="eq:qual1">\[\begin{equation}
@@ -298,10 +271,10 @@ obs&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">840<
 n&lt;-<span class="st"> </span><span class="kw">sum</span>(obs)
 phat &lt;-<span class="st"> </span>obs/n
 <span class="co"># Estatística de Pearson</span>
-X2P &lt;-<span class="st"> </span><span class="kw">sum</span>((obs-n*p0)^<span class="dv">2</span>/(n*p0))
-X2P</code></pre></div>
+x2p &lt;-<span class="st"> </span><span class="kw">sum</span>((obs-n*p0)^<span class="dv">2</span>/(n*p0))
+x2p</code></pre></div>
 <pre><code>## [1] 10</code></pre>
-Como há apenas duas categorias e as proporções devem somar <span class="math inline">\(1\)</span>, observa-se que <span class="math inline">\(p_{2}=1-p_{1},\)</span> <span class="math inline">\(\widehat{p}_{2}=1-\widehat{p}_{1}\)</span> e <span class="math inline">\(p_{02}=1-p_{01}\)</span>. Isto acarreta na equivalência entre as estatísticas <span class="math inline">\(Z_{bin}\)</span> e <span class="math inline">\(X_{P}^{2}\)</span> demonstrada pela relação
+<p>Como há apenas duas categorias e as proporções devem somar <span class="math inline">\(1\)</span>, observa-se que <span class="math inline">\(p_{2}=1-p_{1},\)</span> <span class="math inline">\(\widehat{p}_{2}=1-\widehat{p}_{1}\)</span> e <span class="math inline">\(p_{02}=1-p_{01}\)</span>. Isto acarreta na equivalência entre as estatísticas <span class="math inline">\(Z_{bin}\)</span> e <span class="math inline">\(X_{P}^{2}\)</span> demonstrada pela relação</p>
 <span class="math display" id="eq:qual1" id="eq:qual2">\[\begin{equation}
 X_{P}^{2}=n\sum\limits_{j=1}^{2}\left( \widehat{p}%
 _{j}-p_{0j}\right) ^{2}/p_{0j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{%
@@ -312,7 +285,7 @@ p_{0}\left( 1-p_{0}\right) /n}=Z_{bin}^{2}
 <p>Sob a hipótese de observações IID, a distribuição assintótica da estatística <span class="math inline">\(X_{P}^{2}\)</span> é qui-quadrado (<span class="math inline">\(\chi^{2}\)</span>). Neste caso, em que há apenas duas categorias e uma restrição (soma das proporções igual a <span class="math inline">\(1\)</span>), a distribuição da estatística <span class="math inline">\(X_{P}^{2}\)</span> em @ref\tag{7.1} tem apenas um grau de liberdade.</p>
 <p>Rao e Scott(1981) obtiveram resultados gerais para a distribuição assintótica da estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> de Pearson sob planos amostrais complexos. Com apenas duas celas, a distribuição assintótica da estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> é a distribuição da variável aleatória <span class="math inline">\(dW\)</span>, onde <span class="math inline">\(W\)</span> tem distribuiçao <span class="math inline">\(\chi ^{2}\left( 1\right)\)</span> (qui-quadrado com um grau de liberdade) e <span class="math inline">\(d\)</span> é o efeito de plano amostral (EPA) da estimativa <span class="math inline">\(\widehat{p}\)</span> da proporção <span class="math inline">\(p\)</span>. O efeito de plano amostral nesse caso é dado por <span class="math inline">\(d=V_{p}\left( \widehat{p}\right) /V_{bin}\left( \widehat{p}\right)\)</span>.</p>
 <p>Para uma amostra de empregados selecionada por amostragem aleatória simples, teríamos <span class="math inline">\(d=1\)</span> pois <span class="math inline">\(V_{p}\left( \widehat{p}\right)\)</span> e <span class="math inline">\(V_{bin}\left( \widehat{p}\right)\)</span> seriam iguais. Neste caso, a estatística <span class="math inline">\(X_{P}^{2}\)</span> de teste seria assintoticamente <span class="math inline">\(\chi ^{2}\left(1\right)\)</span>. Como a amostra foi efetivamente selecionada por amostragem de conglomerados, devido à correlação intraclasse positiva o efeito de plano amostral <span class="math inline">\(d\)</span> é maior que um, e portanto a distribuição assintótica da estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> não é mais <span class="math inline">\(\chi ^{2}\left( 1\right)\)</span>.</p>
-Considerando que o impacto da correlação intraclasse positiva na distribuição assintótica da estatística <span class="math inline">\(X_{P}^{2}\)</span> de Pearson pode levar a inferências incorretas caso se utilize a distribuição assintótica usual, o próximo passo é derivar um procedimento de teste válido. Isto é feito introduzindo uma correção em <span class="math inline">\(X_{P}^{2}.\)</span> Para isto, observe que a esperança assintótica de <span class="math inline">\(X_{P}^{2}\)</span> é <span class="math inline">\(E_{p}\left( X_{P}^{2}\right) =d\)</span>. Como <span class="math inline">\(E_{p}\left( X_{P}^{2}/d\right) =\)</span> <span class="math inline">\(E\left( \chi ^{2}\left( 1\right) \right)=1\)</span>, obtemos então a correção simples de Rao-Scott para <span class="math inline">\(X_{P}^{2}\)</span> dividindo o valor observado da estatística de teste pelo efeito do plano amostral <span class="math inline">\(d\)</span>, isto é,
+<p>Considerando que o impacto da correlação intraclasse positiva na distribuição assintótica da estatística <span class="math inline">\(X_{P}^{2}\)</span> de Pearson pode levar a inferências incorretas caso se utilize a distribuição assintótica usual, o próximo passo é derivar um procedimento de teste válido. Isto é feito introduzindo uma correção em <span class="math inline">\(X_{P}^{2}.\)</span> Para isto, observe que a esperança assintótica de <span class="math inline">\(X_{P}^{2}\)</span> é <span class="math inline">\(E_{p}\left( X_{P}^{2}\right) =d\)</span>. Como <span class="math inline">\(E_{p}\left( X_{P}^{2}/d\right) =\)</span> <span class="math inline">\(E\left( \chi ^{2}\left( 1\right) \right)=1\)</span>, obtemos então a correção simples de Rao-Scott para <span class="math inline">\(X_{P}^{2}\)</span> dividindo o valor observado da estatística de teste pelo efeito do plano amostral <span class="math inline">\(d\)</span>, isto é,</p>
 <span class="math display" id="eq:qual3">\[\begin{equation}
 X_{P}^{2}(d)=X_{P}^{2}/d\mbox{,}  
 \tag{7.3}
@@ -330,7 +303,7 @@ No caso de amostragem aleatória simples, a estatística <span class="math inlin
 X_{RV}^{2}(d)=X_{RV}^{2}/d\;\;.  
 \tag{7.5}
 \end{equation}\]</span>
-<p>Vamos calcular os valores das estatísticas de Pearson e de RV, com suas correções de Rao-Scott, para os dados do Exemplo . Para as correções, primeiro é preciso calcular o efeito do plano amostral</p>
+<p>Vamos calcular os valores das estatísticas de Pearson e de RV, com suas correções de Rao-Scott, para os dados do Exemplo @ref{exe: exebin}. Para as correções, primeiro é preciso calcular o efeito do plano amostral</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span>p0[<span class="dv">1</span>]
 m &lt;-<span class="st"> </span><span class="dv">50</span>
 <span class="co"># Efeito do plano amostral</span>
@@ -338,11 +311,11 @@ d &lt;-<span class="st"> </span>(p*(<span class="dv">1</span>-p)/m)/<span class=
 d</code></pre></div>
 <pre><code>## [1] 20</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estatística de Peason corrigida</span>
-X2Pd &lt;-<span class="st"> </span>X2P/d
-X2Pd</code></pre></div>
+x2pd &lt;-<span class="st"> </span>x2p/d
+x2pd</code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># valor-p do teste</span>
-<span class="kw">pchisq</span>(X2Pd, <span class="dv">1</span>, <span class="dt">lower.tail =</span> F)</code></pre></div>
+<span class="kw">pchisq</span>(x2pd, <span class="dv">1</span>, <span class="dt">lower.tail =</span> F)</code></pre></div>
 <pre><code>## [1] 0.4795001</code></pre>
 <p><span class="math display">\[
 \begin{array}{llcll}
@@ -358,19 +331,19 @@ X_{P}^{2}=\frac{\left( 0,84-0,80\right) ^{2}}{\left( 0,80\times 0,20\right)
 X_{P}^{2}(d)=X_{P}^{2}/d=10/20=0,5 
 \]</span> com <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,4795\)</span>. Observe que <span class="math inline">\(Z_{p}^{2}=0,707^{2}=0,5\)</span> , e também que <span class="math inline">\(X_{P}^{2}(d)=Z_{bin}^{2}/d= 3,162^{2}/20=0,5\)</span> ou seja, <span class="math inline">\(Z_{p}^{2}=X_{P}^{2}(d)\)</span> conforme esperado. Os valores da estatística do teste da Razão de Verossimilhança e sua correção de Rao-Scott são dados respectivamente por</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estatística da RV</span>
-X2RV &lt;-<span class="st"> </span><span class="dv">2</span>*n*<span class="kw">sum</span>(phat*<span class="kw">log</span>(phat/p0))
-X2RV</code></pre></div>
+x2rv &lt;-<span class="st"> </span><span class="dv">2</span>*n*<span class="kw">sum</span>(phat*<span class="kw">log</span>(phat/p0))
+x2rv</code></pre></div>
 <pre><code>## [1] 10.56154</code></pre>
 <p><span class="math display">\[
 X_{RV}^{2}=2\times 1.000\times \log \left( \frac{0,84\times 0,16}{0,80\times
 0,20}\right) =10,56\;, 
 \]</span> com <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,0012\)</span>, e</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estatística da RV corrigida</span>
-X2RVd &lt;-<span class="st"> </span>X2RV/d
-X2RVd</code></pre></div>
+x2rvd &lt;-<span class="st"> </span>x2rv/d
+x2rvd</code></pre></div>
 <pre><code>## [1] 0.528077</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># valor-p do teste</span>
-<span class="kw">pchisq</span>(X2RVd, <span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<span class="kw">pchisq</span>(x2rvd, <span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <pre><code>## [1] 0.4674165</code></pre>
 <p><span class="math display">\[
 X_{RV}^{2}(d)=X_{LR}^{2}/d=10,56/20=0,528\;\;, 
@@ -398,63 +371,20 @@ X_{W}^{2}=\left( \widehat{p}-p_{0}\right) ^{2}/\hat{V}_{p}\left( \widehat{p}
 <p>onde <span class="math inline">\(\hat{V}_{p}\left( \widehat{p}\right)\)</span> é uma estimativa da variância de aleatorização de <span class="math inline">\(\hat{p}\)</span>, correspondente ao plano amostral efetivamente utilizado.</p>
 <p>O efeito do termo <span class="math inline">\(\hat{V}_{p}\left( \widehat{p}\right)\)</span>, que aparece no denominador de <span class="math inline">\(X_{W}^{2}\)</span>, é incorporar na estatística de bondade de ajuste o efeito do plano amostral utilizado. No caso particular de amostragem aleatória simples, usamos no lugar de <span class="math inline">\(\widehat{V}_{p}\left( \widehat{p}\right)\)</span> a variância <span class="math inline">\(\widehat{V}_{bin}\left( \widehat{p}\right) =\)</span> <span class="math inline">\(\widehat{p}\left( 1-\widehat{p}\right) /n\)</span>. Neste caso, estatística resultante <span class="math inline">\(X_{bin}^{2}\)</span> coincide com a estatística <span class="math inline">\(X_{N}^{2}\)</span> de Neyman.</p>
 <p>Para o plano amostral de conglomerados considerado no Exemplo , a estatística <span class="math inline">\(X_{W}^{2}\)</span>, sem qualquer ajuste auxiliar, já é distribuída assintoticamente como qui-quadrado com um grau de liberdade. O valor da estatística de Wald para esse exemplo é</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X2N &lt;-<span class="st"> </span><span class="dv">1000</span>*<span class="st"> </span><span class="kw">sum</span>((phat-p0)^<span class="dv">2</span>/phat)
-Vhatp &lt;-<span class="st"> </span>(phat[<span class="dv">1</span>]*phat[<span class="dv">2</span>])/m <span class="co"># variância usa número efetivo</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x2n &lt;-<span class="st"> </span><span class="dv">1000</span>*<span class="st"> </span><span class="kw">sum</span>((phat-p0)^<span class="dv">2</span>/phat)
+vhatp &lt;-<span class="st"> </span>(phat[<span class="dv">1</span>]*phat[<span class="dv">2</span>])/m <span class="co"># variância usa número efetivo</span>
 <span class="co"># Estatística de Wald</span>
-X2W &lt;-<span class="st"> </span>((phat[<span class="dv">1</span>]-p0[<span class="dv">1</span>])^<span class="dv">2</span>)/Vhatp
-X2W</code></pre></div>
+x2w &lt;-<span class="st"> </span>((phat[<span class="dv">1</span>]-p0[<span class="dv">1</span>])^<span class="dv">2</span>)/vhatp
+x2w</code></pre></div>
 <pre><code>## [1] 0.5952381</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pchisq</span>(X2W,<span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pchisq</span>(x2w,<span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <pre><code>## [1] 0.4404007</code></pre>
 <p><span class="math display">\[
 X_{W}^{2}=\left( 0,84-0,80\right) ^{2}/0,002743=0,583\;\;\mbox{.} 
 \]</span> Observe que o valor desta estatística é bem próximo dos valores das estatísticas de Pearson e da Razão de Verossimilhança com a correção de Rao-Scott.</p>
 <p>A estatística de Wald, pelo uso de uma estimativa apropriada da variância, reflete a complexidade do plano amostral e fornece uma estatística de teste assintoticamente válida, não necessitando que seja feito qualquer ajuste auxiliar. Esta pode ser considerada uma vantagem em relação às estatísticas com correção de Rao-Scott. Entretanto, no caso de mais de duas celas, pode haver desvantagens no uso da estatística de Wald baseada no plano amostral, devido à instabilidade nas estimativas de variância em pequenas amostras.</p>
-<p>Reproduzimos na Tabela <a href="testqualajust.html#tab:testprop">7.2</a> os resultados para todas as estatísticas de teste consideradas até agora, para facilidade de comparação.</p>
+<p>Reproduzimos na Tabela @ref{tab72} os resultados para todas as estatísticas de teste consideradas até agora, para facilidade de comparação.</p>
 
-<table>
-<caption><span id="tab:testprop">Tabela 7.2: </span>Valores e valores-p de estatísticas de testes para os dados do Exemplo 4.4</caption>
-<thead>
-<tr class="header">
-<th align="left">Estatística</th>
-<th align="right">gl</th>
-<th align="right">Valor_observado</th>
-<th align="right">valorp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Pearson</td>
-<td align="right">1</td>
-<td align="right">10.00</td>
-<td align="right">0.0016</td>
-</tr>
-<tr class="even">
-<td align="left">Pearson ajustada</td>
-<td align="right">1</td>
-<td align="right">0.50</td>
-<td align="right">0.4795</td>
-</tr>
-<tr class="odd">
-<td align="left">RV</td>
-<td align="right">1</td>
-<td align="right">10.56</td>
-<td align="right">0.0012</td>
-</tr>
-<tr class="even">
-<td align="left">RV ajustada</td>
-<td align="right">1</td>
-<td align="right">0.53</td>
-<td align="right">0.4674</td>
-</tr>
-<tr class="odd">
-<td align="left">Wald</td>
-<td align="right">1</td>
-<td align="right">0.60</td>
-<td align="right">0.4404</td>
-</tr>
-</tbody>
-</table>
 <p>Nesta seção foram apresentadas as duas principais abordagens para incorporar o efeito do plano amostral na estatística de teste:</p>
 <ol style="list-style-type: decimal">
 <li><p>a metodologia de ajuste de Rao-Scott para as estatísticas de teste de Pearson e da Razão de Verossimilhança;</p></li>
@@ -478,7 +408,9 @@ X_{W}^{2}=\left( \widehat{\mathbf{p}}\mathbf{-p}_{0}\right) ^{^{\prime }}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(\widehat{\mathbf{V}}_{p}\)</span> denota um estimador consistente da matriz de covariância de aleatorização verdadeira <span class="math inline">\(\mathbf{V}_{p}\)</span> do estimador <span class="math inline">\(\widehat{\mathbf{p}}\)</span> do vetor de proporções <span class="math inline">\(\mathbf{p}\)</span>. Uma estimativa <span class="math inline">\(\widehat{\mathbf{V}}_{p}\)</span> pode ser obtida pelo método de linearização, usando-se por exemplo o pacote <strong>SUDAAN</strong>.</p>
 <p>Sob a hipótese nula <span class="math inline">\(H_{0}\)</span>, a estatística <span class="math inline">\(X_{W}^{2}\)</span> tem distribuição assintótica qui-quadrado com <span class="math inline">\(J-1\)</span> graus de liberdade, fornecendo assim um procedimento de teste válido no caso de amostras complexas. Na prática, espera-se que <span class="math inline">\(X_{W}^{2}\)</span> funcione adequadamente se o número de unidades primárias de amostragem selecionadas for grande e o número de celas componentes do vetor <span class="math inline">\(\mathbf{p}\)</span> for relativamente pequeno. Neste caso, podemos obter um estimador estável de <span class="math inline">\(\mathbf{V}_{p}\)</span>. Observe que <a href="testqualajust.html#eq:qual7">(7.7)</a> é um caso particular de <a href="testqualajust.html#eq:qual8">(7.8)</a>.</p>
-
+</div>
+<div id="situacoes-instaveis" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Situações Instáveis</h3>
 <p>Se o número <span class="math inline">\(m\)</span> de unidades primárias de amostragem disponíveis for pequeno, pode ocorrer um problema de instabilidade na estimativa <span class="math inline">\(\widehat{\mathbf{V}}_{p}\)</span>, devido ao pequeno número de graus de liberdade <span class="math inline">\(f=m-H\)</span> disponível para a estimação da variância. A instabilidade da estimativa <span class="math inline">\(\widehat{\mathbf{V}}_{p}\)</span> pode tornar a estatística de Wald muito liberal.</p>
 é comum contornar esta instabilidade corrigindo a estatística de Wald, mediante emprego da chamada  . Há duas propostas alternativas de estatísticas % -corrigidas de Wald. A primeira é dada por
 <span class="math display" id="eq:qual9">\[\begin{equation}
@@ -491,12 +423,12 @@ F_{2.p}=\frac{X_{W}^{2}}{\left( J-1\right) },
 \tag{7.10}
 \end{equation}\]</span>
 <p>que tem distribuição assintótica de referência <span class="math inline">\(F\)</span> com <span class="math inline">\(J-1\)</span> e <span class="math inline">\(f\)</span> graus de liberdade. No caso <span class="math inline">\(J=2\)</span>, as duas correções reproduzem a estatística original.</p>
-<p>O efeito de uma correção <span class="math inline">\(\mathbf{F}\)</span> à estatística <span class="math inline">\(X_{W}^{2}\)</span> pode ser visualizado facilmente no caso de duas celas. Se <span class="math inline">\(f\)</span> for pequeno, então o <span class="math inline">\(p\)</span>valor de <span class="math inline">\(X_{W}^{2}\)</span>, obtido a partir de uma distribuição  com <span class="math inline">\(1\)</span> e <span class="math inline">\(f\)</span> graus, é maior que o <span class="math inline">\(p\)</span> valor obtido numa distribuição qui-quadrado com um grau de liberdade. Quando <span class="math inline">\(f\)</span> aumenta a diferença diminui, tornando a correção desprezível, quando <span class="math inline">\(f\)</span> for grande.</p>
-<p>Thomas e Rao(1987) analisaram o desempenho das diferentes estatísticas de teste de bondade de ajuste, no caso de instabilidade. Eles verificaram que a estatística de Wald F-corrigida <span class="math inline">\(F_{1.p}\)</span> não apresentou, em geral, o melhor desempenho nesta comparação, contudo, comportou-se relativamente bem nos casos padrões, onde a instabilidade não era muito grave. As estatísticas F-corrigidas de Wald são bastante utilizadas na prática, e estão implementadas em pacotes para análise de dados de pesquisas amostrais complexas.</p>
+<p>O efeito de uma correção <span class="math inline">\(\mathbf{F}\)</span> à estatística <span class="math inline">\(X_{W}^{2}\)</span> pode ser visualizado facilmente no caso de duas celas. Se <span class="math inline">\(f\)</span> for pequeno, então o <span class="math inline">\(p\)</span>valor de <span class="math inline">\(X_{W}^{2}\)</span>, obtido a partir de uma distribuição  com <span class="math inline">\(1\)</span> e <span class="math inline">\(f\)</span> graus, é maior que o <span class="math inline">\(p\)</span> valor obtido numa distribuição qui-quadrado com um grau de liberdade. Quando <span class="math inline">\(f\)</span> aumenta a diferença diminui, tornando a correção desprezível, quando <span class="math inline">\(f\)</span> for grande.</p>
+<p><span class="citation">(Thomas and Rao <a href="#ref-TR87">1987</a>)</span> analisaram o desempenho das diferentes estatísticas de teste de bondade de ajuste, no caso de instabilidade. Eles verificaram que a estatística de Wald F-corrigida <span class="math inline">\(F_{1.p}\)</span> não apresentou, em geral, o melhor desempenho nesta comparação, contudo, comportou-se relativamente bem nos casos padrões, onde a instabilidade não era muito grave. As estatísticas F-corrigidas de Wald são bastante utilizadas na prática, e estão implementadas em pacotes para análise de dados de pesquisas amostrais complexas.</p>
 </div>
 <div id="raoscott" class="section level3">
-<h3><span class="header-section-number">7.3.2</span> Estatística de Pearson com Ajuste de Rao-Scott</h3>
-O exemplo introdutório serviu para mostrar que, na presença de efeitos de plano amostral importantes, as estatísticas clássicas de teste precisam ser ajus-tadas para terem a mesma distribuição assintótica de referência que a obtida para o caso de amostragem aleatória simples. Inicialmente, vamos considerar a estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> de Pearson<span class="math inline">\(.\)</span> Essa estatística pode ser escrita em forma matricial como
+<h3><span class="header-section-number">7.3.3</span> Estatística de Pearson com Ajuste de Rao-Scott</h3>
+O exemplo introdutório serviu para mostrar que, na presença de efeitos de plano amostral importantes, as estatísticas clássicas de teste precisam ser ajustadas para terem a mesma distribuição assintótica de referência que a obtida para o caso de amostragem aleatória simples. Inicialmente, vamos considerar a estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> de Pearson<span class="math inline">\(.\)</span> Essa estatística pode ser escrita em forma matricial como
 <span class="math display" id="eq:qual11">\[\begin{equation}
 X_{P}^{2}=n\sum\limits_{j=1}^{J}\left( \widehat{p}_{j}-p_{0j}\right)
 ^{2}/p_{0j}=n\left( \widehat{\mathbf{p}}-\mathbf{p}_{0}\right) ^{^{\prime }}
@@ -505,11 +437,11 @@ X_{P}^{2}=n\sum\limits_{j=1}^{J}\left( \widehat{p}_{j}-p_{0j}\right)
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(\mathbf{P}_{0}=diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}\)</span> e <span class="math inline">\(\mathbf{P}_{0}/n\)</span> é a matriz <span class="math inline">\(\left( J-1\right)\times \left( J-1\right)\)</span> de covariância multinomial de <span class="math inline">\(\widehat{\mathbf{p}}\)</span> sob a hipótese nula, e <span class="math inline">\(diag\left( \mathbf{p}_{0}\right)\)</span> representa uma matriz diagonal com elementos <span class="math inline">\(p_{0j}\)</span> na diagonal.</p>
 <p>A matriz de covariância <span class="math inline">\(\mathbf{P}_{0}/n\)</span> é uma generalização do caso <span class="math inline">\(J=2\)</span> celas para o caso de mais de duas celas (<span class="math inline">\(J&gt;2\)</span>). Observe que a expressão de <span class="math inline">\(X_{P}^{2}\)</span> tem a mesma forma da estatística de Wald, com <span class="math inline">\(\mathbf{P}_{0}/n\)</span> no lugar de <span class="math inline">\(\widehat{\mathbf{V}}_{p}\)</span>. No caso de apenas duas celas, <span class="math inline">\(X_{P}^{2}\)</span> reduz-se à fórmula simples antes considerada <span class="math inline">\(X_{P}^{2}=\left( \widehat{p}_{1}-p_{01}\right) ^{2}/\left[ p_{01}\left( 1-p_{01}\right) /n\right]\)</span>, onde o denominador corresponde à variância da binomial sob a hipótese nula.</p>
-<p>Para examinar a distribuição assintótica da estatística <span class="math inline">\(X_{P}^{2}\)</span> de Pearson, vamos generalizar os resultados anteriores, do caso de duas celas para o caso <span class="math inline">\(J&gt;2\)</span>. Neste caso, <span class="math inline">\(X_{P}^{2}\)</span> é assintoticamente distribuído como uma soma ponderada <span class="math inline">\(\delta_{1}W_{1}+\delta _{2}W_{2}+\ldots +\delta _{J-1}W_{J-1}\)</span> de <span class="math inline">\(J-1\)</span> variáveis aleatórias independentes <span class="math inline">\(W_{j}\)</span> , cada uma tendo distribuição qui-quadrado com um grau de liberdade. Os pesos <span class="math inline">\(\delta _{j}\)</span> são os autovalores da matriz de efeito multivariado de plano amostral <span class="math inline">\(\mathbf{\Delta }=\mathbf{P}_{0}^{-1}\mathbf{V}_{p}\)</span>, onde <span class="math inline">\(\mathbf{V}_{p}\mathbf{/}n\)</span> é a matriz de covariância do estimador <span class="math inline">\(\widehat{\mathbf{p}}\)</span> do vetor de proporção <span class="math inline">\(\mathbf{p}\)</span> baseada no plano amostral verdadeiro. Tais autovalores são também chamados efeitos generalizados de plano a-mos-tral. Observe que, em geral, eles não coincidem com os efeitos univariados de plano amostral <span class="math inline">\(d_{j}\)</span>.</p>
-<p>No caso de amostragem aleatória simples, os efeitos generalizados de plano amostral <span class="math inline">\(\delta _{j}\)</span> são todos iguais a um, pois neste caso <span class="math inline">\(\mathbf{\Delta =I}\)</span>, matriz identidade. Neste caso, a soma <span class="math inline">\(\sum_{j=1}^{J-1}\delta _{j}W_{j}\)</span> se reduz a <span class="math inline">\(\sum_{j=1}^{J-1}W_{j},\)</span> cuja distribuição é <span class="math inline">\(\chi ^{2}\)</span> com <span class="math inline">\(J-1\)</span> graus de liberdade. Assim, sob amostragem aleatória simples, a estatística <span class="math inline">\(X_{P}^{2}\)</span> é distribuída assintoticamente como qui-quadrado com <span class="math inline">\(J-1\)</span> graus de liberdade.</p>
+<p>Para examinar a distribuição assintótica da estatística <span class="math inline">\(X_{P}^{2}\)</span> de Pearson, vamos generalizar os resultados anteriores, do caso de duas celas para o caso <span class="math inline">\(J&gt;2\)</span>. Neste caso, <span class="math inline">\(X_{P}^{2}\)</span> é assintoticamente distribuído como uma soma ponderada <span class="math inline">\(\delta_{1}W_{1}+\delta _{2}W_{2}+\ldots +\delta _{J-1}W_{J-1}\)</span> de <span class="math inline">\(J-1\)</span> variáveis aleatórias independentes <span class="math inline">\(W_{j}\)</span> , cada uma tendo distribuição qui-quadrado com um grau de liberdade. Os pesos <span class="math inline">\(\delta _{j}\)</span> são os autovalores da matriz de efeito multivariado de plano amostral <span class="math inline">\(\mathbf{\Delta }=\mathbf{P}_{0}^{-1}\mathbf{V}_{p}\)</span>, onde <span class="math inline">\(\mathbf{V}_{p}\mathbf{/}n\)</span> é a matriz de covariância do estimador <span class="math inline">\(\widehat{\mathbf{p}}\)</span> do vetor de proporção <span class="math inline">\(\mathbf{p}\)</span> baseada no plano amostral verdadeiro. Tais autovalores são também chamados efeitos generalizados de plano amostral. Observe que, em geral, eles não coincidem com os efeitos univariados de plano amostral <span class="math inline">\(d_{j}\)</span>.</p>
+<p>No caso de amostragem aleatória simples, os efeitos generalizados de plano amostral <span class="math inline">\(\delta_{j}\)</span> são todos iguais a um, pois neste caso <span class="math inline">\(\mathbf{\Delta =I}\)</span>, matriz identidade. Neste caso, a soma <span class="math inline">\(\sum_{j=1}^{J-1}\delta _{j}W_{j}\)</span> se reduz a <span class="math inline">\(\sum_{j=1}^{J-1}W_{j},\)</span> cuja distribuição é <span class="math inline">\(\chi ^{2}\)</span> com <span class="math inline">\(J-1\)</span> graus de liberdade. Assim, sob amostragem aleatória simples, a estatística <span class="math inline">\(X_{P}^{2}\)</span> é distribuída assintoticamente como qui-quadrado com <span class="math inline">\(J-1\)</span> graus de liberdade.</p>
 <p>No caso de plano amostral mais complexo, envolvendo estratificação e/ou conglomeração, os efeitos generalizados de plano amostral não são iguais a um. Devido aos efeitos de conglomeração, os <span class="math inline">\(\delta _{j}\)</span> tendem a ser maiores que um, e assim a distribuição assintótica da variável aleatória <span class="math inline">\(\sum_{j=1}^{J-1}\delta_{j}W_{j}\)</span> será diferente de uma qui-quadrado com <span class="math inline">\(J-1\)</span> graus de liberdade. Desta forma, a estatística <span class="math inline">\(X_{P}^{2}\)</span> requer correções semelhantes às introduzidas no caso de duas celas. No caso geral, há mais de uma possibilidade de correção e consideraremos as <code>correções de primeira ordem e de segunda ordem de Rao-Scott</code> , desenvolvidas por Rao e Scott(1981). A correção de primeira ordem tem por objetivo corrigir a esperança assintótica da estatística <span class="math inline">\(X_{P}^{2}\)</span> de Pearson, e a de segunda ordem também envolve correção da variância. Tecnicamente, os dois ajustes são baseados nos autovalores da matriz de efeito multivariado de plano amostral estimada <span class="math inline">\(\widehat{\mathbf{\Delta }}\)</span>.</p>
 <p>Inicialmente, consideramos um <code>ajuste simples de EPA médio</code> à estatística <span class="math inline">\(X_{P}^{2}\)</span>, devido a Fellegi (1980) e Holt, Scott e Ewings(1980), e o ajuste de primeira ordem de Rao-Scott. Estes ajustes são úteis nos casos em que não é possível obter uma estimativa adequada <span class="math inline">\(\mathbf{\hat{V}}_{p}\)</span> para a matriz de covariância de aletorização. Quando esta estimativa está disponível, deve-se usar o ajuste mais preciso de segunda ordem.</p>
-O ajuste de EPA médio é baseado nos efeitos univariados de plano a-mos-tral estimados <span class="math inline">\(\hat{d}_{j}\)</span> das estimativas <span class="math inline">\(\hat{p}_{j}\)</span>. O ajuste da estatística <a href="testqualajust.html#eq:qual11">(7.11)</a> é feito dividindo o valor observado da estatística <span class="math inline">\(X_{P}^{2}\)</span> de Pearson pela média <span class="math inline">\(\hat{d}_{.}\)</span> dos efeitos univariados de plano amostral:
+O ajuste de EPA médio é baseado nos efeitos univariados de plano amostral estimados <span class="math inline">\(\hat{d}_{j}\)</span> das estimativas <span class="math inline">\(\hat{p}_{j}\)</span>. O ajuste da estatística <a href="testqualajust.html#eq:qual11">(7.11)</a> é feito dividindo o valor observado da estatística <span class="math inline">\(X_{P}^{2}\)</span> de Pearson pela média <span class="math inline">\(\hat{d}_{.}\)</span> dos efeitos univariados de plano amostral:
 <span class="math display" id="eq:qual12">\[\begin{equation}
 X_{P}^{2}\left( \hat{d}_{.}\right) =X_{P}^{2}/\hat{d}_{.}  
 \tag{7.12}
@@ -552,99 +484,33 @@ FX_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{W}^{2}/\left( \left( J-1\right)
 <p>A estatística <span class="math inline">\(FX_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span> tem distribuição de referência <span class="math inline">\(F\)</span> com <span class="math inline">\(J-1\)</span> e <span class="math inline">\(f\)</span> graus de liberdade. Thomas e Rao(1987) observaram que esta estatística, em situações instáveis, é melhor que a estatística sem correção de primeira ordem.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-78" class="example"><strong>Exemplo 7.1 </strong></span>Teste de bondade de ajuste para a distribuição etária da PPV 96-97 na Região Sudeste.
+<span id="ex:unnamed-chunk-96" class="example"><strong>Exemplo 7.1 </strong></span>Teste de bondade de ajuste para a distribuição etária da PPV 96-97 na Região Sudeste.
 </div>
 <p></p>
-<p>Vamos considerar um teste da bondade de ajuste da distribuição das idades para a Pesquisa sobre Padrões de Vida (PPV) 96/97, para os subgrupos de 0 a 14; de 15 a 29; de 30 a 44; de 45 a 59 e de 60 e mais anos de idade. As proporções correspondentes para a população foram obtidas da Contagem Populacional de 96. Na Região Sudeste, o número de estratos é <span class="math inline">\(H=15\)</span> e o número total de conglomerados (setores) na amostra da PPV é <span class="math inline">\(m=276\)</span> e portanto <span class="math inline">\(f=m-H=261\)</span>. As informações utilizadas neste exemplo são apresentadas na Tabela <a href="testqualajust.html#tab:ppvcont">7.3</a>.</p>
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Vetores de proporções por classes de idade da PPV 96/97 e Contagem -->
-<!-- 96 e EPAs calculados para a PPV - Região Sudeste }\bigskip \label{tab73}  -->
-<!-- \begin{tabular}{|c|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- & Contagem & \multicolumn{3}{|c|}{PPV} \\ \cline{2-5} -->
-<!-- Idade &  -->
-<!-- \begin{tabular}{c} -->
-<!-- Proporção \\  -->
-<!-- $\left( \mathbf{p}_{0}\right)$ -->
-<!-- \end{tabular} -->
-<!-- & Frequência &  -->
-<!-- \begin{tabular}{c} -->
-<!-- Proporção \\  -->
-<!-- $\left( \mathbf{\hat{p}}\right)$ -->
-<!-- \end{tabular} -->
-<!-- & EPA \\ \hline\hline -->
-<!-- 0 a 14 anos & $0,2842$ & \multicolumn{1}{|r|}{$2.516$} &  -->
-<!-- \multicolumn{1}{|r|}{$0,2845$} & \multicolumn{1}{|r|}{$2,2859$} \\  -->
-<!-- 15 a 29 anos & $0,2774$ & \multicolumn{1}{|r|}{$2.360$} &  -->
-<!-- \multicolumn{1}{|r|}{$0,2678$} & \multicolumn{1}{|r|}{$2,1864$} \\  -->
-<!-- 30 a 44 anos & $0,2263$ & \multicolumn{1}{|r|}{$2.018$} &  -->
-<!-- \multicolumn{1}{|r|}{$0,2225$} & \multicolumn{1}{|r|}{$2,2539$} \\  -->
-<!-- 45 a 59 anos & $0,1261$ & \multicolumn{1}{|r|}{$1.177$} &  -->
-<!-- \multicolumn{1}{|r|}{$0,1316$} & \multicolumn{1}{|r|}{$1,9903$} \\  -->
-<!-- 60 anos e mais & $0,0860$ & \multicolumn{1}{|r|}{$832$} &  -->
-<!-- \multicolumn{1}{|r|}{$0,0935$} & \multicolumn{1}{|r|}{$3,1627$} \\  -->
-<!-- \hline\hline -->
-<!-- Total & $1,0000$ & \multicolumn{1}{|r|}{$8903$} & \multicolumn{1}{|r|}{$% -->
-<!-- 0,9999$} & $-$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
-<table>
-<caption><span id="tab:ppvcont">Tabela 7.3: </span>Vetores de proporções por classes de idade da PPV 96/97 e Contagem 96 e EPAs calculados para a PPV - Região Sudeste</caption>
-<thead>
-<tr class="header">
-<th align="left">Idade</th>
-<th align="right">Prop_Contagem</th>
-<th align="right">Frequência</th>
-<th align="right">Prop_est_PPV</th>
-<th align="right">EPA</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">0-14</td>
-<td align="right">0.2842</td>
-<td align="right">2516</td>
-<td align="right">0.2845</td>
-<td align="right">2.2862</td>
-</tr>
-<tr class="even">
-<td align="left">15-29</td>
-<td align="right">0.2747</td>
-<td align="right">2360</td>
-<td align="right">0.2678</td>
-<td align="right">2.1867</td>
-</tr>
-<tr class="odd">
-<td align="left">30-44</td>
-<td align="right">0.2263</td>
-<td align="right">2018</td>
-<td align="right">0.2225</td>
-<td align="right">2.2542</td>
-</tr>
-<tr class="even">
-<td align="left">45-59</td>
-<td align="right">0.1261</td>
-<td align="right">1177</td>
-<td align="right">0.1316</td>
-<td align="right">1.9906</td>
-</tr>
-<tr class="odd">
-<td align="left">60+</td>
-<td align="right">0.0860</td>
-<td align="right">832</td>
-<td align="right">0.0935</td>
-<td align="right">3.1632</td>
-</tr>
-</tbody>
-</table>
+<p>Vamos considerar um teste da bondade de ajuste da distribuição das idades para a Pesquisa sobre Padrões de Vida (PPV) 96/97, para os subgrupos de 0 a 14; de 15 a 29; de 30 a 44; de 45 a 59 e de 60 e mais anos de idade. As proporções correspondentes para a população foram obtidas da Contagem Populacional de 96. Na Região Sudeste, o número de estratos é <span class="math inline">\(H=15\)</span> e o número total de conglomerados (setores) na amostra da PPV é <span class="math inline">\(m=276\)</span> e portanto <span class="math inline">\(f=m-H=261\)</span>. As informações utilizadas neste exemplo são apresentadas na Tabela .</p>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
+ppv1 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;~</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">adac</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">ppv.rds&quot;</span>)
+<span class="co"># cria idade categorizada</span>
+ppv1&lt;-<span class="kw">transform</span>(ppv1,<span class="dt">idatab=</span><span class="kw">cut</span>(v02a08,
+<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">14</span>,<span class="dv">29</span>,<span class="dv">44</span>,<span class="dv">59</span>,<span class="dv">200</span>), <span class="dt">include.lowest=</span>T), <span class="dt">one=</span><span class="dv">1</span>)
+
+<span class="co"># Objeto de desenho da PPV</span>
+ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span>~nsetor,<span class="dt">strat=</span>~estratof,<span class="dt">weights=</span>~pesof,
+<span class="dt">data=</span>ppv1,<span class="dt">nest=</span><span class="ot">TRUE</span>)
+<span class="co"># Considera região sudeste</span>
+ppv.se.des&lt;-<span class="kw">subset</span>(ppv.des,regiao==<span class="dv">2</span>)
+<span class="co"># estima proporções nas classes de IDATAB</span>
+ppv.id&lt;-<span class="kw">svymean</span>(~idatab,ppv.se.des,<span class="dt">deff=</span>T)
+vhat&lt;-<span class="kw">vcov</span>(ppv.id)
+ppv.id &lt;-<span class="st"> </span><span class="kw">data.frame</span>(ppv.id)
+freq &lt;-<span class="st"> </span><span class="kw">svyby</span>(~one, ~idatab, ppv.se.des, unwtd.count)$counts
+<span class="co"># matriz de variância-covariância estimada</span>
+idad_tab &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;0-14&quot;</span>, <span class="st">&quot;15-29&quot;</span>, <span class="st">&quot;30-44&quot;</span>,<span class="st">&quot;45-59&quot;</span>,<span class="st">&quot;60+&quot;</span>)
+tab73 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">idade=</span> idad_tab, <span class="dt">prop_contagem=</span> <span class="kw">c</span>(<span class="fl">0.2842</span>, <span class="fl">0.2747</span>, <span class="fl">0.2263</span>, <span class="fl">0.1261</span>, <span class="fl">0.0860</span>), frequê<span class="dt">ncia=</span> freq, <span class="dt">prop_est_ppv=</span> ppv.id$mean,<span class="dt">epa =</span> ppv.id$deff) 
+<span class="co"># knitr::kable(tab73, booktabs= TRUE, digits=c(0,4,0,4,4),</span>
+<span class="co">#   caption = &quot;Vetores de proporções por classes de idade da PPV 96/97 e Contagem</span>
+<span class="co"># 96 e EPAs calculados para a PPV - Região Sudeste&quot;)</span></code></pre></div>
 <p>Os valores dos EPAs observados na PPV ( coluna 5 da Tabela ) mostram que o plano amostral não pode ser ignorado na análise. Queremos testar a hipótese <span class="math inline">\(H_{0}:\mathbf{p=p}_{0}\)</span> usando as estimativas de proporções obtidas pela amostra da PPV. O vetor de proporções populacionais <span class="math inline">\(\mathbf{p}_{0}\)</span> foi obtido dos resultados da Contagem Populacional de 96, que é uma pesquisa censitária. Neste exemplo, vamos calcular a estatística de Pearson e suas correções, e também a estatística de Wald baseada no plano amostral. Calculamos a matriz <span class="math inline">\(\widehat{\mathbf{V}}_{p}\)</span> pela aplicação do método de linearização de Taylor descrito na Seção <a href="capplanamo.html#taylor">3.3</a> através da fórmula <a href="capplanamo.html#eq:estpa22">(3.21)</a> obtendo</p>
 <!-- \[ -->
 <!-- \widehat{\mathbf{V}}_{p}(\widehat{\mathbf{p}})=10^{-6}\times \left[  -->
@@ -657,47 +523,9 @@ FX_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{W}^{2}/\left( \left( J-1\right)
 <!-- \end{tabular} -->
 <!-- \right] \mbox{ .}  -->
 <!-- \] -->
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dimnames</span>(Vhat)&lt;-<span class="st"> </span><span class="ot">NULL</span>
-knitr::<span class="kw">kable</span>(<span class="kw">round</span>(<span class="dv">10</span>^<span class="dv">6</span>*Vhat,<span class="dv">3</span>))</code></pre></div>
-<table>
-<tbody>
-<tr class="odd">
-<td align="right">52.274</td>
-<td align="right">-3.899</td>
-<td align="right">-5.672</td>
-<td align="right">-19.292</td>
-<td align="right">-23.411</td>
-</tr>
-<tr class="even">
-<td align="right">-3.899</td>
-<td align="right">48.164</td>
-<td align="right">-29.346</td>
-<td align="right">-3.399</td>
-<td align="right">-11.520</td>
-</tr>
-<tr class="odd">
-<td align="right">-5.672</td>
-<td align="right">-29.346</td>
-<td align="right">43.799</td>
-<td align="right">-8.226</td>
-<td align="right">-0.556</td>
-</tr>
-<tr class="even">
-<td align="right">-19.292</td>
-<td align="right">-3.399</td>
-<td align="right">-8.226</td>
-<td align="right">25.551</td>
-<td align="right">5.366</td>
-</tr>
-<tr class="odd">
-<td align="right">-23.411</td>
-<td align="right">-11.520</td>
-<td align="right">-0.556</td>
-<td align="right">5.366</td>
-<td align="right">30.120</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dimnames</span>(vhat) &lt;-<span class="st"> </span><span class="kw">list</span>(idad_tab, idad_tab)
+knitr::<span class="kw">kable</span>(<span class="dv">10</span>^<span class="dv">6</span>*vhat, <span class="dt">format=</span><span class="st">&quot;latex&quot;</span>, <span class="dt">digits=</span><span class="dv">3</span>)</code></pre></div>
+
 <p>Para obter a estatística de Pearson <a href="testqualajust.html#eq:qual11">(7.11)</a>, vamos calcular a matriz de covariância populacional e uma estimativa dessa matriz de covariância sob suposição de distribuição multinomial, dada por <span class="math inline">\(\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}\)</span>, resultando em</p>
 <!-- $\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}$, resultando em  -->
 <!-- \[ -->
@@ -750,15 +578,15 @@ knitr::<span class="kw">kable</span>(<span class="kw">round</span>(<span class="
 </tr>
 </tbody>
 </table>
-<p>Para obter os diversos ajustes desta estatística precisamos usar os valores dos EPAs, listados na coluna 5 da Tabela @ref{tab:ppvcont}. Estes valores foram obtidos através do pacote SUDAAN. Para obter as diferentes correções da estatística de Pearson, precisamos calcular as seguintes quantidades:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dhat &lt;-<span class="st"> </span>tab73$EPA
+<p>Para obter os diversos ajustes desta estatística precisamos usar os valores dos EPAs, listados na coluna 5 da Tabela . Estes valores foram obtidos através do pacote SUDAAN. Para obter as diferentes correções da estatística de Pearson, precisamos calcular as seguintes quantidades:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dhat &lt;-<span class="st"> </span>tab73$epa
 dhatdot &lt;-<span class="st"> </span><span class="kw">mean</span>(dhat)
 dhatdot</code></pre></div>
 <pre><code>## [1] 2.376168</code></pre>
 <p><span class="math display">\[
 \hat{d}_{.}=\sum_{j=1}^{5}\hat{d}_{j}/5=2,376\;\;\mbox{,} 
 \]</span></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">phat &lt;-<span class="st"> </span>tab73$Prop_est_PPV
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">phat &lt;-<span class="st"> </span>tab73$prop_est_ppv
 deltahatdot &lt;-<span class="st"> </span><span class="kw">sum</span>(phat*(<span class="dv">1</span>-p0)*dhat/(<span class="dv">4</span>*p0))
 deltahatdot</code></pre></div>
 <pre><code>## [1] 2.459607</code></pre>
@@ -766,11 +594,11 @@ deltahatdot</code></pre></div>
 \hat{\delta}_{.}=\sum_{j=1}^5\frac{\hat{p}_{j}}{4p_{0j}}
 \left( 1-\hat{p}_{0j}\right) \hat{d}_{j}=2,457\;\;, 
 \]</span></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nppv &lt;-<span class="st"> </span><span class="kw">sum</span> (Freq)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nppv &lt;-<span class="st"> </span><span class="kw">sum</span> (freq)
 raz &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>,<span class="dv">5</span>,<span class="dv">5</span>)
 for(i in <span class="dv">1</span>:<span class="dv">5</span>){
   for(j in <span class="dv">1</span>:<span class="dv">5</span>){
-    raz[i,j]&lt;-<span class="st"> </span>Vhat[i,j]^<span class="dv">2</span>/(p0[i]*p0[j])
+    raz[i,j]&lt;-<span class="st"> </span>vhat[i,j]^<span class="dv">2</span>/(p0[i]*p0[j])
   }
 }
 ahat2_1 &lt;-<span class="st"> </span>nppv^<span class="dv">2</span>*<span class="st"> </span><span class="kw">sum</span>(raz)/(<span class="dv">4</span>*deltahatdot^<span class="dv">2</span>)
@@ -781,33 +609,33 @@ ahat2_1</code></pre></div>
 4\times 2,457^{2}\right) =1,253\;\;. 
 \]</span></p>
 <p>Podemos então calcular a estatística <span class="math inline">\(X_{P}^{2}\)</span> de Pearson usando <a href="testqualajust.html#eq:qual11">(7.11)</a>, resultando em</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X2P &lt;-nppv*<span class="st"> </span><span class="kw">sum</span>((phat -p0)^<span class="dv">2</span>/p0)
-X2P</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x2p &lt;-nppv*<span class="st"> </span><span class="kw">sum</span>((phat -p0)^<span class="dv">2</span>/p0)
+x2p</code></pre></div>
 <pre><code>## [1] 11.50719</code></pre>
 <p><span class="math display">\[
 X_{P}^{2}=11,64 
 \]</span> com <span class="math inline">\(4\)</span> g.l. e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,020\)</span> .</p>
 <p>A estatística de Pearson com ajustamento de EPA médio é calculada usando <a href="testqualajust.html#eq:qual12">(7.12)</a>, resultando em</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X2P/dhatdot</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x2p/dhatdot</code></pre></div>
 <pre><code>## [1] 4.842751</code></pre>
 <p><span class="math display">\[
 X_{P}^{2}\left( \hat{d}_{.}\right) =11,64/2,376=4,901 
 \]</span> com <span class="math inline">\(4\)</span> g.l. e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,298\)</span> .</p>
 <p>A estatística de Pearson com ajustamento de Rao-Scott de primeira ordem, dada por <a href="testqualajust.html#eq:qual13">(7.13)</a>, resulta em</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X2P/deltahatdot </code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x2p/deltahatdot </code></pre></div>
 <pre><code>## [1] 4.678467</code></pre>
 <p><span class="math display">\[
 X_{P}^{2}\left( \hat{\delta}_{.}\right) =11,64/2,457=4,74 
 \]</span> com <span class="math inline">\(4\)</span> g.l. e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,315\)</span> .</p>
 <p>O ajustamento de Rao-Scott de primeira ordem F-corrigido para a estatística de Pearson, dado por <a href="testqualajust.html#eq:qual15">(7.15)</a>, resulta em</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">J &lt;-<span class="st"> </span><span class="kw">length</span>(phat)
-X2P/<span class="st"> </span>((J<span class="dv">-1</span>)*deltahatdot)</code></pre></div>
+x2p/<span class="st"> </span>((J<span class="dv">-1</span>)*deltahatdot)</code></pre></div>
 <pre><code>## [1] 1.169617</code></pre>
 <p><span class="math display">\[
 FX_{P}^{2}\left( \hat{\delta}_{.}\right) =4,74/4=1,85
 \]</span> com <span class="math inline">\(4\)</span> e <span class="math inline">\(261\)</span> g.l e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,318\)</span> .</p>
 <p>O ajustamento de Rao-Scott de segunda ordem para a estatística de Pearson, dado por <a href="testqualajust.html#eq:qual14">(7.14)</a>, resulta em</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(X2P/deltahatdot)/ahat2_1</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(x2p/deltahatdot)/ahat2_1</code></pre></div>
 <pre><code>## [1] 3.744199</code></pre>
 <p><span class="math display">\[
 X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right) =4,74/1,253=3,784 
@@ -815,9 +643,9 @@ X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right) =4,74/1,253=3,784
 <p>A estatística de Wald baseada no plano amostral (veja equação <a href="testqualajust.html#eq:qual8">(7.8)</a> resulta em</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">phatv &lt;-<span class="st"> </span><span class="kw">matrix</span>(phat[-<span class="dv">5</span>], <span class="dt">ncol=</span><span class="dv">1</span>)
 p0v &lt;-<span class="st"> </span><span class="kw">matrix</span>(p0[-<span class="dv">5</span>], <span class="dt">ncol=</span><span class="dv">1</span>)
-Vhat0 &lt;-<span class="st"> </span>Vhat[-<span class="dv">5</span>,-<span class="dv">5</span>]
-X2W &lt;-<span class="st">  </span><span class="kw">t</span>(phatv-p0v)%*%<span class="st"> </span><span class="kw">solve</span>(Vhat0)%*%(phatv-p0v)
-X2W</code></pre></div>
+vhat0 &lt;-<span class="st"> </span>vhat[-<span class="dv">5</span>,-<span class="dv">5</span>]
+x2w &lt;-<span class="st">  </span><span class="kw">t</span>(phatv-p0v)%*%<span class="st"> </span><span class="kw">solve</span>(vhat0)%*%(phatv-p0v)
+x2w</code></pre></div>
 <pre><code>##          [,1]
 ## [1,] 5.742022</code></pre>
 <p><span class="math display">\[
@@ -825,160 +653,60 @@ X_{W}^{2}=5,691
 \]</span> com <span class="math inline">\(4\)</span> g.l. e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,223\)</span> .</p>
 <p>As estatísticas F-corrigidas de Wald, definidas em <a href="testqualajust.html#eq:qual9">(7.9)</a> e <a href="testqualajust.html#eq:qual10">(7.10)</a>, resultam em</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># número de estratos da PPV-sudeste</span>
-nestrat &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(ppv1$ESTRATOF[ppv1$REGIAO==<span class="dv">2</span>]))
+nestrat &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(ppv1$estratof[ppv1$regiao ==<span class="st"> </span><span class="dv">2</span>]))
 <span class="co"># número de setores da PPV-sudeste</span>
-nsetor &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(ppv1$NSETOR[ppv1$REGIAO==<span class="dv">2</span>]))
+nsetor &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(ppv1$nsetor[ppv1$regiao ==<span class="st"> </span><span class="dv">2</span>]))
 f &lt;-<span class="st"> </span>nsetor -nestrat
-F1p &lt;-<span class="st"> </span>((f-J<span class="dv">+2</span>)/(f*(J<span class="dv">-1</span>)))*X2W
-F1p</code></pre></div>
+f1p &lt;-<span class="st"> </span>((f-J<span class="dv">+2</span>)/(f*(J<span class="dv">-1</span>)))*x2w
+f1p</code></pre></div>
 <pre><code>##          [,1]
 ## [1,] 1.419005</code></pre>
 <p><span class="math display">\[
 F_{1.p}=\frac{261-5+2}{261\times 4}\times 5,690661=1,406 
 \]</span> com <span class="math inline">\(4\)</span> e <span class="math inline">\(259\)</span> g.l. e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,232\)</span> , e</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">F2p &lt;-<span class="st"> </span>X2W/(J<span class="dv">-1</span>)
-F2p</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f2p &lt;-<span class="st"> </span>x2w/(J<span class="dv">-1</span>)
+f2p</code></pre></div>
 <pre><code>##          [,1]
 ## [1,] 1.435505</code></pre>
 <p><span class="math display">\[
 F_{2.p}=5,691/4\mbox{ }=1,423 
 \]</span> com 4 e 261 gl e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,228\)</span> .</p>
-<p>A Tabela <a href="testqualajust.html#tab:estaltteste">7.4</a> resume os valores das diversas estatísticas de teste calculadas, bem como das informações comparativas com as respectivas distribuições de referência.</p>
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Valores e $p$valores de estatísticas alternativas de teste}\bigskip  -->
-<!-- \label{tab74}  -->
-<!-- \begin{tabular}{|c|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- Estatística & Tipo & Valor & Distribuição & $p$valor \\  -->
-<!-- \hline\hline -->
-<!-- $X_{P}^{2}$ &  -->
-<!-- \begin{tabular}{c} -->
-<!-- Adequada \\  -->
-<!-- para IID -->
-<!-- \end{tabular} -->
-<!-- & \multicolumn{1}{|r|}{$11,640$} & $\chi ^{2}(4)$ & $0,020$ \\ \hline -->
-<!-- $X_{P}^{2}\left( \hat{d}_{.}\right)$ & Ajustes e & \multicolumn{1}{|r|}{$% -->
-<!-- 4,901$} & $\chi ^{2}(4)$ & $0,298$ \\  -->
-<!-- $X_{P}^{2}\left( \hat{\delta}_{.}\right)$ & correções da &  -->
-<!-- \multicolumn{1}{|r|}{$4,740$} & $\chi ^{2}(4)$ & $0,315$ \\  -->
-<!-- $FX_{P}^{2}\left( \hat{\delta}_{.}\right)$ & Estatística &  -->
-<!-- \multicolumn{1}{|r|}{$1,850$} & $F\left( 4;261\right)$ & $0,318$ \\  -->
-<!-- $X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$ & $X_{P}^{2}$ &  -->
-<!-- \multicolumn{1}{|r|}{$3,784$} & $\chi ^{2}(3,19)$ & $0,314$ \\ \hline -->
-<!-- $X_{W}^{2}$ & Baseadas no & \multicolumn{1}{|r|}{$5,691$} & $\chi ^{2}(4)$ &  -->
-<!-- $0,223$ \\  -->
-<!-- $F_{1.p}$ & plano & \multicolumn{1}{|r|}{$1,406$} & $F\left( 4;259\right)$ -->
-<!-- & $0,232$ \\  -->
-<!-- $F_{2.p}$ & amostral & \multicolumn{1}{|r|}{$1,423$} & $F\left( 4;261\right)  -->
-<!-- $ & $0,228$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
-<table style="width:100%;">
-<caption><span id="tab:estaltteste">Tabela 7.4: </span>Valores e valores-p de estatísticas alternativas de teste</caption>
-<colgroup>
-<col width="45%" />
-<col width="16%" />
-<col width="5%" />
-<col width="22%" />
-<col width="9%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">Estatística</th>
-<th align="center">Tipo</th>
-<th align="left">Valor</th>
-<th align="center">Distribuição</th>
-<th align="right">valor-<span class="math inline">\(p\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"><span class="math inline">\(X_{P}^{2}\)</span></td>
-<td align="center">Adequada para IID</td>
-<td align="left">11.640</td>
-<td align="center"><span class="math inline">\(\chi ^{2}(4)\)</span></td>
-<td align="right">0.020</td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(X_{P}^{2}\left( \hat{d}_{.}\right)\)</span></td>
-<td align="center">Ajustes e</td>
-<td align="left">4.901</td>
-<td align="center"><span class="math inline">\(\chi ^{2}(4)\)</span></td>
-<td align="right">0.298</td>
-</tr>
-<tr class="odd">
-<td align="center"><span class="math inline">\(X_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span></td>
-<td align="center">correções da</td>
-<td align="left">4.740</td>
-<td align="center"><span class="math inline">\(\chi ^{2}(4)\)</span></td>
-<td align="right">0.315</td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(FX_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span></td>
-<td align="center">Estatística</td>
-<td align="left">1.850</td>
-<td align="center"><span class="math inline">\(F\left( 4;261\right)\)</span></td>
-<td align="right">0.318</td>
-</tr>
-<tr class="odd">
-<td align="center"><span class="math inline">\(X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)\)</span></td>
-<td align="center"><span class="math inline">\(X_{P}^{2}\)</span></td>
-<td align="left">3.784</td>
-<td align="center"><span class="math inline">\(\chi ^{2}(3,19)\)</span></td>
-<td align="right">0.314</td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(X_{W}^{2}\)</span></td>
-<td align="center">Baseadas no</td>
-<td align="left">5.691</td>
-<td align="center"><span class="math inline">\(\chi ^{2}(4)\)</span></td>
-<td align="right">0.223</td>
-</tr>
-<tr class="odd">
-<td align="center"><span class="math inline">\(F_{1.p}\)</span></td>
-<td align="center">plano</td>
-<td align="left">1.406</td>
-<td align="center"><span class="math inline">\(F\left( 4;259\right)\)</span></td>
-<td align="right">0.232</td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(F_{2.p}\)</span></td>
-<td align="center">amostral</td>
-<td align="left">1.423</td>
-<td align="center"><span class="math inline">\(F\left( 4;261\right)\)</span></td>
-<td align="right">0.228</td>
-</tr>
-</tbody>
-</table>
-<p>Examinando os resultados da Tabela <a href="testqualajust.html#tab:estaltteste">7.4</a>, verificamos que o teste clássico de Pearson rejeita a hipótese nula <span class="math inline">\(H_{0}\)</span> no nível <span class="math inline">\(\alpha =5\%\)</span>, diferentemente de todos os outros testes. Os valores das estatísticas com ajustes de Rao-Scott (com ou sem correção F) são semelhantes e parecem corrigir exagerademente o <span class="math inline">\(p\)</span>-valor dos testes. A estatística de Wald baseada no plano amostral e suas correções F, que têm valores quase iguais, produzem uma correção menor no <span class="math inline">\(p\)</span>-valor do teste. Nesse exemplo, como o número de graus de liberdade (dado pelo número de unidades primárias na amostra menos o número de estratos)<span class="math inline">\(f=m-H=261\)</span> é grande, a correção F tem pouco efeito, tanto nas estatísticas com ajustes de primeira e segunda ordem de Rao-Scott, como na estatística Wald.</p>
+<p>A Tabela  resume os valores das diversas estatísticas de teste calculadas, bem como das informações comparativas com as respectivas distribuições de referência.</p>
+
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
+<!--            Estatística                                      Tipo          Valor    Distribuição              valor-$p$ -->
+<!-- ----------------------------------------------------- ------------------  ------ -----------------------   ----------  -->
+<!-- $X_{P}^{2}$                                            Adequada para IID  11.640    $\chi ^{2}(4)$            0.020 -->
+<!-- $X_{P}^{2}\left( \hat{d}_{.}\right)$                   Ajustes e          4.901     $\chi ^{2}(4)$            0.298 -->
+<!-- $X_{P}^{2}\left( \hat{\delta}_{.}\right)$              correções da       4.740     $\chi ^{2}(4)$            0.315 -->
+<!-- $FX_{P}^{2}\left( \hat{\delta}_{.}\right)$             Estatística        1.850    $F\left( 4;261\right)$     0.318 -->
+<!-- $X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$  $X_{P}^{2}$        3.784    $\chi ^{2}(3,19)$          0.314 -->
+<!-- $X_{W}^{2}$                                            Baseadas no        5.691     $\chi ^{2}(4)$            0.223 -->
+<!-- $F_{1.p}$                                              plano              1.406   $F\left( 4;259\right)$      0.232 -->
+<!-- $F_{2.p}$                                              amostral           1.423   $F\left( 4;261\right)$      0.228  -->
+<!-- ----------------------------------------------------------------------------------------------------------------------- -->
+<!-- Table:(#tab:estaltteste)Valores e valores-p de estatísticas alternativas de teste -->
+<p>Examinando os resultados da Tabela , verificamos que o teste clássico de Pearson rejeita a hipótese nula <span class="math inline">\(H_{0}\)</span> no nível <span class="math inline">\(\alpha =5\%\)</span>, diferentemente de todos os outros testes. Os valores das estatísticas com ajustes de Rao-Scott (com ou sem correção F) são semelhantes e parecem corrigir exagerademente o <span class="math inline">\(p\)</span>-valor dos testes. A estatística de Wald baseada no plano amostral e suas correções F, que têm valores quase iguais, produzem uma correção menor no <span class="math inline">\(p\)</span>-valor do teste. Nesse exemplo, como o número de graus de liberdade (dado pelo número de unidades primárias na amostra menos o número de estratos)<span class="math inline">\(f=m-H=261\)</span> é grande, a correção F tem pouco efeito, tanto nas estatísticas com ajustes de primeira e segunda ordem de Rao-Scott, como na estatística Wald.</p>
 </div>
 </div>
 <div id="laboratorio-de-r-4" class="section level2">
 <h2><span class="header-section-number">7.4</span> Laboratório de R</h2>
 <p>Exemplo 7.1 pode ser substituído por: Criar variável ITAB (Não aparece)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span>~NSETOR,<span class="dt">strat=</span>~ESTRATOF,<span class="dt">weights=</span>~PESOF,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span>~nsetor,<span class="dt">strat=</span>~estratof,<span class="dt">weights=</span>~pesof,
 <span class="dt">data=</span>ppv1,<span class="dt">nest=</span><span class="ot">TRUE</span>)
-ppv.se.des&lt;-<span class="kw">subset</span>(ppv.des,REGIAO==<span class="dv">2</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.id&lt;-<span class="kw">svymean</span>(~IDATAB,ppv.se.des,<span class="dt">deff=</span>T)
-Vhat&lt;-<span class="kw">vcov</span>(ppv.id)</code></pre></div>
+ppv.se.des&lt;-<span class="kw">subset</span>(ppv.des,regiao==<span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.id&lt;-<span class="kw">svymean</span>(~idatab,ppv.se.des,<span class="dt">deff=</span>T)
+vhvat&lt;-<span class="kw">vcov</span>(ppv.id)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xtable)
 fr_ppv_id&lt;-<span class="st"> </span><span class="kw">data.frame</span>(ppv.id)
 <span class="kw">row.names</span>(fr_ppv_id) &lt;-<span class="st"> </span><span class="ot">NULL</span>
-fr_ppv_id &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="dt">Idade=</span> <span class="kw">c</span>(<span class="st">&quot;0 a 14 anos&quot;</span>,<span class="st">&quot;15 a 29 anos&quot;</span>, <span class="st">&quot;30 a 44 anos&quot;</span>,<span class="st">&quot;45 a 59 anos&quot;</span>, <span class="st">&quot;60 anos e mais&quot;</span>), fr_ppv_id)
+fr_ppv_id &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="dt">idade=</span> <span class="kw">c</span>(<span class="st">&quot;0 a 14 anos&quot;</span>,<span class="st">&quot;15 a 29 anos&quot;</span>, <span class="st">&quot;30 a 44 anos&quot;</span>,<span class="st">&quot;45 a 59 anos&quot;</span>, <span class="st">&quot;60 anos e mais&quot;</span>), fr_ppv_id)
 knitr::<span class="kw">kable</span>(fr_ppv_id, <span class="dt">booktabs=</span> <span class="ot">TRUE</span>, <span class="dt">digits=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">3</span>), <span class="dt">caption=</span><span class="st">&quot;Estimativas das proporções nas classes&quot;</span>) </code></pre></div>
 <table>
-<caption><span id="tab:estpropclas">Tabela 7.5: </span>Estimativas das proporções nas classes</caption>
+<caption><span id="tab:estpropclas">Tabela 7.3: </span>Estimativas das proporções nas classes</caption>
 <thead>
 <tr class="header">
-<th align="left">Idade</th>
+<th align="left">idade</th>
 <th align="right">mean</th>
 <th align="right">SE</th>
 <th align="right">deff</th>
@@ -1023,25 +751,25 @@ phat&lt;-<span class="kw">coefficients</span>(ppv.id)
 <span class="co"># Vetor de proporções obtido na Contagem Populacional de 1996</span>
 p0&lt;-<span class="kw">c</span>(.<span class="dv">2842</span>,.<span class="dv">2774</span>,.<span class="dv">2263</span>,.<span class="dv">1261</span>,.<span class="dv">086</span>)
 <span class="co"># Estatística de Wald</span>
-X2_W&lt;-<span class="kw">matrix</span>((phat-p0)[-<span class="dv">5</span>],<span class="dt">nrow=</span><span class="dv">1</span>)%*%<span class="kw">solve</span>(Vhat[-<span class="dv">5</span>,-<span class="dv">5</span>])%*%
+x2_w&lt;-<span class="kw">matrix</span>((phat-p0)[-<span class="dv">5</span>],<span class="dt">nrow=</span><span class="dv">1</span>)%*%<span class="kw">solve</span>(vhat[-<span class="dv">5</span>,-<span class="dv">5</span>])%*%
 <span class="kw">matrix</span>((phat-p0)[-<span class="dv">5</span>],<span class="dt">ncol=</span><span class="dv">1</span>)
-X2_W</code></pre></div>
+x2_w</code></pre></div>
 <pre><code>##          [,1]
 ## [1,] 5.742022</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Cálculo do p-valor</span>
-<span class="kw">round</span>(<span class="kw">pchisq</span>(X2_W,<span class="dv">4</span>,<span class="dt">lower.tail=</span><span class="ot">FALSE</span>),<span class="dt">digits=</span><span class="dv">3</span>)</code></pre></div>
+<span class="kw">round</span>(<span class="kw">pchisq</span>(x2_w,<span class="dv">4</span>,<span class="dt">lower.tail=</span><span class="ot">FALSE</span>),<span class="dt">digits=</span><span class="dv">3</span>)</code></pre></div>
 <pre><code>##       [,1]
 ## [1,] 0.219</code></pre>
 <p>Estatística de Pearson calculada a partir da fórmula 7.11</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n&lt;-<span class="dv">8903</span>
 P0&lt;-<span class="kw">diag</span>(p0)-<span class="kw">matrix</span>(p0,<span class="dt">ncol=</span><span class="dv">1</span>)%*%<span class="kw">matrix</span>(p0,<span class="dt">nrow=</span><span class="dv">1</span>)
-X2_P&lt;-n*<span class="kw">matrix</span>((phat-p0)[-<span class="dv">5</span>],<span class="dt">nrow=</span><span class="dv">1</span>)%*%<span class="kw">solve</span>(P0[-<span class="dv">5</span>,-<span class="dv">5</span>])%*%
+x2_p&lt;-n*<span class="kw">matrix</span>((phat-p0)[-<span class="dv">5</span>],<span class="dt">nrow=</span><span class="dv">1</span>)%*%<span class="kw">solve</span>(P0[-<span class="dv">5</span>,-<span class="dv">5</span>])%*%
 <span class="kw">matrix</span>((phat-p0)[-<span class="dv">5</span>],<span class="dt">ncol=</span><span class="dv">1</span>)
-X2_P</code></pre></div>
+x2_p</code></pre></div>
 <pre><code>##          [,1]
 ## [1,] 11.50719</code></pre>
 <p>Cálculo do valor-p:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">pchisq</span>(X2_P,<span class="dv">4</span>,<span class="dt">lower.tail=</span><span class="ot">FALSE</span>),<span class="dt">digits=</span><span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">pchisq</span>(x2_p,<span class="dv">4</span>,<span class="dt">lower.tail=</span><span class="ot">FALSE</span>),<span class="dt">digits=</span><span class="dv">3</span>)</code></pre></div>
 <pre><code>##       [,1]
 ## [1,] 0.021</code></pre>
 
@@ -1049,6 +777,9 @@ X2_P</code></pre></div>
 </div>
 <h3>Referências</h3>
 <div id="refs" class="references">
+<div id="ref-TR87">
+<p>Thomas, D. R, and J. N. K. Rao. 1987. “Small-Sample Comparison of Level and Power for Simple Goodness-of-Fit Statistics Under Cluster Sampling.” <em>Journal of the American Statistical Association</em> 82: 630–36.</p>
+</div>
 <div id="ref-sat">
 <p>Satterthwaite, F. E. 1946. “An Approximate Distribution of Estimates of Variance Components.” <em>Biometrics</em> 2: 110–14.</p>
 </div>

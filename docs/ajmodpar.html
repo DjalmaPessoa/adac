@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-03-29">
+<meta name="date" content="2017-04-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -146,7 +146,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1" data-path="ajmodpar.html"><a href="ajmodpar.html#modpar1"><i class="fa fa-check"></i><b>5.1</b> Introdução</a></li>
 <li class="chapter" data-level="5.2" data-path="ajmodpar.html"><a href="ajmodpar.html#metodo-de-maxima-verossimilhanca-mv"><i class="fa fa-check"></i><b>5.2</b> Método de Máxima Verossimilhança (MV)</a></li>
 <li class="chapter" data-level="5.3" data-path="ajmodpar.html"><a href="ajmodpar.html#ponderacao-de-dados-amostrais"><i class="fa fa-check"></i><b>5.3</b> Ponderação de Dados Amostrais</a></li>
-<li class="chapter" data-level="5.4" data-path="ajmodpar.html"><a href="ajmodpar.html#modpar3"><i class="fa fa-check"></i><b>5.4</b> Método de Máxima Pseudo-Verossimilhança label</a></li>
+<li class="chapter" data-level="5.4" data-path="ajmodpar.html"><a href="ajmodpar.html#modpar3"><i class="fa fa-check"></i><b>5.4</b> Método de Máxima Pseudo-Verossimilhança</a></li>
 <li class="chapter" data-level="5.5" data-path="ajmodpar.html"><a href="ajmodpar.html#robustez-do-procedimento-mpv"><i class="fa fa-check"></i><b>5.5</b> Robustez do Procedimento MPV</a></li>
 <li class="chapter" data-level="5.6" data-path="ajmodpar.html"><a href="ajmodpar.html#desvantagens-da-inferencia-de-aleatorizacao"><i class="fa fa-check"></i><b>5.6</b> Desvantagens da Inferência de Aleatorização</a></li>
 <li class="chapter" data-level="5.7" data-path="ajmodpar.html"><a href="ajmodpar.html#laboratorio-de-r-2"><i class="fa fa-check"></i><b>5.7</b> Laboratório de R</a></li>
@@ -170,7 +170,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="testqualajust.html"><a href="testqualajust.html#teste-para-varias-proporcoes"><i class="fa fa-check"></i><b>7.3</b> Teste para Várias Proporções</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="testqualajust.html"><a href="testqualajust.html#estatistica-de-wald-baseada-no-plano-amostral"><i class="fa fa-check"></i><b>7.3.1</b> Estatística de Wald Baseada no Plano Amostral</a></li>
-<li class="chapter" data-level="7.3.2" data-path="testqualajust.html"><a href="testqualajust.html#raoscott"><i class="fa fa-check"></i><b>7.3.2</b> Estatística de Pearson com Ajuste de Rao-Scott</a></li>
+<li class="chapter" data-level="7.3.2" data-path="testqualajust.html"><a href="testqualajust.html#situacoes-instaveis"><i class="fa fa-check"></i><b>7.3.2</b> Situações Instáveis</a></li>
+<li class="chapter" data-level="7.3.3" data-path="testqualajust.html"><a href="testqualajust.html#raoscott"><i class="fa fa-check"></i><b>7.3.3</b> Estatística de Pearson com Ajuste de Rao-Scott</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="testqualajust.html"><a href="testqualajust.html#laboratorio-de-r-4"><i class="fa fa-check"></i><b>7.4</b> Laboratório de R</a></li>
 </ul></li>
@@ -276,120 +277,33 @@ J\left( \mathbf{\hat{\theta}}\right) =\left. J\left( \mathbf{\theta }\right)
 <p>O papel da ponderação <code>na análise de dados amostrais</code> é alvo de controvérsia entre os estatísticos. Apesar de incorporada comumente na inferência descritiva, não há concordância com respeito a seu uso na inferência analítica, havendo um espectro de opiniões entre dois extremos. Num extremo estão os <code>modelistas</code>, que consideram o uso de pesos irrelevante, e no outro os <code>amostristas</code>, que incorporam pesos em qualquer análise.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-60" class="example"><strong>Exemplo 5.1 </strong></span>Uso analítico dos dados da Pesquisa Nacional por Amostra de Domicílios (PNAD)
+<span id="ex:unnamed-chunk-78" class="example"><strong>Exemplo 5.1 </strong></span>Uso analítico dos dados da Pesquisa Nacional por Amostra de Domicílios (PNAD)
 </div>
 <p></p>
 <p>A título de ilustração, consideremos uma pesquisa com uma amostra complexa como a da PNAD do IBGE, que emprega uma amostra estratificada de domicílios em três estágios, tendo como unidades primárias de amostragem (UPAs) os municípios, que são estratificados segundo as unidades da federação (UFs), e regiões menores dentro das UFs (veja IBGE, 1981, p. 67).</p>
 <p>A seleção de municípios dentro de cada estrato é feita com probabilidades desiguais, proporcionais ao tamanho, havendo inclusive municípios incluídos na amostra com certeza (chamados de municípios auto-representativos). Da mesma forma, a seleção de setores (unidades secundárias de amostragem ou USAs) dentro de cada município é feita com probabilidades proporcionais ao número de domicílios em cada setor segundo o último censo disponível. Dentro de cada setor, a seleção de domicílios é feita por amostragem sistemática simples (portanto, com eqüiprobabilidade). Todas as pessoas moradoras em cada domicílio da amostra são pesquisadas.</p>
-<p>A amostra de domicílios e de pessoas dentro de cada estrato é <code>autoponderada</code>, isto é, tal que todos os domicílios e pessoas dentro de um mesmo estrato têm igual probabilidade de seleção. Entretanto, as probabilidades de inclusão (e conseqüentemente os pesos) variam bastante entre as várias regiões de pesquisa. A Tabela <a href="ajmodpar.html#tab:proselpnad">5.1</a> revela como variam essas probabilidades de seleção entre as regiões cobertas pela amostra da PNAD de 93. Como se pode observar, tais probabilidades de inclusão chegam a ser <span class="math inline">\(5\)</span> vezes maiores em Belém do que em São Paulo, e portanto variação semelhante será observada nos pesos.</p>
-<!-- \begin{center} -->
-<!-- \begin{table}[tbp] \centering -->
-<!-- \caption{Probabilidades de seleção da amostra da PNAD de 1993 segundo -->
-<!-- regiões }\bigskip \label{tab51}  -->
-<!-- \begin{tabular}{|c|c|} -->
-<!-- \hline\hline -->
-<!-- Região da pesquisa &  -->
-<!-- \begin{tabular}{l} -->
-<!-- Probabilidade \\  -->
-<!-- de seleção -->
-<!-- \end{tabular} -->
-<!-- \\ \hline\hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- RM de Belém -->
-<!-- \end{tabular} -->
-<!-- } & $1/150$ \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- RMs de Fortaleza, Recife, Salvador e Porto Alegre \\  -->
+<p>A amostra de domicílios e de pessoas dentro de cada estrato é <code>autoponderada</code>, isto é, tal que todos os domicílios e pessoas dentro de um mesmo estrato têm igual probabilidade de seleção. Entretanto, as probabilidades de inclusão (e conseqüentemente os pesos) variam bastante entre as várias regiões de pesquisa. A Tabela <a href="#tab:proselpnad">5.1</a> revela como variam essas probabilidades de seleção entre as regiões cobertas pela amostra da PNAD de 93. Como se pode observar, tais probabilidades de inclusão chegam a ser <span class="math inline">\(5\)</span> vezes maiores em Belém do que em São Paulo, e portanto variação semelhante será observada nos pesos.</p>
+
+<!-- ------------------------------------------------------------------------------------ -->
+<!-- Região da pesquisa                                           Probabilidade  -->
+<!--                                                               de seleção -->
+<!-- ----------------------------------------------------------- --------------- -->
+<!-- RM de Belém                                                     1/150 -->
+<!-- RMs de Fortaleza, Recife, Salvador e Porto Alegre               1/200 -->
 <!-- Distrito Federal -->
-<!-- \end{tabular} -->
-<!-- } & $1/200$ \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- RMs de Belo Horizonte e Curitiba -->
-<!-- \end{tabular} -->
-<!-- } & $1/250$ \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- Rond\^{o}nia, Acre, Amazonas, Roraima, Amapá, \\  -->
-<!-- Tocantins, Sergipe, Mato Grosso do Sul, \\  -->
+<!-- RMs de Belo Horizonte e Curitiba                                1/250 -->
+<!-- Rondô}nia, Acre, Amazonas, Roraima, Amapá,                      1/300  -->
+<!-- Tocantins, Sergipe, Mato Grosso do Sul,   -->
 <!-- Mato Grosso e Goiás -->
-<!-- \end{tabular} -->
-<!-- } & $1/300$ \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- Pará -->
-<!-- \end{tabular} -->
-<!-- } & $1/350$ \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- RM do Rio de Janeiro, Piauí, Ceará, \\  -->
-<!-- Rio Grande do Norte, Paraíba, Pernambuco, \\  -->
-<!-- Alagoas, Bahia, Minas Gerais, \\  -->
+<!-- Pará                                                            1/350       -->
+<!-- RM do Rio de Janeiro, Piauí, Ceará, Rio Grande do Norte,        1/500                  -->
+<!-- Paraíba, Pernambuco, Alagoas, Bahia, Minas Gerais, -->
 <!-- Espírito Santo e Rio de Janeiro -->
-<!-- \end{tabular} -->
-<!-- } & $1/500$ \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- Paraná, Santa Catarina, Rio Grande do Sul -->
-<!-- \end{tabular} -->
-<!-- } & $1/550$ \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- RM de São Paulo, Maranhão, São Paulo -->
-<!-- \end{tabular} -->
-<!-- } & $1/750$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
-<table>
-<caption><span id="tab:proselpnad">Tabela 5.1: </span> Probabilidades de seleção da amostra da PNAD de 1993 segundo regiões</caption>
-<colgroup>
-<col width="80%" />
-<col width="20%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Região da pesquisa</th>
-<th align="center">Probabilidade de seleção</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">RM de Belém</td>
-<td align="center">1/150</td>
-</tr>
-<tr class="even">
-<td align="left">RMs de Fortaleza, Recife, Salvador e Porto Alegre Distrito Federal</td>
-<td align="center">1/200</td>
-</tr>
-<tr class="odd">
-<td align="left">RMs de Belo Horizonte e Curitiba</td>
-<td align="center">1/250</td>
-</tr>
-<tr class="even">
-<td align="left">Rondô}nia, Acre, Amazonas, Roraima, Amapá, Tocantins, Sergipe, Mato Grosso do Sul, Mato Grosso e Goiás</td>
-<td align="center">1/300</td>
-</tr>
-<tr class="odd">
-<td align="left">Pará</td>
-<td align="center">1/350</td>
-</tr>
-<tr class="even">
-<td align="left">RM do Rio de Janeiro, Piauí, Ceará, Rio Grande do Norte, Paraíba, Pernambuco, Alagoas, Bahia, Minas Gerais, Espírito Santo e Rio de Janeiro</td>
-<td align="center">1/500</td>
-</tr>
-<tr class="odd">
-<td align="left">Paraná, Santa Catarina, Rio Grande do Sul</td>
-<td align="center">1/550</td>
-</tr>
-<tr class="even">
-<td align="left">RM de São Paulo, Maranhão, São Paulo</td>
-<td align="center">1/750</td>
-</tr>
-</tbody>
-</table>
+<!-- Paraná, Santa Catarina, Rio Grande do Sul                       1/550 -->
+<!-- RM de São Paulo, Maranhão, São Paulo                            1/750 -->
+<!-- ------------------------------------------------------------------------------- -->
+<!-- Table:(#tab:proselpnad) Probabilidades de seleção da amostra da PNAD de 1993 segundo -->
+<!-- regiões -->
 <p>Se <span class="math inline">\({\ \pi }_{i}\)</span>representa a probabilidade de inclusão na amostra do <span class="math inline">\(i\)</span>-ésimo domicílio da população, <span class="math inline">\(i=1,...,N\)</span>, então <span class="math display">\[
 \pi _{i}=\pi _{munic\acute{\imath}pio\left| estrato\right. }\times \pi
 _{setor\left| munic\acute{\imath}pio\right. }\times \pi _{domic\acute{\imath}
@@ -426,7 +340,7 @@ em lugar do estimador de mínimos quadrados ordinários (MQO) dado por
 <p>Há várias formas alternativas de incorporar os pesos amostrais no processo de inferência. A principal que será adotada ao longo deste texto será o método de <code>Máxima Pseudo-Verossimilhança</code>, que descrevemos na próxima seção.</p>
 </div>
 <div id="modpar3" class="section level2">
-<h2><span class="header-section-number">5.4</span> Método de Máxima Pseudo-Verossimilhança label</h2>
+<h2><span class="header-section-number">5.4</span> Método de Máxima Pseudo-Verossimilhança</h2>
 Suponha que os vetores observados <span class="math inline">\(\mathbf{y}_{i}\)</span> das variáveis de pesquisa do elemento<span class="math inline">\(\ i\)</span> são gerados por vetores aleatórios <span class="math inline">\(\mathbf{Y}_{i}\)</span> , para <span class="math inline">\(i\in U\)</span>. Suponha também que <span class="math inline">\(\mathbf{Y}_{1},\ldots ,\mathbf{Y}_{N}\)</span> são IID com densidade <span class="math inline">\(f\left( \mathbf{y},\mathbf{\theta }\right)\)</span>. Se todos os elementos da população finita <span class="math inline">\(U\)</span> fossem conhecidos, as funções de verossimilhança e de log-verossimilhança <code>populacionais</code> seriam dadas respectivamente por
 <span class="math display" id="eq:modpar3">\[\begin{equation}
 l_{U}\left( \mathbf{\theta }\right) =\prod\limits_{i\in U}f\left( \mathbf{y}
@@ -456,7 +370,7 @@ onde
 <p>Seja <span class="math inline">\(\mathbf{T}=\sum_{i\in U}\mathbf{u}_{i}\left( \mathbf{\theta }\right)\)</span> a soma dos vetores de escores na população, o qual é um vetor de totais populacionais. Para estimar este vetor de totais, podemos então usar um estimador linear ponderado da forma <span class="math inline">\(\mathbf{\hat{T}}=\sum_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta }\right)\)</span> (veja Capítulo <a href="refinf.html#planamo">2.4</a>) onde <span class="math inline">\(w_{i}\)</span> são pesos propriamente definidos. Com essa notação, podemos agora obter um estimador para <span class="math inline">\(\mathbf{\theta }_{U}\)</span> resolvendo o sistema de equações obtido igualando o estimador <span class="math inline">\(\mathbf{\hat{T}}\)</span> do total <span class="math inline">\(\mathbf{T}\)</span> a zero.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-61" class="definition"><strong>Definição 5.1 </strong></span>O estimador de Máxima Pseudo-Verossimilhança (MPV) <span class="math inline">\(\mathbf{\hat{\theta}}_{MPV}\)</span> de <span class="math inline">\(\mathbf{\theta }_{U}\)</span> (e consequentemente de <span class="math inline">\(\mathbf{\theta}\)</span>) será a solução das equações dePseudo-Verossimilhança dadas por
+<span id="def:unnamed-chunk-79" class="definition"><strong>Definição 5.1 </strong></span>O estimador de Máxima Pseudo-Verossimilhança (MPV) <span class="math inline">\(\mathbf{\hat{\theta}}_{MPV}\)</span> de <span class="math inline">\(\mathbf{\theta }_{U}\)</span> (e consequentemente de <span class="math inline">\(\mathbf{\theta}\)</span>) será a solução das equações dePseudo-Verossimilhança dadas por
 <span class="math display" id="eq:modpar7">\[\begin{equation}
 \mathbf{\hat{T}}=\sum_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta }
 \right) =\mathbf{0\;\;.}  
@@ -605,7 +519,7 @@ s}\pi _{i}^{-1}\left. \frac{\partial \mathbf{u}_{i}\left( \mathbf{\theta }
 =\sum_{a}\left( N_{a}/\widehat{N}_{a}\right) \widehat{N}_{ka} 
 \]</span> onde <span class="math inline">\(Y_{ka\left( hij\right)}=1\)</span> se a <span class="math inline">\(j\)</span>-ésima unidade da UPA <span class="math inline">\(i\)</span> do estrato <span class="math inline">\(h\)</span> pertence à <span class="math inline">\(k\)</span>-ésima cela e ao <span class="math inline">\(a\)</span>-ésimo grupo de idade-sexo, e <span class="math inline">\(0\)</span> (zero) caso contrário;</p>
 <p><span class="math inline">\(N_{a}/\widehat{N}_{a}-\)</span> são fatores de ajustamento de pós-estratificação que usam contagens censitárias <span class="math inline">\(N_{a}\)</span> de idade-sexo para diminuir as variâncias dos estimadores.</p>
-<p>Quando as contagens <code>expandidas</code> <span class="math inline">\(\widehat{N}_{k}\)</span> são usadas, os testes de homogeneidade e de qualidade de ajuste de modelos loglineares baseados em amostragem Multinomial e Poisson independentes não são mais válidos. A estatística clássica <span class="math inline">\(X^{2}\)</span> não tem mais distribuição <span class="math inline">\(\chi ^{2}\)</span> e sim uma soma ponderada <span class="math inline">\(\sum_{k}\delta _{k}X_{k}\)</span> de variáveis <span class="math inline">\(X_{k}\)</span> IID com distribuição <span class="math inline">\(\chi ^{2}\left( 1\right)\)</span>. Esse exemplo será rediscutido com mais detalhes na Seção <a href="testqualajust.html#raoscott">7.3.2</a>.</p>
+<p>Quando as contagens <code>expandidas</code> <span class="math inline">\(\widehat{N}_{k}\)</span> são usadas, os testes de homogeneidade e de qualidade de ajuste de modelos loglineares baseados em amostragem Multinomial e Poisson independentes não são mais válidos. A estatística clássica <span class="math inline">\(X^{2}\)</span> não tem mais distribuição <span class="math inline">\(\chi ^{2}\)</span> e sim uma soma ponderada <span class="math inline">\(\sum_{k}\delta _{k}X_{k}\)</span> de variáveis <span class="math inline">\(X_{k}\)</span> IID com distribuição <span class="math inline">\(\chi ^{2}\left( 1\right)\)</span>. Esse exemplo será rediscutido com mais detalhes na Seção <a href="testqualajust.html#raoscott">7.3.3</a>.</p>
 <p>A importância desse exemplo é ilustrar que mesmo quando o usuário pensa estar livre das complicações causadas pelo plano amostral e pesos, ele precisa estar atento à forma como foram gerados os dados que pretende modelar ou analisar, sob pena de realizar inferências incorretas. Este exemplo tem também grande importância prática, pois um grande número de pesquisas domiciliares por amostragem produz como principal resultado conjunto de tabelas com contagens e proporções, as quais foram obtidas mediante ponderação pelas agências produtoras. Este é o caso, por exemplo, da PNAD, da amostra do Censo Demográfico e de inúmeras outras pesquisas do IBGE e de agências estatísticas congêneres.</p>
 </div>
 <div id="laboratorio-de-r-2" class="section level2">

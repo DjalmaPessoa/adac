@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Introdução {#introduc}
 
 
@@ -847,67 +852,35 @@ library(lodown)
 lodown( "pns" , output_dir = "C:/adac/PNS")
 ```
 
+Depois de baixar os dados, são criados os seuintes arquivos no diretório `C:/adac/PNS` :
 
-Salva dados para pessoas com 18 ou mais anos de idade
+1. `2013 all questionnaire survey design.rds` que contém o objeto de desenho para todos as pessoas na amostra;
+
+2. `2013 all questionnaire survey.rds` que contém os microdados para todos as pessoas da amostra
+
+3. `2013 long questionnaire survey design.rds` que contém o objeto de desenho para uma subamostra de pessoas com 18 anos ou mais que responderam um questionário mais longo;
+
+4. `2013 long questionnaire survey.rds` que contém os microdados para uma subamostra de pessoas com 18 anos ou mais que responderam um questionário mais longo;
+
+```{remark}
+Nos arquivos acima, além de as variáveis contidas no dicionário da PNS, foram acrescentadas variáveis derivadas, utilizadas nos exemplos no site [asdfree.com](https://github.com/ajdamico/asdfree/tree/master/Pesquisa%20Nacional%20De%20Saude) 
+```
+
+Inicialmente, vamos estimar características de pessoas com 18 anos ou mais mais que responderam o questionário longo e salvar os microdados dessa amostra no data frame `pes_sel`.
 
 ```{r}
 pes_sel <- readRDS("C:/adac/PNS/2013 long questionnaire survey.rds")
 dim(pes_sel)
 ```
 
-O data frame `pes_sel` contém as variáveis descritas no dicionário da PNS e algumas variáveis obtidas por transformação. Os comandos a seguir ilustram como seriam obtidas as novas variáveis a partir das variáveis no dicionário da PNS contidas em um data frame `x`. Os comandos não precisam ser executados, pois o data frame lido já contém essas variáveis.
-
-```{r, eval=FALSE}
-# x data frame só com as variáveis do dicionário
-# Pessoas que se auto avaliam com saúde boa e muito boa
-pes_sel <- transform( x , saude_b_mb = as.numeric( n001 %in% c( '1' , '2' ) ) )
-# urbano / rural
-pes_sel <- transform( x , situ = factor( substr( v0024 , 7 , 7 ) , labels = c( 'urbano' , 'rural' ) ) )
-
-# sexo
-pes_sel <- transform( x , c006 = factor( c006 , labels = c( 'masculino' , 'feminino' ) ) )
-
-# uf
-estado_names <- c( "Rondônia" , "Acre" , "Amazonas" , "Roraima" , "Pará" , "Amapá" , "Tocantins" , "Maranhão" , "Piauí" , "Ceará" , "Rio Grande do Norte" , "Paraíba" , "Pernambuco" , "Alagoas" , "Sergipe" , "Bahia" , "Minas Gerais" , "Espírito Santo" , "Rio de Janeiro" , "São Paulo" , "Paraná" , "Santa Catarina" , "Rio Grande do Sul" , "Mato Grosso do Sul" , "Mato Grosso" , "Goiás" , "Distrito Federal" )
-pes_sel <- transform( x , uf = factor( v0001 , labels = estado_names ) )
-
-# região
-pes_sel <- transform( x , region = factor( substr( v0001 , 1 , 1 ) , labels = c( "Norte" , "Nordeste" , "Sudeste" , "Sul" , "Centro-Oeste" ) ) )
-
-# recodifica para numérico
-pes_sel[ , c( 'p04101' , 'p04102' , 'p04301' , 'p04302' ) ] <- sapply( x[ , c( 'p04101' , 'p04102' , 'p04301' , 'p04302' ) ] , as.numeric )
-# recodifica deslocamento para trabalho
-pes_sel <-
-	transform(
-		x ,
-		tempo_desl_trab = ifelse( is.na( p04101 ) , 0 , p04101 * 60 + p04102 ) ,
-		tempo_desl_athab = ifelse( is.na( p04301 ) , 0 , p04301 * 60 + p04302 ) )
-
-pes_sel <- transform( x , tempo_desl = tempo_desl_trab + tempo_desl_athab )
-
-pes_sel <- transform( x , atfi04 = as.numeric( tempo_desl >= 30 ) )
-
-
-# idade categórica
-pes_sel$age_cat <- factor( 1 + findInterval( as.numeric( x$c008 ) , c( 18 , 30 , 40 , 60 ) ) , labels = c( "0-17" , "18-29" , "30-39" , "40-59" , "60+" ) )
-
-# race
-pes_sel$raca <- as.numeric( pes_sel$c009 )
-pes_sel[ pes_sel$raca == 9 , 'raca' ] <- NA
-pes_sel$raca <- factor( pes_sel$raca , labels = c( 'Branca' , 'Preta' , 'Amarela' , 'Parda' , 'Indígena' ) )
-
-# educação
-pes_sel$educ <- factor( 1 + findInterval( as.numeric( pes_sel$vdd004 ) , c( 3 , 5 , 7 ) ) , labels = c( "SinstFundi" , "FundcMedi" , "MedcSupi" , "Supc" ) )
-
-# número de pessoas no domicílio
-pes_sel$c001 <- as.numeric(pes_sel$c001)
-
-# coluna com 1
-pes_sel$one <- 1                   
+```{remark}
+No data frame pes_sel os códigos das variáveis foram transformados para letras minúsculas.
 ```
+O data frame `pes_sel` contém as variáveis descritas no dicionário da `PNS` e algumas variáveis obtidas derivadas. 
 
+O passo inicial para a análise dos microdados é definir um objeto de desenho que salva
+as características do plano amostral da pesquisa. Isso é feito por meio da função `svydesign()` da library `survey. 
 
-Criação do objeto de desenho: 
 
 ```{r, message=FALSE, warning=FALSE}
 library(survey)
@@ -921,26 +894,23 @@ pes_sel_des <-
 	)
 ```
 
-Totais populacionais usados na pós-estratificação
+O objeto de desenho `pes_sel_des` deve ser modificado para incorporar informações de totais disponíveis a partir do Censo Demográfico. Para isso, são definidos `post-pop`, definido a seguir.
+
 ```{r}
 post_pop <- unique( pes_sel[ c( 'v00293.y' , 'v00292.y' ) ] )
 names( post_pop ) <- c( "v00293.y" , "Freq" )
 ```
 
-Objeto de desenho pós-estratificado
+Utilizando a função `postStratify()` da library `survey` incorpora-se no objeto de desenho `pes_sel_des` as informações contidas no data frame `post_pop`.
+
 
 ```{r}
 pes_sel_des_pos <- postStratify( pes_sel_des , ~v00293.y , post_pop )
 ```
 
-Salva objeto de desenho pós-estratificado
+Os comandos acimas foram apresentados apenas para ilustrar como, a partir dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não seria necessária a execução desses comandos pois o  objeto de desenho `pes_sel_des_pos` já se encontra disponível no arquivo 1 `2013 all questionnaire survey design.rds`. 
 
-```{r, eval= FALSE}
-saveRDS(pes_sel_des_pos,"C:/adac/PNS/2013 long questionnaire survey design.rds" )
-```
-
-Vamos agora reproduzir estimativas na Tabela 6.42.1.1 da publicação em 
-ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf.
+Para exemplificar, vamos agora reproduzir estimativas na Tabela 6.42.1.1 da publicação em ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf.
 
 A variável de interesse tem código Q092 e sua descrição é: 
 "Algum médico ou profissional de saúde mental (como psiquiatra ou psicólogo) já lhe deu o diagnóstico de depressão?"
@@ -953,13 +923,14 @@ table(pes_sel$q092)
 ```
 
 
-Antes vamos definir uma nova variável `diag_dep` que é igual a 1 se recebe diagnóstico de depressão e zero caso contário:
+Antes vamos definir uma nova variável `diag_dep` que é igual a 1 se recebe diagnóstico de depressão e zero caso contrário:
 
 ```{r}
 diag_dep <- as.numeric (pes_sel$q092=="1")
 ```
 
-Vamos atualizar o objeto de desenho `pes_sel_des_pos` para incluir a variável `diad_dep` na componente `variables`:
+Como mencionado, o objeto de desenho pós-estratificado `pes_sel_des_pos` pode ser lido
+do arquivo `2013 all questionnaire survey design.rds`. Vamos atualizar o objeto de desenho `pes_sel_des_pos` para incluir a variável `diad_dep` na componente `variables`:
 
 ```{r}
 pes_sel_des_pos <- update (pes_sel_des_pos, diag_dep = diag_dep )
@@ -981,8 +952,7 @@ Um intervalo de confiança aproximado de nível de confiança de 95% é dado por
 round(100* c(coef(diagdepbr) - 2*SE(diagdepbr),coef(diagdepbr) + 2*SE(diagdepbr)  ), 1)
 ```
 
-O cálculo da estimativa e do intervalo pode ser colocado em uma função
-
+As estimativas e os limites do intervalo de confiança aproximado com 95% de nível de confiança podem ser obtidos por meio da função:
 
 
 ```{r}
