@@ -413,7 +413,7 @@ O leitor interessado na análise de dados sujeitos a não-resposta pode consulta
 **Estrutura do Livro**
 
 O livro está organizado em catorze capítulos. Este primeiro capítulo
-discute a motivação para estudar o assunto e apresenta uma idéia
+discute a motivação para estudar o assunto e apresenta uma ideia
 geral dos objetivos e da estrutura do livro.
 
 No segundo capítulo, procuramos dar uma visão das diferentes
@@ -436,7 +436,7 @@ discussão é apresentada no Capítulo \@ref(refinf).
 
 No Capítulo \@ref(capplanamo) apresentamos uma revisão sucinta, a título
 de recordação, de alguns resultados básicos da Teoria de
-Amostragem, requeridos nas partes subseqüentes do livro. São
+Amostragem, requeridos nas partes subsequentes do livro. São
 discutidos os procedimentos básicos para estimação de totais
 considerando o plano amostral, e em seguida revistas algumas técnicas
 para estimação de variâncias úteis para o caso de
@@ -483,7 +483,7 @@ complexas. Apresentamos correções das estatísticas clássicas
 e a estatística de Wald baseada no plano amostral. As referências
 básicas usadas nesses capítulos foram os livros cap. 4, [@SHS89] e 
 cap. 7 [@lethonen]. Também são apresentadas as idéias básicas de como
-efetuar ajuste de modelos log-lineares a dados de freqüências em tabelas de 
+efetuar ajuste de modelos log-lineares a dados de frequências em tabelas de 
 múltiplas entradas.
 
 O Capítulo \@ref(estimacao-de-densidades) trata da estimação de densidades e funções de distribuição,
@@ -634,7 +634,7 @@ etárias consideradas, que fornece os resultados nas linhas 6 e 7 da Tabela \ref
 svyratio(~analf1, ~faixa1, ppv.se.des)
 svyratio(~analf2, ~faixa2, ppv.se.des)
 ```
-Na library `survey`, uma alternativa para estimar por domínio é utililizar a função `svyby`. Poderíamos estimar os totais da variável `analf1` para as regiões `Nordeste (1)` e  `Sudeste(2)` da seguinte forma:
+Na library `survey`, uma alternativa para estimar por domínio é utilizar a função `svyby`. Poderíamos estimar os totais da variável `analf1` para as regiões `Nordeste (1)` e  `Sudeste(2)` da seguinte forma:
 
 ```{r}
 svyby(~analf1, ~regiao, ppv.des, svytotal, deff = TRUE)
@@ -708,7 +708,7 @@ attr(svytotal(~analf1, ppv.se.des),"var")/VAAS1
 attr(svytotal(~analf2, ppv.se.des),"var")/VAAS2
 ```
 
-Esses valores do EPA coicidem com os obtidos acima através da library survey e 
+Esses valores do EPA coincidem com os obtidos acima através da library survey e 
 são distintos daqueles apresentados na Tabela \ref{table:Tab13}. Para obter os valores 
 correspondentes aos da Tabela \ref{table:Tab13}, através da library survey, vamos definir as variáveis:
 
@@ -852,7 +852,7 @@ library(lodown)
 lodown( "pns" , output_dir = "C:/adac/PNS")
 ```
 
-Depois de baixar os dados, são criados os seuintes arquivos no diretório `C:/adac/PNS` :
+Depois de baixar os dados, são criados os seguintes arquivos no diretório `C:/adac/PNS` :
 
 1. `2013 all questionnaire survey design.rds` que contém o objeto de desenho para todos as pessoas na amostra;
 
@@ -863,7 +863,7 @@ Depois de baixar os dados, são criados os seuintes arquivos no diretório `C:/a
 4. `2013 long questionnaire survey.rds` que contém os microdados para uma subamostra de pessoas com 18 anos ou mais que responderam um questionário mais longo;
 
 ```{remark}
-Nos arquivos acima, além de as variáveis contidas no dicionário da PNS, foram acrescentadas variáveis derivadas, utilizadas nos exemplos no site [asdfree.com](https://github.com/ajdamico/asdfree/tree/master/Pesquisa%20Nacional%20De%20Saude) 
+Nos arquivos acima, além das variáveis contidas no dicionário da PNS, foram acrescentadas variáveis derivadas, utilizadas nos exemplos no site [asdfree.com](https://github.com/ajdamico/asdfree/tree/master/Pesquisa%20Nacional%20De%20Saude) 
 ```
 
 Inicialmente, vamos estimar características de pessoas com 18 anos ou mais mais que responderam o questionário longo e salvar os microdados dessa amostra no data frame `pes_sel`.
@@ -874,7 +874,7 @@ dim(pes_sel)
 ```
 
 ```{remark}
-No data frame pes_sel os códigos das variáveis foram transformados para letras minúsculas.
+No data frame pes_sel o nome das variáveis, obtidos por `names(pes_sel)`, estão em minúsculas. No dicionário da PNS os códigos correspondentes estão em maiúsculas.
 ```
 O data frame `pes_sel` contém as variáveis descritas no dicionário da `PNS` e algumas variáveis obtidas derivadas. 
 
@@ -894,7 +894,7 @@ pes_sel_des <-
 	)
 ```
 
-O objeto de desenho `pes_sel_des` deve ser modificado para incorporar informações de totais disponíveis a partir do Censo Demográfico. Para isso, são definidos `post-pop`, definido a seguir.
+Os pesos do objeto de desenho `pes_sel_des` devem ser modificados de modo que as estimativas dos totais populacionais dos pós-estratos fixados coincidam com os  totais populacionais dos pós-estratos conhecidos a partir do Censo Demográfico. O data frame `post_pop` contém na primeira coluna a identidade dos pós-estratos e na segunda seus totais populacionais.
 
 ```{r}
 post_pop <- unique( pes_sel[ c( 'v00293.y' , 'v00292.y' ) ] )
@@ -936,7 +936,7 @@ do arquivo `2013 all questionnaire survey design.rds`. Vamos atualizar o objeto 
 pes_sel_des_pos <- update (pes_sel_des_pos, diag_dep = diag_dep )
 ```
 Para calcular a proporção de pessoas que receberam diagnóstico de depressão para
-o país inteiro:
+o país inteiro usamos o seguinte comando:
 
 ```{r}
 diagdepbr <- svymean(~diag_dep, pes_sel_des_pos)
@@ -946,13 +946,13 @@ round(100*SE(diagdepbr),1)
 ```
 
 
-Um intervalo de confiança aproximado de nível de confiança de 95% é dado por
+e para obter um intervalo de confiança aproximado com nível de confiança de 95%, usamos:
 
 ```{r}
 round(100* c(coef(diagdepbr) - 2*SE(diagdepbr),coef(diagdepbr) + 2*SE(diagdepbr)  ), 1)
 ```
 
-As estimativas e os limites do intervalo de confiança aproximado com 95% de nível de confiança podem ser obtidos por meio da função:
+As estimativa de proporção e os limites do intervalo de confiança podem ser obtidos por meio da função:
 
 
 ```{r}
@@ -961,11 +961,14 @@ three_stats <- function(z) round(100 * c(coef(z), coef(z) -
 
 ```
 
-Aplicando para o exemplo, obtemos para o país inteiro:
+Aplicando a função `three_stats` para estimar a proporção para o país inteiro:
 
 ```{r}
 three_stats(diagdepbr)
 ```
+que coincidem com os resultados já obtidos.
+
+
 
 Para o país por sexo:
 

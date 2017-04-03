@@ -72,7 +72,7 @@ também modificação na declividade, que passa de $\beta _{1}$
 para $\beta _{1}+\beta _{3}$ quando $z_{i}$ passa de $0$ a $1$.
 
 Modelos com o efeito de estratificação aqui ilustrado podem ser
-facilmente generalizados para o caso de mais de dois estratos, bastanto para
+facilmente generalizados para o caso de mais de dois estratos, bastando para
 isso adicionar de forma similar variáveis indicadoras de pertinência
 aos diversos estratos, exceto o último. Tais modelos podem ser úteis
 em uma variedade de situações de interesse prático. Um caso
@@ -386,7 +386,7 @@ deve consultar, por exemplo, [@bryk].
 Nas considerações anteriores, não mencionamos explicitamente o
 plano amostral utilizado. Os modelos hierárquicos, ao incorporarem
 covariáveis características da estrutura populacional e também
-do plano a\-mos\-tral, tais como efeitos de estratificação e de
+do plano amostral, tais como efeitos de estratificação e de
 conglomeração, tornam o plano amostral ignorável,
 condicionalmente nestas características, no sentido definido por
 [@Rubin76]. Este raciocínio, porém, não é aplicável
@@ -407,7 +407,7 @@ alunos da sexta série. A população de conglomerados consistiu em
 $4.126$ escolas, da qual foi selecionada uma amostra de $53$ escolas, que
 produziu $1.071$ alunos, numa população de $60.934$ alunos. O
 tamanho total da amostra de alunos não foi fixado, de início. O
-plano amostral utilizado foi uma a\-mos\-tra estratificada de escolas
+plano amostral utilizado foi uma amostra estratificada de escolas
 (conglomerados) com um estágio, selecionada de um cadastro de escolas.
 Foi usada estratificação regional e as amostras nos estratos foram
 proporcionais ao tamanhos dos estratos.
@@ -488,7 +488,7 @@ Outra opção é a `análise agregada`, que incorpora o
 plano amostral e os pesos através do método de MPV para estimar
 parâmetros, e do uso de estatísticas baseadas no plano amostral para
 testar hipóteses. Esta abordagem pode ser usada também na etapa de
-seleção de modelos, com testes de siginificância baseados, por
+seleção de modelos, com testes de significância baseados, por
 exemplo, na estatística de Wald ou ajustes desta, no caso de
 instabilidade. Os resultados dessa análise são apresentados na
 Tabela \ref{tab92}.
@@ -655,7 +655,7 @@ respectivamente).\pagebreak
 ([@bryk],  Cap. 5)
 ```
 
-Os dados consitiram em respostas de $8.000$ professores aninhados em $357$
+Os dados consistiram em respostas de $8.000$ professores aninhados em $357$
 escolas. A média de professores por escola foi $8.000/357=22$
 professores por escola. Os níveis da estrutura hierárquica
 considerados e os índices usados para representá-los foram:
@@ -696,7 +696,7 @@ $x_{6j}=$ Mistura de Status Sócio-Econômico;
 
 $x_{7j}=$ Grau de Organização Comunitária ($Comunit$).
 
-A idéia deste exemplo é ilustrar como diversos modelos alternativos
+A ideia deste exemplo é ilustrar como diversos modelos alternativos
 podem ser usados para analisar os dados sobre eficiência do professor,
 buscando explicação em variáveis que refletem a estrutura da
 escola onde atua. Um primeiro modelo que se poderia ajustar, considerando a
@@ -799,7 +799,7 @@ $\left(x_{1},\ldots ,x_{6}\right)$ aumentou para
 \]
 
 Embora esse aumento do poder explicativo do modelo já tenha sido
-subs\-tan\-cial, ainda é relativamente baixa a proporção de variação explicada, e portanto consideramos um terceiro modelo, em que
+substancial, ainda é relativamente baixa a proporção de variação explicada, e portanto consideramos um terceiro modelo, em que
 foi adicionada ao Modelo II a variável preditora $x_{7}=Comunit$ ao
 nível da escola.
 
@@ -871,7 +871,7 @@ variação na eficácia do professor. O Modelo III já atinge um
 nível razoável de poder explicativo e poderia ser considerado
 satisfatório para algumas finalidades.
 
-Agora vamos ver o que teria ocorrido caso um analista procurasse ajus\-tar
+Agora vamos ver o que teria ocorrido caso um analista procurasse ajustar
 um modelo aos dados de forma bastante ingênua, ignorando a estrutura
 hierárquica da população.
 
@@ -1015,7 +1015,7 @@ decorre da amostragem por conglomerado.
 
 Pode ocorrer quando as relações entre características
 individuais e resultados variam ao longo das organizações. Embora
-este fen\^{o}meno seja, frequentemente, considerado como de
+este fenômeno seja, frequentemente, considerado como de
 distúrbio do ponto de vista metodológico, as causas da
 heterogeneidade da regressão são muitas vezes de interesse
 substantivo. Modelos hierárquicos possibilitam ao pesquisador estimar um
@@ -1070,7 +1070,7 @@ nos vários estágios de amostragem) para cada unidade amostral. Tais
 informações muitas vezes não estão disponíveis por
 razões de proteção da confidencialidade das informações
 ou outras razões práticas. Modelagem de dados de pesquisas
-a\-mos\-trais por analistas secundários é geralmente realizada em
+amostrais por analistas secundários é geralmente realizada em
 condições em que as informações sobre o plano amostral
 são parcial ou completamente ignoradas. Este é o caso das várias
 pesquisas para as quais já existe a prática de disseminar arquivos
@@ -1084,7 +1084,7 @@ Sua consideração foi uma das razões que nos levou a discutir
 neste livro com maior detalhe a abordagem agregada, que também depende
 do acesso a informações como as citadas aqui, mas que pode ser
 aplicada nalguns casos em que uma abordagem desagregada seria
-impossível. Para citar um exemplo, numa pes\-quisa amostral conglomerada
+impossível. Para citar um exemplo, numa pesquisa amostral conglomerada
 em dois ou mais estágios, quando se pretende estimar variâncias pelo
 método do conglomerado primário numa abordagem agregada de
 análise, basta conhecer estratos e pertinência a Unidades

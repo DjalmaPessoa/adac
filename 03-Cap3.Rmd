@@ -2,7 +2,7 @@
 
 ## Estimação de Totais {#estimatotais}
 
-Devido a sua importância para os desenvolvimentos teóricos em vários dos capítulos subseqüentes, alguns resultados básicos relativos à estimação de totais da população finita numa abordagem baseada no plano amostral serão reproduzidos nesta seção. A referência básica usada foi a  Seção 2.8 de [@SSW92].
+Devido a sua importância para os desenvolvimentos teóricos em vários dos capítulos subsequentes, alguns resultados básicos relativos à estimação de totais da população finita numa abordagem baseada no plano amostral serão reproduzidos nesta seção. A referência básica usada foi a  Seção 2.8 de [@SSW92].
 
 Consideremos o problema de estimar o vetor $\mathbf{Y}=\sum_{i \in U}\mathbf{y}_i$ de totais das $P$ variáveis da pesquisa na população, a partir de uma amostra observada $a$. Naturalmente, qualquer estimador viável do total $\mathbf{Y}$ só pode depender dos valores das
 variáveis de pesquisa observados na amostra, contidos em $\mathbf{y}_{i_{1}}, \ldots , \mathbf{y}_{i_{n}}$, mas não dos valores dessas variáveis para os elementos não pesquisados.
@@ -180,12 +180,12 @@ $$
 têm probabilidade de cobertura aproximada $1-\alpha$. 
 
 Estimativas de variância podem ser úteis também para outras
-finalidades, tais como a deteção de problemas não antecipados,
+finalidades, tais como a detecção de problemas não antecipados,
 tais como observações suspeitas, celas raras em tabelas de
 contingência, etc.
 
 A estimação de variâncias para os casos padrões de
-amostragem, isto é, quando os estimadores são lineares nas observacões amostrais, não viciados, e todas as probabilidades de
+amostragem, isto é, quando os estimadores são lineares nas observações amostrais, não viciados, e todas as probabilidades de
 inclusão conjuntas são não nulas, é tratada em todos os
 livros de amostragem convencionais. Apesar disso, os pacotes
 estatísticos usuais, tais como SAS, SPSS, MINITAB, BMDP e outros,
@@ -225,7 +225,7 @@ variâncias para planos amostrais estratificados em vários
 estágios, com seleção de unidades primárias com
 probabilidades desiguais, denominada `Método do Conglomerado
 Primário` (do inglês *Ultimate Cluster*, e finalmente se
-discute brevemente uma técnica baseada na idéia de 
+discute brevemente uma técnica baseada na ideia de 
 pseudo-replicações da amostra, denominada `Jackknife`. A combinação
 dessas três idéias suporta os desenvolvimentos teóricos dos
 algoritmos empregados pelos principais pacotes estatísticos
@@ -425,14 +425,14 @@ $\widehat{\mathbf{R}}$ do vetor de razões de interesse.
 
 ## Método do Conglomerado Primário
 
-A idéia central do `Método do Conglomerado Primário` (do
+A ideia central do `Método do Conglomerado Primário` (do
 inglês `Ultimate Cluster`) para estimação de variâncias
 para estimadores de totais e médias em planos amostrais de múltiplos
 estágios, proposto por [@hansen], é considerar
 apenas a variação entre informações disponíveis no
 nível das unidades primárias de amostragem (UPAs), isto é, dos
 conglomerados primários, e admitir que estes teriam sido selecionados
-com reposição da população. Esta idéia é simples,
+com reposição da população. Esta ideia é simples,
 porém bastante poderosa, porque permite acomodar uma enorme variedade de
 planos amostrais, envolvendo estratificação e seleção com
 probabilidades desiguais (com ou sem reposição) tanto das unidades
@@ -487,14 +487,14 @@ dessa aproximação e alternativas pode ser encontrada em  [@SSW92], p. 153.
 
 ## Métodos de Replicação
 
-A idéia de usar métodos indiretos ou de replicação para
+A ideia de usar métodos indiretos ou de replicação para
 estimar variâncias em amostragem não é nova. [@Mahala39], [@Mahala44] e [@deming] foram os precursores e muitos desenvolvimentos
 importantes se seguiram. Hoje em dia várias técnicas baseadas nessa
-idéia são rotineiramente empregadas por praticantes de amostragem, e
+ideia são rotineiramente empregadas por praticantes de amostragem, e
 inclusive formam a base para pacotes especializados de estimação
 tais como WesVarPC (veja [@Westat]).
 
-A idéia básica é construir a amostra de tamanho $n$ como a
+A ideia básica é construir a amostra de tamanho $n$ como a
 união de $G$ amostras de tamanho $n/G$ cada uma, selecionadas de forma
 independente e usando o mesmo plano amostral, onde $G$ é o número de 
 \emph{replicações}. Nesse caso, se $\theta$ é o
@@ -526,7 +526,7 @@ eficiente, inconveniente e mais caro selecionar $G$ amostras independentes com o
 amostra de tamanho $n$ diretamente. Além disto, se o número de
 replicações $G$ for pequeno, o estimador de variância pode ser
 instável. Uma pesquisa importante e de grande porte em que esta
-idéia é aplicada exatamente é a pesquisa de preços para
+ideia é aplicada exatamente é a pesquisa de preços para
 formar o índice de Preços ao Consumidor (do inglês 
 *Consumer Price Index - CPI* do [@USBureau], p. 22,
 que utiliza duas replicações (meias amostras) para formar a
@@ -534,7 +534,7 @@ amostra pesquisada.
 
 Mesmo quando a amostra não foi selecionada exatamente dessa forma, a
 construção de replicações a posteriori para fins de estimação de variâncias em situações complexas é também
-uma idéia simples de aplicar, poderosa e flexível, por acomodar uma
+uma ideia simples de aplicar, poderosa e flexível, por acomodar uma
 ampla gama de planos amostrais e situações de estimação de
 interesse. Quando as replicações são construídas após a
 pesquisa (a posteriori), mediante repartição (por sorteio) da
@@ -573,7 +573,7 @@ Nesta seção descreveremos uma outra dessas técnicas baseadas em
 replicações, talvez a mais conhecida e popular, o método de 
 `jackknife`. Este método foi originalmente proposto por
 [@Queno49] e [@Queno56] como uma técnica para redução de vício
-de estimadores, num contexto da Estatística Clássica. A idéia
+de estimadores, num contexto da Estatística Clássica. A ideia
 central consiste em repartir a amostra (a posteriori, como no caso do
 método dos grupos aleatórios) em $G$ grupos mutuamente exclusivos de
 igual tamanho $n/G$. Em seguida, para cada grupo formado calcular os

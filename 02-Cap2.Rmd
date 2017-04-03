@@ -2,7 +2,7 @@
 
 ## Modelagem - Primeiras Idéias {#classic}
 
-Com o objetivo de dar uma primeira idéia sobre o assunto a ser tratado
+Com o objetivo de dar uma primeira ideia sobre o assunto a ser tratado
 neste livro vamos considerar, numa situação simples, algumas
 abordagens alternativas de análise estatística.
 
@@ -268,7 +268,7 @@ definimos estatísticas $\left( y_{1},\ldots ,y_{N}\right)$ (no sentido
 da `abordagem 1`) que são quantidades descritivas populacionais
 (parâmetros populacionais no contexto da `abordagem 2`), que passam
 a ser os novos parâmetros-alvo. O passo seguinte é utilizar
-métodos diponíveis na `abordagem 2` para fazer inferência
+métodos disponíveis na `abordagem 2` para fazer inferência
 sobre $g\left( y_{1},\ldots ,y_{N}\right)$ baseada em $y_{i_1},\ldots ,y_{i_n}$.
 Note que não é possível basear a inferência nos valores
 populacionais $y_{1},\ldots ,y_{N}$, já que estes não são
@@ -515,18 +515,18 @@ e denotamos por $\pi_{ij}$ a probabilidade de inclusão conjunta na amostra das 
 \end{equation}
 para todo $i \neq j \in U$, e seja $\pi_{ii} = \pi_{i}$ $\forall i \in U.$
 
-Uma hipótese básica assumida com relação aos planos amostrais aqui considerados é que $\pi_i > 0$ e $\pi_{ij} > 0$ $\forall i,j \in U.$ A hipótese de $\pi_{ij}$ ser positiva é adotada para simplificar a apresentação das expressões das variâncias dos estimadores. Contudo, esta não é uma hipótese crucial, pois há planos amostrais que não a satifazem e para os quais estão disponíveis aproximações e estimadores satisfatórios das variâncias dos estimadores de totais e de médias.
+Uma hipótese básica assumida com relação aos planos amostrais aqui considerados é que $\pi_i > 0$ e $\pi_{ij} > 0$ $\forall i,j \in U.$ A hipótese de $\pi_{ij}$ ser positiva é adotada para simplificar a apresentação das expressões das variâncias dos estimadores. Contudo, esta não é uma hipótese crucial, pois há planos amostrais que não a sati fazem e para os quais estão disponíveis aproximações e estimadores satisfatórios das variâncias dos estimadores de totais e de médias.
 
 ## Planos Amostrais Informativos e Ignoráveis {#inform}
 
-Ao fazer inferência usando dados de pesquisas amostrais precisamos distingüir duas situações que requerem tratamento diferenciado. Uma dessas situações ocorre quando o plano amostral empregado para coletar os dados é \emph{informativo}, isto é, quando o mecanismo de seleção das unidades amostrais pode depender dos valores das variáveis de pesquisa. Um exemplo típico desta situação é o dos \emph{estudos de caso-controle}, em que a amostra é selecionada de tal forma que há \emph{casos} (unidades com determinada  condição) e \emph{controles} (unidades sem essa condição), sendo de interesse a modelagem do indicador de presença ou ausência da condição em função de variáveis preditoras, e sendo esse indicador uma das variáveis de pesquisa, que é considerada no mecanismo de seleção da amostra. Os métodos que discutiremos ao longo deste livro não são adequados, em geral, para esse tipo de situação, e portanto uma hipótese fundamental adotada ao longo deste texto é que os planos amostrais considerados são \emph{não-informativos}, isto é, não podem depender diretamente dos valores das variáveis da pesquisa. Logo eles satisfazem
+Ao fazer inferência usando dados de pesquisas amostrais precisamos distinguir duas situações que requerem tratamento diferenciado. Uma dessas situações ocorre quando o plano amostral empregado para coletar os dados é \emph{informativo}, isto é, quando o mecanismo de seleção das unidades amostrais pode depender dos valores das variáveis de pesquisa. Um exemplo típico desta situação é o dos \emph{estudos de caso-controle}, em que a amostra é selecionada de tal forma que há \emph{casos} (unidades com determinada  condição) e \emph{controles} (unidades sem essa condição), sendo de interesse a modelagem do indicador de presença ou ausência da condição em função de variáveis preditoras, e sendo esse indicador uma das variáveis de pesquisa, que é considerada no mecanismo de seleção da amostra. Os métodos que discutiremos ao longo deste livro não são adequados, em geral, para esse tipo de situação, e portanto uma hipótese fundamental adotada ao longo deste texto é que os planos amostrais considerados são \emph{não-informativos}, isto é, não podem depender diretamente dos valores das variáveis da pesquisa. Logo eles satisfazem
 
 \begin{equation}
 f\left[ \mathbf{\delta }_a | \left( \mathbf{y}_U , \mathbf{x}_U \right)
 \right] = f\left( \mathbf{\delta }_a | \mathbf{x}_U \right) . (\#eq:ref7)
 \end{equation}
 
-Entre os planos amostrais \emph{não-informativos}, precisamos ainda distingüir duas outras situações de interesse. Quando o plano amostral é amostragem aleatória simples com reposição (AASC), o modelo adotado para a amostra é o mesmo que o modelo adotado para a população antes da amostragem. Quando isto ocorre, o plano amostral é dito \emph{ignorável}, porque a inferência baseada na amostra utilizando a abordagem clássica descrita em \@ref(classic) pode prosseguir sem problemas. Entretanto, esquemas
+Entre os planos amostrais \emph{não-informativos}, precisamos ainda distinguir duas outras situações de interesse. Quando o plano amostral é amostragem aleatória simples com reposição (AASC), o modelo adotado para a amostra é o mesmo que o modelo adotado para a população antes da amostragem. Quando isto ocorre, o plano amostral é dito \emph{ignorável}, porque a inferência baseada na amostra utilizando a abordagem clássica descrita em \@ref(classic) pode prosseguir sem problemas. Entretanto, esquemas
 amostrais desse tipo são raramente empregados na prática, por razões de eficiência e custo. Em vez disso, são geralmente empregados planos amostrais envolvendo estratificação, conglomeração e probabilidades desiguais de seleção (amostragem complexa).
 
 Com amostragem complexa, porém, os modelos para a população e a amostra podem ser muito diferentes (plano amostral \emph{não-ignorável}), mesmo que o mecanismo de seleção não
@@ -536,7 +536,7 @@ A definição precisa de ignorabilidade e as condições sob as quais um plano a
 
 Uma forma simples de lidar com os efeitos do plano amostral na estimação pontual de quantidades descritivas populacionais de interesse é incorporar pesos adequados na análise, como se verá no Capítulo \@ref(capplanamo). Essa forma porém, não resolve por si só o problema de estimação da precisão das estimativas pontuais, nem mesmo o caso da estimação pontual de parâmetros em modelos de superpopulação, o que vai requerer métodos específicos discutidos no Capítulo \@ref(ajmodpar).
 
-Como incluir os pesos para proteger contra planos amostrais \emph{não-ignoráveis} e a possibilidade de má especificação do modelo? Uma idéia é modificar os estimadores dos parâmetros de modo que sejam consistentes (em termos da distribuição de aleatorização) para quantidades descritivas da população finita da qual a amostra foi extraída, que por
+Como incluir os pesos para proteger contra planos amostrais \emph{não-ignoráveis} e a possibilidade de má especificação do modelo? Uma ideia é modificar os estimadores dos parâmetros de modo que sejam consistentes (em termos da distribuição de aleatorização) para quantidades descritivas da população finita da qual a amostra foi extraída, que por
 sua vez seriam boas aproximações para os parâmetros dos modelos de interesse. Afirmações probabilísticas são então feitas com respeito à distribuição de aleatorização das estatísticas amostrais $p$ ou com respeito à distribuição mista $Mp$.
 
 A seguir apresentamos um exemplo com a finalidade de ilustrar uma situação de plano amostral não-ignorável.

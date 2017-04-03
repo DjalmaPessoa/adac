@@ -6,7 +6,7 @@
 O cálculo de desvio padrão e o uso de testes de hipóteses
 desempenham papel fundamental em estudos analíticos. Além de
 estimativas pontuais, na inferência analítica é necessário
-transmitir a idéia de precisão associada a essas estimativas e
+transmitir a ideia de precisão associada a essas estimativas e
 construir intervalos de confiança associados. Valores de desvios
 padrões, ou alternativamente comprimentos de intervalos de confiança, permitem avaliar a precisão da estimação. O cálculo
 do desvio padrão também possibilita a construção de
@@ -358,7 +358,7 @@ as quais foram observadas as seguintes variáveis:
 
 3. receita total no ano de 94 (REC).
 
-A idéia é considerar o problema de estimar as médias
+A ideia é considerar o problema de estimar as médias
 populacionais das variáveis SAL e REC (variáveis de pesquisa, nesse
 exemplo), usando amostras estratificadas simples com alocação
 desproporcional, implicando em unidades amostrais com pesos desiguais numa situação bastante simples. A variável PO é a variável de

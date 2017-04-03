@@ -20,11 +20,11 @@ pesquisada incluam um vetor $\mathbf{z}_{i}=\left( z_{i1},\ldots
 ,z_{iP}\right) ^{^{\prime }}$ de dimensão $P\times 1$ com os valores de
 variáveis $\mathbf{z}$, que são `preditoras` ou
 explanatórias num modelo de regressão $M$. Este modelo tem o
-objetivo de predizer ou explicar os valores de uma variável da pesquisa $y$, queé considerada como variável `resposta`.
+objetivo de predizer ou explicar os valores de uma variável da pesquisa $y$, que é considerada como variável `resposta`.
 Denotemos por $Y_{i}$ e $\mathbf{Z}_{i}$ a variável e o vetor
-aleat\'{o}rios que geram $y_{i}$ e $\mathbf{z}_{i}$, para $i\in U$. Sem
+aleatórios que geram $y_{i}$ e $\mathbf{z}_{i}$, para $i\in U$. Sem
 perda de generalidade, suponhamos também que a primeira componente do
-vetor $\mathbf{z}_{i}$ de variáveis preditorasé sempre igual a $1$,
+vetor $\mathbf{z}_{i}$ de variáveis preditoras é sempre igual a $1$,
 de modo a incluir sempre um termo de intercepto nos modelos de regressão
 linear considerados (tal hipótese não é essencial, mas será
 adotada no restante deste capítulo). Suponhamos agora que 
@@ -265,8 +265,8 @@ _{\pi }\right) ^{^{\prime }}\mathbf{\Pi }_{s}^{-1}\left( \mathbf{y}_{s}-
 
 ### Estimação da Variância de Estimadores de MPV
 
-O exercício de ajustar um modelo não estará completo sem a avalia
-ção da precisão e significância das estimativas dos
+O exercício de ajustar um modelo não estará completo sem a 
+avaliação da precisão e significância das estimativas dos
 parâmetros. Para isto é necessária a estimação das
 variâncias correspondentes. Nesta seção concentramos nossa atenção na estimação das variâncias dos estimadores de MPV
 dos coeficientes de regressão $\mathbf{\beta}$. As expressões a
@@ -861,11 +861,11 @@ frequências dos pesos.
 %BeginExpansion
 \begin{table}[tbp] \centering%
 %EndExpansion
-\caption{Distribuição de freqüências dos pesos da amostra da PNAD-90 - Parte
+\caption{Distribuição de frequências dos pesos da amostra da PNAD-90 - Parte
 Urbana do Rio de Janeiro}\bigskip \label{tab66} 
 \begin{tabular}{|c|c|}
 \hline\hline
-Valor do peso & Freq\"{u}ência \\ \hline\hline
+Valor do peso & Frequência \\ \hline\hline
 $674$ & $127$ \\ 
 $675$ & $784$ \\ 
 $711$ & $3288$ \\ 
@@ -926,7 +926,7 @@ preferiu-se usá-lo aqui apenas para ajustar um modelo já selecionado.
 
 ## Teste de Hipóteses
 
-Nas Secões \@ref(modlinear) e \@ref(modlogist) discutimos formas de introduzir pesos e plano
+Nas Seções \@ref(modlinear) e \@ref(modlogist) discutimos formas de introduzir pesos e plano
 amostral em procedimentos de estimação pontual e de variâncias
 ao ajustar modelos com dados de pesquisas amostrais complexas. Neste
 contexto, procedimentos estatísticos de teste de hipóteses devem,
@@ -998,7 +998,7 @@ assintótica da estatística $X_{W}^{2}$ é $\chi ^{2}\left(R\right)$.
 
 Quando os dados são obtidos através de pesquisas amostrais
 complexas, a estatística $X_{W}^{2}$ deixa de ter distribuição
-assintótica $\chi ^{2}\left( R\right)$, e usar esta \'{u}ltima como
+assintótica $\chi ^{2}\left( R\right)$, e usar esta última como
 distribuição de referência implica na obtenção de testes
 com níveis de significância incorretos. Esse problema é
 solucionado substituindo-se na expressão de 

@@ -23,7 +23,7 @@ simples, a estatística de teste de Pearson tem distribuição
 assintótica qui-quadrado com $(L-1)(C-1)$ graus de liberdade, isto é 
 $\chi ^{2}\left( (L-1)(C-1)\right)$. Para pesquisas com planos amostrais
 complexos, esta propriedade assintótica padrão não é
-válida. Por exemplo, testes definidos em tabelas de freqüências
+válida. Por exemplo, testes definidos em tabelas de frequências
 obtidas mediante amostragem por conglomerados são mais liberais
 (rejeitam mais) relativamente aos níveis nominais de significância,
 devido à correlação intraclasse positiva das variáveis
@@ -135,7 +135,7 @@ de independência, temos uma distribuição multinomial com
 vetor de probabilidades $\left( p_{11},p_{12},p_{21},p_{22}\right) ,$ e no
 caso do teste de homogeneidade, temos duas multinomiais (no caso binomiais)
 com vetores de probabilidades $\left( p_{11},p_{12}\right)$ e $\left(
-p_{21},p_{22}\right)$. O processo de contagem que gera estas multinomias
+p_{21},p_{22}\right)$. O processo de contagem que gera estas multinomiais
 pressupõe que as observações individuais (indicadores de classe)
 são independentes e com mesma distribuição. Estas hipóteses
 só são válidas no caso de amostragem aleatória simples com
@@ -144,7 +144,7 @@ reposição.
 Quando os dados são gerados através de um plano amostral complexo,
 surgem efeitos de conglomeração e estratificação que devem
 ser considerados no cálculo das estatísticas de teste. Neste caso,
-as freqüências nas celas da tabela são estimadas, levando em
+as frequências nas celas da tabela são estimadas, levando em
 conta os pesos dos elementos da amostra bem como o plano amostral
 efetivamente utilizado.
 
@@ -164,8 +164,8 @@ dados estatísticos geralmente apresentam os resultados de suas pesquisas
 em tabelas contendo as estimativas $\hat{N}_{lc}$, como ilustrado no Exemplo 
 \@ref(ex:Analisec) do Capítulo \@ref(ajmodpar). Se calcularmos as estatísticas 
 $X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left( H\right)$ a partir dos
-valores dos $\hat{N}_{lc}$ fornecidos, com a estimativa do tamanho da popula
-ção $\hat{N}$ no lugar de $n$, os resultados assintóticos
+valores dos $\hat{N}_{lc}$ fornecidos, com a estimativa do tamanho da 
+população $\hat{N}$ no lugar de $n$, os resultados assintóticos
 obtidos para amostragem aleatória simples com reposição (IID)
 deixarão de ser válidos. Devemos calcular as estatísticas de
 teste $X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left( H\right)$ a partir dos 
@@ -182,8 +182,8 @@ $X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left(H\right)$.
 Para ilustrar esse ponto vamos considerar o \emph{ajuste de EPA médio},
 que será apresentado na próxima seção para o caso de tabelas 
 $L\times C$ . Este ajuste, no caso da estatística $X_{P}^{2}\left(
-I\right)$, se baseia no EPA médio das estimativas das proporç
-ões nas celas $\hat{p}_{lc}=\hat{n}_{lc}/n$, enquanto que para a
+I\right)$, se baseia no EPA médio das estimativas das proporções
+nas celas $\hat{p}_{lc}=\hat{n}_{lc}/n$, enquanto que para a
 estatística $X_{P}^{2}\left( H\right)$ ele se baseia no EPA médio
 das estimativas das proporções nas linhas $\hat{p}_{lc}=\hat{n}
 _{lc}/n_{l+}$.
@@ -254,8 +254,8 @@ Portanto, $p_{lc}=N_{lc}/N_{l+}$ para todo $l=1,\ldots ,L$ e $c=1,\ldots ,C$.
 
 Vamos considerar o caso em que $L=2$ regiões devem ser comparadas. Seja 
 $\mathbf{p}_{l}=\left( p_{l1},\ldots ,p_{l\;C-1}\right) ^{\prime }$ o vetor
-de proporções da $l$-ésima região, sem incluir a proporç
-ão referente à última categoria ($p_{lC}$), $l=1,2.$ A
+de proporções da $l$-ésima região, sem incluir a proporção 
+referente à última categoria ($p_{lC}$), $l=1,2.$ A
 hipótese de igualdade das distribuições da resposta nas duas
 regiões pode ser expressa como $H_{0}:\mathbf{p}_{1}=\mathbf{p}_{2}$ ,
 com $C-1$ componentes em cada vetor, pois em cada região a soma das
@@ -269,7 +269,7 @@ _{l\;C-1}\right) ^{\prime }$ os vetores de proporções estimadas
 onde $\hat{p}_{lc}=\widehat{N}_{lc}/\widehat{N}_{l+}$ é um estimador
 consistente da proporção $p_{lc}$ na população
 correspondente, e $\widehat{N}_{lc}$ e $\widehat{N}_{l+}$ são
-estimadores ponderados das freqüências nas celas e nas marginais de
+estimadores ponderados das frequências nas celas e nas marginais de
 linha da tabela, respectivamente, de modo que $\sum\nolimits_{c=1}^{C}
 \widehat{N}_{lc}=\widehat{N}_{l+}$ . Estes estimadores levam em consideração as probabilidades desiguais de inclusão na amostra e os ajustes
 por não-resposta. Observe que, se os tamanhos das amostras dos subgrupos
@@ -350,8 +350,8 @@ $\mathbf{\hat{P}}/\widehat{n}_{2+}$ na segunda. Observe que \@ref(eq:Tab4) e \@r
 têm a mesma forma, diferindo só no estimador da matriz de
 covariância usado para definir a métrica de distância. No caso
 da estatística $X_{P}^{2}\left( H\right)$, o estimador da matriz de
-covariância baseia-se nas hipóteses relativas à distribuiç
-ão multinomial, apropriadas para a amostragem aleatória simples. A
+covariância baseia-se nas hipóteses relativas à distribuição
+multinomial, apropriadas para a amostragem aleatória simples. A
 distribuição de referência da estatística $X_{P}^{2}\left(
 H\right)$ é qui-quadrado com $\left( C-1\right)$ graus de liberdade.
 
@@ -423,8 +423,8 @@ quadrados das estimativas dos autovalores $\hat{\delta}_{c}$, dado por
 \hat{a}^{2}=\sum\limits_{c=1}^{C}\hat{\delta}_{c}^{2}/\left( \left(
 C-1\right) \hat{\delta}_{.}^{2}\right) -1,
 \]
-onde a soma dos quadrados dos autovalores pode ser obtida a partir do tra\c{c
-}o de $\mathbf{\hat{\Delta}}^{2}$
+onde a soma dos quadrados dos autovalores pode ser obtida a partir do 
+traço de $\mathbf{\hat{\Delta}}^{2}$
 \[
 \sum\limits_{c=1}^{C}\hat{\delta}_{c}^{2}=tr\left( \mathbf{\hat{\Delta}}
 ^{2}\right) \;\;. 
@@ -453,8 +453,8 @@ $f$ graus de liberdade.
 
 Vamos considerar o teste de independência no caso geral de tabela 
 $L\times C$, onde os dados são extraídos de uma única população, 
-sem fixar marginais. Consideremos a Tabela \ref{tab83} com as propor
-ções nas celas a nível da população, onde agora
+sem fixar marginais. Consideremos a Tabela \ref{tab83} com as 
+proporções nas celas a nível da população, onde agora
 novamente se tem $p_{lc}=N_{lc}/N$.
 
 \begin{center}
@@ -630,8 +630,8 @@ estatística de Pearson em \@ref(eq:Tab12) para obter estatísticas
 de teste com distribuições assintóticas conhecidas.
 
 Inicialmente, vamos considerar ajustes baseados nos efeitos univariados de
-plano amostral estimados, $\hat{d}_{lc}$, das estimativas das proporç
-ões nas celas $\hat{p}_{lc}$. O ajuste mais simples é feito
+plano amostral estimados, $\hat{d}_{lc}$, das estimativas das proporções
+nas celas $\hat{p}_{lc}$. O ajuste mais simples é feito
 dividindo-se o valor da estatística $X_{P}^{2}$ de Pearson pela
 média $\hat{d}_{.}$ dos efeitos univariados de plano amostral: 
 \[
@@ -721,8 +721,8 @@ A estatística $X_{P}^{2}\left( I;\hat{\delta}_{.};\hat{a}^{2}\right)$
 Satterthwaite $gl_{S}=\left( L-1\right) \left( C-1\right) /\left( 1+\hat{a}
 ^{2}\right) .$
 
-Em situações instáveis, pode ser necessário fazer uma corre
-ção F ao ajuste de primeira ordem de Rao-Scott \@ref(eq:Tab15). A
+Em situações instáveis, pode ser necessário fazer uma correção
+F ao ajuste de primeira ordem de Rao-Scott \@ref(eq:Tab15). A
 estatística F-corrigida é definida por 
 \begin{equation}
 FX_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{P}^{2}\left( \hat{\delta}
@@ -751,7 +751,7 @@ frequências nas celas para a amostra pesquisada.
 
 \begin{center}
 \begin{table}[tbp] \centering
-\caption{Freqüências amostrais por celas na PNAD 90}\bigskip \label{tab84}
+\caption{Frequências amostrais por celas na PNAD 90}\bigskip \label{tab84}
 \begin{tabular}{|c|cccc|}
 \hline\hline
 & \multicolumn{3}{|c}{\textbf{Renda Mensal}} &  \\
@@ -1064,8 +1064,8 @@ teste é $\chi ^{2}\left( 2\right)$, mostrando novamente que a
 estatística de teste calculada sob a hipótese de amostra IID tem
 maior tendência a rejeitar a hipótese nula.
 
-A partir da Tabela \ref{tab86}, examinando as estimativas das proporç
-ões nas celas da tabela para cada sexo, observamos uma ordenação
+A partir da Tabela \ref{tab86}, examinando as estimativas das 
+proporções nas celas da tabela para cada sexo, observamos uma ordenação
 estocástica das distribuições de renda para os dois sexos, com
 proporções maiores em valores mais altos para o nível 1 da
 variável sexo, que é o sexo masculino.
@@ -1082,7 +1082,7 @@ library(survey)
 pnadrj90 <- readRDS("~\\GitHub\\adac\\data\\pnadrj90.rds")
 names(pnadrj90)
 ```
-Tranformação em fatores:
+Transformação em fatores:
 ```{r}
 unlist(lapply(pnadrj90, mode))
 pnadrj90<-transform(pnadrj90,sx=factor(sx),id=factor(id),ae=factor(ae),ht=factor(ht),re=factor(re))

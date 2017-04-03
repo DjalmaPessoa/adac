@@ -28,12 +28,10 @@ maior frequência, modelos alternativos com hipóteses mais
 complexas e/ou estimadores especiais devem ser considerados a fim de
 acomodar aspectos da estrutura da população e/ou do plano amostral.
 Além disso, usualmente estão disponíveis informações
-sobre variáveis auxiliares, utilizadas ou não na especificação do plano amostral, que podem ser incorporadas com proveito na estima
-ção dos parâmetros ou na própria formulação do
-modelo.
+sobre variáveis auxiliares, utilizadas ou não na especificação do plano amostral, que podem ser incorporadas com proveito na estimação dos parâmetros ou na própria formulação do modelo.
 
-Os exemplos apresentados no Capítulo \@ref(epa) demonstram claramente a inadequa
-ção de ignorar o plano amostral ao efetuar análises de dados de
+Os exemplos apresentados no Capítulo \@ref(epa) demonstram claramente a 
+inadequação de ignorar o plano amostral ao efetuar análises de dados de
 pesquisas amostrais. Os valores dos EPAs calculados, tanto para
 estimadores de medidas descritivas tais como médias e totais, como para
 estatísticas analíticas usadas em testes de hipóteses e os
@@ -150,7 +148,7 @@ setores (unidades secundárias de amostragem ou USAs) dentro de cada
 município é feita com probabilidades proporcionais ao número de
 domicílios em cada setor segundo o último censo disponível.
 Dentro de cada setor, a seleção de domicílios é feita por
-amostragem sistemática simples (portanto, com eqüiprobabilidade).
+amostragem sistemática simples (portanto, com equiprobabilidade).
 Todas as pessoas moradoras em cada domicílio da amostra são
 pesquisadas.
 
@@ -194,7 +192,7 @@ RMs de Belo Horizonte e Curitiba
 } & $1/250$ \\ \hline
 \multicolumn{1}{|l|}{
 \begin{tabular}{l}
-Rond\^{o}nia, Acre, Amazonas, Roraima, Amapá, \\
+Rondônia, Acre, Amazonas, Roraima, Amapá, \\
 Tocantins, Sergipe, Mato Grosso do Sul, \\
 Mato Grosso e Goiás
 \end{tabular}
@@ -356,7 +354,7 @@ pesos, tal como se verá mais adiante.
 
 O estimador $\widehat{\beta }_{w}$ foi proposto formalmente por
 [@fuller75], que o concebeu como uma função de estimadores de
-totais populacionais. A mesma idéia subsidiou vários outros autores
+totais populacionais. A mesma ideia subsidiou vários outros autores
 que estudaram a estimação de coeficientes de regressão partindo
 de dados amostrais complexos, tais como [@NH80], [@PfefeNat]. Uma revisão abrangente da literatura existente sobre estimação de parâmetros em modelos de regressão linear com dados
 amostrais complexos pode ser encontrada em cap. 6, [@Silva].
@@ -522,8 +520,8 @@ de $\mathbf{\hat{\theta}}_{MPV}$ é Normal Multivariada, isto é, que
 o que fornece uma base para a inferência sobre $\mathbf{\theta }_{U}$ (ou $\mathbf{\theta }$) usando amostras grandes.
 
 Muitos modelos paramétricos, com vários planos amostrais e
-estimadores de totais diferentes, podem ser ajustados resolvendo-se as equa
-ções de Pseudo-Verossimilhança \@ref(eq:modpar7), satisfeitas algumas
+estimadores de totais diferentes, podem ser ajustados resolvendo-se as 
+equações de Pseudo-Verossimilhança \@ref(eq:modpar7), satisfeitas algumas
 condições de regularidade enunciadas no apêndice de  [@binder83] e
 revistas em [@Silva], p. 126. Entretanto, os estimadores de
 MPV não serão únicos, já que existem diversas maneiras
@@ -738,8 +736,8 @@ leitores interessados poderão consultar: [@SSW92], p. 166, [@brewer], [@Isaki],
 Se o modelo postulado para os dados amostrais for correto, o uso de
 estimadores ponderados pode resultar em perda substancial de eficiência
 comparado com o estimador ótimo, sob o modelo. Em geral, a perda de
-eficiência aumenta quando diminui o tamanho da amostra e aumenta a varia
-ção dos pesos. Há casos onde a ponderação é a
+eficiência aumenta quando diminui o tamanho da amostra e aumenta a 
+variação dos pesos. Há casos onde a ponderação é a
 única alternativa. Por exemplo, se os dados disponíveis já
 estão na forma de estimativas amostrais ponderadas, então o uso de
 pesos é inevitável. Um exemplo clássico é discutido a

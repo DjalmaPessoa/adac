@@ -69,7 +69,7 @@ as frequências (absolutas) observadas na amostra e as proporções hipotéticas
 %BeginExpansion
 \begin{table}[tbp] \centering%
 %EndExpansion
-\caption{Freqüências observadas e proporções hipotéticas }\bigskip \label%
+\caption{Frequências observadas e proporções hipotéticas }\bigskip \label%
 {tab71} 
 \begin{tabular}[t]{|c|c|c|c|}
 \hline\hline
@@ -152,7 +152,7 @@ assintótica da estatística $X_{P}^{2}$ é qui-quadrado ($\chi^{2}$). Neste cas
 Rao e Scott(1981) obtiveram resultados gerais para a distribuição
 assintótica da estatística de teste $X_{P}^{2}$ de Pearson sob
 planos amostrais complexos. Com apenas duas celas, a distribuição
-assintótica da estatística de teste $X_{P}^{2}$ é a distribuição da variável aleatória $dW$, onde $W$ tem distribuiçao $\chi ^{2}\left( 1\right)$ (qui-quadrado com um grau de liberdade) e $d$
+assintótica da estatística de teste $X_{P}^{2}$ é a distribuição da variável aleatória $dW$, onde $W$ tem distribuição $\chi ^{2}\left( 1\right)$ (qui-quadrado com um grau de liberdade) e $d$
 é o efeito de plano amostral (EPA) da estimativa $\widehat{p}$ da proporção $p$. O efeito de plano amostral nesse caso é dado por $d=V_{p}\left( \widehat{p}\right) /V_{bin}\left( \widehat{p}\right)$.
 
 Para uma amostra de empregados selecionada por amostragem aleatória
@@ -596,7 +596,7 @@ estatística $X_{P}^{2}$, devido a Fellegi (1980) e Holt, Scott e
 Ewings(1980), e o ajuste de primeira ordem de Rao-Scott. Estes ajustes
 são úteis nos casos em que não é possível obter uma
 estimativa adequada $\mathbf{\hat{V}}_{p}$ para a matriz de covariância
-de aletorização. Quando esta estimativa está disponível,
+de aleatorização. Quando esta estimativa está disponível,
 deve-se usar o ajuste mais preciso de segunda ordem.
 
 O ajuste de EPA médio é baseado nos efeitos univariados de plano
@@ -609,7 +609,7 @@ X_{P}^{2}\left( \hat{d}_{.}\right) =X_{P}^{2}/\hat{d}_{.}
 (\#eq:qual12)
 \end{equation}
 onde $\hat{d}_{.}=\sum_{j=1}^{J}\hat{d}_{j}/J$ é um estimador da
-média $\bar{d}$ dos efeitos de plano a\-mos\-tral desconhecidos.
+média $\bar{d}$ dos efeitos de plano amostral desconhecidos.
 
 Estimamos os efeitos do plano amostral por $\hat{d}_{j}=\hat{V}_{p}\left(\hat{p}_{j}\right) /\left( \hat{p}_{j}\left( 1-\hat{p}_{j}\right) /n\right)$, onde $\hat{V}_{p}\left( \hat{p}_{j}\right)$ é a estimativa da
 variância de aleatorização do estimador de proporção $\hat{p}_{j}$ . 
@@ -1074,7 +1074,7 @@ Examinando os resultados da Tabela \ref{tab74}, verificamos que o teste
 clássico de Pearson rejeita a hipótese nula $H_{0}$ no nível 
 $\alpha =5\%$, diferentemente de todos os outros testes. Os valores das
 estatísticas com ajustes de Rao-Scott (com ou sem correção F)
-são semelhantes e parecem corrigir exagerademente o $p$-valor dos testes.
+são semelhantes e parecem corrigir exageradamente o $p$-valor dos testes.
 A estatística de Wald baseada no plano amostral e suas correções
 F, que têm valores quase iguais, produzem uma correção menor no 
 $p$-valor do teste. Nesse exemplo, como o número de graus de liberdade
