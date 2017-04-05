@@ -1,7 +1,7 @@
 ---
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 # Introdução {#introduc}
 
@@ -1001,7 +1001,8 @@ Situação por sexo:
 diagdepsitusex <- svyby(~diag_dep, ~situ + c006, design = pes_sel_des_pos, 
   svymean)
 res <- three_stats(diagdepsitusex)
-dfsitusex <- data.frame(situ.sex = names(res)[1:4],prop = res[1:4], l.i.c = res[5:8], l.s.c=res[9:12] )
+dfsitusex <- data.frame(situ.sex = names(res)[1:4],prop = res[1:4], 
+  l.i.c = res[5:8], l.s.c=res[9:12] )
 knitr::kable(dfsitusex,booktabs = TRUE, row.names = FALSE,
 caption = "Proporção de diagnóstico de depressão por situação e sexo")
 ```
@@ -1011,7 +1012,8 @@ Por Unidade da Federação:
 ```{r}
 diagdepuf <- svyby(~diag_dep, ~uf, design = pes_sel_des_pos, svymean)
 res <- three_stats(diagdepuf)
-dfuf <- data.frame(uf = names(res)[1:27], prop = res[1:27], L.I.C. = res[28:54],L.S.C =res[55:81]  )
+dfuf <- data.frame(uf = names(res)[1:27], prop = res[1:27], 
+  l.i.c. = res[28:54], l.s.c =res[55:81]  )
 knitr::kable(dfuf,booktabs = TRUE, row.names = FALSE, 
 caption = "Proporção de diagnóstico de depressão por uf")
 ```
@@ -1023,11 +1025,59 @@ caption = "Proporção de diagnóstico de depressão por uf")
 diagdepufsex <- svyby(~diag_dep, ~uf + c006, design = pes_sel_des_pos, 
   svymean)
 res <- three_stats(diagdepufsex)
-dfufsex <- data.frame (uf.sex =names(res)[1:54], prop = res[1: 54], L.I.C = res[55:108],L.S.C=res[109:162] )
+dfufsex <- data.frame (uf.sex =names(res)[1:54], prop = res[1: 54],
+  l.i.c = res[55:108], l.s.c=res[109:162] )
 knitr::kable(dfufsex,booktabs = TRUE, row.names = FALSE, 
 caption = "Proporção de diagnóstico de depressão por uf e sexo")
-
 ```
+Usando o objeto de desenho para todas as pessoas que reponderam o questionário curto, salvo no arquivo em `2013 all questionnaire survey design.rds`, vamos estimar a proporção de pessoas que possuem plano de saúde por grupos de nível de instrução.
+
+
+```{r, eval=FALSE, echo=TRUE}
+pes_all_des_pos <- readRDS("C:/adac/PNS/2013 all questionnaire survey design.rds")
+```
+
+
+Proporção de pessoas com seguro de saúde por nível de instrução:
+
+```{r, eval=FALSE, echo=TRUE}
+byeduc <- data.frame( svyby( ~ as.numeric( i001 == 1 ) , ~ educ ,
+design = pes_all_des_pos , vartype = "ci" ,  level = 0.95 ,
+svymean , na.rm = TRUE ) )
+byeduc <- byeduc[,-1]
+names(byeduc) <- c("Prop", "l.i.c.", "l.s.c.")
+```
+
+```{r, eval=TRUE, echo=FALSE}
+byeduc <- readRDS("C:/adac/PNS/byeduc.rds")
+```
+
+Imprime tabela: 
+
+```{r}
+knitr::kable(byeduc,booktabs = TRUE, row.names = FALSE, format = "latex", 
+digits= 3, caption = "Proporção de pessoas com seguro de saúde por nível 
+de instrução")
+```
+
+Gráfico de barras:
+
+```{r, message=FALSE, warning=FALSE}
+library(ggplot2)
+ggplot(
+	byeduc,
+	aes( x = c("SinstFundi", "FundcMedi", "MedcSupi", "Supc") , y = 100*Prop )
+	) +
+	geom_bar( stat = "identity" ) +
+	geom_errorbar( aes( ymin = 100*l.i.c. , ymax = 100*l.s.c. ))  +
+  ylim(c(0,100))+
+	xlab( "nível de instrução" ) +
+	ylab( "% com seguro de saúde" )+
+  ggtitle("% de pessoas com plano de saúde, com indicação do intervalo de
+  confiança de 95%, segundo grupos de nível de instrução - Brasil - 2013")
+```
+
+
 
 
 
