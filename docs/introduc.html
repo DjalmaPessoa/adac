@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-04-03">
+<meta name="date" content="2017-04-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -662,7 +662,8 @@ knitr::<span class="kw">kable</span>(dfsitu,<span class="dt">booktabs =</span> <
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepsitusex &lt;-<span class="st"> </span><span class="kw">svyby</span>(~diag_dep, ~situ +<span class="st"> </span>c006, <span class="dt">design =</span> pes_sel_des_pos, 
   svymean)
 res &lt;-<span class="st"> </span><span class="kw">three_stats</span>(diagdepsitusex)
-dfsitusex &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">situ.sex =</span> <span class="kw">names</span>(res)[<span class="dv">1</span>:<span class="dv">4</span>],<span class="dt">prop =</span> res[<span class="dv">1</span>:<span class="dv">4</span>], <span class="dt">l.i.c =</span> res[<span class="dv">5</span>:<span class="dv">8</span>], <span class="dt">l.s.c=</span>res[<span class="dv">9</span>:<span class="dv">12</span>] )
+dfsitusex &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">situ.sex =</span> <span class="kw">names</span>(res)[<span class="dv">1</span>:<span class="dv">4</span>],<span class="dt">prop =</span> res[<span class="dv">1</span>:<span class="dv">4</span>], 
+  <span class="dt">l.i.c =</span> res[<span class="dv">5</span>:<span class="dv">8</span>], <span class="dt">l.s.c=</span>res[<span class="dv">9</span>:<span class="dv">12</span>] )
 knitr::<span class="kw">kable</span>(dfsitusex,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>,
 <span class="dt">caption =</span> <span class="st">&quot;Proporção de diagnóstico de depressão por situação e sexo&quot;</span>)</code></pre></div>
 <table>
@@ -705,7 +706,8 @@ knitr::<span class="kw">kable</span>(dfsitusex,<span class="dt">booktabs =</span
 <p>Por Unidade da Federação:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepuf &lt;-<span class="st"> </span><span class="kw">svyby</span>(~diag_dep, ~uf, <span class="dt">design =</span> pes_sel_des_pos, svymean)
 res &lt;-<span class="st"> </span><span class="kw">three_stats</span>(diagdepuf)
-dfuf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">uf =</span> <span class="kw">names</span>(res)[<span class="dv">1</span>:<span class="dv">27</span>], <span class="dt">prop =</span> res[<span class="dv">1</span>:<span class="dv">27</span>], <span class="dt">L.I.C. =</span> res[<span class="dv">28</span>:<span class="dv">54</span>],<span class="dt">L.S.C =</span>res[<span class="dv">55</span>:<span class="dv">81</span>]  )
+dfuf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">uf =</span> <span class="kw">names</span>(res)[<span class="dv">1</span>:<span class="dv">27</span>], <span class="dt">prop =</span> res[<span class="dv">1</span>:<span class="dv">27</span>], 
+  <span class="dt">l.i.c. =</span> res[<span class="dv">28</span>:<span class="dv">54</span>], <span class="dt">l.s.c =</span>res[<span class="dv">55</span>:<span class="dv">81</span>]  )
 knitr::<span class="kw">kable</span>(dfuf,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, 
 <span class="dt">caption =</span> <span class="st">&quot;Proporção de diagnóstico de depressão por uf&quot;</span>)</code></pre></div>
 <table>
@@ -714,8 +716,8 @@ knitr::<span class="kw">kable</span>(dfuf,<span class="dt">booktabs =</span> <sp
 <tr class="header">
 <th align="left">uf</th>
 <th align="right">prop</th>
-<th align="right">L.I.C.</th>
-<th align="right">L.S.C</th>
+<th align="right">l.i.c.</th>
+<th align="right">l.s.c</th>
 </tr>
 </thead>
 <tbody>
@@ -887,7 +889,8 @@ knitr::<span class="kw">kable</span>(dfuf,<span class="dt">booktabs =</span> <sp
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepufsex &lt;-<span class="st"> </span><span class="kw">svyby</span>(~diag_dep, ~uf +<span class="st"> </span>c006, <span class="dt">design =</span> pes_sel_des_pos, 
   svymean)
 res &lt;-<span class="st"> </span><span class="kw">three_stats</span>(diagdepufsex)
-dfufsex &lt;-<span class="st"> </span><span class="kw">data.frame</span> (<span class="dt">uf.sex =</span><span class="kw">names</span>(res)[<span class="dv">1</span>:<span class="dv">54</span>], <span class="dt">prop =</span> res[<span class="dv">1</span>:<span class="st"> </span><span class="dv">54</span>], <span class="dt">L.I.C =</span> res[<span class="dv">55</span>:<span class="dv">108</span>],<span class="dt">L.S.C=</span>res[<span class="dv">109</span>:<span class="dv">162</span>] )
+dfufsex &lt;-<span class="st"> </span><span class="kw">data.frame</span> (<span class="dt">uf.sex =</span><span class="kw">names</span>(res)[<span class="dv">1</span>:<span class="dv">54</span>], <span class="dt">prop =</span> res[<span class="dv">1</span>:<span class="st"> </span><span class="dv">54</span>],
+  <span class="dt">l.i.c =</span> res[<span class="dv">55</span>:<span class="dv">108</span>], <span class="dt">l.s.c=</span>res[<span class="dv">109</span>:<span class="dv">162</span>] )
 knitr::<span class="kw">kable</span>(dfufsex,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, 
 <span class="dt">caption =</span> <span class="st">&quot;Proporção de diagnóstico de depressão por uf e sexo&quot;</span>)</code></pre></div>
 <table>
@@ -896,8 +899,8 @@ knitr::<span class="kw">kable</span>(dfufsex,<span class="dt">booktabs =</span> 
 <tr class="header">
 <th align="left">uf.sex</th>
 <th align="right">prop</th>
-<th align="right">L.I.C</th>
-<th align="right">L.S.C</th>
+<th align="right">l.i.c</th>
+<th align="right">l.s.c</th>
 </tr>
 </thead>
 <tbody>
@@ -1225,8 +1228,40 @@ knitr::<span class="kw">kable</span>(dfufsex,<span class="dt">booktabs =</span> 
 <td align="right">7.3</td>
 <td align="right">11.3</td>
 </tr>
+<tr class="odd">
+<td align="left">Usando o objeto de desenho para</td>
+<td align="right">todas a</td>
+<td align="right">s pessoa</td>
+<td align="right">s que reponderam o questionário curto, salvo no arquivo em <code>2013 all questionnaire survey design.rds</code>, vamos estimar a proporção de pessoas que possuem plano de saúde por grupos de nível de instrução.</td>
+</tr>
 </tbody>
 </table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_all_des_pos &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;C:/adac/PNS/2013 all questionnaire survey design.rds&quot;</span>)</code></pre></div>
+<p>Proporção de pessoas com seguro de saúde por nível de instrução:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">byeduc &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="kw">svyby</span>( ~<span class="st"> </span><span class="kw">as.numeric</span>( i001 ==<span class="st"> </span><span class="dv">1</span> ) , ~<span class="st"> </span>educ ,
+<span class="dt">design =</span> pes_all_des_pos , <span class="dt">vartype =</span> <span class="st">&quot;ci&quot;</span> ,  <span class="dt">level =</span> <span class="fl">0.95</span> ,
+svymean , <span class="dt">na.rm =</span> <span class="ot">TRUE</span> ) )
+byeduc &lt;-<span class="st"> </span>byeduc[,-<span class="dv">1</span>]
+<span class="kw">names</span>(byeduc) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Prop&quot;</span>, <span class="st">&quot;l.i.c.&quot;</span>, <span class="st">&quot;l.s.c.&quot;</span>)</code></pre></div>
+<p>Imprime tabela:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(byeduc,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span> <span class="st">&quot;latex&quot;</span>, 
+<span class="dt">digits=</span> <span class="dv">3</span>, <span class="dt">caption =</span> <span class="st">&quot;Proporção de pessoas com seguro de saúde por nível </span>
+<span class="st">de instrução&quot;</span>)</code></pre></div>
+
+<p>Gráfico de barras:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">ggplot</span>(
+    byeduc,
+    <span class="kw">aes</span>( <span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;SinstFundi&quot;</span>, <span class="st">&quot;FundcMedi&quot;</span>, <span class="st">&quot;MedcSupi&quot;</span>, <span class="st">&quot;Supc&quot;</span>) , <span class="dt">y =</span> <span class="dv">100</span>*Prop )
+    ) +
+<span class="st">    </span><span class="kw">geom_bar</span>( <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span> ) +
+<span class="st">    </span><span class="kw">geom_errorbar</span>( <span class="kw">aes</span>( <span class="dt">ymin =</span> <span class="dv">100</span>*l.i.c. , <span class="dt">ymax =</span> <span class="dv">100</span>*l.s.c. ))  +
+<span class="st">  </span><span class="kw">ylim</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>))+
+<span class="st">    </span><span class="kw">xlab</span>( <span class="st">&quot;nível de instrução&quot;</span> ) +
+<span class="st">    </span><span class="kw">ylab</span>( <span class="st">&quot;% com seguro de saúde&quot;</span> )+
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;% de pessoas com plano de saúde, com indicação do intervalo de</span>
+<span class="st">  confiança de 95%, segundo grupos de nível de instrução - Brasil - 2013&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
 
 </div>
 </div>
