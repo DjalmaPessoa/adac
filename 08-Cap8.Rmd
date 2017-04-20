@@ -1,4 +1,9 @@
-# Testes em Tabelas de Duas Entradas {#testetab2}
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# Testes em Tabelas de Duas Entradas  {#testetab2}
 
 ## Introdução
 
@@ -1116,7 +1121,7 @@ Podemos obter estimativas de proporções nas classes de renda por domínios def
 
 ```{r, results='asis', eval=FALSE}
 library(xtable)
-print(xtable(svyby(~re,~sx,pnad.des,svymean,keep.var=TRUE),caption="Proporções por sexo"),type="html", size="small", include.rownames=FALSE)
+print(xtable(svyby(~re,~sx,pnad.des, svymean,keep.var=TRUE), caption="Proporções por sexo"),type="html", size="small", include.rownames=FALSE)
 ```
 
 As proporções estimadas nas classes de renda e a tabela cruzada das variáveis sexo e renda são obtidas a seguir:
@@ -1125,7 +1130,7 @@ As proporções estimadas nas classes de renda e a tabela cruzada das variáveis
 svymean(~re,pnad.des,deff=T)
 round(svytable(~sx+re,pnad.des,Ntotal=1),digits=3)
 svyby(~re,~sx,pnad.des,svymean,keep.var=T)
-svymean(~I((sx==1&re==1)*1),pnad.des,deff=T)
+svymean(~I((sx==1&re==1)*1), pnad.des, deff=T)
 ```
 
 
@@ -1135,12 +1140,51 @@ svytable(~sx+re,pnad.des,Ntotal=1)
 # porcentagens nas celas
 svytable(~sx+re,pnad.des,Ntotal=100)
 # produz se e deff
-sx.re_mean<-svymean(~interaction(sx,re),pnad.des,deff=T)
+sx.re_mean <- data.frame(svymean(~interaction(sx,re), pnad.des, deff=T))
+
+
+# média de epas para correção de testes
+mean(sx.re_mean$deff)
 ```
 
-Resultado dos testes obtidos pela survey são diferentes. Seriam incluídos?
+```{example}
+Testes de Hipóteses
+```
 
-`
+Teste de independência e homogeneidade baseado nos dados da amostra sem considerar o plano amostral:
+
+```{r}
+attach(pnadrj90)
+tab.amo <- table(sx,re)
+chisq.test(tab.amo)
+```
+
+
+
+
+Resultados dos testes obtidos pela library `survey` [@R-survey] precisam ser identificados com as fórmulas do texto:
+
+```{r}
+# teste Chi-quadrado de Pearson com ajuste de Rao-Scott
+svychisq( ~ sx+re , pnad.des, statistic = "F", na.rm=TRUE)
+# teste Chi-quadrado de Pearson com ajuste de Rao-Scott
+svychisq( ~ sx+re , pnad.des, statistic = "Chisq", na.rm=TRUE)
+# teste de Wald baseado no desenho amostral
+svychisq( ~ sx+re , pnad.des, statistic = "Wald", na.rm=TRUE)
+# teste de Wald com ajuste
+svychisq( ~ sx+re , pnad.des, statistic = "adjWald", na.rm=TRUE)
+# teste Chi-quadrado de Pearson: distribuição assintótica exata
+svychisq( ~ sx+re , pnad.des, statistic = "lincom", na.rm=TRUE)
+# teste Chi-quadrado de Pearson: aproximação de ponto de cela
+svychisq( ~ sx+re , pnad.des, statistic = "saddlepoint", na.rm=TRUE)
+```
+
+
+
+
+
+
+
 
 
 

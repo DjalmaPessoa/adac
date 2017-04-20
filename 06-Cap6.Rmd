@@ -521,7 +521,7 @@ modelagem das observações amostrais como IID. Por esse motivo foram
 considerados métodos alternativos de modelagem e ajuste.
 
 Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões,
-calculadas pela função `svyglm`da library survey. 
+calculadas pela função `svyglm()`da library `survey` [@R-survey]. 
 
 As estimativas calculadas pela função `svyglm` são feitas pelo 
 `Método de Máxima Pseudo-Verossimilhança`, resolvendo a equação \@ref(eq:norm27). As estimativas dos desvios padrões são

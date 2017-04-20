@@ -110,7 +110,7 @@ revela a Tabela \ref{table:Tab11}.
 <!-- ``` -->
 
 \begin{center}
-\begin{table}[htbp] \centering
+\begin{table}[!htbp] \centering
 
 \caption{Número de setores na população e na amostra, por estrato geográfico}
 \bigskip \label{table:Tab11}
@@ -153,7 +153,7 @@ Sudeste (5 estratos geográficos) separadamente e para o conjunto da
 amostra da PPV.
 
 \begin{center}
-\begin{table}[htbp] \centering
+\begin{table}[!htbp] \centering
 
 \caption{Distribuição dos pesos da amostra da PPV}\bigskip \label{table:Tab12} 
 \begin{tabular}{|c|r|c|r|c|r|}
@@ -268,7 +268,7 @@ efeitos de plano amostral (EPA). Exemplos de utilização da library `survey` pa
 
 \begin{center}
 
-\begin{table}[htbp] \centering
+\begin{table}[!htbp] \centering
 
 \caption{Estimativas de Efeitos de Plano Amostral (EPAs)
 para variáveis selecionadas da PPV - Região Sudeste }\bigskip \label{table:Tab13}
@@ -471,8 +471,8 @@ com dados do Suplemento Trabalho da Pesquisa Nacional por
 Amostra de Domicílios (PNAD) de 90, onde ajustamos um modelo de
 regressão logística. Neste exemplo, são feitas comparações entre 
 resultados de ajustes obtidos através de um programa
-especializado, a library `survey` (Lumley, 2004), e através de um programa de
-uso geral, a library glm do pacote R. As referências centrais são 
+especializado, a library `survey` [@R-survey], e através de um programa de
+uso geral, a library `glm` do R. As referências centrais são 
 cap6 em [@Silva] e Binder(1983), além de [@Pessoa].
 
 Os Capítulos \@ref(testqualajust) e  \@ref(testetab2) tratam da análise de dados
@@ -569,8 +569,7 @@ opção interessante.
 ```{example}
 Utilização da library survey do R para estimar totais e razões na PPV 
 ```
-Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref(ex:distppv) . Inicialmente, vamos ler os
-e definir variáveis de interesse por meio de transformação de variáveis existentes.
+Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref(ex:distppv) . Inicialmente, vamos ler os dados e definir variáveis de interesse por meio de transformação das variáveis existentes.
 ```{r, message=FALSE, warning=FALSE}
 # leitura dos dados
 ppv1 <- readRDS("~\\GitHub\\adac\\data\\ppv.rds")
@@ -586,7 +585,7 @@ faixa1 = (v02a08 >= 7 & v02a08 <= 14) *1,
 faixa2 = (v02a08 > 14) * 1)
 ```
 
-A seguir, mostramos a utilização da library survey do R para obter algumas estimativas da Tabela \ref{table:Tab13}. Vamos supor que os dados da pesquisa estão contidos no data frame `ppv1`, que contém as variáveis  que caracterizam o plano amostral
+A seguir, mostramos a utilização da library `survey` [@R-survey] do R para obter algumas estimativas da Tabela \ref{table:Tab13}. Vamos supor que os dados da pesquisa estão contidos no data frame `ppv1`, que contém as variáveis  que caracterizam o plano amostral
 
 - nsetor - conglomerados;
 - estratof - estratos;
@@ -601,7 +600,7 @@ e variáveis de interesse tais como:
 - faixa2 - indicador de idade acima de 14 anos;
 
 
-O passo fundamental para utilização da library `survey` é criar um objeto que guarde as informações relevantes do plano amostral. Isso é feito por meio da função `svydesign`.
+O passo fundamental para utilização da library `survey` [@R-survey] é criar um objeto que guarde as informações relevantes do plano amostral. Isso é feito por meio da função `svydesign()`.
 As variáveis que definem estratos, conglomerados e pesos na `PPV` são respectivamente, `estratof`, `nsetor` e `pesof`. O objeto de desenho amostral, `ppv.des` incorpora as informações do plano amostral adotado na `PPV`.
 
 ```{r, message=FALSE, warning=FALSE}
@@ -634,7 +633,7 @@ etárias consideradas, que fornece os resultados nas linhas 6 e 7 da Tabela \ref
 svyratio(~analf1, ~faixa1, ppv.se.des)
 svyratio(~analf2, ~faixa2, ppv.se.des)
 ```
-Na library `survey`, uma alternativa para estimar por domínio é utilizar a função `svyby`. Poderíamos estimar os totais da variável `analf1` para as regiões `Nordeste (1)` e  `Sudeste(2)` da seguinte forma:
+Na library `survey` [@R-survey], uma alternativa para estimar por domínio é utilizar a função `svyby`. Poderíamos estimar os totais da variável `analf1` para as regiões `Nordeste (1)` e  `Sudeste(2)` da seguinte forma:
 
 ```{r}
 svyby(~analf1, ~regiao, ppv.des, svytotal, deff = TRUE)
@@ -652,7 +651,7 @@ O efeito de plano amostral (EPA) de Kish é definido na fórmula
 EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
 \]
 
-Na definição do EPA,  a estimativa do numerador pode ser obtida usando-se a library `survey`, a partir do objeto de `ppv.se.des` que incorpora as características do plano amostral utilizado para coletar os dados. Não é possível estimar diretamente o denominador, pois o plano amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta dos dados. Devemos estimar o denominador a partir de dados obtidos através do plano amostral VERD, como se eles tivessem sido obtidos através de AAS.
+Na definição do EPA,  a estimativa do numerador pode ser obtida usando-se a library `survey` [@R-survey], a partir do objeto de `ppv.se.des` que incorpora as características do plano amostral utilizado para coletar os dados. Não é possível estimar diretamente o denominador, pois o plano amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta dos dados. Devemos estimar o denominador a partir de dados obtidos através do plano amostral VERD, como se eles tivessem sido obtidos através de AAS.
 
 Supondo conhecido o tamanho da população $N$ e a fração amostral $f=n/N$ pequena, a estimativa da variância de $\widehat{Y}$ é dada na expressão \@ref:(\#eq:estpa9)
 \[
@@ -708,9 +707,9 @@ attr(svytotal(~analf1, ppv.se.des),"var")/VAAS1
 attr(svytotal(~analf2, ppv.se.des),"var")/VAAS2
 ```
 
-Esses valores do EPA coincidem com os obtidos acima através da library survey e 
+Esses valores do EPA coincidem com os obtidos acima através da library `survey`[@R-survey] e 
 são distintos daqueles apresentados na Tabela \ref{table:Tab13}. Para obter os valores 
-correspondentes aos da Tabela \ref{table:Tab13}, através da library survey, vamos definir as variáveis:
+correspondentes aos da Tabela \ref{table:Tab13}, através da library `survey`[@R-survey], vamos definir as variáveis:
 
 ```{r}
 analf1.se<-with(ppv1,((v04a01==2|v04a02==2) & (v02a08>=7&v02a08<=14))&(regiao==2))
@@ -740,7 +739,7 @@ com pesos cuja soma seja um estimador do tamanho da população.
 Utilização da library survey do R para estimar taxa de desocupação para um trimestre na  PNADC 
 ```
 
-- Instala library lodown do github:
+- Instala library `lodown` [@R-lodown] do github:
   
  
 
@@ -845,7 +844,7 @@ result
 ```{example}
 Utilização da library survey do R para análise de microdados da  PNS 
 ```
-Leitura dos microdados usando a library `lodown`
+Leitura dos microdados usando a library `lodown`[@R-lodown]
 
 ```{r ,eval = FALSE}
 library(lodown)
@@ -879,7 +878,7 @@ No data frame pes_sel o nome das variáveis, obtidos por `names(pes_sel)`, estã
 O data frame `pes_sel` contém as variáveis descritas no dicionário da `PNS` e algumas variáveis obtidas derivadas. 
 
 O passo inicial para a análise dos microdados é definir um objeto de desenho que salva
-as características do plano amostral da pesquisa. Isso é feito por meio da função `svydesign()` da library `survey. 
+as características do plano amostral da pesquisa. Isso é feito por meio da função `svydesign()` da library `survey` [@R-survey]. 
 
 
 ```{r, message=FALSE, warning=FALSE}
@@ -901,7 +900,7 @@ post_pop <- unique( pes_sel[ c( 'v00293.y' , 'v00292.y' ) ] )
 names( post_pop ) <- c( "v00293.y" , "Freq" )
 ```
 
-Utilizando a função `postStratify()` da library `survey` incorpora-se no objeto de desenho `pes_sel_des` as informações contidas no data frame `post_pop`.
+Utilizando a função `postStratify()` da library `survey` [@R-survey] incorpora-se no objeto de desenho `pes_sel_des` as informações contidas no data frame `post_pop`.
 
 
 ```{r}
@@ -1060,7 +1059,7 @@ digits= 3, caption = "Proporção de pessoas com seguro de saúde por nível
 de instrução")
 ```
 
-Gráfico de barras:
+Gráfico de barras usando a library `ggplot2` [@R-ggplot2]:
 
 ```{r, message=FALSE, warning=FALSE}
 library(ggplot2)

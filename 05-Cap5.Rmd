@@ -786,7 +786,7 @@ agências estatísticas congêneres.
 
 ## Laboratório de R
 
-Usar função svymle da library survey para incluir exemplo de estimador MPV?
+Usar função svymle da library `survey` [@R-survey] para incluir exemplo de estimador MPV?
 
 Possibilidade: explorar o exemplo 2.1?
 

@@ -1285,7 +1285,7 @@ fh<-nh/Nh ; Wh<-Nh/N ; f<- n/N
 ``` 
 
 
-Simulação (incluir?)
+Nessa simulação usamos a library `sampling` [@R-sampling] (incluir?)
 
 
 

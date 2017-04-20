@@ -694,7 +694,7 @@ svyratio(~analf.faixa, ~faixa, ppv.se.des)
 
 A estimativa do desvio-padrão obtida por meio da função `svyratio` coincide com a obtida diretamente pelo método
 de linearização, e é igual a `r round(sqrt(Var.raz),digits=5)`. O método default para estimar variâncias
-usado pela library `survey` do R é o de linearização de Taylor.
+usado pela library `survey` [@R-survey] do R é o de linearização de Taylor.
 
 A library `survey` dispõe de métodos alternativos para a estimação de variância.  Vamos utilizar os métodos de replicação
 de `Jackknife` e de `Bootstrap` para estimar esta variância de razão. Inicialmente, vamos converter o objeto de desenho `ppv1.se.design` em um objeto de desenho de replicação de *Jackknife*, contendo as réplicas de pesos que vão gerar as réplicas de estimativas.
@@ -710,7 +710,7 @@ ppv.se.des.boot<-as.svrepdesign(ppv.se.des,type="bootstrap")
 svyratio(~analf.faixa, ~faixa, ppv.se.des.boot)
 
 ```
-Vamos apresentar mais detalhes sobre a obtenção dos estimadores de Jackknife e Bootstrap na library survey do R.
+Vamos apresentar mais detalhes sobre a obtenção dos estimadores de Jackknife e Bootstrap na library `survey` [@R-survey].
 A classe do objeto `ppv.se.des.jkn` é `svyrep.design` e ele contém as seguintes componentes:
 
 ```{r}
@@ -781,7 +781,7 @@ var.jack.raz<- sum((rep.est.raz-mean.raz)^2*ppv.se.des.jkn$rscales)*ppv.se.des.j
 round(sqrt(var.jack.raz),5)
 ```
 
-A library survey fornece uma função para estimar a variância de uma função de totais a partir das réplicas de pesos:
+A library `survey` [@R-survey] fornece uma função para estimar a variância de uma função de totais a partir das réplicas de pesos:
 
 ```{r}
 var.raz.rep<-withReplicates(ppv.se.des.jkn, function(w,ppv.se) sum(w*ppv.se$analf.faixa)/sum(w*ppv.se$faixa))
