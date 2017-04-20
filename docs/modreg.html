@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-04-05">
+<meta name="date" content="2017-04-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -510,7 +510,7 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 <p>Os efeitos foram adicionados sequencialmente na ordem da Tabela . Depois de introduzidos os efeitos principais, as interações de dois fatores foram introduzidas na ordem definida pela <code>função step do S-Plus</code>.</p>
 <p>O <span class="math inline">\(p\)</span>valor do teste de nulidade das interações não incluídas no modelo é 0,0515, aceitando-se a hipótese de nulidade destes efeitos ao nível <span class="math inline">\(\alpha =0,05\)</span>. O modelo obtido difere do selecionado em Leote(1996) só pela inclusão de mais um efeito, referente à interação ae:ht.</p>
 <p>Uma descrição detalhada do plano amostral da PNAD 90 foi apresentada no Exemplo <a href="modreg.html#ex:pnad">6.1</a>. Como se pode observar dessa descrição, o plano amostral da PNAD apresenta todos os aspectos de um plano amostral complexo, incluindo estratificação (geográfica), seleção de unidades primárias (municípios, ou setores nos municípios auto-representativos) ou secundárias (setores nos municípios não auto-representativos) com probabilidades desiguais, conglomeração (de domicílios em setores, e de pessoas nos domicílios) e seleção sistemática sem reposição de unidades. Nesse caso, fica difícil admitir a priori com confiança as hipóteses usuais de modelagem das observações amostrais como IID. Por esse motivo foram considerados métodos alternativos de modelagem e ajuste.</p>
-<p>Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões, calculadas pela função <code>svyglm</code>da library survey.</p>
+<p>Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões, calculadas pela função <code>svyglm()</code>da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span>.</p>
 <p>As estimativas calculadas pela função <code>svyglm</code> são feitas pelo <code>Método de Máxima Pseudo-Verossimilhança</code>, resolvendo a equação <a href="modreg.html#eq:norm27">(6.28)</a>. As estimativas dos desvios padrões são obtidas das variâncias calculadas pelo método de linearização descrito na Seção <a href="ajmodpar.html#modpar3">5.4</a>, equação <a href="ajmodpar.html#eq:modpar5">(5.5)</a>, considerando os escores tal como apresentados na equação <a href="modreg.html#eq:norm25a">(6.26)</a>. Para esses cálculos, os estimadores de variância considerados levaram em conta os pesos das observações, mas utilizaram uma aproximação que consiste em considerar que as unidades primárias de amostragem foram selecionadas com reposição, conforme descrito na Seção .</p>
 <!-- \begin{center} -->
 <!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
@@ -1379,6 +1379,9 @@ pnadrj90$informal&lt;-<span class="kw">ifelse</span>(pnadrj90$informal==<span cl
 </div>
 <div id="ref-chambers95">
 <p>Chambers, R. 1995. “Regression Analysis with Sample Survey Data.” <em>Manuscrito Inédito Cedido Por Cortesia Do Autor</em> 30: 70–87.</p>
+</div>
+<div id="ref-R-survey">
+<p>Lumley, Thomas. 2016. “Survey: Analysis of Complex Survey Samples.”</p>
 </div>
 </div>
             </section>

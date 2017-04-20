@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-04-05">
+<meta name="date" content="2017-04-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -328,7 +328,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>No Capítulo <a href="capplanamo.html#capplanamo">3</a> apresentamos uma revisão sucinta, a título de recordação, de alguns resultados básicos da Teoria de Amostragem, requeridos nas partes subsequentes do livro. São discutidos os procedimentos básicos para estimação de totais considerando o plano amostral, e em seguida revistas algumas técnicas para estimação de variâncias úteis para o caso de estatísticas complexas, tais como razões e outras estatísticas requeridas na inferência analítica com dados amostrais. As referências centrais para este capítulo são caps 2 e 3 em <span class="citation">(Särndal, Swensson, and Wretman <a href="#ref-SSW92">1992</a>)</span>, <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span> e <span class="citation">(Cochran <a href="#ref-cochran">1977</a>)</span>.</p>
 <p>No Capítulo <a href="introduc.html#epa">1.3</a> introduzimos o conceito de <code>Efeito do Plano Amostral (EPA)</code>, que permite avaliar o impacto de ignorar a estruturação dos dados populacionais ou do plano amostral sobre a estimativa da variância de um estimador. Para isso, comparamos o estimador da variância apropriado para dados obtidos por amostragem aleatória simples (hipótese de AAS) com o valor esperado deste mesmo estimador sob a distribuição de aleatorização induzida pelo plano amostral efetivamente utilizado (plano amostral verdadeiro). Aqui a referência principal foi o livro <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, complementado com o texto de <span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span>.</p>
 <p>No Capítulo <a href="ajmodpar.html#ajmodpar">5</a> estudamos a questão do uso de pesos ao analisar dados provenientes de pesquisas amostrais complexas, e introduzimos um método geral, denominado <code>Método de Máxima Pseudo Verossimilhança(MPV)</code>, para incorporar os pesos e o plano amostral na obtenção não só de estimativas de parâmetros dos modelos regulares de interesse, como também das variâncias dessas estimativas. As referências básicas utilizadas nesse capítulo foram <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, <span class="citation">(Pfeffermann <a href="#ref-Pfeff">1993</a>)</span>, <span class="citation">(Binder <a href="#ref-binder83">1983</a>)</span> e cap.6 em <span class="citation">(Nascimento Silva <a href="#ref-Silva">1996</a>)</span>.</p>
-<p>O Capítulo <a href="modreg.html#modreg">6</a> trata da obtenção de <code>Estimadores de Máxima Pseudo-Verossimilhança (EMPV)</code> e da respectiva matriz de covariância para os parâmetros em modelos de regressão linear e de regressão logística, quando os dados vêm de pesquisas amostrais complexas. Apresentamos um exemplo de aplicação com dados do Suplemento Trabalho da Pesquisa Nacional por Amostra de Domicílios (PNAD) de 90, onde ajustamos um modelo de regressão logística. Neste exemplo, são feitas comparações entre resultados de ajustes obtidos através de um programa especializado, a library <code>survey</code> (Lumley, 2004), e através de um programa de uso geral, a library glm do pacote R. As referências centrais são cap6 em <span class="citation">(Nascimento Silva <a href="#ref-Silva">1996</a>)</span> e Binder(1983), além de <span class="citation">(Pessoa, Nascimento Silva, and Duarte <a href="#ref-Pessoa">1997</a>)</span>.</p>
+<p>O Capítulo <a href="modreg.html#modreg">6</a> trata da obtenção de <code>Estimadores de Máxima Pseudo-Verossimilhança (EMPV)</code> e da respectiva matriz de covariância para os parâmetros em modelos de regressão linear e de regressão logística, quando os dados vêm de pesquisas amostrais complexas. Apresentamos um exemplo de aplicação com dados do Suplemento Trabalho da Pesquisa Nacional por Amostra de Domicílios (PNAD) de 90, onde ajustamos um modelo de regressão logística. Neste exemplo, são feitas comparações entre resultados de ajustes obtidos através de um programa especializado, a library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span>, e através de um programa de uso geral, a library <code>glm</code> do R. As referências centrais são cap6 em <span class="citation">(Nascimento Silva <a href="#ref-Silva">1996</a>)</span> e Binder(1983), além de <span class="citation">(Pessoa, Nascimento Silva, and Duarte <a href="#ref-Pessoa">1997</a>)</span>.</p>
 <p>Os Capítulos <a href="testqualajust.html#testqualajust">7</a> e <a href="testetab2.html#testetab2">8</a> tratam da análise de dados categóricos com ênfase na adaptação dos testes clássicos para proporções, de independência e de homogeneidade em tabelas de contingência, para dados provenientes de pesquisas amostrais complexas. Apresentamos correções das estatísticas clássicas e a estatística de Wald baseada no plano amostral. As referências básicas usadas nesses capítulos foram os livros cap. 4, <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span> e cap. 7 <span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span>. Também são apresentadas as idéias básicas de como efetuar ajuste de modelos log-lineares a dados de frequências em tabelas de múltiplas entradas.</p>
 <p>O Capítulo <a href="estimacao-de-densidades.html#estimacao-de-densidades">9</a> trata da estimação de densidades e funções de distribuição, ferramentas que tem assumido importância cada dia maior com a maior disponibilidade de microdados de pesquisas amostrais para analistas fora das agências produtoras.</p>
 <p>O Capítulo <a href="modelos-hierarquicos.html#modelos-hierarquicos">10</a> trata da estimação e ajuste de modelos hierárquicos considerando o plano amostral. Modelos hierárquicos (ou modelos multinível) têm sido bastante utilizados para explorar situações em que as relações entre variáveis de interesse em uma certa população de unidades elementares (por exemplo, crianças em escolas, pacientes em hospitais, empregados em empresas, moradores em regiões, etc.) são afetadas por efeitos de grupos determinados ao nível de unidades conglomeradas (os grupos). Ajustar e interpretar tais modelos é tarefa mais difícil que o mero ajuste de modelos lineares mesmo em casos onde os dados são obtidos de forma exaustiva, mas ainda mais complicada quando se trata de dados obtidos através de pesquisas amostrais complexas. Várias alternativas de métodos para ajuste de modelos hierárquicos estão disponíveis, e este capítulo apresenta uma revisão de tais abordagens, ilustrando com aplicações a dados de pesquisas amostrais de escolares.</p>
@@ -346,7 +346,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="example">
 <span id="ex:unnamed-chunk-1" class="example"><strong>Exemplo 1.2 </strong></span>Utilização da library survey do R para estimar totais e razões na PPV
 </div>
-<p> Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (<code>PPV</code>) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo <a href="introduc.html#ex:distppv">1.1</a> . Inicialmente, vamos ler os e definir variáveis de interesse por meio de transformação de variáveis existentes.</p>
+<p> Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (<code>PPV</code>) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo <a href="introduc.html#ex:distppv">1.1</a> . Inicialmente, vamos ler os dados e definir variáveis de interesse por meio de transformação das variáveis existentes.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># leitura dos dados</span>
 ppv1 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;~</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">adac</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">ppv.rds&quot;</span>)
 <span class="kw">library</span>(survey)</code></pre></div>
@@ -356,7 +356,7 @@ ppv1 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="
 <span class="dt">analf2 =</span> ((v04a01 ==<span class="st"> </span><span class="dv">2</span> |<span class="st"> </span>v04a02 ==<span class="st"> </span><span class="dv">2</span>) &amp;<span class="st"> </span>(v02a08 &gt;<span class="dv">14</span>)) *<span class="st"> </span><span class="dv">1</span>, 
 <span class="dt">faixa1 =</span> (v02a08 &gt;=<span class="st"> </span><span class="dv">7</span> &amp;<span class="st"> </span>v02a08 &lt;=<span class="st"> </span><span class="dv">14</span>) *<span class="dv">1</span>, 
 <span class="dt">faixa2 =</span> (v02a08 &gt;<span class="st"> </span><span class="dv">14</span>) *<span class="st"> </span><span class="dv">1</span>)</code></pre></div>
-<p>A seguir, mostramos a utilização da library survey do R para obter algumas estimativas da Tabela . Vamos supor que os dados da pesquisa estão contidos no data frame <code>ppv1</code>, que contém as variáveis que caracterizam o plano amostral</p>
+<p>A seguir, mostramos a utilização da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span> do R para obter algumas estimativas da Tabela . Vamos supor que os dados da pesquisa estão contidos no data frame <code>ppv1</code>, que contém as variáveis que caracterizam o plano amostral</p>
 <ul>
 <li>nsetor - conglomerados;</li>
 <li>estratof - estratos;</li>
@@ -370,7 +370,7 @@ ppv1 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="
 <li>faixa1 - indicador de idade entre 7 e 14 anos;</li>
 <li>faixa2 - indicador de idade acima de 14 anos;</li>
 </ul>
-<p>O passo fundamental para utilização da library <code>survey</code> é criar um objeto que guarde as informações relevantes do plano amostral. Isso é feito por meio da função <code>svydesign</code>. As variáveis que definem estratos, conglomerados e pesos na <code>PPV</code> são respectivamente, <code>estratof</code>, <code>nsetor</code> e <code>pesof</code>. O objeto de desenho amostral, <code>ppv.des</code> incorpora as informações do plano amostral adotado na <code>PPV</code>.</p>
+<p>O passo fundamental para utilização da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span> é criar um objeto que guarde as informações relevantes do plano amostral. Isso é feito por meio da função <code>svydesign()</code>. As variáveis que definem estratos, conglomerados e pesos na <code>PPV</code> são respectivamente, <code>estratof</code>, <code>nsetor</code> e <code>pesof</code>. O objeto de desenho amostral, <code>ppv.des</code> incorpora as informações do plano amostral adotado na <code>PPV</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
 ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> ~nsetor, <span class="dt">strata =</span> ~estratof,
 <span class="dt">data =</span> ppv1, <span class="dt">nest =</span> <span class="ot">TRUE</span>, <span class="dt">weights =</span> ~pesof)</code></pre></div>
@@ -405,7 +405,7 @@ ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> ~nse
 ## SEs=
 ##             faixa2
 ## analf2 0.006732254</code></pre>
-<p>Na library <code>survey</code>, uma alternativa para estimar por domínio é utilizar a função <code>svyby</code>. Poderíamos estimar os totais da variável <code>analf1</code> para as regiões <code>Nordeste (1)</code> e <code>Sudeste(2)</code> da seguinte forma:</p>
+<p>Na library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span>, uma alternativa para estimar por domínio é utilizar a função <code>svyby</code>. Poderíamos estimar os totais da variável <code>analf1</code> para as regiões <code>Nordeste (1)</code> e <code>Sudeste(2)</code> da seguinte forma:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyby</span>(~analf1, ~regiao, ppv.des, svytotal, <span class="dt">deff =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>##   regiao  analf1       se DEff.analf1
 ## 1      1 3512866 352619.5    9.660561
@@ -417,7 +417,7 @@ ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> ~nse
 <p>O efeito de plano amostral (EPA) de Kish é definido na fórmula <a href="epa.html#eq:epa1">(4.1)</a>. Vamos considerar o caso particular em que <span class="math inline">\(\hat{\theta}\)</span> é um estimador de total de uma variável <span class="math inline">\(Y\)</span>.Ou seja <span class="math display">\[
 EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
 \]</span></p>
-<p>Na definição do EPA, a estimativa do numerador pode ser obtida usando-se a library <code>survey</code>, a partir do objeto de <code>ppv.se.des</code> que incorpora as características do plano amostral utilizado para coletar os dados. Não é possível estimar diretamente o denominador, pois o plano amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta dos dados. Devemos estimar o denominador a partir de dados obtidos através do plano amostral VERD, como se eles tivessem sido obtidos através de AAS.</p>
+<p>Na definição do EPA, a estimativa do numerador pode ser obtida usando-se a library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span>, a partir do objeto de <code>ppv.se.des</code> que incorpora as características do plano amostral utilizado para coletar os dados. Não é possível estimar diretamente o denominador, pois o plano amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta dos dados. Devemos estimar o denominador a partir de dados obtidos através do plano amostral VERD, como se eles tivessem sido obtidos através de AAS.</p>
 <p>Supondo conhecido o tamanho da população <span class="math inline">\(N\)</span> e a fração amostral <span class="math inline">\(f=n/N\)</span> pequena, a estimativa da variância de <span class="math inline">\(\widehat{Y}\)</span> é dada na expressão @ref:\tag{1.1} <span class="math display" id="eq:estpa9">\[
 \widehat{V}_{AAS}\left(\widehat{Y}\right)=N^2\frac{\widehat{S}_y}{n-1}
 \]</span> onde <span class="math inline">\(\widehat{S}_y= n^{-1}\sum_{i\in s}\left(y_i-\overline{y}\right)^2\)</span> é a estimativa de <span class="math inline">\(S_y=N^{-1}\sum_{i\in U}\left(y_i-\overline{Y}\right)^2\)</span>, com <span class="math inline">\(\overline{Y}=N^{-1}Y\)</span>.</p>
@@ -453,7 +453,7 @@ VAAS2&lt;-<span class="st"> </span><span class="kw">Vwaas</span>(ppv.se.des$vari
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attr</span>(<span class="kw">svytotal</span>(~analf2, ppv.se.des),<span class="st">&quot;var&quot;</span>)/VAAS2</code></pre></div>
 <pre><code>##         analf2
 ## analf2 3.32324</code></pre>
-<p>Esses valores do EPA coincidem com os obtidos acima através da library survey e são distintos daqueles apresentados na Tabela . Para obter os valores correspondentes aos da Tabela , através da library survey, vamos definir as variáveis:</p>
+<p>Esses valores do EPA coincidem com os obtidos acima através da library <code>survey</code><span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span> e são distintos daqueles apresentados na Tabela . Para obter os valores correspondentes aos da Tabela , através da library <code>survey</code><span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span>, vamos definir as variáveis:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">analf1.se&lt;-<span class="kw">with</span>(ppv1,((v04a01==<span class="dv">2</span>|v04a02==<span class="dv">2</span>) &amp;<span class="st"> </span>(v02a08&gt;=<span class="dv">7</span>&amp;v02a08&lt;=<span class="dv">14</span>))&amp;(regiao==<span class="dv">2</span>))
 analf2.se&lt;-<span class="kw">with</span>(ppv1,((v04a01==<span class="dv">2</span>|v04a02==<span class="dv">2</span>) &amp;<span class="st"> </span>(v02a08&gt;<span class="dv">14</span>))&amp;(regiao==<span class="dv">2</span>))
 ppv.des &lt;-<span class="st"> </span><span class="kw">update</span> (ppv.des,<span class="dt">analf1.se=</span>analf1.se,<span class="dt">analf2.se=</span>analf2.se  )
@@ -477,7 +477,7 @@ ppv.des &lt;-<span class="st"> </span><span class="kw">update</span> (ppv.des,<s
 </div>
 <p></p>
 <ul>
-<li>Instala library lodown do github:</li>
+<li>Instala library <code>lodown</code> <span class="citation">(Damico <a href="#ref-R-lodown">2016</a>)</span> do github:</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools)
 <span class="kw">install_github</span>(<span class="st">&quot;ajdamico/lodown&quot;</span>)</code></pre></div>
@@ -545,7 +545,7 @@ result</code></pre></div>
 <div class="example">
 <span id="ex:unnamed-chunk-27" class="example"><strong>Exemplo 1.4 </strong></span>Utilização da library survey do R para análise de microdados da PNS
 </div>
-<p> Leitura dos microdados usando a library <code>lodown</code></p>
+<p> Leitura dos microdados usando a library <code>lodown</code><span class="citation">(Damico <a href="#ref-R-lodown">2016</a>)</span></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lodown)
 <span class="kw">lodown</span>( <span class="st">&quot;pns&quot;</span> , <span class="dt">output_dir =</span> <span class="st">&quot;C:/adac/PNS&quot;</span>)</code></pre></div>
 <p>Depois de baixar os dados, são criados os seguintes arquivos no diretório <code>C:/adac/PNS</code> :</p>
@@ -569,7 +569,7 @@ result</code></pre></div>
 <span class="remark"><em>Observação </em></span> No data frame pes_sel o nome das variáveis, obtidos por <code>names(pes_sel)</code>, estão em minúsculas. No dicionário da PNS os códigos correspondentes estão em maiúsculas.
 </div>
 <p> O data frame <code>pes_sel</code> contém as variáveis descritas no dicionário da <code>PNS</code> e algumas variáveis obtidas derivadas.</p>
-<p>O passo inicial para a análise dos microdados é definir um objeto de desenho que salva as características do plano amostral da pesquisa. Isso é feito por meio da função <code>svydesign()</code> da library `survey.</p>
+<p>O passo inicial para a análise dos microdados é definir um objeto de desenho que salva as características do plano amostral da pesquisa. Isso é feito por meio da função <code>svydesign()</code> da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
 pes_sel_des &lt;-
 <span class="st">    </span><span class="kw">svydesign</span>(
@@ -582,7 +582,7 @@ pes_sel_des &lt;-
 <p>Os pesos do objeto de desenho <code>pes_sel_des</code> devem ser modificados de modo que as estimativas dos totais populacionais dos pós-estratos fixados coincidam com os totais populacionais dos pós-estratos conhecidos a partir do Censo Demográfico. O data frame <code>post_pop</code> contém na primeira coluna a identidade dos pós-estratos e na segunda seus totais populacionais.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post_pop &lt;-<span class="st"> </span><span class="kw">unique</span>( pes_sel[ <span class="kw">c</span>( <span class="st">&#39;v00293.y&#39;</span> , <span class="st">&#39;v00292.y&#39;</span> ) ] )
 <span class="kw">names</span>( post_pop ) &lt;-<span class="st"> </span><span class="kw">c</span>( <span class="st">&quot;v00293.y&quot;</span> , <span class="st">&quot;Freq&quot;</span> )</code></pre></div>
-<p>Utilizando a função <code>postStratify()</code> da library <code>survey</code> incorpora-se no objeto de desenho <code>pes_sel_des</code> as informações contidas no data frame <code>post_pop</code>.</p>
+<p>Utilizando a função <code>postStratify()</code> da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span> incorpora-se no objeto de desenho <code>pes_sel_des</code> as informações contidas no data frame <code>post_pop</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel_des_pos &lt;-<span class="st"> </span><span class="kw">postStratify</span>( pes_sel_des , ~v00293.y , post_pop )</code></pre></div>
 <p>Os comandos acimas foram apresentados apenas para ilustrar como, a partir dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não seria necessária a execução desses comandos pois o objeto de desenho <code>pes_sel_des_pos</code> já se encontra disponível no arquivo 1 <code>2013 all questionnaire survey design.rds</code>.</p>
 <p>Para exemplificar, vamos agora reproduzir estimativas na Tabela 6.42.1.1 da publicação em <a href="ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf" class="uri">ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf</a>.</p>
@@ -1248,7 +1248,7 @@ byeduc &lt;-<span class="st"> </span>byeduc[,-<span class="dv">1</span>]
 <span class="dt">digits=</span> <span class="dv">3</span>, <span class="dt">caption =</span> <span class="st">&quot;Proporção de pessoas com seguro de saúde por nível </span>
 <span class="st">de instrução&quot;</span>)</code></pre></div>
 
-<p>Gráfico de barras:</p>
+<p>Gráfico de barras usando a library <code>ggplot2</code> <span class="citation">(Wickham and Chang <a href="#ref-R-ggplot2">2016</a>)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 <span class="kw">ggplot</span>(
     byeduc,
@@ -1318,6 +1318,12 @@ byeduc &lt;-<span class="st"> </span>byeduc[,-<span class="dv">1</span>]
 </div>
 <div id="ref-bryk">
 <p>Bryk, A. S., and S. W. Raudenbush. 1992. <em>Hierarquical Linear Models: Applications and Data Analysis Methods</em>. Newbury Park: Sage.</p>
+</div>
+<div id="ref-R-lodown">
+<p>Damico, Anthony Joseph. 2016. <em>Lodown: Locally Download and Prepare Publicly-Available Microdata</em>. <a href="http://asdfree.com/" class="uri">http://asdfree.com/</a>.</p>
+</div>
+<div id="ref-R-ggplot2">
+<p>Wickham, Hadley, and Winston Chang. 2016. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2" class="uri">https://CRAN.R-project.org/package=ggplot2</a>.</p>
 </div>
 </div>
             </section>

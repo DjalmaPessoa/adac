@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-04-05">
+<meta name="date" content="2017-04-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -604,7 +604,7 @@ pnadrj90 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span cla
 ## ht3 -3.436592e-06 -3.436106e-05  3.779765e-05</code></pre>
 <p>Podemos obter estimativas de proporções nas classes de renda por domínios definidos pela variável <code>sx</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xtable)
-<span class="kw">print</span>(<span class="kw">xtable</span>(<span class="kw">svyby</span>(~re,~sx,pnad.des,svymean,<span class="dt">keep.var=</span><span class="ot">TRUE</span>),<span class="dt">caption=</span><span class="st">&quot;Proporções por sexo&quot;</span>),<span class="dt">type=</span><span class="st">&quot;html&quot;</span>, <span class="dt">size=</span><span class="st">&quot;small&quot;</span>, <span class="dt">include.rownames=</span><span class="ot">FALSE</span>)</code></pre></div>
+<span class="kw">print</span>(<span class="kw">xtable</span>(<span class="kw">svyby</span>(~re,~sx,pnad.des, svymean,<span class="dt">keep.var=</span><span class="ot">TRUE</span>), <span class="dt">caption=</span><span class="st">&quot;Proporções por sexo&quot;</span>),<span class="dt">type=</span><span class="st">&quot;html&quot;</span>, <span class="dt">size=</span><span class="st">&quot;small&quot;</span>, <span class="dt">include.rownames=</span><span class="ot">FALSE</span>)</code></pre></div>
 <p>As proporções estimadas nas classes de renda e a tabela cruzada das variáveis sexo e renda são obtidas a seguir:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svymean</span>(~re,pnad.des,<span class="dt">deff=</span>T)</code></pre></div>
 <pre><code>##          mean        SE   DEff
@@ -620,7 +620,7 @@ pnadrj90 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span cla
 <pre><code>##   sx       re1       re2       re3      se.re1     se.re2     se.re3
 ## 1  1 0.1110831 0.5908215 0.2980955 0.005726888 0.01025759 0.01112131
 ## 2  2 0.2404788 0.5696548 0.1898663 0.012502636 0.01193753 0.01114102</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svymean</span>(~<span class="kw">I</span>((sx==<span class="dv">1</span>&amp;re==<span class="dv">1</span>)*<span class="dv">1</span>),pnad.des,<span class="dt">deff=</span>T)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svymean</span>(~<span class="kw">I</span>((sx==<span class="dv">1</span>&amp;re==<span class="dv">1</span>)*<span class="dv">1</span>), pnad.des, <span class="dt">deff=</span>T)</code></pre></div>
 <pre><code>##                                 mean        SE   DEff
 ## I((sx == 1 &amp; re == 1) * 1) 0.0729904 0.0038343 1.4156</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#proporções nas celas</span>
@@ -636,10 +636,82 @@ pnadrj90 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span cla
 ##   1  7.299044 38.821684 19.587250
 ##   2  8.246505 19.534616  6.510900</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># produz se e deff</span>
-sx.re_mean&lt;-<span class="kw">svymean</span>(~<span class="kw">interaction</span>(sx,re),pnad.des,<span class="dt">deff=</span>T)</code></pre></div>
-<p>Resultado dos testes obtidos pela survey são diferentes. Seriam incluídos?</p>
-<p>`</p>
+sx.re_mean &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">svymean</span>(~<span class="kw">interaction</span>(sx,re), pnad.des, <span class="dt">deff=</span>T))
 
+
+<span class="co"># média de epas para correção de testes</span>
+<span class="kw">mean</span>(sx.re_mean$deff)</code></pre></div>
+<pre><code>## [1] 1.642161</code></pre>
+
+<div class="example">
+<span id="ex:unnamed-chunk-134" class="example"><strong>Exemplo 8.3 </strong></span>Testes de Hipóteses
+</div>
+<p></p>
+<p>Teste de independência e homogeneidade baseado nos dados da amostra sem considerar o plano amostral:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(pnadrj90)</code></pre></div>
+<pre><code>## The following objects are masked from pnadrj90 (pos = 3):
+## 
+##     ae, ht, id, informal, pesopes, psu, re, stra, sx, um</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tab.amo &lt;-<span class="st"> </span><span class="kw">table</span>(sx,re)
+<span class="kw">chisq.test</span>(tab.amo)</code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  tab.amo
+## X-squared = 227.03, df = 2, p-value &lt; 2.2e-16</code></pre>
+<p>Resultados dos testes obtidos pela library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span> precisam ser identificados com as fórmulas do texto:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># teste Chi-quadrado de Pearson com ajuste de Rao-Scott</span>
+<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;F&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s X^2: Rao &amp; Scott adjustment
+## 
+## data:  svychisq(~sx + re, pnad.des, statistic = &quot;F&quot;, na.rm = TRUE)
+## F = 108.34, ndf = 1.9779, ddf = 1275.8000, p-value &lt; 2.2e-16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># teste Chi-quadrado de Pearson com ajuste de Rao-Scott</span>
+<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;Chisq&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s X^2: Rao &amp; Scott adjustment
+## 
+## data:  svychisq(~sx + re, pnad.des, statistic = &quot;Chisq&quot;, na.rm = TRUE)
+## X-squared = 224.85, df = 2, p-value &lt; 2.2e-16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># teste de Wald baseado no desenho amostral</span>
+<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;Wald&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## 
+##  Design-based Wald test of association
+## 
+## data:  svychisq(~sx + re, pnad.des, statistic = &quot;Wald&quot;, na.rm = TRUE)
+## F = 68.41, ndf = 2, ddf = 645, p-value &lt; 2.2e-16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># teste de Wald com ajuste</span>
+<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;adjWald&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## 
+##  Design-based Wald test of association
+## 
+## data:  svychisq(~sx + re, pnad.des, statistic = &quot;adjWald&quot;, na.rm = TRUE)
+## F = 68.304, ndf = 2, ddf = 644, p-value &lt; 2.2e-16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># teste Chi-quadrado de Pearson: distribuição assintótica exata</span>
+<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;lincom&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## Warning in pFsum(pearson$statistic, rep(1, ncol(Delta)), eigen(Delta,
+## only.values = TRUE)$values, : Package &#39;CompQuadForm&#39; not found, using
+## saddlepoint approximation</code></pre>
+<pre><code>## 
+##  Pearson&#39;s X^2: asymptotic exact distribution
+## 
+## data:  svychisq(~sx + re, pnad.des, statistic = &quot;lincom&quot;, na.rm = TRUE)
+## X-squared = 224.85, p-value &lt; 2.2e-16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># teste Chi-quadrado de Pearson: aproximação de ponto de cela</span>
+<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;saddlepoint&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s X^2: saddlepoint approximation
+## 
+## data:  svychisq(~sx + re, pnad.des, statistic = &quot;saddlepoint&quot;, na.rm = TRUE)
+## X-squared = 224.85, p-value &lt; 2.2e-16</code></pre>
+
+</div>
+</div>
+<h3>Referências</h3>
+<div id="refs" class="references">
+<div id="ref-R-survey">
+<p>Lumley, Thomas. 2016. “Survey: Analysis of Complex Survey Samples.”</p>
 </div>
 </div>
             </section>
