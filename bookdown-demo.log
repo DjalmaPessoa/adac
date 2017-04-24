@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  20 APR 2017 11:13
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  24 APR 2017 15:13
 entering extended mode
 **./bookdown-demo.tex
 (bookdown-demo.tex
@@ -1235,12 +1235,12 @@ Cap\'{\i }tulo 14.
 ] [154] [155] [156] [157] (bookdown-demo.bbl [158] [159
 
 ] [160] [161])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 11517.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 11555.
 [162]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 11517.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 11555.
 (bookdown-demo.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 11517.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 11517.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 11555.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 11555.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 

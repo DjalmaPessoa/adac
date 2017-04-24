@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-04-20">
+<meta name="date" content="2017-04-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -345,6 +345,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>internet: www.cdc.gov/epo/epi/epi.html</p>
 <p>Epi Info é um pacote estatístico para epidemiologia, desenvolvido pelo <code>US Centers for Disease Control and Prevention</code>, para apuração, gerenciamento e análise de dados epidemiológicos, incluindo análise de dados de pesquisas amostrais complexas (componente CSAMPLE). Seu plano amostral básico é amostragem de conglomerados em vários estágios, através do método do conglomerado primário combinado com a aproximação de linearização de Taylor para estimação de variâncias.</p>
 <p>Epi Info pode ser obtido gratuitamente do endereço internet fornecido. A leitura de dados pode ser feita de arquivos em formatos DBF, Lotus, ou ASCII. O pacote pode produzir estimativas de desvios padrões para estimativas de médias e proporções, tanto para a totalidade da amostra como para domínios especificados através de tabelas de duas entradas. A saída inclui apenas freqüências não expandidas, proporções e médias expandidas, desvios padrões, limites de confiança de <span class="math inline">\(95\%\)</span> e efeitos de plano amostral.</p>
+<p><strong>Library survey do R</strong></p>
+<p>Estimativas e suas precisões podem ser obtidas por meio da library <code>survey</code> do R, <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span>. As funções da library <code>survey</code> produzem estimativas que incorporam as características do plano amostral utilizado na coleta dos dados.</p>
+<p>A library <code>survey</code> contém funções para estimar:</p>
+<ul>
+<li>Médias (svymean);</li>
+<li>Totais (svytotal);</li>
+<li>Razões (svyratio);</li>
+<li>Quantis (svyquantile);</li>
+<li>Tabelas de contingência (svytable);</li>
+<li>Modelos lineares generalizados (svyglm)</li>
+<li>Curvas de sobrevivência (svycoxph);</li>
+<li>Testes de postos (svyranktest).</li>
+</ul>
+<p>Para a amostra inteira e para domínios.</p>
+<p>As variâncias podem ser obtidas por linearização de Taylor or por pesos replicados (BRR, jackknife, bootstrap, multistage bootstrap, ou fornecido pelo usuário).</p>
+<p>Mais detalhes estão no site da library <a href="http://r-survey.r-forge.r-project.org/survey/">survey</a></p>
 
 </div>
 </div>
@@ -361,6 +377,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="ref-Lepkowski">
 <p>Lepkowski, J., and J. Bowles. 1996. “Sampling Error Software for Personal Computers.” <em>The Survey Statistician</em> 35: 10–17.</p>
+</div>
+<div id="ref-R-survey">
+<p>Lumley, Thomas. 2016. “Survey: Analysis of Complex Survey Samples.”</p>
 </div>
 </div>
             </section>

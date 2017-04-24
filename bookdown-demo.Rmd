@@ -9842,7 +9842,7 @@ USA
 
 e-mail: rfay@census.gov
 
-internet: www.census.gov/sdms/www/vwelcome.html\medskip
+internet: www.census.gov/sdms/www/vwelcome.html
 
 VPLX é um programa isolado para estimação de variâncias,
 projetado e usado pelo \emph{US Bureau of the Census} para dados de pesquisa
@@ -9917,6 +9917,32 @@ amostra como para domínios especificados através de tabelas de duas
 entradas. A saída inclui apenas freqüências não expandidas,
 proporções e médias expandidas, desvios padrões, limites de
 confiança de $95\%$  e efeitos de plano amostral.
+
+
+**Library survey do R**
+
+Estimativas e suas precisões podem ser obtidas por meio da library `survey` do R,
+[@R-survey]. As funções da library `survey` produzem estimativas que incorporam as características do plano amostral utilizado na coleta dos dados.
+
+
+A library `survey` contém funções para estimar:
+
+- Médias (svymean); 
+- Totais (svytotal); 
+- Razões (svyratio); 
+- Quantis (svyquantile); 
+- Tabelas de contingência (svytable); 
+- Modelos lineares generalizados (svyglm)
+- Curvas de sobrevivência (svycoxph); 
+- Testes de postos (svyranktest).
+
+ Para a amostra inteira e para domínios.
+
+As variâncias podem ser obtidas por linearização de Taylor or por pesos replicados (BRR, jackknife, bootstrap, multistage bootstrap, ou fornecido pelo usuário).
+
+Mais detalhes estão no site da library 
+[survey](http://r-survey.r-forge.r-project.org/survey/)
+
 
 <!--chapter:end:14-Cap14.Rmd-->
 
