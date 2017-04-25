@@ -146,7 +146,7 @@ USA
 
 e-mail: SUDAAN@rti.org
 
-internet: www.rti.org/patents/sudaan.html\medskip
+internet: www.rti.org/patents/sudaan.html
 
 SUDAAN (sigla de `SUrvey DAta ANalysis` é um pacote computacional
 para análise de dados correlacionados, incluindo dados de pesquisas
@@ -316,8 +316,8 @@ são projetados para lidar com amostras estratificadas de conglomerados
 em vários estágios, e com correção de população
 finita para até dois estágios de seleção. PC CARP usa a
 aproximação de linearização de Taylor para estimação
-de variâncias. O conjunto de programas pode ser adquirido do \emph{%
-Statistical Laboratory} da `Iowa State University` por US $\$300$. Os
+de variâncias. O conjunto de programas pode ser adquirido do 
+`Statistical Laboratory` da `Iowa State University` por US $\$300$. Os
 dados devem ser lidos em arquivo formato ASCII, mediante a criação
 de um dicionário próprio.
 
@@ -338,13 +338,13 @@ e-mail: rfay@census.gov
 internet: www.census.gov/sdms/www/vwelcome.html
 
 VPLX é um programa isolado para estimação de variâncias,
-projetado e usado pelo \emph{US Bureau of the Census} para dados de pesquisa
+projetado e usado pelo `US Bureau of the Census` para dados de pesquisa
 amostrais complexas. Opera em ambiente DOS com comandos pelo teclado. O VPLX
 é fundamentalmente projetado para amostras estratificadas em vários
 estágios, e adota o método do conglomerado primário, combinado
 com técnicas de replicação para estimação de
 variâncias, incluindo procedimentos baseados nos métodos de grupos
-aleatórios, de \emph{jackknife}, e de replicação balanceada. O
+aleatórios, de `jackknife`, e de replicação balanceada. O
 VPLX pode ser obtido gratuitamente no endereço internet. Os dados devem
 ser lidos em arquivos formato ASCII mediante a criação de um
 dicionário próprio.
@@ -367,8 +367,7 @@ CLUSTERS é um programa isolado desenvolvido originalmente pela equipe da
 `World Fertility Survey` e depois aperfeiçoado por Vijay Verma e
 Mick Verma. O principal plano amostral é amostragem estratificada de
 conglomerados em vários estágios. CLUSTERS usa o método do
-conglomerado primário combinado com a aproximação de lineariza\c{%
-c}ão de Taylor para estimação de variâncias. Os dados devem
+conglomerado primário combinado com a aproximação de linearização de Taylor para estimação de variâncias. Os dados devem
 ser lidos de arquivos em formato ASCII, mediante a criação de um
 dicionário de formato próprio. CLUSTERS pode produzir estimativas de
 desvios padrões para médias e proporções, para toda a
