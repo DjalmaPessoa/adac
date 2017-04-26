@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-04-25}
+  \date{2017-04-26}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -949,6 +949,79 @@ Observe que as estimativas de totais e desvios padrão obtidas coincidem
 com as Tabela \ref{table:Tab13}, porém as estimativas de Efeitos de
 Plano Amostral(DEff) são distintas.
 
+\BeginKnitrBlock{example}
+\protect\hypertarget{ex:unnamed-chunk-9}{}{\label{ex:unnamed-chunk-9}}Exemplo
+anterior usando a library srvyr
+\EndKnitrBlock{example}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# leitura dos dados}
+\NormalTok{ppv1 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{ppv.rds"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Carrega a library \texttt{srvyr}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(srvyr)}
+\end{Highlighting}
+\end{Shaded}
+
+Cria objeto de desenho:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ppv.des <-}\StringTok{ }\NormalTok{ppv1 %>%}\StringTok{ }\KeywordTok{as_survey_design} \NormalTok{(}\DataTypeTok{ids =} \NormalTok{nsetor, }\DataTypeTok{strata =} \NormalTok{estratof,}
+\DataTypeTok{nest =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{weights =} \NormalTok{pesof)}
+\end{Highlighting}
+\end{Shaded}
+
+Vamos criar novas variáveis:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ppv.des <-}\StringTok{ }\NormalTok{ppv.des %>%}\StringTok{ }
+\KeywordTok{mutate}\NormalTok{(}
+\DataTypeTok{analf1 =} \KeywordTok{as.numeric}\NormalTok{((v04a01 ==}\StringTok{ }\DecValTok{2} \NormalTok{|}\StringTok{ }\NormalTok{v04a02 ==}\StringTok{ }\DecValTok{2}\NormalTok{) &}\StringTok{ }\NormalTok{(v02a08 >=}\StringTok{ }\DecValTok{7} \NormalTok{&}\StringTok{ }\NormalTok{v02a08 <=}\StringTok{ }\DecValTok{14}\NormalTok{)), }
+\DataTypeTok{analf2 =} \KeywordTok{as.numeric}\NormalTok{((v04a01 ==}\StringTok{ }\DecValTok{2} \NormalTok{|}\StringTok{ }\NormalTok{v04a02 ==}\StringTok{ }\DecValTok{2}\NormalTok{) &}\StringTok{ }\NormalTok{(v02a08 >}\DecValTok{14}\NormalTok{)), }
+\DataTypeTok{faixa1 =} \KeywordTok{as.numeric}\NormalTok{(v02a08 >=}\StringTok{ }\DecValTok{7} \NormalTok{&}\StringTok{ }\NormalTok{v02a08 <=}\StringTok{ }\DecValTok{14}\NormalTok{), }
+\DataTypeTok{faixa2 =} \KeywordTok{as.numeric}\NormalTok{(v02a08 >}\StringTok{ }\DecValTok{14}\NormalTok{)   }
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Estimar a taxa de analfabetos por região para as faixas etárias de 7-14
+anos e mais de 14 anos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res <-}\StringTok{ }\NormalTok{ppv.des %>%}\StringTok{  }
+\KeywordTok{group_by}\NormalTok{(regiao) %>%}\StringTok{ }
+\KeywordTok{summarise}\NormalTok{(}
+\DataTypeTok{taxa_analf1 =} \KeywordTok{survey_ratio}\NormalTok{(analf1, faixa1),}
+\DataTypeTok{taxa_analf2 =} \KeywordTok{survey_ratio}\NormalTok{(analf2, faixa2)  }
+\NormalTok{)}
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(res), }\DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{format =} \StringTok{"latex"}\NormalTok{, }
+\DataTypeTok{caption =} \StringTok{"Proporção de analfabetos para faixas etárias 7-14 anos e mais de 14 anos"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-14}Proporção de analfabetos para faixas etárias 7-14 anos e mais de 14 anos}
+\centering
+\begin{tabular}[t]{lrrrr}
+\toprule
+regiao & taxa\_analf1 & taxa\_analf1\_se & taxa\_analf2 & taxa\_analf2\_se\\
+\midrule
+1 & 0.422853 & 0.0306791 & 0.3363222 & 0.0159066\\
+2 & 0.118689 & 0.0117890 & 0.1086871 & 0.0067323\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{Estimativa do efeito de plano amostral
 (EPA)}\label{estimativa-do-efeito-de-plano-amostral-epa}
 
@@ -1124,7 +1197,7 @@ quando estimamos em um domínio, de trabalhar com pesos cuja soma seja um
 estimador do tamanho da população.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-14}{}{\label{ex:unnamed-chunk-14}}Utilização
+\protect\hypertarget{ex:unnamed-chunk-20}{}{\label{ex:unnamed-chunk-20}}Utilização
 da library survey do R para estimar taxa de desocupação para um
 trimestre na PNADC
 \EndKnitrBlock{example}
@@ -1190,13 +1263,8 @@ data frame \texttt{x}:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{x <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/pnadc/pnadc 2016 03.rds"}\NormalTok{)}
-\KeywordTok{dim}\NormalTok{(x)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] 572023    170
-\end{verbatim}
 
 \begin{itemize}
 \tightlist
@@ -1296,7 +1364,7 @@ ou mais na semana de referência(PIA) e calcula a razão de dois totais:
 \end{verbatim}
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-27}{}{\label{ex:unnamed-chunk-27}}Utilização
+\protect\hypertarget{ex:unnamed-chunk-35}{}{\label{ex:unnamed-chunk-35}}Utilização
 da library survey do R para análise de microdados da PNS
 \EndKnitrBlock{example} Leitura dos microdados usando a library
 \texttt{lodown}\citep{R-lodown}
@@ -1416,32 +1484,9 @@ A variável de interesse tem código Q092 e sua descrição é: ``Algum
 médico ou profissional de saúde mental (como psiquiatra ou psicólogo) já
 lhe deu o diagnóstico de depressão?''
 
-Essa variável é de classe character e tem dois valores 1 e 2:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{class}\NormalTok{(pes_sel$q092)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "character"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{table}\NormalTok{(pes_sel$q092)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##     1     2 
-##  4235 55967
-\end{verbatim}
-
-Antes vamos definir uma nova variável \texttt{diag\_dep} que é igual a 1
-se recebe diagnóstico de depressão e zero caso contrário:
+Essa variável é de classe \texttt{character} e tem dois valores ``1'' e
+``2''. Vamos definir uma nova variável \texttt{diag\_dep} que é igual a
+1 se recebe diagnóstico de depressão e 0 caso contrário:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1542,7 +1587,7 @@ Para o país por sexo:
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-42}Proporção de diagnóstico de depressão por sexo}
+\caption{\label{tab:unnamed-chunk-51}Proporção de diagnóstico de depressão por sexo}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
@@ -1569,7 +1614,7 @@ Por situação (rural e urbano)
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-43}Proporção de diagnóstico de depressão por situação}
+\caption{\label{tab:unnamed-chunk-52}Proporção de diagnóstico de depressão por situação}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
@@ -1577,36 +1622,6 @@ situ & prop & l.i.c. & l.s.c\\
 \midrule
 urbano & 8.0 & 7.5 & 8.4\\
 rural & 5.6 & 4.9 & 6.3\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Situação por sexo:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{diagdepsitusex <-}\StringTok{ }\KeywordTok{svyby}\NormalTok{(~diag_dep, ~situ +}\StringTok{ }\NormalTok{c006, }\DataTypeTok{design =} \NormalTok{pes_sel_des_pos, }
-  \NormalTok{svymean)}
-\NormalTok{res <-}\StringTok{ }\KeywordTok{three_stats}\NormalTok{(diagdepsitusex)}
-\NormalTok{dfsitusex <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{situ.sex =} \KeywordTok{names}\NormalTok{(res)[}\DecValTok{1}\NormalTok{:}\DecValTok{4}\NormalTok{],}\DataTypeTok{prop =} \NormalTok{res[}\DecValTok{1}\NormalTok{:}\DecValTok{4}\NormalTok{], }
-  \DataTypeTok{l.i.c =} \NormalTok{res[}\DecValTok{5}\NormalTok{:}\DecValTok{8}\NormalTok{], }\DataTypeTok{l.s.c=}\NormalTok{res[}\DecValTok{9}\NormalTok{:}\DecValTok{12}\NormalTok{] )}
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(dfsitusex,}\DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{,}
-\DataTypeTok{caption =} \StringTok{"Proporção de diagnóstico de depressão por situação e sexo"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-44}Proporção de diagnóstico de depressão por situação e sexo}
-\centering
-\begin{tabular}[t]{lrrr}
-\toprule
-situ.sex & prop & l.i.c & l.s.c\\
-\midrule
-urbano.masculino & 4.1 & 3.6 & 4.7\\
-rural.masculino & 2.7 & 1.9 & 3.6\\
-urbano.feminino & 11.3 & 10.5 & 12.0\\
-rural.feminino & 8.6 & 7.5 & 9.8\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1626,7 +1641,7 @@ Por Unidade da Federação:
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-45}Proporção de diagnóstico de depressão por uf}
+\caption{\label{tab:unnamed-chunk-54}Proporção de diagnóstico de depressão por uf}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
@@ -1668,96 +1683,6 @@ Distrito Federal & 6.2 & 4.9 & 7.5\\
 \end{tabular}
 \end{table}
 
-UF por sexo:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{diagdepufsex <-}\StringTok{ }\KeywordTok{svyby}\NormalTok{(~diag_dep, ~uf +}\StringTok{ }\NormalTok{c006, }\DataTypeTok{design =} \NormalTok{pes_sel_des_pos, }
-  \NormalTok{svymean)}
-\NormalTok{res <-}\StringTok{ }\KeywordTok{three_stats}\NormalTok{(diagdepufsex)}
-\NormalTok{dfufsex <-}\StringTok{ }\KeywordTok{data.frame} \NormalTok{(}\DataTypeTok{uf.sex =}\KeywordTok{names}\NormalTok{(res)[}\DecValTok{1}\NormalTok{:}\DecValTok{54}\NormalTok{], }\DataTypeTok{prop =} \NormalTok{res[}\DecValTok{1}\NormalTok{:}\StringTok{ }\DecValTok{54}\NormalTok{],}
-  \DataTypeTok{l.i.c =} \NormalTok{res[}\DecValTok{55}\NormalTok{:}\DecValTok{108}\NormalTok{], }\DataTypeTok{l.s.c=}\NormalTok{res[}\DecValTok{109}\NormalTok{:}\DecValTok{162}\NormalTok{] )}
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(dfufsex,}\DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }
-\DataTypeTok{caption =} \StringTok{"Proporção de diagnóstico de depressão por uf e sexo"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-46}Proporção de diagnóstico de depressão por uf e sexo}
-\centering
-\begin{tabular}[t]{lrrr}
-\toprule
-uf.sex & prop & l.i.c & l.s.c\\
-\midrule
-Rondonia.masculino & 2.8 & 1.3 & 4.3\\
-Acre.masculino & 4.3 & 2.2 & 6.4\\
-Amazonas.masculino & 2.0 & 1.1 & 3.0\\
-Roraima.masculino & 2.7 & 1.2 & 4.1\\
-Para.masculino & 0.6 & 0.1 & 1.1\\
-\addlinespace
-Amapa.masculino & 1.8 & 0.0 & 3.6\\
-Tocantins.masculino & 3.6 & 1.8 & 5.4\\
-Maranhao.masculino & 1.4 & 0.0 & 2.9\\
-Piaui.masculino & 1.9 & 0.8 & 3.0\\
-Ceara.masculino & 1.8 & 0.8 & 2.8\\
-\addlinespace
-Rio Grande do Norte.masculino & 3.5 & 1.9 & 5.1\\
-Paraiba.masculino & 2.7 & 1.2 & 4.2\\
-Pernambuco.masculino & 3.8 & 2.4 & 5.2\\
-Alagoas.masculino & 3.6 & 2.0 & 5.2\\
-Sergipe.masculino & 4.2 & 2.4 & 6.0\\
-\addlinespace
-Bahia.masculino & 1.2 & 0.4 & 2.1\\
-Minas Gerais.masculino & 6.6 & 4.3 & 8.9\\
-Espirito Santo.masculino & 2.9 & 0.7 & 5.0\\
-Rio de Janeiro.masculino & 3.3 & 2.0 & 4.5\\
-Sao Paulo.masculino & 4.7 & 3.3 & 6.0\\
-\addlinespace
-Parana.masculino & 4.9 & 3.3 & 6.6\\
-Santa Catarina.masculino & 7.0 & 4.0 & 10.0\\
-Rio Grande do Sul.masculino & 6.7 & 4.7 & 8.8\\
-Mato Grosso do Sul.masculino & 3.7 & 2.1 & 5.3\\
-Mato Grosso.masculino & 2.9 & 1.4 & 4.4\\
-\addlinespace
-Goias.masculino & 2.5 & 1.0 & 4.0\\
-Distrito Federal.masculino & 2.5 & 1.2 & 3.8\\
-Rondonia.feminino & 8.3 & 5.5 & 11.2\\
-Acre.feminino & 7.2 & 5.4 & 9.1\\
-Amazonas.feminino & 3.3 & 2.1 & 4.5\\
-\addlinespace
-Roraima.feminino & 6.2 & 4.2 & 8.2\\
-Para.feminino & 2.5 & 1.5 & 3.5\\
-Amapa.feminino & 4.8 & 2.7 & 6.9\\
-Tocantins.feminino & 10.3 & 7.3 & 13.3\\
-Maranhao.feminino & 5.9 & 3.6 & 8.2\\
-\addlinespace
-Piaui.feminino & 5.8 & 4.0 & 7.6\\
-Ceara.feminino & 6.7 & 4.9 & 8.4\\
-Rio Grande do Norte.feminino & 9.8 & 7.4 & 12.2\\
-Paraiba.feminino & 6.6 & 4.4 & 8.9\\
-Pernambuco.feminino & 10.1 & 7.7 & 12.5\\
-\addlinespace
-Alagoas.feminino & 8.4 & 5.9 & 11.0\\
-Sergipe.feminino & 8.0 & 6.1 & 9.9\\
-Bahia.feminino & 6.4 & 4.3 & 8.5\\
-Minas Gerais.feminino & 15.1 & 11.9 & 18.2\\
-Espirito Santo.feminino & 7.8 & 5.2 & 10.5\\
-\addlinespace
-Rio de Janeiro.feminino & 8.3 & 6.7 & 9.8\\
-Sao Paulo.feminino & 11.7 & 10.0 & 13.4\\
-Parana.feminino & 17.8 & 14.0 & 21.5\\
-Santa Catarina.feminino & 18.4 & 13.8 & 23.0\\
-Rio Grande do Sul.feminino & 18.9 & 16.4 & 21.4\\
-\addlinespace
-Mato Grosso do Sul.feminino & 13.5 & 10.8 & 16.3\\
-Mato Grosso.feminino & 10.8 & 7.6 & 13.9\\
-Goias.feminino & 11.3 & 9.1 & 13.6\\
-Distrito Federal.feminino & 9.3 & 7.3 & 11.3\\
-\bottomrule
-\end{tabular}
-\end{table}
-
 Usando o objeto de desenho para todas as pessoas que reponderam o
 questionário curto, salvo no arquivo em
 \texttt{2013\ all\ questionnaire\ survey\ design.rds}, vamos estimar a
@@ -1794,7 +1719,7 @@ Imprime tabela:
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-50}Proporção de pessoas com seguro de saúde por nível 
+\caption{\label{tab:unnamed-chunk-59}Proporção de pessoas com seguro de saúde por nível 
 de instrução}
 \centering
 \begin{tabular}[t]{rrr}
@@ -1828,7 +1753,7 @@ Gráfico de barras usando a library \texttt{ggplot2} \citep{R-ggplot2}:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-51-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-60-1.pdf}
 
 \chapter{Referencial para Inferência}\label{refinf}
 
@@ -2959,7 +2884,7 @@ não-viciado para \(V_{p} \left( \mathbf{\hat{Y}}_{\pi} \right)\) para
 planos amostrais de tamanho fixo.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-52}{}{\label{ex:unnamed-chunk-52}}Amostragem
+\protect\hypertarget{ex:unnamed-chunk-61}{}{\label{ex:unnamed-chunk-61}}Amostragem
 Aleatória Simples Sem Reposição (AAS)
 \EndKnitrBlock{example}
 
@@ -3269,7 +3194,7 @@ ou médias populacionais (este é o caso de quantis de distribuições, por
 exemplo).\medskip 
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-53}{}{\label{ex:unnamed-chunk-53}}Matriz
+\protect\hypertarget{ex:unnamed-chunk-62}{}{\label{ex:unnamed-chunk-62}}Matriz
 de covariância para um vetor de razões
 \EndKnitrBlock{example}
 
@@ -3748,7 +3673,7 @@ Para o método \texttt{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01111776
+## [1,] 0.01201882
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -3973,7 +3898,7 @@ distribuição do estimador induzida pelo plano de amostragem aleatória
 simples \(V_{AAS}\left(\hat{\theta}\right)\).
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-72}{}{\label{def:unnamed-chunk-72}}O
+\protect\hypertarget{def:unnamed-chunk-81}{}{\label{def:unnamed-chunk-81}}O
 \textbf{Efeito do Plano Amostral (\(EPA\))} \textbf{de Kish} para um
 estimador \(\hat{\theta}\) é
 \EndKnitrBlock{definition}
@@ -4200,7 +4125,7 @@ incorreta do plano amostral (ou do modelo) sobre a estimativa \(v_{0}\)
 da variância do estimador \(\hat{\theta}\).
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-73}{}{\label{def:unnamed-chunk-73}}O
+\protect\hypertarget{def:unnamed-chunk-82}{}{\label{def:unnamed-chunk-82}}O
 efeito da especificação incorreta do plano amostral (ou do modelo) sobre
 a estimativa \(v_{0}\) da variância do estimador \(\hat{\theta}\) é
 
@@ -4581,7 +4506,7 @@ na estrutura da população e não no plano amostral usado para obter os
 dados.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-76}{}{\label{ex:unnamed-chunk-76}}População
+\protect\hypertarget{ex:unnamed-chunk-85}{}{\label{ex:unnamed-chunk-85}}População
 conglomerada com conglomerados de tamanho 2 \citep{SHS89}, p.~25
 \EndKnitrBlock{example}
 
@@ -4772,7 +4697,7 @@ exemplo, para \(\alpha =0,05\) e
 significância real seria aproximadamente \(1-0,83=0,17\).
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-77}{}{\label{ex:unnamed-chunk-77}}\label{exebin}Teste
+\protect\hypertarget{ex:unnamed-chunk-86}{}{\label{ex:unnamed-chunk-86}}\label{exebin}Teste
 de hipótese sobre proporção
 \EndKnitrBlock{example} Vamos considerar um exemplo hipotético de teste
 de hipótese sobre uma proporção, semelhante ao de \citep{Sud76},
@@ -5210,7 +5135,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1403844
+## [1] 0.1402578
 \end{verbatim}
 
 \begin{Shaded}
@@ -5221,7 +5146,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3362696
+## [1] 0.3681058
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -5372,7 +5297,7 @@ de pesos irrelevante, e no outro os \texttt{amostristas}, que incorporam
 pesos em qualquer análise.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-83}{}{\label{ex:unnamed-chunk-83}}Uso
+\protect\hypertarget{ex:unnamed-chunk-92}{}{\label{ex:unnamed-chunk-92}}Uso
 analítico dos dados da Pesquisa Nacional por Amostra de Domicílios
 (PNAD)
 \EndKnitrBlock{example}
@@ -5696,7 +5621,7 @@ igualando o estimador \(\mathbf{\hat{T}}\) do total \(\mathbf{T}\) a
 zero.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-84}{}{\label{def:unnamed-chunk-84}}O
+\protect\hypertarget{def:unnamed-chunk-93}{}{\label{def:unnamed-chunk-93}}O
 estimador de Máxima Pseudo-Verossimilhança (MPV)
 \(\mathbf{\hat{\theta}}_{MPV}\) de \(\mathbf{\theta }_{U}\) (e
 consequentemente de \(\mathbf{\theta}\)) será a solução das equações
@@ -7944,7 +7869,7 @@ Thomas e Rao(1987) observaram que esta estatística, em situações
 instáveis, é melhor que a estatística sem correção de primeira ordem.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-101}{}{\label{ex:unnamed-chunk-101}}Teste
+\protect\hypertarget{ex:unnamed-chunk-110}{}{\label{ex:unnamed-chunk-110}}Teste
 de bondade de ajuste para a distribuição etária da PPV 96-97 na Região
 Sudeste.
 \EndKnitrBlock{example}
@@ -9191,7 +9116,7 @@ A estatística \eqref{eq:Tab16} tem distribuição de referência \(F\) com
 liberdade.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-122}{}{\label{ex:unnamed-chunk-122}}Correções
+\protect\hypertarget{ex:unnamed-chunk-131}{}{\label{ex:unnamed-chunk-131}}Correções
 de EPA médio das estatísticas \(X_{P}^{2}\left(I\right)\) e
 \(X_{P}^{2}\left(H\right)\).
 \EndKnitrBlock{example}
@@ -9508,7 +9433,7 @@ Vamos reproduzir alguns resultados usando dados da PNAD descritos na
 Seção ???
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-125}{}{\label{ex:unnamed-chunk-125}}Estimativas
+\protect\hypertarget{ex:unnamed-chunk-134}{}{\label{ex:unnamed-chunk-134}}Estimativas
 de medidas descritivas em tabelas
 \EndKnitrBlock{example}
 
@@ -9768,7 +9693,7 @@ variáveis sexo e renda são obtidas a seguir:
 \end{verbatim}
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-134}{}{\label{ex:unnamed-chunk-134}}Testes
+\protect\hypertarget{ex:unnamed-chunk-143}{}{\label{ex:unnamed-chunk-143}}Testes
 de Hipóteses
 \EndKnitrBlock{example}
 
@@ -10384,7 +10309,7 @@ ajuste de modelos hierárquicos para compensar diferentes probabilidades
 de inclusão das unidades na amostra.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-137}{}{\label{ex:unnamed-chunk-137}}Plano
+\protect\hypertarget{ex:unnamed-chunk-146}{}{\label{ex:unnamed-chunk-146}}Plano
 amostral de pesquisa educacional (\citep{lethonen}, p.~297).
 \EndKnitrBlock{example} Os dados deste exemplo se referem a uma pesquisa
 de avaliação de escolas (SNACS), na qual foi analisado o desempenho em
@@ -10650,7 +10575,7 @@ ou a estrutura da população (análises agregada e desagregada,
 respectivamente).\pagebreak 
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-138}{}{\label{ex:unnamed-chunk-138}}(\citep{bryk},
+\protect\hypertarget{ex:unnamed-chunk-147}{}{\label{ex:unnamed-chunk-147}}(\citep{bryk},
 Cap. 5)
 \EndKnitrBlock{example}
 

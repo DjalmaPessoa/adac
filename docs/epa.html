@@ -26,7 +26,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-04-25">
+<meta name="date" content="2017-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -246,7 +246,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Para medir o efeito do plano amostral sobre a variância de um estimador, Kish(1965) propôs uma medida que denominou <code>Efeito do Plano Amostral</code> (<span class="math inline">\(\mathbf{EPA}\)</span>) (em inglês, <em>design effect</em> ou, abreviadamente, <em>deff</em>). O objetivo desta medida é comparar planos amostrais no estágio de planejamento da pesquisa. O <span class="math inline">\(\mathbf{EPA}\)</span> de Kish é uma razão entre variâncias (de aleatorização) de um estimador, calculadas para dois planos amostrais alternativos. Vamos considerar um estimador <span class="math inline">\(\hat{\theta}\)</span> e calcular a variância de sua distribuição induzida pelo plano amostral complexo (verdadeiro) <span class="math inline">\(V_{VERD}\left( \hat{\theta}\right)\)</span> e a variância da distribuição do estimador induzida pelo plano de amostragem aleatória simples <span class="math inline">\(V_{AAS}\left(\hat{\theta}\right)\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-72" class="definition"><strong>Definição 4.1 </strong></span>O <strong>Efeito do Plano Amostral (<span class="math inline">\(EPA\)</span>)</strong> <strong>de Kish</strong> para um estimador <span class="math inline">\(\hat{\theta}\)</span> é
+<span id="def:unnamed-chunk-81" class="definition"><strong>Definição 4.1 </strong></span>O <strong>Efeito do Plano Amostral (<span class="math inline">\(EPA\)</span>)</strong> <strong>de Kish</strong> para um estimador <span class="math inline">\(\hat{\theta}\)</span> é
 </div>
 
 <span class="math display" id="eq:epa1">\[\begin{equation}
@@ -306,7 +306,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Podemos desta forma introduzir uma medida de efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-73" class="definition"><strong>Definição 4.2 </strong></span>O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span> é
+<span id="def:unnamed-chunk-82" class="definition"><strong>Definição 4.2 </strong></span>O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span> é
 <span class="math display" id="eq:epa2">\[\begin{equation}
 \mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left( \hat{%
 \theta}\right) }{E_{VERD}\left( v_{0}\right) }\;.  \tag{4.2}
@@ -436,7 +436,7 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 <p>Um outro exemplo relevante é utilizado a seguir para ilustrar o fato de que o conceito do <span class="math inline">\(\mathbf{EPA}\)</span> adotado aqui é mais abrangente do que o definido por Kish, em particular porque a origem do efeito pode estar na estrutura da população e não no plano amostral usado para obter os dados.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-76" class="example"><strong>Exemplo 4.3 </strong></span>População conglomerada com conglomerados de tamanho 2 <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, p. 25
+<span id="ex:unnamed-chunk-85" class="example"><strong>Exemplo 4.3 </strong></span>População conglomerada com conglomerados de tamanho 2 <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, p. 25
 </div>
 <p></p>
 <p>Considere uma população de conglomerados de tamanho 2, isto é, onde as unidades (elementares ou de referência) estão grupadas em pares (exemplos de tais populações incluem pares de irmãos gêmeos, casais, jogadores numa dupla de vôlei de praia ou tênis, etc.). Suponha que os valores de uma variável de pesquisa medida nessas unidades têm média <span class="math inline">\(\theta\)</span> e variância <span class="math inline">\(\sigma ^{2}\)</span>, além de uma correlação <span class="math inline">\(\rho\)</span> entre os valores dentro de cada par (correlação intraclasse, veja <span class="citation">(Nascimento Silva and Moura <a href="#ref-SilvaMou">1990</a>)</span>, cap. 2 e <span class="citation">(Haggard <a href="#ref-haggard">1958</a>)</span>. Suponha que um único par é sorteado ao acaso da população e que os valores <span class="math inline">\(y_{1}\)</span> e <span class="math inline">\(y_{2}\)</span> são observados para as duas unidades do par selecionado. O modelo assumido pode então ser representado como <span class="math display">\[
@@ -516,7 +516,7 @@ t_{0}\sim N\left[ 0;\mathbf{EPA}\left( \hat{\theta},v_{0}\right)
 <p>Utilizando a correspondência existente entre intervalos de confiança e testes de hipóteses, podemos derivar os níveis de significância nominais e reais subtraindo de <span class="math inline">\(1\)</span> os valores da Tabela . Por exemplo, para <span class="math inline">\(\alpha =0,05\)</span> e <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =2\)</span>, o nível de significância real seria aproximadamente <span class="math inline">\(1-0,83=0,17\)</span>.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-77" class="example"><strong>Exemplo 4.4 </strong></span>Teste de hipótese sobre proporção
+<span id="ex:unnamed-chunk-86" class="example"><strong>Exemplo 4.4 </strong></span>Teste de hipótese sobre proporção
 </div>
 <p> Vamos considerar um exemplo hipotético de teste de hipótese sobre uma proporção, semelhante ao de <span class="citation">(Sudman <a href="#ref-Sud76">1976</a>)</span>, apresentado em p. 196, <span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span>. Uma amostra de <span class="math inline">\(m=50\)</span> conglomerados é extraída de uma grande população de empresas industriais (conglomerados). Suponhamos que cada empresa <span class="math inline">\(i=1,\ldots ,50\)</span> da amostra tenha <span class="math inline">\(n_{i}=20\)</span> empregados. O tamanho total da amostra de empregados (unidades elementares) é <span class="math inline">\(n=\sum_{i}n_{i}=1.000\)</span>. Queremos estudar o acesso dos trabalhadores das empresas a planos de saúde.</p>
 <p>Usando-se conhecimento do ano anterior, foi estabelecida a hipótese de que a proporção de trabalhadores cobertos por planos de saúde é <span class="math inline">\(80\%\)</span>, ou seja <span class="math inline">\(H_{0}:p=p_{0}=0,8\)</span>. Vamos adotar o nível de significância <span class="math inline">\(\alpha =5\%\)</span>.</p>
@@ -702,10 +702,10 @@ rec_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(rec.
 
 epa_sal1 &lt;-<span class="st"> </span>sal_res_mean[<span class="dv">4</span>]/sal_res_mean[<span class="dv">3</span>]
 epa_sal1</code></pre></div>
-<pre><code>## [1] 0.1408953</code></pre>
+<pre><code>## [1] 0.140559</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">epa_rec1 &lt;-<span class="st"> </span>rec_res_mean[<span class="dv">4</span>]/rec_res_mean[<span class="dv">3</span>]
 epa_rec1</code></pre></div>
-<pre><code>## [1] 0.2964757</code></pre>
+<pre><code>## [1] 0.3468788</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 vp_sal_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(sal~estrat, popul, var)

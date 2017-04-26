@@ -108,8 +108,8 @@ empreitada.
 
 ---
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 # Introdução {#introduc}
 
@@ -749,6 +749,53 @@ svyby(~analf1, ~regiao, ppv.des, svytotal, deff = TRUE)
 Observe que as estimativas de totais e desvios padrão obtidas coincidem com as Tabela \ref{table:Tab13}, porém as estimativas de Efeitos de Plano Amostral(DEff) são distintas.
 
 
+```{example}
+Exemplo anterior usando a library srvyr
+```
+
+```{r, message=FALSE, warning=FALSE}
+# leitura dos dados
+ppv1 <- readRDS("~\\GitHub\\adac\\data\\ppv.rds")
+```
+Carrega a library `srvyr`:
+
+```{r, message=FALSE, warning=FALSE}
+library(srvyr)
+```
+
+Cria objeto de desenho:
+```{r}
+ppv.des <- ppv1 %>% as_survey_design (ids = nsetor, strata = estratof,
+nest = TRUE, weights = pesof)
+```
+
+Vamos criar novas variáveis:
+
+```{r}
+ppv.des <- ppv.des %>% 
+mutate(
+analf1 = as.numeric((v04a01 == 2 | v04a02 == 2) & (v02a08 >= 7 & v02a08 <= 14)), 
+analf2 = as.numeric((v04a01 == 2 | v04a02 == 2) & (v02a08 >14)), 
+faixa1 = as.numeric(v02a08 >= 7 & v02a08 <= 14), 
+faixa2 = as.numeric(v02a08 > 14)   
+)
+```
+
+Estimar a taxa de analfabetos por região para as faixas etárias de 7-14 anos e 
+mais de 14 anos.
+
+```{r}
+res <- ppv.des %>%  
+group_by(regiao) %>% 
+summarise(
+taxa_analf1 = survey_ratio(analf1, faixa1),
+taxa_analf2 = survey_ratio(analf2, faixa2)  
+)
+knitr::kable(as.data.frame(res), booktabs = TRUE, row.names = FALSE, format = "latex", 
+caption = "Proporção de analfabetos para faixas etárias 7-14 anos e mais de 14 anos")
+```
+
+
 ### Estimativa do efeito de plano amostral (EPA)
 
 Esse assunto será tratado em detalhes no Capítulo \@ref(epa) . Por enquanto, apresentaremos uma introdução necessária para compreender os valores na Tabela \ref{table:Tab13}.
@@ -887,9 +934,8 @@ saveRDS(x, file="C:/adac/pnadc/pnadc 2016 03.rds")
 Partindo do arquivo `pnadc 2016 03.rds`, podemos recuperar o data frame `x`: 
 
  
-```{r}
+```{r, eval= FALSE}
 x <- readRDS("C:/adac/pnadc/pnadc 2016 03.rds")
-dim(x)
 ```
 
 
@@ -906,7 +952,7 @@ options( survey.lonely.psu = "adjust" )
 -  Cria versão inicial de objeto de desenho:
  
 
-```{r}
+```{r , eval=FALSE}
 pre_w <- svydesign(ids =~upa, strata=~estrato, 
   weights=~v1027, data = x, nest=TRUE)
 ```
@@ -914,13 +960,13 @@ pre_w <- svydesign(ids =~upa, strata=~estrato,
 
 - Especifica totais de pós-estratos na população:
   
-```{r}
+```{r, eval= FALSE}
 df_pos <-data.frame(posest=unique(x$posest), 
   Freq=unique(x$v1029))
 ```
 -   Pós-estratifica objeto de desenho inicial:
 
-```{r}
+```{r, eval = FALSE}
 w <-postStratify(pre_w, ~posest, df_pos)
 ```
   
@@ -931,7 +977,13 @@ ou mais na semana de referência(PIA) e calcula a razão de dois totais:
 
 2. Denominador: total de pessoas na força de trabalho (vd4001==1)
 
+```{r, echo = FALSE, eval= FALSE }
+saveRDS(w, file="C:/adac/pnadc/pnadc_des.rds")
+```
 
+```{r, echo = FALSE}
+w <- readRDS("C:/adac/pnadc/pnadc_des.rds")
+```
 
 ```{r}
 # estima taxa de desocupação
@@ -1015,6 +1067,15 @@ Utilizando a função `postStratify()` da library `survey` [@R-survey] incorpora
 pes_sel_des_pos <- postStratify( pes_sel_des , ~v00293.y , post_pop )
 ```
 
+
+```{r, eval= FALSE , echo=FALSE}
+saveRDS(pes_sel_des_pos, file = "pns_des_sel.rds" )
+```
+
+```{r, echo=FALSE}
+pes_sel_des_pos <- readRDS("pns_des_sel.rds")
+```
+
 Os comandos acimas foram apresentados apenas para ilustrar como, a partir dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não seria necessária a execução desses comandos pois o  objeto de desenho `pes_sel_des_pos` já se encontra disponível no arquivo 1 `2013 all questionnaire survey design.rds`. 
 
 Para exemplificar, vamos agora reproduzir estimativas na Tabela 6.42.1.1 da publicação em ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf.
@@ -1022,15 +1083,7 @@ Para exemplificar, vamos agora reproduzir estimativas na Tabela 6.42.1.1 da publ
 A variável de interesse tem código Q092 e sua descrição é: 
 "Algum médico ou profissional de saúde mental (como psiquiatra ou psicólogo) já lhe deu o diagnóstico de depressão?"
 
-Essa variável é de classe character e tem dois valores 1 e 2:
-
-```{r}
-class(pes_sel$q092)
-table(pes_sel$q092)
-```
-
-
-Antes vamos definir uma nova variável `diag_dep` que é igual a 1 se recebe diagnóstico de depressão e zero caso contrário:
+Essa variável é de classe `character` e tem dois valores "1" e "2". Vamos definir uma nova variável `diag_dep` que é igual a 1 se recebe diagnóstico de depressão e 0 caso contrário:
 
 ```{r}
 diag_dep <- as.numeric (pes_sel$q092=="1")
@@ -1101,10 +1154,9 @@ knitr::kable(dfsitu,booktabs = TRUE, row.names = FALSE,
 caption = "Proporção de diagnóstico de depressão por situação")
 ```
 
-Situação por sexo:
- 
 
-```{r}
+
+```{r, eval=FALSE, echo= FALSE}
 diagdepsitusex <- svyby(~diag_dep, ~situ + c006, design = pes_sel_des_pos, 
   svymean)
 res <- three_stats(diagdepsitusex)
@@ -1125,10 +1177,8 @@ knitr::kable(dfuf,booktabs = TRUE, row.names = FALSE,
 caption = "Proporção de diagnóstico de depressão por uf")
 ```
 
- UF por sexo:
-
-
-```{r}
+ 
+```{r, eval= FALSE, echo= FALSE}
 diagdepufsex <- svyby(~diag_dep, ~uf + c006, design = pes_sel_des_pos, 
   svymean)
 res <- three_stats(diagdepufsex)
