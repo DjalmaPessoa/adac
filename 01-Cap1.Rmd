@@ -683,7 +683,7 @@ summarise(
 taxa_analf1 = survey_ratio(analf1, faixa1),
 taxa_analf2 = survey_ratio(analf2, faixa2)  
 )
-knitr::kable(as.data.frame(res), booktabs = TRUE, row.names = FALSE, format = "latex", 
+knitr::kable(as_tibble(res), booktabs = TRUE, row.names = FALSE, format = "html", 
 caption = "Proporção de analfabetos para faixas etárias 7-14 anos e mais de 14 anos")
 ```
 
