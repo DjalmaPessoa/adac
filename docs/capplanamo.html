@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Análise de Dados Amostrais Complexos</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Análise de dados de pesquisas amostrais complexas.">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Análise de Dados Amostrais Complexos" />
   <meta property="og:type" content="book" />
@@ -26,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-04-26">
+<meta name="date" content="2017-08-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="refinf.html">
 <link rel="next" href="epa.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -93,6 +91,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 
 <body>
+
 
 
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
@@ -531,17 +530,17 @@ ou
 <p>onde <span class="math inline">\(\widehat{\theta }_{J}=\frac{1}{G}\sum_{g=1}^{G}\widehat{\theta }_{\left( g\right)}\)</span> é um estimador pontual <em>jackknife</em> para <span class="math inline">\(\theta\)</span>, alternativo ao estimador da amostra inteira <span class="math inline">\(\hat{\theta}\)</span>.</p>
 
 <div class="remark">
-<span class="remark"><em>Observação </em></span> A descrição do método <em>jackknife</em> aqui apresentada não cobre o caso de planos amostrais estratificados, que é mais complexo. Para detalhes sobre este caso, consulte <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, pág. 174.
+<span class="remark"><em>Observação </em></span>  A descrição do método <em>jackknife</em> aqui apresentada não cobre o caso de planos amostrais estratificados, que é mais complexo. Para detalhes sobre este caso, consulte <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, pág. 174.
 </div>
 <p></p>
 
 <div class="remark">
-<span class="remark"><em>Observação </em></span> O estimador <span class="math inline">\(\widehat{V}_{J2}\left( \widehat{\theta }\right)\)</span> é mais conservador que o estimador <span class="math inline">\(\widehat{V}_{J1}\left( \widehat{\theta }\right)\)</span>.
+<span class="remark"><em>Observação </em></span>  O estimador <span class="math inline">\(\widehat{V}_{J2}\left( \widehat{\theta }\right)\)</span> é mais conservador que o estimador <span class="math inline">\(\widehat{V}_{J1}\left( \widehat{\theta }\right)\)</span>.
 </div>
 <p></p>
 
 <div class="remark">
-<span class="remark"><em>Observação </em></span> É comum aplicar a técnica fazendo o número de grupos igual ao tamanho da amostra, isto é, tomando <span class="math inline">\(G=n\)</span> e portanto eliminando uma observação da amostra de cada vez ao calcular os pseudo-valores. Essa regra deve ser aplicada considerando o número de unidades primárias na amostra (UPAs) quando o plano amostral é em múltiplos estágios, pois as UPAs devem sempre ser eliminadas com todas as unidades subordinadas.
+<span class="remark"><em>Observação </em></span>  É comum aplicar a técnica fazendo o número de grupos igual ao tamanho da amostra, isto é, tomando <span class="math inline">\(G=n\)</span> e portanto eliminando uma observação da amostra de cada vez ao calcular os pseudo-valores. Essa regra deve ser aplicada considerando o número de unidades primárias na amostra (UPAs) quando o plano amostral é em múltiplos estágios, pois as UPAs devem sempre ser eliminadas com todas as unidades subordinadas.
 </div>
 <p></p>
 <p>Os estimadores de variância do método <code>jackknife</code> fornecem resultado idêntico aos dos estimadores usuais de variância quando aplicados para o caso de estimadores lineares nas observações amostrais. Além disso, suas propriedades são razoáveis para vários outros casos de estimadores não lineares de interesse (veja, por exemplo, <span class="citation">(Cochran <a href="#ref-cochran">1977</a>)</span>, p. 321 e <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, p. 306. A situação merece maiores cuidados para o caso de quantis ou estatísticas de ordem, tais como a mediana e o máximo, pois neste caso essa técnica não funciona bem <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, p. 163.</p>
@@ -589,7 +588,7 @@ Var.raz&lt;-(<span class="dv">1</span>/y2hat)*(<span class="dv">1</span>/y2hat)*
 ## SEs=
 ##                  faixa
 ## analf.faixa 0.01178896</code></pre>
-<p>A estimativa do desvio-padrão obtida por meio da função <code>svyratio</code> coincide com a obtida diretamente pelo método de linearização, e é igual a 0.01179. O método default para estimar variâncias usado pela library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span> do R é o de linearização de Taylor.</p>
+<p>A estimativa do desvio-padrão obtida por meio da função <code>svyratio</code> coincide com a obtida diretamente pelo método de linearização, e é igual a 0.01179. O método default para estimar variâncias usado pela library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> do R é o de linearização de Taylor.</p>
 <p>A library <code>survey</code> dispõe de métodos alternativos para a estimação de variância. Vamos utilizar os métodos de replicação de <code>Jackknife</code> e de <code>Bootstrap</code> para estimar esta variância de razão. Inicialmente, vamos converter o objeto de desenho <code>ppv1.se.design</code> em um objeto de desenho de replicação de <em>Jackknife</em>, contendo as réplicas de pesos que vão gerar as réplicas de estimativas.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.des.jkn&lt;-<span class="kw">as.svrepdesign</span>(ppv.se.des,<span class="dt">type=</span><span class="st">&quot;JKn&quot;</span>)
 <span class="kw">svyratio</span>(~analf.faixa, ~faixa, ppv.se.des.jkn)</code></pre></div>
@@ -608,9 +607,9 @@ Var.raz&lt;-(<span class="dv">1</span>/y2hat)*(<span class="dv">1</span>/y2hat)*
 ##                faixa
 ## analf.faixa 0.118689
 ## SEs=
-##           [,1]
-## [1,] 0.0112195</code></pre>
-<p>Vamos apresentar mais detalhes sobre a obtenção dos estimadores de Jackknife e Bootstrap na library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span>. A classe do objeto <code>ppv.se.des.jkn</code> é <code>svyrep.design</code> e ele contém as seguintes componentes:</p>
+##             [,1]
+## [1,] 0.009699156</code></pre>
+<p>Vamos apresentar mais detalhes sobre a obtenção dos estimadores de Jackknife e Bootstrap na library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. A classe do objeto <code>ppv.se.des.jkn</code> é <code>svyrep.design</code> e ele contém as seguintes componentes:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(ppv.se.des.jkn)</code></pre></div>
 <pre><code>## [1] &quot;svyrep.design&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(ppv.se.des.jkn)</code></pre></div>
@@ -650,7 +649,7 @@ rep.est.raz[i]&lt;-<span class="kw">sum</span>(mat.rep.pesos[,i]*ppv.se$analf.fa
 var.jack.raz&lt;-<span class="st"> </span><span class="kw">sum</span>((rep.est.raz-mean.raz)^<span class="dv">2</span>*ppv.se.des.jkn$rscales)*ppv.se.des.jkn$scale
 <span class="kw">round</span>(<span class="kw">sqrt</span>(var.jack.raz),<span class="dv">5</span>)</code></pre></div>
 <pre><code>## [1] 0.01181</code></pre>
-<p>A library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span> fornece uma função para estimar a variância de uma função de totais a partir das réplicas de pesos:</p>
+<p>A library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> fornece uma função para estimar a variância de uma função de totais a partir das réplicas de pesos:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">var.raz.rep&lt;-<span class="kw">withReplicates</span>(ppv.se.des.jkn, function(w,ppv.se) <span class="kw">sum</span>(w*ppv.se$analf.faixa)/<span class="kw">sum</span>(w*ppv.se$faixa))
 var.raz.rep </code></pre></div>
 <pre><code>##        theta     SE
@@ -712,7 +711,7 @@ var.raz.rep </code></pre></div>
 <p>Cochran, W. G. 1977. <em>Sampling Techniques</em>. Nova Iorque: John Wiley.</p>
 </div>
 <div id="ref-R-survey">
-<p>Lumley, Thomas. 2016. “Survey: Analysis of Complex Survey Samples.”</p>
+<p>Lumley, Thomas. 2017. <em>Survey: Analysis of Complex Survey Samples</em>. <a href="https://CRAN.R-project.org/package=survey" class="uri">https://CRAN.R-project.org/package=survey</a>.</p>
 </div>
 </div>
             </section>
@@ -721,8 +720,9 @@ var.raz.rep </code></pre></div>
         </div>
       </div>
 <a href="refinf.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="epa.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="epa.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -731,7 +731,7 @@ var.raz.rep </code></pre></div>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -765,7 +765,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Análise de Dados Amostrais Complexos</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Análise de dados de pesquisas amostrais complexas.">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Análise de Dados Amostrais Complexos" />
   <meta property="og:type" content="book" />
@@ -26,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-04-26">
+<meta name="date" content="2017-08-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="ajmodpar.html">
 <link rel="next" href="testqualajust.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -93,6 +91,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 
 <body>
+
 
 
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
@@ -510,7 +509,7 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 <p>Os efeitos foram adicionados sequencialmente na ordem da Tabela . Depois de introduzidos os efeitos principais, as interações de dois fatores foram introduzidas na ordem definida pela <code>função step do S-Plus</code>.</p>
 <p>O <span class="math inline">\(p\)</span>valor do teste de nulidade das interações não incluídas no modelo é 0,0515, aceitando-se a hipótese de nulidade destes efeitos ao nível <span class="math inline">\(\alpha =0,05\)</span>. O modelo obtido difere do selecionado em Leote(1996) só pela inclusão de mais um efeito, referente à interação ae:ht.</p>
 <p>Uma descrição detalhada do plano amostral da PNAD 90 foi apresentada no Exemplo <a href="modreg.html#ex:pnad">6.1</a>. Como se pode observar dessa descrição, o plano amostral da PNAD apresenta todos os aspectos de um plano amostral complexo, incluindo estratificação (geográfica), seleção de unidades primárias (municípios, ou setores nos municípios auto-representativos) ou secundárias (setores nos municípios não auto-representativos) com probabilidades desiguais, conglomeração (de domicílios em setores, e de pessoas nos domicílios) e seleção sistemática sem reposição de unidades. Nesse caso, fica difícil admitir a priori com confiança as hipóteses usuais de modelagem das observações amostrais como IID. Por esse motivo foram considerados métodos alternativos de modelagem e ajuste.</p>
-<p>Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões, calculadas pela função <code>svyglm()</code>da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span>.</p>
+<p>Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões, calculadas pela função <code>svyglm()</code>da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>.</p>
 <p>As estimativas calculadas pela função <code>svyglm</code> são feitas pelo <code>Método de Máxima Pseudo-Verossimilhança</code>, resolvendo a equação <a href="modreg.html#eq:norm27">(6.28)</a>. As estimativas dos desvios padrões são obtidas das variâncias calculadas pelo método de linearização descrito na Seção <a href="ajmodpar.html#modpar3">5.4</a>, equação <a href="ajmodpar.html#eq:modpar5">(5.5)</a>, considerando os escores tal como apresentados na equação <a href="modreg.html#eq:norm25a">(6.26)</a>. Para esses cálculos, os estimadores de variância considerados levaram em conta os pesos das observações, mas utilizaram uma aproximação que consiste em considerar que as unidades primárias de amostragem foram selecionadas com reposição, conforme descrito na Seção .</p>
 <!-- \begin{center} -->
 <!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
@@ -978,6 +977,18 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 <!-- \end{table}% -->
 <!-- %EndExpansion -->
 <!-- \end{center} -->
+<pre><code>## Warning in 1.96 * sqrt(var_raz112) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
+##   Use c() or as.vector() instead.</code></pre>
+<pre><code>## Warning in 1.96 * sqrt(var_raz123) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
+##   Use c() or as.vector() instead.</code></pre>
+<pre><code>## Warning in 1.96 * sqrt(var_raz212) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
+##   Use c() or as.vector() instead.</code></pre>
+<pre><code>## Warning in 1.96 * sqrt(var_raz223) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
+##   Use c() or as.vector() instead.</code></pre>
+<pre><code>## Warning in 1.96 * sqrt(var_raz312) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
+##   Use c() or as.vector() instead.</code></pre>
+<pre><code>## Warning in 1.96 * sqrt(var_raz323) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
+##   Use c() or as.vector() instead.</code></pre>
 <table>
 <caption><span id="tab:icvant">Tabela 6.5: </span>Intervalos de confiança de 95% para razões de vantagens, variando-se os níveis de ae para níveis fixos de ht</caption>
 <thead>
@@ -1381,7 +1392,7 @@ pnadrj90$informal&lt;-<span class="kw">ifelse</span>(pnadrj90$informal==<span cl
 <p>Chambers, R. 1995. “Regression Analysis with Sample Survey Data.” <em>Manuscrito Inédito Cedido Por Cortesia Do Autor</em> 30: 70–87.</p>
 </div>
 <div id="ref-R-survey">
-<p>Lumley, Thomas. 2016. “Survey: Analysis of Complex Survey Samples.”</p>
+<p>Lumley, Thomas. 2017. <em>Survey: Analysis of Complex Survey Samples</em>. <a href="https://CRAN.R-project.org/package=survey" class="uri">https://CRAN.R-project.org/package=survey</a>.</p>
 </div>
 </div>
             </section>
@@ -1390,8 +1401,9 @@ pnadrj90$informal&lt;-<span class="kw">ifelse</span>(pnadrj90$informal==<span cl
         </div>
       </div>
 <a href="ajmodpar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="testqualajust.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="testqualajust.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -1400,7 +1412,7 @@ pnadrj90$informal&lt;-<span class="kw">ifelse</span>(pnadrj90$informal==<span cl
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -1434,7 +1446,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

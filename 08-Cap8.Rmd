@@ -1,7 +1,7 @@
 ---
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 # Testes em Tabelas de Duas Entradas  {#testetab2}
 
@@ -1082,10 +1082,11 @@ Vamos reproduzir alguns resultados usando dados da PNAD descritos na Seção ???
 ```{example}
 Estimativas de medidas descritivas em tabelas
 ```
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(survey)
 pnadrj90 <- readRDS("~\\GitHub\\adac\\data\\pnadrj90.rds")
 names(pnadrj90)
+n <- nrow (pnadrj90)
 ```
 Transformação em fatores:
 ```{r}
@@ -1165,18 +1166,34 @@ chisq.test(tab.amo)
 Resultados dos testes obtidos pela library `survey` [@R-survey] precisam ser identificados com as fórmulas do texto:
 
 ```{r}
+
+n <- nrow (pnadrj90)
+pearson <- chisq.test( pnadrj90$sx, pnadrj90$re, correct = FALSE )
+
+# teste Chi-quadrado para ponderado pelo pesos
+pearsonPond <- chisq.test(svytable(~ sx+re , pnad.des, Ntotal = n), correct = FALSE)
+
+
 # teste Chi-quadrado de Pearson com ajuste de Rao-Scott
-svychisq( ~ sx+re , pnad.des, statistic = "F", na.rm=TRUE)
+pearsonF <-svychisq( ~ sx+re , pnad.des, statistic = "F", na.rm=TRUE)
 # teste Chi-quadrado de Pearson com ajuste de Rao-Scott
-svychisq( ~ sx+re , pnad.des, statistic = "Chisq", na.rm=TRUE)
+pearsonChisq <-svychisq( ~ sx+re , pnad.des, statistic = "Chisq", na.rm=TRUE)
 # teste de Wald baseado no desenho amostral
-svychisq( ~ sx+re , pnad.des, statistic = "Wald", na.rm=TRUE)
+pearsonWald <- svychisq( ~ sx+re , pnad.des, statistic = "Wald", na.rm=TRUE)
 # teste de Wald com ajuste
-svychisq( ~ sx+re , pnad.des, statistic = "adjWald", na.rm=TRUE)
+pearsonAdjWald <-svychisq( ~ sx+re , pnad.des, statistic = "adjWald", na.rm=TRUE)
 # teste Chi-quadrado de Pearson: distribuição assintótica exata
-svychisq( ~ sx+re , pnad.des, statistic = "lincom", na.rm=TRUE)
-# teste Chi-quadrado de Pearson: aproximação de ponto de cela
-svychisq( ~ sx+re , pnad.des, statistic = "saddlepoint", na.rm=TRUE)
+
+```
+
+```{r}
+result <- data.frame(
+Metodo = c("AASR", "AASRPOND", "RAO-SCOTT", "RAO.SCOTT.F", "WALD","ADJWALD" ), Estatistica = c(pearson$statistic, pearsonPond$statistic, pearsonChisq$statistic, pearsonF$statistic, pearsonWald$statistic, pearsonAdjWald$statistic), 
+Valorp = c(pearson$p.value, pearsonPond$p.value, pearsonChisq$p.value, pearsonF$p.value, pearsonWald$p.value, pearsonAdjWald$p.value)
+  
+)
+knitr::kable(result,digits= c(0,3, 5),booktabs=TRUE )
+
 ```
 
 

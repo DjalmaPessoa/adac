@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Análise de Dados Amostrais Complexos</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Análise de dados de pesquisas amostrais complexas.">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Análise de Dados Amostrais Complexos" />
   <meta property="og:type" content="book" />
@@ -26,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-04-26">
+<meta name="date" content="2017-08-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="agregdesag.html">
 <link rel="next" href="referencias.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -93,6 +91,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 
 <body>
+
 
 
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
@@ -346,7 +345,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Epi Info é um pacote estatístico para epidemiologia, desenvolvido pelo <code>US Centers for Disease Control and Prevention</code>, para apuração, gerenciamento e análise de dados epidemiológicos, incluindo análise de dados de pesquisas amostrais complexas (componente CSAMPLE). Seu plano amostral básico é amostragem de conglomerados em vários estágios, através do método do conglomerado primário combinado com a aproximação de linearização de Taylor para estimação de variâncias.</p>
 <p>Epi Info pode ser obtido gratuitamente do endereço internet fornecido. A leitura de dados pode ser feita de arquivos em formatos DBF, Lotus, ou ASCII. O pacote pode produzir estimativas de desvios padrões para estimativas de médias e proporções, tanto para a totalidade da amostra como para domínios especificados através de tabelas de duas entradas. A saída inclui apenas freqüências não expandidas, proporções e médias expandidas, desvios padrões, limites de confiança de <span class="math inline">\(95\%\)</span> e efeitos de plano amostral.</p>
 <p><strong>Library survey do R</strong></p>
-<p>Estimativas e suas precisões podem ser obtidas por meio da library <code>survey</code> do R, <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span>. As funções da library <code>survey</code> produzem estimativas que incorporam as características do plano amostral utilizado na coleta dos dados.</p>
+<p>Estimativas e suas precisões podem ser obtidas por meio da library <code>survey</code> do R, <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. As funções da library <code>survey</code> produzem estimativas que incorporam as características do plano amostral utilizado na coleta dos dados.</p>
 <p>A library <code>survey</code> contém funções para estimar:</p>
 <ul>
 <li>Médias (svymean);</li>
@@ -379,7 +378,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Lepkowski, J., and J. Bowles. 1996. “Sampling Error Software for Personal Computers.” <em>The Survey Statistician</em> 35: 10–17.</p>
 </div>
 <div id="ref-R-survey">
-<p>Lumley, Thomas. 2016. “Survey: Analysis of Complex Survey Samples.”</p>
+<p>Lumley, Thomas. 2017. <em>Survey: Analysis of Complex Survey Samples</em>. <a href="https://CRAN.R-project.org/package=survey" class="uri">https://CRAN.R-project.org/package=survey</a>.</p>
 </div>
 </div>
             </section>
@@ -388,8 +387,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 <a href="agregdesag.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="referencias.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -398,7 +398,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -432,7 +432,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

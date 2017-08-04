@@ -1,9 +1,7 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: bookdown-demo.aux
 The style file: apalike.bst
 Database file #1: packages.bib
-Repeated entry---line 41 of file packages.bib
- : @article{R-survey
- :                  ,
-I'm skipping whatever remains of this entry
 Database file #2: book.bib
-(There was 1 error message)
+Warning--empty institution in USBureau
+Warning--empty institution in Sudaan93
+(There were 2 warnings)

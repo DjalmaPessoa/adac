@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Análise de Dados Amostrais Complexos</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Análise de dados de pesquisas amostrais complexas.">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Análise de Dados Amostrais Complexos" />
   <meta property="og:type" content="book" />
@@ -26,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-04-26">
+<meta name="date" content="2017-08-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="testqualajust.html">
 <link rel="next" href="estimacao-de-densidades.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -93,6 +91,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 
 <body>
+
 
 
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
@@ -548,6 +547,7 @@ pnadrj90 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span cla
 <span class="kw">names</span>(pnadrj90)</code></pre></div>
 <pre><code>##  [1] &quot;stra&quot;     &quot;psu&quot;      &quot;pesopes&quot;  &quot;informal&quot; &quot;sx&quot;       &quot;id&quot;      
 ##  [7] &quot;ae&quot;       &quot;ht&quot;       &quot;re&quot;       &quot;um&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="kw">nrow</span> (pnadrj90)</code></pre></div>
 <p>Transformação em fatores:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unlist</span>(<span class="kw">lapply</span>(pnadrj90, mode))</code></pre></div>
 <pre><code>##      stra       psu   pesopes  informal        sx        id        ae 
@@ -648,70 +648,85 @@ sx.re_mean &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<spa
 </div>
 <p></p>
 <p>Teste de independência e homogeneidade baseado nos dados da amostra sem considerar o plano amostral:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(pnadrj90)</code></pre></div>
-<pre><code>## The following objects are masked from pnadrj90 (pos = 3):
-## 
-##     ae, ht, id, informal, pesopes, psu, re, stra, sx, um</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tab.amo &lt;-<span class="st"> </span><span class="kw">table</span>(sx,re)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(pnadrj90)
+tab.amo &lt;-<span class="st"> </span><span class="kw">table</span>(sx,re)
 <span class="kw">chisq.test</span>(tab.amo)</code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  tab.amo
 ## X-squared = 227.03, df = 2, p-value &lt; 2.2e-16</code></pre>
-<p>Resultados dos testes obtidos pela library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2016</a>)</span> precisam ser identificados com as fórmulas do texto:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># teste Chi-quadrado de Pearson com ajuste de Rao-Scott</span>
-<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;F&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## 
-##  Pearson&#39;s X^2: Rao &amp; Scott adjustment
-## 
-## data:  svychisq(~sx + re, pnad.des, statistic = &quot;F&quot;, na.rm = TRUE)
-## F = 108.34, ndf = 1.9779, ddf = 1275.8000, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># teste Chi-quadrado de Pearson com ajuste de Rao-Scott</span>
-<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;Chisq&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## 
-##  Pearson&#39;s X^2: Rao &amp; Scott adjustment
-## 
-## data:  svychisq(~sx + re, pnad.des, statistic = &quot;Chisq&quot;, na.rm = TRUE)
-## X-squared = 224.85, df = 2, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># teste de Wald baseado no desenho amostral</span>
-<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;Wald&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## 
-##  Design-based Wald test of association
-## 
-## data:  svychisq(~sx + re, pnad.des, statistic = &quot;Wald&quot;, na.rm = TRUE)
-## F = 68.41, ndf = 2, ddf = 645, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># teste de Wald com ajuste</span>
-<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;adjWald&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## 
-##  Design-based Wald test of association
-## 
-## data:  svychisq(~sx + re, pnad.des, statistic = &quot;adjWald&quot;, na.rm = TRUE)
-## F = 68.304, ndf = 2, ddf = 644, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># teste Chi-quadrado de Pearson: distribuição assintótica exata</span>
-<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;lincom&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## Warning in pFsum(pearson$statistic, rep(1, ncol(Delta)), eigen(Delta,
-## only.values = TRUE)$values, : Package &#39;CompQuadForm&#39; not found, using
-## saddlepoint approximation</code></pre>
-<pre><code>## 
-##  Pearson&#39;s X^2: asymptotic exact distribution
-## 
-## data:  svychisq(~sx + re, pnad.des, statistic = &quot;lincom&quot;, na.rm = TRUE)
-## X-squared = 224.85, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># teste Chi-quadrado de Pearson: aproximação de ponto de cela</span>
-<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;saddlepoint&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## 
-##  Pearson&#39;s X^2: saddlepoint approximation
-## 
-## data:  svychisq(~sx + re, pnad.des, statistic = &quot;saddlepoint&quot;, na.rm = TRUE)
-## X-squared = 224.85, p-value &lt; 2.2e-16</code></pre>
+<p>Resultados dos testes obtidos pela library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> precisam ser identificados com as fórmulas do texto:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="kw">nrow</span> (pnadrj90)
+pearson &lt;-<span class="st"> </span><span class="kw">chisq.test</span>( pnadrj90$sx, pnadrj90$re, <span class="dt">correct =</span> <span class="ot">FALSE</span> )
+
+<span class="co"># teste Chi-quadrado para ponderado pelo pesos</span>
+pearsonPond &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(<span class="kw">svytable</span>(~<span class="st"> </span>sx+re , pnad.des, <span class="dt">Ntotal =</span> n), <span class="dt">correct =</span> <span class="ot">FALSE</span>)
+
+
+<span class="co"># teste Chi-quadrado de Pearson com ajuste de Rao-Scott</span>
+pearsonF &lt;-<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;F&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)
+<span class="co"># teste Chi-quadrado de Pearson com ajuste de Rao-Scott</span>
+pearsonChisq &lt;-<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;Chisq&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)
+<span class="co"># teste de Wald baseado no desenho amostral</span>
+pearsonWald &lt;-<span class="st"> </span><span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;Wald&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)
+<span class="co"># teste de Wald com ajuste</span>
+pearsonAdjWald &lt;-<span class="kw">svychisq</span>( ~<span class="st"> </span>sx+re , pnad.des, <span class="dt">statistic =</span> <span class="st">&quot;adjWald&quot;</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)
+<span class="co"># teste Chi-quadrado de Pearson: distribuição assintótica exata</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+<span class="dt">Metodo =</span> <span class="kw">c</span>(<span class="st">&quot;AASR&quot;</span>, <span class="st">&quot;AASRPOND&quot;</span>, <span class="st">&quot;RAO-SCOTT&quot;</span>, <span class="st">&quot;RAO.SCOTT.F&quot;</span>, <span class="st">&quot;WALD&quot;</span>,<span class="st">&quot;ADJWALD&quot;</span> ), <span class="dt">Estatistica =</span> <span class="kw">c</span>(pearson$statistic, pearsonPond$statistic, pearsonChisq$statistic, pearsonF$statistic, pearsonWald$statistic, pearsonAdjWald$statistic), 
+<span class="dt">Valorp =</span> <span class="kw">c</span>(pearson$p.value, pearsonPond$p.value, pearsonChisq$p.value, pearsonF$p.value, pearsonWald$p.value, pearsonAdjWald$p.value)
+  
+)
+knitr::<span class="kw">kable</span>(result,<span class="dt">digits=</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span>, <span class="dv">5</span>),<span class="dt">booktabs=</span><span class="ot">TRUE</span> )</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Metodo</th>
+<th align="right">Estatistica</th>
+<th align="right">Valorp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">AASR</td>
+<td align="right">227.025</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">AASRPOND</td>
+<td align="right">224.848</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">RAO-SCOTT</td>
+<td align="right">224.848</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">RAO.SCOTT.F</td>
+<td align="right">108.337</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">WALD</td>
+<td align="right">68.410</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ADJWALD</td>
+<td align="right">68.304</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
 <h3>Referências</h3>
 <div id="refs" class="references">
 <div id="ref-R-survey">
-<p>Lumley, Thomas. 2016. “Survey: Analysis of Complex Survey Samples.”</p>
+<p>Lumley, Thomas. 2017. <em>Survey: Analysis of Complex Survey Samples</em>. <a href="https://CRAN.R-project.org/package=survey" class="uri">https://CRAN.R-project.org/package=survey</a>.</p>
 </div>
 </div>
             </section>
@@ -720,8 +735,9 @@ sx.re_mean &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<spa
         </div>
       </div>
 <a href="testqualajust.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="estimacao-de-densidades.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="estimacao-de-densidades.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -730,7 +746,7 @@ sx.re_mean &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<spa
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -764,7 +780,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);
