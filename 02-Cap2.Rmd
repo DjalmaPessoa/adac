@@ -1,3 +1,10 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+\newtheorem{example}{Example}
+
 # Referencial para Inferência {#refinf}
 
 ## Modelagem - Primeiras Idéias {#classic}

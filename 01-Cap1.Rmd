@@ -1,7 +1,7 @@
 ---
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 # Introdução {#introduc}
 
@@ -899,8 +899,8 @@ Utilização da library survey do R para análise de microdados da  PNS
 Leitura dos microdados usando a library `lodown`[@R-lodown]
 
 ```{r ,eval = FALSE}
-library(lodown)
-lodown( "pns" , output_dir = "C:/adac/PNS")
+#library(lodown)
+#lodown( "pns" , output_dir = "C:/adac/PNS")
 ```
 
 Depois de baixar os dados, são criados os seguintes arquivos no diretório `C:/adac/PNS` :
