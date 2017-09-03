@@ -256,41 +256,178 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span id="ex:epakish" class="example"><strong>Exemplo 4.1 </strong></span>Efeitos de plano amostral de Kish para estimadores de totais com amostragem conglomerada em dois estágios.
 </div>
 <p></p>
-<p><span class="citation">(Nascimento Silva and Moura <a href="#ref-SilvaMou">1990</a>)</span> estimaram o <span class="math inline">\(\mathbf{EPA}_{Kish}\)</span> para estimadores de totais de várias variáveis sócio-econômicas no nível das Regiões Metropolitanas (RMs) utilizando dados do questionário de amostra do Censo Demográfico de 1980. Essas medidas estimadas do efeito do plano amostral foram calculadas para três esquemas amostrais alternativos, todos considerando amostragem conglomerada de domicílios em dois estágios, tendo o setor censitário como unidade primária e o domicílio como unidade secundária de amostragem. Duas das alternativas consideraram seleção de setores com equiprobabilidade via amostragem aleatória simples sem reposição (AC2AAS) e fração amostral constante de domicílios no segundo estágio (uma usando o estimador simples ou <span class="math inline">\(\pi\)</span>-ponderado do total, e outra usando o estimador de razão para o total calibrando no número total de domicílios da população), e uma terceira alternativa considerou a seleção de setores com probabilidades proporcionais ao tamanho (número de domicílios por setor), denominada AC2PPT, e a seleção de <span class="math inline">\(15\)</span> domicílios em cada setor da amostra, e empregando o correspondente estimador <span class="math inline">\(\pi\)</span>-ponderado. Os resultados referentes à Região Metropolitana do Rio de Janeiro para algumas variáveis são apresentados na Tabela  a título de ilustração. Note que a população alvo considera apenas moradores em domicílios particulares permanentes na Região Metropolitana do Rio de Janeiro.</p>
-
-<!-- Plano amostral                       AC2AAS                                AC2PPT   -->
-<!-- --------------------------------------------------------------------------------------------------------------- -->
-<!-- Variável                  Estimador Simples   Estimador de Razão   Estimador $\pi$-ponderado  -->
-<!-- ------------------------ ------------------- -------------------- --------------------------- -->
-<!-- 1) Número total             10.74                 2.00                        1.90 -->
-<!-- de moradores                      -->
-<!-- 2) Número de                5.78                  1.33                        1.28 -->
+<p><span class="citation">(Nascimento Silva and Moura <a href="#ref-SilvaMou">1990</a>)</span> estimaram o <span class="math inline">\(\mathbf{EPA}_{Kish}\)</span> para estimadores de totais de várias variáveis sócio-econômicas no nível das Regiões Metropolitanas (RMs) utilizando dados do questionário de amostra do Censo Demográfico de 1980. Essas medidas estimadas do efeito do plano amostral foram calculadas para três esquemas amostrais alternativos, todos considerando amostragem conglomerada de domicílios em dois estágios, tendo o setor censitário como unidade primária e o domicílio como unidade secundária de amostragem. Duas das alternativas consideraram seleção de setores com equiprobabilidade via amostragem aleatória simples sem reposição (AC2AAS) e fração amostral constante de domicílios no segundo estágio (uma usando o estimador simples ou <span class="math inline">\(\pi\)</span>-ponderado do total, e outra usando o estimador de razão para o total calibrando no número total de domicílios da população), e uma terceira alternativa considerou a seleção de setores com probabilidades proporcionais ao tamanho (número de domicílios por setor), denominada AC2PPT, e a seleção de <span class="math inline">\(15\)</span> domicílios em cada setor da amostra, e empregando o correspondente estimador <span class="math inline">\(\pi\)</span>-ponderado. Os resultados referentes à Região Metropolitana do Rio de Janeiro para algumas variáveis são apresentados na Tabela <a href="epa.html#tab:epakish">4.1</a> a título de ilustração. Note que a população alvo considera apenas moradores em domicílios particulares permanentes na Região Metropolitana do Rio de Janeiro.</p>
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Efeitos de plano amostral de Kish para variáveis selecionadas - Região Metropolitana do Rio de Janeiro}\bigskip \label{tab41} -->
+<!-- \begin{tabular}{|r|l|l|c|} -->
+<!-- \hline\hline -->
+<!-- Plano amostral $\rightarrow $ & \multicolumn{2}{|c|}{AC2AAS} & AC2PPT \\ -->
+<!-- \hline\hline -->
+<!-- \multicolumn{1}{|l|}{Variável $\downarrow $} & -->
+<!-- \begin{tabular}{l} -->
+<!-- Estimador \\ -->
+<!-- Simples -->
+<!-- \end{tabular} -->
+<!-- & -->
+<!-- \begin{tabular}{l} -->
+<!-- Estimador \\ -->
+<!-- de Razão -->
+<!-- \end{tabular} -->
+<!-- & \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- Estimador \\ -->
+<!-- $\pi $-ponderado -->
+<!-- \end{tabular} -->
+<!-- } \\ \hline\hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 1) Número total \\ -->
+<!-- de moradores -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$10,74$} & \multicolumn{1}{|r|}{$2,00$} & -->
+<!-- \multicolumn{1}{|r|}{$1,90$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 2) Número de \\ -->
 <!-- moradores ocupados -->
-<!-- 3) Rendimento               5.22                  4.92                        4.49   -->
-<!-- monetário mensal -->
-<!-- 4) Número total de          4.59                  2.02                        1.89 -->
-<!-- filhos nascidos vivos  -->
-<!-- de mulheres com -->
-<!-- 15 anos ou mais                                    -->
-<!-- 5) Número de              111.27                  1.58                        1.55  -->
-<!-- domicílios                            -->
-<!-- que  têm fogão -->
-<!-- 6) Número de               7.11                   7.13                        6.41   -->
-<!-- domicílios que -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$5,78$} & \multicolumn{1}{|r|}{$1,33$} & -->
+<!-- \multicolumn{1}{|r|}{$1,28$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 3) Rendimento \\ -->
+<!-- monetário mensal I -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$5,22$} & \multicolumn{1}{|r|}{$4,92$} & -->
+<!-- \multicolumn{1}{|r|}{$4,49$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 4) Número total de \\ -->
+<!-- filhos nascidos vivos \\ -->
+<!-- de mulheres com \\ -->
+<!-- 15 anos ou mais -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$4,59$} & \multicolumn{1}{|r|}{$2,02$} & -->
+<!-- \multicolumn{1}{|r|}{$1,89$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 5) Número de \\ -->
+<!-- domicílios que \\ -->
+<!-- têm fogão -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$111,27$} & \multicolumn{1}{|r|}{$1,58$} & -->
+<!-- \multicolumn{1}{|r|}{$1,55$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 6) Número de \\ -->
+<!-- domicílios que \\ -->
 <!-- têm telefone -->
-<!-- 7) Valor do aluguel ou     7.22                   7.02                        6.45 -->
-<!--  prestação mensal -->
-<!-- 8) Número de               1.80                   1.67                        1.55  -->
-<!-- domicílios que                                    -->
-<!-- têm automóvel  -->
-<!-- e renda < 5SM                     -->
-<!-- 9) Número de  -->
-<!-- domicílios que            46.58                   2.26                        2.08  -->
-<!-- têm geladeira  -->
-<!-- e renda $\geq$ 5SM                                       -->
-<!-- ----------------------------------------------------------------------------------------------------------------- -->
-<!--   Table: (#tab:epakish) Efeitos de plano amostral de Kish para variáveis selecionadas - -->
-<!--   Região Metropolitana do Rio de Janeiro. -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$7,11$} & \multicolumn{1}{|r|}{$7,13$} & -->
+<!-- \multicolumn{1}{|r|}{$6,41$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 7) Valor do aluguel \\ -->
+<!-- ou prestação mensal -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$7,22$} & \multicolumn{1}{|r|}{$7,02$} & -->
+<!-- \multicolumn{1}{|r|}{$6,45$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 8) Número de \\ -->
+<!-- domicílios que \\ -->
+<!-- têm automóvel \\ -->
+<!-- e renda < 5SM -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$1,80$} & \multicolumn{1}{|r|}{$1,67$} & -->
+<!-- \multicolumn{1}{|r|}{$1,55$} \\ \hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 9) Número de \\ -->
+<!-- domicílios que \\ -->
+<!-- têm geladeira \\ -->
+<!-- e renda $\geq $ 5SM -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$46,58$} & \multicolumn{1}{|r|}{$2,26$} & -->
+<!-- \multicolumn{1}{|r|}{$2,08$} \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
+<p>Plano amostral AC2AAS AC2PPT</p>
+<table>
+<caption><span id="tab:epakish">Tabela 4.1: </span> Efeitos de plano amostral de Kish para variáveis selecionadas - Região Metropolitana do Rio de Janeiro.</caption>
+<colgroup>
+<col width="26%" />
+<col width="21%" />
+<col width="22%" />
+<col width="29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Variável</th>
+<th align="center">Estimador Simples</th>
+<th align="center">Estimador de Razão</th>
+<th align="center">Estimador <span class="math inline">\(\pi\)</span>-ponderado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1) Número total de moradores</td>
+<td align="center">10.74</td>
+<td align="center">2.00</td>
+<td align="center">1.90</td>
+</tr>
+<tr class="even">
+<td align="left">2) Número de moradores ocupados</td>
+<td align="center">5.78</td>
+<td align="center">1.33</td>
+<td align="center">1.28</td>
+</tr>
+<tr class="odd">
+<td align="left">3) Rendimento monetário mensal</td>
+<td align="center">5.22</td>
+<td align="center">4.92</td>
+<td align="center">4.49</td>
+</tr>
+<tr class="even">
+<td align="left">4) Número total de filhos nascidos vivos de mulheres com 15 anos ou mais</td>
+<td align="center">4.59</td>
+<td align="center">2.02</td>
+<td align="center">1.89</td>
+</tr>
+<tr class="odd">
+<td align="left">5) Número de domicílios que têm fogão</td>
+<td align="center">111.27</td>
+<td align="center">1.58</td>
+<td align="center">1.55</td>
+</tr>
+<tr class="even">
+<td align="left">6) Número de domicílios que têm telefone</td>
+<td align="center">7.11</td>
+<td align="center">7.13</td>
+<td align="center">6.41</td>
+</tr>
+<tr class="odd">
+<td align="left">7) Valor do aluguel ou prestação mensal</td>
+<td align="center">7.22</td>
+<td align="center">7.02</td>
+<td align="center">6.45</td>
+</tr>
+<tr class="even">
+<td align="left">8) Número de domicílios que têm automóvel e renda &lt; 5SM</td>
+<td align="center">1.80</td>
+<td align="center">1.67</td>
+<td align="center">1.55</td>
+</tr>
+<tr class="odd">
+<td align="left">9) Número de domicílios que têm geladeira e renda <span class="math inline">\(\geq\)</span> 5SM</td>
+<td align="center">46.58</td>
+<td align="center">2.26</td>
+<td align="center">2.08</td>
+</tr>
+</tbody>
+</table>
 <p>Os valores apresentados na Tabela  para a RM do Rio de Janeiro são similares aos observados para as demais RMs, se consideradas as mesmas variáveis. Nota-se grande variação dos valores do EPA, cujos valores mínimo e máximo são de 1,28 e 111,27 respectivamente. Para algumas variáveis (1,2,4,5 e 9), o EPA varia consideravelmente entre as diferentes alternativas de plano amostral, enquanto para outras variáveis (3,6,7 e 8) as variações entre os planos amostrais é mínima.</p>
 <p>Os valores elevados do EPA observados para algumas variáveis realçam a importância de considerar o plano amostral verdadeiro ao estimar variâncias e desvios padrões associados às estimativas pontuais. Isso ocorre porque estimativas ingênuas de variância baseadas na hipótese de AAS subestimam substancialmente as variâncias corretas.</p>
 <p>Outra regularidade encontrada nesse valores é que o EPA para o plano amostral AC2AAS com estimador simples apresenta sempre os valores mais elevados, revelando que este esquema é menos eficiente que os competidores considerados. Em geral, o EPA é menor para o esquema AC2PPT, com valores próximos aos do esquema AC2AAS com estimador de razão.</p>
@@ -334,12 +471,39 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <p>A ideia é considerar o problema de estimar as médias populacionais das variáveis SAL e REC (variáveis de pesquisa, nesse exemplo), usando amostras estratificadas simples com alocação desproporcional, implicando em unidades amostrais com pesos desiguais numa situação bastante simples. A variável PO é a variável de estratificação. As médias populacionais das variáveis de pesquisa (SAL e REC) são conhecidas, porém supostas desconhecidas para efeitos do presente exercício, em que se supõe que amostragem seria usada para sua estimação.</p>
 <p>Para estimar estas médias, as empresas da população foram divididas em dois estratos, definidos a partir da variável PO, conforme indicado na Tabela .</p>
-
-<!--  Estrato         Condição                Tamanho -->
-<!-- --------  --------------------------  ------------------ -->
-<!--    1       empresas com PO  $>21$       $161$ empresas -->
-<!--    2       empresas com PO $\leq21$     $588$ empresas -->
-<!-- Table:(#tab:estempr) Definição da estratificação da população de empresas -->
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Definição da estratificação da população de empresas}\bigskip \label{tab42}  -->
+<!-- \begin{tabular}{|c|c|c|} -->
+<!-- \hline -->
+<!-- Estrato & Condição & Tamanho \\ \hline -->
+<!-- 1 & empresas com PO  $>21$ & $161$ empresas \\ \hline -->
+<!-- 2 & empresas com PO $\leq21$ & $588$ empresas \\ \hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
+<table>
+<caption><span id="tab:estempr">Tabela 4.2: </span> Definição da estratificação da população de empresas</caption>
+<thead>
+<tr class="header">
+<th align="right">Estrato</th>
+<th align="center">Condição</th>
+<th align="center">Tamanho</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="center">empresas com PO <span class="math inline">\(&gt;21\)</span></td>
+<td align="center"><span class="math inline">\(161\)</span> empresas</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="center">empresas com PO <span class="math inline">\(\leq21\)</span></td>
+<td align="center"><span class="math inline">\(588\)</span> empresas</td>
+</tr>
+</tbody>
+</table>
 <p>Foram então selecionadas de cada um dos estratos amostras aleatórias simples sem reposição de <span class="math inline">\(30\)</span> empresas, implicando em uso de alocaão igual e em frações amostrais desiguais, em vista dos diferentes tamanhos populacionais dos estratos. Como o estrato 1 contém cerca de <span class="math inline">\(21\%\)</span> das observações da população, a proporção de <span class="math inline">\(50\%\)</span> das observações da amostra no estrato 1 (das maiores empresas) na amostra é bem maior do que seria esperado sob amostragem aleatória simples da população em geral. Desta forma, a média amostral de uma variável de pesquisa <span class="math inline">\(y\)</span> qualquer (SAL ou REC) dada por <span class="math display">\[
 \bar{y}=\frac{1}{n}\sum\limits_{h=1}^{2}\sum\limits_{i\in s_{h}}y_{hi} \]</span> tenderia a superestimar a média populacional <span class="math inline">\(\overline{Y}\)</span> dada por <span class="math inline">\(\overline{Y}=\frac{1}{N}\sum\limits_{h=1}^{2}\sum_{i\in U_{h}}y_{hi},\)</span> onde <span class="math inline">\(y_{hi}\)</span> é o valor da variável de pesquisa <span class="math inline">\(y\)</span> para a <span class="math inline">\(i-\)</span>ésima observação do estrato <span class="math inline">\(h\)</span>, <span class="math inline">\((h=1,2)\)</span>. Neste caso, um estimador não-viciado da média populacional <span class="math inline">\(\bar{Y}\)</span> seria dado por</p>
 <p><span class="math display">\[
@@ -362,37 +526,145 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 <li><p>estimativa da variância da estimativa ponderada da média (<span class="math inline">\(\bar{y}_{w}\)</span>) considerando o plano amostral verdadeiro <span class="math inline">\(\left( \hat{V}_{AES}\ \left( \bar{y}_{w}\right) \right)\)</span>.</p></li>
 </ol>
 <p>Note que na apresentação dos resultados os valores dos salários foram expressos em milhares de Reais (R$ <span class="math inline">\(1.000,00\)</span>) e os valores das receitas em milhões de Reais (R$ <span class="math inline">\(1.000.000,00\)</span>). Como a população é conhecida, os parâmetros populacionais de interesse podem ser calculados, obtendo-se os valores na primeira linha da Tabela .</p>
-
-<!-- ------------------------------------------------------------------------ -->
-<!-- Quantidade de interesse            Salários   Receitas  -->
-<!-- --------------------------------  ---------- ----------  -->
-<!-- 1) Média populacional              78.328      2.107 -->
-<!-- 2) Média de $\bar{y}$ sobre        160.750     4.191 -->
-<!-- 500 amostras        -->
-<!-- 3) Média de $\bar{y}_{w}$ sobre    76.700      2.054 -->
-<!-- 500 amostras -->
-<!-- ------------------------------------------------------------------------ -->
-<!-- Table:(#tab:proestmed) Propriedades dos estimadores da média das variáveis  -->
-<!-- de pesquisa -->
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Propriedades dos estimadores da média das variáveis de pesquisa} -->
+<!-- \bigskip \label{tab43} -->
+<!-- \begin{tabular}{|c|l|c|} -->
+<!-- \hline\hline -->
+<!-- Quantidade de interesse & Salários & Receitas \\ \hline\hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 1) Média populacional $\overline{Y}$ -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$78,328$} & \multicolumn{1}{|r|}{$2,107$} \\ -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 2) Média de $\bar{y}$ sobre \\ -->
+<!-- $500$ amostras -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$160,750$} & \multicolumn{1}{|r|}{$4,191$} \\ -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 3) Média de $\bar{y}_{w}$ sobre \\ -->
+<!-- $500$ amostras -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$76,700$} & \multicolumn{1}{|r|}{$2,054$} \\ -->
+<!-- \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
+<table style="width:78%;">
+<caption><span id="tab:proestmed">Tabela 4.3: </span> Propriedades dos estimadores da média das variáveis de pesquisa</caption>
+<colgroup>
+<col width="47%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Quantidade de interesse</th>
+<th align="center">Salários</th>
+<th align="center">Receitas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1) Média populacional</td>
+<td align="center">78.328</td>
+<td align="center">2.107</td>
+</tr>
+<tr class="even">
+<td align="left">2) Média de <span class="math inline">\(\bar{y}\)</span> sobre 500 amostras</td>
+<td align="center">160.750</td>
+<td align="center">4.191</td>
+</tr>
+<tr class="odd">
+<td align="left">3) Média de <span class="math inline">\(\bar{y}_{w}\)</span> sobre 500 amostras</td>
+<td align="center">76.700</td>
+<td align="center">2.054</td>
+</tr>
+</tbody>
+</table>
 <p>Em contraste com os valores dos parâmetros populacionais, calculamos a média das médias amostrais não ponderadas (<span class="math inline">\(\bar{y}\)</span>) dos salários e das receitas obtidas nas <span class="math inline">\(500\)</span> amostras simuladas, obtendo os valores na segunda linha da Tabela . Como previsto, observamos um vício para cima na estimativa destas médias, da ordem de <span class="math inline">\(105\%\)</span> para os salários e de <span class="math inline">\(98,9\%\)</span> para as receitas.</p>
 <p>Usamos também o estimador <span class="math inline">\(\bar{y}_{w}\)</span> para estimar a média dos salários e das receitas na população, obtendo para esse estimador as médias apresentadas na terceira linha da Tabela . Observamos ainda um pequeno vício da ordem de <span class="math inline">\(-1,95\%\)</span> e <span class="math inline">\(-2,51\%\)</span> para os salários e receitas, respectivamente. Note que o estimador <span class="math inline">\(\bar{y}_{w}\)</span> é não-viciado sob o plano amostral adotado, entretanto o pequeno vício observado na simulação não pode ser ignorado pois é significantemente diferente de <span class="math inline">\(0\)</span> ao nível de significância de <span class="math inline">\(5\%\)</span>, apesar do tamanho razoável da simulação (<span class="math inline">\(500\)</span> replicações).</p>
 <p>Além dos estimadores pontuais, o interesse maior da simulação foi comparar valores de estimadores de variância, e consequentemente de medidas do efeito do plano amostral. Como o estimador pontual dado pela média amostral não ponderada (<span class="math inline">\(\bar{y}\)</span>) é grosseiramente viciado, não consideramos estimativas de variância para esse estimador, mas tão somente para o estimador não-viciado dado pela média ponderada <span class="math inline">\(\bar{y}_{w}\)</span>. Para esse último, consideramos dois estimadores de variância, a saber o estimador ingênuo sob a hipótese de AAS (dado por <span class="math inline">\(v_{0}\)</span>) e um estimador não viciado da variância sob o plano amostral <span class="math inline">\(\hat{V}_{AES}\left( \bar{y}_{w}\right)\)</span> , que foi obtido substituindo as variâncias dentro dos estratos <span class="math inline">\(S_{h}^{2}\)</span> por estimativas amostrais não viciadas dadas por <span class="math inline">\(s_{h}^{2}=\frac{1}{n_{h}-1}\sum_{i=1}^{n_{h}}(y_{hi}-\overline{y}_{h})^{2}\)</span>, <span class="math inline">\(h=1,2\)</span>, na fórmula de <span class="math inline">\(V_{AES}\left( \bar{y}_{w}\right)\)</span> conforme definida em <a href="epa.html#eq:epa3">(4.3)</a>.</p>
 <p>Como neste exercício a população é conhecida, podemos calcular <span class="math inline">\(V_{AES}\left(\bar{y}_{w}\right)\)</span> através das variâncias de <span class="math inline">\(y\)</span> dentro dos estratos <span class="math inline">\(h=1,2\)</span> ou através da simulação. Esses valores são apresentados respectivamente na primeira e segunda linhas da Tabela , para as duas variáveis de pesquisa consideradas.</p>
-
-<!-- -------------------------------------------------------------------------------- -->
-<!-- Quantidade de interesse                           Salários   Receitas -->
-<!-- ------------------------------------------------ ---------- ---------- -->
-<!-- 1) Variância populacional                            244.1    0.43500                      -->
-<!-- $V_{AES}\left( \bar{y}_{w}\right)$ -->
-<!-- 2) Média de                                         231.84    0.32569                             -->
-<!-- $\widehat{V}_{AES}\left(\bar{y}_{w}\right)$  -->
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Propriedades dos estimadores de variância do estimador $\bar{y}_{w}$ } -->
+<!-- \bigskip \label{tab44}  -->
+<!-- \begin{tabular}{|c|l|c|} -->
+<!-- \hline\hline -->
+<!-- \begin{tabular}{r} -->
+<!-- Quantidade de \\  -->
+<!-- interesse -->
+<!-- \end{tabular} -->
+<!-- & Salários & Receitas \\ \hline\hline -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 1) Variância populacional $V_{AES}\left( \bar{y}_{w}\right) $% -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$244,18$} & \multicolumn{1}{|r|}{$0,43500$} \\  -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 2) Média de $\widehat{V}_{AES}\left( \bar{y}_{w}\right) $ \\  -->
 <!-- usando $500$ amostras -->
-<!-- 3) Valor esperado de                                1613.3     1.1880                  -->
-<!-- $v_{0}$ usando população -->
-<!-- 4) Média de $v_{0}$                                 1636.1     1.2121  -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$231,84$} & \multicolumn{1}{|r|}{$0,32569$} \\  -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 3) Valor esperado de $v_{0}$ \\  -->
+<!-- usando população -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$1.613,3$} & \multicolumn{1}{|r|}{$1,1880$} \\  -->
+<!-- \multicolumn{1}{|l|}{ -->
+<!-- \begin{tabular}{l} -->
+<!-- 4)Média de $v_{0}$ \\  -->
 <!-- usando $500$ amostras -->
-<!-- ------------------------------------------------------------------------------- -->
-<!-- Table:(#tab:varest) Propriedades dos estimadore de variância do estimador $\bar{y}_{w}$ -->
+<!-- \end{tabular} -->
+<!-- } & \multicolumn{1}{|r|}{$1.636,1$} & \multicolumn{1}{|r|}{$1,2121$} \\  -->
+<!-- \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
+<table style="width:99%;">
+<caption><span id="tab:varest">Tabela 4.4: </span> Propriedades dos estimadore de variância do estimador <span class="math inline">\(\bar{y}_{w}\)</span></caption>
+<colgroup>
+<col width="68%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Quantidade de interesse</th>
+<th align="center">Salários</th>
+<th align="center">Receitas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1) Variância populacional <span class="math inline">\(V_{AES}\left( \bar{y}_{w}\right)\)</span></td>
+<td align="center">244.1</td>
+<td align="center">0.43500</td>
+</tr>
+<tr class="even">
+<td align="left">2) Média de <span class="math inline">\(\widehat{V}_{AES}\left(\bar{y}_{w}\right)\)</span> usando <span class="math inline">\(500\)</span> amostras</td>
+<td align="center">231.84</td>
+<td align="center">0.32569</td>
+</tr>
+<tr class="odd">
+<td align="left">3) Valor esperado de <span class="math inline">\(v_{0}\)</span> usando população</td>
+<td align="center">1613.3</td>
+<td align="center">1.1880</td>
+</tr>
+<tr class="even">
+<td align="left">4) Média de <span class="math inline">\(v_{0}\)</span> usando <span class="math inline">\(500\)</span> amostras</td>
+<td align="center">1636.1</td>
+<td align="center">1.2121</td>
+</tr>
+</tbody>
+</table>
 <p>Os valores de <span class="math inline">\(E_{VERD}\left( v_{0}\left( \overline{SAL}_{w}\right) \right)\)</span> e de <span class="math inline">\(E_{VERD}\left( v_{0}\left( \overline{REC}_{w}\right) \right)\)</span> foram também calculados a partir das variâncias dentro e entre estratos na população, resultando nos valores na linha 3 da Tabela @ref{tab44}, e estimativas desses valores baseadas nas 500 amostras da simulação são apresentadas na linha 4 da Tabela @ref{tab44}. Os valores para o <span class="math inline">\(\mathbf{EPA}\)</span> foram calculados tanto com base nas estimativas de simulação como nos valores populacionais das variâncias, cujos cálculos estão ilustrados a seguir:</p>
 <span class="math display">\[\begin{eqnarray*}
 \mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right) &amp;=&amp;\frac{231,84}{1.636,1}=0,142 \\
@@ -411,17 +683,55 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 <li><p>ignorar os pesos na estimação da variância do estimador ponderado <span class="math inline">\(\bar{y}_{w}\)</span> também provoca vícios substanciais, neste caso, superestimando a variância por ignorar o efeito de estratificação; os efeitos de plano amostral são substancialmente menores que <span class="math inline">\(1\)</span> para as duas variáveis de pesquisa consideradas (salários e receita); portanto o uso do estimador ingênuo de variância <span class="math inline">\(v_{0}\)</span> é desaconselhado.</p></li>
 </ol>
 <p>Essas conclusões são largamente aceitas pelos amostristas e produtores de dados baseados em pesquisas amostrais para o caso da estimação de médias e totais, e respectivas variâncias. Entretanto ainda há exemplos de usos indevidos de dados amostrais nos quais os pesos são ignorados, em particular para a estimação de variâncias associadas a estimativas pontuais de médias e totais. Tal situação se deve ao uso ingênuo de pacotes estatísticos padrões desenvolvidos para analisar amostras IID, sem a devida consideração dos pesos e plano amostral.</p>
-
-<!-- ----------------------------------------------------------------------- -->
-<!-- Variável  Estimativa  Simulação  População -->
-<!-- --------- ----------- ---------- ---------- -->
-<!-- Salário   Variância   231.84     244.18 -->
-<!--           EPA         0.142      0.151 -->
-<!-- Receita   Variância   0.32569    0.43500 -->
-<!--           EPA         0.269      0.366 -->
-<!-- -------------------------------------------------------------------- -->
-<!-- Table:(#tab:eparec)Valores dos Efeitos de Plano amostral(EPA) para as -->
-<!-- médias de Salário e Receita. -->
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Valores dos Efeitos de Plano Amostral (EPA) para as médias de -->
+<!-- Salário e de Receita}\bigskip -->
+<!-- \label{tab45} -->
+<!-- \begin{tabular}{|c|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- Variável & Estimativa & Simulação & População \\ -->
+<!-- \hline\hline -->
+<!-- Salário & Variância & \multicolumn{1}{|r|}{$231,84$} & -->
+<!-- \multicolumn{1}{|r|}{$244,18$} \\ -->
+<!-- & \textbf{$EPA$} & \multicolumn{1}{|r|}{$0,142$} & \multicolumn{1}{|r|}{$0,151$} \\ \hline -->
+<!-- Receita & Variância & \multicolumn{1}{|r|}{$0,32569$} & -->
+<!-- \multicolumn{1}{|r|}{$0,43500$} \\ -->
+<!-- & \textbf{$EPA$} & \multicolumn{1}{|r|}{$0,269$} & \multicolumn{1}{|r|}{$0,366$} \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
+<table style="width:61%;">
+<caption><span id="tab:eparec">Tabela 4.5: </span>Valores dos Efeitos de Plano amostral(EPA) para as médias de Salário e Receita.</caption>
+<colgroup>
+<col width="13%" />
+<col width="16%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Variável</th>
+<th align="left">Estimativa</th>
+<th align="left">Simulação</th>
+<th align="left">População</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Salário</td>
+<td align="left">Variância EPA</td>
+<td align="left">231.84 0.142</td>
+<td align="left">244.18 0.151</td>
+</tr>
+<tr class="even">
+<td align="left">Receita</td>
+<td align="left">Variância EPA</td>
+<td align="left">0.32569 0.269</td>
+<td align="left">0.43500 0.366</td>
+</tr>
+</tbody>
+</table>
 
 <div class="remark">
 <span class="remark"><em>Observação </em></span>  Neste exemplo não foi feito uso analítico dos dados e sim descritivo, onde é usual incorporar os pesos no cálculo de estimativas e variâncias. Não seria esperado usar um estimador ponderado para a média e não considerar os pesos no cálculo de variâncias, como fizemos neste exemplo.
@@ -498,19 +808,83 @@ t_{0}\sim N\left[ 0;\mathbf{EPA}\left( \hat{\theta},v_{0}\right)
 2\Phi \left( z_{\alpha /2}/\left[ \mathbf{EPA}\left( \hat{\theta}
 ,v_{0}\right) \right] ^{1/2}\right) -1\;\;, 
 \]</span> onde <span class="math inline">\(\Phi\)</span> é a função de distribuição acumulada de uma <span class="math inline">\(N\left( 0;1\right)\)</span>. Calculamos esta probabilidade para alguns valores do <span class="math inline">\(\mathbf{EPA}\)</span>, que apresentamos na Tabela @ref{tab46}.</p>
-
-<!-- $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$    $1-\alpha=0.95$      $1-\alpha=0.99$ -->
-<!-- -----------------------------------------------   ----------------     ---------------   -->
-<!--                     0.90                                 0.96                0.99                   -->
-<!--                     0.95                                 0.96                0.99 -->
-<!--                     1.0                                  0.95                0.99 -->
-<!--                     1.5                                  0.89                0.96 -->
-<!--                     2.0                                  0.83                0.93 -->
-<!--                     2.5                                  0.78                0.90 -->
-<!--                     3.0                                  0.74                0.86 -->
-<!--                     3.5                                  0.71                0.83 -->
-<!--                     4.0                                  0.67                0.80 -->
-<!-- Table:(#tab:procob) Probabilidades de cobertura para níveis nominais de 95% e 99% -->
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Probabilidades de cobertura para níveis nominais de $95\%$ e -->
+<!-- $99\%$}\bigskip \label{tab46} -->
+<!-- \begin{tabular}{|c|c|c|} -->
+<!-- \hline\hline -->
+<!-- $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ & $1-\alpha =0,95$& -->
+<!-- $1-\alpha =0,99$ \\ \hline\hline -->
+<!-- $0,90$ & $0,96$ & $0,99$ \\ -->
+<!-- $0,95$ & $0,96$ & $0,99$ \\ -->
+<!-- $1,0$ & $0,95$ & $0,99$ \\ -->
+<!-- $1,5$ & $0,89$ & $0,96$ \\ -->
+<!-- $2,0$ & $0,83$ & $0,93$ \\ -->
+<!-- $2,5$ & $0,78$ & $0,90$ \\ -->
+<!-- $3,0$ & $0,74$ & $0,86$ \\ -->
+<!-- $3,5$ & $0,71$ & $0,83$ \\ -->
+<!-- $4,0$ & $0,67$ & $0,80$ \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
+<table>
+<caption><span id="tab:procob">Tabela 4.6: </span> Probabilidades de cobertura para níveis nominais de 95% e 99%</caption>
+<thead>
+<tr class="header">
+<th align="left"><span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span></th>
+<th align="left"><span class="math inline">\(1-\alpha=0.95\)</span></th>
+<th><span class="math inline">\(1-\alpha=0.99\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.90</td>
+<td align="left">0.96</td>
+<td>0.99</td>
+</tr>
+<tr class="even">
+<td align="left">0.95</td>
+<td align="left">0.96</td>
+<td>0.99</td>
+</tr>
+<tr class="odd">
+<td align="left">1.0</td>
+<td align="left">0.95</td>
+<td>0.99</td>
+</tr>
+<tr class="even">
+<td align="left">1.5</td>
+<td align="left">0.89</td>
+<td>0.96</td>
+</tr>
+<tr class="odd">
+<td align="left">2.0</td>
+<td align="left">0.83</td>
+<td>0.93</td>
+</tr>
+<tr class="even">
+<td align="left">2.5</td>
+<td align="left">0.78</td>
+<td>0.90</td>
+</tr>
+<tr class="odd">
+<td align="left">3.0</td>
+<td align="left">0.74</td>
+<td>0.86</td>
+</tr>
+<tr class="even">
+<td align="left">3.5</td>
+<td align="left">0.71</td>
+<td>0.83</td>
+</tr>
+<tr class="odd">
+<td align="left">4.0</td>
+<td align="left">0.67</td>
+<td>0.80</td>
+</tr>
+</tbody>
+</table>
 <p>À medida que o valor do <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> aumenta, a probabilidade real de cobertura diminui, sendo menor que o valor nominal para valores de <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> maiores que 1.</p>
 <p>Utilizando a correspondência existente entre intervalos de confiança e testes de hipóteses, podemos derivar os níveis de significância nominais e reais subtraindo de <span class="math inline">\(1\)</span> os valores da Tabela . Por exemplo, para <span class="math inline">\(\alpha =0,05\)</span> e <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =2\)</span>, o nível de significância real seria aproximadamente <span class="math inline">\(1-0,83=0,17\)</span>.</p>
 
@@ -658,7 +1032,31 @@ _{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) &gt;\chi _{\alpha
 \tag{4.15}
 \end{equation}\]</span>
 <p>Observe que o segundo membro de <a href="epa.html#eq:epa15">(4.15)</a> é da mesma forma que o segundo membro de <a href="epa.html#eq:epa12">(4.12)</a>. Logo, os valores da Tabela  podem ser interpretados como valores máximos de <span class="math inline">\(p\)</span>valor<span class="math inline">\(_{VERD}\left( \mathbf{\bar{y}}\right)\)</span> para <span class="math inline">\(\mathbf{\bar{y}}\)</span> na região <span class="math inline">\(RC_{AAS}\left(\mathbf{\bar{y}}\right)\)</span>, considerando-se <span class="math inline">\(\delta_{1}\)</span> no lugar de <span class="math inline">\(\delta\)</span>.</p>
-
+<!-- \begin{center} -->
+<!-- \begin{table}[tbp] \centering -->
+<!-- \caption{Níveis de significância (\%) verdadeiros do teste $T^{2}$ -->
+<!-- para o nível nominal de 5\% assumindo autovalores iguais  -->
+<!-- para $\mathbf{\Delta}$}\bigskip \label{tab47} -->
+<!-- \begin{tabular}{|c|cccc|} -->
+<!-- \hline\hline -->
+<!-- &  & $K$ &  &  \\ \cline{2-5} -->
+<!-- $\delta $ & \multicolumn{1}{|r}{1} & \multicolumn{1}{r}{2} & -->
+<!-- \multicolumn{1}{r}{3} & \multicolumn{1}{r|}{4} \\ \hline\hline -->
+<!-- \multicolumn{1}{|r|}{0,9} & \multicolumn{1}{|r}{4} & \multicolumn{1}{r}{4} & -->
+<!-- \multicolumn{1}{r}{3} & \multicolumn{1}{r|}{3} \\ -->
+<!-- \multicolumn{1}{|r|}{1,0} & \multicolumn{1}{|r}{5} & \multicolumn{1}{r}{5} & -->
+<!-- \multicolumn{1}{r}{5} & \multicolumn{1}{r|}{5} \\ -->
+<!-- \multicolumn{1}{|r|}{1,5} & \multicolumn{1}{|r}{11} & \multicolumn{1}{r}{14} -->
+<!-- & \multicolumn{1}{r}{16} & \multicolumn{1}{r|}{19} \\ -->
+<!-- \multicolumn{1}{|r|}{2,0} & \multicolumn{1}{|r}{17} & \multicolumn{1}{r}{22} -->
+<!-- & \multicolumn{1}{r}{27} & \multicolumn{1}{r|}{32} \\ -->
+<!-- \multicolumn{1}{|r|}{2,5} & \multicolumn{1}{|r}{22} & \multicolumn{1}{r}{30} -->
+<!-- & \multicolumn{1}{r}{37} & \multicolumn{1}{r|}{44} \\ -->
+<!-- \multicolumn{1}{|r|}{3,0} & \multicolumn{1}{|r}{26} & \multicolumn{1}{r}{37} -->
+<!-- & \multicolumn{1}{r}{46} & \multicolumn{1}{r|}{53} \\ \hline\hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- \end{center} -->
 </div>
 <div id="laboratorio-de-r-1" class="section level2">
 <h2><span class="header-section-number">4.6</span> Laboratório de R</h2>
@@ -701,10 +1099,10 @@ rec_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(rec.
 
 epa_sal1 &lt;-<span class="st"> </span>sal_res_mean[<span class="dv">4</span>]/sal_res_mean[<span class="dv">3</span>]
 epa_sal1</code></pre></div>
-<pre><code>## [1] 0.1397156</code></pre>
+<pre><code>## [1] 0.1410141</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">epa_rec1 &lt;-<span class="st"> </span>rec_res_mean[<span class="dv">4</span>]/rec_res_mean[<span class="dv">3</span>]
 epa_rec1</code></pre></div>
-<pre><code>## [1] 0.3160623</code></pre>
+<pre><code>## [1] 0.3167524</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 vp_sal_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(sal~estrat, popul, var)
