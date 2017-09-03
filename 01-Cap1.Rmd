@@ -270,11 +270,13 @@ Na Tabela \@ref(tab:epas) apresentamos as estimativas dos seguintes parâmetros 
 
 ```{r,epas, echo=FALSE}
 epas <- data.frame(
+"Parâmetro" = c("1.", "2.", "3.", "4.", "5.", "6.", "7.",
+  "8.", "9.", "10.", "11.","12."),  
 Estimativa = c(3.62, 10.70, 1208123, 1174220,4792344, 11.87, 10.87, 10817590, 10804511,709145,1.39,0.53),
 DP =c(0.05, 1.15, 146681, 127982, 318877, 1.18, 0.67, 322947, 323182, 87363, 0.03, 0.01),
 EPA= c(2.64, 2.97, 3.37,2.64, 4.17,2.46, 3.86, 2.02, 3.02, 2.03, 1.26, 1.99 )
 )
-knitr::kable(epas, booktabs=TRUE,align = "rrr",
+knitr::kable(epas, booktabs=TRUE,align = "lrrr",
 caption="Estimativas de Efeitos de Plano Amostral (EPAs)
 para variáveis selecionadas da PPV - Região Sudeste"
 )
@@ -908,9 +910,12 @@ names(result) <- c("Taxa", "Erro_Padrao", "CV")
 # taxa de desocupação
 result
 ```
+
+
 ```{example}
 Utilização da library survey do R para análise de microdados da  PNS 
 ```
+
 Leitura dos microdados usando a library `lodown`[@R-lodown]
 
 ```{r ,eval = FALSE}

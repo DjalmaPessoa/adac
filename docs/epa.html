@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-08-03">
+<meta name="date" content="2017-09-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -701,10 +701,10 @@ rec_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(rec.
 
 epa_sal1 &lt;-<span class="st"> </span>sal_res_mean[<span class="dv">4</span>]/sal_res_mean[<span class="dv">3</span>]
 epa_sal1</code></pre></div>
-<pre><code>## [1] 0.1417611</code></pre>
+<pre><code>## [1] 0.1397156</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">epa_rec1 &lt;-<span class="st"> </span>rec_res_mean[<span class="dv">4</span>]/rec_res_mean[<span class="dv">3</span>]
 epa_rec1</code></pre></div>
-<pre><code>## [1] 0.3327096</code></pre>
+<pre><code>## [1] 0.3160623</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 vp_sal_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(sal~estrat, popul, var)
@@ -715,7 +715,7 @@ vp_rec &lt;-<span class="st"> </span><span class="kw">sum</span>(Wh^<span class=
 
 </div>
 </div>
-<h3>Referências</h3>
+<h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-SilvaMou">
 <p>Nascimento Silva, P. L. D., and F. A. S. Moura. 1990. “Efeitos de Conglomeração Da Malha Setorial Do Censo Demográfico 80.” Série Textos para Discussão 32. Rio de Janeiro: IBGE, Diretoria de Pesquisas.</p>
