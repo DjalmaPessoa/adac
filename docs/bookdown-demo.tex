@@ -31,46 +31,6 @@
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{apalike}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -124,9 +84,10 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-09-03}
+  \date{2017-09-04}
 
-\usepackage{booktabs}
+% \documentclass[]{book}
+% \usepackage{booktabs}
 % \usepackage[brazil]{babel}
 % \newtheorem{example}{Exemplo}
 % \numberwithin{example}{chapter}
@@ -134,6 +95,7 @@
 % \numberwithin{remark}{chapter}
 % \newtheorem{definition}{Definição}
 % \numberwithin{definition}{chapter}
+% \begin{document}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Teorema}[chapter]
@@ -161,1442 +123,998 @@
 
 \chapter{Referencial para Inferência}\label{refinf}
 
-\chapter{Estimação Baseada no Plano Amostral}\label{capplanamo}
-
-\chapter{Efeitos do Plano Amostral}\label{epa}
-
-\section{Introdução}\label{introducao}
-
-O cálculo de desvio padrão e o uso de testes de hipóteses desempenham
-papel fundamental em estudos analíticos. Além de estimativas pontuais,
-na inferência analítica é necessário transmitir a ideia de precisão
-associada a essas estimativas e construir intervalos de confiança
-associados. Valores de desvios padrões, ou alternativamente comprimentos
-de intervalos de confiança, permitem avaliar a precisão da estimação. O
-cálculo do desvio padrão também possibilita a construção de estatísticas
-para testar hipóteses relativas a parâmetros do modelo (tradição de
-modelagem) ou de parâmetros da população ão finita (tradição de
-amostragem). Testes de hipóteses são também usados na fase de seleção de
-modelos.
-
-Os pacotes mais comuns de análise estatística incluem em suas saídas
-valores de estimativas pontuais e seus desvios padrões, além de
-valores-\(p\) relativos a hipóteses de interesse. Contudo, as fórmulas
-usadas nestes pacotes para o cálculo dos desvios padrões e obtenção de
-testes são, em geral, baseadas nas hipóteses de independência e de
-igualdade de distribuição (IID) das observações, ou equivalentemente, de
-amostragem aleatória simples com reposição (AASC). Tais hipóteses quase
-nunca valem para dados obtidos através de pesquisas por amostragem, como
-as que realizam o IBGE e outras agências produtoras de estatísticas.
-
-Este capítulo trata de avaliar o impacto sobre desvios padrões,
-intervalos de confiança e níveis de significância de testes usuais
-quando há afastamentos das hipóteses IID mencionadas, devidos ao uso de
-planos amostrais complexos para obter os dados. Como veremos, o impacto
-pode ser muito grande em algumas situações, justificando os cuidados que
-devem ser tomados na análise de dados deste tipo. Neste capítulo,
-usaremos como referência básica \citep{Sk89a}.
-
-\section{Efeito do Plano Amostral (EPA) de
-Kish}\label{efeito-do-plano-amostral-epa-de-kish}
-
-Para medir o efeito do plano amostral sobre a variância de um estimador,
-Kish(1965) propôs uma medida que denominou
-\texttt{Efeito\ do\ Plano\ Amostral} (\(\mathbf{EPA}\)) (em inglês,
-\emph{design effect} ou, abreviadamente, \emph{deff}). O objetivo desta
-medida é comparar planos amostrais no estágio de planejamento da
-pesquisa. O \(\mathbf{EPA}\) de Kish é uma razão entre variâncias (de
-aleatorização) de um estimador, calculadas para dois planos amostrais
-alternativos. Vamos considerar um estimador \(\hat{\theta}\) e calcular
-a variância de sua distribuição induzida pelo plano amostral complexo
-(verdadeiro) \(V_{VERD}\left( \hat{\theta}\right)\) e a variância da
-distribuição do estimador induzida pelo plano de amostragem aleatória
-simples \(V_{AAS}\left(\hat{\theta}\right)\).
-
-\BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-1}{}{\label{def:unnamed-chunk-1}}O
-\textbf{Efeito do Plano Amostral (\(EPA\))} \textbf{de Kish} para um
-estimador \(\hat{\theta}\) é
-\EndKnitrBlock{definition}
-
-\begin{equation}
-\mathbf{EPA}_{Kish}\left( \hat{\theta}\right) =\frac{V_{VERD}\left( \hat{\theta}\right) }{V_{AAS}\left( \hat{\theta}\right) }. \label{eq:epa1} \end{equation}
-
-Para ilustrar o conceito do
-\(\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)\), vamos considerar um
-exemplo.
-
-\BeginKnitrBlock{example}
-\protect\hypertarget{ex:epakish}{}{\label{ex:epakish}}Efeitos de plano
-amostral de Kish para estimadores de totais com amostragem conglomerada
-em dois estágios.
-\EndKnitrBlock{example}
-
-\citep{SilvaMou} estimaram o \(\mathbf{EPA}_{Kish}\) para estimadores de
-totais de várias variáveis sócio-econômicas no nível das Regiões
-Metropolitanas (RMs) utilizando dados do questionário de amostra do
-Censo Demográfico de 1980. Essas medidas estimadas do efeito do plano
-amostral foram calculadas para três esquemas amostrais alternativos,
-todos considerando amostragem conglomerada de domicílios em dois
-estágios, tendo o setor censitário como unidade primária e o domicílio
-como unidade secundária de amostragem. Duas das alternativas
-consideraram seleção de setores com equiprobabilidade via amostragem
-aleatória simples sem reposição (AC2AAS) e fração amostral constante de
-domicílios no segundo estágio (uma usando o estimador simples ou
-\(\pi\)-ponderado do total, e outra usando o estimador de razão para o
-total calibrando no número total de domicílios da população), e uma
-terceira alternativa considerou a seleção de setores com probabilidades
-proporcionais ao tamanho (número de domicílios por setor), denominada
-AC2PPT, e a seleção de \(15\) domicílios em cada setor da amostra, e
-empregando o correspondente estimador \(\pi\)-ponderado. Os resultados
-referentes à Região Metropolitana do Rio de Janeiro para algumas
-variáveis são apresentados na Tabela \ref{tab:epakish} a título de
-ilustração. Note que a população alvo considera apenas moradores em
-domicílios particulares permanentes na Região Metropolitana do Rio de
-Janeiro.
-
-Plano amostral AC2AAS AC2PPT
-
-\begin{longtable}[]{@{}lccc@{}}
-\caption{\label{tab:epakish} Efeitos de plano amostral de Kish para
-variáveis selecionadas - Região Metropolitana do Rio de
-Janeiro.}\tabularnewline
-\toprule
-\begin{minipage}[b]{0.24\columnwidth}\raggedright\strut
-Variável\strut
-\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\centering\strut
-Estimador Simples\strut
-\end{minipage} & \begin{minipage}[b]{0.20\columnwidth}\centering\strut
-Estimador de Razão\strut
-\end{minipage} & \begin{minipage}[b]{0.26\columnwidth}\centering\strut
-Estimador \(\pi\)-ponderado\strut
-\end{minipage}\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-\begin{minipage}[b]{0.24\columnwidth}\raggedright\strut
-Variável\strut
-\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\centering\strut
-Estimador Simples\strut
-\end{minipage} & \begin{minipage}[b]{0.20\columnwidth}\centering\strut
-Estimador de Razão\strut
-\end{minipage} & \begin{minipage}[b]{0.26\columnwidth}\centering\strut
-Estimador \(\pi\)-ponderado\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-1) Número total de moradores\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-10.74\strut
-\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering\strut
-2.00\strut
-\end{minipage} & \begin{minipage}[t]{0.26\columnwidth}\centering\strut
-1.90\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-2) Número de moradores ocupados\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-5.78\strut
-\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering\strut
-1.33\strut
-\end{minipage} & \begin{minipage}[t]{0.26\columnwidth}\centering\strut
-1.28\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-3) Rendimento monetário mensal\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-5.22\strut
-\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering\strut
-4.92\strut
-\end{minipage} & \begin{minipage}[t]{0.26\columnwidth}\centering\strut
-4.49\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-4) Número total de filhos nascidos vivos de mulheres com 15 anos ou
-mais\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-4.59\strut
-\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering\strut
-2.02\strut
-\end{minipage} & \begin{minipage}[t]{0.26\columnwidth}\centering\strut
-1.89\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-5) Número de domicílios que têm fogão\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-111.27\strut
-\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering\strut
-1.58\strut
-\end{minipage} & \begin{minipage}[t]{0.26\columnwidth}\centering\strut
-1.55\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-6) Número de domicílios que têm telefone\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-7.11\strut
-\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering\strut
-7.13\strut
-\end{minipage} & \begin{minipage}[t]{0.26\columnwidth}\centering\strut
-6.41\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-7) Valor do aluguel ou prestação mensal\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-7.22\strut
-\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering\strut
-7.02\strut
-\end{minipage} & \begin{minipage}[t]{0.26\columnwidth}\centering\strut
-6.45\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-8) Número de domicílios que têm automóvel e renda \textless{} 5SM\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-1.80\strut
-\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering\strut
-1.67\strut
-\end{minipage} & \begin{minipage}[t]{0.26\columnwidth}\centering\strut
-1.55\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-9) Número de domicílios que têm geladeira e renda \(\geq\) 5SM\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
-46.58\strut
-\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering\strut
-2.26\strut
-\end{minipage} & \begin{minipage}[t]{0.26\columnwidth}\centering\strut
-2.08\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-Os valores apresentados na Tabela \ref{tab:epakish} para a RM do Rio de
-Janeiro são similares aos observados para as demais RMs, se consideradas
-as mesmas variáveis. Nota-se grande variação dos valores do EPA, cujos
-valores mínimo e máximo são de 1,28 e 111,27 respectivamente. Para
-algumas variáveis (1,2,4,5 e 9), o EPA varia consideravelmente entre as
-diferentes alternativas de plano amostral, enquanto para outras
-variáveis (3,6,7 e 8) as variações entre os planos amostrais é mínima.
-
-Os valores elevados do EPA observados para algumas variáveis realçam a
-importância de considerar o plano amostral verdadeiro ao estimar
-variâncias e desvios padrões associados às estimativas pontuais. Isso
-ocorre porque estimativas ingênuas de variância baseadas na hipótese de
-AAS subestimam substancialmente as variâncias corretas.
-
-Outra regularidade encontrada nesse valores é que o EPA para o plano
-amostral AC2AAS com estimador simples apresenta sempre os valores mais
-elevados, revelando que este esquema é menos eficiente que os
-competidores considerados. Em geral, o EPA é menor para o esquema
-AC2PPT, com valores próximos aos do esquema AC2AAS com estimador de
-razão.
-
-Os valores dos EPAs calculados por \citep{SilvaMou} podem ser usados
-para planejar pesquisas amostrais (ao menos nas regiões metropolitanas),
-pois permitem comparar e antecipar o impacto do uso de alguns esquemas
-amostrais alternativos sobre a precisão de estimadores de totais de
-várias variáveis relevantes. Permitem também calcular tamanhos amostrais
-para garantir determinado nível de precisão, sem emprego de fórmulas
-complicadas. Portanto, tais valores seriam úteis como informação de
-apoio ao planejamento de novas pesquisas por amostragem, antes que as
-respectivas amostras sejam efetivamente selecionadas.
-
-Entretanto, esses valores têm pouca utilidade em termos de usos
-analíticos dos dados da amostra do Censo Demográfico 80. é que tais
-valores, embora tendo sido estimados com essa amostra, foram calculados
-para planos amostrais distintos do que foi efetivamente adotado para
-seleção da amostra do censo. A amostra de domicílios usada no censo é
-estratificada por setor censitário com seleção sistemática de uma fração
-fixa (25\% no Censo 80) dos domicílios de cada setor. Já os planos
-amostrais considerados na tabulação dos EPAs eram planos amostrais em
-dois estágios, com seleção de setores no primeiro estágio, os quais
-foram considerados por sua similaridade com os esquemas adotados nas
-principais pesquisas domiciliares do IBGE tais como a PNAD e a PME
-(Pesquisa Mensal de Emprego). Portanto, a utilidade maior dos valores
-tabulados dos EPAs seria a comparação de planos amostrais alternativos
-para planejamento de pesquisas futuras, e não a análise dos resultados
-da amostra do censo 80.
-
-\section{Efeito do Plano Amostral
-Ampliado}\label{efeito-do-plano-amostral-ampliado}
-
-O que se observou no Exemplo \ref{ex:epakish} com respeito à dificuldade
-de uso dos EPAs de Kish calculados para fins analíticos também se aplica
-para outras situações e é uma deficiência estrutural do conceito de EPA
-proposto por Kish. Para tentar contornar essa dificuldade, é necessário
-considerar um conceito ampliado de EPA, correspondente ao conceito de
-\emph{misspecification effect} \texttt{meff} proposto por p.~24,
-\citep{SHS89}, que apresentamos e discutimos nesta seção.
-
-Para introduzir este conceito ampliado de EPA, que tem utilidade também
-para fins de inferência analítica, vamos agora considerar um modelo
-subjacente às observações usadas para o cálculo do estimador pontual
-\(\hat{\theta}\). Designemos por
-\(v_{0}=\widehat{V}_{IID}\left( \hat{\theta}\right)\) um estimador usual
-(consistente) da variância de \(\hat{\theta}\) calculado sob a hipótese
-(ingênua) de que as observações são IID. A inadequação da hipótese de
-IID poderia ser consequência ou de estrutura da população ou de efeito
-de plano amostral complexo. Em qualquer dos casos, a estimativa
-\(v_{0}\) da variância de \(\hat{\theta}\) calculada sob a hipótese de
-observações IID se afastaria da variância de \(\hat{\theta}\) sob o
-plano amostral (ou modelo) verdadeiro, denotada
-\(V_{VERD}\left( \hat{\theta}\right)\). Note que
-\(V_{VERD}\left( \hat{\theta}\right) =V_{M}\left( \hat{\theta}\right)\)
-na abordagem baseada em modelos e
-\(V_{VERD}\left( \hat{\theta}\right) =V_{p}\left( \hat{\theta}\right)\)
-na abordagem de aleatorização.
-
-Para avaliar se este afastamento tende a ser grande ou pequeno, vamos
-considerar a distribuição de \(v_{0}\) com relação à distribuição de
-aleatorização verdadeira (ou do modelo verdadeiro) e localizar
-\(V_{VERD}\left( \hat{\theta}\right)\) com relação a esta distribuição
-de referência. Como em geral seria complicado obter esta distribuição,
-vamos tomar uma medida de centro ou locação da mesma e compará-la a
-\(V_{VERD}\left(\hat{\theta}\right)\).
-
-Podemos desta forma introduzir uma medida de efeito da especificação
-incorreta do plano amostral (ou do modelo) sobre a estimativa \(v_{0}\)
-da variância do estimador \(\hat{\theta}\).
-
-\BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-2}{}{\label{def:unnamed-chunk-2}}O
-efeito da especificação incorreta do plano amostral (ou do modelo) sobre
-a estimativa \(v_{0}\) da variância do estimador \(\hat{\theta}\) é
-
-\begin{equation}
-\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left( \hat{%
-\theta}\right) }{E_{VERD}\left( v_{0}\right) }\;.  \label{eq:epa2}
-\end{equation}
-\EndKnitrBlock{definition}
-
-Desta forma, o \(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\) mede a
-tendência de \(v_{0}\) a subestimar ou superestimar
-\(V_{VERD}\left( \hat{\theta}\right) ,\) variância \texttt{verdadeira}
-de \(\hat{\theta}\). Quanto mais afastado de \(1\) for o valor de
-\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\), mais incorreta será
-considerada a especificação do plano amostral ou do modelo.
-
-Enquanto a medida proposta por Kish baseia-se nas distribuições
-induzidas pela aleatorização dos planos amostrais comparados, o
-\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\) pode ser calculado com
-respeito a distribuições de aleatorização ou do modelo envolvido,
-bastando calcular \(V_{VERD}\) e \(E_{VERD}\) da Definição \eqref{eq:epa2}
-com relação à distribuição correspondente.
-
-Em geral, são esperadas as seguintes consequências sobre o
-\(\mathbf{EPA}\) ao ignorar o plano amostral efetivamente adotado e
-admitir que a seleção da amostra foi AAS:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Ignorar os pesos em \(v_{0}\) pode inflacionar o \(\mathbf{EPA}\);
-\item
-  Ignorar conglomeração em \(v_{0}\) pode inflacionar o
-  \(\mathbf{EPA}\);
-\item
-  Ignorar estratificação em \(v_{0}\) pode reduzir o \(\mathbf{EPA}\).
-\end{enumerate}
-
-Combinações destes aspectos num mesmo plano amostral, resultando na
-especificação incorreta do plano amostral subjacente a \(v_{0},\) podem
-inflacionar ou reduzir o \(\mathbf{EPA}\). Nesses casos é difícil prever
-o impacto de ignorar o plano amostral (ou modelo) verdadeiro sobre a
-análise baseada em hipóteses IID. Por essa razão, é recomendável ao
-menos estimar os EPAs antes de concluir a análise padrão, para poder
-então avaliar se há impactos importantes a considerar.
-
-\BeginKnitrBlock{example}
-\protect\hypertarget{ex:deffuni}{}{\label{ex:deffuni}}Efeitos de plano
-amostral para estimação de médias na amostragem estratificada simples
-com alocação desproporcional
-\EndKnitrBlock{example}
-
-Neste exemplo consideramos uma população de \(N=749\) empresas, para as
-quais foram observadas as seguintes variáveis:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  pessoal ocupado em 31/12/94 (PO);
-\item
-  total de salários pagos no ano de 94 (SAL);
-\item
-  receita total no ano de 94 (REC).
-\end{enumerate}
-
-A ideia é considerar o problema de estimar as médias populacionais das
-variáveis SAL e REC (variáveis de pesquisa, nesse exemplo), usando
-amostras estratificadas simples com alocação desproporcional, implicando
-em unidades amostrais com pesos desiguais numa situação bastante
-simples. A variável PO é a variável de estratificação. As médias
-populacionais das variáveis de pesquisa (SAL e REC) são conhecidas,
-porém supostas desconhecidas para efeitos do presente exercício, em que
-se supõe que amostragem seria usada para sua estimação.
-
-Para estimar estas médias, as empresas da população foram divididas em
-dois estratos, definidos a partir da variável PO, conforme indicado na
-Tabela \ref{tab:estempr}.
-
-\begin{longtable}[]{@{}rcc@{}}
-\caption{\label{tab:estempr} Definição da estratificação da população de
-empresas}\tabularnewline
-\toprule
-Estrato & Condição & Tamanho\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-Estrato & Condição & Tamanho\tabularnewline
-\midrule
-\endhead
-1 & empresas com PO \(>21\) & \(161\) empresas\tabularnewline
-2 & empresas com PO \(\leq21\) & \(588\) empresas\tabularnewline
-\bottomrule
-\end{longtable}
-
-Foram então selecionadas de cada um dos estratos amostras aleatórias
-simples sem reposição de \(30\) empresas, implicando em uso de aloca\c{%
-c}ão igual e em frações amostrais desiguais, em vista dos diferentes
-tamanhos populacionais dos estratos. Como o estrato 1 contém cerca de
-\(21\%\) das observações da população, a proporção de \(50\%\) das
-observações da amostra no estrato 1 (das maiores empresas) na amostra é
-bem maior do que seria esperado sob amostragem aleatória simples da
-população em geral. Desta forma, a média amostral de uma variável de
-pesquisa \(y\) qualquer (SAL ou REC) dada por \[
-\bar{y}=\frac{1}{n}\sum\limits_{h=1}^{2}\sum\limits_{i\in s_{h}}y_{hi} \]
-tenderia a superestimar a média populacional \(\overline{Y}\) dada por
-\(\overline{Y}=\frac{1}{N}\sum\limits_{h=1}^{2}\sum_{i\in U_{h}}y_{hi},\)
-onde \(y_{hi}\) é o valor da variável de pesquisa \(y\) para a
-\(i-\)ésima observação do estrato \(h\), \((h=1,2)\). Neste caso, um
-estimador não-viciado da média populacional \(\bar{Y}\) seria dado por
-
-\[
-\bar{y}_{w}=\sum\limits_{h=1}^{2}W_{h}\bar{y}_{h} 
-\] onde \(W_{h}=\frac{N_{h}}{N}\) é a proporção de observações da
-população no estrato \(h\) e
-\(\bar{y}_{h}=\frac{1}{n_{h}}\sum\limits_{i\in s_{h}}y_{hi}\) é a média
-amostral dos \(y^{^{\prime}}s\) no estrato \(h\), \((h=1,2)\).
-
-Com a finalidade de ilustrar o cálculo do \(\mathbf{EPA}\), vamos
-considerar o estimador não-viciado \(\bar{y}_{w}\) e calcular sua
-variância sob o plano amostral realmente utilizado (amostra
-estratificada simples - AES com alocação igual). Essa variância poderá
-então ser comparada com o valor esperado (sob a distribuição induzida
-pelo plano amostral estratificado) do estimador da variância obtido sob
-a hipótese de amostragem aleatória simples.
-
-No presente exercício, a variância do estimador \(\bar{y}_{w}\) pode ser
-obtida de duas formas: calculando a expressão da variância utilizando os
-dados de todas as unidades da população (que são conhecidos, mas
-admitidos desconhecidos para fins do exercício de estimação de médias
-via amostragem) e por simulação.
-
-A variância de \(\bar{y}_{w}\) sob a distribuição de aleatorização
-verdadeira é dada por
-
-\begin{equation}
-V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
-1-f_{h}\right) \frac{S_{h}^{2}}{n_{h}}  \label{eq:epa3}
-\end{equation}
-
-onde \(f_{h}=n_{h}/N_{h}\) , \(n_{h}\) é o número de observações na
-amostra no estrato \(h,\) e
-\(S_{h}^{2}=\frac{1}{N_{h}-1}\sum\limits_{i\in U_{h}}\left( y_{hi}-\overline{Y}_{h}\right) ^{2}\)
-é a variância populacional da variável de pesquisa \(y\) dentro do
-estrato \(h\), com
-\(\overline{Y}_{h}=\frac{1}{N_{h}}\sum\limits_{i\in U_{h}}y_{hi}\)
-representando a média populacional da variável \(y\) dentro do estrato
-\(h\).
-
-Um estimador usual da variância de \(\bar{y}_{w}\) sob amostragem
-aleatória simples é \(v_{0}=\left( 1-f\right) \frac{s^{2}}{n}\) onde
-\(s^{2}=\frac{1}{n-1}\sum\limits_{h=1}^{2}\sum\limits_{i\in s_{h}}\left(y_{hi}-\bar{y}\right) ^{2}\)
-e \(f=\sum_{h=1}^{2}n_{h}/\sum_{h=1}^{2}N_{h} =n/N\).
-
-O cálculo do \(\mathbf{EPA}\) foi feito também por meio de simulação.
-Geramos \(500\) amostras de tamanho \(60\), segundo o plano amostral
-estratificado considerado. Para cada uma das \(500\) amostras e cada uma
-das duas variáveis de pesquisa (SAL e REC) foram calculados:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  média amostral (\(\bar{y}\));
-\item
-  estimativa ponderada da média (\(\bar{y}_{w}\));
-\item
-  estimativa da variância da estimativa ponderada da média
-  (\(\bar{y}_{w}\)) considerando observações IID
-  \(\left( v_{0}\right)\);
-\item
-  estimativa da variância da estimativa ponderada da média
-  (\(\bar{y}_{w}\)) considerando o plano amostral verdadeiro
-  \(\left( \hat{V}_{AES}\ \left( \bar{y}_{w}\right) \right)\).
-\end{enumerate}
-
-Note que na apresentação dos resultados os valores dos salários foram
-expressos em milhares de Reais (R\$ \(1.000,00\)) e os valores das
-receitas em milhões de Reais (R\$ \(1.000.000,00\)). Como a população é
-conhecida, os parâmetros populacionais de interesse podem ser
-calculados, obtendo-se os valores na primeira linha da Tabela
-\ref{tab:proestmed}.
-
-\begin{longtable}[]{@{}lcc@{}}
-\caption{\label{tab:proestmed} Propriedades dos estimadores da média das
-variáveis de pesquisa}\tabularnewline
-\toprule
-\begin{minipage}[b]{0.43\columnwidth}\raggedright\strut
-Quantidade de interesse\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Salários\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Receitas\strut
-\end{minipage}\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-\begin{minipage}[b]{0.43\columnwidth}\raggedright\strut
-Quantidade de interesse\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Salários\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Receitas\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.43\columnwidth}\raggedright\strut
-1) Média populacional\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-78.328\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-2.107\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.43\columnwidth}\raggedright\strut
-2) Média de \(\bar{y}\) sobre 500 amostras\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-160.750\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-4.191\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.43\columnwidth}\raggedright\strut
-3) Média de \(\bar{y}_{w}\) sobre 500 amostras\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-76.700\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-2.054\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-Em contraste com os valores dos parâmetros populacionais, calculamos a
-média das médias amostrais não ponderadas (\(\bar{y}\)) dos salários e
-das receitas obtidas nas \(500\) amostras simuladas, obtendo os valores
-na segunda linha da Tabela \ref{tab:proestmed} . Como previsto,
-observamos um vício para cima na estimativa destas médias, da ordem de
-\(105\%\) para os salários e de \(98,9\%\) para as receitas.
-
-Usamos também o estimador \(\bar{y}_{w}\) para estimar a média dos
-salários e das receitas na população, obtendo para esse estimador as
-médias apresentadas na terceira linha da Tabela \ref{tab:proestmed}.
-Observamos ainda um pequeno vício da ordem de \(-1,95\%\) e \(-2,51\%\)
-para os salários e receitas, respectivamente. Note que o estimador
-\(\bar{y}_{w}\) é não-viciado sob o plano amostral adotado, entretanto o
-pequeno vício observado na simulação não pode ser ignorado pois é
-significantemente diferente de \(0\) ao nível de significância de
-\(5\%\), apesar do tamanho razoável da simulação (\(500\) replicações).
-
-Além dos estimadores pontuais, o interesse maior da simulação foi
-comparar valores de estimadores de variância, e consequentemente de
-medidas do efeito do plano amostral. Como o estimador pontual dado pela
-média amostral não ponderada (\(\bar{y}\)) é grosseiramente viciado, não
-consideramos estimativas de variância para esse estimador, mas tão
-somente para o estimador não-viciado dado pela média ponderada
-\(\bar{y}_{w}\). Para esse último, consideramos dois estimadores de
-variância, a saber o estimador ingênuo sob a hipótese de AAS (dado por
-\(v_{0}\)) e um estimador não viciado da variância sob o plano amostral
-\(\hat{V}_{AES}\left( \bar{y}_{w}\right)\) , que foi obtido substituindo
-as variâncias dentro dos estratos \(S_{h}^{2}\) por estimativas
-amostrais não viciadas dadas por
-\(s_{h}^{2}=\frac{1}{n_{h}-1}\sum_{i=1}^{n_{h}}(y_{hi}-\overline{y}_{h})^{2}\),
-\(h=1,2\), na fórmula de \(V_{AES}\left( \bar{y}_{w}\right)\) conforme
-definida em \eqref{eq:epa3}.
-
-Como neste exercício a população é conhecida, podemos calcular
-\(V_{AES}\left(\bar{y}_{w}\right)\) através das variâncias de \(y\)
-dentro dos estratos \(h=1,2\) ou através da simulação. Esses valores são
-apresentados respectivamente na primeira e segunda linhas da Tabela
-\ref{tab:varest}, para as duas variáveis de pesquisa consideradas.
-
-\begin{longtable}[]{@{}lcc@{}}
-\caption{\label{tab:varest} Propriedades dos estimadore de variância do
-estimador \(\bar{y}_{w}\)}\tabularnewline
-\toprule
-\begin{minipage}[b]{0.62\columnwidth}\raggedright\strut
-Quantidade de interesse\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Salários\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Receitas\strut
-\end{minipage}\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-\begin{minipage}[b]{0.62\columnwidth}\raggedright\strut
-Quantidade de interesse\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Salários\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Receitas\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.62\columnwidth}\raggedright\strut
-1) Variância populacional \(V_{AES}\left( \bar{y}_{w}\right)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-244.1\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-0.43500\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.62\columnwidth}\raggedright\strut
-2) Média de \(\widehat{V}_{AES}\left(\bar{y}_{w}\right)\) usando \(500\)
-amostras\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-231.84\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-0.32569\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.62\columnwidth}\raggedright\strut
-3) Valor esperado de \(v_{0}\) usando população\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-1613.3\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-1.1880\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.62\columnwidth}\raggedright\strut
-4) Média de \(v_{0}\) usando \(500\) amostras\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-1636.1\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-1.2121\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-Os valores de
-\(E_{VERD}\left( v_{0}\left( \overline{SAL}_{w}\right) \right)\) e de
-\(E_{VERD}\left( v_{0}\left( \overline{REC}_{w}\right) \right)\) foram
-também calculados a partir das variâncias dentro e entre estratos na
-população, resultando nos valores na linha 3 da Tabela \ref{tab:varest},
-e estimativas desses valores baseadas nas 500 amostras da simulação são
-apresentadas na linha 4 da Tabela \ref{tab:varest}. Os valores para o
-\(\mathbf{EPA}\) foram calculados tanto com base nas estimativas de
-simulação como nos valores populacionais das variâncias, cujos cálculos
-estão ilustrados a seguir:
-
-\begin{eqnarray*}
-\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right) &=&\frac{231,84}{1.636,1}=0,142 \\
-\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
-\right) &=&\frac{0,32569}{1,2121}=0,269
-\end{eqnarray*}
-
-\begin{eqnarray*}
-\mathbf{EPA}\left( \overline{SAL}_{w},v_{0}\left( \overline{SAL}_{w}\right)
-\right) &=&\frac{244,18}{1.613,3}=0,151\mbox{ e } \\
-\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
-\right) &=&\frac{0,43500}{1,1880}=0,366.
-\end{eqnarray*}
-
-A Tabela \ref{tab:eparec} resume os principais resultados deste
-exercício, para o estimador ponderado da média \(\bar{y}_{w}\). Apesar
-das diferenças entre os resultados da simulação e suas contrapartidas
-calculadas considerando conhecidos os valores da população, as
-conclusões da análise são similares:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  ignorar os pesos na estimação da média provoca vícios substanciais,
-  que não podem ser ignorados; portanto, o uso do estimador simples de
-  média (\(\bar{y}\)) é desaconselhado;
-\item
-  ignorar os pesos na estimação da variância do estimador ponderado
-  \(\bar{y}_{w}\) também provoca vícios substanciais, neste caso,
-  superestimando a variância por ignorar o efeito de estratificação; os
-  efeitos de plano amostral são substancialmente menores que \(1\) para
-  as duas variáveis de pesquisa consideradas (salários e receita);
-  portanto o uso do estimador ingênuo de variância \(v_{0}\) é
-  desaconselhado.
-\end{enumerate}
-
-Essas conclusões são largamente aceitas pelos amostristas e produtores
-de dados baseados em pesquisas amostrais para o caso da estimação de
-médias e totais, e respectivas variâncias. Entretanto ainda há exemplos
-de usos indevidos de dados amostrais nos quais os pesos são ignorados,
-em particular para a estimação de variâncias associadas a estimativas
-pontuais de médias e totais. Tal situação se deve ao uso ingênuo de
-pacotes estatísticos padrões desenvolvidos para analisar amostras IID,
-sem a devida consideração dos pesos e plano amostral.
-
-\begin{longtable}[]{@{}llll@{}}
-\caption{\label{tab:eparec}Valores dos Efeitos de Plano amostral(EPA) para
-as médias de Salário e Receita.}\tabularnewline
-\toprule
-\begin{minipage}[b]{0.12\columnwidth}\raggedright\strut
-Variável\strut
-\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\raggedright\strut
-Estimativa\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright\strut
-Simulação\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright\strut
-População\strut
-\end{minipage}\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-\begin{minipage}[b]{0.12\columnwidth}\raggedright\strut
-Variável\strut
-\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\raggedright\strut
-Estimativa\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright\strut
-Simulação\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright\strut
-População\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-Salário\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
-Variância EPA\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
-231.84 0.142\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
-244.18 0.151\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-Receita\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
-Variância EPA\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
-0.32569 0.269\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
-0.43500 0.366\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-\BeginKnitrBlock{remark}
-\iffalse {Observação } \fi{} Neste exemplo não foi feito uso analítico
-dos dados e sim descritivo, onde é usual incorporar os pesos no cálculo
-de estimativas e variâncias. Não seria esperado usar um estimador
-ponderado para a média e não considerar os pesos no cálculo de
-variâncias, como fizemos neste exemplo.
-\EndKnitrBlock{remark}
-
-\BeginKnitrBlock{remark}
-\iffalse {Observação } \fi{} O exemplo mostra que ignorar a
-estratificação ao calcular \(v_{0}\) diminui o \(\mathbf{EPA}\).
-\EndKnitrBlock{remark}
-
-Um outro exemplo relevante é utilizado a seguir para ilustrar o fato de
-que o conceito do \(\mathbf{EPA}\) adotado aqui é mais abrangente do que
-o definido por Kish, em particular porque a origem do efeito pode estar
-na estrutura da população e não no plano amostral usado para obter os
-dados.
-
-\BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-5}{}{\label{ex:unnamed-chunk-5}}População
-conglomerada com conglomerados de tamanho 2 \citep{SHS89}, p.~25
-\EndKnitrBlock{example}
-
-Considere uma população de conglomerados de tamanho 2, isto é, onde as
-unidades (elementares ou de referência) estão grupadas em pares
-(exemplos de tais populações incluem pares de irmãos gêmeos, casais,
-jogadores numa dupla de vôlei de praia ou tênis, etc.). Suponha que os
-valores de uma variável de pesquisa medida nessas unidades têm média
-\(\theta\) e variância \(\sigma ^{2}\), além de uma correlação \(\rho\)
-entre os valores dentro de cada par (correlação intraclasse, veja
-\citep{SilvaMou}, cap. 2 e \citep{haggard}. Suponha que um único par é
-sorteado ao acaso da população e que os valores \(y_{1}\) e \(y_{2}\)
-são observados para as duas unidades do par selecionado. O modelo
-assumido pode então ser representado como \[
-\left\{ 
-\begin{array}{l}
-E_{M}\left( Y_{i}\right) =\theta \\ 
-V_{M}\left( Y_{i}\right) =\sigma ^{2} \\ 
-CORR_{M}\left( Y_{1};Y_{2}\right) =\rho
-\end{array}
-\right. \;\;i=1,2. 
-\]
-
-Um estimador não viciado para \(\theta\) é dado por
-\(\widehat{\theta }=(y_{1}+y_{2})/2\) , a média amostral. Assumindo a
-(falsa) hipótese de que o esquema amostral é AASC de unidades
-individuais e não de pares, ou equivalentemente, que \(y_{1}\) e
-\(y_{2}\) são observações de variáveis aleatórias IID, a variância de
-\(\widehat{\theta }\) é dada por \[
-V_{AAS}\left( \widehat{\theta }\right) =\sigma ^{2}/2 
-\] com um estimador não viciado dado por \[
-v_{0}\left( \widehat{\theta }\right) =(y_{1}-y_{2})^{2}/4\;. 
-\]
-
-Entretanto, na realidade a variância de \(\widehat{\theta }\) é dada por
-\[
-V_{VERD}\left( \widehat{\theta }\right) =V_{M}\left( \widehat{\theta }
-\right) =\sigma ^{2}(1+\rho )/2 
-\] e o valor esperado do estimador de variância
-\(v_{0}\left( \widehat{\theta }\right)\) é dado por \[
-E_{VERD}\left[ v_{0}\left( \widehat{\theta }\right) \right] =\sigma
-^{2}(1-\rho )/2\;. 
-\]
-
-Consequentemente, considerando as equações \eqref{eq:epa1} e
-\eqref{eq:epa2}, tem-se que \[
-\mathbf{EPA}_{Kish}\left( \hat{\theta}\right) =1+\rho 
-\] e \[
-\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =(1+\rho )/(1-\rho )\;. 
-\]
-
-A Figura \ref{fig:epacong} plota os valores de
-\(\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)\) e
-\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\) para valores de
-\(\rho\) entre \(0\) e \(0,8\). Como se pode notar, o efeito da
-especificação inadequada do plano amostral ou da estrutura populacional
-pode ser severo, com valores de
-\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\) chegando a \(9\). Um
-aspecto importante a notar é que o
-\(\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)\) tem variação muito
-mais modesta que o \(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\).
+\section{Modelagem - Primeiras Idéias}\label{classic}
+
+Com o objetivo de dar uma primeira ideia sobre o assunto a ser tratado
+neste livro vamos considerar, numa situação simples, algumas abordagens
+alternativas de análise estatística.
+
+\subsection{Abordagem 1 - Modelagem
+Clássica}\label{abordagem-1---modelagem-classica}
+
+Seja \(Y\) um vetor \(P \times 1\) de variáveis de pesquisa (ou de
+interesse), e sejam \(n\) vetores de observações destas variáveis para
+uma amostra de unidades de interesse denotados por \(y_1,\ldots ,y_n\).
+Em Inferência Estatística, a abordagem que aqui chamamos de
+\texttt{Modelagem\ clássica} considera \(y_1,\ldots ,y_n\) como valores
+(realizações) de vetores de variáveis aleatórias \(y_1,\ldots ,y_n\).
+Podemos formular modelos bastante sofisticados para a distribuição
+conjunta destes vetores aleatórios, mas para simplificar a discussão,
+vamos inicialmente supor que \(y_1,\ldots ,y_n\) são vetores aleatórios
+independentes e identicamente distribuídos (IID), com a mesma
+distribuição de \(Y\), caracterizada pela função de densidade ou de
+frequência \(f(y;\theta)\), onde \(\theta \in \Theta\) é o parâmetro (um
+vetor de dimensão \(K \times 1\)) indexador da distribuição \(f\), e
+\(\Theta\) é o espaço paramétrico. A partir das observações
+\(y_1,\ldots ,y_n\), são feitas inferências a respeito do parâmetro
+\(\theta\). Uma representação gráfica esquemática dessa abordagem é
+apresentada na Figura \ref{fig:modclas} a seguir, e uma descrição
+esquemática resumida é apresentada na Tabela \ref{Tab21}.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Figuras/fig41.png}
-\caption{\label{fig:epacong}Valores de EPA e EPA de Kish para conglomeração}
+\includegraphics{Figuras/fig21.png}
+\caption{\label{fig:modclas}Modelagem Clássica}
 \end{figure}
 
-Este exemplo ilustra bem dois aspectos distintos do uso de medidas como
-o efeito de plano amostral. O primeiro é que as duas medidas são
-distintas,
-\texttt{embora\ os\ respectivos\ estimadores\ baseados\ numa\ particular\ amostra\ coincidam}.
-No caso particular deste exemplo, o
-\(\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)\) cresce pouco com o
-valor do coeficiente de correlação intraclasse \(\rho\), o que implica
-que um plano amostral conglomerado como o adotado (seleção ao acaso de
-um par da população) seria menos eficiente que um plano amostral
-aleatório simples (seleção de duas unidades ao acaso da população), mas
-a perda de eficiência seria modesta. Já se o interesse é medir, a
-posteriori, o efeito da má especificação do plano amostral no estimador
-de variância, o impacto, medido pelo
-\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\), seria muito maior.
-
-Vale ainda notar que o \(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)
-mede o impacto da má especificação do plano amostral ou do modelo para a
-estrutura populacional. Neste exemplo, ignorar a estrutura da população
-(o fato de que as observações são pareadas) poderia provocar
-subestimação da variância do estimador de média, que seria tanto maior
-quanto maior fosse o coeficiente de correlação intraclasse \(\rho\).
-Efeitos como esse são comuns também devido ao planejamento amostral,
-mesmo em populações onde a conglomeração é imposta artificialmente pelo
-amostrista.
-
-\section{Intervalos de Confiança e Testes de
-Hipóteses}\label{intervalos-de-confianca-e-testes-de-hipoteses}
-
-A partir da estimativa pontual \(\hat{\theta}\) de um parâmetro
-\(\theta\) (da população finita ou do modelo de superpopulação) é
-possível construir um intervalo de confiança de nível de confiança
-aproximado \(\left( 1-\alpha \right)\) a partir da distribuição
-assintótica de \[
-t_{0}=\frac{\hat{\theta}-\theta }{v_{0}^{1/2}} 
-\] que, sob a hipótese de que as observações são IID, frequentemente é
-\(N\left( 0;1\right)\).
-
-Neste caso, um intervalo de confiança de nível de confiança aproximado
-\(\left( 1-\alpha \right)\) é dado por
-\(\left[ \hat{\theta}-z_{\alpha /2}v_{0}^{1/2},\hat{\theta}+z_{\alpha /2}v_{0}^{1/2}\right]\),
-onde \(z_{\alpha }\) é definido por
-\(\int_{z_{\alpha }}^{+\infty }\varphi\left( t\right) dt=\alpha\) , onde
-\(\varphi\) é a função de densidade da distribuição normal padrão.
-
-Vamos analisar o efeito de um plano amostral complexo sobre o intervalo
-de confiança. No caso de um plano amostral complexo, a distribuição que
-é aproximadamente normal é a de \[
-\frac{\hat{\theta}-\theta }{\left[ \widehat{V}_{VERD}\left( \hat{\theta}\right) \right] ^{1/2}}. 
-\]
-
-Por outro lado, para obter a variância da distribuição assintótica de
-\(t_{0}\) note que \[
-\frac{\hat{\theta}-\theta }{v_{0}^{1/2}}=\frac{\hat{\theta}-\theta }{\left[ 
-\widehat{V}_{VERD}\left( \hat{\theta}\right) \right] ^{1/2}}\times \frac{
-\left[ \widehat{V}_{VERD}\left( \hat{\theta}\right) \right] ^{1/2}}{
-v_{0}^{1/2}}\;. 
-\]
-
-Como o primeiro fator tende para uma \(N\left( 0;1\right)\), a variância
-assintótica de \(t_{0}\) é aproximadamente igual ao quadrado do segundo
-fator, isto é, a
-\(\frac{\widehat{V}_{VERD}\left( \hat{\theta}\right) }{v_{0}}\) que é um
-estimador para \(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\). Porém
-quando a amostra é grande esse valor aproxima o
-\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left( \hat{\theta}\right) }{E_{VERD}\left( v_{0}\right) }\),
-pois \(v_{0}\) é aproximadamente igual a \(E_{VERD}\left( v_{0}\right)\)
-e \(\widehat{V}_{VERD}\left( \hat{\theta}\right)\) é aproximadamente
-igual a \(V_{VERD}\left( \hat{\theta}\right)\). Logo temos que a
-distribuição assintótica verdadeira de \(t_{0}\) é dada por \[
-t_{0}\sim N\left[ 0;\mathbf{EPA}\left( \hat{\theta},v_{0}\right)
-\right] \;. 
-\]
-
-Dependendo do valor de \(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\),
-o intervalo de confiança baseado na distribuição assintótica verdadeira
-de \(t_{0}\) pode ser bem distinto daquele baseado na distribuição
-assintótica obtida sob a hipótese de observações IID. Em geral, a
-probabilidade de cobertura assintótica do intervalo
-\(\left[\hat{\theta}-z_{\alpha /2}v_{0}^{1/2}, \hat{\theta}+z_{\alpha/2}v_{0}^{1/2}\right]\)
-será aproximadamente igual a
-
-\[
-2\Phi \left( z_{\alpha /2}/\left[ \mathbf{EPA}\left( \hat{\theta}
-,v_{0}\right) \right] ^{1/2}\right) -1\;\;, 
-\] onde \(\Phi\) é a função de distribuição acumulada de uma
-\(N\left( 0;1\right)\). Calculamos esta probabilidade para alguns
-valores do \(\mathbf{EPA}\), que apresentamos na Tabela
-\ref{tab:procob}.
-
-\begin{longtable}[]{@{}lll@{}}
-\caption{\label{tab:procob} Probabilidades de cobertura para níveis nominais
-de 95\% e 99\%}\tabularnewline
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:modelclass} Representação esquemática da abordagem
+1.}\tabularnewline
 \toprule
-\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\) & \(1-\alpha=0.95\) &
-\(1-\alpha=0.99\)\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\) & \(1-\alpha=0.95\) &
-\(1-\alpha=0.99\)\tabularnewline
-\midrule
-\endhead
-0.90 & 0.96 & 0.99\tabularnewline
-0.95 & 0.96 & 0.99\tabularnewline
-1.0 & 0.95 & 0.99\tabularnewline
-1.5 & 0.89 & 0.96\tabularnewline
-2.0 & 0.83 & 0.93\tabularnewline
-2.5 & 0.78 & 0.90\tabularnewline
-3.0 & 0.74 & 0.86\tabularnewline
-3.5 & 0.71 & 0.83\tabularnewline
-4.0 & 0.67 & 0.80\tabularnewline
+\begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
+Dados Amostrais\strut
+\end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
+\(Y_1=y_1,\ldots, Y_n=y_n\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
+Modelo Paramétrico/ Hipóteses\strut
+\end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
+\(Y_1,\ldots,Y_n\) variáveis aleatórias IID com distribuição
+\(f(y,\theta)\), onde \(\theta \in \Theta\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
+Objetivo\strut
+\end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
+Inferir sobre \(\theta\) usando as observações \(y_1, \ldots,y_n\)\strut
+\end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
-À medida que o valor do \(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)
-aumenta, a probabilidade real de cobertura diminui, sendo menor que o
-valor nominal para valores de
-\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\) maiores que 1.
+Do ponto de vista matemático, o parâmetro \(\theta\) serve para indexar
+os elementos da família de distribuições
+\(\left\{f\left( y;\theta \right);\theta \in \Theta \right\}\). Na
+prática, as questões relevantes da pesquisa são traduzidas em termos de
+perguntas sobre o valor ou região a que pertence o parâmetro \(\theta\),
+e a inferência sobre \(\theta\) a partir dos dados ajuda a responder
+tais questões. Esta abordagem é útil em estudos analíticos tais como,
+por exemplo, na investigação da natureza da associação entre variáveis
+(modelos de regressão linear ou logística, modelos log-lineares, etc.).
+Vários exemplos discutidos ao longo dos Capítulos \ref{modreg},
+\ref{testqualajust} e \ref{testetab2} ilustram situações deste tipo. No
+Capítulo \ref{estimacao-de-densidades} o foco vai ser a estimação não
+paramétrica da forma da função \(f(y;\theta)\).
 
-Utilizando a correspondência existente entre intervalos de confiança e
-testes de hipóteses, podemos derivar os níveis de significância nominais
-e reais subtraindo de \(1\) os valores da Tabela \ref{tab:procob}. Por
-exemplo, para \(\alpha =0,05\) e
-\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =2\), o nível de
-significância real seria aproximadamente \(1-0,83=0,17\).
+Investigando a existência de diferenciais de salários por sexo e raça
 
-\BeginKnitrBlock{example}
-\protect\hypertarget{ex:unnamed-chunk-6}{}{\label{ex:unnamed-chunk-6}}\label{exebin}Teste
-de hipótese sobre proporção
-\EndKnitrBlock{example} Vamos considerar um exemplo hipotético de teste
-de hipótese sobre uma proporção, semelhante ao de \citep{Sud76},
-apresentado em p.~196, \citep{lethonen}. Uma amostra de \(m=50\)
-conglomerados é extraída de uma grande população de empresas industriais
-(conglomerados). Suponhamos que cada empresa \(i=1,\ldots ,50\) da
-amostra tenha \(n_{i}=20\) empregados. O tamanho total da amostra de
-empregados (unidades elementares) é \(n=\sum_{i}n_{i}=1.000\). Queremos
-estudar o acesso dos trabalhadores das empresas a planos de saúde.
+Uma questão de grande interesse para o debate sobre a existência de
+desigualdades numa sociedade diz respeito à possível existência de
+diferenciais de salários entre pessoas de sexo e raça distintos, após
+controlar por características do trabalhador tais como escolaridade,
+ocupação e experiência, e da firma, tais como tamanho, setor de
+atividade e outras. \citep{Rodrigues} examinou este problema empregando
+modelos de regressão para explicar o logaritmo do salário hora dos
+trabalhadores empregados, ajustados a dados obtidos através da Pesquisa
+sobre Padrões de Vida do IBGE, e tomando como variáveis explicativas
+características do trabalhador, do posto de trabalho e da empresa. A
+autora concluiu que não se pode rejeitar a hipótese de existência de
+discriminação racial e de sexo no mercado de trabalho, pois
+trabalhadores igualmente produtivos inseridos em trabalhos de
+características similares apresentavam diferenciais de salários com base
+em atributos não produtivos, como o sexo, a raça, e o estado civil, por
+exemplo. Tais conclusões foram obtidas mediante testes de hipóteses
+sobre valores dos parâmetros do modelo ajustado.
 
-Usando-se conhecimento do ano anterior, foi estabelecida a hipótese de
-que a proporção de trabalhadores cobertos por planos de saúde é
-\(80\%\), ou seja \(H_{0}:p=p_{0}=0,8\). Vamos adotar o nível de
-significância \(\alpha =5\%\).
+\subsection{Abordagem 2 - Amostragem
+Probabilística}\label{abordagem-2---amostragem-probabilistica}
 
-A estimativa obtida na pesquisa foi \(\widehat{p}=n_{A}/n=0,84\), onde
-\(n_{A}=840\) é o número de trabalhadores na amostra com acesso a planos
-de saúde. Ignorando o plano amostral e a conglomeração das unidades
-elementares na população, podemos considerar um teste binomial e usar a
-aproximação normal \(N(0;1)\) para a estatística de teste
+A abordagem adotada pelos praticantes de amostragem (amostristas)
+considera uma população finita \(U=\{1,\ldots ,N\}\), da qual é
+selecionada uma amostra \(a=\left\{ i_{1},\ldots ,i_{n}\right\}\),
+segundo um plano amostral caracterizado por \(p\left( a\right)\),
+probabilidade de ser selecionada a amostra \(a\), suposta calculável
+para todas as possíveis amostras. Os valores \(y_{1},\ldots ,y_{N}\) das
+variáveis de interesse \(Y\) na população finita são considerados fixos,
+porém desconhecidos. Sem perda de generalidade, podemos reindexar a
+população de tal forma que a amostra observada seja formada pelos
+índices \(s=\{1,\ldots,n\}\) \textbar{}
 
-\begin{equation}
-Z=|\widehat{p}-p_{0}|/\sqrt{p_{0}\left( 1-p_{0}\right) /n},  \label{eq:epa4}
-\end{equation}
+A partir dos valores observados na amostra, denotados por
+\(y_{i_{1}},\ldots,y_{i_{n}}\), são feitas inferências a respeito de
+funções dos valores populacionais, digamos
+\(g\left( y_{1},\ldots ,y_{N}\right)\). Os valores de tais funções são
+quantidades descritivas populacionais (QDPs), também denominadas
+\texttt{parâmetros\ da\ população\ finita} pelos amostristas. Em geral,
+o objetivo desta abordagem é fazer estudos descritivos utilizando
+funções \(g\) particulares, tais como totais
+\(g\left( y_{1},\ldots ,y_{N}\right) =\sum_{i=1}^{N}y_{i}\) , médias
+\(g\left( y_{1},\ldots ,y_{N}\right) =N^{-1}\sum_{i=1}^{N}y_{i}\),
+proporções, razões, etc. Uma descrição esquemática resumida dessa
+abordagem é apresentada no Tabela \ref{Tab22}, e uma representação
+gráfica resumida na Figura \ref{fig:modamo}.
 
-onde o denominador é o desvio padrão da estimativa \(\widehat{p}\) sob a
-hipótese nula.
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figuras/fig22.png}
+\caption{\label{fig:modamo}Amostragem Probabilística}
+\end{figure}
 
-Vamos calcular o valor da estatística \(Z\), supondo que tenha sido
-usada amostragem aleatória simples com reposição (AASC) de empregados.
-Vamos também considerar uma abordagem baseada no plano amostral de
-conglomerados. O desvio padrão de \(\widehat{p}\), no denominador de
-\(Z\), será baseado na hipótese de distribuição binomial, com tamanhos
-amostrais diferentes para as duas abordagens.
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:modelamo} Representação esquemática da abordagem
+2.}\tabularnewline
+\toprule
+\begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
+Dados Amostrais\strut
+\end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
+\(Y_1=y_1,\ldots, Y_n=y_n\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
+Hipóteses/Modelo Hipóteses\strut
+\end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
+extraídos de \(y_1,\ldots,y_N\) segundo \(p(s)\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
+Objetivo\strut
+\end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
+Inferir sobre funções \(g(y_1, \ldots, y_N)\) usando
+\(y_1, \ldots,y_n\)\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
 
-Para o teste baseado na amostragem aleatória simples, ignoramos a
-conglomeração e usamos na fórmula do desvio padrão o tamanho total da
-amostra de unidades elementares (empregados), isto é, \(n=1.000\). O
-valor da estatística de teste \(Z\) definida em \eqref{eq:epa4} é,
-portanto,
+Investigando a existência de diferenciais de salários por sexo e raça
 
-\begin{equation}
-Z_{bin}=|0,84-0,8|/\sqrt{0,8\left( 1-0,8\right) /1.000}=3,162>Z_{0,025}=1,96
-\label{eq:epa5}
-\end{equation}
+Ainda no contexto do exemplo da investigação da existência de
+diferenciais de salários por sexo e raça, os dados da Pesquisa sobre
+Padrões de Vida do IBGE podem ser utilizados para obter uma tabela
+cruzada tendo como entradas de linha o sexo dos trabalhadores, e como
+entrada das colunas um indicador de trabalhadores de raça / cor =
+branco, sendo as celas da tabela utilizadas para apresentar estimativas
+dos valores médios dos salários dos trabalhadores nas várias classes
+definidas pelos valores dos indicadores de linha e coluna. Tabelas como
+esta são habitualmente produzidas como resultado da realização de
+pesquisas amostrais pelas agências oficiais de estatísticas no Brasil e
+em muitos outros países. Embora capazes de revelar diferenças nos
+salários médios de trabalhadores de sexo e raça distintos, tais tabelas
+são insuficientes para investigar a questão da discriminação de gênero
+ou raça no mercado de trabalho, pois tais diferenças de salários médios
+poderiam ser explicadas por diferenças de características dos
+trabalhadores tais como escolaridade, que poderiam ter origem fora do
+mercado de trabalho. Por outro lado, ilustram bem os alvos de inferência
+freqüentemente definidos para pesquisas amostrais de populações finitas.
+Aqui o que se busca estimar é o valor médio de uma característica de
+interesse (no caso, o salário) para a população finita de onde foi
+extraída a amostra disponível para análise. Apesar de úteis, tais
+estimativas representam apenas medidas descritivas da população alvo.
 
-onde \(\sqrt{0,8\left( 1-0,8\right) /1.000}=0,0126\) é o desvio padrão
-de \(\widehat{p}\) sob a hipótese nula. Este~resultado sugere a rejeição
-da hipótese \(H_{0}\).
+\subsection{Discussão das Abordagens 1 e
+2}\label{discussao-das-abordagens-1-e-2}
 
-Por outro lado, é razoável admitir que se uma empresa for coberta por
-plano de saúde, cada empregado dessa empresa terá acesso ao plano. Essa
-é uma informação importante que foi ignorada no teste anterior. De fato,
-selecionar mais de uma pessoa numa empresa não aumenta nosso
-conhecimento sobre a cobertura por plano de saúde no local. Portanto, o
-\texttt{tamanho\ efetivo} da amostra é \(\overline{n}=50\) , em
-contraste com o valor \(1.000\) usado no teste anterior. O termo
-\texttt{tamanho\ efetivo} foi introduzido em \citep{Kish65} para
-designar o tamanho de uma amostra aleatória simples necessário para
-estimar \(p\) com a mesma precisão obtida por uma amostra conglomerada
-de tamanho \(n\) (neste caso, igual a \(1.000\)) unidades elementares.
+A primeira abordagem (Modelagem Clássica), nos termos descritos, foi
+proposta como modelo para medidas na Física e Astronomia, onde em geral
+o pesquisador tem relativo controle sobre os experimentos, e onde faz
+sentido falar em replicação ou repetição do experimento. Neste contexto,
+o conceito de aleatoriedade é geralmente introduzido para modelar os
+erros (não controláveis) no processo de medição.
 
-Usando o tamanho efetivo de amostra, temos a estatística de teste
-baseada no plano amostral verdadeiro \[
-Z_{p}=|\widehat{p}-p_{0}|/\sqrt{p_{0}\left( 1-p_{0}\right) /50}=0,707 ,
-\] onde o valor \(\sqrt{0,8\left( 1-0,8\right) /50}=0,0566\) é muito
-maior que o valor do desvio padrão obtido no teste anterior. Portanto, o
-valor observado de \(Z_{p}\) é menor que o de \(Z_{bin}\), e o novo
-teste sugere a não rejeição da mesma hipótese nula.
+A segunda abordagem (Amostragem Probabilística) é utilizada
+principalmente no contexto de estudos sócio-econômicos, para
+levantamento de dados por agências governamentais produtoras de
+informações estatísticas. Nesta abordagem, a aleatoriedade é introduzida
+no processo pelo pesquisador para obtenção dos dados, através do
+planejamento amostral \(p(a)\) utilizado \citep{Neyman} e as
+distribuições das estatísticas de interesse são derivadas a partir dessa
+\texttt{distribuição\ de\ aleatorização}. Tais planos amostrais podem
+ser complexos, gerando observações com as características i) a iv) do
+Capítulo \ref{introduc}. Os dados obtidos são utilizados principalmente
+para descrição da população finita, sendo calculadas estimativas de
+totais, médias, razões, etc. Sob essa abordagem, os pontos i) a iv) do
+Capítulo \ref{introduc} são devidamente considerados tanto na estimação
+de parâmetros descritivos desses tipos, como também na estimação de
+variâncias dos estimadores.
 
-Neste exemplo, portanto, se verifica que ignorar a conglomeração pode
-induzir a uma decisão incorreta de rejeitar a hipótese nula, quando a
-mesma não seria rejeitada se o plano amostral fosse corretamente
-incorporado na análise. Efeitos desse tipo são mais difíceis de
-antecipar para inferência analítica, particularmente quando os planos
-amostrais empregados envolvem combinação de estratificação,
-conglomeração e probabilidades desiguais de seleção. Por essa razão, a
-recomendação é procurar sempre considerar o plano amostral na análise,
-ao menos como forma de verificar se as conclusões obtidas por formas
-ingênuas de análise ignorando os pesos e plano amostral são as mesmas.
+A abordagem de amostragem probabilística é essencialmente
+não-paramétrica, pois não supõe uma distribuição paramétrica particular
+para as observações da amostra. Por outro lado, essa abordagem tem a
+desvantagem de fazer inferências restritas à particular população finita
+considerada.
 
-\section{Efeitos Multivariados de Plano
-Amostral}\label{efeitos-multivariados-de-plano-amostral}
+Apesar dessa abordagem ter sido inicialmente concebida e aplicada para
+problemas de inferência descritiva sobre populações finitas, é cada vez
+mais comum, porém, a utilização de dados obtidos através de pesquisas
+amostrais complexas para fins analíticos, com a aplicação de métodos de
+análise desenvolvidos e apropriados para a \texttt{abordagem\ 1}.
 
-O conceito de efeito de plano amostral introduzido em \eqref{eq:epa2} é
-relativo a inferências sobre um parâmetro univariado \(\theta\).
-Consideremos agora o problema de estimação de um vetor
-\(\mathbf{\theta}\) de \(K\) parâmetros. Seja \(\mathbf{\hat{\theta}}\)
-um estimador de \(\mathbf{\theta}\) e seja \(\mathbf{V}_{0}\) um
-estimador da matriz \(K\times K\) de covariância de
-\(\mathbf{\hat{\theta}}\), baseado nas hipóteses de independência e
-igualdade de distribuição das observações (IID), ou equivalentemente, de
-amostragem aleatória simples com reposição (AASC). é possível
-generalizar a equação \eqref{eq:epa2}, definindo o
-\texttt{efeito\ multivariado\ do\ plano\ amostral\ de}
-\(\mathbf{\hat{\theta}}\) \textbf{e} \(\mathbf{V}_{0}\) como
+Diante do exposto, podemos considerar algumas questões de interesse.
 
-\begin{equation}
-\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})=\mathbf{\Delta =E}_{VERD}\left( 
-\mathbf{V}_{0}\right) ^{-1}\mathbf{V}_{VERD}(\mathbf{\hat{\theta}),}
-\label{eq:epa6}
-\end{equation}
+\begin{itemize}
+\item
+  É adequado aplicar métodos de análise da \texttt{abordagem\ 1},
+  concebidos para observações IID, aos dados obtidos através de
+  pesquisas amostrais complexas?
+\item
+  Em caso negativo, seria possível corrigir estes métodos, tornando-os
+  aplicáveis para tratar dados amostrais complexos?
+\item
+  Ou seria mais adequado fazer uso analítico dos dados dentro da
+  \texttt{abordagem\ 2}? E neste caso, como fazer isto, visto que nesta
+  abordagem não é especificado um modelo para a distribuição das
+  variáveis de pesquisa \texttt{na\ população}?
+\end{itemize}
 
-onde \(\mathbf{E}_{VERD}\left( \mathbf{V}_{0}\right)\) é o valor
-esperado de \(\mathbf{V}_{0}\) e,
-\(\mathbf{V}_{VERD}(\mathbf{\hat{\theta})}\) é a matriz de covariância
-de \(\mathbf{\hat{\theta}}\), ambas calculadas com respeito `\{a\}
-distribuição de aleatorização induzida pelo plano amostral efetivamente
-utilizado, ou alternativamente sob o \texttt{modelo\ correto}.
+Além destas, também é de interesse a questão da robustez da modelagem,
+traduzida nas seguintes perguntas.
 
-Os autovalores \(\delta _{1}\geq \ldots \geq \delta _{K}\) da matriz
-\(\mathbf{\Delta }\) são denominados
-\texttt{efeitos\ generalizados\ do\ plano\ amostral}. A partir deles, e
-utilizando resultados padrões de teoria das matrizes (p.64,
-\citep{Johnson}) é possível definir limitantes para os efeitos
-(univariados) do plano amostral para combinações lineares
-\(\mathbf{c}^{^{\prime }}\widehat{\mathbf{\theta }}\) das componentes de
-\(\widehat{\mathbf{\theta }}\). Temos os seguintes resultados:
+\begin{itemize}
+\tightlist
+\item
+  O que acontece quando o modelo adotado na \texttt{abordagem\ 1} não é
+  verdadeiro?
+\item
+  Neste caso, qual a interpretação do parâmetro na
+  \texttt{abordagem\ 1}?
+\item
+  Ainda neste caso, as quantidades descritivas populacionais da
+  \texttt{abordagem\ 2} poderiam ter alguma utilidade ou interpretação?
+\end{itemize}
 
-\begin{eqnarray*}
-\delta _{1} &=&\max \mathbf{EPA}(\mathbf{c}^{^{\prime }}\widehat{\mathbf{%
-\theta }}\mathbf{,c}^{^{\prime }}\mathbf{V}_{0}\mathbf{c)}, \\
-\delta _{K} &=&\min \mathbf{EPA}(\mathbf{c}^{^{\prime }}\widehat{\mathbf{\theta }}\mathbf{,c}^{^{\prime }}\mathbf{V}_{0}\mathbf{c)}.
-\end{eqnarray*}
+O objeto deste livro é exatamente discutir respostas para as questões
+aqui enumeradas. Para isso, vamos considerar uma abordagem que propõe um
+modelo parametrizado como na \texttt{abordagem\ 1}, e além disso
+incorpora na análise os pontos i) a iii) do Capítulo \ref{introduc}
+mediante aproveitamento da estrutura do planejamento amostral como na
+\texttt{abordagem\ 2}.
 
-No caso particular onde \(\mathbf{\Delta =I}_{K\times K}\) , temos
-\(\delta_{1}=\ldots =\delta _{K}=1\) e os efeitos (univariados) do plano
-amostral das combinações lineares para componentes de
-\(\mathbf{\hat{\theta}}\) são todos iguais a \(1\). Para ilustrar esse
-conceito, vamos reconsiderar o Exemplo \ref{ex:deffuni} de estimação de
-médias com amostragem estratificada desproporcional anteriormente
-apresentado, mas agora considerando a natureza multivariada do problema
-(há duas variáveis de pesquisa).
+\subsection{Abordagem 3 - Modelagem de
+Superpopulação}\label{modelsuperpop}
 
-\BeginKnitrBlock{example}
-\protect\hypertarget{ex:deffmult}{}{\label{ex:deffmult}}Efeitos
-Multivariados do Plano Amostral para as médias de Salários e de Receitas
-\EndKnitrBlock{example}
+Nesta abordagem, os valores \(y_{1},\ldots ,y_{N}\) das variáveis de
+interesse \(Y\) na população finita são considerados observações ou
+realizações dos vetores aleatórios \(Y_{1},\ldots ,Y_{N}\), supostos IID
+com distribuição \(f(y;\theta)\), onde \(\theta \in \Theta\). Este
+modelo é denominado \texttt{Modelo\ de\ Superpopulação}. Note que, em
+contraste com o que se faz na \texttt{abordagem\ 1}, o modelo
+probabilístico aqui é especificado para descrever o mecanismo aleatório
+que gera \texttt{a\ população}, não \texttt{a\ amostra}, muito embora na
+maioria das aplicações práticas a população não será jamais observada
+por inteiro. Não obstante, ao formular modelos para a população, nossas
+perguntas e respostas descritas em termos de valores ou regiões para o
+parâmetro \(\theta\) passam a se referir à população de interesse ou
+populações similares, quer existam ao mesmo tempo, quer se refiram a
+estados futuros (ou passados) da mesma população.
 
-Vamos considerar as variáveis Salário (em R\$ \(1.000\)) e Receita (em
-R\$ \(1.000.000\)) definidas na população de empresas do Exemplo
-\ref{ex:deffuni} e calcular a matriz
-\(\mathbf{EMPA}\left( \mathbf{\hat{\theta},V}_{0}\right)\), onde
-\(\mathbf{\hat{\theta}=}\left( \overline{SAL}_{w},\overline{REC}_{w}\right) ^{\prime }\).
-Neste exemplo, os dados populacionais são conhecidos, e portanto podemos
-calcular a covariância dos estimadores
-\(\left( \overline{SAL}_{w},\overline{REC}_{w}\right)\). Usando a mesma
-notação do Exemplo \ref{ex:deffuni}, temos que \[
-COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=}\sum\limits_{h=1}^{2}W_{h}^{2}\frac{\left( 1-f_{h}\right) }{n_{h}}S_{SAL,REC}^{\left( h\right) } 
-\] onde \[
-S_{SAL,REC}^{\left( h\right) }=\frac{1}{N_{h}-1}\sum\limits_{i\in
-U_{h}}\left( SAL_{hi}-\overline{SAL}_{h}\right) \left( REC_{hi}-\overline{REC
-}_{h}\right) \;. 
-\]
+Utilizando um plano amostral definido por \(p(a)\), obtemos os valores
+das variáveis de pesquisa na amostra \(y_{i_1},\ldots ,y_{i_n}\). A
+partir de \(y_{i_1},\ldots ,y_{i_n}\) (em geral não considerados como
+observações de vetores aleatórios IID) queremos fazer inferências sobre
+o parâmetro \(\theta\), considerando os pontos i) a iii) do Capítulo 1.
+Veja uma representação gráfica resumida desta abordagem na Figura
+\ref{fig:modsup}.
 
-Substituindo os valores conhecidos na população das variáveis
-\(SAL_{hi}\) e \(REC_{hi}\), obtemos para esta covariância o valor \[
-COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3,2358
-\] e portanto a matriz de variância dos estimadores ponderados da média
-fica igual a
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figuras/fig23.png}
+\caption{\label{fig:modsup}Modelagem de Superpopulação}
+\end{figure}
 
-\begin{equation}
-\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}
-\left[ \begin{array}{rr}
-244,18 & 3,2358 \\ 
-3,2358 & 0,4350
-\end{array}
-\right]   \label{eq:epa7}
-\end{equation}
+Adotando o modelo de superpopulação e considerando métodos usuais
+disponíveis na \texttt{abordagem\ 1}, podemos utilizar funções de
+\(y_{1},\ldots ,y_{N}\) , digamos \(g( y_{1},\ldots ,y_{N})\), para
+fazer inferências sobre \(\theta\). Desta forma, definimos estatísticas
+\(\left( y_{1},\ldots ,y_{N}\right)\) (no sentido da
+\texttt{abordagem\ 1}) que são quantidades descritivas populacionais
+(parâmetros populacionais no contexto da \texttt{abordagem\ 2}), que
+passam a ser os novos parâmetros-alvo. O passo seguinte é utilizar
+métodos disponíveis na \texttt{abordagem\ 2} para fazer inferência sobre
+\(g\left( y_{1},\ldots ,y_{N}\right)\) baseada em
+\(y_{i_1},\ldots ,y_{i_n}\). Note que não é possível basear a inferência
+nos valores populacionais \(y_{1},\ldots ,y_{N}\), já que estes não são
+conhecidos ou observados. Este último passo adiciona a informação sobre
+o plano amostral utilizado, contida em \(p(s)\), à informação estrutural
+contida no modelo
+\(\left\{ f\left( y;\theta \right) ;\theta \in \Theta\right\}\). Uma
+representação esquemática dessa abordagem é apresentada no Tabela
+\ref{Tab23}.
 
-onde os valores das variâncias em \eqref{eq:epa7} foram os calculados no
-Exemplo \ref{ex:deffuni} e coincidem, respectivamente, com os valores
-usados nos numeradores de
-\(\mathbf{EPA}\left( \overline{SAL}_{w}\right)\) e de
-\(\mathbf{EPA}\left( \overline{REC}_{w}\right)\) lá apresentados. Para
-calcular o \(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})\) é preciso
-agora obter \(\mathbf{E}_{VERD}\left(\mathbf{V}_{0}\right)\).
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:modelsuperpop} Representação esquemática da abordagem
+3.}\tabularnewline
+\toprule
+\begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
+Dados Amostrais\strut
+\end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
+\(Y_1=y_1,\ldots, Y_n=y_n\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
+População e esquema de seleção\strut
+\end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
+Extraídos de \(y_1,\dots,y_n\) segundo \(p(s)\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
+Modelo para poulação\strut
+\end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
+\(Y_1,\dots,Y_N\) variáveis aleatórias IID com distribuição
+\(f(y,\theta)\), onde \(\theta \in \Theta\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
+Parâmetro-alvo\strut
+\end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
+associar
+\(\theta \longleftrightarrow g\left(Y_{1},\ldots Y_{N}\right)\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
+Objetivo\strut
+\end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
+Inferir sobre \(g\left( Y_{1},\ldots Y_{N}\right)\) partir de
+\(y_{i_1},\ldots ,y_{i_n}\) usando \(p\left( s\right)\)\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
 
-Neste exemplo, a matriz de efeito do plano amostral
-\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})=\mathbf{\Delta }\) pode
-também ser calculada através de simulação, de modo análogo ao que foi
-feito no Exemplo \ref{ex:deffuni}. Para isto, foram utilizadas outras
-\(500\) amostras de tamanho \(60\) segundo o plano amostral descrito no
-Exemplo \ref{ex:deffuni}. Para cada uma das \(500\) amostras foram
-calculadas estimativas:
+A descrição da abordagem adotada neste livro foi apresentada de maneira
+propositadamente simplificada e vaga nesta seção, mas será aprofundada
+ao longo do texto. Admitiremos que o leitor esteja familiarizado com a
+\texttt{abordagem\ 1} e com as noções básicas da \texttt{abordagem\ 2}.
+A título de recordação, serão apresentados no Capítulo \ref{planamo}
+alguns resultados básicos da Teoria de Amostragem. A ênfase do texto,
+porém, será na apresentação da \texttt{abordagem\ 3}, sendo para isto
+apresentados os elementos indispensáveis das
+\texttt{abordagens\ 1\ e\ 2}.
+
+Ao construir e ajustar modelos a partir de dados de pesquisas amostrais
+\texttt{complexas}, tais como as executadas pelo IBGE, o usuário precisa
+incorporar as informações sobre pesos e planos amostrais utilizados. Em
+geral, ao publicar os resultados das pesquisas, os pesos são
+considerados, sendo possível produzir estimativas pontuais
+\texttt{corretas} utilizando os pacotes tradicionais. Por outro lado,
+para construir intervalos de confiança e testar hipóteses sobre
+parâmetros de modelos, seria preciso o conhecimento das estimativas de
+variâncias e covariâncias das estimativas, obtidas a partir do plano
+amostral utilizado. Mesmo conhecendo o plano amostral, geralmente não é
+simples incorporar pesos e plano amostral na análise sem o uso de
+pacotes especializados, ou de rotinas específicas já agora disponíveis
+em alguns dos pacotes mais comumente utilizados (por exemplo, SAS,
+Stata, SPSS, ou R entre outros). Tais pacotes especializados ou rotinas
+específicas utilizam na maioria métodos aproximados para estimar
+matrizes de covariância, tais como os de Máxima Pseudo-Verossimilhança e
+de Linearização, que serão descritos mais adiante.
+
+Em outras palavras, o uso dos pacotes usuais para analisar dados
+produzidos por pesquisas com planos amostrais complexos, tal como o uso
+de muitos remédios, pode ter contra-indicações. Cabe ao usuário
+\texttt{ler\ a\ bula} e identificar situações em que o uso de tais
+pacotes pode ser inadequado, e buscar opções de rotinas específicas ou
+de pacotes especializados capazes de incorporar adequadamente a
+estrutura do plano amostral nas análises. Ao longo deste livro faremos
+uso intensivo da library \texttt{survey} disponível no R, mas o leitor
+encontrará funcionalidade semelhante em vários outros pacotes. Nossa
+escolha se deveu a dois fatores principais: primeiro ao fato do pacote R
+ser aberto, livre e gratuito, dispensando o usuário de custos de
+licenciamento, bem como possibilitando aos interessados o acesso ao
+código fonte e a capacidade de modificar as rotinas de análise, caso
+necessário. O segundo fator é de natureza mais técnica, porém
+transitória. No presente momento, a library \texttt{survey} é a coleção
+de rotinas mais completa e genérica para análise de dados amostrais
+complexos existente, dispondo de rotinas capazes de ajustar os modelos
+usuais mas também de ajustar modelos não convencionais mediante
+maximização de verossimilhanças especificadas pelo usuário. Sabemos,
+entretanto, que muitos usuários habituados à facilidade de uso de
+pacotes com interfaces gráficas do tipo \texttt{aponte\ e\ clique} terão
+dificuldade adicional de adaptar-se à linguagem de comandos utilizada
+pelo pacote R, mas acreditamos que os benefícios do aprendizado desta
+nova ferramenta compensam largamente os custos adicionais do
+aprendizado.
+
+\section{Fontes de Variação}\label{fontes-de-variacao}
+
+Esta seção estabelece um referencial para inferência em pesquisas
+amostrais que será usado no restante deste texto. \citep{cassel} sugerem
+que um referencial para inferência poderia usar três fontes de
+aleatoriedade (incerteza, variação), incluindo:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  da variância da média amostral ponderada do salário e da receita
-  assumindo observações IID;
+  \texttt{modelo\ de\ superpopulação}, que descreve o processo
+  subjacente que por hipótese gera as medidas verdadeiras de qualquer
+  unidade da população considerada;
 \item
-  da covariância entre médias ponderadas do salário e da receita
-  assumindo observações IID;
+  \texttt{processo\ de\ medição}, que diz respeito aos instrumentos e
+  métodos usados para obter as medidas de qualquer unidade da população;
 \item
-  da variância da média amostral ponderada do salário e da receita
-  considerando o plano amostral verdadeiro;
-\item
-  da covariância entre médias ponderadas do salário e da receita
-  considerando o plano amostral verdadeiro.
+  \texttt{planejamento\ amostral}, que estabelece o mecanismo pelo qual
+  unidades da população são selecionadas para participar da pesquisa por
+  amostra.
 \end{enumerate}
 
-A partir da simulação foram obtidos os seguintes resultados:
+Uma quarta fonte de incerteza que precisa ser acrescentada às anteriores
+é o
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \texttt{mecanismo\ de\ resposta}, ou seja, o mecanismo que controla se
+  valores de medições de unidades selecionadas são disponibilizados ou
+  não.
+\end{enumerate}
+
+Para concentrar o foco nas questões de maior interesse deste texto, as
+fontes (2) e (4) não serão consideradas no referencial adotado para a
+maior parte dos capítulos. Para o tratamento das dificuldades causadas
+por não resposta, a fonte (4) será considerada no capítulo onze. Assim
+sendo, exceto onde explicitamente indicado, de agora em diante
+admitiremos que não há erros de medição, implicando que os valores
+observados de quaisquer variáveis de interesse serão considerados
+valores corretos ou verdadeiros. Admitiremos ainda que há resposta
+completa, implicando que os valores de quaisquer variáveis de interesse
+estão disponíveis para todos os elementos da amostra selecionada depois
+que a pesquisa foi realizada. Hipóteses semelhantes são adotadas, por
+exemplo, em \citep{Mont87}.
+
+Portanto, o referencial aqui adotado considera apenas duas fontes
+alternativas de variação: o modelo de superpopulação (1) e o plano
+amostral (3). Estas fontes alternativas de variação, descritas nesta
+seção apenas de forma esquemática, são discutidas com maiores detalhes a
+seguir.
+
+A fonte de variação (1) será considerada porque usos analíticos das
+pesquisas são amplamente discutidos neste texto, os quais só têm sentido
+quando é especificado um modelo estocástico para o processo subjacente
+que gera as medidas na população. A fonte de variação (3) será
+considerada porque a atenção será focalizada na análise de dados obtidos
+através de pesquisas amostrais `complexas. Aqui a discussão se
+restringirá a planos amostrais aleatorizados ou de amostragem
+probabilística, não sendo considerados métodos intencionais ou outros
+métodos não-aleatórios de seleção de amostras.
+
+\section{Modelos de Superpopulação}\label{modelos-de-superpopulacao}
+
+Seja \(\{1,...,N\}\) um conjunto de rótulos que identificam univocamente
+os \(N\) elementos distintos de uma população-alvo finita \(U\). Sem
+perda de generalidade tomaremos \(U=\{1,...,N\}\). Uma pesquisa cobrindo
+\(n\) elementos distintos numa amostra \(a\),
+\(a=\{i_{1},...,i_{n}\}\subset U\), é realizada para medir os valores de
+\(P\) variáveis de interesse da pesquisa, doravante denominadas
+simplesmente variáveis da pesquisa.
+
+Denote por \(\mathbf{y}_i=(y_{i1},...,y_{iP})^{\prime }\) o vetor
+\(P\times 1\) de valores das variáveis da pesquisa e por
+\(\mathbf{x}_{i}=(x_{i1},...,x_{iQ})^{\prime }\) o vetor \(Q\times 1\)
+de variáveis auxiliares da i-ésima unidade da população,
+respectivamente, para \(i=1,...,N\). Aqui as variáveis auxiliares são
+consideradas como variáveis contendo a informação requerida para o
+planejamento amostral e a estimação a partir da amostra, como se
+discutirá com mais detalhes adiante. Denote por \(\mathbf{y}_{U}\) a
+matriz \(N \times P\) formada empilhando os vetores transpostos das
+observações correspondentes a todas as unidades da população, e por
+\(\mathbf{Y}_{U}\) a correspondente matriz de vetores aleatórios
+geradores das observações na população.
+
+Quando se supõe que \(\mathbf{y}_1 ,\ldots, \mathbf{y}_N\) são a
+realização conjunta de vetores aleatórios
+\(\mathbf{Y}_1 ,\ldots, \mathbf{Y}_N\), a distribuição conjunta de
+probabilidade de \(\mathbf{Y}_1 ,\ldots, \mathbf{Y}_N\) é um modelo
+(marginal) de superpopulação, que doravante denotaremos simplesmente por
+\(f(\mathbf{y}_U;\theta)\), ou de forma abreviada, por \(M\) para
+indicar que se trata do modelo \texttt{marginal} de superpopulação.
+Esperanças e variâncias definidas com respeito à distribuição do modelo
+marginal \(M\) serão denotadas \(E_M\) e \(V_M\) respectivamente.
+
+Analogamente, \(\mathbf{x}_1 ,\ldots, \mathbf{x}_N\) pode ser
+considerada uma realização conjunta de vetores aleatórios
+\(\mathbf{X}_1 ,\ldots, \mathbf{X}_N\). As matrizes \(N \times Q\)
+formadas empilhando os vetores transpostos das observações das variáveis
+auxiliares correspondentes a todas as unidades da população,
+\(\mathbf{x}_{U}\), e a correspondente matriz \(\mathbf{X}_{U}\) de
+vetores aleatórios geradores das variáveis auxiliares na população são
+definidas de forma análoga às matrizes \(\mathbf{y}_{U}\) e
+\(\mathbf{Y}_{U}\).
+
+O referencial aqui adotado permite a especificação da distribuição
+conjunta combinada das variáveis da pesquisa e das variáveis auxiliares.
+Representando por
+\(f( \mathbf{y}_U ,\ldots, \mathbf{x}_U ; \mathbf{\eta} )\) a função de
+densidade de probabilidade de \(( \mathbf{Y}_U , \mathbf{X}_U )\), onde
+\(\mathbf{\eta}\) é um vetor de parâmetros.
+
+Um tipo importante de modelo de superpopulação é obtido quando os
+vetores aleatórios correspondentes às observações de elementos
+diferentes da população são supostos independentes e identicamente
+distribuídos (IID). Neste caso, o modelo de superpopulação pode ser
+escrito como:
+
+\begin{eqnarray}
+f \left( \mathbf{y}_U , \mathbf{x}_U ; \mathbf{\eta} \right) 
+&=&\prod_{i\in U} f\left(\mathbf{y}_i , \mathbf{x}_i ; \mathbf{\eta} \right) \label{eq:ref1} \\
+&=&\prod_{i\in U} f\left( \mathbf{y}_i \mathbf{|x}_i ; \mathbf{\lambda} \right) 
+f\left( \mathbf{x}_i ; \mathbf{\phi} \right) \label{eq:ref2}
+\end{eqnarray}
+
+onde~\(\mathbf{\lambda}\) e \(\mathbf{\phi}\) são vetores de parâmetros.
+
+Sob \eqref{eq:ref2}, o modelo marginal correspondente das variáveis da
+pesquisa seria obtido integrando nas variáveis auxiliares:
 
 \begin{equation}
-\mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) =\left[ 
-\begin{array}{rr}
-1785,3 & 27,734 \\ 
-27,734 & 1,2852
-\end{array}
-\right],  \label{eq:epa8}
-\end{equation}
-
-\begin{equation}
-\mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
-\begin{array}{rr}
-250,41 & 3,2683 \\ 
-3,2683 & 0,42267
-\end{array}
-\right] \mbox{ e }  \label{eq:epa9}
-\end{equation}
-
-\begin{equation}
-\mathbf{\Delta =}\left[ \mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) \right]
-^{-1}\mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
-\begin{array}{rr}
-0,1516 & -4,931 \\ 
--0,0007277 & 0,4353
-\end{array}
-\right] \;\;.  \label{eq:epa10}
-\end{equation}
-
-Os autovalores \(\delta_{1}=0,447\) e \(\delta_{2}=0,139\) de
-\(\mathbf{\Delta}\) fornecem os efeitos generalizados do plano amostral.
-
-Da mesma forma que o \(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)
-definido em \eqref{eq:epa2} para o caso uniparamétrico foi utilizado para
-corrigir níveis de confiança de intervalos e níveis de significância de
-testes, o \(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})\) definido em
-\eqref{eq:epa6} pode ser utilizado para corrigir níveis de confiança de
-regiões de confiança e níveis de significância de testes de hipóteses no
-caso multiparamétrico. Para ilustrar, vamos considerar o problema de
-testar a hipótese \(H_{0}:\mathbf{\mu }=\mathbf{\mu }_{0}\), onde
-\(\mathbf{\mu }\) é o vetor de médias de um vetor de variáveis de
-pesquisa \(\mathbf{y}\). A estatística de teste usualmente adotada para
-este caso é a \(T^{2}\) de Hottelling dada por
-
-\begin{equation}
-T^{2}=n\left( \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{S}
-_{y}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) , \label{eq:epa11} 
+f(\mathbf{y}_U ; \mathbf{\theta}) = f(\mathbf{y}_1 ,\ldots ,\mathbf{y}_N ; \mathbf{\theta}) = \prod_{i\in U} \int f\left( \mathbf{y}_i \mathbf{|x}_i ; \mathbf{\lambda} \right) f\left( \mathbf{x}_i ; \mathbf{\phi} \right) \mathbf{dx}_i = \prod_{i\in U} f\left( \mathbf{y}_i ; \mathbf{\theta} \right) \label{eq:ref3}
 \end{equation}
 
 onde
+\(f\left( \mathbf{y}_i ; \mathbf{\theta} \right) = \int f\left( \mathbf{y}_i | \mathbf{x}_i ; \mathbf{\lambda} \right) f\left( \mathbf{x}_i ; \mathbf{\phi} \right) \mathbf{dx}_i\)
+e
+\(\mathbf{\theta =} h\left( \mathbf{\lambda} , \mathbf{\phi} \right)\).
 
-\begin{eqnarray*}
-\mathbf{\bar{y}} &=&\frac{1}{n}\sum\limits_{i\in s}\mathbf{y}_{i},\quad 
-\mathbf{S}_{y}=\frac{1}{n-1}\sum\limits_{i\in s}\left( \mathbf{y}_{i}-
-\mathbf{\bar{y}}\right) \left( \mathbf{y}_{i}-\mathbf{\bar{y}}\right)
-^{^{\prime }},\mbox{ e } \\
-\mathbf{\mu }_{0} &=&\left( \mu _{10},\mu _{20},\ldots ,\mu _{K0}\right)
-^{^{\prime }}\;\;.
-\end{eqnarray*}
-
-Se as observações \(\mathbf{y}_{i}\) são IID normais, a estatística
-\(T^{2}\) tem a distribuição
-\(\frac{\left( n-1\right) }{\left( n-K\right)}\mathbf{F}\left( K;n-K\right)\)
-sob \(H_{0}\), onde \(\mathbf{F}\left( K;n-K\right)\) denota uma
-variável aleatória com distribuição \(\mathbf{F}\) com \(K\) e
-\(\left( n-K\right)\) graus de liberdade. Mesmo se as observações
-\(\mathbf{y}_{i}\) não forem normais, \(T^{2}\) tem distribuição
-assintótica \(\chi ^{2}\left(K\right)\) quando \(n\rightarrow \infty\),
-\citep{Johnson}, p.191.
-
-Contudo, se for utilizado um plano amostral complexo, \(T^{2}\) tem
-aproximadamente a distribuição da variável \(\sum\limits_{i=1}^{K}\)
-\(\delta _{i}Z_{i}^{2}\), onde \(Z_{1},\ldots ,Z_{K}\) são variáveis
-aleatórias independentes com distribuição normal padrão e os
-\(\delta _{i}\) são os autovalores da matriz
-\(\mathbf{\Delta }=\Sigma _{AAS}^{-1}\Sigma\), onde
-\(\Sigma _{AAS}=E_{p}(\mathbf{S}_{y}/n)\) e
-\(\Sigma =V_{p}(\mathbf{\bar{y})}\).
-
-Vamos analisar o efeito do plano amostral sobre o nível de significância
-deste teste. Para simplificar, consideremos o caso em que
-\(\delta _{1}=\ldots =\delta _{K}=\delta\). Neste caso, o nível de
-significância real é dado aproximadamente por
+Outro tipo especial de modelo de superpopulação é o modelo de população
+fixa, que supõe que os valores numa população finita são fixos mas
+desconhecidos. Este modelo pode ser descrito por
 
 \begin{equation}
-P\left(\chi ^{2}\left( K\right) >\chi _{\alpha }^{2}\left( K\right) /\delta\right)  \label{eq:epa12}
+P\left[ \left( \mathbf{Y}_U , \mathbf{X}_U \right) = \left( \mathbf{y}_U , \mathbf{x}_U \right) \right] = 1 \label{eq:ref4}
 \end{equation}
 
-onde \(\chi _{\alpha }^{2}\left( K\right)\) é o quantil superior
-\(\alpha\) de uma distribuição \(\chi ^{2}\) com \(K\) graus de
-liberdade, isto é, o valor tal que
-\(P\left[ \chi ^{2}\left( K\right) >\chi _{\alpha}^{2}\left( K\right) \right] =\alpha\)
-.
+ou seja, uma distribuição degenerada é especificada para
+\(\left(\mathbf{Y}_U , \mathbf{X}_U \right)\).
 
-A Tabela \ref{tab:nivsig} apresenta os níveis de significância reais
-para \(\alpha =5\%\) para vários valores de \(K\) e \(\delta\). Mesmo
-quando os valores dos \(\delta _{i}\) são distintos, os valores da
-Tabela \ref{tab:nivsig} podem ser devidamente interpretados. Para isso,
-consideremos o \(p\)valor do teste da hipótese
-\(H_{0}:\mathbf{\mu }=\mathbf{\mu }_{0}\), sob a hipótese de amostragem
-aleatória simples com reposição e sob o plano amostral efetivamente
-utilizado. Por definição este valor é dado por \[
-p\mbox{valor}_{AAS}\left( \mathbf{\bar{y}}\right) =P\left[ \chi ^{2}\left(
-K\right) >\left( \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{
-\Sigma }_{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) \right] 
-\] e \(H_{0}\) é rejeitada com nível de significância \(\alpha\) se
-valor-\(p\) \(_{AAS}<\alpha\).
+Este modelo foi considerado em \citep{cassel}, que o chamaram de
+\texttt{abordagem\ de\ população\ fixa} e afirmaram ser esta a abordagem
+subjacente ao desenvolvimento da teoria de amostragem encontrada nos
+livros clássicos tais como \citep{cochran} e outros. Aqui esta abordagem
+é chamada de abordagem baseada no planejamento amostral ou
+\emph{abordagem de aleatorização}, pois neste caso a única fonte de
+variação (aleatoriedade) é proveniente do planejamento amostral. Em
+geral, a distribuição conjunta de
+\(\left( \mathbf{Y}_U , \mathbf{X}_U \right)\) não precisa ser
+degenerada como em \eqref{eq:ref4}, embora o referencial aqui adotado seja
+suficientemente geral para permitir considerar esta possibilidade.
 
-O verdadeiro valor-\(p\) pode ser definido analogamente como
+Se todos os elementos fossem pesquisados (ou seja, se fosse executado um
+censo), os dados observados seriam
+\((\mathbf{y}_1 , \mathbf{x}_1) ,\ldots, (\mathbf{y}_N , \mathbf{x}_N)\).
+Sob a hipótese de resposta completa, a única fonte de incerteza seria
+devida ao fato de que
+\((\mathbf{y}_1 , \mathbf{x}_1) ,\ldots, (\mathbf{y}_N , \mathbf{x}_N)\)
+é uma realização de
+\(\left( \mathbf{Y}_1 , \mathbf{X}_1 \right) ,\ldots, \left( \mathbf{Y}_N , \mathbf{X}_N \right)\).
+Os dados observados poderiam então ser usados para fazer inferências
+sobre \(\mathbf{\eta}, \mathbf{\phi},\mathbf{\lambda}\) ou
+\(\mathbf{\theta}\) usando procedimentos padrões.
+
+Inferência sobre quaisquer dos parâmetros
+\(\mathbf{\eta},\mathbf{\phi},\mathbf{\lambda}\) ou \(\mathbf{\theta}\)
+do modelo de superpopulação é chamada \texttt{inferência\ analítica}.
+Este tipo de inferência só faz sentido quando o modelo de superpopulação
+não é degenerado como em \eqref{eq:ref4}. Usualmente seu objetivo é
+explicar a relação entre variáveis não apenas para a população finita
+sob análise, mas também para outras populações que poderiam ter sido
+geradas pelo modelo de superpopulação adotado. Exemplos de inferência
+analítica serão discutidos ao longo deste livro.
+
+Se o objetivo da inferência é estimar quantidades que fazem sentido
+somente para a população finita sob análise, tais como funções
+\(g\left( \mathbf{y}_1 ,\ldots, \mathbf{y}_N \right)\) dos valores das
+variáveis da pesquisa, o modelo de superpopulação não é estritamente
+necessário, embora possa ser útil. Inferência para tais quantidades,
+chamadas parâmetros da população finita ou quantidades descritivas
+populacionais (QDPs), é chamada \emph{inferência descritiva}.
+
+\section{Planejamento Amostral}\label{planamo}
+
+Embora censos sejam algumas vezes realizados para coletar dados sobre
+certas populações, a vasta maioria das pesquisas realizadas é de
+pesquisas amostrais, nas quais apenas uma amostra de elementos da
+população (usualmente uma pequena parte) é investigada. Neste caso, os
+dados disponíveis incluem:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  o conjunto de rótulos \(a=\left\{ i_1 ,\ldots, i_n \right\}\) dos
+  distintos elementos na amostra, onde \(n\)
+  \(\left( 1 \leq n \leq N \right)\) é o número de elementos na amostra
+  \(a\), chamado tamanho da amostra;
+\item
+  os valores na amostra das variáveis da pesquisa
+  \(\mathbf{y}_{i_1} ,\ldots, \mathbf{y}_{i_n}\);
+\item
+  os valores das variáveis auxiliares na população
+  \(\mathbf{x}_1 ,\ldots, \mathbf{x}_N\), quando a informação auxiliar é
+  dita ``completa''; alternativamente, os valores das variáveis
+  auxiliares na amostra \(\mathbf{x}_{i_1} ,\ldots, \mathbf{x}_{i_n}\),
+  mais os totais ou médias destas variáveis na população, quando a
+  informação auxiliar é dita ``parcial''.
+\end{enumerate}
+
+O mecanismo usado para selecionar a amostra \(a\) da população finita
+\(U\) é chamado plano amostral. Uma forma de caracterizá-lo é através da
+função \(p\left( .\right)\), onde \(p(a)\) dá a probabilidade de
+selecionar a amostra \(a\) no conjunto \(A\) de todas as amostras
+possíveis. Só mecanismos amostrais envolvendo alguma forma de seleção
+probabilística bem definida serão aqui considerados, e portanto supõe-se
+que \(0 \leq p(a) \leq 1 \; \forall a \in A\) e
+\(\sum_{a \in A} p(a)=1\).
+
+Esta caracterização do plano amostral \(p(a)\) é bem geral, permitindo
+que o mecanismo de seleção amostral dependa dos valores das variáveis
+auxiliares \(\mathbf{x}_1 ,\ldots, \mathbf{x}_N\) bem como dos valores
+das variáveis da pesquisa na população
+\(\mathbf{y}_1 ,\ldots, \mathbf{y}_N\) (amostragem \texttt{informativa},
+veja Seção \ref{inform}. Uma notação mais explícita para indicar esta
+possibilidade envolveria escrever \(p(a)\) como
+\(p\left[ a | (\mathbf{y}_U , \mathbf{x}_U ) \right]\). Tal notação será
+evitada por razões de simplicidade.
+
+Denotamos por \(I(B)\) a função indicadora que assume o valor 1 quando o
+evento \(B\) ocorre e 0 caso contrário. Seja
+\(\mathbf{\Delta}_a = \left[ I(1 \in a) ,\ldots, I(N \in a)\right]^{\prime}\)
+um vetor aleatório de indicadores dos elementos incluídos na amostra
+\(a\). Então o plano amostral pode ser alternativamente caracterizado
+pela distribuição de probabilidade de \(\mathbf{\Delta }_a\) denotada
+por
+\(f\left[ \mathbf{\delta }_a | \left(\mathbf{y}_U , \mathbf{x}_U \right) \right]\),
+onde \(\mathbf{\delta }_a\) é qualquer realização particular de
+\(\mathbf{\Delta }_a\) tal que
+\({\mathbf{\delta}_a}^{\prime} \mathbf{1}_N = n\), e \(\mathbf{1}_N\) é
+o vetor unitário de dimensão \(N\).
+
+Notação adicional necessária nas seções posteriores será agora
+introduzida. Denotamos por \(\pi_i\) a probabilidade de inclusão da
+unidade \(i\) na amostra \(a\), isto é
 
 \begin{equation}
-p\mbox{valor}_{VERD}\left( \mathbf{\bar{y}}\right) =P\left[ \chi ^{2}\left(K\right) >\left( \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{\Sigma }_{VERD}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) \right] \;.
-\label{eq:epa13}
+\pi_i = Pr\left( i \in a \right) = \sum_{a \ni i} p(a)  \label{eq:ref5}
 \end{equation}
 
-Os valores na Tabela \ref{tab:nivsig} podem ser usados para quantificar
-a diferença entre estes valores-\(p\). Consideremos a região crítica do
-teste de nível \(\alpha\) baseado na hipótese de AAS:
+e denotamos por \(\pi_{ij}\) a probabilidade de inclusão conjunta na
+amostra das unidades \(i\) e \(j\), dada por
+
+\begin{equation}
+\pi_{ij} = Pr \left( i \in a , j \in a \right) = \sum_{a \ni i,j} p(a) \label{eq:ref6}
+\end{equation}
+
+para todo \(i \neq j \in U\), e seja \(\pi_{ii} = \pi_{i}\)
+\(\forall i \in U.\)
+
+Uma hipótese básica assumida com relação aos planos amostrais aqui
+considerados é que \(\pi_i > 0\) e \(\pi_{ij} > 0\)
+\(\forall i,j \in U.\) A hipótese de \(\pi_{ij}\) ser positiva é adotada
+para simplificar a apresentação das expressões das variâncias dos
+estimadores. Contudo, esta não é uma hipótese crucial, pois há planos
+amostrais que não a sati fazem e para os quais estão disponíveis
+aproximações e estimadores satisfatórios das variâncias dos estimadores
+de totais e de médias.
+
+\section{Planos Amostrais Informativos e Ignoráveis}\label{inform}
+
+Ao fazer inferência usando dados de pesquisas amostrais precisamos
+distinguir duas situações que requerem tratamento diferenciado. Uma
+dessas situações ocorre quando o plano amostral empregado para coletar
+os dados é \emph{informativo}, isto é, quando o mecanismo de seleção das
+unidades amostrais pode depender dos valores das variáveis de pesquisa.
+Um exemplo típico desta situação é o dos
+\emph{estudos de caso-controle}, em que a amostra é selecionada de tal
+forma que há \emph{casos} (unidades com determinada condição) e
+\emph{controles} (unidades sem essa condição), sendo de interesse a
+modelagem do indicador de presença ou ausência da condição em função de
+variáveis preditoras, e sendo esse indicador uma das variáveis de
+pesquisa, que é considerada no mecanismo de seleção da amostra. Os
+métodos que discutiremos ao longo deste livro não são adequados, em
+geral, para esse tipo de situação, e portanto uma hipótese fundamental
+adotada ao longo deste texto é que os planos amostrais considerados são
+\emph{não-informativos}, isto é, não podem depender diretamente dos
+valores das variáveis da pesquisa. Logo eles satisfazem
+
+\begin{equation}
+f\left[ \mathbf{\delta }_a | \left( \mathbf{y}_U , \mathbf{x}_U \right)
+\right] = f\left( \mathbf{\delta }_a | \mathbf{x}_U \right) . \label{eq:ref7}
+\end{equation}
+
+Entre os planos amostrais \emph{não-informativos}, precisamos ainda
+distinguir duas outras situações de interesse. Quando o plano amostral é
+amostragem aleatória simples com reposição (AASC), o modelo adotado para
+a amostra é o mesmo que o modelo adotado para a população antes da
+amostragem. Quando isto ocorre, o plano amostral é dito
+\emph{ignorável}, porque a inferência baseada na amostra utilizando a
+abordagem clássica descrita em \ref{classic} pode prosseguir sem
+problemas. Entretanto, esquemas amostrais desse tipo são raramente
+empregados na prática, por razões de eficiência e custo. Em vez disso,
+são geralmente empregados planos amostrais envolvendo estratificação,
+conglomeração e probabilidades desiguais de seleção (amostragem
+complexa).
+
+Com amostragem complexa, porém, os modelos para a população e a amostra
+podem ser muito diferentes (plano amostral \emph{não-ignorável}), mesmo
+que o mecanismo de seleção não dependa das variáveis de pesquisa, mas
+somente das variáveis auxiliares. Neste caso, ignorar o plano amostral
+pode viciar a inferência. Veja o Exemplo \ref{ex:nonigno} adiante.
+
+A definição precisa de ignorabilidade e as condições sob as quais um
+plano amostral é ignorável para inferência são bastante discutidas na
+literatura - veja por exemplo \citep{Sugden84} ou os Capítulos 1 e 2 de
+\citep{CHSK2003}. Porém testar a ignorabilidade do plano amostral é
+muitas vezes complicado. Em caso de dificuldade, o uso de pesos tem
+papel fundamental.
+
+Uma forma simples de lidar com os efeitos do plano amostral na estimação
+pontual de quantidades descritivas populacionais de interesse é
+incorporar pesos adequados na análise, como se verá no Capítulo
+\ref{capplanamo}. Essa forma porém, não resolve por si só o problema de
+estimação da precisão das estimativas pontuais, nem mesmo o caso da
+estimação pontual de parâmetros em modelos de superpopulação, o que vai
+requerer métodos específicos discutidos no Capítulo \ref{ajmodpar}.
+
+Como incluir os pesos para proteger contra planos amostrais
+\emph{não-ignoráveis} e a possibilidade de má especificação do modelo?
+Uma ideia é modificar os estimadores dos parâmetros de modo que sejam
+consistentes (em termos da distribuição de aleatorização) para
+quantidades descritivas da população finita da qual a amostra foi
+extraída, que por sua vez seriam boas aproximações para os parâmetros
+dos modelos de interesse. Afirmações probabilísticas são então feitas
+com respeito à distribuição de aleatorização das estatísticas amostrais
+\(p\) ou com respeito à distribuição mista \(Mp\).
+
+A seguir apresentamos um exemplo com a finalidade de ilustrar uma
+situação de plano amostral não-ignorável.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{ex:nonigno}{}{\label{ex:nonigno}}Efeito da amostragem
+estratificada simples com alocação desproporcional
+\EndKnitrBlock{example}
+
+Considere \(N\) observações de uma população finita \(U\) onde são
+consideradas de interesse duas variáveis binárias \((x_i ; y_i )\).
+Suponha que na população os vetores aleatórios \((X_i ; Y_i )\) são
+independentes e identicamente distribuídos com distribuição de
+probabilidades conjunta dada por:
+
+\begin{table}[h]
+    \centering
+    \caption{Distribuição de probabilidades conjunta na população $Pr( Y_i = y ; X_i = x )$} 
+    \label{Tab24}
+    \bigskip 
+        \begin{tabular}{c|c|c|c}
+        \hline
+        \hline
+      { } & \multicolumn{2}{|c|} {$y$} & { } \\
+        $x$ & 0 & 1 & Total \\
+        \hline
+        \hline
+        $0$ & $\eta_{00}$ & $\eta_{01}$ & $\eta_{0+}$ \\
+        $1$ & $\eta_{10}$ & $\eta_{11}$ & $\eta_{1+}$ \\
+        \hline
+        \hline
+      Total & $\eta_{+0}$ & $\eta_{+1}$ & 1 \\
+        \hline
+        \hline
+        \end{tabular}
+\end{table}
+
+que também pode ser representada por:
 
 \begin{eqnarray}
-RC_{AAS}\left( \mathbf{\bar{y}}\right) &=&\left\{ \mathbf{\bar{y}:}\left( 
-\mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{\Sigma }
-_{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) >\chi _{\alpha
-}^{2}\left( K\right) \right\} \label{eq:epa14}  \\
-&=&\left\{ \mathbf{\bar{y}:}p\mbox{valor}_{AAS}\left( \mathbf{\bar{y}}
-\right) <\alpha \right\}.  \nonumber
+ f_U (x ; y) &=& Pr( X = x ; Y = y )\\
+             & =& \eta_{00}^{(1-x)(1-y)} \times \eta_{01}^{(1-x)y} \times \eta_{10}^{x(1-y)} (1 - \eta_{00} - \eta_{01} - \eta_{10})^{xy} \nonumber
 \end{eqnarray}
 
-Pode-se mostrar que o máximo de
-\(p\)valor\(_{VERD}\left( \mathbf{\bar{y}}\right)\) quando
-\(\mathbf{\bar{y}}\) pertence à
-\(RC_{AAS}\left( \mathbf{\bar{y}}\right)\) é dado por:
+onde a designação \(f_U\) é utilizada para denotar a distribuição
+\emph{na população}.
+
+Note agora que a distribuição marginal da variável \(y\)
+\emph{na população} é Bernoulli com parâmetro
+\(1 - \eta_{00} - \eta_{10}\), ou alternativamente:
 
 \begin{equation}
-\max_{\mathbf{\bar{y}\in }RC_{AAS}\left( \mathbf{\bar{y}}\right) }p
-\mbox{valor}_{VERD}\left( \mathbf{\bar{y}}\right) =P\left( \chi ^{2}\left(K\right) >\chi _{\alpha }^{2}\left( K\right) /\delta _{1}\right).
-\label{eq:epa15}
+ f_U (y) = Pr( Y = y ) = (\eta_{00} + \eta_{10})^{(1-y)} \times (1 - \eta_{00} - \eta_{10})^y
 \end{equation}
 
-Observe que o segundo membro de \eqref{eq:epa15} é da mesma forma que o
-segundo membro de \eqref{eq:epa12}. Logo, os valores da Tabela
-\ref{tab:nivsig} podem ser interpretados como valores máximos de
-\(p\)valor\(_{VERD}\left( \mathbf{\bar{y}}\right)\) para
-\(\mathbf{\bar{y}}\) na região
-\(RC_{AAS}\left(\mathbf{\bar{y}}\right)\), considerando-se
-\(\delta_{1}\) no lugar de \(\delta\).
+De forma análoga, a distribuição marginal da variável \(x\)
+\emph{na população} também é Bernoulli, mas com parâmetro
+\(1 - \eta_{00} - \eta_{01}\), ou alternativamente:
 
-\textbackslash{}begin\{table\}
+\begin{equation}
+ f_U (x) = Pr( X = x ) = (\eta_{00} + \eta_{01})^{(1-x)} \times (1 - \eta_{00} - \eta_{01})^x
+\end{equation}
 
-\textbackslash{}caption\{\label{tab:nivsig}Níveis de significância (\%)
-verdadeiros do teste \(T^2\) para o nível nominal de 5\% assumindo
-autovalores iguais para delta.\} \centering
+Seja \(N_{xy}\) o número de unidades na população com a combinação de
+valores observados \((x;y)\), onde \(x\) e \(y\) tomam valores em
+\(\Omega = \{ 0 ; 1 \}\). É fácil notar então que o vetor de contagens
+populacionais
+\(\mathbf{N} = ( N_{00}, N_{01}, N_{10}, N_{11} )^{\prime}\) tem
+distribuição Multinomial com parâmetros \(N\) e
+\(\mathbf{\eta} = (\eta_{00} , \eta_{01} , \eta_{10} , 1 - \eta_{00} - \eta_{01} - \eta_{10} )^{\prime}\).
 
-\begin{tabular}[t]{lrrrr}
-\toprule
-  & 1 & 2 & 3 & 4\\
-\midrule
-0.9 & 4 & 4 & 3 & 3\\
-1 & 5 & 5 & 5 & 5\\
-1.5 & 11 & 14 & 16 & 18\\
-2 & 17 & 22 & 27 & 31\\
-2.5 & 22 & 30 & 37 & 43\\
-3 & 26 & 37 & 46 & 53\\
-\bottomrule
-\end{tabular}
+Após observada uma realização do modelo que dê origem a uma população,
+como seria o caso da realização de um censo na população, a proporção de
+valores de \(y\) iguais a 1 observada no censo seria dada por
+\((N_{+1} / N = 1 - (N_{00} - N_{10})/N\). E a proporção de valores de
+\(x\) iguais a 1 na população seria igual a
+\((N_{1+} / N = 1 - (N_{00} - N_{01})/N\).
 
-\textbackslash{}end\{table\}
+Agora suponha que uma amostra estratificada simples \emph{com reposição}
+de tamanho \(n\) inteiro e par seja selecionada da população, onde os
+estratos são definidos com base nos valores da variável \(x\), e onde a
+alocação da amostra nos estratos é dada por \(n_0 = n_1 = n/2\), sendo
+\(n_x\) o tamanho da amostra no estrato correspondente ao valor \(x\)
+usado como índice. Esta alocação é dita \emph{alocação igual}, pois o
+tamanho total da amostra é repartido em partes iguais entre os estratos
+definidos para seleção, e no caso, há apenas dois estratos. A alocação
+desta amostra será desproporcional exceto no caso em que
+\(N_{0+} = N_{1+}\).
 
-\section{Laboratório de R}\label{laboratorio-de-r}
+Nosso interesse aqui é ilustrar o efeito que uma alocação
+desproporcional pode causar na análise dos dados amostrais, caso não
+sejam levadas em conta na análise informações relevantes sobre a
+estrutura do plano amostra. Para isto, vamos precisar obter a
+distribuição amostral da variável de interesse \(y\). Isto pode ser
+feito em dois passos. Primeiro, note que a distribuição condicional de
+\(y\) dado \(x\) na população é dada por:
 
-Vale a pena incluir as contas que não dependem da simulação?
+\begin{table}[h]
+    \centering
+    \caption{Distribuição de probabilidades condicional de $y$ dado $x$ na população - $Pr( Y_i = y | X_i = x )$} 
+    \label{Tab25}
+    \bigskip 
+        \begin{tabular}{c|c|c|c}
+        \hline
+        \hline
+      { } & \multicolumn{2}{|c|} {$y$} & { } \\
+        $x$ & 0 & 1 & Total \\
+        \hline
+        \hline
+        $0$ & $\eta_{00} / \eta_{0+}$ & $\eta_{01} / \eta_{0+}$ & 1 \\
+        $1$ & $\eta_{10} / \eta_{1+}$ & $\eta_{11} / \eta_{1+}$ & 1 \\
+        \hline
+        \hline
+        \end{tabular}
+\end{table}
 
-Exemplo \ref{ex:deffuni} Parte de simulação do exemplo para salario
+ou, alternativamente
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(survey)}
-\end{Highlighting}
-\end{Shaded}
+\begin{eqnarray}
+ f_U (y | x) &=& Pr( Y = y | X = x )\\
+             & =& (1-x) \times \frac{\eta_{00}^{(1-y)} \eta_{01}^y}   {\eta_{00}+\eta_{01}} + x \times \frac{\eta_{10}^{(1-y)} (1 - \eta_{00} - \eta_{01} - \eta_{10})^y} {1 - \eta_{00} - \eta_{01}}\nonumber
+\end{eqnarray}
 
-\begin{verbatim}
-## Warning: package 'survey' was built under R version 3.4.1
-\end{verbatim}
+Dado o plano amostral acima descrito, a distribuição marginal de \(x\)
+\emph{na amostra} é Bernoulli com parâmetro \(1/2\). Isto segue devido
+ao fato de que a amostra foi alocada igualmente com base nos valores de
+\(x\) na população, e portanto, sempre teremos metade da amostra com
+valores de \(x\) iguais a \(0\) e metade com valores iguais a \(1\).
+Isto pode ser representado como:
 
-\begin{verbatim}
-## Loading required package: grid
-\end{verbatim}
+\begin{equation}
+ f_a (x) = Pr( X_i = x | i \in a ) = 1 / 2,\; \forall x \in \Omega \mbox{ e } \forall i \in U
+\end{equation}
 
-\begin{verbatim}
-## Loading required package: Matrix
-\end{verbatim}
+onde a designação \(f_a\) é utilizada para denotar a distribuição
+\emph{na amostra}.
 
-\begin{verbatim}
-## Loading required package: survival
-\end{verbatim}
+Podemos usar a informação sobre a distribuição condicional de \(y\) dado
+\(x\) na população e a informação sobre a distribuição marginal de \(x\)
+na amostra para obter a distribuição marginal de \(y\) na amostra, que é
+dada por:
 
-\begin{verbatim}
-## 
-## Attaching package: 'survey'
-\end{verbatim}
+\begin{eqnarray}
+ f_a (y) &= &Pr( Y_i = y | i \in a )\\ 
+&=& \sum _{x = 0} ^{1} Pr( X_i = x ; Y_i = y | i \in a) \nonumber \\ 
+&=& \sum _{x = 0} ^{1} Pr( Y_i = y | X_i = x e i \in a) \times Pr( X_i = x | i \in a) \nonumber\\ 
+&=& \sum _{x = 0} ^{1} Pr( Y_i = y | X_i = x) \times f_a (x) \nonumber \\ 
+&=& \sum _{x = 0} ^{1} f_U ( y | x) f_a (x) \nonumber \\ 
+&=& \frac{1}{2} \times \left[ \frac{\eta_{00}^{(1-y)} \eta_{01}^y} {\eta_{00}+\eta_{01}}+ \frac{\eta_{10}^{(1-y)} (1 - \eta_{00} - \eta_{01} - \eta_{10})^y} {1 - \eta_{00} - \eta_{01}} \right]\nonumber
+\end{eqnarray}
 
-\begin{verbatim}
-## The following object is masked from 'package:graphics':
-## 
-##     dotchart
-\end{verbatim}
+Isto mostra que a distribuição marginal de \(y\) na amostra é diferente
+da distribuição marginal de \(y\) na população, mesmo quando o plano
+amostral é especialmente simples e utiliza amostragem aleatória simples
+com reposição dentro de cada estrato definido pela variável \(x\). Isto
+ocorre devido à alocação desproporcional da amostra, apesar de a
+distribuição condicional de \(y\) dado \(x\) na população e na amostra
+ser a mesma.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{popul <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{popul.rds"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+Um exemplo numérico facilita a compreensão. Se a distribuição conjunta
+de \(x\) e \(y\) na população é dada por:\newpage
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{N<-}\KeywordTok{nrow}\NormalTok{(popul)}
-\NormalTok{n1<-}\DecValTok{30}\NormalTok{; n2<-}\DecValTok{30}
-\NormalTok{nh=}\KeywordTok{c}\NormalTok{(n1,n2)}
-\NormalTok{n<-}\KeywordTok{sum}\NormalTok{(nh)}
-\NormalTok{Nh<-}\KeywordTok{table}\NormalTok{(popul$estrat)}
-\NormalTok{fh<-nh/Nh ; Wh<-Nh/N ; f<-}\StringTok{ }\NormalTok{n/N}
-\end{Highlighting}
-\end{Shaded}
+\begin{table}[h]
+    \centering
+    \caption{Distribuição de probabilidades conjunta na população $f_U( x ; y )$} 
+    \label{Tab26}
+    \bigskip 
+        \begin{tabular}{c|c|c|c}
+        \hline
+        \hline
+      { } & \multicolumn{2}{|c|} {$y$} & { } \\
+        $x$ & 0 & 1 & Total \\
+        \hline
+        \hline
+        $0$ & $0.7$ & $0.1$ & $0.8$ \\
+        $1$ & $0.1$ & $0.1$ & $0.2$ \\
+        \hline
+        \hline
+      Total & $0.8$ & $0.2$ & 1 \\
+        \hline
+        \hline
+        \end{tabular}
+\end{table}
 
-Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
-(incluir?)
+segue-se que a distribuição condicional de \(y\) dado \(x\) na população
+(mas também na amostra) é dada por
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{sal.mat.res<-}\KeywordTok{matrix}\NormalTok{(}\OtherTok{NA}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{4}\NormalTok{)}
-\NormalTok{rec.mat.res<-}\KeywordTok{matrix}\NormalTok{(}\OtherTok{NA}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{4}\NormalTok{)}
-\NormalTok{popul$sal <-}\StringTok{ }\NormalTok{popul$sal/}\DecValTok{1000}
-\NormalTok{popul$rec <-}\StringTok{ }\NormalTok{popul$rec/}\DecValTok{1000000}
-\KeywordTok{library}\NormalTok{(sampling)}
-\CommentTok{#Geracão dos dados}
-\NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\DecValTok{500}\NormalTok{)\{}
-\NormalTok{s<-}\KeywordTok{strata}\NormalTok{(popul, }\StringTok{"estrat"}\NormalTok{,}\KeywordTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{,}\DecValTok{30}\NormalTok{),}\DataTypeTok{method=} \StringTok{"srswor"}\NormalTok{)}
-\NormalTok{dados<-}\KeywordTok{getdata}\NormalTok{(popul,s)}
-\NormalTok{sal_med_y<-}\KeywordTok{mean}\NormalTok{(dados$sal)}
-\NormalTok{rec_med_y<-}\KeywordTok{mean}\NormalTok{(dados$rec)}
-\CommentTok{# estimador v0}
-\NormalTok{sal_var_aas<-(}\DecValTok{1}\NormalTok{-f)*}\KeywordTok{var}\NormalTok{(dados$sal)/n}
-\NormalTok{rec_var_aas<-(}\DecValTok{1}\NormalTok{-f)*}\KeywordTok{var}\NormalTok{(dados$rec)/n}
-\CommentTok{# vhat_aes estimador não-viciado}
-\NormalTok{desenho<-}\KeywordTok{svydesign}\NormalTok{(~}\DecValTok{1}\NormalTok{,}\DataTypeTok{strata=}\NormalTok{~estrat,}\DataTypeTok{data=}\NormalTok{dados,}\DataTypeTok{fpc=}\NormalTok{~Prob)}
-\NormalTok{sal_med_yw<-}\KeywordTok{svymean}\NormalTok{(~sal,desenho)}
-\NormalTok{rec_med_yw<-}\KeywordTok{svymean}\NormalTok{(~rec,desenho)}
-\NormalTok{sal.mat.res[i,]<-}\KeywordTok{c}\NormalTok{(sal_med_y,}\KeywordTok{coef}\NormalTok{(sal_med_yw),sal_var_aas,}\KeywordTok{SE}\NormalTok{(sal_med_yw)^}\DecValTok{2}\NormalTok{)}
-\NormalTok{rec.mat.res[i,]<-}\KeywordTok{c}\NormalTok{(rec_med_y,}\KeywordTok{coef}\NormalTok{(rec_med_yw),rec_var_aas,}\KeywordTok{SE}\NormalTok{(rec_med_yw)^}\DecValTok{2}\NormalTok{)}
-\NormalTok{\}}
-\CommentTok{# 1-media de ybar; 2- média de ybar_w; 3- média de v0; 4- média de vhat_aes}
-\NormalTok{sal_res_mean <-}\KeywordTok{colMeans}\NormalTok{(sal.mat.res)}
-\NormalTok{rec_res_mean <-}\StringTok{ }\KeywordTok{colMeans}\NormalTok{(rec.mat.res)}
-\CommentTok{# epa = média de vhat_aes/ média de v0}
+\begin{table}[h]
+    \centering
+    \caption{Distribuição de probabilidades condicional de $y$ dado $x$ na população - $f_U( y | x )$} 
+    \label{Tab27}
+    \bigskip 
+        \begin{tabular}{c|c|c|c}
+        \hline
+        \hline
+      { } & \multicolumn{2}{|c|} {$y$} & { } \\
+        $x$ & 0 & 1 & Total \\
+        \hline
+        \hline
+        $0$ & $0.875$ & $0.125$ & 1 \\
+        $1$ & $0.5$ & $0.5$ & 1 \\
+        \hline
+        \hline
+        \end{tabular}
+\end{table}
 
-\NormalTok{epa_sal1 <-}\StringTok{ }\NormalTok{sal_res_mean[}\DecValTok{4}\NormalTok{]/sal_res_mean[}\DecValTok{3}\NormalTok{]}
-\NormalTok{epa_sal1}
-\end{Highlighting}
-\end{Shaded}
+e que a distribuição marginal de \(y\) na população e na amostra são
+dadas por
 
-\begin{verbatim}
-## [1] 0.1405765
-\end{verbatim}
+\begin{table}[h]
+    \centering
+    \caption{Distribuição de probabilidades marginal de $y$ na população - $f_U( y )$} 
+    \label{Tab28}
+    \bigskip 
+        \begin{tabular}{c|c|c}
+        \hline
+        \hline
+      $y$ & 0 & 1 \\
+      \hline
+        $f_U ( y )$ & $0.8$ & $0.2$ \\
+        \hline
+        $f_a ( y )$ & $0.6875$ & $0.3125$ \\
+        \hline
+        \hline
+        \end{tabular}
+\end{table}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{epa_rec1 <-}\StringTok{ }\NormalTok{rec_res_mean[}\DecValTok{4}\NormalTok{]/rec_res_mean[}\DecValTok{3}\NormalTok{]}
-\NormalTok{epa_rec1}
-\end{Highlighting}
-\end{Shaded}
+Assim, inferência sobre a distribuição de \(y\) \emph{na população}
+levada a cabo a partir dos dados da amostra observada sem considerar a
+estrutura do plano amostral será equivocada, pois a alocação igual da
+amostra nos estratos leva à observação de uma proporção maior de valores
+de \(x\) iguais a 1 na amostra (1/2) do que a correspondente proporção
+existente na população (1/5). Em conseqüência, a proporção de valores de
+\(y\) iguais a 1 na amostra (0.3125) é 56\% maior que a correspondente
+proporção na população (0.2).
 
-\begin{verbatim}
-## [1] 0.3690997
-\end{verbatim}
+Este exemplo é propositalmente simples, envolve apenas duas variáveis
+com distribuição Bernoulli, mas ilustra bem como a amostragem pode
+modificar distribuições de variáveis da amostra em relação à
+correspondente distribuição na população.
 
-Usando a fórmula \eqref{eq:epa3}
+Note que caso a inferência requerida fosse sobre parâmetros da
+distribuição condicional de \(y\) dado \(x\), a amostragem seria
+ignorável, isto é, \(f_a ( y | x) = f_U (y | x)\). Assim fica
+evidenciado também que a noção de que o plano amostral pode ser
+ignorável depende da inferência desejada. No nosso exemplo, o plano
+amostral é ignorável para inferência sobre a distribuição condicional de
+\(y\) dado \(x\), mas não é ignorável para inferência sobre a
+distribuição marginal de \(y\).
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# variância sob distr. de aleatorização verdadeira}
-\NormalTok{vp_sal_h <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(sal~estrat, popul, var)}
-\NormalTok{vp_rec_h <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(rec~estrat, popul, var)}
-\NormalTok{vp_sal <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(Wh^}\DecValTok{2}\NormalTok{*(}\DecValTok{1}\NormalTok{-fh)*vp_sal_h[,}\StringTok{"sal"}\NormalTok{]/nh)}
-\NormalTok{vp_rec <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(Wh^}\DecValTok{2}\NormalTok{*(}\DecValTok{1}\NormalTok{-fh)*vp_rec_h[,}\StringTok{"rec"}\NormalTok{]/nh)}
-\end{Highlighting}
-\end{Shaded}
+\chapter{Estimação Baseada no Plano Amostral}\label{capplanamo}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# valor esperado v0 usando população}
-\end{Highlighting}
-\end{Shaded}
+\chapter{Efeitos do Plano Amostral}\label{epa}
 
 \chapter{Ajuste de Modelos Paramétricos}\label{ajmodpar}
 
@@ -1620,6 +1138,9 @@ modelo}\label{diagnostico-de-ajuste-de-modelo}
 \chapter{Pacotes para Analisar Dados Amostrais}\label{pacotes}
 
 \chapter{Placeholder}\label{placeholder}
+
+\chapter*{Prefácio}\label{prefacio-1}
+\addcontentsline{toc}{chapter}{Prefácio}
 
 \chapter{Placeholder}\label{placeholder-1}
 

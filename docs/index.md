@@ -2,17 +2,30 @@
 --- 
 title: "Análise de Dados Amostrais Complexos"
 author: "Djalma Pessoa e Pedro Nascimento Silva"
-date: "2017-01-08"
+date: "2017-09-04"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+
+output:
+  bookdown::github_book:
+    toc: yes
+    css: toc.css
+  bookdown::pdf_book:
+    includes:
+      in_header: preamble.tex
+    latex_engine: xelatex
+    citation_package: natbib
+    keep_tex: yes
+  bookdown::epub_book: default
+ 
+ 
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: djalmapessoa/adac
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+cover-image: "Figuras/capa.png"
+description: "Análise de dados de pesquisas amostrais complexas."
 ---
-
 
 
 

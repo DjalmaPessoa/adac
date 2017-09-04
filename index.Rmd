@@ -27,8 +27,6 @@ cover-image: "Figuras/capa.png"
 description: "Análise de dados de pesquisas amostrais complexas."
 ---
 
-
-
 # Prefácio {-}
 
 Uma preocupação básica de toda instituição produtora de
