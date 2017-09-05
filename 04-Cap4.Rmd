@@ -303,14 +303,14 @@ Podemos desta forma introduzir uma medida de efeito da especificação
 incorreta do plano amostral (ou do modelo) sobre a estimativa $v_{0}$ da variância do estimador $\hat{\theta}$.
 
 ```{definition}
-O efeito da especificação incorreta do plano amostral (ou do modelo)
-sobre a estimativa $v_{0}$ da variância do estimador $\hat{\theta}$
-é 
+O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa $v_{0}$ da variância do estimador $\hat{\theta}$ é 
+```
+
 \begin{equation}
 \mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left( \hat{%
 \theta}\right) }{E_{VERD}\left( v_{0}\right) }\;.  (\#eq:epa2)
 \end{equation}
-```
+
 
 Desta forma, o $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ mede a
 tendência de $v_{0}$ a subestimar ou superestimar $V_{VERD}\left( \hat{\theta}\right) ,$ variância `verdadeira` de $\hat{\theta}$. Quanto mais afastado de $1$ for o valor de $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$, mais incorreta será considerada a especificação do plano amostral ou do modelo.
@@ -902,8 +902,8 @@ significância nominais e reais subtraindo de $1$ os valores da Tabela
 \@ref(tab:procob). Por exemplo, para $\alpha =0,05$ e $\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =2$, o nível de significância real seria
 aproximadamente $1-0,83=0,17$.
 
-```{example}
-\label{exebin}Teste de hipótese sobre proporção
+```{example, label= "exebin"}
+Teste de hipótese sobre proporção
 ```
 Vamos considerar um exemplo hipotético de teste de hipótese sobre
 uma proporção, semelhante ao de [@Sud76], apresentado em

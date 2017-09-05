@@ -2,7 +2,7 @@
 --- 
 title: "Análise de Dados Amostrais Complexos"
 author: "Djalma Pessoa e Pedro Nascimento Silva"
-date: "2017-09-04"
+date: "2017-09-05"
 site: bookdown::bookdown_site
 
 output:
@@ -26,8 +26,6 @@ github-repo: djalmapessoa/adac
 cover-image: "Figuras/capa.png"
 description: "Análise de dados de pesquisas amostrais complexas."
 ---
-
-
 
 # Prefácio {-}
 

@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-04">
+<meta name="date" content="2017-09-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -443,12 +443,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <div class="definition">
 <span id="def:unnamed-chunk-2" class="definition"><strong>Definição 4.2 </strong></span>O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span> é
+</div>
+<p></p>
 <span class="math display" id="eq:epa2">\[\begin{equation}
 \mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left( \hat{%
 \theta}\right) }{E_{VERD}\left( v_{0}\right) }\;.  \tag{4.2}
 \end{equation}\]</span>
-</div>
-<p></p>
 <p>Desta forma, o <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> mede a tendência de <span class="math inline">\(v_{0}\)</span> a subestimar ou superestimar <span class="math inline">\(V_{VERD}\left( \hat{\theta}\right) ,\)</span> variância <code>verdadeira</code> de <span class="math inline">\(\hat{\theta}\)</span>. Quanto mais afastado de <span class="math inline">\(1\)</span> for o valor de <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span>, mais incorreta será considerada a especificação do plano amostral ou do modelo.</p>
 <p>Enquanto a medida proposta por Kish baseia-se nas distribuições induzidas pela aleatorização dos planos amostrais comparados, o <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> pode ser calculado com respeito a distribuições de aleatorização ou do modelo envolvido, bastando calcular <span class="math inline">\(V_{VERD}\)</span> e <span class="math inline">\(E_{VERD}\)</span> da Definição <a href="epa.html#eq:epa2">(4.2)</a> com relação à distribuição correspondente.</p>
 <p>Em geral, são esperadas as seguintes consequências sobre o <span class="math inline">\(\mathbf{EPA}\)</span> ao ignorar o plano amostral efetivamente adotado e admitir que a seleção da amostra foi AAS:</p>
@@ -889,7 +889,7 @@ t_{0}\sim N\left[ 0;\mathbf{EPA}\left( \hat{\theta},v_{0}\right)
 <p>Utilizando a correspondência existente entre intervalos de confiança e testes de hipóteses, podemos derivar os níveis de significância nominais e reais subtraindo de <span class="math inline">\(1\)</span> os valores da Tabela <a href="epa.html#tab:procob">4.6</a>. Por exemplo, para <span class="math inline">\(\alpha =0,05\)</span> e <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =2\)</span>, o nível de significância real seria aproximadamente <span class="math inline">\(1-0,83=0,17\)</span>.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-6" class="example"><strong>Exemplo 4.4 </strong></span>Teste de hipótese sobre proporção
+<span id="ex:exebin" class="example"><strong>Exemplo 4.4 </strong></span>Teste de hipótese sobre proporção
 </div>
 <p> Vamos considerar um exemplo hipotético de teste de hipótese sobre uma proporção, semelhante ao de <span class="citation">(Sudman <a href="#ref-Sud76">1976</a>)</span>, apresentado em p. 196, <span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span>. Uma amostra de <span class="math inline">\(m=50\)</span> conglomerados é extraída de uma grande população de empresas industriais (conglomerados). Suponhamos que cada empresa <span class="math inline">\(i=1,\ldots ,50\)</span> da amostra tenha <span class="math inline">\(n_{i}=20\)</span> empregados. O tamanho total da amostra de empregados (unidades elementares) é <span class="math inline">\(n=\sum_{i}n_{i}=1.000\)</span>. Queremos estudar o acesso dos trabalhadores das empresas a planos de saúde.</p>
 <p>Usando-se conhecimento do ano anterior, foi estabelecida a hipótese de que a proporção de trabalhadores cobertos por planos de saúde é <span class="math inline">\(80\%\)</span>, ou seja <span class="math inline">\(H_{0}:p=p_{0}=0,8\)</span>. Vamos adotar o nível de significância <span class="math inline">\(\alpha =5\%\)</span>.</p>
@@ -1165,10 +1165,10 @@ rec_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(rec.
 
 epa_sal1 &lt;-<span class="st"> </span>sal_res_mean[<span class="dv">4</span>]/sal_res_mean[<span class="dv">3</span>]
 epa_sal1</code></pre></div>
-<pre><code>## [1] 0.1407993</code></pre>
+<pre><code>## [1] 0.1416415</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">epa_rec1 &lt;-<span class="st"> </span>rec_res_mean[<span class="dv">4</span>]/rec_res_mean[<span class="dv">3</span>]
 epa_rec1</code></pre></div>
-<pre><code>## [1] 0.3828303</code></pre>
+<pre><code>## [1] 0.3972986</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 vp_sal_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(sal~estrat, popul, var)
