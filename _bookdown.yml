@@ -29,13 +29,7 @@ language:
 
     chapter_name: "Capítulo "
 
-
 output_dir: "docs"
-
-rmd_files: ["index.Rmd", "01-Cap1.Rmd", "02-Cap2.Rmd", "03-Cap3.Rmd",
-"04-Cap4.Rmd","05-Cap5.Rmd","06-Cap6.Rmd","07-Cap7.Rmd","08-Cap8.Rmd",
-"09-Cap9.Rmd","10-Cap10.Rmd","11-Cap11.Rmd","12-Cap12.Rmd",
-"13-Cap13.Rmd", "14-Cap14.Rmd", "15-references.Rmd"]
 clean: [packages.bib, bookdown.bbl]
-new_session: yes
+
 

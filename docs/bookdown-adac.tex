@@ -84,7 +84,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-09-04}
+  \date{2017-09-05}
 
 % \documentclass[]{book}
 % \usepackage{booktabs}
@@ -105,9 +105,12 @@
 \newtheorem{corollary}{Corolário}[chapter]
 \newtheorem{proposition}{Proposição}[chapter]
 \theoremstyle{definition}
-\newtheorem{example}{Exemplo}[chapter]
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
 \theoremstyle{remark}
 \newtheorem*{remark}{Observação }
+\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
 
@@ -194,32 +197,714 @@ nossas ausências e pelo incentivo à conclusão da empreitada.
 
 \chapter{Introdução}\label{introduc}
 
+\section{Motivação}\label{motivacao}
+
+\section{Objetivos do Livro}\label{objetivos-do-livro}
+
+\section{Laboratório de R do Capítulo 1.}\label{epa}
+
+\section{total SE DEff}\label{total-se-deff}
+
+\section{analf1 1174220 127982
+2.0543}\label{analf1-1174220-127982-2.0543}
+
+\section{total SE DEff}\label{total-se-deff-1}
+
+\section{analf2 4792344 318877
+3.3237}\label{analf2-4792344-318877-3.3237}
+
+\section{Ratio estimator:
+svyratio.survey.design2(\textasciitilde{}analf1,
+\textasciitilde{}faixa1,
+ppv.se.des)}\label{ratio-estimator-svyratio.survey.design2analf1-faixa1-ppv.se.des}
+
+\section{Ratios=}\label{ratios}
+
+\section{faixa1}\label{faixa1}
+
+\section{analf1 0.118689}\label{analf1-0.118689}
+
+\section{SEs=}\label{ses}
+
+\section{faixa1}\label{faixa1-1}
+
+\section{analf1 0.01178896}\label{analf1-0.01178896}
+
+\section{Ratio estimator:
+svyratio.survey.design2(\textasciitilde{}analf2,
+\textasciitilde{}faixa2,
+ppv.se.des)}\label{ratio-estimator-svyratio.survey.design2analf2-faixa2-ppv.se.des}
+
+\section{Ratios=}\label{ratios-1}
+
+\section{faixa2}\label{faixa2}
+
+\section{analf2 0.1086871}\label{analf2-0.1086871}
+
+\section{SEs=}\label{ses-1}
+
+\section{faixa2}\label{faixa2-1}
+
+\section{analf2 0.006732254}\label{analf2-0.006732254}
+
+\section{regiao analf1 se
+DEff.analf1}\label{regiao-analf1-se-deff.analf1}
+
+\section{1 1 3512866 352619.5 9.660561}\label{section}
+
+\section{2 2 1174220 127982.2 2.054345}\label{section-1}
+
+\subsection{Estimativa do efeito de plano amostral
+(EPA)}\label{estimativa-do-efeito-de-plano-amostral-epa}
+
+\section{analf1}\label{analf1}
+
+\section{analf1 2.054049}\label{analf1-2.054049}
+
+\section{analf2}\label{analf2}
+
+\section{analf2 3.32324}\label{analf2-3.32324}
+
+\section{total SE DEff}\label{total-se-deff-2}
+
+\section{{[}1,{]} 1174220 127982 2.6426}\label{section-2}
+
+\section{total SE DEff}\label{total-se-deff-3}
+
+\section{{[}1,{]} 4792344 318877 4.1667}\label{section-3}
+
+\section{total SE DEff}\label{total-se-deff-4}
+
+\section{I(ifelse(regiao == 2, analf1, 0)) 1174220 127982
+2.6426}\label{iifelseregiao-2-analf1-0-1174220-127982-2.6426}
+
+\section{total SE DEff}\label{total-se-deff-5}
+
+\section{I(ifelse(regiao == 2, analf2, 0)) 4792344 318877
+4.1667}\label{iifelseregiao-2-analf2-0-4792344-318877-4.1667}
+
+\section{Taxa Erro\_Padrao CV}\label{taxa-erro_padrao-cv}
+
+\section{1 11.80303 0.1174791 0.9953299}\label{section-4}
+
+\section{{[}1{]} 60202 1019}\label{section-5}
+
+\section{diag\_dep}\label{diag_dep}
+
+\section{7.6}\label{section-6}
+
+\section{diag\_dep}\label{diag_dep-1}
+
+\section{diag\_dep 0.2}\label{diag_dep-0.2}
+
+\section{{[}1{]} 7.2 8.1}\label{section-7}
+
+\section{diag\_dep}\label{diag_dep-2}
+
+\section{7.6 7.2 8.1}\label{section-8}
+
 \chapter{Referencial para Inferência}\label{refinf}
+
+\section{Modelagem - Primeiras Idéias}\label{classic}
+
+\subsection{Abordagem 1 - Modelagem
+Clássica}\label{abordagem-1---modelagem-classica}
+
+\subsection{Abordagem 2 - Amostragem
+Probabilística}\label{abordagem-2---amostragem-probabilistica}
+
+\subsection{Discussão das Abordagens 1 e
+2}\label{discussao-das-abordagens-1-e-2}
+
+\subsection{Abordagem 3 - Modelagem de
+Superpopulação}\label{modelsuperpop}
+
+\section{Fontes de Variação}\label{fontes-de-variacao}
+
+\section{Modelos de Superpopulação}\label{modelos-de-superpopulacao}
+
+\section{Planejamento Amostral}\label{planamo}
+
+\section{Planos Amostrais Informativos e Ignoráveis}\label{inform}
 
 \chapter{Estimação Baseada no Plano Amostral}\label{capplanamo}
 
+\section{Estimação de Totais}\label{estimatotais}
+
+\section{Por que Estimar Variâncias}\label{por-que-estimar-variancias}
+
+\section{Linearização de Taylor para Estimar variâncias}\label{taylor}
+
+\section{Método do Conglomerado
+Primário}\label{metodo-do-conglomerado-primario}
+
+\section{Métodos de Replicação}\label{metodos-de-replicacao}
+
+\section{Laboratório de R}\label{laboratorio-de-r}
+
+\section{faixa}\label{faixa}
+
+\section{0.01178896}\label{section-9}
+
+\section{Ratio estimator:
+svyratio.survey.design2(\textasciitilde{}analf.faixa,
+\textasciitilde{}faixa,
+ppv.se.des)}\label{ratio-estimator-svyratio.survey.design2analf.faixa-faixa-ppv.se.des}
+
+\section{Ratios=}\label{ratios-2}
+
+\section{faixa}\label{faixa-1}
+
+\section{analf.faixa 0.118689}\label{analf.faixa-0.118689}
+
+\section{SEs=}\label{ses-2}
+
+\section{faixa}\label{faixa-2}
+
+\section{analf.faixa 0.01178896}\label{analf.faixa-0.01178896}
+
+\section{Ratio estimator:
+svyratio.svyrep.design(\textasciitilde{}analf.faixa,
+\textasciitilde{}faixa,
+ppv.se.des.jkn)}\label{ratio-estimator-svyratio.svyrep.designanalf.faixa-faixa-ppv.se.des.jkn}
+
+\section{Ratios=}\label{ratios-3}
+
+\section{faixa}\label{faixa-3}
+
+\section{analf.faixa 0.118689}\label{analf.faixa-0.118689-1}
+
+\section{SEs=}\label{ses-3}
+
+\section{{[},1{]}}\label{section-10}
+
+\section{{[}1,{]} 0.01181434}\label{section-11}
+
+\section{Ratio estimator:
+svyratio.svyrep.design(\textasciitilde{}analf.faixa,
+\textasciitilde{}faixa,
+ppv.se.des.boot)}\label{ratio-estimator-svyratio.svyrep.designanalf.faixa-faixa-ppv.se.des.boot}
+
+\section{Ratios=}\label{ratios-4}
+
+\section{faixa}\label{faixa-4}
+
+\section{analf.faixa 0.118689}\label{analf.faixa-0.118689-2}
+
+\section{SEs=}\label{ses-4}
+
+\section{{[},1{]}}\label{section-12}
+
+\section{{[}1,{]} 0.01313725}\label{section-13}
+
+\section{\texorpdfstring{{[}1{]}
+``svyrep.design''}{{[}1{]} svyrep.design}}\label{svyrep.design}
+
+\section{\texorpdfstring{{[}1{]} ``repweights'' ``pweights''
+``type''}{{[}1{]} repweights pweights type}}\label{repweights-pweights-type}
+
+\section{\texorpdfstring{{[}4{]} ``rho'' ``scale''
+``rscales''}{{[}4{]} rho scale rscales}}\label{rho-scale-rscales}
+
+\section{\texorpdfstring{{[}7{]} ``call'' ``combined.weights''
+``selfrep''}{{[}7{]} call combined.weights selfrep}}\label{call-combined.weights-selfrep}
+
+\section{\texorpdfstring{{[}10{]} ``mse'' ``variables''
+``degf''}{{[}10{]} mse variables degf}}\label{mse-variables-degf}
+
+\section{{[}1{]} 8903}\label{section-14}
+
+\section{{[}1{]} 276}\label{section-15}
+
+\section{num {[}1:8903, 1:276{]} 0 0 1.06 1.06 1.06
+\ldots{}}\label{num-18903-1276-0-0-1.06-1.06-1.06}
+
+\section{{[}1{]} 0.01181}\label{section-16}
+
+\section{theta SE}\label{theta-se}
+
+\section{{[}1,{]} 0.11869 0.0118}\label{section-17}
+
+\section{theta SE}\label{theta-se-1}
+
+\section{{[}1,{]} 0.50623 0.0494}\label{section-18}
+
 \chapter{Efeitos do Plano Amostral}\label{epa}
+
+\section{Introdução}\label{introducao}
+
+\section{Efeito do Plano Amostral (EPA) de
+Kish}\label{efeito-do-plano-amostral-epa-de-kish}
+
+\section{Efeito do Plano Amostral
+Ampliado}\label{efeito-do-plano-amostral-ampliado}
+
+\section{Intervalos de Confiança e Testes de
+Hipóteses}\label{intervalos-de-confianca-e-testes-de-hipoteses}
+
+\section{Efeitos Multivariados de Plano
+Amostral}\label{efeitos-multivariados-de-plano-amostral}
+
+\section{Laboratório de R}\label{laboratorio-de-r-1}
+
+\section{\texorpdfstring{Warning: package `survey' was built under R
+version
+3.4.1}{Warning: package survey was built under R version 3.4.1}}\label{warning-package-survey-was-built-under-r-version-3.4.1}
+
+\section{Carregando pacotes exigidos:
+grid}\label{carregando-pacotes-exigidos-grid}
+
+\section{Carregando pacotes exigidos:
+methods}\label{carregando-pacotes-exigidos-methods}
+
+\section{Carregando pacotes exigidos:
+Matrix}\label{carregando-pacotes-exigidos-matrix}
+
+\section{Carregando pacotes exigidos:
+survival}\label{carregando-pacotes-exigidos-survival}
+
+\section{}\label{section-19}
+
+\section{\texorpdfstring{Attaching package:
+`survey'}{Attaching package: survey}}\label{attaching-package-survey}
+
+\section{\texorpdfstring{The following object is masked from
+`package:graphics':}{The following object is masked from package:graphics:}}\label{the-following-object-is-masked-from-packagegraphics}
+
+\section{}\label{section-20}
+
+\section{dotchart}\label{dotchart}
+
+\section{{[}1{]} 0.1402485}\label{section-21}
+
+\section{{[}1{]} 0.2827575}\label{section-22}
 
 \chapter{Ajuste de Modelos Paramétricos}\label{ajmodpar}
 
+\section{Introdução}\label{modpar1}
+
+\section{Método de Máxima Verossimilhança
+(MV)}\label{metodo-de-maxima-verossimilhanca-mv}
+
+\section{Ponderação de Dados
+Amostrais}\label{ponderacao-de-dados-amostrais}
+
+\section{Método de Máxima Pseudo-Verossimilhança}\label{modpar3}
+
+\section{Robustez do Procedimento
+MPV}\label{robustez-do-procedimento-mpv}
+
+\section{Desvantagens da Inferência de
+Aleatorização}\label{desvantagens-da-inferencia-de-aleatorizacao}
+
+\section{Laboratório de R}\label{laboratorio-de-r-2}
+
 \chapter{Modelos de Regressão}\label{modreg}
+
+\section{Modelo de Regressão Linear Normal}\label{modlinear}
+
+\subsection{Especificação do Modelo}\label{especificacao-do-modelo}
+
+\subsection{Pseudo-parâmetros do
+Modelo}\label{pseudo-parametros-do-modelo}
+
+\subsection{Estimadores de MPV dos Parâmetros do
+Modelo}\label{estimadores-de-mpv-dos-parametros-do-modelo}
+
+\subsection{Estimação da Variância de Estimadores de
+MPV}\label{estimacao-da-variancia-de-estimadores-de-mpv}
+
+\section{Modelo de Regressão Logística}\label{modlogist}
+
+\section{Warning in 1.96 * sqrt(var\_raz112) * c(-1, 1): Recycling array
+of length 1 in array-vector arithmetic is
+deprecated.}\label{warning-in-1.96-sqrtvar_raz112-c-1-1-recycling-array-of-length-1-in-array-vector-arithmetic-is-deprecated.}
+
+\section{Use c() or as.vector()
+instead.}\label{use-c-or-as.vector-instead.}
+
+\section{Warning in 1.96 * sqrt(var\_raz123) * c(-1, 1): Recycling array
+of length 1 in array-vector arithmetic is
+deprecated.}\label{warning-in-1.96-sqrtvar_raz123-c-1-1-recycling-array-of-length-1-in-array-vector-arithmetic-is-deprecated.}
+
+\section{Use c() or as.vector()
+instead.}\label{use-c-or-as.vector-instead.-1}
+
+\section{Warning in 1.96 * sqrt(var\_raz212) * c(-1, 1): Recycling array
+of length 1 in array-vector arithmetic is
+deprecated.}\label{warning-in-1.96-sqrtvar_raz212-c-1-1-recycling-array-of-length-1-in-array-vector-arithmetic-is-deprecated.}
+
+\section{Use c() or as.vector()
+instead.}\label{use-c-or-as.vector-instead.-2}
+
+\section{Warning in 1.96 * sqrt(var\_raz223) * c(-1, 1): Recycling array
+of length 1 in array-vector arithmetic is
+deprecated.}\label{warning-in-1.96-sqrtvar_raz223-c-1-1-recycling-array-of-length-1-in-array-vector-arithmetic-is-deprecated.}
+
+\section{Use c() or as.vector()
+instead.}\label{use-c-or-as.vector-instead.-3}
+
+\section{Warning in 1.96 * sqrt(var\_raz312) * c(-1, 1): Recycling array
+of length 1 in array-vector arithmetic is
+deprecated.}\label{warning-in-1.96-sqrtvar_raz312-c-1-1-recycling-array-of-length-1-in-array-vector-arithmetic-is-deprecated.}
+
+\section{Use c() or as.vector()
+instead.}\label{use-c-or-as.vector-instead.-4}
+
+\section{Warning in 1.96 * sqrt(var\_raz323) * c(-1, 1): Recycling array
+of length 1 in array-vector arithmetic is
+deprecated.}\label{warning-in-1.96-sqrtvar_raz323-c-1-1-recycling-array-of-length-1-in-array-vector-arithmetic-is-deprecated.}
+
+\section{Use c() or as.vector()
+instead.}\label{use-c-or-as.vector-instead.-5}
+
+\section{Teste de Hipóteses}\label{teste-de-hipoteses}
+
+\section{Laboratório de R}\label{laboratorio-de-r-3}
+
+\section{\texorpdfstring{{[}1{]} ``stra'' ``psu'' ``pesopes''
+``informal'' ``sx''
+``id''}{{[}1{]} stra psu pesopes informal sx id}}\label{stra-psu-pesopes-informal-sx-id}
+
+\section{\texorpdfstring{{[}7{]} ``ae'' ``ht'' ``re''
+``um''}{{[}7{]} ae ht re um}}\label{ae-ht-re-um}
+
+\section{stra psu pesopes informal sx id
+ae}\label{stra-psu-pesopes-informal-sx-id-ae}
+
+\section{\texorpdfstring{``numeric'' ``numeric'' ``numeric'' ``numeric''
+``numeric'' ``numeric''
+``numeric''}{numeric numeric numeric numeric numeric numeric numeric}}\label{numeric-numeric-numeric-numeric-numeric-numeric-numeric}
+
+\section{ht re um}\label{ht-re-um}
+
+\section{\texorpdfstring{``numeric'' ``numeric''
+``numeric''}{numeric numeric numeric}}\label{numeric-numeric-numeric}
+
+\section{Wald test for ht:re}\label{wald-test-for-htre}
+
+\section{in svyglm(formula = informal \textasciitilde{} sx + ae + ht +
+id + re + sx * id
++}\label{in-svyglmformula-informal-sx-ae-ht-id-re-sx-id}
+
+\section{sx * ht + ae * ht + ht * id + ht * re, design =
+pnad.des,}\label{sx-ht-ae-ht-ht-id-ht-re-design-pnad.des}
+
+\section{family = binomial)}\label{family-binomial}
+
+\section{F = 6.742662 on 4 and 616 df: p=
+2.58e-05}\label{f-6.742662-on-4-and-616-df-p-2.58e-05}
 
 \chapter{Testes de Qualidade de Ajuste}\label{testqualajust}
 
+\section{Introdução}\label{introducao-1}
+
+\section{Teste para uma Proporção}\label{teste-para-uma-proporcao}
+
+\subsection{Correção de Estatísticas
+Clássicas}\label{correcao-de-estatisticas-classicas}
+
+\section{{[}1{]} 10}\label{section-23}
+
+\section{{[}1{]} 20}\label{section-24}
+
+\section{{[}1{]} 0.5}\label{section-25}
+
+\section{{[}1{]} 0.4795001}\label{section-26}
+
+\section{{[}1{]} 10.56154}\label{section-27}
+
+\section{{[}1{]} 0.528077}\label{section-28}
+
+\section{{[}1{]} 0.4674165}\label{section-29}
+
+\subsection{Estatística de Wald}\label{estatistica-de-wald}
+
+\section{{[}1{]} 0.5952381}\label{section-30}
+
+\section{{[}1{]} 0.4404007}\label{section-31}
+
+\section{Teste para Várias
+Proporções}\label{teste-para-varias-proporcoes}
+
+\subsection{Estatística de Wald Baseada no Plano
+Amostral}\label{estatistica-de-wald-baseada-no-plano-amostral}
+
+\subsection{Situações Instáveis}\label{situacoes-instaveis}
+
+\subsection{Estatística de Pearson com Ajuste de
+Rao-Scott}\label{raoscott}
+
+\section{{[}1{]} 2.376168}\label{section-32}
+
+\section{{[}1{]} 2.459607}\label{section-33}
+
+\section{{[}1{]} 1.249524}\label{section-34}
+
+\section{{[}1{]} 11.50719}\label{section-35}
+
+\section{{[}1{]} 4.842751}\label{section-36}
+
+\section{{[}1{]} 4.678467}\label{section-37}
+
+\section{{[}1{]} 1.169617}\label{section-38}
+
+\section{{[}1{]} 3.744199}\label{section-39}
+
+\section{{[},1{]}}\label{section-40}
+
+\section{{[}1,{]} 5.742022}\label{section-41}
+
+\section{{[},1{]}}\label{section-42}
+
+\section{{[}1,{]} 1.419005}\label{section-43}
+
+\section{{[},1{]}}\label{section-44}
+
+\section{{[}1,{]} 1.435505}\label{section-45}
+
+\section{Laboratório de R}\label{laboratorio-de-r-4}
+
+\section{{[},1{]}}\label{section-46}
+
+\section{{[}1,{]} 5.742022}\label{section-47}
+
+\section{{[},1{]}}\label{section-48}
+
+\section{{[}1,{]} 0.219}\label{section-49}
+
+\section{{[},1{]}}\label{section-50}
+
+\section{{[}1,{]} 11.50719}\label{section-51}
+
+\section{{[},1{]}}\label{section-52}
+
+\section{{[}1,{]} 0.021}\label{section-53}
+
 \chapter{Testes em Tabelas de Duas Entradas}\label{testetab2}
+
+\section{Introdução}\label{introducao-2}
+
+\section{Tabelas 2x2}\label{tabelas22}
+
+\subsection{Teste de Independência}\label{teste-de-independencia}
+
+\subsection{Teste de Homogeneidade}\label{teste-de-homogeneidade}
+
+\subsection{Efeitos de Plano Amostral nas
+Celas}\label{efeitos-de-plano-amostral-nas-celas}
+
+\section{Tabelas de Duas Entradas (Caso
+Geral)}\label{tabelas-de-duas-entradas-caso-geral}
+
+\subsection{Teste de Homogeneidade}\label{teste-de-homogeneidade-1}
+
+\subsection{Teste de Independência}\label{teste-de-independencia-1}
+
+\subsection{Estatística de Wald Baseada no Plano
+Amostral}\label{estatistica-de-wald-baseada-no-plano-amostral-1}
+
+\subsection{Estatística de Pearson com Ajuste de
+Rao-Scott}\label{estatistica-de-pearson-com-ajuste-de-rao-scott}
+
+\section{Laboratório de R}\label{laboratorio-de-r-5}
+
+\section{\texorpdfstring{{[}1{]} ``stra'' ``psu'' ``pesopes''
+``informal'' ``sx''
+``id''}{{[}1{]} stra psu pesopes informal sx id}}\label{stra-psu-pesopes-informal-sx-id-1}
+
+\section{\texorpdfstring{{[}7{]} ``ae'' ``ht'' ``re''
+``um''}{{[}7{]} ae ht re um}}\label{ae-ht-re-um-1}
+
+\section{stra psu pesopes informal sx id
+ae}\label{stra-psu-pesopes-informal-sx-id-ae-1}
+
+\section{\texorpdfstring{``numeric'' ``numeric'' ``numeric'' ``numeric''
+``numeric'' ``numeric''
+``numeric''}{numeric numeric numeric numeric numeric numeric numeric}}\label{numeric-numeric-numeric-numeric-numeric-numeric-numeric-1}
+
+\section{ht re um}\label{ht-re-um-1}
+
+\section{\texorpdfstring{``numeric'' ``numeric''
+``numeric''}{numeric numeric numeric}}\label{numeric-numeric-numeric-1}
+
+\section{mean SE}\label{mean-se}
+
+\section{sx1 0.65708 0.0056}\label{sx1-0.65708-0.0056}
+
+\section{sx2 0.34292 0.0056}\label{sx2-0.34292-0.0056}
+
+\section{mean SE}\label{mean-se-1}
+
+\section{re1 0.15546 0.0069}\label{re1-0.15546-0.0069}
+
+\section{re2 0.58356 0.0082}\label{re2-0.58356-0.0082}
+
+\section{re3 0.26098 0.0096}\label{re3-0.26098-0.0096}
+
+\section{mean SE}\label{mean-se-2}
+
+\section{ae1 0.31304 0.0095}\label{ae1-0.31304-0.0095}
+
+\section{ae2 0.31972 0.0071}\label{ae2-0.31972-0.0071}
+
+\section{ae3 0.36725 0.0105}\label{ae3-0.36725-0.0105}
+
+\section{ht1 ht2 ht3}\label{ht1-ht2-ht3}
+
+\section{0.2103714 0.6148881 0.1747405}\label{section-54}
+
+\section{\$names}\label{names}
+
+\section{\texorpdfstring{{[}1{]} ``ht1'' ``ht2''
+``ht3''}{{[}1{]} ht1 ht2 ht3}}\label{ht1-ht2-ht3-1}
+
+\section{}\label{section-55}
+
+\section{\$var}\label{var}
+
+\section{ht1 ht2 ht3}\label{ht1-ht2-ht3-2}
+
+\section{ht1 3.666206e-05 -3.322546e-05
+-3.436592e-06}\label{ht1-3.666206e-05--3.322546e-05--3.436592e-06}
+
+\section{ht2 -3.322546e-05 6.758652e-05
+-3.436106e-05}\label{ht2--3.322546e-05-6.758652e-05--3.436106e-05}
+
+\section{ht3 -3.436592e-06 -3.436106e-05
+3.779765e-05}\label{ht3--3.436592e-06--3.436106e-05-3.779765e-05}
+
+\section{}\label{section-56}
+
+\section{\$statistic}\label{statistic}
+
+\section{\texorpdfstring{{[}1{]} ``mean''}{{[}1{]} mean}}\label{mean}
+
+\section{}\label{section-57}
+
+\section{\$class}\label{class}
+
+\section{\texorpdfstring{{[}1{]}
+``svystat''}{{[}1{]} svystat}}\label{svystat}
+
+\section{ht1 ht2 ht3}\label{ht1-ht2-ht3-3}
+
+\section{ht1 3.666206e-05 -3.322546e-05
+-3.436592e-06}\label{ht1-3.666206e-05--3.322546e-05--3.436592e-06-1}
+
+\section{ht2 -3.322546e-05 6.758652e-05
+-3.436106e-05}\label{ht2--3.322546e-05-6.758652e-05--3.436106e-05-1}
+
+\section{ht3 -3.436592e-06 -3.436106e-05
+3.779765e-05}\label{ht3--3.436592e-06--3.436106e-05-3.779765e-05-1}
+
+\section{ht1 ht2 ht3}\label{ht1-ht2-ht3-4}
+
+\section{ht1 3.666206e-05 -3.322546e-05
+-3.436592e-06}\label{ht1-3.666206e-05--3.322546e-05--3.436592e-06-2}
+
+\section{ht2 -3.322546e-05 6.758652e-05
+-3.436106e-05}\label{ht2--3.322546e-05-6.758652e-05--3.436106e-05-2}
+
+\section{ht3 -3.436592e-06 -3.436106e-05
+3.779765e-05}\label{ht3--3.436592e-06--3.436106e-05-3.779765e-05-2}
+
+\section{mean SE DEff}\label{mean-se-deff}
+
+\section{re1 0.1554555 0.0068977
+2.3611}\label{re1-0.1554555-0.0068977-2.3611}
+
+\section{re2 0.5835630 0.0082001
+1.8027}\label{re2-0.5835630-0.0082001-1.8027}
+
+\section{re3 0.2609815 0.0096130
+3.1216}\label{re3-0.2609815-0.0096130-3.1216}
+
+\section{re}\label{re}
+
+\section{sx 1 2 3}\label{sx-1-2-3}
+
+\section{1 0.073 0.388 0.196}\label{section-58}
+
+\section{2 0.082 0.195 0.065}\label{section-59}
+
+\section{sx re1 re2 re3 se.re1 se.re2
+se.re3}\label{sx-re1-re2-re3-se.re1-se.re2-se.re3}
+
+\section{1 1 0.1110831 0.5908215 0.2980955 0.005726888 0.01025759
+0.01112131}\label{section-60}
+
+\section{2 2 0.2404788 0.5696548 0.1898663 0.012502636 0.01193753
+0.01114102}\label{section-61}
+
+\section{mean SE DEff}\label{mean-se-deff-1}
+
+\section{I((sx == 1 \& re == 1) * 1) 0.0729904 0.0038343
+1.4156}\label{isx-1-re-1-1-0.0729904-0.0038343-1.4156}
+
+\section{re}\label{re-1}
+
+\section{sx 1 2 3}\label{sx-1-2-3-1}
+
+\section{1 0.07299044 0.38821684 0.19587250}\label{section-62}
+
+\section{2 0.08246505 0.19534616 0.06510900}\label{section-63}
+
+\section{re}\label{re-2}
+
+\section{sx 1 2 3}\label{sx-1-2-3-2}
+
+\section{1 7.299044 38.821684 19.587250}\label{section-64}
+
+\section{2 8.246505 19.534616 6.510900}\label{section-65}
+
+\section{{[}1{]} 1.642161}\label{section-66}
+
+\section{}\label{section-67}
+
+\section{Pearson's Chi-squared test}\label{pearsons-chi-squared-test}
+
+\section{}\label{section-68}
+
+\section{data: tab.amo}\label{data-tab.amo}
+
+\section{X-squared = 227.03, df = 2, p-value \textless{}
+2.2e-16}\label{x-squared-227.03-df-2-p-value-2.2e-16}
 
 \chapter{Estimação de densidades}\label{estimacao-de-densidades}
 
+\section{Introdução}\label{introducao-3}
+
 \chapter{Modelos Hierárquicos}\label{modelos-hierarquicos}
 
+\section{Introdução}\label{introducao-4}
+
 \chapter{Não-Resposta}\label{nao-resposta}
+
+\section{Introdução}\label{introducao-5}
 
 \chapter{Diagnóstico de ajuste de
 modelo}\label{diagnostico-de-ajuste-de-modelo}
 
+\section{Introdução}\label{introducao-6}
+
 \chapter{Agregação vs.~Desagregação}\label{agregdesag}
 
+\section{Introdução}\label{introducao-7}
+
+\section{Modelagem da Estrutura
+Populacional}\label{modelagem-da-estrutura-populacional}
+
+\section{Modelos Hierárquicos}\label{modelos-hierarquicos-1}
+
+\section{Análise Desagregada: Prós e
+Contras}\label{analise-desagregada-pros-e-contras}
+
 \chapter{Pacotes para Analisar Dados Amostrais}\label{pacotes}
+
+\section{Introdução}\label{introducao-8}
+
+\section{Pacotes Computacionais}\label{pacotes-computacionais}
 
 \chapter{Placeholder}\label{placeholder}
 

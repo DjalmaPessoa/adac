@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Análise de Dados Amostrais Complexos</title>
   <meta name="description" content="Análise de dados de pesquisas amostrais complexas.">
-  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="Análise de Dados Amostrais Complexos" />
   <meta property="og:type" content="book" />
@@ -246,7 +246,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>A seguir vamos apresentar um exemplo de uso de dados de uma pesquisa amostral real para ilustrar como os pontos i) a iv) acima mencionados afetam a inferência sobre quantidades descritivas populacionais tais como médias, proporções, razões e totais.</p>
 
 <div class="example">
-<span id="ex:distppv" class="example"><strong>Exemplo 1.1 </strong></span>Distribuição dos pesos da amostra da PPV
+<span id="exm:distppv" class="example"><strong>Example 1.1  </strong></span>Distribuição dos pesos da amostra da PPV
 </div>
 <p></p>
 <p>Os dados deste exemplo são relativos à distribuição dos pesos na amostra da Pesquisa sobre Padrões de Vida (PPV), realizada pelo IBGE nos anos 1996-97. <span class="citation">(Albieri and Bianchini <a href="#ref-albieri">1997</a>)</span> descrevem resumidamente a Pesquisa sobre Padrões de Vida (PPV), que foi realizada nas Regiões Nordeste e Sudeste do País, considerando 10 estratos geográficos, a saber: Região Metropolitana de Fortaleza, Região Metropolitana de Recife, Região Metropolitana de Salvador, restante da área urbana do Nordeste, restante da área rural do Nordeste, Região Metropolitana de Belo Horizonte, Região Metropolitana do Rio de Janeiro, Região Metropolitana de São Paulo, restante da área urbana do Sudeste e restante da área rural do Sudeste.</p>
@@ -653,9 +653,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">1.3</span> Laboratório de R do Capítulo 1.</h2>
 
 <div class="example">
-<span id="ex:unnamed-chunk-1" class="example"><strong>Exemplo 1.2 </strong></span>Utilização da library survey do R para estimar totais e razões na PPV
+<span id="exm:unnamed-chunk-1" class="example"><strong>Example 1.2  </strong></span>Utilização da library survey do R para estimar totais e razões na PPV
 </div>
-<p> Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (<code>PPV</code>) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo <a href="introduc.html#ex:distppv">1.1</a> . Inicialmente, vamos ler os dados e definir variáveis de interesse por meio de transformação das variáveis existentes.</p>
+<p> Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (<code>PPV</code>) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo <a href="introduc.html#exm:distppv">1.1</a> . Inicialmente, vamos ler os dados e definir variáveis de interesse por meio de transformação das variáveis existentes.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># leitura dos dados</span>
 ppv1 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;~</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">adac</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">ppv.rds&quot;</span>)
 <span class="kw">library</span>(survey)</code></pre></div>
@@ -722,7 +722,7 @@ ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> ~nse
 <p>Observe que as estimativas de totais e desvios padrão obtidas coincidem com as Tabela <a href="introduc.html#tab:epas">1.3</a>, porém as estimativas de Efeitos de Plano Amostral(DEff) são distintas.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-9" class="example"><strong>Exemplo 1.3 </strong></span>Exemplo anterior usando a library srvyr
+<span id="exm:unnamed-chunk-9" class="example"><strong>Example 1.3  </strong></span>Exemplo anterior usando a library srvyr
 </div>
 <p></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># leitura dos dados</span>
@@ -812,7 +812,7 @@ ppv.des &lt;-<span class="st"> </span><span class="kw">update</span> (ppv.des,<s
 <p>Observe que as estimativas de variância para o desenho verdadeiro (numerador do EPA) são iguais quando usamos: a variável <code>analf1.se</code> com o objeto de desenho <code>ppv.des</code> ou a variável <code>analf1</code> com o objeto <code>ppv.se.des</code>. Porém na estimativa do denominador do EPA, obtida a partir da função <code>Vwaas</code>, obtemos resultados diferentes quando usamos <code>analf1.se</code> ou <code>analf1</code>, com os pesos correspondentes. No segundo caso, a soma dos pesos não estima <span class="math inline">\(N\)</span>. Deve-se ter o cuidado, quando estimamos em um domínio, de trabalhar com pesos cuja soma seja um estimador do tamanho da população.</p>
 
 <div class="example">
-<span id="ex:unnamed-chunk-20" class="example"><strong>Exemplo 1.4 </strong></span>Utilização da library survey do R para estimar taxa de desocupação para um trimestre na PNADC
+<span id="exm:unnamed-chunk-20" class="example"><strong>Example 1.4  </strong></span>Utilização da library survey do R para estimar taxa de desocupação para um trimestre na PNADC
 </div>
 <p></p>
 <ul>
@@ -880,7 +880,7 @@ result</code></pre></div>
 ## 1 11.80303   0.1174791 0.9953299</code></pre>
 
 <div class="example">
-<span id="ex:unnamed-chunk-35" class="example"><strong>Exemplo 1.5 </strong></span>Utilização da library survey do R para análise de microdados da PNS
+<span id="exm:unnamed-chunk-35" class="example"><strong>Example 1.5  </strong></span>Utilização da library survey do R para análise de microdados da PNS
 </div>
 <p></p>
 <p>Leitura dos microdados usando a library <code>lodown</code><span class="citation">(Damico <a href="#ref-R-lodown">2016</a>)</span></p>
@@ -895,7 +895,7 @@ result</code></pre></div>
 </ol>
 
 <div class="remark">
-<span class="remark"><em>Observação </em></span>  Nos arquivos acima, além das variáveis contidas no dicionário da PNS, foram acrescentadas variáveis derivadas, utilizadas nos exemplos no site <a href="https://github.com/ajdamico/asdfree/tree/master/Pesquisa%20Nacional%20De%20Saude">asdfree.com</a>
+ <span class="remark"><em>Observação </em></span> Nos arquivos acima, além das variáveis contidas no dicionário da PNS, foram acrescentadas variáveis derivadas, utilizadas nos exemplos no site <a href="https://github.com/ajdamico/asdfree/tree/master/Pesquisa%20Nacional%20De%20Saude">asdfree.com</a>
 </div>
 <p></p>
 <p>Inicialmente, vamos estimar características de pessoas com 18 anos ou mais mais que responderam o questionário longo e salvar os microdados dessa amostra no data frame <code>pes_sel</code>.</p>
@@ -904,7 +904,7 @@ result</code></pre></div>
 <pre><code>## [1] 60202  1019</code></pre>
 
 <div class="remark">
-<span class="remark"><em>Observação </em></span>  No data frame pes_sel o nome das variáveis, obtidos por <code>names(pes_sel)</code>, estão em minúsculas. No dicionário da PNS os códigos correspondentes estão em maiúsculas.
+ <span class="remark"><em>Observação </em></span> No data frame pes_sel o nome das variáveis, obtidos por <code>names(pes_sel)</code>, estão em minúsculas. No dicionário da PNS os códigos correspondentes estão em maiúsculas.
 </div>
 <p> O data frame <code>pes_sel</code> contém as variáveis descritas no dicionário da <code>PNS</code> e algumas variáveis obtidas derivadas.</p>
 <p>O passo inicial para a análise dos microdados é definir um objeto de desenho que salva as características do plano amostral da pesquisa. Isso é feito por meio da função <code>svydesign()</code> da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>.</p>

@@ -87,3 +87,156 @@ companheirismo e solidariedade nesses meses de trabalho na preparação do manus
 Finalmente, agradecemos a nossas famílias pela aceitação
 resignada de nossas ausências e pelo incentivo à conclusão da
 empreitada.
+
+<!--chapter:end:index.Rmd-->
+
+
+# Introdução {#introduc}
+## Motivação
+## Objetivos do Livro
+## Laboratório de R do Capítulo 1. {#epa}
+### Estimativa do efeito de plano amostral (EPA)
+
+<!--chapter:end:01-Cap1.Rmd-->
+
+
+# Referencial para Inferência {#refinf}
+## Modelagem - Primeiras Idéias {#classic}
+### Abordagem 1 - Modelagem Clássica 
+### Abordagem 2 - Amostragem Probabilística
+### Discussão das Abordagens 1 e 2
+### Abordagem 3 - Modelagem de Superpopulação {#modelsuperpop}
+## Fontes de Variação
+## Modelos de Superpopulação
+## Planejamento Amostral {#planamo}
+## Planos Amostrais Informativos e Ignoráveis {#inform}
+
+<!--chapter:end:02-Cap2.Rmd-->
+
+
+# Estimação Baseada no Plano Amostral {#capplanamo}
+## Estimação de Totais {#estimatotais}
+## Por que Estimar Variâncias
+## Linearização de Taylor para Estimar variâncias {#taylor}
+## Método do Conglomerado Primário
+## Métodos de Replicação
+## Laboratório de R
+
+<!--chapter:end:03-Cap3.Rmd-->
+
+
+# Efeitos do Plano Amostral {#epa}
+## Introdução
+## Efeito do Plano Amostral (EPA) de Kish
+## Efeito do Plano Amostral Ampliado
+## Intervalos de Confiança e Testes de Hipóteses
+## Efeitos Multivariados de Plano Amostral
+## Laboratório de R
+
+<!--chapter:end:04-Cap4.Rmd-->
+
+
+# Ajuste  de Modelos Paramétricos{#ajmodpar}
+## Introdução {#modpar1}
+## Método de Máxima Verossimilhança (MV)
+## Ponderação de Dados Amostrais
+## Método de Máxima Pseudo-Verossimilhança {#modpar3}
+## Robustez do Procedimento MPV
+## Desvantagens da Inferência de Aleatorização
+## Laboratório de R
+
+<!--chapter:end:05-Cap5.Rmd-->
+
+
+# Modelos de Regressão {#modreg}
+## Modelo de Regressão Linear Normal {#modlinear}
+### Especificação do Modelo
+### Pseudo-parâmetros do Modelo
+### Estimadores de MPV dos Parâmetros do Modelo
+### Estimação da Variância de Estimadores de MPV
+## Modelo de Regressão Logística {#modlogist}
+## Teste de Hipóteses
+## Laboratório de R
+
+<!--chapter:end:06-Cap6.Rmd-->
+
+
+# Testes de Qualidade de Ajuste {#testqualajust}
+## Introdução
+## Teste para uma Proporção
+### Correção de Estatísticas Clássicas
+### Estatística de Wald
+## Teste para Várias Proporções
+### Estatística de Wald Baseada no Plano Amostral
+### Situações Instáveis
+### Estatística de Pearson com Ajuste de Rao-Scott {#raoscott}
+## Laboratório de R
+
+<!--chapter:end:07-Cap7.Rmd-->
+
+
+# Testes em Tabelas de Duas Entradas  {#testetab2}
+## Introdução
+## Tabelas 2x2 {#tabelas22}
+### Teste de Independência
+### Teste de Homogeneidade
+### Efeitos de Plano Amostral nas Celas
+## Tabelas de Duas Entradas (Caso Geral)
+### Teste de Homogeneidade
+### Teste de Independência
+### Estatística de Wald Baseada no Plano Amostral
+### Estatística de Pearson com Ajuste de Rao-Scott
+## Laboratório de R  
+
+<!--chapter:end:08-Cap8.Rmd-->
+
+
+# Estimação de densidades
+## Introdução
+
+<!--chapter:end:09-Cap9.Rmd-->
+
+
+# Modelos Hierárquicos
+## Introdução
+
+<!--chapter:end:10-Cap10.Rmd-->
+
+
+# Não-Resposta
+## Introdução
+
+<!--chapter:end:11-Cap11.Rmd-->
+
+
+# Diagnóstico de ajuste de modelo
+## Introdução
+
+<!--chapter:end:12-Cap12.Rmd-->
+
+
+# Agregação vs. Desagregação {#agregdesag}
+## Introdução 
+## Modelagem da Estrutura Populacional
+## Modelos Hierárquicos
+## Análise Desagregada: Prós e Contras
+
+<!--chapter:end:13-Cap13.Rmd-->
+
+
+# Pacotes para Analisar Dados Amostrais{#pacotes}
+## Introdução
+## Pacotes Computacionais
+
+<!--chapter:end:14-Cap14.Rmd-->
+
+
+# Placeholder
+
+<!--chapter:end:15-references.Rmd-->
+
+
+# Placeholder
+
+<!--chapter:end:TesteNotebook.Rmd-->
+

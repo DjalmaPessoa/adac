@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Análise de Dados Amostrais Complexos</title>
   <meta name="description" content="Análise de dados de pesquisas amostrais complexas.">
-  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="Análise de Dados Amostrais Complexos" />
   <meta property="og:type" content="book" />
@@ -571,14 +571,14 @@ f\left[ \mathbf{\delta }_a | \left( \mathbf{y}_U , \mathbf{x}_U \right)
 \right] = f\left( \mathbf{\delta }_a | \mathbf{x}_U \right) . \tag{2.7}
 \end{equation}\]</span>
 <p>Entre os planos amostrais , precisamos ainda distinguir duas outras situações de interesse. Quando o plano amostral é amostragem aleatória simples com reposição (AASC), o modelo adotado para a amostra é o mesmo que o modelo adotado para a população antes da amostragem. Quando isto ocorre, o plano amostral é dito , porque a inferência baseada na amostra utilizando a abordagem clássica descrita em <a href="refinf.html#classic">2.1</a> pode prosseguir sem problemas. Entretanto, esquemas amostrais desse tipo são raramente empregados na prática, por razões de eficiência e custo. Em vez disso, são geralmente empregados planos amostrais envolvendo estratificação, conglomeração e probabilidades desiguais de seleção (amostragem complexa).</p>
-<p>Com amostragem complexa, porém, os modelos para a população e a amostra podem ser muito diferentes (plano amostral ), mesmo que o mecanismo de seleção não dependa das variáveis de pesquisa, mas somente das variáveis auxiliares. Neste caso, ignorar o plano amostral pode viciar a inferência. Veja o Exemplo <a href="refinf.html#ex:nonigno">2.1</a> adiante.</p>
+<p>Com amostragem complexa, porém, os modelos para a população e a amostra podem ser muito diferentes (plano amostral ), mesmo que o mecanismo de seleção não dependa das variáveis de pesquisa, mas somente das variáveis auxiliares. Neste caso, ignorar o plano amostral pode viciar a inferência. Veja o Exemplo <a href="refinf.html#exm:nonigno">2.1</a> adiante.</p>
 <p>A definição precisa de ignorabilidade e as condições sob as quais um plano amostral é ignorável para inferência são bastante discutidas na literatura - veja por exemplo <span class="citation">(Sugden and Smith <a href="#ref-Sugden84">1984</a>)</span> ou os Capítulos 1 e 2 de <span class="citation">(Chambers and Skinner <a href="#ref-CHSK2003">2003</a>)</span>. Porém testar a ignorabilidade do plano amostral é muitas vezes complicado. Em caso de dificuldade, o uso de pesos tem papel fundamental.</p>
 <p>Uma forma simples de lidar com os efeitos do plano amostral na estimação pontual de quantidades descritivas populacionais de interesse é incorporar pesos adequados na análise, como se verá no Capítulo <a href="capplanamo.html#capplanamo">3</a>. Essa forma porém, não resolve por si só o problema de estimação da precisão das estimativas pontuais, nem mesmo o caso da estimação pontual de parâmetros em modelos de superpopulação, o que vai requerer métodos específicos discutidos no Capítulo <a href="ajmodpar.html#ajmodpar">5</a>.</p>
 <p>Como incluir os pesos para proteger contra planos amostrais  e a possibilidade de má especificação do modelo? Uma ideia é modificar os estimadores dos parâmetros de modo que sejam consistentes (em termos da distribuição de aleatorização) para quantidades descritivas da população finita da qual a amostra foi extraída, que por sua vez seriam boas aproximações para os parâmetros dos modelos de interesse. Afirmações probabilísticas são então feitas com respeito à distribuição de aleatorização das estatísticas amostrais <span class="math inline">\(p\)</span> ou com respeito à distribuição mista <span class="math inline">\(Mp\)</span>.</p>
 <p>A seguir apresentamos um exemplo com a finalidade de ilustrar uma situação de plano amostral não-ignorável.</p>
 
 <div class="example">
-<span id="ex:nonigno" class="example"><strong>Exemplo 2.1 </strong></span>Efeito da amostragem estratificada simples com alocação desproporcional
+<span id="exm:nonigno" class="example"><strong>Example 2.1  </strong></span>Efeito da amostragem estratificada simples com alocação desproporcional
 </div>
 <p></p>
 <p>Considere <span class="math inline">\(N\)</span> observações de uma população finita <span class="math inline">\(U\)</span> onde são consideradas de interesse duas variáveis binárias <span class="math inline">\((x_i ; y_i )\)</span>. Suponha que na população os vetores aleatórios <span class="math inline">\((X_i ; Y_i )\)</span> são independentes e identicamente distribuídos com distribuição de probabilidades conjunta dada por:</p>

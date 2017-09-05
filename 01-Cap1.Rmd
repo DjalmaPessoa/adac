@@ -582,6 +582,8 @@ opção interessante.
 Utilização da library survey do R para estimar totais e razões na PPV 
 ```
 Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref(ex:distppv) . Inicialmente, vamos ler os dados e definir variáveis de interesse por meio de transformação das variáveis existentes.
+
+
 ```{r, message=FALSE, warning=FALSE}
 # leitura dos dados
 ppv1 <- readRDS("~\\GitHub\\adac\\data\\ppv.rds")
