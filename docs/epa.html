@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Análise de Dados Amostrais Complexos</title>
   <meta name="description" content="Análise de dados de pesquisas amostrais complexas.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Análise de Dados Amostrais Complexos" />
   <meta property="og:type" content="book" />
@@ -245,7 +245,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Para medir o efeito do plano amostral sobre a variância de um estimador, Kish(1965) propôs uma medida que denominou <code>Efeito do Plano Amostral</code> (<span class="math inline">\(\mathbf{EPA}\)</span>) (em inglês, <em>design effect</em> ou, abreviadamente, <em>deff</em>). O objetivo desta medida é comparar planos amostrais no estágio de planejamento da pesquisa. O <span class="math inline">\(\mathbf{EPA}\)</span> de Kish é uma razão entre variâncias (de aleatorização) de um estimador, calculadas para dois planos amostrais alternativos. Vamos considerar um estimador <span class="math inline">\(\hat{\theta}\)</span> e calcular a variância de sua distribuição induzida pelo plano amostral complexo (verdadeiro) <span class="math inline">\(V_{VERD}\left( \hat{\theta}\right)\)</span> e a variância da distribuição do estimador induzida pelo plano de amostragem aleatória simples <span class="math inline">\(V_{AAS}\left(\hat{\theta}\right)\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-1" class="definition"><strong>Definição 4.1  </strong></span>O <strong>Efeito do Plano Amostral (<span class="math inline">\(EPA\)</span>)</strong> <strong>de Kish</strong> para um estimador <span class="math inline">\(\hat{\theta}\)</span> é
+<span id="def:unnamed-chunk-1" class="definition"><strong>Definição 4.1 </strong></span>O <strong>Efeito do Plano Amostral (<span class="math inline">\(EPA\)</span>)</strong> <strong>de Kish</strong> para um estimador <span class="math inline">\(\hat{\theta}\)</span> é
 </div>
 
 <span class="math display" id="eq:epa1">\[\begin{equation}
@@ -253,7 +253,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Para ilustrar o conceito do <span class="math inline">\(\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)\)</span>, vamos considerar um exemplo.</p>
 
 <div class="example">
-<span id="exm:epakish" class="example"><strong>Example 4.1  </strong></span>Efeitos de plano amostral de Kish para estimadores de totais com amostragem conglomerada em dois estágios.
+<span id="ex:epakish" class="example"><strong>Exemplo 4.1 </strong></span>Efeitos de plano amostral de Kish para estimadores de totais com amostragem conglomerada em dois estágios.
 </div>
 <p></p>
 <p><span class="citation">(Nascimento Silva and Moura <a href="#ref-SilvaMou">1990</a>)</span> estimaram o <span class="math inline">\(\mathbf{EPA}_{Kish}\)</span> para estimadores de totais de várias variáveis sócio-econômicas no nível das Regiões Metropolitanas (RMs) utilizando dados do questionário de amostra do Censo Demográfico de 1980. Essas medidas estimadas do efeito do plano amostral foram calculadas para três esquemas amostrais alternativos, todos considerando amostragem conglomerada de domicílios em dois estágios, tendo o setor censitário como unidade primária e o domicílio como unidade secundária de amostragem. Duas das alternativas consideraram seleção de setores com equiprobabilidade via amostragem aleatória simples sem reposição (AC2AAS) e fração amostral constante de domicílios no segundo estágio (uma usando o estimador simples ou <span class="math inline">\(\pi\)</span>-ponderado do total, e outra usando o estimador de razão para o total calibrando no número total de domicílios da população), e uma terceira alternativa considerou a seleção de setores com probabilidades proporcionais ao tamanho (número de domicílios por setor), denominada AC2PPT, e a seleção de <span class="math inline">\(15\)</span> domicílios em cada setor da amostra, e empregando o correspondente estimador <span class="math inline">\(\pi\)</span>-ponderado. Os resultados referentes à Região Metropolitana do Rio de Janeiro para algumas variáveis são apresentados na Tabela <a href="epa.html#tab:epakish">4.1</a> a título de ilustração. Note que a população alvo considera apenas moradores em domicílios particulares permanentes na Região Metropolitana do Rio de Janeiro.</p>
@@ -436,13 +436,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="efeito-do-plano-amostral-ampliado" class="section level2">
 <h2><span class="header-section-number">4.3</span> Efeito do Plano Amostral Ampliado</h2>
-<p>O que se observou no Exemplo <a href="epa.html#exm:epakish">4.1</a> com respeito à dificuldade de uso dos EPAs de Kish calculados para fins analíticos também se aplica para outras situações e é uma deficiência estrutural do conceito de EPA proposto por Kish. Para tentar contornar essa dificuldade, é necessário considerar um conceito ampliado de EPA, correspondente ao conceito de <em>misspecification effect</em> <code>meff</code> proposto por p. 24, <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, que apresentamos e discutimos nesta seção.</p>
+<p>O que se observou no Exemplo <a href="epa.html#ex:epakish">4.1</a> com respeito à dificuldade de uso dos EPAs de Kish calculados para fins analíticos também se aplica para outras situações e é uma deficiência estrutural do conceito de EPA proposto por Kish. Para tentar contornar essa dificuldade, é necessário considerar um conceito ampliado de EPA, correspondente ao conceito de <em>misspecification effect</em> <code>meff</code> proposto por p. 24, <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, que apresentamos e discutimos nesta seção.</p>
 <p>Para introduzir este conceito ampliado de EPA, que tem utilidade também para fins de inferência analítica, vamos agora considerar um modelo subjacente às observações usadas para o cálculo do estimador pontual <span class="math inline">\(\hat{\theta}\)</span>. Designemos por <span class="math inline">\(v_{0}=\widehat{V}_{IID}\left( \hat{\theta}\right)\)</span> um estimador usual (consistente) da variância de <span class="math inline">\(\hat{\theta}\)</span> calculado sob a hipótese (ingênua) de que as observações são IID. A inadequação da hipótese de IID poderia ser consequência ou de estrutura da população ou de efeito de plano amostral complexo. Em qualquer dos casos, a estimativa <span class="math inline">\(v_{0}\)</span> da variância de <span class="math inline">\(\hat{\theta}\)</span> calculada sob a hipótese de observações IID se afastaria da variância de <span class="math inline">\(\hat{\theta}\)</span> sob o plano amostral (ou modelo) verdadeiro, denotada <span class="math inline">\(V_{VERD}\left( \hat{\theta}\right)\)</span>. Note que <span class="math inline">\(V_{VERD}\left( \hat{\theta}\right) =V_{M}\left( \hat{\theta}\right)\)</span> na abordagem baseada em modelos e <span class="math inline">\(V_{VERD}\left( \hat{\theta}\right) =V_{p}\left( \hat{\theta}\right)\)</span> na abordagem de aleatorização.</p>
 <p>Para avaliar se este afastamento tende a ser grande ou pequeno, vamos considerar a distribuição de <span class="math inline">\(v_{0}\)</span> com relação à distribuição de aleatorização verdadeira (ou do modelo verdadeiro) e localizar <span class="math inline">\(V_{VERD}\left( \hat{\theta}\right)\)</span> com relação a esta distribuição de referência. Como em geral seria complicado obter esta distribuição, vamos tomar uma medida de centro ou locação da mesma e compará-la a <span class="math inline">\(V_{VERD}\left(\hat{\theta}\right)\)</span>.</p>
 <p>Podemos desta forma introduzir uma medida de efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-2" class="definition"><strong>Definição 4.2  </strong></span>O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span> é
+<span id="def:unnamed-chunk-2" class="definition"><strong>Definição 4.2 </strong></span>O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa <span class="math inline">\(v_{0}\)</span> da variância do estimador <span class="math inline">\(\hat{\theta}\)</span> é
 </div>
 <p></p>
 <span class="math display" id="eq:epa2">\[\begin{equation}
@@ -460,7 +460,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Combinações destes aspectos num mesmo plano amostral, resultando na especificação incorreta do plano amostral subjacente a <span class="math inline">\(v_{0},\)</span> podem inflacionar ou reduzir o <span class="math inline">\(\mathbf{EPA}\)</span>. Nesses casos é difícil prever o impacto de ignorar o plano amostral (ou modelo) verdadeiro sobre a análise baseada em hipóteses IID. Por essa razão, é recomendável ao menos estimar os EPAs antes de concluir a análise padrão, para poder então avaliar se há impactos importantes a considerar.</p>
 
 <div class="example">
-<span id="exm:deffuni" class="example"><strong>Example 4.2  </strong></span>Efeitos de plano amostral para estimação de médias na amostragem estratificada simples com alocação desproporcional
+<span id="ex:deffuni" class="example"><strong>Exemplo 4.2 </strong></span>Efeitos de plano amostral para estimação de médias na amostragem estratificada simples com alocação desproporcional
 </div>
 <p></p>
 <p>Neste exemplo consideramos uma população de <span class="math inline">\(N=749\)</span> empresas, para as quais foram observadas as seguintes variáveis:</p>
@@ -734,18 +734,18 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 </table>
 
 <div class="remark">
- <span class="remark"><em>Observação </em></span> Neste exemplo não foi feito uso analítico dos dados e sim descritivo, onde é usual incorporar os pesos no cálculo de estimativas e variâncias. Não seria esperado usar um estimador ponderado para a média e não considerar os pesos no cálculo de variâncias, como fizemos neste exemplo.
+<span class="remark"><em>Observação </em></span>  Neste exemplo não foi feito uso analítico dos dados e sim descritivo, onde é usual incorporar os pesos no cálculo de estimativas e variâncias. Não seria esperado usar um estimador ponderado para a média e não considerar os pesos no cálculo de variâncias, como fizemos neste exemplo.
 </div>
 <p></p>
 
 <div class="remark">
- <span class="remark"><em>Observação </em></span> O exemplo mostra que ignorar a estratificação ao calcular <span class="math inline">\(v_{0}\)</span> diminui o <span class="math inline">\(\mathbf{EPA}\)</span>.
+<span class="remark"><em>Observação </em></span>  O exemplo mostra que ignorar a estratificação ao calcular <span class="math inline">\(v_{0}\)</span> diminui o <span class="math inline">\(\mathbf{EPA}\)</span>.
 </div>
 <p></p>
 <p>Um outro exemplo relevante é utilizado a seguir para ilustrar o fato de que o conceito do <span class="math inline">\(\mathbf{EPA}\)</span> adotado aqui é mais abrangente do que o definido por Kish, em particular porque a origem do efeito pode estar na estrutura da população e não no plano amostral usado para obter os dados.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-5" class="example"><strong>Example 4.3  </strong></span>População conglomerada com conglomerados de tamanho 2 <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, p. 25
+<span id="ex:unnamed-chunk-5" class="example"><strong>Exemplo 4.3 </strong></span>População conglomerada com conglomerados de tamanho 2 <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, p. 25
 </div>
 <p></p>
 <p>Considere uma população de conglomerados de tamanho 2, isto é, onde as unidades (elementares ou de referência) estão grupadas em pares (exemplos de tais populações incluem pares de irmãos gêmeos, casais, jogadores numa dupla de vôlei de praia ou tênis, etc.). Suponha que os valores de uma variável de pesquisa medida nessas unidades têm média <span class="math inline">\(\theta\)</span> e variância <span class="math inline">\(\sigma ^{2}\)</span>, além de uma correlação <span class="math inline">\(\rho\)</span> entre os valores dentro de cada par (correlação intraclasse, veja <span class="citation">(Nascimento Silva and Moura <a href="#ref-SilvaMou">1990</a>)</span>, cap. 2 e <span class="citation">(Haggard <a href="#ref-haggard">1958</a>)</span>. Suponha que um único par é sorteado ao acaso da população e que os valores <span class="math inline">\(y_{1}\)</span> e <span class="math inline">\(y_{2}\)</span> são observados para as duas unidades do par selecionado. O modelo assumido pode então ser representado como <span class="math display">\[
@@ -889,7 +889,7 @@ t_{0}\sim N\left[ 0;\mathbf{EPA}\left( \hat{\theta},v_{0}\right)
 <p>Utilizando a correspondência existente entre intervalos de confiança e testes de hipóteses, podemos derivar os níveis de significância nominais e reais subtraindo de <span class="math inline">\(1\)</span> os valores da Tabela <a href="epa.html#tab:procob">4.6</a>. Por exemplo, para <span class="math inline">\(\alpha =0,05\)</span> e <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =2\)</span>, o nível de significância real seria aproximadamente <span class="math inline">\(1-0,83=0,17\)</span>.</p>
 
 <div class="example">
-<span id="exm:exebin" class="example"><strong>Example 4.4  </strong></span>Teste de hipótese sobre proporção
+<span id="ex:exebin" class="example"><strong>Exemplo 4.4 </strong></span>Teste de hipótese sobre proporção
 </div>
 <p> Vamos considerar um exemplo hipotético de teste de hipótese sobre uma proporção, semelhante ao de <span class="citation">(Sudman <a href="#ref-Sud76">1976</a>)</span>, apresentado em p. 196, <span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span>. Uma amostra de <span class="math inline">\(m=50\)</span> conglomerados é extraída de uma grande população de empresas industriais (conglomerados). Suponhamos que cada empresa <span class="math inline">\(i=1,\ldots ,50\)</span> da amostra tenha <span class="math inline">\(n_{i}=20\)</span> empregados. O tamanho total da amostra de empregados (unidades elementares) é <span class="math inline">\(n=\sum_{i}n_{i}=1.000\)</span>. Queremos estudar o acesso dos trabalhadores das empresas a planos de saúde.</p>
 <p>Usando-se conhecimento do ano anterior, foi estabelecida a hipótese de que a proporção de trabalhadores cobertos por planos de saúde é <span class="math inline">\(80\%\)</span>, ou seja <span class="math inline">\(H_{0}:p=p_{0}=0,8\)</span>. Vamos adotar o nível de significância <span class="math inline">\(\alpha =5\%\)</span>.</p>
@@ -926,13 +926,13 @@ Os autovalores <span class="math inline">\(\delta _{1}\geq \ldots \geq \delta _{
 \theta }}\mathbf{,c}^{^{\prime }}\mathbf{V}_{0}\mathbf{c)}, \\
 \delta _{K} &amp;=&amp;\min \mathbf{EPA}(\mathbf{c}^{^{\prime }}\widehat{\mathbf{\theta }}\mathbf{,c}^{^{\prime }}\mathbf{V}_{0}\mathbf{c)}.
 \end{eqnarray*}\]</span>
-<p>No caso particular onde <span class="math inline">\(\mathbf{\Delta =I}_{K\times K}\)</span> , temos <span class="math inline">\(\delta_{1}=\ldots =\delta _{K}=1\)</span> e os efeitos (univariados) do plano amostral das combinações lineares para componentes de <span class="math inline">\(\mathbf{\hat{\theta}}\)</span> são todos iguais a <span class="math inline">\(1\)</span>. Para ilustrar esse conceito, vamos reconsiderar o Exemplo <a href="epa.html#exm:deffuni">4.2</a> de estimação de médias com amostragem estratificada desproporcional anteriormente apresentado, mas agora considerando a natureza multivariada do problema (há duas variáveis de pesquisa).</p>
+<p>No caso particular onde <span class="math inline">\(\mathbf{\Delta =I}_{K\times K}\)</span> , temos <span class="math inline">\(\delta_{1}=\ldots =\delta _{K}=1\)</span> e os efeitos (univariados) do plano amostral das combinações lineares para componentes de <span class="math inline">\(\mathbf{\hat{\theta}}\)</span> são todos iguais a <span class="math inline">\(1\)</span>. Para ilustrar esse conceito, vamos reconsiderar o Exemplo <a href="epa.html#ex:deffuni">4.2</a> de estimação de médias com amostragem estratificada desproporcional anteriormente apresentado, mas agora considerando a natureza multivariada do problema (há duas variáveis de pesquisa).</p>
 
 <div class="example">
-<span id="exm:deffmult" class="example"><strong>Example 4.5  </strong></span>Efeitos Multivariados do Plano Amostral para as médias de Salários e de Receitas
+<span id="ex:deffmult" class="example"><strong>Exemplo 4.5 </strong></span>Efeitos Multivariados do Plano Amostral para as médias de Salários e de Receitas
 </div>
 <p></p>
-<p>Vamos considerar as variáveis Salário (em R$ <span class="math inline">\(1.000\)</span>) e Receita (em R$ <span class="math inline">\(1.000.000\)</span>) definidas na população de empresas do Exemplo <a href="epa.html#exm:deffuni">4.2</a> e calcular a matriz <span class="math inline">\(\mathbf{EMPA}\left( \mathbf{\hat{\theta},V}_{0}\right)\)</span>, onde <span class="math inline">\(\mathbf{\hat{\theta}=}\left( \overline{SAL}_{w},\overline{REC}_{w}\right) ^{\prime }\)</span>. Neste exemplo, os dados populacionais são conhecidos, e portanto podemos calcular a covariância dos estimadores <span class="math inline">\(\left( \overline{SAL}_{w},\overline{REC}_{w}\right)\)</span>. Usando a mesma notação do Exemplo <a href="epa.html#exm:deffuni">4.2</a>, temos que <span class="math display">\[
+<p>Vamos considerar as variáveis Salário (em R$ <span class="math inline">\(1.000\)</span>) e Receita (em R$ <span class="math inline">\(1.000.000\)</span>) definidas na população de empresas do Exemplo <a href="epa.html#ex:deffuni">4.2</a> e calcular a matriz <span class="math inline">\(\mathbf{EMPA}\left( \mathbf{\hat{\theta},V}_{0}\right)\)</span>, onde <span class="math inline">\(\mathbf{\hat{\theta}=}\left( \overline{SAL}_{w},\overline{REC}_{w}\right) ^{\prime }\)</span>. Neste exemplo, os dados populacionais são conhecidos, e portanto podemos calcular a covariância dos estimadores <span class="math inline">\(\left( \overline{SAL}_{w},\overline{REC}_{w}\right)\)</span>. Usando a mesma notação do Exemplo <a href="epa.html#ex:deffuni">4.2</a>, temos que <span class="math display">\[
 COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=}\sum\limits_{h=1}^{2}W_{h}^{2}\frac{\left( 1-f_{h}\right) }{n_{h}}S_{SAL,REC}^{\left( h\right) } 
 \]</span> onde <span class="math display">\[
 S_{SAL,REC}^{\left( h\right) }=\frac{1}{N_{h}-1}\sum\limits_{i\in
@@ -950,8 +950,8 @@ COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3,2358
 \end{array}
 \right]   \tag{4.7}
 \end{equation}\]</span>
-<p>onde os valores das variâncias em <a href="epa.html#eq:epa7">(4.7)</a> foram os calculados no Exemplo <a href="epa.html#exm:deffuni">4.2</a> e coincidem, respectivamente, com os valores usados nos numeradores de <span class="math inline">\(\mathbf{EPA}\left( \overline{SAL}_{w}\right)\)</span> e de <span class="math inline">\(\mathbf{EPA}\left( \overline{REC}_{w}\right)\)</span> lá apresentados. Para calcular o <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})\)</span> é preciso agora obter <span class="math inline">\(\mathbf{E}_{VERD}\left(\mathbf{V}_{0}\right)\)</span>.</p>
-<p>Neste exemplo, a matriz de efeito do plano amostral <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})=\mathbf{\Delta }\)</span> pode também ser calculada através de simulação, de modo análogo ao que foi feito no Exemplo <a href="epa.html#exm:deffuni">4.2</a>. Para isto, foram utilizadas outras <span class="math inline">\(500\)</span> amostras de tamanho <span class="math inline">\(60\)</span> segundo o plano amostral descrito no Exemplo <a href="epa.html#exm:deffuni">4.2</a>. Para cada uma das <span class="math inline">\(500\)</span> amostras foram calculadas estimativas:</p>
+<p>onde os valores das variâncias em <a href="epa.html#eq:epa7">(4.7)</a> foram os calculados no Exemplo <a href="epa.html#ex:deffuni">4.2</a> e coincidem, respectivamente, com os valores usados nos numeradores de <span class="math inline">\(\mathbf{EPA}\left( \overline{SAL}_{w}\right)\)</span> e de <span class="math inline">\(\mathbf{EPA}\left( \overline{REC}_{w}\right)\)</span> lá apresentados. Para calcular o <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})\)</span> é preciso agora obter <span class="math inline">\(\mathbf{E}_{VERD}\left(\mathbf{V}_{0}\right)\)</span>.</p>
+<p>Neste exemplo, a matriz de efeito do plano amostral <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})=\mathbf{\Delta }\)</span> pode também ser calculada através de simulação, de modo análogo ao que foi feito no Exemplo <a href="epa.html#ex:deffuni">4.2</a>. Para isto, foram utilizadas outras <span class="math inline">\(500\)</span> amostras de tamanho <span class="math inline">\(60\)</span> segundo o plano amostral descrito no Exemplo <a href="epa.html#ex:deffuni">4.2</a>. Para cada uma das <span class="math inline">\(500\)</span> amostras foram calculadas estimativas:</p>
 <ol style="list-style-type: decimal">
 <li><p>da variância da média amostral ponderada do salário e da receita assumindo observações IID;</p></li>
 <li><p>da covariância entre médias ponderadas do salário e da receita assumindo observações IID;</p></li>
@@ -1117,7 +1117,7 @@ _{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) &gt;\chi _{\alpha
 <div id="laboratorio-de-r-1" class="section level2">
 <h2><span class="header-section-number">4.6</span> Laboratório de R</h2>
 <p>Vale a pena incluir as contas que não dependem da simulação?</p>
-<p>Exemplo <a href="epa.html#exm:deffuni">4.2</a> Parte de simulação do exemplo para salario</p>
+<p>Exemplo <a href="epa.html#ex:deffuni">4.2</a> Parte de simulação do exemplo para salario</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)</code></pre></div>
 <pre><code>## Warning: package &#39;survey&#39; was built under R version 3.4.1</code></pre>
 <pre><code>## Carregando pacotes exigidos: grid</code></pre>
@@ -1165,10 +1165,10 @@ rec_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(rec.
 
 epa_sal1 &lt;-<span class="st"> </span>sal_res_mean[<span class="dv">4</span>]/sal_res_mean[<span class="dv">3</span>]
 epa_sal1</code></pre></div>
-<pre><code>## [1] 0.1400813</code></pre>
+<pre><code>## [1] 0.1416415</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">epa_rec1 &lt;-<span class="st"> </span>rec_res_mean[<span class="dv">4</span>]/rec_res_mean[<span class="dv">3</span>]
 epa_rec1</code></pre></div>
-<pre><code>## [1] 0.3345539</code></pre>
+<pre><code>## [1] 0.3972986</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 vp_sal_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(sal~estrat, popul, var)

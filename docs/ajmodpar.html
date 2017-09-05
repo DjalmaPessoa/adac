@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Análise de Dados Amostrais Complexos</title>
   <meta name="description" content="Análise de dados de pesquisas amostrais complexas.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Análise de Dados Amostrais Complexos" />
   <meta property="og:type" content="book" />
@@ -276,7 +276,7 @@ J\left( \mathbf{\hat{\theta}}\right) =\left. J\left( \mathbf{\theta }\right)
 <p>O papel da ponderação <code>na análise de dados amostrais</code> é alvo de controvérsia entre os estatísticos. Apesar de incorporada comumente na inferência descritiva, não há concordância com respeito a seu uso na inferência analítica, havendo um espectro de opiniões entre dois extremos. Num extremo estão os <code>modelistas</code>, que consideram o uso de pesos irrelevante, e no outro os <code>amostristas</code>, que incorporam pesos em qualquer análise.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-1" class="example"><strong>Example 1.2  </strong></span>Uso analítico dos dados da Pesquisa Nacional por Amostra de Domicílios (PNAD)
+<span id="ex:unnamed-chunk-1" class="example"><strong>Exemplo 1.2 </strong></span>Uso analítico dos dados da Pesquisa Nacional por Amostra de Domicílios (PNAD)
 </div>
 <p></p>
 <p>A título de ilustração, consideremos uma pesquisa com uma amostra complexa como a da PNAD do IBGE, que emprega uma amostra estratificada de domicílios em três estágios, tendo como unidades primárias de amostragem (UPAs) os municípios, que são estratificados segundo as unidades da federação (UFs), e regiões menores dentro das UFs (veja IBGE, 1981, p. 67).</p>
@@ -369,7 +369,7 @@ onde
 <p>Seja <span class="math inline">\(\mathbf{T}=\sum_{i\in U}\mathbf{u}_{i}\left( \mathbf{\theta }\right)\)</span> a soma dos vetores de escores na população, o qual é um vetor de totais populacionais. Para estimar este vetor de totais, podemos então usar um estimador linear ponderado da forma <span class="math inline">\(\mathbf{\hat{T}}=\sum_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta }\right)\)</span> (veja Capítulo <a href="refinf.html#planamo">2.4</a>) onde <span class="math inline">\(w_{i}\)</span> são pesos propriamente definidos. Com essa notação, podemos agora obter um estimador para <span class="math inline">\(\mathbf{\theta }_{U}\)</span> resolvendo o sistema de equações obtido igualando o estimador <span class="math inline">\(\mathbf{\hat{T}}\)</span> do total <span class="math inline">\(\mathbf{T}\)</span> a zero.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-2" class="definition"><strong>Definição 4.2  </strong></span>O estimador de Máxima Pseudo-Verossimilhança (MPV) <span class="math inline">\(\mathbf{\hat{\theta}}_{MPV}\)</span> de <span class="math inline">\(\mathbf{\theta }_{U}\)</span> (e consequentemente de <span class="math inline">\(\mathbf{\theta}\)</span>) será a solução das equações dePseudo-Verossimilhança dadas por
+<span id="def:unnamed-chunk-2" class="definition"><strong>Definição 4.2 </strong></span>O estimador de Máxima Pseudo-Verossimilhança (MPV) <span class="math inline">\(\mathbf{\hat{\theta}}_{MPV}\)</span> de <span class="math inline">\(\mathbf{\theta }_{U}\)</span> (e consequentemente de <span class="math inline">\(\mathbf{\theta}\)</span>) será a solução das equações dePseudo-Verossimilhança dadas por
 <span class="math display" id="eq:modpar7">\[\begin{equation}
 \mathbf{\hat{T}}=\sum_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta }
 \right) =\mathbf{0\;\;.}  
@@ -456,17 +456,17 @@ s}\pi _{i}^{-1}\left. \frac{\partial \mathbf{u}_{i}\left( \mathbf{\theta }
 </ol>
 
 <div class="remark">
- <span class="remark"><em>Observação </em></span> No Método de Máxima Pseudo-Verossimilhança, os pesos amostrais são incorporados na análise através das equações de estimação dos parâmetros <a href="ajmodpar.html#eq:modpar7">(5.7)</a> e através das equações de estimação da matriz de covariância dos estimadores <a href="ajmodpar.html#eq:modpar13">(5.13)</a>-<a href="ajmodpar.html#eq:modpar15">(5.15)</a>.
+<span class="remark"><em>Observação </em></span>  No Método de Máxima Pseudo-Verossimilhança, os pesos amostrais são incorporados na análise através das equações de estimação dos parâmetros <a href="ajmodpar.html#eq:modpar7">(5.7)</a> e através das equações de estimação da matriz de covariância dos estimadores <a href="ajmodpar.html#eq:modpar13">(5.13)</a>-<a href="ajmodpar.html#eq:modpar15">(5.15)</a>.
 </div>
 <p></p>
 
 <div class="remark">
- <span class="remark"><em>Observação </em></span> O plano amostral é também incorporado no método de estimação MPV através da expressão para a variância do total dos escores sob o plano amostral <a href="ajmodpar.html#eq:modpar14">(5.14)</a>, onde as propriedades do plano amostral estão resumidas nas probabilidades de inclusão de primeira e segunda ordem, isto é, os <span class="math inline">\(\pi _{i}\)</span> e os <span class="math inline">\(\pi _{ij}\)</span> respectivamente.
+<span class="remark"><em>Observação </em></span>  O plano amostral é também incorporado no método de estimação MPV através da expressão para a variância do total dos escores sob o plano amostral <a href="ajmodpar.html#eq:modpar14">(5.14)</a>, onde as propriedades do plano amostral estão resumidas nas probabilidades de inclusão de primeira e segunda ordem, isto é, os <span class="math inline">\(\pi _{i}\)</span> e os <span class="math inline">\(\pi _{ij}\)</span> respectivamente.
 </div>
 <p></p>
 
 <div class="remark">
- <span class="remark"><em>Observação </em></span> Sob probabilidades de seleção iguais, os pesos <span class="math inline">\(\pi _{i}^{-1}\)</span> serão constantes e o estimador pontual <span class="math inline">\(\hat{\theta}_{\pi }\)</span> será idêntico ao estimador de Máxima Verossimilhança (MV) ordinário para uma amostra de observações IID com distribuição <span class="math inline">\(f\left(\mathbf{y;\theta }\right)\)</span>. Entretanto, o mesmo não ocorre em se tratando da variância do estimador <span class="math inline">\(\hat{\theta}_{\pi }\)</span> , que difere da variância sob o modelo do estimador usual de MV.
+<span class="remark"><em>Observação </em></span>  Sob probabilidades de seleção iguais, os pesos <span class="math inline">\(\pi _{i}^{-1}\)</span> serão constantes e o estimador pontual <span class="math inline">\(\hat{\theta}_{\pi }\)</span> será idêntico ao estimador de Máxima Verossimilhança (MV) ordinário para uma amostra de observações IID com distribuição <span class="math inline">\(f\left(\mathbf{y;\theta }\right)\)</span>. Entretanto, o mesmo não ocorre em se tratando da variância do estimador <span class="math inline">\(\hat{\theta}_{\pi }\)</span> , que difere da variância sob o modelo do estimador usual de MV.
 </div>
 <p></p>
 <p><strong>Vantagens do procedimento de MPV</strong></p>
@@ -499,7 +499,7 @@ s}\pi _{i}^{-1}\left. \frac{\partial \mathbf{u}_{i}\left( \mathbf{\theta }
 <p>Nesse caso, o parâmetro <span class="math inline">\(\mathbf{\theta }\)</span> do modelo não tem interpretação substantiva significante, porém a QDPC <span class="math inline">\(\mathbf{\theta }_{U}\)</span> é uma entidade definida na população finita (real) com interpretação clara, independente da validade do modelo. Como <span class="math inline">\(\mathbf{\hat{\theta}}_{MPV}\)</span> é consistente para a QDPC <span class="math inline">\(\mathbf{\theta}_{U}\)</span>, a inferência baseada no procedimento MPV segue válida para este pseudo-parâmetro, independente da inadequação do modelo para a população. <span class="citation">(Skinner 1989b)</span>, p. 81, discute essa situação, mostrando que <span class="math inline">\(\mathbf{\theta }_{U}\)</span> pode ainda ser um alvo válido para inferência mesmo quando o modelo <span class="math inline">\(f\left( \mathbf{y};\mathbf{\theta }\right)\)</span> especificado para a população é inadequado, ao menos no sentido de que <span class="math inline">\(f\left( \mathbf{y};\mathbf{\theta}_{U}\right)\)</span> forneceria a <code>melhor aproximação possível</code> (em certo sentido) para o verdadeiro modelo que gera as observações populacionais (<span class="math inline">\(f^{*}\left( \mathbf{y};\mathbf{\eta }\right)\)</span>, digamos). Skinner(1989b) reconhece que a <code>melhor aproximação possível</code> entre um conjunto de aproximações ruins ainda seria uma aproximação ruim, e portanto que a escolha do elenco de modelos especificados pela distribuição <span class="math inline">\(f\left( \mathbf{y};\mathbf{\theta }\right)\)</span> deve seguir os cuidados necessários para garantir que esta escolha forneça uma aproximação razoável da realidade.</p>
 
 <div class="remark">
- <span class="remark"><em>Observação </em></span> Consistência referente à distribuição de aleatorização.
+<span class="remark"><em>Observação </em></span>  Consistência referente à distribuição de aleatorização.
 </div>
 <p></p>
 <p>Consistência na teoria clássica tem a ver com comportamento limite de um estimador quando o tamanho da amostra cresce, isto é, quando <span class="math inline">\(n\rightarrow \infty\)</span>. No caso de populações finitas, temos que considerar o que ocorre quando crescem o tamanho da amostra e também o tamanho da população, isto é, quando <span class="math inline">\(n\rightarrow \infty\)</span> e <span class="math inline">\(N\rightarrow \infty\)</span>. Neste caso, é preciso definir a maneira pela qual <span class="math inline">\(N\uparrow\)</span> e <span class="math inline">\(n\uparrow\)</span> preservando a estrutura do plano amostral. Para evitar um desvio indesejado que a discussão deste problema traria, vamos supor que <span class="math inline">\(N\uparrow\)</span> e <span class="math inline">\(n\uparrow\)</span> de uma forma bem definida. Os leitores interessados poderão consultar: <span class="citation">(Särndal, Swensson, and Wretman <a href="#ref-SSW92">1992</a>)</span>, p. 166, <span class="citation">(Brewer <a href="#ref-brewer">1979</a>)</span>, <span class="citation">(Isaki and Fuller <a href="#ref-Isaki">1982</a>)</span>, <span class="citation">(Robinson and Särndal <a href="#ref-Robin">1983</a>)</span>, <span class="citation">(Hájek <a href="#ref-hajek">1960</a>)</span> e <span class="citation">(Skinner, Holt, and Smith <a href="#ref-SHS89">1989</a>)</span>, p. 18-19.</p>
@@ -509,7 +509,7 @@ s}\pi _{i}^{-1}\left. \frac{\partial \mathbf{u}_{i}\left( \mathbf{\theta }
 <p>Se o modelo postulado para os dados amostrais for correto, o uso de estimadores ponderados pode resultar em perda substancial de eficiência comparado com o estimador ótimo, sob o modelo. Em geral, a perda de eficiência aumenta quando diminui o tamanho da amostra e aumenta a variação dos pesos. Há casos onde a ponderação é a única alternativa. Por exemplo, se os dados disponíveis já estão na forma de estimativas amostrais ponderadas, então o uso de pesos é inevitável. Um exemplo clássico é discutido a seguir.</p>
 
 <div class="example">
-<span id="exm:Analisec" class="example"><strong>Example 5.1  </strong></span>Análise secundária de tabelas de contingência.
+<span id="ex:Analisec" class="example"><strong>Exemplo 5.1 </strong></span>Análise secundária de tabelas de contingência.
 </div>
 <p></p>
 <p>A pesquisa <code>Canada Health Survey</code> usa um plano amostral estratificado com vários estágios de seleção. Nessa pesquisa, a estimativa de contagem na cela <span class="math inline">\(k\)</span> de uma tabela de contingência qualquer é dada por <span class="math display">\[
