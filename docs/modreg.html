@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Análise de Dados Amostrais Complexos</title>
   <meta name="description" content="Análise de dados de pesquisas amostrais complexas.">
-  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="Análise de Dados Amostrais Complexos" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-05">
+<meta name="date" content="2017-09-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -474,9 +474,9 @@ _{i}^{\prime }\mathbf{\beta }\right) \right] \mathbf{z}_{i}  \tag{6.26}
 <p>Vale observar que, tal como no caso da modelagem clássica, a obtenção dos estimadores de MPV dos parâmetros no modelo de regressão logística depende da solução por métodos numéricos de um sistema de equações. Portanto é importante dispor de um pacote computacional adequado para efetuar os cálculos. Hoje em dia já estão disponíveis vários pacotes com essa funcionalidade, conforme se discute no Capítulo <a href="pacotes.html#pacotes">14</a>.</p>
 
 <div class="example">
-<span id="ex:pnad" class="example"><strong>Exemplo 6.1 </strong></span>Análise do perfil sócio-econômico das pessoas ocupadas no setor informal da economia na área urbana do Rio de Janeiro
+<span id="exm:pnad" class="example"><strong>Example 6.1  </strong></span>Análise do perfil sócio-econômico das pessoas ocupadas no setor informal da economia na área urbana do Rio de Janeiro
 </div>
-<p></p>
+
 <p>Utilizando dados do Suplemento Trabalho da Pesquisa Nacional por Amostra de Domicílios (<strong>PNAD</strong>) de 90, Leote(1996) analisou o perfil sócio-econômico das pessoas ocupadas no setor informal da economia na área urbana do Rio de Janeiro.</p>
 <p>Os dados utilizados são relativos a pessoas que:</p>
 <ul>
@@ -508,7 +508,7 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 <p>onde <span class="math inline">\(p_{ijklm}\)</span> é a probabilidade de pertencer ao setor informal correspondente à combinação de níveis das variáveis explicativas, sendo i=1, 2 o nível de sx; j=1, 2, 3 o nível de ae; k=1, 2, 3 o nível de ht; l=1, 2, 3, 4 o nível de id e m=1, 2, 3 o nível de re.</p>
 <p>Os efeitos foram adicionados sequencialmente na ordem da Tabela . Depois de introduzidos os efeitos principais, as interações de dois fatores foram introduzidas na ordem definida pela <code>função step do S-Plus</code>.</p>
 <p>O <span class="math inline">\(p\)</span>valor do teste de nulidade das interações não incluídas no modelo é 0,0515, aceitando-se a hipótese de nulidade destes efeitos ao nível <span class="math inline">\(\alpha =0,05\)</span>. O modelo obtido difere do selecionado em Leote(1996) só pela inclusão de mais um efeito, referente à interação ae:ht.</p>
-<p>Uma descrição detalhada do plano amostral da PNAD 90 foi apresentada no Exemplo <a href="modreg.html#ex:pnad">6.1</a>. Como se pode observar dessa descrição, o plano amostral da PNAD apresenta todos os aspectos de um plano amostral complexo, incluindo estratificação (geográfica), seleção de unidades primárias (municípios, ou setores nos municípios auto-representativos) ou secundárias (setores nos municípios não auto-representativos) com probabilidades desiguais, conglomeração (de domicílios em setores, e de pessoas nos domicílios) e seleção sistemática sem reposição de unidades. Nesse caso, fica difícil admitir a priori com confiança as hipóteses usuais de modelagem das observações amostrais como IID. Por esse motivo foram considerados métodos alternativos de modelagem e ajuste.</p>
+<p>Uma descrição detalhada do plano amostral da PNAD 90 foi apresentada no Exemplo <a href="modreg.html#exm:pnad">6.1</a>. Como se pode observar dessa descrição, o plano amostral da PNAD apresenta todos os aspectos de um plano amostral complexo, incluindo estratificação (geográfica), seleção de unidades primárias (municípios, ou setores nos municípios auto-representativos) ou secundárias (setores nos municípios não auto-representativos) com probabilidades desiguais, conglomeração (de domicílios em setores, e de pessoas nos domicílios) e seleção sistemática sem reposição de unidades. Nesse caso, fica difícil admitir a priori com confiança as hipóteses usuais de modelagem das observações amostrais como IID. Por esse motivo foram considerados métodos alternativos de modelagem e ajuste.</p>
 <p>Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões, calculadas pela função <code>svyglm()</code>da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>.</p>
 <p>As estimativas calculadas pela função <code>svyglm</code> são feitas pelo <code>Método de Máxima Pseudo-Verossimilhança</code>, resolvendo a equação <a href="modreg.html#eq:norm27">(6.28)</a>. As estimativas dos desvios padrões são obtidas das variâncias calculadas pelo método de linearização descrito na Seção <a href="ajmodpar.html#modpar3">5.4</a>, equação <a href="ajmodpar.html#eq:modpar5">(5.5)</a>, considerando os escores tal como apresentados na equação <a href="modreg.html#eq:norm25a">(6.26)</a>. Para esses cálculos, os estimadores de variância considerados levaram em conta os pesos das observações, mas utilizaram uma aproximação que consiste em considerar que as unidades primárias de amostragem foram selecionadas com reposição, conforme descrito na Seção .</p>
 <!-- \begin{center} -->
@@ -1124,23 +1124,23 @@ pnadrj90 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span cla
 ##        ht        re        um 
 ## &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot;</code></pre>
 <p>Transformar variáveis para fatores e mudar o nível básico do fator (último)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnadrj90$sx&lt;-<span class="kw">as.factor</span>(pnadrj90$sx)
-pnadrj90$sx&lt;-<span class="kw">relevel</span>(pnadrj90$sx,<span class="dt">ref=</span><span class="st">&quot;2&quot;</span>)
-pnadrj90$id&lt;-<span class="kw">as.factor</span>(pnadrj90$id)
-pnadrj90$id&lt;-<span class="kw">relevel</span>(pnadrj90$id,<span class="dt">ref=</span><span class="st">&quot;4&quot;</span>)
-pnadrj90$ae&lt;-<span class="kw">as.factor</span>(pnadrj90$ae)
-pnadrj90$ae&lt;-<span class="kw">relevel</span>(pnadrj90$ae,<span class="dt">ref=</span><span class="st">&quot;3&quot;</span>)
-pnadrj90$ht&lt;-<span class="kw">as.factor</span>(pnadrj90$ht)
-pnadrj90$ht&lt;-<span class="kw">relevel</span>(pnadrj90$ht,<span class="dt">ref=</span><span class="st">&quot;3&quot;</span>)
-pnadrj90$re&lt;-<span class="kw">as.factor</span>(pnadrj90$re)
-pnadrj90$re&lt;-<span class="kw">relevel</span>(pnadrj90$re,<span class="dt">ref=</span><span class="st">&quot;3&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnadrj90<span class="op">$</span>sx&lt;-<span class="kw">as.factor</span>(pnadrj90<span class="op">$</span>sx)
+pnadrj90<span class="op">$</span>sx&lt;-<span class="kw">relevel</span>(pnadrj90<span class="op">$</span>sx,<span class="dt">ref=</span><span class="st">&quot;2&quot;</span>)
+pnadrj90<span class="op">$</span>id&lt;-<span class="kw">as.factor</span>(pnadrj90<span class="op">$</span>id)
+pnadrj90<span class="op">$</span>id&lt;-<span class="kw">relevel</span>(pnadrj90<span class="op">$</span>id,<span class="dt">ref=</span><span class="st">&quot;4&quot;</span>)
+pnadrj90<span class="op">$</span>ae&lt;-<span class="kw">as.factor</span>(pnadrj90<span class="op">$</span>ae)
+pnadrj90<span class="op">$</span>ae&lt;-<span class="kw">relevel</span>(pnadrj90<span class="op">$</span>ae,<span class="dt">ref=</span><span class="st">&quot;3&quot;</span>)
+pnadrj90<span class="op">$</span>ht&lt;-<span class="kw">as.factor</span>(pnadrj90<span class="op">$</span>ht)
+pnadrj90<span class="op">$</span>ht&lt;-<span class="kw">relevel</span>(pnadrj90<span class="op">$</span>ht,<span class="dt">ref=</span><span class="st">&quot;3&quot;</span>)
+pnadrj90<span class="op">$</span>re&lt;-<span class="kw">as.factor</span>(pnadrj90<span class="op">$</span>re)
+pnadrj90<span class="op">$</span>re&lt;-<span class="kw">relevel</span>(pnadrj90<span class="op">$</span>re,<span class="dt">ref=</span><span class="st">&quot;3&quot;</span>)
 ##transformar variável de resposta para 0,1:
-pnadrj90$informal&lt;-<span class="kw">ifelse</span>(pnadrj90$informal==<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>)</code></pre></div>
+pnadrj90<span class="op">$</span>informal&lt;-<span class="kw">ifelse</span>(pnadrj90<span class="op">$</span>informal<span class="op">==</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>)</code></pre></div>
 <p>Cria objeto de desenho</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnad.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span>~psu,<span class="dt">strata=</span>~stra,<span class="dt">weights=</span>~pesopes,<span class="dt">data=</span>pnadrj90,<span class="dt">nest=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnad.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span><span class="op">~</span>psu,<span class="dt">strata=</span><span class="op">~</span>stra,<span class="dt">weights=</span><span class="op">~</span>pesopes,<span class="dt">data=</span>pnadrj90,<span class="dt">nest=</span><span class="ot">TRUE</span>)</code></pre></div>
 <p>Ajusta modelo de regressão logística na Tabela 6.2 Comparar resultado com o da página 106 de Pessoa e Silva (1998)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">inf.logit&lt;-<span class="kw">svyglm</span>(informal~sx+ae+ht+id+re+sx*id+sx*ht+ae*ht+ht*id+ht*re,<span class="dt">design=</span>pnad.des,<span class="dt">family=</span>binomial)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(<span class="kw">summary</span>(inf.logit)$coefficients,<span class="dt">booktabs=</span><span class="ot">TRUE</span>, <span class="dt">digits=</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">inf.logit&lt;-<span class="kw">svyglm</span>(informal<span class="op">~</span>sx<span class="op">+</span>ae<span class="op">+</span>ht<span class="op">+</span>id<span class="op">+</span>re<span class="op">+</span>sx<span class="op">*</span>id<span class="op">+</span>sx<span class="op">*</span>ht<span class="op">+</span>ae<span class="op">*</span>ht<span class="op">+</span>ht<span class="op">*</span>id<span class="op">+</span>ht<span class="op">*</span>re,<span class="dt">design=</span>pnad.des,<span class="dt">family=</span>binomial)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">summary</span>(inf.logit)<span class="op">$</span>coefficients,<span class="dt">booktabs=</span><span class="ot">TRUE</span>, <span class="dt">digits=</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>))</code></pre></div>
 <table>
 <thead>
 <tr class="header">

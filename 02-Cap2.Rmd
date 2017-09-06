@@ -529,7 +529,7 @@ f\left[ \mathbf{\delta }_a | \left( \mathbf{y}_U , \mathbf{x}_U \right)
 Entre os planos amostrais \emph{não-informativos}, precisamos ainda distinguir duas outras situações de interesse. Quando o plano amostral é amostragem aleatória simples com reposição (AASC), o modelo adotado para a amostra é o mesmo que o modelo adotado para a população antes da amostragem. Quando isto ocorre, o plano amostral é dito \emph{ignorável}, porque a inferência baseada na amostra utilizando a abordagem clássica descrita em \@ref(classic) pode prosseguir sem problemas. Entretanto, esquemas
 amostrais desse tipo são raramente empregados na prática, por razões de eficiência e custo. Em vez disso, são geralmente empregados planos amostrais envolvendo estratificação, conglomeração e probabilidades desiguais de seleção (amostragem complexa).
 
-Com amostragem complexa, porém, os modelos para a população e a amostra podem ser muito diferentes (plano amostral \emph{não-ignorável}), mesmo que o mecanismo de seleção não
+Com amostragem complexa, porém, os modelos para a população e a amostra podem ser muito diferentes (plano amostral `não-ignorável`), mesmo que o mecanismo de seleção não
 dependa das variáveis de pesquisa, mas somente das variáveis auxiliares. Neste caso, ignorar o plano amostral pode viciar a inferência. Veja o Exemplo \@ref(ex:nonigno) adiante.
 
 A definição precisa de ignorabilidade e as condições sob as quais um plano amostral é ignorável para inferência são bastante discutidas na literatura - veja por exemplo [@Sugden84] ou os Capítulos 1 e 2 de [@CHSK2003]. Porém testar a ignorabilidade do plano amostral é muitas vezes complicado. Em caso de dificuldade, o uso de pesos tem papel fundamental.

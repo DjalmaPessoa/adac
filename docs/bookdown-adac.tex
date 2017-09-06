@@ -31,6 +31,46 @@
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -84,18 +124,9 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-09-04}
+  \date{2017-09-06}
 
-% \documentclass[]{book}
-% \usepackage{booktabs}
-% \usepackage[brazil]{babel}
-% \newtheorem{example}{Exemplo}
-% \numberwithin{example}{chapter}
-% \newtheorem{remark}{Observação}
-% \numberwithin{remark}{chapter}
-% \newtheorem{definition}{Definição}
-% \numberwithin{definition}{chapter}
-% \begin{document}
+\usepackage{booktabs}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Teorema}[chapter]
@@ -105,9 +136,13 @@
 \newtheorem{corollary}{Corolário}[chapter]
 \newtheorem{proposition}{Proposição}[chapter]
 \theoremstyle{definition}
-\newtheorem{example}{Exemplo}[chapter]
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
 \theoremstyle{remark}
 \newtheorem*{remark}{Observação }
+\newtheorem*{solution}{Solution}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
 \maketitle
 
@@ -118,110 +153,2025 @@
 \chapter*{Prefácio}\label{prefacio}
 \addcontentsline{toc}{chapter}{Prefácio}
 
-Uma preocupação básica de toda instituição produtora de informações
-estatísticas é com a utilização `'correta'' de seus dados. Isso pode ser
-intrepretado de várias formas, algumas delas com reflexos até na
-confiança do público e na própria sobrevivência do órgão. Do nosso ponto
-de vista, como técnicos da área de metodologia do IBGE, enfatizamos um
-aspecto técnico particular, mas nem por isso menos importante para os
-usuários dos dados.
-
-A revolução da informática com a resultante facilidade de acesso ao
-computador, criou condições extremamente favoráveis à utilização de
-dados estatísticos, produzidos por órgãos como o IBGE. Algumas vezes
-esses dados são utilizados para fins puramente descritivos. Outras
-vezes, porém, sua utilização é feita para fins analíticos, envolvendo a
-construção de modelos, quando o objetivo é extrair conclusões aplicáveis
-também a populações distintas daquela da qual se extraiu a amostra.
-Neste caso, é comum empregar, sem grandes preocupações, pacotes
-computacionais padrões disponíveis para a seleção e ajuste de modelos. é
-neste ponto que entra a nossa preocupação com o uso adequado dos dados
-produzidos pelo IBGE.
-
-O que torna tais dados especiais para quem pretende usá-los para fins
-analíticos? Esta é a questão básica que será amplamente discutida ao
-longo deste texto. A mensagem principal que pretendemos transmitir é que
-certos cuidados precisam ser tomados para utilização correta dos dados
-de pesquisas amostrais como as que o IBGE realiza.
-
-O que torna especiais dados como os produzidos pelo IBGE é que estes são
-obtidos através de pesquisas amostrais complexas de populações finitas
-que envolvem: \textbf{probabilidades distintas de seleção,
-estratificação e conglomeração das unidades, ajustes para compensar
-não-resposta e outros ajustes}. Os pacotes tradicionais de análise
-ignoram estes aspectos, podendo produzir estimativas incorretas tanto
-dos parâmetros como para as variâncias destas estimativas. Quando
-utilizamos a amostra para estudos analíticos, as opções disponíveis nos
-pacotes estatísticos usuais para levar em conta os pesos distintos das
-observações são apropriadas somente para observações independentes e
-identicamente distribuídas (IID). Além disso, a variabilidade dos pesos
-produz impactos tanto na estimação pontual quanto na estimação das
-variâncias dessas estimativas, que sofre ainda influência da
-estratificação e conglomeração.
-
-O objetivo deste livro é analisar o impacto das simplificações feitas ao
-utilizar procedimentos e pacotes usuais de análise de dados, e
-apresentar os ajustes necessários desses procedimentos de modo a
-incorporar na análise, de forma apropriada, os aspectos aqui
-ressaltados. Para isto serão apresentados exemplos de análises de dados
-obtidos em pesquisas amostrais complexas, usando pacotes clássicos e
-também pacotes estatísticos especializados. A comparação dos resultados
-das análises feitas das duas formas permitirá avaliar o impacto de
-ignorar o plano amostral na análise dos dados resultantes de pesquisas
-amostrais complexas.
-
 \section*{Agradecimentos}\label{agradecimentos}
 \addcontentsline{toc}{section}{Agradecimentos}
 
-A elaboração de um texto como esse não se faz sem a colaboração de
-muitas pessoas. Em primeiro lugar, agradecemos à Comissão Organizadora
-do SINAPE por ter propiciado a oportunidade ao selecionar nossa proposta
-de minicurso. Agradecemos também ao IBGE por ter proporcionado as
-condições e os meios usados para a produção da monografia, bem como o
-acesso aos dados detalhados e identificados que utilizamos em vários
-exemplos.
-
-No plano pessoal, agradecemos a Zélia Bianchini pela revisão do
-manuscrito e sugestões que o aprimoraram. Agradecemos a Marcos Paulo de
-Freitas e Renata Duarte pela ajuda com a computação de vários exemplos.
-Agradecemos a Waldecir Bianchini, Luiz Pessoa e Marinho Persiano pela
-colaboração na utilização do processador de textos. Aos demais colegas
-do Departamento de Metodologia do IBGE, agradecemos o companheirismo e
-solidariedade nesses meses de trabalho na preparação do manuscrito.
-
-Finalmente, agradecemos a nossas famílias pela aceitação resignada de
-nossas ausências e pelo incentivo à conclusão da empreitada.
-
 \chapter{Introdução}\label{introduc}
+
+\section{Motivação}\label{motivacao}
+
+\section{Objetivos do Livro}\label{objetivos-do-livro}
+
+\section{Laboratório de R do Capítulo 1.}\label{epa}
+
+\section{total SE DEff}\label{total-se-deff}
+
+\section{analf1 1174220 127982
+2.0543}\label{analf1-1174220-127982-2.0543}
+
+\section{total SE DEff}\label{total-se-deff-1}
+
+\section{analf2 4792344 318877
+3.3237}\label{analf2-4792344-318877-3.3237}
+
+\section{Ratio estimator:
+svyratio.survey.design2(\textasciitilde{}analf1,
+\textasciitilde{}faixa1,
+ppv.se.des)}\label{ratio-estimator-svyratio.survey.design2analf1-faixa1-ppv.se.des}
+
+\section{Ratios=}\label{ratios}
+
+\section{faixa1}\label{faixa1}
+
+\section{analf1 0.118689}\label{analf1-0.118689}
+
+\section{SEs=}\label{ses}
+
+\section{faixa1}\label{faixa1-1}
+
+\section{analf1 0.01178896}\label{analf1-0.01178896}
+
+\section{Ratio estimator:
+svyratio.survey.design2(\textasciitilde{}analf2,
+\textasciitilde{}faixa2,
+ppv.se.des)}\label{ratio-estimator-svyratio.survey.design2analf2-faixa2-ppv.se.des}
+
+\section{Ratios=}\label{ratios-1}
+
+\section{faixa2}\label{faixa2}
+
+\section{analf2 0.1086871}\label{analf2-0.1086871}
+
+\section{SEs=}\label{ses-1}
+
+\section{faixa2}\label{faixa2-1}
+
+\section{analf2 0.006732254}\label{analf2-0.006732254}
+
+\section{regiao analf1 se
+DEff.analf1}\label{regiao-analf1-se-deff.analf1}
+
+\section{1 1 3512866 352619.5 9.660561}\label{section}
+
+\section{2 2 1174220 127982.2 2.054345}\label{section-1}
+
+\subsection{Estimativa do efeito de plano amostral
+(EPA)}\label{estimativa-do-efeito-de-plano-amostral-epa}
+
+\section{analf1}\label{analf1}
+
+\section{analf1 2.054049}\label{analf1-2.054049}
+
+\section{analf2}\label{analf2}
+
+\section{analf2 3.32324}\label{analf2-3.32324}
+
+\section{total SE DEff}\label{total-se-deff-2}
+
+\section{{[}1,{]} 1174220 127982 2.6426}\label{section-2}
+
+\section{total SE DEff}\label{total-se-deff-3}
+
+\section{{[}1,{]} 4792344 318877 4.1667}\label{section-3}
+
+\section{total SE DEff}\label{total-se-deff-4}
+
+\section{I(ifelse(regiao == 2, analf1, 0)) 1174220 127982
+2.6426}\label{iifelseregiao-2-analf1-0-1174220-127982-2.6426}
+
+\section{total SE DEff}\label{total-se-deff-5}
+
+\section{I(ifelse(regiao == 2, analf2, 0)) 4792344 318877
+4.1667}\label{iifelseregiao-2-analf2-0-4792344-318877-4.1667}
+
+\section{Taxa Erro\_Padrao CV}\label{taxa-erro_padrao-cv}
+
+\section{1 11.80303 0.1174791 0.9953299}\label{section-4}
+
+\section{{[}1{]} 60202 1019}\label{section-5}
+
+\section{diag\_dep}\label{diag_dep}
+
+\section{7.6}\label{section-6}
+
+\section{diag\_dep}\label{diag_dep-1}
+
+\section{diag\_dep 0.2}\label{diag_dep-0.2}
+
+\section{{[}1{]} 7.2 8.1}\label{section-7}
+
+\section{diag\_dep}\label{diag_dep-2}
+
+\section{7.6 7.2 8.1}\label{section-8}
 
 \chapter{Referencial para Inferência}\label{refinf}
 
+\section{Modelagem - Primeiras Idéias}\label{classic}
+
+\subsection{Abordagem 1 - Modelagem
+Clássica}\label{abordagem-1---modelagem-classica}
+
+\subsection{Abordagem 2 - Amostragem
+Probabilística}\label{abordagem-2---amostragem-probabilistica}
+
+\subsection{Discussão das Abordagens 1 e
+2}\label{discussao-das-abordagens-1-e-2}
+
+\subsection{Abordagem 3 - Modelagem de
+Superpopulação}\label{modelsuperpop}
+
+\section{Fontes de Variação}\label{fontes-de-variacao}
+
+\section{Modelos de Superpopulação}\label{modelos-de-superpopulacao}
+
+\section{Planejamento Amostral}\label{planamo}
+
+\section{Planos Amostrais Informativos e Ignoráveis}\label{inform}
+
 \chapter{Estimação Baseada no Plano Amostral}\label{capplanamo}
+
+\section{Estimação de Totais}\label{estimatotais}
+
+\section{Por que Estimar Variâncias}\label{por-que-estimar-variancias}
+
+\section{Linearização de Taylor para Estimar variâncias}\label{taylor}
+
+\section{Método do Conglomerado
+Primário}\label{metodo-do-conglomerado-primario}
+
+\section{Métodos de Replicação}\label{metodos-de-replicacao}
+
+\section{Laboratório de R}\label{laboratorio-de-r}
+
+\section{faixa}\label{faixa}
+
+\section{0.01178896}\label{section-9}
+
+\section{Ratio estimator:
+svyratio.survey.design2(\textasciitilde{}analf.faixa,
+\textasciitilde{}faixa,
+ppv.se.des)}\label{ratio-estimator-svyratio.survey.design2analf.faixa-faixa-ppv.se.des}
+
+\section{Ratios=}\label{ratios-2}
+
+\section{faixa}\label{faixa-1}
+
+\section{analf.faixa 0.118689}\label{analf.faixa-0.118689}
+
+\section{SEs=}\label{ses-2}
+
+\section{faixa}\label{faixa-2}
+
+\section{analf.faixa 0.01178896}\label{analf.faixa-0.01178896}
+
+\section{Ratio estimator:
+svyratio.svyrep.design(\textasciitilde{}analf.faixa,
+\textasciitilde{}faixa,
+ppv.se.des.jkn)}\label{ratio-estimator-svyratio.svyrep.designanalf.faixa-faixa-ppv.se.des.jkn}
+
+\section{Ratios=}\label{ratios-3}
+
+\section{faixa}\label{faixa-3}
+
+\section{analf.faixa 0.118689}\label{analf.faixa-0.118689-1}
+
+\section{SEs=}\label{ses-3}
+
+\section{{[},1{]}}\label{section-10}
+
+\section{{[}1,{]} 0.01181434}\label{section-11}
+
+\section{Ratio estimator:
+svyratio.svyrep.design(\textasciitilde{}analf.faixa,
+\textasciitilde{}faixa,
+ppv.se.des.boot)}\label{ratio-estimator-svyratio.svyrep.designanalf.faixa-faixa-ppv.se.des.boot}
+
+\section{Ratios=}\label{ratios-4}
+
+\section{faixa}\label{faixa-4}
+
+\section{analf.faixa 0.118689}\label{analf.faixa-0.118689-2}
+
+\section{SEs=}\label{ses-4}
+
+\section{{[},1{]}}\label{section-12}
+
+\section{{[}1,{]} 0.01256654}\label{section-13}
+
+\section{\texorpdfstring{{[}1{]}
+``svyrep.design''}{{[}1{]} svyrep.design}}\label{svyrep.design}
+
+\section{\texorpdfstring{{[}1{]} ``repweights'' ``pweights''
+``type''}{{[}1{]} repweights pweights type}}\label{repweights-pweights-type}
+
+\section{\texorpdfstring{{[}4{]} ``rho'' ``scale''
+``rscales''}{{[}4{]} rho scale rscales}}\label{rho-scale-rscales}
+
+\section{\texorpdfstring{{[}7{]} ``call'' ``combined.weights''
+``selfrep''}{{[}7{]} call combined.weights selfrep}}\label{call-combined.weights-selfrep}
+
+\section{\texorpdfstring{{[}10{]} ``mse'' ``variables''
+``degf''}{{[}10{]} mse variables degf}}\label{mse-variables-degf}
+
+\section{{[}1{]} 8903}\label{section-14}
+
+\section{{[}1{]} 276}\label{section-15}
+
+\section{num {[}1:8903, 1:276{]} 0 0 1.06 1.06 1.06
+\ldots{}}\label{num-18903-1276-0-0-1.06-1.06-1.06}
+
+\section{{[}1{]} 0.01181}\label{section-16}
+
+\section{theta SE}\label{theta-se}
+
+\section{{[}1,{]} 0.11869 0.0118}\label{section-17}
+
+\section{theta SE}\label{theta-se-1}
+
+\section{{[}1,{]} 0.50623 0.0494}\label{section-18}
 
 \chapter{Efeitos do Plano Amostral}\label{epa}
 
+\section{Introdução}\label{introducao}
+
+\section{Efeito do Plano Amostral (EPA) de
+Kish}\label{efeito-do-plano-amostral-epa-de-kish}
+
+\section{Efeito do Plano Amostral
+Ampliado}\label{efeito-do-plano-amostral-ampliado}
+
+\section{Intervalos de Confiança e Testes de
+Hipóteses}\label{intervalos-de-confianca-e-testes-de-hipoteses}
+
+\section{Efeitos Multivariados de Plano
+Amostral}\label{efeitos-multivariados-de-plano-amostral}
+
+\section{Laboratório de R}\label{laboratorio-de-r-1}
+
+\section{\texorpdfstring{Warning: package `survey' was built under R
+version
+3.4.1}{Warning: package survey was built under R version 3.4.1}}\label{warning-package-survey-was-built-under-r-version-3.4.1}
+
+\section{Carregando pacotes exigidos:
+grid}\label{carregando-pacotes-exigidos-grid}
+
+\section{Carregando pacotes exigidos:
+methods}\label{carregando-pacotes-exigidos-methods}
+
+\section{Carregando pacotes exigidos:
+Matrix}\label{carregando-pacotes-exigidos-matrix}
+
+\section{Carregando pacotes exigidos:
+survival}\label{carregando-pacotes-exigidos-survival}
+
+\section{}\label{section-19}
+
+\section{\texorpdfstring{Attaching package:
+`survey'}{Attaching package: survey}}\label{attaching-package-survey}
+
+\section{\texorpdfstring{The following object is masked from
+`package:graphics':}{The following object is masked from package:graphics:}}\label{the-following-object-is-masked-from-packagegraphics}
+
+\section{}\label{section-20}
+
+\section{dotchart}\label{dotchart}
+
+\section{{[}1{]} 0.140409}\label{section-21}
+
+\section{{[}1{]} 0.3963556}\label{section-22}
+
 \chapter{Ajuste de Modelos Paramétricos}\label{ajmodpar}
+
+\section{Introdução}\label{modpar1}
+
+\section{Método de Máxima Verossimilhança
+(MV)}\label{metodo-de-maxima-verossimilhanca-mv}
+
+\section{Ponderação de Dados
+Amostrais}\label{ponderacao-de-dados-amostrais}
+
+\section{Método de Máxima Pseudo-Verossimilhança}\label{modpar3}
+
+\section{Robustez do Procedimento
+MPV}\label{robustez-do-procedimento-mpv}
+
+\section{Desvantagens da Inferência de
+Aleatorização}\label{desvantagens-da-inferencia-de-aleatorizacao}
+
+\section{Laboratório de R}\label{laboratorio-de-r-2}
 
 \chapter{Modelos de Regressão}\label{modreg}
 
+\section{Modelo de Regressão Linear Normal}\label{modlinear}
+
+\subsection{Especificação do Modelo}\label{especificacao-do-modelo}
+
+\subsection{Pseudo-parâmetros do
+Modelo}\label{pseudo-parametros-do-modelo}
+
+\subsection{Estimadores de MPV dos Parâmetros do
+Modelo}\label{estimadores-de-mpv-dos-parametros-do-modelo}
+
+\subsection{Estimação da Variância de Estimadores de
+MPV}\label{estimacao-da-variancia-de-estimadores-de-mpv}
+
+\section{Modelo de Regressão Logística}\label{modlogist}
+
+\section{Warning in 1.96 * sqrt(var\_raz112) * c(-1, 1): Recycling array
+of length 1 in array-vector arithmetic is
+deprecated.}\label{warning-in-1.96-sqrtvar_raz112-c-1-1-recycling-array-of-length-1-in-array-vector-arithmetic-is-deprecated.}
+
+\section{Use c() or as.vector()
+instead.}\label{use-c-or-as.vector-instead.}
+
+\section{Warning in 1.96 * sqrt(var\_raz123) * c(-1, 1): Recycling array
+of length 1 in array-vector arithmetic is
+deprecated.}\label{warning-in-1.96-sqrtvar_raz123-c-1-1-recycling-array-of-length-1-in-array-vector-arithmetic-is-deprecated.}
+
+\section{Use c() or as.vector()
+instead.}\label{use-c-or-as.vector-instead.-1}
+
+\section{Warning in 1.96 * sqrt(var\_raz212) * c(-1, 1): Recycling array
+of length 1 in array-vector arithmetic is
+deprecated.}\label{warning-in-1.96-sqrtvar_raz212-c-1-1-recycling-array-of-length-1-in-array-vector-arithmetic-is-deprecated.}
+
+\section{Use c() or as.vector()
+instead.}\label{use-c-or-as.vector-instead.-2}
+
+\section{Warning in 1.96 * sqrt(var\_raz223) * c(-1, 1): Recycling array
+of length 1 in array-vector arithmetic is
+deprecated.}\label{warning-in-1.96-sqrtvar_raz223-c-1-1-recycling-array-of-length-1-in-array-vector-arithmetic-is-deprecated.}
+
+\section{Use c() or as.vector()
+instead.}\label{use-c-or-as.vector-instead.-3}
+
+\section{Warning in 1.96 * sqrt(var\_raz312) * c(-1, 1): Recycling array
+of length 1 in array-vector arithmetic is
+deprecated.}\label{warning-in-1.96-sqrtvar_raz312-c-1-1-recycling-array-of-length-1-in-array-vector-arithmetic-is-deprecated.}
+
+\section{Use c() or as.vector()
+instead.}\label{use-c-or-as.vector-instead.-4}
+
+\section{Warning in 1.96 * sqrt(var\_raz323) * c(-1, 1): Recycling array
+of length 1 in array-vector arithmetic is
+deprecated.}\label{warning-in-1.96-sqrtvar_raz323-c-1-1-recycling-array-of-length-1-in-array-vector-arithmetic-is-deprecated.}
+
+\section{Use c() or as.vector()
+instead.}\label{use-c-or-as.vector-instead.-5}
+
+\section{Teste de Hipóteses}\label{teste-de-hipoteses}
+
+\section{Laboratório de R}\label{laboratorio-de-r-3}
+
+\section{\texorpdfstring{{[}1{]} ``stra'' ``psu'' ``pesopes''
+``informal'' ``sx''
+``id''}{{[}1{]} stra psu pesopes informal sx id}}\label{stra-psu-pesopes-informal-sx-id}
+
+\section{\texorpdfstring{{[}7{]} ``ae'' ``ht'' ``re''
+``um''}{{[}7{]} ae ht re um}}\label{ae-ht-re-um}
+
+\section{stra psu pesopes informal sx id
+ae}\label{stra-psu-pesopes-informal-sx-id-ae}
+
+\section{\texorpdfstring{``numeric'' ``numeric'' ``numeric'' ``numeric''
+``numeric'' ``numeric''
+``numeric''}{numeric numeric numeric numeric numeric numeric numeric}}\label{numeric-numeric-numeric-numeric-numeric-numeric-numeric}
+
+\section{ht re um}\label{ht-re-um}
+
+\section{\texorpdfstring{``numeric'' ``numeric''
+``numeric''}{numeric numeric numeric}}\label{numeric-numeric-numeric}
+
+\section{Wald test for ht:re}\label{wald-test-for-htre}
+
+\section{in svyglm(formula = informal \textasciitilde{} sx + ae + ht +
+id + re + sx * id
++}\label{in-svyglmformula-informal-sx-ae-ht-id-re-sx-id}
+
+\section{sx * ht + ae * ht + ht * id + ht * re, design =
+pnad.des,}\label{sx-ht-ae-ht-ht-id-ht-re-design-pnad.des}
+
+\section{family = binomial)}\label{family-binomial}
+
+\section{F = 6.742662 on 4 and 616 df: p=
+2.58e-05}\label{f-6.742662-on-4-and-616-df-p-2.58e-05}
+
 \chapter{Testes de Qualidade de Ajuste}\label{testqualajust}
+
+\section{Introdução}\label{introducao-1}
+
+Tabelas de distribuições de frequências ocorrem comumente na análise de
+dados de pesquisas complexas. Tais tabelas são formadas pela
+classificação e cálculo de frequências dos dados da amostra disponível
+segundo níveis de uma variável categórica - tabelas de uma entrada - ou
+segundo celas de uma classificação cruzada de duas (ou mais) variáveis
+categóricas - tabelas de duas (ou mais) entradas. Neste capítulo
+concentraremos a atenção em tabelas de uma entrada, ou equivalentemente
+nas frequências absolutas e relativas (ou proporções) correspondentes.
+
+Em muitos casos, o objetivo da análise é testar hipóteses de bondade de
+ajuste de modelos para descrever essas distribuições de frequências. Sob
+a hipótese de observações IID (distribuição Multinomial) ou
+equivalentemente, de amostragem aleatória simples, inferências válidas
+para testar tais hipóteses podem ser baseadas na estatística padrão de
+teste qui-quadrado de Pearson. Tais testes podem ser facilmente
+executados usando procedimentos prontos em pacotes estatísticos padrões
+tais como o SAS, S-Plus, SPSS, GLIM e outros.
+
+No caso de planos amostrais complexos, entretanto, os procedimentos de
+teste precisam ser ajustados devido aos efeitos de conglomeração,
+estratificação e/ou pesos desiguais. Neste capítulo examinaremos o
+impacto do plano amostral sobre as estatísticas de teste usuais notando
+que, em alguns casos, os valores observados dessas estatísticas de teste
+podem ser muito grandes, acarretando inferências incorretas, conforme já
+ilustrado no Exemplo @ref\{ex:exebin\}. Isto ocorre porque a
+probabilidade de erros do tipo I (rejeitar a hipótese nula quando esta é
+verdadeira) é muito maior que o nível nominal de significância
+\(\alpha\) especificado.
+
+Para obter inferências válidas usando amostras complexas podemos
+introduzir correções na estatística de teste de Pearson, tais como os
+ajustes de Rao-Scott, ou alternativamente usar outras estatísticas de
+teste que já incorporem o plano amostral, tais como a estatística de
+Wald. Os dois enfoques serão ilustrados através de um exemplo
+introdutório simples de teste de bondade de ajuste. Os resultados
+discutidos neste capítulo são adequados tanto para uma abordagem de
+aleatorização, em que os parâmetros se referem à população finita em
+questão, quanto para uma abordagem baseada em modelos, em que os
+parâmetros especificam algum modelo de superpopulação.
+
+\section{Teste para uma Proporção}\label{teste-para-uma-proporcao}
+
+\subsection{Correção de Estatísticas
+Clássicas}\label{correcao-de-estatisticas-classicas}
+
+No Exemplo @ref\{ex:exebin\} a estatística de teste \(Z_{bin},\) que foi
+utilizada para comparar com um valor hipotético pré-fixado a proporção
+de empregados cobertos por plano de saúde, resultou num teste mais
+liberal do que o teste que empregou a estatística \(Z_{p}\), baseada no
+plano amostral efetivamente adotado. A causa disto foi o fato de
+\(Z_{bin}\) não considerar o efeito de conglomeração existente. Vamos
+examinar com mais detalhes o comportamento assintótico da estatística de
+teste \(Z_{bin}\), construindo a estatística de teste \(X_{P}^{2}\) de
+Pearson para o exemplo correspondente. Para isto, consideremos a Tabela
+\ref{tab:prophip} contendo a distribuição de frequências, onde \(n_{j}\)
+e \(p_{oj}\) são as frequências (absolutas) observadas na amostra e as
+proporções hipotéticas nas categorias de interesse, respectivamente.
+
+\begin{longtable}[]{@{}llll@{}}
+\caption{\label{tab:prophip} Frequências observadas e proporções
+hipotéticas}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
+Categoria\strut
+\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
+\(j\)\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+\(n_j\)\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\raggedright\strut
+\(p_{0j}\)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
+Categoria\strut
+\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
+\(j\)\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+\(n_j\)\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\raggedright\strut
+\(p_{0j}\)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+Cobertos por planos de saúde\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+840\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
+0.8\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+Não cobertos\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+160\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
+0.2\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+Todos empregados\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+1000\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
+1.0\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+As proporções populacionais desconhecidas nas categorias são
+\(p_{j}=N_{j}/N\), onde \(N\) é o tamanho total da população de
+empregados e \(N_{j}\) é o número de elementos da população na categoria
+\(j,\ j=1,2\). Os parâmetros populacionais \(p_{j}\) poderiam também ser
+considerados como pseudo-parâmetros, se vistos como estimativas de censo
+para as probabilidades desconhecidas (\(\pi _{j}\), digamos) no contexto
+de um modelo de superpopulação.
+
+A estatística de teste de Pearson para a hipótese simples de bondade de
+ajuste \(H_{0}:p_{j}=p_{0j},\ j=1,2\), é dada por
+
+\begin{equation}
+X_{P}^{2}=\sum\limits_{j=1}^{2}\left( n_{j}-n\,p_{0j}\right)
+^{2}/\left( n\,p_{0j}\right) =n\sum\limits_{j=1}^{2}\left( 
+\widehat{p}_{j}-p_{0j}\right) ^{2}/p_{0j},  
+\label{eq:qual1}
+\end{equation}
+
+onde as proporções \(\widehat{p}_{j}=n_{j}/n\) são estimativas amostrais
+usuais das proporções populacionais \(p_{j}\), para \(j=1,2\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p0 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(.}\DecValTok{8}\NormalTok{, .}\DecValTok{2}\NormalTok{)}
+\NormalTok{obs<-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{840}\NormalTok{, }\DecValTok{160}\NormalTok{)}
+\NormalTok{n<-}\StringTok{ }\KeywordTok{sum}\NormalTok{(obs)}
+\NormalTok{phat <-}\StringTok{ }\NormalTok{obs}\OperatorTok{/}\NormalTok{n}
+\CommentTok{# Estatística de Pearson}
+\NormalTok{x2p <-}\StringTok{ }\KeywordTok{sum}\NormalTok{((obs}\OperatorTok{-}\NormalTok{n}\OperatorTok{*}\NormalTok{p0)}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\NormalTok{(n}\OperatorTok{*}\NormalTok{p0))}
+\NormalTok{x2p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+Como há apenas duas categorias e as proporções devem somar \(1\),
+observa-se que \(p_{2}=1-p_{1},\) \(\widehat{p}_{2}=1-\widehat{p}_{1}\)
+e \(p_{02}=1-p_{01}\). Isto acarreta na equivalência entre as
+estatísticas \(Z_{bin}\) e \(X_{P}^{2}\) demonstrada pela relação
+
+\begin{equation}
+X_{P}^{2}=n\sum\limits_{j=1}^{2}\left( \widehat{p}%
+_{j}-p_{0j}\right) ^{2}/p_{0j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{%
+p_{0}\left( 1-p_{0}\right) /n}=Z_{bin}^{2}  
+\label{eq:qual2}
+\end{equation}
+
+onde \(\widehat{p}=\widehat{p}_{1}\) e \(p_{0}=p_{01}\) para
+simplicidade e coerência com a notação do Exemplo @ref\{ex:exebin\}.
+
+Sob a hipótese de observações IID, a distribuição assintótica da
+estatística \(X_{P}^{2}\) é qui-quadrado (\(\chi^{2}\)). Neste caso, em
+que há apenas duas categorias e uma restrição (soma das proporções igual
+a \(1\)), a distribuição da estatística \(X_{P}^{2}\) em \eqref{eq:qual2}
+tem apenas um grau de liberdade.
+
+Rao e Scott(1981) obtiveram resultados gerais para a distribuição
+assintótica da estatística de teste \(X_{P}^{2}\) de Pearson sob planos
+amostrais complexos. Com apenas duas celas, a distribuição assintótica
+da estatística de teste \(X_{P}^{2}\) é a distribuição da variável
+aleatória \(dW\), onde \(W\) tem distribuição
+\(\chi ^{2}\left( 1\right)\) (qui-quadrado com um grau de liberdade) e
+\(d\) é o efeito de plano amostral (EPA) da estimativa \(\widehat{p}\)
+da proporção \(p\). O efeito de plano amostral nesse caso é dado por
+\(d=V_{p}\left( \widehat{p}\right) /V_{bin}\left( \widehat{p}\right)\).
+
+Para uma amostra de empregados selecionada por amostragem aleatória
+simples, teríamos \(d=1\) pois \(V_{p}\left( \widehat{p}\right)\) e
+\(V_{bin}\left( \widehat{p}\right)\) seriam iguais. Neste caso, a
+estatística \(X_{P}^{2}\) de teste seria assintoticamente
+\(\chi ^{2}\left(1\right)\). Como a amostra foi efetivamente selecionada
+por amostragem de conglomerados, devido à correlação intraclasse
+positiva o efeito de plano amostral \(d\) é maior que um, e portanto a
+distribuição assintótica da estatística de teste \(X_{P}^{2}\) não é
+mais \(\chi ^{2}\left( 1\right)\).
+
+Considerando que o impacto da correlação intraclasse positiva na
+distribuição assintótica da estatística \(X_{P}^{2}\) de Pearson pode
+levar a inferências incorretas caso se utilize a distribuição
+assintótica usual, o próximo passo é derivar um procedimento de teste
+válido. Isto é feito introduzindo uma correção em \(X_{P}^{2}.\) Para
+isto, observe que a esperança assintótica de \(X_{P}^{2}\) é
+\(E_{p}\left( X_{P}^{2}\right) =d\). Como
+\(E_{p}\left( X_{P}^{2}/d\right) =\)
+\(E\left( \chi ^{2}\left( 1\right) \right)=1\), obtemos então a correção
+simples de Rao-Scott para \(X_{P}^{2}\) dividindo o valor observado da
+estatística de teste pelo efeito do plano amostral \(d\), isto é,
+
+\begin{equation}
+X_{P}^{2}(d)=X_{P}^{2}/d\mbox{,}  
+\label{eq:qual3}
+\end{equation}
+
+que tem, no caso de duas celas, distribuição assintótica
+\(\chi^{2}\left( 1\right)\).
+
+Outra estatística comumente usada para testar a mesma hipótese de
+bondade de ajuste no caso de proporções é a estatística do teste da
+Razão de Verossimilhança (RV), dada por
+
+\begin{equation}
+X_{RV}^{2}=2n\sum\limits_{j=1}^{2}\widehat{p}_{j}\log \left( 
+\widehat{p}_{j}/p_{0j}\right) =2n\log \left( \frac{\widehat{p}\left( 1-
+\widehat{p}\right) }{p_{0}\left( 1-p_{0}\right) }\right) .
+\label{eq:qual4}
+\end{equation}
+
+No caso de amostragem aleatória simples, a estatística \(X_{RV}^{2}\) é
+também distribuída assintoticamente como \(\chi ^{2}\left(1\right)\),
+quando a hipótese nula é verdadeira. Para planos amostrais complexos, a
+estatística corrigida correspondente é
+
+\begin{equation}
+X_{RV}^{2}(d)=X_{RV}^{2}/d\;\;.  
+\label{eq:qual5}
+\end{equation}
+
+Vamos calcular os valores das estatísticas de Pearson e de RV, com suas
+correções de Rao-Scott, para os dados do Exemplo @ref\{ex:exebin\}. Para
+as correções, primeiro é preciso calcular o efeito do plano amostral
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p <-}\StringTok{ }\NormalTok{p0[}\DecValTok{1}\NormalTok{]}
+\NormalTok{m <-}\StringTok{ }\DecValTok{50}
+\CommentTok{# Efeito do plano amostral}
+\NormalTok{d <-}\StringTok{ }\NormalTok{(p}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{p)}\OperatorTok{/}\NormalTok{m)}\OperatorTok{/}\StringTok{ }\NormalTok{(p}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{p)}\OperatorTok{/}\NormalTok{n)}
+\NormalTok{d}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Estatística de Peason corrigida}
+\NormalTok{x2pd <-}\StringTok{ }\NormalTok{x2p}\OperatorTok{/}\NormalTok{d}
+\NormalTok{x2pd}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# valor-p do teste}
+\KeywordTok{pchisq}\NormalTok{(x2pd, }\DecValTok{1}\NormalTok{, }\DataTypeTok{lower.tail =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.4795001
+\end{verbatim}
+
+\[
+\begin{array}{llcll}
+d & = & V_{p}\left( \widehat{p}\right) /V_{bin}\left( \widehat{p}\right) & =
+& \frac{p\left( 1-p\right) /m}{p\left( 1-p\right) /n} \\ 
+& = & \frac{0,0032}{0,00016} & = & 20
+\end{array}
+\] onde \(m=50\) é o número de empregados por empresa (tamanho do
+conglomerado) e \(n=1.000\) é o número de empregados na amostra.
+
+O valor da estatística de teste de Pearson é \[
+X_{P}^{2}=\frac{\left( 0,84-0,80\right) ^{2}}{\left( 0,80\times 0,20\right)
+/1.000}=10 
+\] com \(p\)valor \(0,0016\). O valor da estatística de teste de Pearson
+com a correção de Rao-Scott \(X_{P}^{2}(d)\) é então dado por \[
+X_{P}^{2}(d)=X_{P}^{2}/d=10/20=0,5 
+\] com \(p\)valor \(0,4795\). Observe que \(Z_{p}^{2}=0,707^{2}=0,5\) ,
+e também que \(X_{P}^{2}(d)=Z_{bin}^{2}/d= 3,162^{2}/20=0,5\) ou seja,
+\(Z_{p}^{2}=X_{P}^{2}(d)\) conforme esperado. Os valores da estatística
+do teste da Razão de Verossimilhança e sua correção de Rao-Scott são
+dados respectivamente por
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Estatística da RV}
+\NormalTok{x2rv <-}\StringTok{ }\DecValTok{2}\OperatorTok{*}\NormalTok{n}\OperatorTok{*}\KeywordTok{sum}\NormalTok{(phat}\OperatorTok{*}\KeywordTok{log}\NormalTok{(phat}\OperatorTok{/}\NormalTok{p0))}
+\NormalTok{x2rv}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10.56154
+\end{verbatim}
+
+\[
+X_{RV}^{2}=2\times 1.000\times \log \left( \frac{0,84\times 0,16}{0,80\times
+0,20}\right) =10,56\;, 
+\] com \(p\)valor \(0,0012\), e
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Estatística da RV corrigida}
+\NormalTok{x2rvd <-}\StringTok{ }\NormalTok{x2rv}\OperatorTok{/}\NormalTok{d}
+\NormalTok{x2rvd}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.528077
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# valor-p do teste}
+\KeywordTok{pchisq}\NormalTok{(x2rvd, }\DecValTok{1}\NormalTok{, }\DataTypeTok{lower.tail =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.4674165
+\end{verbatim}
+
+\[
+X_{RV}^{2}(d)=X_{LR}^{2}/d=10,56/20=0,528\;\;, 
+\] com \(p\)valor de \(0,4675\).
+
+Como se pode notar, as estatísticas baseadas na Razão de Verossimilhança
+oferecem resultados semelhantes às versões correspondentes baseadas na
+estatística de Pearson. Em ambos os casos, as decisões baseadas nas
+estatísticas sem correção seriam incorretas no sentido de rejeitar a
+hipótese nula. Também em ambos os casos a correção de Rao-Scott produziu
+efeito semelhante.
+
+O efeito de plano amostral \(d=20\) observado neste exemplo é muito
+grande e pouco comum na prática. Isto ocorreu neste caso porque o
+coeficiente de correlação intraclasse assume o valor máximo \(\rho =1\)
+(todos os valores dentro de um conglomerado são iguais, e portanto a
+homogeneidade é máxima). Na prática, as correlações intraclasse
+observadas são usualmente positivas mas menores que um, e portanto as
+estimativas de efeito de plano amostral \(\widehat{d}\) correspondentes
+são maiores que um. Para conglomerados de tamanho médio igual a \(20\)
+(\(m=20\)) como neste exemplo, os valores típicos de \(\widehat{d}\) são
+menores que \(3\), tendo em correspondência correlações intraclasse
+estimadas positivas \(\widehat{\rho }<0,1\).
+
+Os resultados do exemplo discutido nesta seção ilustram bem a
+importância de considerar o plano amostral na construção de estatísticas
+de teste para proporções simples, embora num caso um tanto extremo.
+Ilustram também um dos enfoques existentes para tratar do problema, a
+saber a correção de estatísticas de teste usuais (de Pearson e da Razão
+de Verossimilhança).
+
+\subsection{Estatística de Wald}\label{estatistica-de-wald}
+
+Como alternativa à estatística de teste de Pearson, podemos usar a
+estatística de bondade de ajuste \(X_{N}^{2}\) de Neyman. No caso de
+duas celas, ela se reduz a
+
+\begin{equation}
+X_{N}^{2}=n\sum\limits_{j=1}^{2}\left( \hat{p}_{j}-p_{0j}\right) ^{2}/\hat{p}%
+_{j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{\hat{p}\left( 1-\hat{p}
+\right) /n}\;\;\mbox{.}  
+\label{eq:qual6}
+\end{equation}
+
+Note que a expressão de \(X_{N}^{2}\) em \eqref{eq:qual6} pode ser obtida
+substituindo-se no denominador de \(X_{P}^{2}\) em \eqref{eq:qual2} a
+proporção hipotética \(p_{0}\) pela proporção estimada \(\hat{p}\).
+
+A estatística de Neyman é um caso particular da estatística de bondade
+de ajuste de Wald. Esta última estatística difere das estatísticas de
+Pearson , da Razão de Verossimilhança e de Neyman por incorporar
+automaticamente o plano amostral. Para o caso de duas celas, ela se
+reduz a
+
+\begin{equation}
+X_{W}^{2}=\left( \widehat{p}-p_{0}\right) ^{2}/\hat{V}_{p}\left( \widehat{p}
+\right) \mbox{,}  
+\label{eq:qual7}
+\end{equation}
+
+onde \(\hat{V}_{p}\left( \widehat{p}\right)\) é uma estimativa da
+variância de aleatorização de \(\hat{p}\), correspondente ao plano
+amostral efetivamente utilizado.
+
+O efeito do termo \(\hat{V}_{p}\left( \widehat{p}\right)\), que aparece
+no denominador de \(X_{W}^{2}\), é incorporar na estatística de bondade
+de ajuste o efeito do plano amostral utilizado. No caso particular de
+amostragem aleatória simples, usamos no lugar de
+\(\widehat{V}_{p}\left( \widehat{p}\right)\) a variância
+\(\widehat{V}_{bin}\left( \widehat{p}\right) =\)
+\(\widehat{p}\left( 1-\widehat{p}\right) /n\). Neste caso, estatística
+resultante \(X_{bin}^{2}\) coincide com a estatística \(X_{N}^{2}\) de
+Neyman.
+
+Para o plano amostral de conglomerados considerado no Exemplo
+@ref\{ex:exebin\}, a estatística \(X_{W}^{2}\), sem qualquer ajuste
+auxiliar, já é distribuída assintoticamente como qui-quadrado com um
+grau de liberdade. O valor da estatística de Wald para esse exemplo é
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x2n <-}\StringTok{ }\DecValTok{1000}\OperatorTok{*}\StringTok{ }\KeywordTok{sum}\NormalTok{((phat}\OperatorTok{-}\NormalTok{p0)}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\NormalTok{phat)}
+\NormalTok{vhatp <-}\StringTok{ }\NormalTok{(phat[}\DecValTok{1}\NormalTok{]}\OperatorTok{*}\NormalTok{phat[}\DecValTok{2}\NormalTok{])}\OperatorTok{/}\NormalTok{m }\CommentTok{# variância usa número efetivo}
+\CommentTok{# Estatística de Wald}
+\NormalTok{x2w <-}\StringTok{ }\NormalTok{((phat[}\DecValTok{1}\NormalTok{]}\OperatorTok{-}\NormalTok{p0[}\DecValTok{1}\NormalTok{])}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{vhatp}
+\NormalTok{x2w}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5952381
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pchisq}\NormalTok{(x2w,}\DecValTok{1}\NormalTok{, }\DataTypeTok{lower.tail =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.4404007
+\end{verbatim}
+
+\[
+X_{W}^{2}=\left( 0,84-0,80\right) ^{2}/0,002743=0,583\;\;\mbox{.} 
+\] Observe que o valor desta estatística é bem próximo dos valores das
+estatísticas de Pearson e da Razão de Verossimilhança com a correção de
+Rao-Scott.
+
+A estatística de Wald, pelo uso de uma estimativa apropriada da
+variância, reflete a complexidade do plano amostral e fornece uma
+estatística de teste assintoticamente válida, não necessitando que seja
+feito qualquer ajuste auxiliar. Esta pode ser considerada uma vantagem
+em relação às estatísticas com correção de Rao-Scott. Entretanto, no
+caso de mais de duas celas, pode haver desvantagens no uso da
+estatística de Wald baseada no plano amostral, devido à instabilidade
+nas estimativas de variância em pequenas amostras.
+
+Reproduzimos na Tabela \ref{tab:testprop} os resultados para todas as
+estatísticas de teste consideradas até agora, para facilidade de
+comparação.
+
+\begin{table}
+
+\caption{\label{tab:testprop}Valores observados e valores-p de estatísticas de testes para os dados do Exemplo 4.4}
+\centering
+\begin{tabular}[t]{lccclccclccclccc}
+\toprule
+Estatística & gl & vobs & valorp\\
+\midrule
+Pearson & 1 & 10.00 & 0.0016\\
+Pearson ajustada & 1 & 0.50 & 0.4795\\
+RV & 1 & 10.56 & 0.0012\\
+RV ajustada & 1 & 0.53 & 0.4674\\
+Wald & 1 & 0.60 & 0.4404\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Nesta seção foram apresentadas as duas principais abordagens para
+incorporar o efeito do plano amostral na estatística de teste:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  a metodologia de ajuste de Rao-Scott para as estatísticas de teste de
+  Pearson e da Razão de Verossimilhança;
+\item
+  e a estatística de Wald baseada no plano amostral.
+\end{enumerate}
+
+Ambas as abordagens são facilmente generalizáveis para tabelas de uma ou
+duas entradas com número de linhas e colunas maior que dois. Vamos
+considerar na próxima seção o caso geral de testes de bondade de ajuste
+e apresentar mais detalhes sobre as estatísticas de teste alternativas.
+Depois, introduziremos os testes de independência e de homogeneidade
+para tabelas de duas entradas. A ênfase será dada nos procedimentos
+baseados na estatísticas de teste de Wald baseadas no plano amostral e
+nas estatísticas de Pearson e da RV com os vários ajustes de Rao-Scott.
+
+\section{Teste para Várias
+Proporções}\label{teste-para-varias-proporcoes}
+
+Neste seção vamos considerar extensões do problema de testes de bondade
+de ajuste, aumentando o número de proporções envolvidas. O caso de
+tabelas de duas entradas será considerado no capítulo seguinte.
+
+A hipótese de bondade de ajuste para \(J\geq 2\) celas pode ser escrita
+como \(H_{0}:p_{j}=p_{0j}\;,\;j=1,\ldots ,J\), onde \(p_{j}=N_{j}/N\)
+são as proporções populacionais desconhecidas nas celas e \(p_{0j}\) são
+as proporções hipotéticas das celas. Essa hipótese pode também ser
+escrita, usando notação vetorial, como \(H_{0}:\mathbf{p=p}_{0}\) , onde
+\(\mathbf{p=}\left( p_{1},\ldots ,p_{J-1}\right) ^{^{\prime}}\)é o vetor
+de proporções populacionais desconhecidas e
+\(\mathbf{p}_{0}\mathbf{=}\left( p_{01},\ldots ,p_{0\,J-1}\right) ^{^{\prime}}\)é
+o vetor de proporções hipotéticas.
+
+O vetor de estimativas consistentes das proporções das celas, baseado em
+\(n\) observações, é denotado por
+\(\widehat{\mathbf{p}}\mathbf{=}\left(\widehat{p}_{1},\ldots,\widehat{p}_{J-1}\right) ^{^{\prime}}\),
+onde \(\widehat{p}_{j}=\widehat{n}_{j}/n\). Os \(\widehat{n}_{j}\) são
+as frequências ponderadas nas celas, considerando as diferentes
+probabilidades de inclusão dos elementos e ajustes por não-resposta,
+onde os pesos amostrais são normalizados de modo que
+\(\sum_{j=1}^{J}\widehat{n}_{j}=n\). Se \(n\) não for fixado de antemão,
+os \(\widehat{p}\) serão estimadores de razões, o que é comum quando
+trabalhamos com subgrupos da população. Observe que apenas \(J-1\)
+componentes são incluídos em cada um dos vetores \(\mathbf{p,\;p}_{0}\)
+e \(\widehat{\mathbf{p}}\), pois a soma das proporções nas \(J\)
+categorias é igual a \(1\), e portanto a proporção na \(J\)-ésima
+categoria é obtida por diferença.
+
+\subsection{Estatística de Wald Baseada no Plano
+Amostral}\label{estatistica-de-wald-baseada-no-plano-amostral}
+
+A estatística de Wald baseada no plano amostral \(X_{W}^{2}\), para o
+teste da hipótese simples de bondade de ajuste, foi anteriormente
+introduzida no caso de duas celas como uma alternativa à estatística de
+Pearson ajustada. No caso de mais de duas celas, a estatística de
+bondade de ajuste de Wald é dada por
+
+\begin{equation}
+X_{W}^{2}=\left( \widehat{\mathbf{p}}\mathbf{-p}_{0}\right) ^{^{\prime }}
+\widehat{\mathbf{V}}_{p}^{-1}\left( \widehat{\mathbf{p}}-\mathbf{p}_{0}\right) \;\mbox{,} 
+\label{eq:qual8}
+\end{equation}
+
+onde \(\widehat{\mathbf{V}}_{p}\) denota um estimador consistente da
+matriz de covariância de aleatorização verdadeira \(\mathbf{V}_{p}\) do
+estimador \(\widehat{\mathbf{p}}\) do vetor de proporções
+\(\mathbf{p}\). Uma estimativa \(\widehat{\mathbf{V}}_{p}\) pode ser
+obtida pelo método de linearização, usando-se por exemplo o pacote
+\textbf{SUDAAN}.
+
+Sob a hipótese nula \(H_{0}\), a estatística \(X_{W}^{2}\) tem
+distribuição assintótica qui-quadrado com \(J-1\) graus de liberdade,
+fornecendo assim um procedimento de teste válido no caso de amostras
+complexas. Na prática, espera-se que \(X_{W}^{2}\) funcione
+adequadamente se o número de unidades primárias de amostragem
+selecionadas for grande e o número de celas componentes do vetor
+\(\mathbf{p}\) for relativamente pequeno. Neste caso, podemos obter um
+estimador estável de \(\mathbf{V}_{p}\). Observe que \eqref{eq:qual7} é um
+caso particular de \eqref{eq:qual8}.
+
+\subsection{Situações Instáveis}\label{situacoes-instaveis}
+
+Se o número \(m\) de unidades primárias de amostragem disponíveis for
+pequeno, pode ocorrer um problema de instabilidade na estimativa
+\(\widehat{\mathbf{V}}_{p}\), devido ao pequeno número de graus de
+liberdade \(f=m-H\) disponível para a estimação da variância. A
+instabilidade da estimativa \(\widehat{\mathbf{V}}_{p}\) pode tornar a
+estatística de Wald muito liberal.
+
+é comum contornar esta instabilidade corrigindo a estatística de Wald,
+mediante emprego da chamada \texttt{estatística\ de\ Wald\ F-corrigida}
+. Há duas propostas alternativas de estatísticas \textbf{F}-corrigidas
+de Wald. A primeira é dada por
+
+\begin{equation}
+F_{1.p}=\frac{f-J+2}{f\left( J-1\right) }X_{W}^{2}\;\;,  
+\label{eq:qual9}
+\end{equation}
+
+que tem distribuição assintótica de referência \(F\) com \(J-1\) e
+\(f-J+2\) graus de liberdade. A segunda é dada por
+
+\begin{equation}
+F_{2.p}=\frac{X_{W}^{2}}{\left( J-1\right) },  
+\label{eq:qual10}
+\end{equation}
+
+que tem distribuição assintótica de referência \(F\) com \(J-1\) e \(f\)
+graus de liberdade. No caso \(J=2\), as duas correções reproduzem a
+estatística original.
+
+O efeito de uma correção \(\mathbf{F}\) à estatística \(X_{W}^{2}\) pode
+ser visualizado facilmente no caso de duas celas. Se \(f\) for pequeno,
+então o \(p\)valor de \(X_{W}^{2}\), obtido a partir de uma distribuição
+\textbf{F} com \(1\) e \(f\) graus, é maior que o \(p\) valor obtido
+numa distribuição qui-quadrado com um grau de liberdade. Quando \(f\)
+aumenta a diferença diminui, tornando a correção desprezível, quando
+\(f\) for grande.
+
+\citep{TR87} analisaram o desempenho das diferentes estatísticas de
+teste de bondade de ajuste, no caso de instabilidade. Eles verificaram
+que a estatística de Wald F-corrigida \(F_{1.p}\) não apresentou, em
+geral, o melhor desempenho nesta comparação, contudo, comportou-se
+relativamente bem nos casos padrões, onde a instabilidade não era muito
+grave. As estatísticas \textbf{F}-corrigidas de Wald são bastante
+utilizadas na prática, e estão implementadas em pacotes para análise de
+dados de pesquisas amostrais complexas.
+
+\subsection{Estatística de Pearson com Ajuste de
+Rao-Scott}\label{raoscott}
+
+O exemplo introdutório serviu para mostrar que, na presença de efeitos
+de plano amostral importantes, as estatísticas clássicas de teste
+precisam ser ajustadas para terem a mesma distribuição assintótica de
+referência que a obtida para o caso de amostragem aleatória simples.
+Inicialmente, vamos considerar a estatística de teste \(X_{P}^{2}\) de
+Pearson\(.\) Essa estatística pode ser escrita em forma matricial como
+
+\begin{equation}
+X_{P}^{2}=n\sum\limits_{j=1}^{J}\left( \widehat{p}_{j}-p_{0j}\right)
+^{2}/p_{0j}=n\left( \widehat{\mathbf{p}}-\mathbf{p}_{0}\right) ^{^{\prime }}
+\mathbf{P}_{0}^{-1}\left( \widehat{\mathbf{p}}-\mathbf{p}_{0}\right) 
+\label{eq:qual11}
+\end{equation}
+
+onde
+\(\mathbf{P}_{0}=diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}\)
+e \(\mathbf{P}_{0}/n\) é a matriz
+\(\left( J-1\right)\times \left( J-1\right)\) de covariância multinomial
+de \(\widehat{\mathbf{p}}\) sob a hipótese nula, e
+\(diag\left( \mathbf{p}_{0}\right)\) representa uma matriz diagonal com
+elementos \(p_{0j}\) na diagonal.
+
+A matriz de covariância \(\mathbf{P}_{0}/n\) é uma generalização do caso
+\(J=2\) celas para o caso de mais de duas celas (\(J>2\)). Observe que a
+expressão de \(X_{P}^{2}\) tem a mesma forma da estatística de Wald, com
+\(\mathbf{P}_{0}/n\) no lugar de \(\widehat{\mathbf{V}}_{p}\). No caso
+de apenas duas celas, \(X_{P}^{2}\) reduz-se à fórmula simples antes
+considerada
+\(X_{P}^{2}=\left( \widehat{p}_{1}-p_{01}\right) ^{2}/\left[ p_{01}\left( 1-p_{01}\right) /n\right]\),
+onde o denominador corresponde à variância da binomial sob a hipótese
+nula.
+
+Para examinar a distribuição assintótica da estatística \(X_{P}^{2}\) de
+Pearson, vamos generalizar os resultados anteriores, do caso de duas
+celas para o caso \(J>2\). Neste caso, \(X_{P}^{2}\) é assintoticamente
+distribuído como uma soma ponderada
+\(\delta_{1}W_{1}+\delta _{2}W_{2}+\ldots +\delta _{J-1}W_{J-1}\) de
+\(J-1\) variáveis aleatórias independentes \(W_{j}\) , cada uma tendo
+distribuição qui-quadrado com um grau de liberdade. Os pesos
+\(\delta _{j}\) são os autovalores da matriz de efeito multivariado de
+plano amostral \(\mathbf{\Delta }=\mathbf{P}_{0}^{-1}\mathbf{V}_{p}\),
+onde \(\mathbf{V}_{p}\mathbf{/}n\) é a matriz de covariância do
+estimador \(\widehat{\mathbf{p}}\) do vetor de proporção \(\mathbf{p}\)
+baseada no plano amostral verdadeiro. Tais autovalores são também
+chamados efeitos generalizados de plano amostral. Observe que, em geral,
+eles não coincidem com os efeitos univariados de plano amostral
+\(d_{j}\).
+
+No caso de amostragem aleatória simples, os efeitos generalizados de
+plano amostral \(\delta_{j}\) são todos iguais a um, pois neste caso
+\(\mathbf{\Delta =I}\), matriz identidade. Neste caso, a soma
+\(\sum_{j=1}^{J-1}\delta _{j}W_{j}\) se reduz a
+\(\sum_{j=1}^{J-1}W_{j},\) cuja distribuição é \(\chi ^{2}\) com \(J-1\)
+graus de liberdade. Assim, sob amostragem aleatória simples, a
+estatística \(X_{P}^{2}\) é distribuída assintoticamente como
+qui-quadrado com \(J-1\) graus de liberdade.
+
+No caso de plano amostral mais complexo, envolvendo estratificação e/ou
+conglomeração, os efeitos generalizados de plano amostral não são iguais
+a um. Devido aos efeitos de conglomeração, os \(\delta _{j}\) tendem a
+ser maiores que um, e assim a distribuição assintótica da variável
+aleatória \(\sum_{j=1}^{J-1}\delta_{j}W_{j}\) será diferente de uma
+qui-quadrado com \(J-1\) graus de liberdade. Desta forma, a estatística
+\(X_{P}^{2}\) requer correções semelhantes às introduzidas no caso de
+duas celas. No caso geral, há mais de uma possibilidade de correção e
+consideraremos as
+\texttt{correções\ de\ primeira\ ordem\ e\ de\ segunda\ ordem\ de\ Rao-Scott}
+, desenvolvidas por \citep{Rao}. A correção de primeira ordem tem por
+objetivo corrigir a esperança assintótica da estatística \(X_{P}^{2}\)
+de Pearson, e a de segunda ordem também envolve correção da variância.
+Tecnicamente, os dois ajustes são baseados nos autovalores da matriz de
+efeito multivariado de plano amostral estimada
+\(\widehat{\mathbf{\Delta }}\).
+
+Inicialmente, consideramos um \texttt{ajuste\ simples\ de\ EPA\ médio} à
+estatística \(X_{P}^{2}\), devido a \citep{fellegi} e \citep{holt80a}, e
+o ajuste de primeira ordem de Rao-Scott. Estes ajustes são úteis nos
+casos em que não é possível obter uma estimativa adequada
+\(\mathbf{\hat{V}}_{p}\) para a matriz de covariância de aleatorização.
+Quando esta estimativa está disponível, deve-se usar o ajuste mais
+preciso de segunda ordem.
+
+O ajuste de EPA médio é baseado nos efeitos univariados de plano
+amostral estimados \(\hat{d}_{j}\) das estimativas \(\hat{p}_{j}\). O
+ajuste da estatística \eqref{eq:qual11} é feito dividindo o valor
+observado da estatística \(X_{P}^{2}\) de Pearson pela média
+\(\hat{d}_{.}\) dos efeitos univariados de plano amostral:
+
+\begin{equation}
+X_{P}^{2}\left( \hat{d}_{.}\right) =X_{P}^{2}/\hat{d}_{.}  
+\label{eq:qual12}
+\end{equation}
+
+onde \(\hat{d}_{.}=\sum_{j=1}^{J}\hat{d}_{j}/J\) é um estimador da média
+\(\bar{d}\) dos efeitos de plano amostral desconhecidos.
+
+Estimamos os efeitos do plano amostral por
+\(\hat{d}_{j}=\hat{V}_{p}\left(\hat{p}_{j}\right) /\left( \hat{p}_{j}\left( 1-\hat{p}_{j}\right) /n\right)\),
+onde \(\hat{V}_{p}\left( \hat{p}_{j}\right)\) é a estimativa da
+variância de aleatorização do estimador de proporção \(\hat{p}_{j}\) .
+Este ajustamento requer que estejam disponíveis as estimativas dos
+efeitos de plano amostral dos estimadores das proporções das \(J\)
+celas. A correlação intraclasse positiva fornece uma média
+\(\hat{d}_{.}\) maior que \(1\) e, portanto, o ajuste do EPA médio tende
+a remover a liberalidade de \(X_{P}^{2}\).
+
+O ajuste do EPA médio não corrige exatamente a esperança assintótica de
+\(X_{P}^{2}\) , pois a média dos efeitos univariados de plano amostral
+não é igual à média dos efeitos generalizados de plano amostral. Sob a
+hipótese nula, a esperança assintótica de \(X_{P}^{2}\) é
+\(E\left( X_{P}^{2}\right) =\sum_{j=1}^{J-1}\delta _{j}\) , logo
+\(E\left( X_{P}^{2}/\bar{\delta}\right) =E\left( \chi ^{2}\left(J-1\right) \right) =J-1\),
+onde a média dos autovalores é
+\(\bar{\delta}=\sum_{j=1}^{J-1}\delta _{j}/\left( J-1\right)\). Este
+raciocínio conduz ao ajuste de primeira ordem de Rao-Scott para
+\(X_{P}^{2}\), dado por
+
+\begin{equation}
+X_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{P}^{2}/\hat{\delta}_{.}\;\;\mbox{,}
+\label{eq:qual13}
+\end{equation}
+
+onde \(\hat{\delta}_{.}\) é um estimador da média \(\bar{\delta}\) dos
+autovalores desconhecidos da matriz de efeitos multivariados de plano
+amostral \(\mathbf{\Delta }\).
+
+Podemos estimar a média dos efeitos generalizados usando os efeitos
+univariados de plano amostral estimados, pela equação
+
+\[
+\left( J-1\right) \hat{\delta}_{.}=\sum_{j=1}^J\frac{\hat{p}_{j}}{p_{0j}}\left( 1-\hat{p}_{0j}\right)
+ \hat{d}_{j}\mbox{,} 
+\] sem estimar os próprios autovalores. Alternativamente,
+\(\hat{\delta}_{.}\) pode ser obtido a partir da estimativa da matriz de
+efeitos multivariados
+\(\mathbf{\hat{\Delta}}=n\mathbf{P}_{0}^{-1}\mathbf{\hat{V}}_{p}\), pela
+equação
+\(\hat{\delta}_{.}=tr\left( \mathbf{\hat{\Delta}}\right) /\left(J-1\right)\),
+isto é, dividindo o traço de \(\mathbf{\hat{\Delta}}\) pelo número de
+graus de liberdade.
+
+A estatística ajustada \(X_{P}^{2}\left( \hat{\delta}_{.}\right)\) só
+tem distribuição assintoticamente qui-quadrado com \(\left(J-1\right)\)
+graus de liberdade se os autovalores forem iguais. Na prática, esta
+estatística funciona bem se a variação dos autovalores estimados for
+pequena. No cálculo de \(X_{P}^{2}\left( \hat{\delta}_{.}\right)\) só
+são necessários os efeitos multivariados de plano amostral dos
+\(\hat{p}_{j}\) que aparecem na diagonal da matriz
+\(\mathbf{\hat{\Delta}}\). Assim, esta estatística é adequada em
+análises secundárias de tabelas de contingência, se forem divulgadas as
+estimativas de efeito de plano amostral correspondentes. O ajuste de
+primeira ordem de Rao-Scott \(X_{P}^{2}\left( \hat{\delta}_{.}\right)\)
+é mais exato do que o ajuste do EPA médio da estatística
+\(X_{P}^{2}\left( \hat{d}_{.}\right)\), que é considerada uma
+alternativa conservadora de \(X_{P}^{2}\left( \hat{\delta}_{.}\right)\).
+
+A correção de primeira ordem de Rao-Scott \eqref{eq:qual13} é introduzida
+na estatística de Pearson com o objetivo de tornar a média assintótica
+da estatística ajustada igual ao número de graus de liberdade da
+distribuição de referência. Se a variação dos autovalores estimados
+\(\hat{\delta}_{j}\) for grande, então será também necessária uma
+correção da variância de \(X_{P}^{2}\). Isto é obtido através de uma
+\texttt{correção\ de\ segunda\ ordem\ de\ Rao-Scott}, baseada no método
+de \citep{sat}. A estatística de Pearson com ajuste de Rao-Scott de
+segunda ordem é dada por
+
+\begin{equation}
+X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right) =
+X_{P}^{2}\left( \hat{\delta}_{.}\right) /\left( 1+\hat{a}^{2}\right) , 
+ \label{eq:qual14}
+\end{equation}
+
+onde \(\hat{a}^{2}\) é um estimador do quadrado do coeficiente de
+variação \(a^{2}\) dos autovalores desconhecidos dado por \[
+\hat{a}^{2}=\sum_{j=1}^{J-1}\hat{\delta}_{j}^{2}/\left( \left( J-1\right)
+ \hat{\delta}_{.}^{2}\right) -1\;\;. 
+\]
+
+Um estimador da soma dos quadrados dos autovalores é dado por \[
+\sum_{j=1}^{J-1}\hat{\delta}_{j}^{2}=tr\left( \mathbf{\hat{\Delta}}^{2}\right) =n^{2}\sum\limits_{j=1}^{J}\sum\limits_{k=1}^{J}
+\hat{V}_{p}^{2}\left( \hat{p}_{j},\hat{p}_{k}\right) /p_{0j}p_{0k}, 
+\] onde \(\hat{V}_{p}\left( \hat{p}_{j},\hat{p}_{k}\right)\) são os
+estimadores das covariâncias de aleatorização de \(\hat{p}_{j}\) e
+\(\hat{p}_{k}\). Os graus de liberdade também devem ser corrigidos. A
+estatística \(X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)\) é
+assintoticamente qui-quadrado com graus de liberdade com ajuste de
+Satterthwaite dados por
+\(gl_{S}=\left( J-1\right) /\left( 1+\hat{a}^{2}\right)\).
+
+Observe que, para o ajuste de segunda ordem, é necessária estimativa
+completa da matriz de variância \(\mathbf{\hat{V}}_{p}\), enquanto que
+para o ajuste de primeira ordem só precisamos conhecer estimativas das
+variâncias \(\hat{V}_{p}\).
+
+Em situações instáveis, pode ser necessário fazer uma correção F ao
+ajuste de primeira ordem de Rao-Scott \eqref{eq:qual13}. A estatística
+F-corrigida é definida por
+
+\begin{equation}
+FX_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{W}^{2}/\left( \left( J-1\right) 
+\hat{\delta}_{.}\right) \;\;.  
+\label{eq:qual15}
+\end{equation}
+
+A estatística \(FX_{P}^{2}\left( \hat{\delta}_{.}\right)\) tem
+distribuição de referência \(F\) com \(J-1\) e \(f\) graus de liberdade.
+\citep{TR87} observaram que esta estatística, em situações instáveis, é
+melhor que a estatística sem correção de primeira ordem.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-6}{}{\label{exm:unnamed-chunk-6}
+}Teste de bondade de ajuste para a distribuição etária da PPV 96-97 na
+Região Sudeste.
+\EndKnitrBlock{example}
+
+Vamos considerar um teste da bondade de ajuste da distribuição das
+idades para a Pesquisa sobre Padrões de Vida (PPV) 96/97, para os
+subgrupos de 0 a 14; de 15 a 29; de 30 a 44; de 45 a 59 e de 60 e mais
+anos de idade. As proporções correspondentes para a população foram
+obtidas da Contagem Populacional de 96. Na Região Sudeste, o número de
+estratos é \(H=15\) e o número total de conglomerados (setores) na
+amostra da PPV é \(m=276\) e portanto \(f=m-H=261\). As informações
+utilizadas neste exemplo são apresentadas na Tabela \ref{tab:ppcount}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(survey)}
+\NormalTok{ppv1 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{ppv.rds"}\NormalTok{)}
+\CommentTok{# cria idade categorizada}
+\NormalTok{ppv1<-}\KeywordTok{transform}\NormalTok{(ppv1,}\DataTypeTok{idatab=}\KeywordTok{cut}\NormalTok{(v02a08,}
+\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{14}\NormalTok{,}\DecValTok{29}\NormalTok{,}\DecValTok{44}\NormalTok{,}\DecValTok{59}\NormalTok{,}\DecValTok{200}\NormalTok{), }\DataTypeTok{include.lowest=}\NormalTok{T), }\DataTypeTok{one=}\DecValTok{1}\NormalTok{)}
+
+\CommentTok{# Objeto de desenho da PPV}
+\NormalTok{ppv.des<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{id=}\OperatorTok{~}\NormalTok{nsetor,}\DataTypeTok{strat=}\OperatorTok{~}\NormalTok{estratof,}\DataTypeTok{weights=}\OperatorTok{~}\NormalTok{pesof,}
+\DataTypeTok{data=}\NormalTok{ppv1,}\DataTypeTok{nest=}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{# Considera região sudeste}
+\NormalTok{ppv.se.des<-}\KeywordTok{subset}\NormalTok{(ppv.des,regiao}\OperatorTok{==}\DecValTok{2}\NormalTok{)}
+\CommentTok{# estima proporções nas classes de IDATAB}
+\NormalTok{ppv.id<-}\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{idatab,ppv.se.des,}\DataTypeTok{deff=}\NormalTok{T)}
+\NormalTok{vhat<-}\KeywordTok{vcov}\NormalTok{(ppv.id)}
+\NormalTok{ppv.id <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(ppv.id)}
+\NormalTok{freq <-}\StringTok{ }\KeywordTok{svyby}\NormalTok{(}\OperatorTok{~}\NormalTok{one, }\OperatorTok{~}\NormalTok{idatab, ppv.se.des, unwtd.count)}\OperatorTok{$}\NormalTok{counts}
+\CommentTok{# matriz de variância-covariância estimada}
+\NormalTok{idad_tab <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"0-14"}\NormalTok{, }\StringTok{"15-29"}\NormalTok{, }\StringTok{"30-44"}\NormalTok{,}\StringTok{"45-59"}\NormalTok{,}\StringTok{"60+"}\NormalTok{)}
+\NormalTok{tab73 <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{idade=}\NormalTok{ idad_tab, }\DataTypeTok{prop_contagem=} \KeywordTok{c}\NormalTok{(}\FloatTok{0.2842}\NormalTok{, }\FloatTok{0.2747}\NormalTok{, }\FloatTok{0.2263}\NormalTok{, }\FloatTok{0.1261}\NormalTok{, }\FloatTok{0.0860}\NormalTok{), frequência= freq, }\DataTypeTok{prop_est_ppv=}\NormalTok{ ppv.id}\OperatorTok{$}\NormalTok{mean,}\DataTypeTok{epa =}\NormalTok{ ppv.id}\OperatorTok{$}\NormalTok{deff) }
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(tab73, }\DataTypeTok{booktabs=} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{digits=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{), }\DataTypeTok{align =} \StringTok{"lcccc"}\NormalTok{,}
+ \DataTypeTok{caption =} \StringTok{"Vetores de proporções por classes de idade da PPV 96/97 e Contagem}
+\StringTok{ 96 e EPAs calculados para a PPV - Região Sudeste"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:ppcount}Vetores de proporções por classes de idade da PPV 96/97 e Contagem
+ 96 e EPAs calculados para a PPV - Região Sudeste}
+\centering
+\begin{tabular}[t]{lcccclcccclcccclcccclcccc}
+\toprule
+idade & prop\_contagem & frequência & prop\_est\_ppv & epa\\
+\midrule
+0-14 & 0.2842 & 2516 & 0.2845 & 2.2862\\
+15-29 & 0.2747 & 2360 & 0.2678 & 2.1867\\
+30-44 & 0.2263 & 2018 & 0.2225 & 2.2542\\
+45-59 & 0.1261 & 1177 & 0.1316 & 1.9906\\
+60+ & 0.0860 & 832 & 0.0935 & 3.1632\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Os valores dos EPAs observados na PPV ( coluna 5 da Tabela
+\ref{tab:ppcount} mostram que o plano amostral não pode ser ignorado na
+análise. Queremos testar a hipótese \(H_{0}:\mathbf{p=p}_{0}\) usando as
+estimativas de proporções obtidas pela amostra da PPV. O vetor de
+proporções populacionais \(\mathbf{p}_{0}\) foi obtido dos resultados da
+Contagem Populacional de 96, que é uma pesquisa censitária. Neste
+exemplo, vamos calcular a estatística de Pearson e suas correções, e
+também a estatística de Wald baseada no plano amostral. Calculamos a
+matriz \(\widehat{\mathbf{V}}_{p}\) pela aplicação do método de
+linearização de Taylor descrito na Seção \ref{taylor} através da fórmula
+\eqref{eq:estpa22} obtendo
+
+\begin{tabular}{l|r|r|r|r|r}
+\hline
+  & 0-14 & 15-29 & 30-44 & 45-59 & 60+\\
+\hline
+0-14 & 52.274 & -3.899 & -5.672 & -19.292 & -23.411\\
+\hline
+15-29 & -3.899 & 48.164 & -29.346 & -3.399 & -11.520\\
+\hline
+30-44 & -5.672 & -29.346 & 43.799 & -8.226 & -0.556\\
+\hline
+45-59 & -19.292 & -3.399 & -8.226 & 25.551 & 5.366\\
+\hline
+60+ & -23.411 & -11.520 & -0.556 & 5.366 & 30.120\\
+\hline
+\end{tabular}
+
+Para obter a estatística de Pearson \eqref{eq:qual11}, vamos calcular a
+matriz de covariância populacional e uma estimativa dessa matriz de
+covariância sob suposição de distribuição multinomial, dada por
+\(\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}\),
+resultando em
+
+\begin{tabular}{r|r|r|r|r}
+\hline
+22.850 & -8.855 & -7.224 & -4.025 & -2.745\\
+\hline
+-8.855 & 22.515 & -7.051 & -3.929 & -2.680\\
+\hline
+-7.224 & -7.051 & 19.666 & -3.205 & -2.186\\
+\hline
+-4.025 & -3.929 & -3.205 & 12.378 & -1.218\\
+\hline
+-2.745 & -2.680 & -2.186 & -1.218 & 8.829\\
+\hline
+\end{tabular}
+
+Para obter os diversos ajustes desta estatística precisamos usar os
+valores dos EPAs, listados na coluna 5 da Tabela \ref{tab:ppcount}.
+Estes valores foram obtidos através do pacote SUDAAN. Para obter as
+diferentes correções da estatística de Pearson, precisamos calcular as
+seguintes quantidades:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dhat <-}\StringTok{ }\NormalTok{tab73}\OperatorTok{$}\NormalTok{epa}
+\NormalTok{dhatdot <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(dhat)}
+\NormalTok{dhatdot}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.376168
+\end{verbatim}
+
+\[
+\hat{d}_{.}=\sum_{j=1}^{5}\hat{d}_{j}/5=2,376\;\;\mbox{,} 
+\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{phat <-}\StringTok{ }\NormalTok{tab73}\OperatorTok{$}\NormalTok{prop_est_ppv}
+\NormalTok{deltahatdot <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(phat}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{p0)}\OperatorTok{*}\NormalTok{dhat}\OperatorTok{/}\NormalTok{(}\DecValTok{4}\OperatorTok{*}\NormalTok{p0))}
+\NormalTok{deltahatdot}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.459607
+\end{verbatim}
+
+\[
+\hat{\delta}_{.}=\sum_{j=1}^5\frac{\hat{p}_{j}}{4p_{0j}}
+\left( 1-\hat{p}_{0j}\right) \hat{d}_{j}=2,457\;\;, 
+\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nppv <-}\StringTok{ }\KeywordTok{sum}\NormalTok{ (freq)}
+\NormalTok{raz <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\OtherTok{NA}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{5}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{)\{}
+  \ControlFlowTok{for}\NormalTok{(j }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{)\{}
+\NormalTok{    raz[i,j]<-}\StringTok{ }\NormalTok{vhat[i,j]}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\NormalTok{(p0[i]}\OperatorTok{*}\NormalTok{p0[j])}
+\NormalTok{  \}}
+\NormalTok{\}}
+\NormalTok{ahat2_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\NormalTok{nppv}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\StringTok{ }\KeywordTok{sum}\NormalTok{(raz)}\OperatorTok{/}\NormalTok{(}\DecValTok{4}\OperatorTok{*}\NormalTok{deltahatdot}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\NormalTok{ahat2_}\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.249524
+\end{verbatim}
+
+\[
+1+\hat{a}^{2}=8903^{2}\sum\limits_{j=1}^{5}\sum\limits_{k=1}^{5}\left( \hat{V}_{p}^{2}\left( \hat{p}_{j},\hat{p}_{k}\right) /p_{0j}p_{0k}\right) /\left(
+4\times 2,457^{2}\right) =1,253\;\;. 
+\]
+
+Podemos então calcular a estatística \(X_{P}^{2}\) de Pearson usando
+\eqref{eq:qual11}, resultando em
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x2p <-nppv}\OperatorTok{*}\StringTok{ }\KeywordTok{sum}\NormalTok{((phat }\OperatorTok{-}\NormalTok{p0)}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\NormalTok{p0)}
+\NormalTok{x2p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 11.50719
+\end{verbatim}
+
+\[
+X_{P}^{2}=11,64 
+\] com \(4\) g.l. e um \(p\)valor \(0,020\) .
+
+A estatística de Pearson com ajustamento de EPA médio é calculada usando
+\eqref{eq:qual12}, resultando em
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x2p}\OperatorTok{/}\NormalTok{dhatdot}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4.842751
+\end{verbatim}
+
+\[
+X_{P}^{2}\left( \hat{d}_{.}\right) =11,64/2,376=4,901 
+\] com \(4\) g.l. e um \(p\)valor \(0,298\) .
+
+A estatística de Pearson com ajustamento de Rao-Scott de primeira ordem,
+dada por \eqref{eq:qual13}, resulta em
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x2p}\OperatorTok{/}\NormalTok{deltahatdot }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4.678467
+\end{verbatim}
+
+\[
+X_{P}^{2}\left( \hat{\delta}_{.}\right) =11,64/2,457=4,74 
+\] com \(4\) g.l. e um \(p\)valor \(0,315\) .
+
+O ajustamento de Rao-Scott de primeira ordem F-corrigido para a
+estatística de Pearson, dado por \eqref{eq:qual15}, resulta em
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{J <-}\StringTok{ }\KeywordTok{length}\NormalTok{(phat)}
+\NormalTok{x2p}\OperatorTok{/}\StringTok{ }\NormalTok{((J}\OperatorTok{-}\DecValTok{1}\NormalTok{)}\OperatorTok{*}\NormalTok{deltahatdot)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.169617
+\end{verbatim}
+
+\[
+FX_{P}^{2}\left( \hat{\delta}_{.}\right) =4,74/4=1,85
+\] com \(4\) e \(261\) g.l e um \(p\)valor \(0,318\) .
+
+O ajustamento de Rao-Scott de segunda ordem para a estatística de
+Pearson, dado por \eqref{eq:qual14}, resulta em
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(x2p}\OperatorTok{/}\NormalTok{deltahatdot)}\OperatorTok{/}\NormalTok{ahat2_}\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.744199
+\end{verbatim}
+
+\[
+X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right) =4,74/1,253=3,784 
+\] com \(4\)/\(1,253=3,19\) g.l. e \(p\)valor \(0,314\) .
+
+A estatística de Wald baseada no plano amostral (veja equação
+\eqref{eq:qual8} resulta em
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{phatv <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(phat[}\OperatorTok{-}\DecValTok{5}\NormalTok{], }\DataTypeTok{ncol=}\DecValTok{1}\NormalTok{)}
+\NormalTok{p0v <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(p0[}\OperatorTok{-}\DecValTok{5}\NormalTok{], }\DataTypeTok{ncol=}\DecValTok{1}\NormalTok{)}
+\NormalTok{vhat0 <-}\StringTok{ }\NormalTok{vhat[}\OperatorTok{-}\DecValTok{5}\NormalTok{,}\OperatorTok{-}\DecValTok{5}\NormalTok{]}
+\NormalTok{x2w <-}\StringTok{  }\KeywordTok{t}\NormalTok{(phatv}\OperatorTok{-}\NormalTok{p0v)}\OperatorTok{%*%}\StringTok{ }\KeywordTok{solve}\NormalTok{(vhat0)}\OperatorTok{%*%}\NormalTok{(phatv}\OperatorTok{-}\NormalTok{p0v)}
+\NormalTok{x2w}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 5.742022
+\end{verbatim}
+
+\[
+X_{W}^{2}=5,691 
+\] com \(4\) g.l. e um \(p\)valor \(0,223\) .
+
+As estatísticas F-corrigidas de Wald, definidas em \eqref{eq:qual9} e
+\eqref{eq:qual10}, resultam em
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# número de estratos da PPV-sudeste}
+\NormalTok{nestrat <-}\StringTok{ }\KeywordTok{length}\NormalTok{(}\KeywordTok{unique}\NormalTok{(ppv1}\OperatorTok{$}\NormalTok{estratof[ppv1}\OperatorTok{$}\NormalTok{regiao }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{]))}
+\CommentTok{# número de setores da PPV-sudeste}
+\NormalTok{nsetor <-}\StringTok{ }\KeywordTok{length}\NormalTok{(}\KeywordTok{unique}\NormalTok{(ppv1}\OperatorTok{$}\NormalTok{nsetor[ppv1}\OperatorTok{$}\NormalTok{regiao }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{]))}
+\NormalTok{f <-}\StringTok{ }\NormalTok{nsetor }\OperatorTok{-}\NormalTok{nestrat}
+\NormalTok{f1p <-}\StringTok{ }\NormalTok{((f}\OperatorTok{-}\NormalTok{J}\OperatorTok{+}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{(f}\OperatorTok{*}\NormalTok{(J}\OperatorTok{-}\DecValTok{1}\NormalTok{)))}\OperatorTok{*}\NormalTok{x2w}
+\NormalTok{f1p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 1.419005
+\end{verbatim}
+
+\[
+F_{1.p}=\frac{261-5+2}{261\times 4}\times 5,690661=1,406 
+\] com \(4\) e \(259\) g.l. e um \(p\)valor \(0,232\) , e
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f2p <-}\StringTok{ }\NormalTok{x2w}\OperatorTok{/}\NormalTok{(J}\OperatorTok{-}\DecValTok{1}\NormalTok{)}
+\NormalTok{f2p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 1.435505
+\end{verbatim}
+
+\[
+F_{2.p}=5,691/4\mbox{ }=1,423 
+\] com 4 e 261 gl e um \(p\)valor \(0,228\) .
+
+A Tabela \ref{tab:estaltteste} resume os valores das diversas
+estatísticas de teste calculadas, bem como das informações comparativas
+com as respectivas distribuições de referência.
+
+\begin{longtable}[]{@{}cclcr@{}}
+\caption{\label{tab:estaltteste}Valores e valores-p de estatísticas
+alternativas de teste}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.40\columnwidth}\centering\strut
+Estatística\strut
+\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\centering\strut
+Tipo\strut
+\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
+Valor\strut
+\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\centering\strut
+Distribuição\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedleft\strut
+valor-\(p\)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.40\columnwidth}\centering\strut
+Estatística\strut
+\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\centering\strut
+Tipo\strut
+\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
+Valor\strut
+\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\centering\strut
+Distribuição\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedleft\strut
+valor-\(p\)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.40\columnwidth}\centering\strut
+\(X_{P}^{2}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
+Adequada para IID\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+11.640\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
+\(\chi ^{2}(4)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedleft\strut
+0.020\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.40\columnwidth}\centering\strut
+\(X_{P}^{2}\left( \hat{d}_{.}\right)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
+Ajustes e\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+4.901\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
+\(\chi ^{2}(4)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedleft\strut
+0.298\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.40\columnwidth}\centering\strut
+\(X_{P}^{2}\left( \hat{\delta}_{.}\right)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
+correções da\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+4.740\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
+\(\chi ^{2}(4)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedleft\strut
+0.315\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.40\columnwidth}\centering\strut
+\(FX_{P}^{2}\left( \hat{\delta}_{.}\right)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
+Estatística\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+1.850\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
+\(F\left( 4;261\right)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedleft\strut
+0.318\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.40\columnwidth}\centering\strut
+\(X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
+\(X_{P}^{2}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+3.784\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
+\(\chi ^{2}(3,19)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedleft\strut
+0.314\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.40\columnwidth}\centering\strut
+\(X_{W}^{2}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
+Baseadas no\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+5.691\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
+\(\chi ^{2}(4)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedleft\strut
+0.223\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.40\columnwidth}\centering\strut
+\(F_{1.p}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
+plano\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+1.406\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
+\(F\left( 4;259\right)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedleft\strut
+0.232\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.40\columnwidth}\centering\strut
+\(F_{2.p}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
+amostral\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+1.423\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
+\(F\left( 4;261\right)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedleft\strut
+0.228\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+Examinando os resultados da Tabela \ref{tab:estaltteste}, verificamos
+que o teste clássico de Pearson rejeita a hipótese nula \(H_{0}\) no
+nível \(\alpha =5\%\), diferentemente de todos os outros testes. Os
+valores das estatísticas com ajustes de Rao-Scott (com ou sem correção
+F) são semelhantes e parecem corrigir exageradamente o \(p\)-valor dos
+testes. A estatística de Wald baseada no plano amostral e suas correções
+F, que têm valores quase iguais, produzem uma correção menor no
+\(p\)-valor do teste. Nesse exemplo, como o número de graus de liberdade
+(dado pelo número de unidades primárias na amostra menos o número de
+estratos)\(f=m-H=261\) é grande, a correção F tem pouco efeito, tanto
+nas estatísticas com ajustes de primeira e segunda ordem de Rao-Scott,
+como na estatística Wald.
+
+\section{Laboratório de R}\label{laboratorio-de-r-4}
+
+Exemplo 7.1 pode ser substituído por: Criar variável ITAB (Não aparece)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ppv.des<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{id=}\OperatorTok{~}\NormalTok{nsetor,}\DataTypeTok{strat=}\OperatorTok{~}\NormalTok{estratof,}\DataTypeTok{weights=}\OperatorTok{~}\NormalTok{pesof,}
+\DataTypeTok{data=}\NormalTok{ppv1,}\DataTypeTok{nest=}\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{ppv.se.des<-}\KeywordTok{subset}\NormalTok{(ppv.des,regiao}\OperatorTok{==}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ppv.id<-}\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{idatab,ppv.se.des,}\DataTypeTok{deff=}\NormalTok{T)}
+\NormalTok{vhvat<-}\KeywordTok{vcov}\NormalTok{(ppv.id)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(xtable)}
+\NormalTok{fr_ppv_id<-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(ppv.id)}
+\KeywordTok{row.names}\NormalTok{(fr_ppv_id) <-}\StringTok{ }\OtherTok{NULL}
+\NormalTok{fr_ppv_id <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(}\DataTypeTok{idade=} \KeywordTok{c}\NormalTok{(}\StringTok{"0 a 14 anos"}\NormalTok{,}\StringTok{"15 a 29 anos"}\NormalTok{, }\StringTok{"30 a 44 anos"}\NormalTok{,}\StringTok{"45 a 59 anos"}\NormalTok{, }\StringTok{"60 anos e mais"}\NormalTok{), fr_ppv_id)}
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(fr_ppv_id, }\DataTypeTok{booktabs=} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{digits=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{3}\NormalTok{), }\DataTypeTok{caption=}\StringTok{"Estimativas das proporções nas classes"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:estpropclas}Estimativas das proporções nas classes}
+\centering
+\begin{tabular}[t]{lrrr}
+\toprule
+idade & mean & SE & deff\\
+\midrule
+0 a 14 anos & 0.2845 & 0.0072 & 2.286\\
+15 a 29 anos & 0.2678 & 0.0069 & 2.187\\
+30 a 44 anos & 0.2225 & 0.0066 & 2.254\\
+45 a 59 anos & 0.1316 & 0.0051 & 1.991\\
+60 anos e mais & 0.0935 & 0.0055 & 3.163\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Estatística de Wald calculada a partir da fórmula \eqref{eq:qual8}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Vetor de proporções estimadas}
+\NormalTok{phat<-}\KeywordTok{coefficients}\NormalTok{(ppv.id)}
+\CommentTok{# Vetor de proporções obtido na Contagem Populacional de 1996}
+\NormalTok{p0<-}\KeywordTok{c}\NormalTok{(.}\DecValTok{2842}\NormalTok{,.}\DecValTok{2774}\NormalTok{,.}\DecValTok{2263}\NormalTok{,.}\DecValTok{1261}\NormalTok{,.}\DecValTok{086}\NormalTok{)}
+\CommentTok{# Estatística de Wald}
+\NormalTok{x2_w<-}\KeywordTok{matrix}\NormalTok{((phat}\OperatorTok{-}\NormalTok{p0)[}\OperatorTok{-}\DecValTok{5}\NormalTok{],}\DataTypeTok{nrow=}\DecValTok{1}\NormalTok{)}\OperatorTok{%*%}\KeywordTok{solve}\NormalTok{(vhat[}\OperatorTok{-}\DecValTok{5}\NormalTok{,}\OperatorTok{-}\DecValTok{5}\NormalTok{])}\OperatorTok{%*%}
+\KeywordTok{matrix}\NormalTok{((phat}\OperatorTok{-}\NormalTok{p0)[}\OperatorTok{-}\DecValTok{5}\NormalTok{],}\DataTypeTok{ncol=}\DecValTok{1}\NormalTok{)}
+\NormalTok{x2_w}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 5.742022
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Cálculo do p-valor}
+\KeywordTok{round}\NormalTok{(}\KeywordTok{pchisq}\NormalTok{(x2_w,}\DecValTok{4}\NormalTok{,}\DataTypeTok{lower.tail=}\OtherTok{FALSE}\NormalTok{),}\DataTypeTok{digits=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1]
+## [1,] 0.219
+\end{verbatim}
+
+Estatística de Pearson calculada a partir da fórmula 7.11
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n<-}\DecValTok{8903}
+\NormalTok{P0<-}\KeywordTok{diag}\NormalTok{(p0)}\OperatorTok{-}\KeywordTok{matrix}\NormalTok{(p0,}\DataTypeTok{ncol=}\DecValTok{1}\NormalTok{)}\OperatorTok{%*%}\KeywordTok{matrix}\NormalTok{(p0,}\DataTypeTok{nrow=}\DecValTok{1}\NormalTok{)}
+\NormalTok{x2_p<-n}\OperatorTok{*}\KeywordTok{matrix}\NormalTok{((phat}\OperatorTok{-}\NormalTok{p0)[}\OperatorTok{-}\DecValTok{5}\NormalTok{],}\DataTypeTok{nrow=}\DecValTok{1}\NormalTok{)}\OperatorTok{%*%}\KeywordTok{solve}\NormalTok{(P0[}\OperatorTok{-}\DecValTok{5}\NormalTok{,}\OperatorTok{-}\DecValTok{5}\NormalTok{])}\OperatorTok{%*%}
+\KeywordTok{matrix}\NormalTok{((phat}\OperatorTok{-}\NormalTok{p0)[}\OperatorTok{-}\DecValTok{5}\NormalTok{],}\DataTypeTok{ncol=}\DecValTok{1}\NormalTok{)}
+\NormalTok{x2_p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 11.50719
+\end{verbatim}
+
+Cálculo do valor-p:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{round}\NormalTok{(}\KeywordTok{pchisq}\NormalTok{(x2_p,}\DecValTok{4}\NormalTok{,}\DataTypeTok{lower.tail=}\OtherTok{FALSE}\NormalTok{),}\DataTypeTok{digits=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1]
+## [1,] 0.021
+\end{verbatim}
 
 \chapter{Testes em Tabelas de Duas Entradas}\label{testetab2}
 
+\section{Introdução}\label{introducao-2}
+
+\section{Tabelas 2x2}\label{tabelas22}
+
+\subsection{Teste de Independência}\label{teste-de-independencia}
+
+\subsection{Teste de Homogeneidade}\label{teste-de-homogeneidade}
+
+\subsection{Efeitos de Plano Amostral nas
+Celas}\label{efeitos-de-plano-amostral-nas-celas}
+
+\section{Tabelas de Duas Entradas (Caso
+Geral)}\label{tabelas-de-duas-entradas-caso-geral}
+
+\subsection{Teste de Homogeneidade}\label{teste-de-homogeneidade-1}
+
+\subsection{Teste de Independência}\label{teste-de-independencia-1}
+
+\subsection{Estatística de Wald Baseada no Plano
+Amostral}\label{estatistica-de-wald-baseada-no-plano-amostral-1}
+
+\subsection{Estatística de Pearson com Ajuste de
+Rao-Scott}\label{estatistica-de-pearson-com-ajuste-de-rao-scott}
+
+\section{Laboratório de R}\label{laboratorio-de-r-5}
+
+\section{\texorpdfstring{{[}1{]} ``stra'' ``psu'' ``pesopes''
+``informal'' ``sx''
+``id''}{{[}1{]} stra psu pesopes informal sx id}}\label{stra-psu-pesopes-informal-sx-id-1}
+
+\section{\texorpdfstring{{[}7{]} ``ae'' ``ht'' ``re''
+``um''}{{[}7{]} ae ht re um}}\label{ae-ht-re-um-1}
+
+\section{stra psu pesopes informal sx id
+ae}\label{stra-psu-pesopes-informal-sx-id-ae-1}
+
+\section{\texorpdfstring{``numeric'' ``numeric'' ``numeric'' ``numeric''
+``numeric'' ``numeric''
+``numeric''}{numeric numeric numeric numeric numeric numeric numeric}}\label{numeric-numeric-numeric-numeric-numeric-numeric-numeric-1}
+
+\section{ht re um}\label{ht-re-um-1}
+
+\section{\texorpdfstring{``numeric'' ``numeric''
+``numeric''}{numeric numeric numeric}}\label{numeric-numeric-numeric-1}
+
+\section{mean SE}\label{mean-se}
+
+\section{sx1 0.65708 0.0056}\label{sx1-0.65708-0.0056}
+
+\section{sx2 0.34292 0.0056}\label{sx2-0.34292-0.0056}
+
+\section{mean SE}\label{mean-se-1}
+
+\section{re1 0.15546 0.0069}\label{re1-0.15546-0.0069}
+
+\section{re2 0.58356 0.0082}\label{re2-0.58356-0.0082}
+
+\section{re3 0.26098 0.0096}\label{re3-0.26098-0.0096}
+
+\section{mean SE}\label{mean-se-2}
+
+\section{ae1 0.31304 0.0095}\label{ae1-0.31304-0.0095}
+
+\section{ae2 0.31972 0.0071}\label{ae2-0.31972-0.0071}
+
+\section{ae3 0.36725 0.0105}\label{ae3-0.36725-0.0105}
+
+\section{ht1 ht2 ht3}\label{ht1-ht2-ht3}
+
+\section{0.2103714 0.6148881 0.1747405}\label{section-23}
+
+\section{\$names}\label{names}
+
+\section{\texorpdfstring{{[}1{]} ``ht1'' ``ht2''
+``ht3''}{{[}1{]} ht1 ht2 ht3}}\label{ht1-ht2-ht3-1}
+
+\section{}\label{section-24}
+
+\section{\$var}\label{var}
+
+\section{ht1 ht2 ht3}\label{ht1-ht2-ht3-2}
+
+\section{ht1 3.666206e-05 -3.322546e-05
+-3.436592e-06}\label{ht1-3.666206e-05--3.322546e-05--3.436592e-06}
+
+\section{ht2 -3.322546e-05 6.758652e-05
+-3.436106e-05}\label{ht2--3.322546e-05-6.758652e-05--3.436106e-05}
+
+\section{ht3 -3.436592e-06 -3.436106e-05
+3.779765e-05}\label{ht3--3.436592e-06--3.436106e-05-3.779765e-05}
+
+\section{}\label{section-25}
+
+\section{\$statistic}\label{statistic}
+
+\section{\texorpdfstring{{[}1{]} ``mean''}{{[}1{]} mean}}\label{mean}
+
+\section{}\label{section-26}
+
+\section{\$class}\label{class}
+
+\section{\texorpdfstring{{[}1{]}
+``svystat''}{{[}1{]} svystat}}\label{svystat}
+
+\section{ht1 ht2 ht3}\label{ht1-ht2-ht3-3}
+
+\section{ht1 3.666206e-05 -3.322546e-05
+-3.436592e-06}\label{ht1-3.666206e-05--3.322546e-05--3.436592e-06-1}
+
+\section{ht2 -3.322546e-05 6.758652e-05
+-3.436106e-05}\label{ht2--3.322546e-05-6.758652e-05--3.436106e-05-1}
+
+\section{ht3 -3.436592e-06 -3.436106e-05
+3.779765e-05}\label{ht3--3.436592e-06--3.436106e-05-3.779765e-05-1}
+
+\section{ht1 ht2 ht3}\label{ht1-ht2-ht3-4}
+
+\section{ht1 3.666206e-05 -3.322546e-05
+-3.436592e-06}\label{ht1-3.666206e-05--3.322546e-05--3.436592e-06-2}
+
+\section{ht2 -3.322546e-05 6.758652e-05
+-3.436106e-05}\label{ht2--3.322546e-05-6.758652e-05--3.436106e-05-2}
+
+\section{ht3 -3.436592e-06 -3.436106e-05
+3.779765e-05}\label{ht3--3.436592e-06--3.436106e-05-3.779765e-05-2}
+
+\section{mean SE DEff}\label{mean-se-deff}
+
+\section{re1 0.1554555 0.0068977
+2.3611}\label{re1-0.1554555-0.0068977-2.3611}
+
+\section{re2 0.5835630 0.0082001
+1.8027}\label{re2-0.5835630-0.0082001-1.8027}
+
+\section{re3 0.2609815 0.0096130
+3.1216}\label{re3-0.2609815-0.0096130-3.1216}
+
+\section{re}\label{re}
+
+\section{sx 1 2 3}\label{sx-1-2-3}
+
+\section{1 0.073 0.388 0.196}\label{section-27}
+
+\section{2 0.082 0.195 0.065}\label{section-28}
+
+\section{sx re1 re2 re3 se.re1 se.re2
+se.re3}\label{sx-re1-re2-re3-se.re1-se.re2-se.re3}
+
+\section{1 1 0.1110831 0.5908215 0.2980955 0.005726888 0.01025759
+0.01112131}\label{section-29}
+
+\section{2 2 0.2404788 0.5696548 0.1898663 0.012502636 0.01193753
+0.01114102}\label{section-30}
+
+\section{mean SE DEff}\label{mean-se-deff-1}
+
+\section{I((sx == 1 \& re == 1) * 1) 0.0729904 0.0038343
+1.4156}\label{isx-1-re-1-1-0.0729904-0.0038343-1.4156}
+
+\section{re}\label{re-1}
+
+\section{sx 1 2 3}\label{sx-1-2-3-1}
+
+\section{1 0.07299044 0.38821684 0.19587250}\label{section-31}
+
+\section{2 0.08246505 0.19534616 0.06510900}\label{section-32}
+
+\section{re}\label{re-2}
+
+\section{sx 1 2 3}\label{sx-1-2-3-2}
+
+\section{1 7.299044 38.821684 19.587250}\label{section-33}
+
+\section{2 8.246505 19.534616 6.510900}\label{section-34}
+
+\section{{[}1{]} 1.642161}\label{section-35}
+
+\section{}\label{section-36}
+
+\section{Pearson's Chi-squared test}\label{pearsons-chi-squared-test}
+
+\section{}\label{section-37}
+
+\section{data: tab.amo}\label{data-tab.amo}
+
+\section{X-squared = 227.03, df = 2, p-value \textless{}
+2.2e-16}\label{x-squared-227.03-df-2-p-value-2.2e-16}
+
 \chapter{Estimação de densidades}\label{estimacao-de-densidades}
+
+\section{Introdução}\label{introducao-3}
 
 \chapter{Modelos Hierárquicos}\label{modelos-hierarquicos}
 
+\section{Introdução}\label{introducao-4}
+
 \chapter{Não-Resposta}\label{nao-resposta}
+
+\section{Introdução}\label{introducao-5}
 
 \chapter{Diagnóstico de ajuste de
 modelo}\label{diagnostico-de-ajuste-de-modelo}
 
+\section{Introdução}\label{introducao-6}
+
 \chapter{Agregação vs.~Desagregação}\label{agregdesag}
+
+\section{Introdução}\label{introducao-7}
+
+\section{Modelagem da Estrutura
+Populacional}\label{modelagem-da-estrutura-populacional}
+
+\section{Modelos Hierárquicos}\label{modelos-hierarquicos-1}
+
+\section{Análise Desagregada: Prós e
+Contras}\label{analise-desagregada-pros-e-contras}
 
 \chapter{Pacotes para Analisar Dados Amostrais}\label{pacotes}
 
-\chapter{Placeholder}\label{placeholder}
+\section{Introdução}\label{introducao-8}
+
+\section{Pacotes Computacionais}\label{pacotes-computacionais}
+
+\chapter*{Referências}\label{referencias}
+\addcontentsline{toc}{chapter}{Referências}
 
 \bibliography{packages,book}
 

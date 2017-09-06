@@ -391,8 +391,7 @@ indicado na Tabela  \@ref(tab:estempr).
 Table:(#tab:estempr) Definição da estratificação da população de empresas
 
 Foram então selecionadas de cada um dos estratos amostras aleatórias
-simples sem reposição de $30$ empresas, implicando em uso de aloca\c{%
-c}ão igual e em frações amostrais desiguais, em vista dos
+simples sem reposição de $30$ empresas, implicando em uso de alocação igual e em frações amostrais desiguais, em vista dos
 diferentes tamanhos populacionais dos estratos. Como o estrato 1 contém
 cerca de $21\%$ das observações da população, a proporção de $50\%$ das observações da amostra no estrato 1 (das maiores empresas) na amostra é bem maior do que seria esperado sob
 amostragem aleatória simples da população em geral. Desta forma,

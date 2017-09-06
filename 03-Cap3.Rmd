@@ -635,7 +635,6 @@ opção para usar outro método conhecido como de replicações de meias amostra
 
 ## Laboratório de R
 
-
 Vamos utilizar dados da Pesquisa de Padrão  de Vida (PPV) do IBGE para ilustrar alguns métodos de estimação de variâncias. Vamos considerar a estimação da proporção de analfabetos na faixa etária acima de 14 anos. Os dados da pesquisa encontram-se no data frame \texttt{ppv1}. A variável `analf2` é indicadora da condição
 de analfabetismo na faixa etária acima de 14 anos e a variável `faixa2` é indicadora da faixa etária acima de 14 anos. Queremos estimar a proporção de analfabetos na faixa etária acima de 14 anos na região Sudeste.  Antes apresentamos o método de estimação de variância por linearização de Taylor
 
