@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-06">
+<meta name="date" content="2017-09-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +87,6 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -100,9 +99,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Análise de Dados Amostrais Complexos</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
 </ul></li>
@@ -212,9 +208,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.2" data-path="pacotes.html"><a href="pacotes.html#pacotes-computacionais"><i class="fa fa-check"></i><b>14.2</b> Pacotes Computacionais</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -470,7 +463,7 @@ _{i}^{\prime }\mathbf{\beta }\right) \right] \mathbf{z}_{i}  \tag{6.26}
 \tag{6.28}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(w_{i}\)</span> é o peso da <span class="math inline">\(i\)</span>-ésima observação amostral.</p>
-<p>A matriz de covariância do estimador de MPV de <span class="math inline">\(\mathbf{\beta }\)</span> pode ser obtida conforme indicado na Seção <a href="ajmodpar.html#modpar3">5.4</a>, bastando substituir os valores dos escores <span class="math inline">\(\mathbf{u}_{i}\left( \mathbf{\beta}\right) =\left[ y_{i}-p\left(\mathbf{z}_{i}^{\prime }\mathbf{\beta }\right)\right] \mathbf{z}_{i}\)</span> e do jacobiano correspondentes. Para maiores detalhes, o leitor interessado pode consultar Binder(1983), que aborda o problema da estimação da matriz de covariância dos estimadores de MPV na família de modelos lineares generalizados, da qual o modelo de regressão logística é caso particular.</p>
+<p>A matriz de covariância do estimador de MPV de <span class="math inline">\(\mathbf{\beta}\)</span> pode ser obtida conforme indicado na Seção <a href="ajmodpar.html#modpar3">5.4</a>, bastando substituir os valores dos escores <span class="math inline">\(\mathbf{u}_{i}\left( \mathbf{\beta}\right) =\left[ y_{i}-p\left(\mathbf{z}_{i}^{\prime }\mathbf{\beta }\right)\right] \mathbf{z}_{i}\)</span> e do jacobiano correspondentes. Para maiores detalhes, o leitor interessado pode consultar Binder(1983), que aborda o problema da estimação da matriz de covariância dos estimadores de MPV na família de modelos lineares generalizados, da qual o modelo de regressão logística é caso particular.</p>
 <p>Vale observar que, tal como no caso da modelagem clássica, a obtenção dos estimadores de MPV dos parâmetros no modelo de regressão logística depende da solução por métodos numéricos de um sistema de equações. Portanto é importante dispor de um pacote computacional adequado para efetuar os cálculos. Hoje em dia já estão disponíveis vários pacotes com essa funcionalidade, conforme se discute no Capítulo <a href="pacotes.html#pacotes">14</a>.</p>
 
 <div class="example">
@@ -511,85 +504,6 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 <p>Uma descrição detalhada do plano amostral da PNAD 90 foi apresentada no Exemplo <a href="modreg.html#exm:pnad">6.1</a>. Como se pode observar dessa descrição, o plano amostral da PNAD apresenta todos os aspectos de um plano amostral complexo, incluindo estratificação (geográfica), seleção de unidades primárias (municípios, ou setores nos municípios auto-representativos) ou secundárias (setores nos municípios não auto-representativos) com probabilidades desiguais, conglomeração (de domicílios em setores, e de pessoas nos domicílios) e seleção sistemática sem reposição de unidades. Nesse caso, fica difícil admitir a priori com confiança as hipóteses usuais de modelagem das observações amostrais como IID. Por esse motivo foram considerados métodos alternativos de modelagem e ajuste.</p>
 <p>Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões, calculadas pela função <code>svyglm()</code>da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>.</p>
 <p>As estimativas calculadas pela função <code>svyglm</code> são feitas pelo <code>Método de Máxima Pseudo-Verossimilhança</code>, resolvendo a equação <a href="modreg.html#eq:norm27">(6.28)</a>. As estimativas dos desvios padrões são obtidas das variâncias calculadas pelo método de linearização descrito na Seção <a href="ajmodpar.html#modpar3">5.4</a>, equação <a href="ajmodpar.html#eq:modpar5">(5.5)</a>, considerando os escores tal como apresentados na equação <a href="modreg.html#eq:norm25a">(6.26)</a>. Para esses cálculos, os estimadores de variância considerados levaram em conta os pesos das observações, mas utilizaram uma aproximação que consiste em considerar que as unidades primárias de amostragem foram selecionadas com reposição, conforme descrito na Seção .</p>
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Estimativas dos efeitos e dos respectivos desvios padrões obtidas -->
-<!-- pelo {\bf SUDAAN} e pelo {\bf S-Plus} }\bigskip \label{tab62}  -->
-<!-- \begin{tabular}{|c|cc|cc|} -->
-<!-- \hline\hline -->
-<!-- Variáveis & \multicolumn{2}{|r}{Ajuste no \textbf{SUDAAN}} &  -->
-<!-- \multicolumn{2}{|r|}{Ajuste no \textbf{S-Plus}} \\ \cline{2-5} -->
-<!-- independentes & Estimativa & Desvio & Estimativa & Desvio \\  -->
-<!-- e efeitos & do efeito & Padrão & do efeito & Padrão \\ \hline\hline -->
-<!-- Intercepto & \multicolumn{1}{|r}{$-0,515$} & \multicolumn{1}{r|}{$0,260$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,514$} & \multicolumn{1}{r|}{$0,269$} \\  -->
-<!-- sx & \multicolumn{1}{|r}{$0,148$} & \multicolumn{1}{r|}{$0,222$} &  -->
-<!-- \multicolumn{1}{|r}{$0,156$} & \multicolumn{1}{r|}{$0,228$} \\  -->
-<!-- ae1 & \multicolumn{1}{|r}{$0,745$} & \multicolumn{1}{r|}{$0,165$} &  -->
-<!-- \multicolumn{1}{|r}{$0,740$} & \multicolumn{1}{r|}{$0,165$} \\  -->
-<!-- ae2 & \multicolumn{1}{|r}{$0,496$} & \multicolumn{1}{r|}{$0,156$} &  -->
-<!-- \multicolumn{1}{|r}{$0,497$} & \multicolumn{1}{r|}{$0,159$} \\  -->
-<!-- ht1 & \multicolumn{1}{|r}{$-0,377$} & \multicolumn{1}{r|}{$0,317$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,386$} & \multicolumn{1}{r|}{$0,312$} \\  -->
-<!-- ht2 & \multicolumn{1}{|r}{$-0,697$} & \multicolumn{1}{r|}{$0,275$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,698$} & \multicolumn{1}{r|}{$0,268$} \\  -->
-<!-- id1 & \multicolumn{1}{|r}{$-0,239$} & \multicolumn{1}{r|}{$0,540$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,243$} & \multicolumn{1}{r|}{$0,492$} \\  -->
-<!-- id2 & \multicolumn{1}{|r}{$-0,729$} & \multicolumn{1}{r|}{$0,302$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,724$} & \multicolumn{1}{r|}{$0,314$} \\  -->
-<!-- id3 & \multicolumn{1}{|r}{$0,227$} & \multicolumn{1}{r|}{$0,231$} &  -->
-<!-- \multicolumn{1}{|r}{$0,227$} & \multicolumn{1}{r|}{$0,234$} \\  -->
-<!-- re1 & \multicolumn{1}{|r}{$0,286$} & \multicolumn{1}{r|}{$0,277$} &  -->
-<!-- \multicolumn{1}{|r}{$0,293$} & \multicolumn{1}{r|}{$0,245$} \\  -->
-<!-- re2 & \multicolumn{1}{|r}{$0,065$} & \multicolumn{1}{r|}{$0,144$} &  -->
-<!-- \multicolumn{1}{|r}{$0,062$} & \multicolumn{1}{r|}{$0,145$} \\  -->
-<!-- ht1.re1 & \multicolumn{1}{|r}{$1,529$} & \multicolumn{1}{r|}{$0,356$} &  -->
-<!-- \multicolumn{1}{|r}{$1,531$} & \multicolumn{1}{r|}{$0,332$} \\  -->
-<!-- ht2.re1 & \multicolumn{1}{|r}{$0,338$} & \multicolumn{1}{r|}{$0,320$} &  -->
-<!-- \multicolumn{1}{|r}{$0,336$} & \multicolumn{1}{r|}{$0,284$} \\  -->
-<!-- ht1.re2 & \multicolumn{1}{|r}{$0,490$} & \multicolumn{1}{r|}{$0,233$} &  -->
-<!-- \multicolumn{1}{|r}{$0,498$} & \multicolumn{1}{r|}{$0,221$} \\  -->
-<!-- ht2.re2 & \multicolumn{1}{|r}{$-0,115$} & \multicolumn{1}{r|}{$0,183$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,112$} & \multicolumn{1}{r|}{$0,178$} \\  -->
-<!-- ht1.id1 & \multicolumn{1}{|r}{$-1,420$} & \multicolumn{1}{r|}{$0,605$} &  -->
-<!-- \multicolumn{1}{|r}{$-1,408$} & \multicolumn{1}{r|}{$0,515$} \\  -->
-<!-- ht2.id1 & \multicolumn{1}{|r}{$-0,413$} & \multicolumn{1}{r|}{$0,506$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,397$} & \multicolumn{1}{r|}{$0,465$} \\  -->
-<!-- ht1.id2 & \multicolumn{1}{|r}{$-0,124$} & \multicolumn{1}{r|}{$0,354$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,129$} & \multicolumn{1}{r|}{$0,351$} \\  -->
-<!-- ht2.id2 & \multicolumn{1}{|r}{$-0,109$} & \multicolumn{1}{r|}{$0,279$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,106$} & \multicolumn{1}{r|}{$0,286$} \\  -->
-<!-- ht1.id3 & \multicolumn{1}{|r}{$-0,220$} & \multicolumn{1}{r|}{$0,248$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,216$} & \multicolumn{1}{r|}{$0,253$} \\  -->
-<!-- ht2.id3 & \multicolumn{1}{|r}{$-0,537$} & \multicolumn{1}{r|}{$0,205$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,533$} & \multicolumn{1}{r|}{$0,201$} \\  -->
-<!-- sx.id1 & \multicolumn{1}{|r}{$0,878$} & \multicolumn{1}{r|}{$0,348$} &  -->
-<!-- \multicolumn{1}{|r}{$0,870$} & \multicolumn{1}{r|}{$0,335$} \\  -->
-<!-- sx.id2 & \multicolumn{1}{|r}{$0,300$} & \multicolumn{1}{r|}{$0,231$} &  -->
-<!-- \multicolumn{1}{|r}{$0,294$} & \multicolumn{1}{r|}{$0,226$} \\  -->
-<!-- sx.id3 & \multicolumn{1}{|r}{$-0,259$} & \multicolumn{1}{r|}{$0,190$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,263$} & \multicolumn{1}{r|}{$0,186$} \\  -->
-<!-- sx.ht1 & \multicolumn{1}{|r}{$-0,736$} & \multicolumn{1}{r|}{$0,206$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,737$} & \multicolumn{1}{r|}{$0,211$} \\  -->
-<!-- sx.ht2 & \multicolumn{1}{|r}{$-0,089$} & \multicolumn{1}{r|}{$0,185$} &  -->
-<!-- \multicolumn{1}{|r}{$-0,093$} & \multicolumn{1}{r|}{$0,182$} \\  -->
-<!-- ae1.ht1 & \multicolumn{1}{|r}{$0,792$} & \multicolumn{1}{r|}{$0,240$} &  -->
-<!-- \multicolumn{1}{|r}{$0,792$} & \multicolumn{1}{r|}{$0,239$} \\  -->
-<!-- ae2.ht1 & \multicolumn{1}{|r}{$0,739$} & \multicolumn{1}{r|}{$0,227$} &  -->
-<!-- \multicolumn{1}{|r}{$0,735$} & \multicolumn{1}{r|}{$0,226$} \\  -->
-<!-- ae1.ht2 & \multicolumn{1}{|r}{$0,026$} & \multicolumn{1}{r|}{$0,197$} &  -->
-<!-- \multicolumn{1}{|r}{$0,029$} & \multicolumn{1}{r|}{$0,196$} \\  -->
-<!-- ae2.ht2 & \multicolumn{1}{|r}{$0,089$} & \multicolumn{1}{r|}{$0,183$} &  -->
-<!-- \multicolumn{1}{|r}{$0,087$} & \multicolumn{1}{r|}{$0,189$} \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
 <table>
 <caption><span id="tab:logit">Tabela 6.2: </span>Estmativas dos efeitos e respectivos erros padrões obtidos pela library survey do R</caption>
 <thead>
@@ -816,31 +730,6 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 </table>
 <p>Na Tabela  são apresentadas as probabilidades de significância dos testes de nulidade dos efeitos do modelo. Todos os efeitos incluídos no modelo são significativos, nos níveis usuais de significância. A <strong>PROC LOGISTIC</strong> do pacote <strong>SUDAAN</strong> não inclui testes para os efeitos principais, por não ser possível separar tais efeitos das interações. A coluna de <span class="math inline">\(p\)</span> valores da Tabela , obtida pela PROC LOGISTIC do pacote SUDAAN, utiliza a estatística de Wald baseada no plano amostral com correção. Mais detalhes são encontrados em Shah et al.(1993).</p>
 <p>Os testes da Tabela <a href="modreg.html#tab:testmodlogit">6.3</a> indicam a significância de todas as interações de 2 fatores que entraram no modelo selecionado. O teste de qualidade global de ajuste, na primeira linha da Tabela <a href="modreg.html#tab:testmodlogit">6.3</a>, indica a necessidade de serem introduzidas novas interações.</p>
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Testes de hipóteses de nulidade dos efeitos do modelo}\bigskip  -->
-<!-- \label{tab63}  -->
-<!-- \begin{tabular}{|c|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- &  & Graus de &  & $p$valor da \\  -->
-<!-- Contraste & Graus de & liberdade & Estatística F & estatística F \\  -->
-<!-- & liberdade & ajustados & ajustada & ajustada \\ \hline\hline -->
-<!-- Modelo Global & $30$ & $26,132$ & $37,510$ & $0,000$ \\  -->
-<!-- Bondade do ajuste & $29$ & $25,692$ & $28,179$ & $0,000$ \\  -->
-<!-- ht:re & $4$ & $3,946$ & $6,040$ & $0,000$ \\  -->
-<!-- ht:id & $6$ & $5,764$ & $4,110$ & $0,001$ \\  -->
-<!-- sx:id & $3$ & $2,969$ & $7,168$ & $0,000$ \\  -->
-<!-- sx:ht & $2$ & $1,993$ & $9,166$ & $0,000$ \\  -->
-<!-- ae$:$ht & $4$ & $3,959$ & $4,814$ & $0,001$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
 <table>
 <caption><span id="tab:testmodlogit">Tabela 6.3: </span>Testes de hipóteses de Wald de nulidade dos efeitos do modelo</caption>
 <thead>
@@ -891,28 +780,6 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 </tbody>
 </table>
 <p>Para comparação, apresentamos na Tabela  algumas estimativas de razões de vantagens, relevantes na análise, calculadas tanto pela função glm do  como pela  do pacote  e, naTabela  os correspondentes intervalos de confiança de <span class="math inline">\(95\%\)</span>. Na construção destes intervalos foi necessário utilizar estimativas pontuais dos efeitos bem como a matriz de covariância estimada dos estimadores dos efeitos do modelo. Deste modo, estes intervalos sumarizam, ao mesmo tempo, discrepâncias existentes tanto nas estimativas pontuais dos efeitos como nas variâncias e covariâncias das estimativas.</p>
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Estimativas das razões de vantagens, variando-se os níveis de ae -->
-<!-- para níveis fixos de ht }\bigskip \label{tab64}  -->
-<!-- \begin{tabular}{|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- ht & Mudança de & \textbf{S-Plus} & \textbf{SUDAAN} \\  -->
-<!-- & nível de ae & \hspace{1cm}\quad \hspace{1cm} &  \\ \hline\hline -->
-<!-- 1 & 1 para 2 & $0,741$ & $0,739$ \\  -->
-<!-- 1 & 2 para 3 & $0,291$ & $0,291$ \\ \hline -->
-<!-- 2 & 1 para 2 & $0,831$ & $0,830$ \\  -->
-<!-- 2 & 2 para 3 & $0,558$ & $0,557$ \\ \hline -->
-<!-- 3 & 1 para 2 & $0,785$ & $0,780$ \\  -->
-<!-- 3 & 2 para 3 & $0,608$ & $0,608$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
 <table>
 <caption><span id="tab:razvant">Tabela 6.4: </span>Estimativas das razões de vantagens, variando-se os níveis de ae para níveis fixos de ht</caption>
 <thead>
@@ -955,28 +822,6 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 </tr>
 </tbody>
 </table>
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Intervalos de confiança de $95\%$ para razões de vantagens, -->
-<!-- variando-se os níveis de ae para níveis fixos de ht}\bigskip \label{tab65}  -->
-<!-- \begin{tabular}{|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- ht & Mudança de & \textbf{S-Plus} & \textbf{SUDAAN} \\  -->
-<!-- & nível de ae & \hspace{1cm}\quad \hspace{1cm} &  \\ \hline\hline -->
-<!-- 1 & 1 para 2 & $(0,530;1,036).$ & $(0,516;1,059)$ \\  -->
-<!-- 1 & 2 para 3 & $(0,213;0,399)$ & $(0,212;0,398)$ \\ \hline -->
-<!-- 2 & 1 para 2 & $(0,697;0,991)$ & $(0,693;0,994)$ \\  -->
-<!-- 2 & 2 para 3 & $(0,457;0,680)$ & $(0,452;0,687)$ \\ \hline -->
-<!-- 3 & 1 para 2 & $(0,586;1,050)$ & $(0,577;1,053)$ \\  -->
-<!-- 3 & 2 para 3 & $(0,445;0,831)$ & $(0,448;0,827)$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
 <pre><code>## Warning in 1.96 * sqrt(var_raz112) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
 ##   Use c() or as.vector() instead.</code></pre>
 <pre><code>## Warning in 1.96 * sqrt(var_raz123) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
@@ -1046,7 +891,6 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 </ol>
 <p>Em todas estas análises, como esperado, as estimativas pontuais dos efeitos coincidiram com as obtidas pela <strong>PROC LOGISTIC</strong> do pacote <strong>SUDAAN</strong>. Pode-se notar que, neste exemplo, há estreita concordância entre as estimativas pontuais obtidas pelos dois pacotes.</p>
 <p>A concordância das estimativas dos coeficientes pode ser explicada, em parte, pela pequena variabilidade dos pesos das unidades, tal como se pode verificar na Tabela , que apresenta a distribuição de frequências dos pesos.</p>
-
 <table>
 <caption><span id="tab:pesofreq">Tabela 6.6: </span>Distribuição de frequências dos pesos da amostra da PNAD-90 - Parte Urbana do Rio de Janeiro</caption>
 <thead>
@@ -1430,8 +1274,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-Cap6.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "download": ["bookdown-adac.pdf"],
 "toc": {

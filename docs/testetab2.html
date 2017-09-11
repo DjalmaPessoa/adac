@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-06">
+<meta name="date" content="2017-09-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +87,6 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -100,9 +99,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Análise de Dados Amostrais Complexos</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
 </ul></li>
@@ -212,9 +208,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.2" data-path="pacotes.html"><a href="pacotes.html#pacotes-computacionais"><i class="fa fa-check"></i><b>14.2</b> Pacotes Computacionais</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -283,17 +276,93 @@ n_{l+}\left( \widehat{p}_{lc}-\hat{p}_{+c}\right) ^{2}}{\hat{p}_{+c}},
 <div id="teste-de-homogeneidade-1" class="section level3">
 <h3><span class="header-section-number">8.3.1</span> Teste de Homogeneidade</h3>
 <p>O teste de homogeneidade pode ser usado para comparar distribuições de uma variável categórica (<span class="math inline">\(C\)</span> categorias) para um conjunto de <span class="math inline">\(L\)</span> regiões não superpostas, a partir de amostras independentes obtidas através de um plano amostral com vários estágios. Vamos considerar uma tabela <span class="math inline">\(L\times C\)</span> e supor que as colunas da tabela correspondem às classes da variável resposta e as linhas correspondem às regiões, de modo que as somas da proporções nas linhas na tabela de proporções são iguais a <span class="math inline">\(1\)</span>. A tabela para a população é da forma da Tabela .</p>
-
-<!-- |Região | $1$ | $2$ | $\ldots$ | $c$ | $\ldots$ | $C$ | Total |  -->
-<!-- |-------|-----|-----|-----------|-----|-----------|-----|-------| -->
-<!-- $1$ | $p_{11}$ | $p_{12}$ | $\ldots$ | $p_{1c}$ | $\ldots$ | $p_{1C}$ | $1$ | -->
-<!-- $2$ | $p_{21}$ | $p_{22}$ | $\ldots$ | $p_{2c}$ | $\ldots$ | $p_{2C}$ | $1$ | -->
-<!-- $\vdots$ | $\vdots$ | $\vdots$ | . | $\vdots$ | . | $\vdots$ | $\vdots$ | -->
-<!-- $l$ | $p_{l1}$ | $p_{l1}$ | $\ldots$ | $p_{lc}$ | $\ldots$ | $p_{lC}$ | $1$ | -->
-<!-- $\vdots$ | $\vdots$ | $\vdots$ | . | $\vdots$ | . | $\vdots$  | $\vdots$ | -->
-<!-- $L$ | $p_{L1}$ | $p_{L2}$ | $\ldots$ | $p_{Lc}$ | $\ldots$ | $p_{LC}$ | $1$ | -->
-<!-- Total| $p_{+1}$ |$p_{+2}$ | $\ldots$ | $p_{+c}$ | $\ldots$ | $p_{+C}$ | $1$ | -->
-<!-- Table:(#tab:proplinha) Proporções de linhas em tabela $L\times C$. -->
+<table>
+<caption><span id="tab:proplinha">Tabela 8.1: </span> Proporções de linhas em tabela <span class="math inline">\(L\times C\)</span>.</caption>
+<thead>
+<tr class="header">
+<th>Região</th>
+<th><span class="math inline">\(1\)</span></th>
+<th><span class="math inline">\(2\)</span></th>
+<th><span class="math inline">\(\ldots\)</span></th>
+<th><span class="math inline">\(c\)</span></th>
+<th><span class="math inline">\(\ldots\)</span></th>
+<th><span class="math inline">\(C\)</span></th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(p_{11}\)</span></td>
+<td><span class="math inline">\(p_{12}\)</span></td>
+<td><span class="math inline">\(\ldots\)</span></td>
+<td><span class="math inline">\(p_{1c}\)</span></td>
+<td><span class="math inline">\(\ldots\)</span></td>
+<td><span class="math inline">\(p_{1C}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(p_{21}\)</span></td>
+<td><span class="math inline">\(p_{22}\)</span></td>
+<td><span class="math inline">\(\ldots\)</span></td>
+<td><span class="math inline">\(p_{2c}\)</span></td>
+<td><span class="math inline">\(\ldots\)</span></td>
+<td><span class="math inline">\(p_{2C}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td>.</td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td>.</td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(l\)</span></td>
+<td><span class="math inline">\(p_{l1}\)</span></td>
+<td><span class="math inline">\(p_{l1}\)</span></td>
+<td><span class="math inline">\(\ldots\)</span></td>
+<td><span class="math inline">\(p_{lc}\)</span></td>
+<td><span class="math inline">\(\ldots\)</span></td>
+<td><span class="math inline">\(p_{lC}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td>.</td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td>.</td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(L\)</span></td>
+<td><span class="math inline">\(p_{L1}\)</span></td>
+<td><span class="math inline">\(p_{L2}\)</span></td>
+<td><span class="math inline">\(\ldots\)</span></td>
+<td><span class="math inline">\(p_{Lc}\)</span></td>
+<td><span class="math inline">\(\ldots\)</span></td>
+<td><span class="math inline">\(p_{LC}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td><span class="math inline">\(p_{+1}\)</span></td>
+<td><span class="math inline">\(p_{+2}\)</span></td>
+<td><span class="math inline">\(\ldots\)</span></td>
+<td><span class="math inline">\(p_{+c}\)</span></td>
+<td><span class="math inline">\(\ldots\)</span></td>
+<td><span class="math inline">\(p_{+C}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
 <p>Note que aqui as proporções que aparecem nas linhas da tabela são proporções calculadas em relação à freqüência total da linha, e não proporções calculadas em relação ao total da tabela como na seção anterior. Portanto, <span class="math inline">\(p_{lc}=N_{lc}/N_{l+}\)</span> para todo <span class="math inline">\(l=1,\ldots ,L\)</span> e <span class="math inline">\(c=1,\ldots ,C\)</span>.</p>
 <p>Vamos considerar o caso em que <span class="math inline">\(L=2\)</span> regiões devem ser comparadas. Seja <span class="math inline">\(\mathbf{p}_{l}=\left( p_{l1},\ldots ,p_{l\;C-1}\right) ^{\prime }\)</span> o vetor de proporções da <span class="math inline">\(l\)</span>-ésima região, sem incluir a proporção referente à última categoria (<span class="math inline">\(p_{lC}\)</span>), <span class="math inline">\(l=1,2.\)</span> A hipótese de igualdade das distribuições da resposta nas duas regiões pode ser expressa como <span class="math inline">\(H_{0}:\mathbf{p}_{1}=\mathbf{p}_{2}\)</span> , com <span class="math inline">\(C-1\)</span> componentes em cada vetor, pois em cada região a soma das proporções é 1.</p>
 <p>Seja <span class="math inline">\(\mathbf{p}_{0}=\left( p_{+1},\ldots p_{+\;C-1}\right) ^{\prime }\)</span> o vetor comum de proporções sob <span class="math inline">\(H_{0}\)</span>, desconhecido. Denotemos por <span class="math inline">\(\mathbf{\hat{p}}_{l}=\left( \hat{p}_{l1},\ldots ,\hat{p} _{l\;C-1}\right) ^{\prime }\)</span> os vetores de proporções estimadas (<span class="math inline">\(l=1,2\)</span>), baseados em amostras independentes para as diferentes regiões, onde <span class="math inline">\(\hat{p}_{lc}=\widehat{N}_{lc}/\widehat{N}_{l+}\)</span> é um estimador consistente da proporção <span class="math inline">\(p_{lc}\)</span> na população correspondente, e <span class="math inline">\(\widehat{N}_{lc}\)</span> e <span class="math inline">\(\widehat{N}_{l+}\)</span> são estimadores ponderados das frequências nas celas e nas marginais de linha da tabela, respectivamente, de modo que <span class="math inline">\(\sum\nolimits_{c=1}^{C} \widehat{N}_{lc}=\widehat{N}_{l+}\)</span> . Estes estimadores levam em consideração as probabilidades desiguais de inclusão na amostra e os ajustes por não-resposta. Observe que, se os tamanhos das amostras dos subgrupos regionais não forem fixados, os <span class="math inline">\(\hat{p}_{lc}\)</span> são estimadores de razão.</p>
@@ -504,10 +573,8 @@ _{.}\right) /\left( L-1\right) \left( C-1\right) \;\;.  \tag{8.16}
 
 <p>Considerando os dados do Exemplo <a href="modreg.html#exm:pnad">6.1</a> do Capítulo <a href="modreg.html#modreg">6</a>, vamos testar a hipótese de independência entre as variáveis Sexo (sx) e Rendimento médio mensal (re). Vamos fazer também um teste de homogeneidade, para comparar as distribuições de renda para os dois sexos.</p>
 <p>A variável <code>sx</code> tem dois níveis: sx(1)-Homens, sx(2)- Mulheres e a variável <code>re</code> tem três níveis: re(1)- Menos de salário mínimo, re(2) - de 1 a 5 salário mínimos e re(3)- mais de 5 salários mínimos. A Tabela  apresenta as frequências nas celas para a amostra pesquisada.</p>
-
 <p>No teste de homogeneidade das distribuições de renda, consideramos fixadas as marginais <span class="math inline">\(4.276\)</span> e <span class="math inline">\(2.231\)</span> da variável Sexo na tabela de frequências amostrais. Usando o programa Stata, calculamos as estimativas das proporções nas linhas da tabela. Nestas estimativas são considerados os pesos das unidades da amostra e o plano amostral utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo (ex:pnad90) do Capítulo <a href="modreg.html#modreg">6</a>.</p>
 <p>Vamos considerar o teste de homogeneidade entre as variáveis Sexo e Renda e calcular o efeito de plano amostral médio das estimativas das proporções nas celas da tabela. A Tabela  contém, em cada cela, as estimativas: da proporção na linha, do desvio-padrão da estimativa da proporção na linha (<span class="math inline">\(\times10.000\)</span>), e do efeito de plano amostral da estimativa de proporção na linha.</p>
-
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">marg_re_pop &lt;-<span class="kw">as.data.frame</span>(<span class="kw">svymean</span>(<span class="op">~</span>re,pnad.des, <span class="dt">deff=</span><span class="ot">TRUE</span> ))
 knitr<span class="op">::</span><span class="kw">kable</span>(marg_re_pop ,<span class="dt">booktabs=</span><span class="ot">TRUE</span>, <span class="dt">digits=</span><span class="dv">3</span>,
   <span class="dt">caption=</span><span class="st">&quot;Proporções nas linha, desvios padrões e EPAs de `re` na população&quot;</span>)</code></pre></div>
@@ -517,7 +584,6 @@ knitr<span class="op">::</span><span class="kw">kable</span>(marg_re_pop ,<span 
 \]</span></p>
 <p>A estimativa do efeito médio de plano amostral para corrigir a estatística <span class="math inline">\(X_{P}^{2}\left( H\right)\)</span> é <span class="math inline">\(\hat{d}_{.}=1,802\)</span> , calculada tomando a média dos EPAs das celas correspondentes aos níveis 1 e 2 da variável <code>sx</code>.</p>
 <p>Vamos agora considerar o teste de independência entre as variáveis Sexo e Renda e calcular o efeito de plano amostral médio das estimativas das proporções nas celas da tabela. A Tabela  contém, em cada cela, as estimativas: da proporção na cela, do desvio-padrão da estimativa da proporção na cela (<span class="math inline">\(\times 10.000\)</span>), e do efeito de plano amostral da estimativa de proporção na cela.</p>
-
 <p>Tabela de proporções de <code>sx</code> para a população inteira:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">marg_sx_pop &lt;-<span class="kw">data.frame</span>(<span class="kw">svymean</span>(<span class="op">~</span>sx,pnad.des, <span class="dt">deff=</span><span class="ot">TRUE</span> ))
 marg_sx_pop &lt;-<span class="st"> </span><span class="kw">transform</span>(marg_sx_pop, <span class="dt">SE =</span> <span class="dv">10000</span><span class="op">*</span>SE)
@@ -764,8 +830,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-Cap8.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "download": ["bookdown-adac.pdf"],
 "toc": {

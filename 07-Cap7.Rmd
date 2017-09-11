@@ -49,7 +49,7 @@ superpopulação.
 
 ### Correção de Estatísticas Clássicas
 
-No Exemplo \@ref{ex:exebin} a estatística de teste $Z_{bin},$ que foi utilizada para comparar com um valor hipotético pré-fixado a proporção de empregados cobertos por plano de
+No Exemplo \@ref(ex:exebin) a estatística de teste $Z_{bin},$ que foi utilizada para comparar com um valor hipotético pré-fixado a proporção de empregados cobertos por plano de
 saúde, resultou num teste mais liberal do que o teste que empregou a
 estatística $Z_{p}$, baseada no plano amostral efetivamente adotado. A
 causa disto foi o fato de $Z_{bin}$ não considerar o efeito de conglomeração existente. Vamos examinar com mais detalhes o comportamento
@@ -58,32 +58,6 @@ estatística de teste $X_{P}^{2}$ de Pearson para o exemplo
 correspondente. Para isto, consideremos a Tabela \@ref(tab:prophip) contendo a
 distribuição de frequências, onde $n_{j}$ e $p_{oj}$ são
 as frequências (absolutas) observadas na amostra e as proporções hipotéticas nas categorias de interesse, respectivamente.
-
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Frequências observadas e proporções hipotéticas }\bigskip \label% -->
-<!-- {tab71}  -->
-<!-- \begin{tabular}[t]{|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- Categoria & $j$ & $n_{j}$ & $p_{0j}$ \\ \hline\hline -->
-<!-- \begin{tabular}{l} -->
-<!-- Cobertos por \\  -->
-<!-- plano de saúde -->
-<!-- \end{tabular} -->
-<!-- & 1 & \multicolumn{1}{|r|}{$840$} & \multicolumn{1}{|r|}{$0,8$} \\  -->
-<!-- Não cobertos & 2 & \multicolumn{1}{|r|}{$160$} & \multicolumn{1}{|r|}{$% -->
-<!-- 0,2$} \\ \hline\hline -->
-<!-- \multicolumn{1}{|l|}{Todos os empregados} & \multicolumn{1}{|l|}{$\sum $} &  -->
-<!-- \multicolumn{1}{|l|}{$1.000$} & \multicolumn{1}{|l|}{$1,0$} \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
 
 
 -----------------------------------------------
@@ -139,7 +113,7 @@ p_{0}\left( 1-p_{0}\right) /n}=Z_{bin}^{2}
 (\#eq:qual2)
 \end{equation}
 onde $\widehat{p}=\widehat{p}_{1}$ e $p_{0}=p_{01}$ para simplicidade e
-coerência com a notação do Exemplo \@ref{ex:exebin}.
+coerência com a notação do Exemplo \@ref(ex:exebin).
 
 Sob a hipótese de observações IID, a distribuição
 assintótica da estatística $X_{P}^{2}$ é qui-quadrado ($\chi^{2}$). Neste caso, em que há apenas duas categorias e uma restrição (soma das proporções igual a $1$), a distribuição da estatística $X_{P}^{2}$ em \@ref(eq:qual2) tem apenas um grau de liberdade.
@@ -195,7 +169,7 @@ X_{RV}^{2}(d)=X_{RV}^{2}/d\;\;.
 \end{equation}
 
 Vamos calcular os valores das estatísticas de Pearson e de RV, com suas
-correções de Rao-Scott, para os dados do Exemplo \@ref{ex:exebin}. Para
+correções de Rao-Scott, para os dados do Exemplo \@ref(ex:exebin). Para
 as correções, primeiro é preciso calcular o efeito do plano
 amostral
 
@@ -331,7 +305,7 @@ amostragem aleatória simples, usamos no lugar de $\widehat{V}_{p}\left(
 $\widehat{V}_{bin}\left( \widehat{p}\right) =$ $\widehat{p}\left( 1-\widehat{p}\right) /n$. Neste caso,
 estatística resultante $X_{bin}^{2}$ coincide com a estatística $X_{N}^{2}$ de Neyman.
 
-Para o plano amostral de conglomerados considerado no Exemplo \@ref{ex:exebin},
+Para o plano amostral de conglomerados considerado no Exemplo \@ref(ex:exebin),
 a estatística $X_{W}^{2}$, sem qualquer ajuste auxiliar, já é
 distribuída assintoticamente como qui-quadrado com um grau de liberdade.
 O valor da estatística de Wald para esse exemplo é
@@ -366,31 +340,6 @@ amostras.
 Reproduzimos na Tabela \@ref(tab:testprop) os resultados para todas as
 estatísticas de teste consideradas até agora, para facilidade de
 comparação.
-
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Valores e $p$valores de estatísticas de teste alternativas para os -->
-<!-- dados do Exemplo 4.4}\bigskip \label{tab72}  -->
-<!-- \begin{tabular}{|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- Estatística de teste & gl & Valor observado & $p$valor \\ \hline\hline -->
-<!-- \multicolumn{1}{|l|}{Pearson $X_{P}^{2}$} & 1 & $10,00$ & $0,0016$ \\  -->
-<!-- \multicolumn{1}{|l|}{Pearson ajustada $X_{P}^{2}\left( d\right)$} & 1 & $% -->
-<!-- 0,500$ & $0,4795$ \\  -->
-<!-- \multicolumn{1}{|l|}{RV $X_{RV}^{2}$} & 1 & $10,56$ & $0,0012$ \\  -->
-<!-- \multicolumn{1}{|l|}{RV ajustada $X_{RV}^{2}(d)$} & 1 & $0,528$ & $0,4675$ -->
-<!-- \\  -->
-<!-- \multicolumn{1}{|l|}{Wald $X_{W}^{2}$} & 1 & $0,583$ & $0,4451$ \\  -->
-<!-- \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
 
 
 ```{r  testprop, echo=FALSE}
@@ -717,46 +666,6 @@ foram obtidas da Contagem Populacional de 96. Na Região Sudeste, o
 número de estratos é $H=15$ e o número total de conglomerados
 (setores) na amostra da PPV é $m=276$ e portanto $f=m-H=261$. As informações utilizadas neste exemplo são apresentadas na Tabela \@ref(tab:ppcount).
 
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Vetores de proporções por classes de idade da PPV 96/97 e Contagem -->
-<!-- 96 e EPAs calculados para a PPV - Região Sudeste }\bigskip \label{tab73} -->
-<!-- \begin{tabular}{|c|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- & Contagem & \multicolumn{3}{|c|}{PPV} \\ \cline{2-5} -->
-<!-- Idade & -->
-<!-- \begin{tabular}{c} -->
-<!-- Proporção \\ -->
-<!-- $\left( \mathbf{p}_{0}\right)$ -->
-<!-- \end{tabular} -->
-<!-- & Frequência & -->
-<!-- \begin{tabular}{c} -->
-<!-- Proporção \\ -->
-<!-- $\left( \mathbf{\hat{p}}\right)$ -->
-<!-- \end{tabular} -->
-<!-- & EPA \\ \hline\hline -->
-<!-- 0 a 14 anos & $0,2842$ & \multicolumn{1}{|r|}{$2.516$} & -->
-<!-- \multicolumn{1}{|r|}{$0,2845$} & \multicolumn{1}{|r|}{$2,2859$} \\ -->
-<!-- 15 a 29 anos & $0,2774$ & \multicolumn{1}{|r|}{$2.360$} & -->
-<!-- \multicolumn{1}{|r|}{$0,2678$} & \multicolumn{1}{|r|}{$2,1864$} \\ -->
-<!-- 30 a 44 anos & $0,2263$ & \multicolumn{1}{|r|}{$2.018$} & -->
-<!-- \multicolumn{1}{|r|}{$0,2225$} & \multicolumn{1}{|r|}{$2,2539$} \\ -->
-<!-- 45 a 59 anos & $0,1261$ & \multicolumn{1}{|r|}{$1.177$} & -->
-<!-- \multicolumn{1}{|r|}{$0,1316$} & \multicolumn{1}{|r|}{$1,9903$} \\ -->
-<!-- 60 anos e mais & $0,0860$ & \multicolumn{1}{|r|}{$832$} & -->
-<!-- \multicolumn{1}{|r|}{$0,0935$} & \multicolumn{1}{|r|}{$3,1627$} \\ -->
-<!-- \hline\hline -->
-<!-- Total & $1,0000$ & \multicolumn{1}{|r|}{$8903$} & \multicolumn{1}{|r|}{$% -->
-<!-- 0,9999$} & $-$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
 
 ```{r ppcount, warning=FALSE, message=FALSE}
 library(survey)
@@ -792,17 +701,6 @@ proporções populacionais $\mathbf{p}_{0}$ foi obtido dos resultados
 da Contagem Populacional de 96, que é uma pesquisa censitária. Neste exemplo, vamos calcular a estatística de Pearson e suas correções, e também a estatística de Wald baseada no plano amostral.
 Calculamos a matriz $\widehat{\mathbf{V}}_{p}$ pela aplicação do método de linearização de Taylor descrito na Seção \@ref(taylor) através da fórmula \@ref(eq:estpa22) obtendo
 
-<!-- \[ -->
-<!-- \widehat{\mathbf{V}}_{p}(\widehat{\mathbf{p}})=10^{-6}\times \left[ -->
-<!-- \begin{tabular}{rrrr|r} -->
-<!-- $52,27$ & $-3,899$ & $-5,672$ & $-19,29$ & $-23,41$ \\ -->
-<!-- $-3,899$ & $48,16$ & $-29,35$ & $-3,399$ & $-11,52$ \\ -->
-<!-- $-5,672$ & $-29,35$ & $43,80$ & $-8,226$ & $-0,5558$ \\ -->
-<!-- $-19,29$ & $-3,399$ & $-8,226$ & $25,55$ & $5,366$ \\ \hline -->
-<!-- $-23,41$ & $-11,52$ & $-0,5558$ & $5,366$ & $30,12$ -->
-<!-- \end{tabular} -->
-<!-- \right] \mbox{ .} -->
-<!-- \] -->
 
 ```{r  vahat, echo= FALSE}
 dimnames(vhat) <- list(idad_tab, idad_tab)
@@ -814,19 +712,6 @@ Para obter a estatística de Pearson \@ref(eq:qual11), vamos calcular a
 matriz de covariância populacional e uma estimativa dessa matriz de
 covariância sob suposição de distribuição multinomial,
 dada por $\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}$, resultando em 
-
-<!-- $\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}$, resultando em  -->
-<!-- \[ -->
-<!-- \mathbf{P}_{0}/n=10^{-6}\times \left[  -->
-<!-- \begin{tabular}{rrrr|r} -->
-<!-- $22,85$ & $-8,855$ & $-7,223$ & $-4,025$ & $-2,745$ \\  -->
-<!-- $-8,855$ & $22,51$ & $-7,051$ & $-3,929$ & $-2,680$ \\  -->
-<!-- $-7,223$ & $-7,051$ & $19,67$ & $-3,205$ & $-2,186$ \\  -->
-<!-- $-4,025$ & $-3,929$ & $-3,205$ & $12,38$ & $-1,218$ \\ \hline -->
-<!-- $-2,745$ & $-2,680$ & $-2,186$ & $-1,218$ & $8,829$% -->
-<!-- \end{tabular} -->
-<!-- \right] \;.  -->
-<!-- \] -->
 
 
 ```{r, echo=FALSE}
@@ -997,43 +882,6 @@ teste calculadas, bem como das informações comparativas com as
 respectivas distribuições de referência.
 
 
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Valores e $p$valores de estatísticas alternativas de teste}\bigskip -->
-<!-- \label{tab74} -->
-<!-- \begin{tabular}{|c|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- Estatística & Tipo & Valor & Distribuição & $p$valor \\ -->
-<!-- \hline\hline -->
-<!-- $X_{P}^{2}$ & -->
-<!-- \begin{tabular}{c} -->
-<!-- Adequada \\ -->
-<!-- para IID -->
-<!-- \end{tabular} -->
-<!-- & \multicolumn{1}{|r|}{$11,640$} & $\chi ^{2}(4)$ & $0,020$ \\ \hline -->
-<!-- $X_{P}^{2}\left( \hat{d}_{.}\right)$ & Ajustes e & \multicolumn{1}{|r|}{$% -->
-<!-- 4,901$} & $\chi ^{2}(4)$ & $0,298$ \\ -->
-<!-- $X_{P}^{2}\left( \hat{\delta}_{.}\right)$ & correções da & -->
-<!-- \multicolumn{1}{|r|}{$4,740$} & $\chi ^{2}(4)$ & $0,315$ \\ -->
-<!-- $FX_{P}^{2}\left( \hat{\delta}_{.}\right)$ & Estatística & -->
-<!-- \multicolumn{1}{|r|}{$1,850$} & $F\left( 4;261\right)$ & $0,318$ \\ -->
-<!-- $X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$ & $X_{P}^{2}$ & -->
-<!-- \multicolumn{1}{|r|}{$3,784$} & $\chi ^{2}(3,19)$ & $0,314$ \\ \hline -->
-<!-- $X_{W}^{2}$ & Baseadas no & \multicolumn{1}{|r|}{$5,691$} & $\chi ^{2}(4)$ & -->
-<!-- $0,223$ \\ -->
-<!-- $F_{1.p}$ & plano & \multicolumn{1}{|r|}{$1,406$} & $F\left( 4;259\right)$ -->
-<!-- & $0,232$ \\ -->
-<!-- $F_{2.p}$ & amostral & \multicolumn{1}{|r|}{$1,423$} & $F\left( 4;261\right) -->
-<!-- $ & $0,228$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
 
 ---------------------------------------------------------------------------------------------------------------------
            Estatística                                      Tipo          Valor    Distribuição              valor-$p$

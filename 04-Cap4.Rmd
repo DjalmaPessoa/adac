@@ -81,104 +81,6 @@ $\pi$-ponderado. Os resultados referentes à Região Metropolitana do Rio de Jan
 alvo considera apenas moradores em domicílios particulares permanentes
 na Região Metropolitana do Rio de Janeiro.
 
-<!-- \begin{center} -->
-<!-- \begin{table}[tbp] \centering -->
-<!-- \caption{Efeitos de plano amostral de Kish para variáveis selecionadas - Região Metropolitana do Rio de Janeiro}\bigskip \label{tab41} -->
-<!-- \begin{tabular}{|r|l|l|c|} -->
-<!-- \hline\hline -->
-<!-- Plano amostral $\rightarrow $ & \multicolumn{2}{|c|}{AC2AAS} & AC2PPT \\ -->
-<!-- \hline\hline -->
-<!-- \multicolumn{1}{|l|}{Variável $\downarrow $} & -->
-<!-- \begin{tabular}{l} -->
-<!-- Estimador \\ -->
-<!-- Simples -->
-<!-- \end{tabular} -->
-<!-- & -->
-<!-- \begin{tabular}{l} -->
-<!-- Estimador \\ -->
-<!-- de Razão -->
-<!-- \end{tabular} -->
-<!-- & \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- Estimador \\ -->
-<!-- $\pi $-ponderado -->
-<!-- \end{tabular} -->
-<!-- } \\ \hline\hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 1) Número total \\ -->
-<!-- de moradores -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$10,74$} & \multicolumn{1}{|r|}{$2,00$} & -->
-<!-- \multicolumn{1}{|r|}{$1,90$} \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 2) Número de \\ -->
-<!-- moradores ocupados -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$5,78$} & \multicolumn{1}{|r|}{$1,33$} & -->
-<!-- \multicolumn{1}{|r|}{$1,28$} \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 3) Rendimento \\ -->
-<!-- monetário mensal I -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$5,22$} & \multicolumn{1}{|r|}{$4,92$} & -->
-<!-- \multicolumn{1}{|r|}{$4,49$} \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 4) Número total de \\ -->
-<!-- filhos nascidos vivos \\ -->
-<!-- de mulheres com \\ -->
-<!-- 15 anos ou mais -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$4,59$} & \multicolumn{1}{|r|}{$2,02$} & -->
-<!-- \multicolumn{1}{|r|}{$1,89$} \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 5) Número de \\ -->
-<!-- domicílios que \\ -->
-<!-- têm fogão -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$111,27$} & \multicolumn{1}{|r|}{$1,58$} & -->
-<!-- \multicolumn{1}{|r|}{$1,55$} \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 6) Número de \\ -->
-<!-- domicílios que \\ -->
-<!-- têm telefone -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$7,11$} & \multicolumn{1}{|r|}{$7,13$} & -->
-<!-- \multicolumn{1}{|r|}{$6,41$} \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 7) Valor do aluguel \\ -->
-<!-- ou prestação mensal -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$7,22$} & \multicolumn{1}{|r|}{$7,02$} & -->
-<!-- \multicolumn{1}{|r|}{$6,45$} \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 8) Número de \\ -->
-<!-- domicílios que \\ -->
-<!-- têm automóvel \\ -->
-<!-- e renda < 5SM -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$1,80$} & \multicolumn{1}{|r|}{$1,67$} & -->
-<!-- \multicolumn{1}{|r|}{$1,55$} \\ \hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 9) Número de \\ -->
-<!-- domicílios que \\ -->
-<!-- têm geladeira \\ -->
-<!-- e renda $\geq $ 5SM -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$46,58$} & \multicolumn{1}{|r|}{$2,26$} & -->
-<!-- \multicolumn{1}{|r|}{$2,08$} \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
-
 
 Plano amostral                       AC2AAS                                AC2PPT
 
@@ -371,17 +273,6 @@ Para estimar estas médias, as empresas da população foram
 divididas em dois estratos, definidos a partir da variável PO, conforme
 indicado na Tabela  \@ref(tab:estempr).
 
-<!-- \begin{center} -->
-<!-- \begin{table}[tbp] \centering -->
-<!-- \caption{Definição da estratificação da população de empresas}\bigskip \label{tab42}  -->
-<!-- \begin{tabular}{|c|c|c|} -->
-<!-- \hline -->
-<!-- Estrato & Condição & Tamanho \\ \hline -->
-<!-- 1 & empresas com PO  $>21$ & $161$ empresas \\ \hline -->
-<!-- 2 & empresas com PO $\leq21$ & $588$ empresas \\ \hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
 
  Estrato         Condição                Tamanho
 --------  --------------------------  ------------------
@@ -462,36 +353,6 @@ receitas em milhões de Reais (R\$ $1.000.000,00$). Como a população é conhec
 ser calculados, obtendo-se os valores na primeira linha da Tabela \@ref(tab:proestmed).
 
 
-<!-- \begin{center} -->
-<!-- \begin{table}[tbp] \centering -->
-<!-- \caption{Propriedades dos estimadores da média das variáveis de pesquisa} -->
-<!-- \bigskip \label{tab43} -->
-<!-- \begin{tabular}{|c|l|c|} -->
-<!-- \hline\hline -->
-<!-- Quantidade de interesse & Salários & Receitas \\ \hline\hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 1) Média populacional $\overline{Y}$ -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$78,328$} & \multicolumn{1}{|r|}{$2,107$} \\ -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 2) Média de $\bar{y}$ sobre \\ -->
-<!-- $500$ amostras -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$160,750$} & \multicolumn{1}{|r|}{$4,191$} \\ -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 3) Média de $\bar{y}_{w}$ sobre \\ -->
-<!-- $500$ amostras -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$76,700$} & \multicolumn{1}{|r|}{$2,054$} \\ -->
-<!-- \hline\hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
-
-
 ------------------------------------------------------------------------
 Quantidade de interesse            Salários   Receitas
 --------------------------------  ---------- ----------
@@ -541,44 +402,6 @@ calcular $V_{AES}\left(\bar{y}_{w}\right)$ através das
 variâncias de $y$ dentro dos estratos $h=1,2$ ou através da simulação. Esses valores são apresentados respectivamente na primeira e
 segunda linhas da Tabela \@ref(tab:varest), para as duas variáveis de pesquisa consideradas.
 
-<!-- \begin{center} -->
-<!-- \begin{table}[tbp] \centering -->
-<!-- \caption{Propriedades dos estimadores de variância do estimador $\bar{y}_{w}$ } -->
-<!-- \bigskip \label{tab44}  -->
-<!-- \begin{tabular}{|c|l|c|} -->
-<!-- \hline\hline -->
-<!-- \begin{tabular}{r} -->
-<!-- Quantidade de \\  -->
-<!-- interesse -->
-<!-- \end{tabular} -->
-<!-- & Salários & Receitas \\ \hline\hline -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 1) Variância populacional $V_{AES}\left( \bar{y}_{w}\right) $% -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$244,18$} & \multicolumn{1}{|r|}{$0,43500$} \\  -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 2) Média de $\widehat{V}_{AES}\left( \bar{y}_{w}\right) $ \\  -->
-<!-- usando $500$ amostras -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$231,84$} & \multicolumn{1}{|r|}{$0,32569$} \\  -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 3) Valor esperado de $v_{0}$ \\  -->
-<!-- usando população -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$1.613,3$} & \multicolumn{1}{|r|}{$1,1880$} \\  -->
-<!-- \multicolumn{1}{|l|}{ -->
-<!-- \begin{tabular}{l} -->
-<!-- 4)Média de $v_{0}$ \\  -->
-<!-- usando $500$ amostras -->
-<!-- \end{tabular} -->
-<!-- } & \multicolumn{1}{|r|}{$1.636,1$} & \multicolumn{1}{|r|}{$1,2121$} \\  -->
-<!-- \hline\hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
 
 --------------------------------------------------------------------------------
 Quantidade de interesse                           Salários   Receitas
@@ -646,28 +469,6 @@ pesos são ignorados, em particular para a estimação de
 variâncias associadas a estimativas pontuais de médias e totais. Tal
 situação se deve ao uso ingênuo de pacotes estatísticos
 padrões desenvolvidos para analisar amostras IID, sem a devida consideração dos pesos e plano amostral.
-
-<!-- \begin{center} -->
-
-<!-- \begin{table}[tbp] \centering -->
-
-<!-- \caption{Valores dos Efeitos de Plano Amostral (EPA) para as médias de -->
-<!-- Salário e de Receita}\bigskip -->
-<!-- \label{tab45} -->
-<!-- \begin{tabular}{|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- Variável & Estimativa & Simulação & População \\ -->
-<!-- \hline\hline -->
-<!-- Salário & Variância & \multicolumn{1}{|r|}{$231,84$} & -->
-<!-- \multicolumn{1}{|r|}{$244,18$} \\ -->
-<!-- & \textbf{$EPA$} & \multicolumn{1}{|r|}{$0,142$} & \multicolumn{1}{|r|}{$0,151$} \\ \hline -->
-<!-- Receita & Variância & \multicolumn{1}{|r|}{$0,32569$} & -->
-<!-- \multicolumn{1}{|r|}{$0,43500$} \\ -->
-<!-- & \textbf{$EPA$} & \multicolumn{1}{|r|}{$0,269$} & \multicolumn{1}{|r|}{$0,366$} \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
-
 
 
 -----------------------------------------------------------------------
@@ -852,27 +653,6 @@ intervalo $\left[\hat{\theta}-z_{\alpha /2}v_{0}^{1/2},
 \]
 onde $\Phi$ é a função de distribuição acumulada de uma 
 $N\left( 0;1\right)$. Calculamos esta probabilidade para alguns valores do $\mathbf{EPA}$, que apresentamos na Tabela \@ref(tab:procob).
-
-<!-- \begin{center} -->
-<!-- \begin{table}[tbp] \centering -->
-<!-- \caption{Probabilidades de cobertura para níveis nominais de $95\%$ e -->
-<!-- $99\%$}\bigskip \label{tab46} -->
-<!-- \begin{tabular}{|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ & $1-\alpha =0,95$& -->
-<!-- $1-\alpha =0,99$ \\ \hline\hline -->
-<!-- $0,90$ & $0,96$ & $0,99$ \\ -->
-<!-- $0,95$ & $0,96$ & $0,99$ \\ -->
-<!-- $1,0$ & $0,95$ & $0,99$ \\ -->
-<!-- $1,5$ & $0,89$ & $0,96$ \\ -->
-<!-- $2,0$ & $0,83$ & $0,93$ \\ -->
-<!-- $2,5$ & $0,78$ & $0,90$ \\ -->
-<!-- $3,0$ & $0,74$ & $0,86$ \\ -->
-<!-- $3,5$ & $0,71$ & $0,83$ \\ -->
-<!-- $4,0$ & $0,67$ & $0,80$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
 
 
 $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$    $1-\alpha=0.95$      $1-\alpha=0.99$
@@ -1218,33 +998,6 @@ ser interpretados como valores máximos de $p$valor$_{VERD}\left( \mathbf{\bar{y
 $RC_{AAS}\left(\mathbf{\bar{y}}\right)$, considerando-se $\delta_{1}$ no lugar de $\delta$.
 
 
-<!-- \begin{center} -->
-<!-- \begin{table}[tbp] \centering -->
-<!-- \caption{Níveis de significância (\%) verdadeiros do teste $T^{2}$ -->
-<!-- para o nível nominal de 5\% assumindo autovalores iguais -->
-<!-- para $\mathbf{\Delta}$}\bigskip \label{tab47} -->
-<!-- \begin{tabular}{|c|cccc|} -->
-<!-- \hline\hline -->
-<!-- &  & $K$ &  &  \\ \cline{2-5} -->
-<!-- $\delta $ & \multicolumn{1}{|r}{1} & \multicolumn{1}{r}{2} & -->
-<!-- \multicolumn{1}{r}{3} & \multicolumn{1}{r|}{4} \\ \hline\hline -->
-<!-- \multicolumn{1}{|r|}{0,9} & \multicolumn{1}{|r}{4} & \multicolumn{1}{r}{4} & -->
-<!-- \multicolumn{1}{r}{3} & \multicolumn{1}{r|}{3} \\ -->
-<!-- \multicolumn{1}{|r|}{1,0} & \multicolumn{1}{|r}{5} & \multicolumn{1}{r}{5} & -->
-<!-- \multicolumn{1}{r}{5} & \multicolumn{1}{r|}{5} \\ -->
-<!-- \multicolumn{1}{|r|}{1,5} & \multicolumn{1}{|r}{11} & \multicolumn{1}{r}{14} -->
-<!-- & \multicolumn{1}{r}{16} & \multicolumn{1}{r|}{19} \\ -->
-<!-- \multicolumn{1}{|r|}{2,0} & \multicolumn{1}{|r}{17} & \multicolumn{1}{r}{22} -->
-<!-- & \multicolumn{1}{r}{27} & \multicolumn{1}{r|}{32} \\ -->
-<!-- \multicolumn{1}{|r|}{2,5} & \multicolumn{1}{|r}{22} & \multicolumn{1}{r}{30} -->
-<!-- & \multicolumn{1}{r}{37} & \multicolumn{1}{r|}{44} \\ -->
-<!-- \multicolumn{1}{|r|}{3,0} & \multicolumn{1}{|r}{26} & \multicolumn{1}{r}{37} -->
-<!-- & \multicolumn{1}{r}{46} & \multicolumn{1}{r|}{53} \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
-
-
 ```{r, nivsig, echo=FALSE}
 K <- 1:4
 delta <- c(.9, seq(1, 3, by=.5))
@@ -1261,8 +1014,6 @@ caption="Níveis de significância (%) verdadeiros do teste T2 para o nível nom
 de 5% assumindo autovalores iguais para delta.")
 
 ```
-
-
 
 
 

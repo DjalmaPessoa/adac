@@ -162,96 +162,35 @@ regiões cobertas pela amostra da PNAD de 93. Como se
 pode observar, tais probabilidades de inclusão chegam a ser $5$ vezes
 maiores em Belém do que em São Paulo, e portanto variação semelhante será observada nos pesos.
 
-\begin{center}
-\begin{table}[tbp] \centering
-\caption{Probabilidades de seleção da amostra da PNAD de 1993 segundo
-regiões }\bigskip \label{tab51}
-\begin{tabular}{|c|c|}
-\hline\hline
-Região da pesquisa &
-\begin{tabular}{l}
-Probabilidade \\
-de seleção
-\end{tabular}
-\\ \hline\hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-RM de Belém
-\end{tabular}
-} & $1/150$ \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-RMs de Fortaleza, Recife, Salvador e Porto Alegre \\
+
+------------------------------------------------------------------------------------
+Região da pesquisa                                           Probabilidade
+                                                              de seleção
+----------------------------------------------------------- ---------------
+RM de Belém                                                     1/150
+
+RMs de Fortaleza, Recife, Salvador e Porto Alegre               1/200
 Distrito Federal
-\end{tabular}
-} & $1/200$ \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-RMs de Belo Horizonte e Curitiba
-\end{tabular}
-} & $1/250$ \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-Rondônia, Acre, Amazonas, Roraima, Amapá, \\
-Tocantins, Sergipe, Mato Grosso do Sul, \\
+
+RMs de Belo Horizonte e Curitiba                                1/250
+
+
+Rondô}nia, Acre, Amazonas, Roraima, Amapá,                      1/300
+Tocantins, Sergipe, Mato Grosso do Sul,
 Mato Grosso e Goiás
-\end{tabular}
-} & $1/300$ \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-Pará
-\end{tabular}
-} & $1/350$ \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-RM do Rio de Janeiro, Piauí, Ceará, \\
-Rio Grande do Norte, Paraíba, Pernambuco, \\
-Alagoas, Bahia, Minas Gerais, \\
+
+Pará                                                            1/350
+
+RM do Rio de Janeiro, Piauí, Ceará, Rio Grande do Norte,        1/500
+Paraíba, Pernambuco, Alagoas, Bahia, Minas Gerais,
 Espírito Santo e Rio de Janeiro
-\end{tabular}
-} & $1/500$ \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-Paraná, Santa Catarina, Rio Grande do Sul
-\end{tabular}
-} & $1/550$ \\ \hline
-\multicolumn{1}{|l|}{
-\begin{tabular}{l}
-RM de São Paulo, Maranhão, São Paulo
-\end{tabular}
-} & $1/750$ \\ \hline\hline
-\end{tabular}
-\end{table}
-\end{center}
 
-<!-- ------------------------------------------------------------------------------------ -->
-<!-- Região da pesquisa                                           Probabilidade  -->
-<!--                                                               de seleção -->
-<!-- ----------------------------------------------------------- --------------- -->
-<!-- RM de Belém                                                     1/150 -->
+Paraná, Santa Catarina, Rio Grande do Sul                       1/550
 
-<!-- RMs de Fortaleza, Recife, Salvador e Porto Alegre               1/200 -->
-<!-- Distrito Federal -->
-
-<!-- RMs de Belo Horizonte e Curitiba                                1/250 -->
-
-
-<!-- Rondô}nia, Acre, Amazonas, Roraima, Amapá,                      1/300  -->
-<!-- Tocantins, Sergipe, Mato Grosso do Sul,   -->
-<!-- Mato Grosso e Goiás -->
-
-<!-- Pará                                                            1/350       -->
-
-<!-- RM do Rio de Janeiro, Piauí, Ceará, Rio Grande do Norte,        1/500                  -->
-<!-- Paraíba, Pernambuco, Alagoas, Bahia, Minas Gerais, -->
-<!-- Espírito Santo e Rio de Janeiro -->
-
-<!-- Paraná, Santa Catarina, Rio Grande do Sul                       1/550 -->
-
-<!-- RM de São Paulo, Maranhão, São Paulo                            1/750 -->
-<!-- ------------------------------------------------------------------------------- -->
-<!-- Table:(#tab:proselpnad) Probabilidades de seleção da amostra da PNAD de 1993 segundo -->
-<!-- regiões -->
+RM de São Paulo, Maranhão, São Paulo                            1/750
+-------------------------------------------------------------------------------
+Table:(#tab:proselpnad) Probabilidades de seleção da amostra da PNAD de 1993 segundo
+regiões
 
 Se ${\ \pi }_{i}$representa a probabilidade de inclusão na amostra do 
 $i$-ésimo domicílio da população, $i=1,...,N$, então 
@@ -564,10 +503,9 @@ onde
 \begin{equation}
 \hat{V}_{p}\left[ \sum\limits_{i\in s}\pi _{i}^{-1}\mathbf{u}_{i}\left( 
 \mathbf{\hat{\theta}}_{\pi }\right) \right] =\sum\limits_{i\in
-s}\sum\limits_{j\in s}\frac{\pi _{ij}-\pi _{i}\pi _{j}}{\pi _{i}\pi _{j}}
+s}\sum\limits_{j\in s}\frac{1}{\pi _{ij}}\frac{\pi _{ij}-\pi _{i}\pi _{j}}{\pi _{i}\pi _{j}}
 \left[ \mathbf{u}_{i}\left( \mathbf{\hat{\theta}}_{\pi }\right) \right]
-\left[ \mathbf{u}_{j}\left( \mathbf{\hat{\theta}}_{\pi }\right) \right]
-^{^{\prime }}  
+\left[ \mathbf{u}_{j}\left( \mathbf{\hat{\theta}}_{\pi }\right) \right]^{^{\prime }}  
 (\#eq:modpar14)
 \end{equation}
 e 

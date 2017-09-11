@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-06">
+<meta name="date" content="2017-09-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +87,6 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -100,9 +99,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Análise de Dados Amostrais Complexos</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
 </ul></li>
@@ -212,9 +208,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.2" data-path="pacotes.html"><a href="pacotes.html#pacotes-computacionais"><i class="fa fa-check"></i><b>14.2</b> Pacotes Computacionais</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -246,31 +239,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="correcao-de-estatisticas-classicas" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Correção de Estatísticas Clássicas</h3>
 <p>No Exemplo @ref{ex:exebin} a estatística de teste <span class="math inline">\(Z_{bin},\)</span> que foi utilizada para comparar com um valor hipotético pré-fixado a proporção de empregados cobertos por plano de saúde, resultou num teste mais liberal do que o teste que empregou a estatística <span class="math inline">\(Z_{p}\)</span>, baseada no plano amostral efetivamente adotado. A causa disto foi o fato de <span class="math inline">\(Z_{bin}\)</span> não considerar o efeito de conglomeração existente. Vamos examinar com mais detalhes o comportamento assintótico da estatística de teste <span class="math inline">\(Z_{bin}\)</span>, construindo a estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> de Pearson para o exemplo correspondente. Para isto, consideremos a Tabela <a href="testqualajust.html#tab:prophip">7.1</a> contendo a distribuição de frequências, onde <span class="math inline">\(n_{j}\)</span> e <span class="math inline">\(p_{oj}\)</span> são as frequências (absolutas) observadas na amostra e as proporções hipotéticas nas categorias de interesse, respectivamente.</p>
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Frequências observadas e proporções hipotéticas }\bigskip \label% -->
-<!-- {tab71}  -->
-<!-- \begin{tabular}[t]{|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- Categoria & $j$ & $n_{j}$ & $p_{0j}$ \\ \hline\hline -->
-<!-- \begin{tabular}{l} -->
-<!-- Cobertos por \\  -->
-<!-- plano de saúde -->
-<!-- \end{tabular} -->
-<!-- & 1 & \multicolumn{1}{|r|}{$840$} & \multicolumn{1}{|r|}{$0,8$} \\  -->
-<!-- Não cobertos & 2 & \multicolumn{1}{|r|}{$160$} & \multicolumn{1}{|r|}{$% -->
-<!-- 0,2$} \\ \hline\hline -->
-<!-- \multicolumn{1}{|l|}{Todos os empregados} & \multicolumn{1}{|l|}{$\sum $} &  -->
-<!-- \multicolumn{1}{|l|}{$1.000$} & \multicolumn{1}{|l|}{$1,0$} \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
 <table style="width:53%;">
 <caption><span id="tab:prophip">Tabela 7.1: </span> Frequências observadas e proporções hipotéticas</caption>
 <colgroup>
@@ -435,30 +403,6 @@ X_{W}^{2}=\left( 0,84-0,80\right) ^{2}/0,002743=0,583\;\;\mbox{.}
 \]</span> Observe que o valor desta estatística é bem próximo dos valores das estatísticas de Pearson e da Razão de Verossimilhança com a correção de Rao-Scott.</p>
 <p>A estatística de Wald, pelo uso de uma estimativa apropriada da variância, reflete a complexidade do plano amostral e fornece uma estatística de teste assintoticamente válida, não necessitando que seja feito qualquer ajuste auxiliar. Esta pode ser considerada uma vantagem em relação às estatísticas com correção de Rao-Scott. Entretanto, no caso de mais de duas celas, pode haver desvantagens no uso da estatística de Wald baseada no plano amostral, devido à instabilidade nas estimativas de variância em pequenas amostras.</p>
 <p>Reproduzimos na Tabela <a href="testqualajust.html#tab:testprop">7.2</a> os resultados para todas as estatísticas de teste consideradas até agora, para facilidade de comparação.</p>
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Valores e $p$valores de estatísticas de teste alternativas para os -->
-<!-- dados do Exemplo 4.4}\bigskip \label{tab72}  -->
-<!-- \begin{tabular}{|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- Estatística de teste & gl & Valor observado & $p$valor \\ \hline\hline -->
-<!-- \multicolumn{1}{|l|}{Pearson $X_{P}^{2}$} & 1 & $10,00$ & $0,0016$ \\  -->
-<!-- \multicolumn{1}{|l|}{Pearson ajustada $X_{P}^{2}\left( d\right)$} & 1 & $% -->
-<!-- 0,500$ & $0,4795$ \\  -->
-<!-- \multicolumn{1}{|l|}{RV $X_{RV}^{2}$} & 1 & $10,56$ & $0,0012$ \\  -->
-<!-- \multicolumn{1}{|l|}{RV ajustada $X_{RV}^{2}(d)$} & 1 & $0,528$ & $0,4675$ -->
-<!-- \\  -->
-<!-- \multicolumn{1}{|l|}{Wald $X_{W}^{2}$} & 1 & $0,583$ & $0,4451$ \\  -->
-<!-- \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
 <table>
 <caption><span id="tab:testprop">Tabela 7.2: </span>Valores observados e valores-p de estatísticas de testes para os dados do Exemplo 4.4</caption>
 <thead>
@@ -605,46 +549,6 @@ FX_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{W}^{2}/\left( \left( J-1\right)
 </div>
 
 <p>Vamos considerar um teste da bondade de ajuste da distribuição das idades para a Pesquisa sobre Padrões de Vida (PPV) 96/97, para os subgrupos de 0 a 14; de 15 a 29; de 30 a 44; de 45 a 59 e de 60 e mais anos de idade. As proporções correspondentes para a população foram obtidas da Contagem Populacional de 96. Na Região Sudeste, o número de estratos é <span class="math inline">\(H=15\)</span> e o número total de conglomerados (setores) na amostra da PPV é <span class="math inline">\(m=276\)</span> e portanto <span class="math inline">\(f=m-H=261\)</span>. As informações utilizadas neste exemplo são apresentadas na Tabela <a href="testqualajust.html#tab:ppcount">7.3</a>.</p>
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Vetores de proporções por classes de idade da PPV 96/97 e Contagem -->
-<!-- 96 e EPAs calculados para a PPV - Região Sudeste }\bigskip \label{tab73} -->
-<!-- \begin{tabular}{|c|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- & Contagem & \multicolumn{3}{|c|}{PPV} \\ \cline{2-5} -->
-<!-- Idade & -->
-<!-- \begin{tabular}{c} -->
-<!-- Proporção \\ -->
-<!-- $\left( \mathbf{p}_{0}\right)$ -->
-<!-- \end{tabular} -->
-<!-- & Frequência & -->
-<!-- \begin{tabular}{c} -->
-<!-- Proporção \\ -->
-<!-- $\left( \mathbf{\hat{p}}\right)$ -->
-<!-- \end{tabular} -->
-<!-- & EPA \\ \hline\hline -->
-<!-- 0 a 14 anos & $0,2842$ & \multicolumn{1}{|r|}{$2.516$} & -->
-<!-- \multicolumn{1}{|r|}{$0,2845$} & \multicolumn{1}{|r|}{$2,2859$} \\ -->
-<!-- 15 a 29 anos & $0,2774$ & \multicolumn{1}{|r|}{$2.360$} & -->
-<!-- \multicolumn{1}{|r|}{$0,2678$} & \multicolumn{1}{|r|}{$2,1864$} \\ -->
-<!-- 30 a 44 anos & $0,2263$ & \multicolumn{1}{|r|}{$2.018$} & -->
-<!-- \multicolumn{1}{|r|}{$0,2225$} & \multicolumn{1}{|r|}{$2,2539$} \\ -->
-<!-- 45 a 59 anos & $0,1261$ & \multicolumn{1}{|r|}{$1.177$} & -->
-<!-- \multicolumn{1}{|r|}{$0,1316$} & \multicolumn{1}{|r|}{$1,9903$} \\ -->
-<!-- 60 anos e mais & $0,0860$ & \multicolumn{1}{|r|}{$832$} & -->
-<!-- \multicolumn{1}{|r|}{$0,0935$} & \multicolumn{1}{|r|}{$3,1627$} \\ -->
-<!-- \hline\hline -->
-<!-- Total & $1,0000$ & \multicolumn{1}{|r|}{$8903$} & \multicolumn{1}{|r|}{$% -->
-<!-- 0,9999$} & $-$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
 ppv1 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;~</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">adac</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">ppv.rds&quot;</span>)
 <span class="co"># cria idade categorizada</span>
@@ -717,17 +621,6 @@ knitr<span class="op">::</span><span class="kw">kable</span>(tab73, <span class=
 </tbody>
 </table>
 <p>Os valores dos EPAs observados na PPV ( coluna 5 da Tabela <a href="testqualajust.html#tab:ppcount">7.3</a> mostram que o plano amostral não pode ser ignorado na análise. Queremos testar a hipótese <span class="math inline">\(H_{0}:\mathbf{p=p}_{0}\)</span> usando as estimativas de proporções obtidas pela amostra da PPV. O vetor de proporções populacionais <span class="math inline">\(\mathbf{p}_{0}\)</span> foi obtido dos resultados da Contagem Populacional de 96, que é uma pesquisa censitária. Neste exemplo, vamos calcular a estatística de Pearson e suas correções, e também a estatística de Wald baseada no plano amostral. Calculamos a matriz <span class="math inline">\(\widehat{\mathbf{V}}_{p}\)</span> pela aplicação do método de linearização de Taylor descrito na Seção <a href="capplanamo.html#taylor">3.3</a> através da fórmula <a href="capplanamo.html#eq:estpa22">(3.21)</a> obtendo</p>
-<!-- \[ -->
-<!-- \widehat{\mathbf{V}}_{p}(\widehat{\mathbf{p}})=10^{-6}\times \left[ -->
-<!-- \begin{tabular}{rrrr|r} -->
-<!-- $52,27$ & $-3,899$ & $-5,672$ & $-19,29$ & $-23,41$ \\ -->
-<!-- $-3,899$ & $48,16$ & $-29,35$ & $-3,399$ & $-11,52$ \\ -->
-<!-- $-5,672$ & $-29,35$ & $43,80$ & $-8,226$ & $-0,5558$ \\ -->
-<!-- $-19,29$ & $-3,399$ & $-8,226$ & $25,55$ & $5,366$ \\ \hline -->
-<!-- $-23,41$ & $-11,52$ & $-0,5558$ & $5,366$ & $30,12$ -->
-<!-- \end{tabular} -->
-<!-- \right] \mbox{ .} -->
-<!-- \] -->
 <table>
 <thead>
 <tr class="header">
@@ -783,18 +676,6 @@ knitr<span class="op">::</span><span class="kw">kable</span>(tab73, <span class=
 </tbody>
 </table>
 <p>Para obter a estatística de Pearson <a href="testqualajust.html#eq:qual11">(7.11)</a>, vamos calcular a matriz de covariância populacional e uma estimativa dessa matriz de covariância sob suposição de distribuição multinomial, dada por <span class="math inline">\(\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}\)</span>, resultando em</p>
-<!-- $\mathbf{P}_{0}/n=\frac{diag\left( \mathbf{p}_{0}\right) -\mathbf{p}_{0}\mathbf{p}_{0}^{^{\prime }}}{8.903}$, resultando em  -->
-<!-- \[ -->
-<!-- \mathbf{P}_{0}/n=10^{-6}\times \left[  -->
-<!-- \begin{tabular}{rrrr|r} -->
-<!-- $22,85$ & $-8,855$ & $-7,223$ & $-4,025$ & $-2,745$ \\  -->
-<!-- $-8,855$ & $22,51$ & $-7,051$ & $-3,929$ & $-2,680$ \\  -->
-<!-- $-7,223$ & $-7,051$ & $19,67$ & $-3,205$ & $-2,186$ \\  -->
-<!-- $-4,025$ & $-3,929$ & $-3,205$ & $12,38$ & $-1,218$ \\ \hline -->
-<!-- $-2,745$ & $-2,680$ & $-2,186$ & $-1,218$ & $8,829$% -->
-<!-- \end{tabular} -->
-<!-- \right] \;.  -->
-<!-- \] -->
 <table>
 <tbody>
 <tr class="odd">
@@ -928,43 +809,6 @@ f2p</code></pre></div>
 F_{2.p}=5,691/4\mbox{ }=1,423 
 \]</span> com 4 e 261 gl e um <span class="math inline">\(p\)</span>valor <span class="math inline">\(0,228\)</span> .</p>
 <p>A Tabela <a href="testqualajust.html#tab:estaltteste">7.4</a> resume os valores das diversas estatísticas de teste calculadas, bem como das informações comparativas com as respectivas distribuições de referência.</p>
-<!-- \begin{center} -->
-<!-- %TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}} -->
-<!-- %BeginExpansion -->
-<!-- \begin{table}[tbp] \centering% -->
-<!-- %EndExpansion -->
-<!-- \caption{Valores e $p$valores de estatísticas alternativas de teste}\bigskip -->
-<!-- \label{tab74} -->
-<!-- \begin{tabular}{|c|c|c|c|c|} -->
-<!-- \hline\hline -->
-<!-- Estatística & Tipo & Valor & Distribuição & $p$valor \\ -->
-<!-- \hline\hline -->
-<!-- $X_{P}^{2}$ & -->
-<!-- \begin{tabular}{c} -->
-<!-- Adequada \\ -->
-<!-- para IID -->
-<!-- \end{tabular} -->
-<!-- & \multicolumn{1}{|r|}{$11,640$} & $\chi ^{2}(4)$ & $0,020$ \\ \hline -->
-<!-- $X_{P}^{2}\left( \hat{d}_{.}\right)$ & Ajustes e & \multicolumn{1}{|r|}{$% -->
-<!-- 4,901$} & $\chi ^{2}(4)$ & $0,298$ \\ -->
-<!-- $X_{P}^{2}\left( \hat{\delta}_{.}\right)$ & correções da & -->
-<!-- \multicolumn{1}{|r|}{$4,740$} & $\chi ^{2}(4)$ & $0,315$ \\ -->
-<!-- $FX_{P}^{2}\left( \hat{\delta}_{.}\right)$ & Estatística & -->
-<!-- \multicolumn{1}{|r|}{$1,850$} & $F\left( 4;261\right)$ & $0,318$ \\ -->
-<!-- $X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right)$ & $X_{P}^{2}$ & -->
-<!-- \multicolumn{1}{|r|}{$3,784$} & $\chi ^{2}(3,19)$ & $0,314$ \\ \hline -->
-<!-- $X_{W}^{2}$ & Baseadas no & \multicolumn{1}{|r|}{$5,691$} & $\chi ^{2}(4)$ & -->
-<!-- $0,223$ \\ -->
-<!-- $F_{1.p}$ & plano & \multicolumn{1}{|r|}{$1,406$} & $F\left( 4;259\right)$ -->
-<!-- & $0,232$ \\ -->
-<!-- $F_{2.p}$ & amostral & \multicolumn{1}{|r|}{$1,423$} & $F\left( 4;261\right) -->
-<!-- $ & $0,228$ \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- %TCIMACRO{\TeXButton{E}{\end{table}}} -->
-<!-- %BeginExpansion -->
-<!-- \end{table}% -->
-<!-- %EndExpansion -->
-<!-- \end{center} -->
 <table>
 <caption><span id="tab:estaltteste">Tabela 7.4: </span>Valores e valores-p de estatísticas alternativas de teste</caption>
 <colgroup>
@@ -1184,8 +1028,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-Cap7.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "download": ["bookdown-adac.pdf"],
 "toc": {

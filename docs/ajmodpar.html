@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-06">
+<meta name="date" content="2017-09-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +87,6 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -100,9 +99,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Análise de Dados Amostrais Complexos</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
 </ul></li>
@@ -212,9 +208,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.2" data-path="pacotes.html"><a href="pacotes.html#pacotes-computacionais"><i class="fa fa-check"></i><b>14.2</b> Pacotes Computacionais</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -281,28 +274,54 @@ J\left( \mathbf{\hat{\theta}}\right) =\left. J\left( \mathbf{\theta }\right)
 
 <p>A título de ilustração, consideremos uma pesquisa com uma amostra complexa como a da PNAD do IBGE, que emprega uma amostra estratificada de domicílios em três estágios, tendo como unidades primárias de amostragem (UPAs) os municípios, que são estratificados segundo as unidades da federação (UFs), e regiões menores dentro das UFs (veja IBGE, 1981, p. 67).</p>
 <p>A seleção de municípios dentro de cada estrato é feita com probabilidades desiguais, proporcionais ao tamanho, havendo inclusive municípios incluídos na amostra com certeza (chamados de municípios auto-representativos). Da mesma forma, a seleção de setores (unidades secundárias de amostragem ou USAs) dentro de cada município é feita com probabilidades proporcionais ao número de domicílios em cada setor segundo o último censo disponível. Dentro de cada setor, a seleção de domicílios é feita por amostragem sistemática simples (portanto, com equiprobabilidade). Todas as pessoas moradoras em cada domicílio da amostra são pesquisadas.</p>
-<p>A amostra de domicílios e de pessoas dentro de cada estrato é <code>autoponderada</code>, isto é, tal que todos os domicílios e pessoas dentro de um mesmo estrato têm igual probabilidade de seleção. Entretanto, as probabilidades de inclusão (e conseqüentemente os pesos) variam bastante entre as várias regiões de pesquisa. A Tabela <a href="#tab:proselpnad">5.1</a> revela como variam essas probabilidades de seleção entre as regiões cobertas pela amostra da PNAD de 93. Como se pode observar, tais probabilidades de inclusão chegam a ser <span class="math inline">\(5\)</span> vezes maiores em Belém do que em São Paulo, e portanto variação semelhante será observada nos pesos.</p>
-
-<!-- ------------------------------------------------------------------------------------ -->
-<!-- Região da pesquisa                                           Probabilidade  -->
-<!--                                                               de seleção -->
-<!-- ----------------------------------------------------------- --------------- -->
-<!-- RM de Belém                                                     1/150 -->
-<!-- RMs de Fortaleza, Recife, Salvador e Porto Alegre               1/200 -->
-<!-- Distrito Federal -->
-<!-- RMs de Belo Horizonte e Curitiba                                1/250 -->
-<!-- Rondô}nia, Acre, Amazonas, Roraima, Amapá,                      1/300  -->
-<!-- Tocantins, Sergipe, Mato Grosso do Sul,   -->
-<!-- Mato Grosso e Goiás -->
-<!-- Pará                                                            1/350       -->
-<!-- RM do Rio de Janeiro, Piauí, Ceará, Rio Grande do Norte,        1/500                  -->
-<!-- Paraíba, Pernambuco, Alagoas, Bahia, Minas Gerais, -->
-<!-- Espírito Santo e Rio de Janeiro -->
-<!-- Paraná, Santa Catarina, Rio Grande do Sul                       1/550 -->
-<!-- RM de São Paulo, Maranhão, São Paulo                            1/750 -->
-<!-- ------------------------------------------------------------------------------- -->
-<!-- Table:(#tab:proselpnad) Probabilidades de seleção da amostra da PNAD de 1993 segundo -->
-<!-- regiões -->
+<p>A amostra de domicílios e de pessoas dentro de cada estrato é <code>autoponderada</code>, isto é, tal que todos os domicílios e pessoas dentro de um mesmo estrato têm igual probabilidade de seleção. Entretanto, as probabilidades de inclusão (e conseqüentemente os pesos) variam bastante entre as várias regiões de pesquisa. A Tabela <a href="ajmodpar.html#tab:proselpnad">5.1</a> revela como variam essas probabilidades de seleção entre as regiões cobertas pela amostra da PNAD de 93. Como se pode observar, tais probabilidades de inclusão chegam a ser <span class="math inline">\(5\)</span> vezes maiores em Belém do que em São Paulo, e portanto variação semelhante será observada nos pesos.</p>
+<table>
+<caption><span id="tab:proselpnad">Tabela 5.1: </span> Probabilidades de seleção da amostra da PNAD de 1993 segundo regiões</caption>
+<colgroup>
+<col width="80%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Região da pesquisa</th>
+<th align="center">Probabilidade de seleção</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">RM de Belém</td>
+<td align="center">1/150</td>
+</tr>
+<tr class="even">
+<td align="left">RMs de Fortaleza, Recife, Salvador e Porto Alegre Distrito Federal</td>
+<td align="center">1/200</td>
+</tr>
+<tr class="odd">
+<td align="left">RMs de Belo Horizonte e Curitiba</td>
+<td align="center">1/250</td>
+</tr>
+<tr class="even">
+<td align="left">Rondô}nia, Acre, Amazonas, Roraima, Amapá, Tocantins, Sergipe, Mato Grosso do Sul, Mato Grosso e Goiás</td>
+<td align="center">1/300</td>
+</tr>
+<tr class="odd">
+<td align="left">Pará</td>
+<td align="center">1/350</td>
+</tr>
+<tr class="even">
+<td align="left">RM do Rio de Janeiro, Piauí, Ceará, Rio Grande do Norte, Paraíba, Pernambuco, Alagoas, Bahia, Minas Gerais, Espírito Santo e Rio de Janeiro</td>
+<td align="center">1/500</td>
+</tr>
+<tr class="odd">
+<td align="left">Paraná, Santa Catarina, Rio Grande do Sul</td>
+<td align="center">1/550</td>
+</tr>
+<tr class="even">
+<td align="left">RM de São Paulo, Maranhão, São Paulo</td>
+<td align="center">1/750</td>
+</tr>
+</tbody>
+</table>
 <p>Se <span class="math inline">\({\ \pi }_{i}\)</span>representa a probabilidade de inclusão na amostra do <span class="math inline">\(i\)</span>-ésimo domicílio da população, <span class="math inline">\(i=1,...,N\)</span>, então <span class="math display">\[
 \pi _{i}=\pi _{munic\acute{\imath}pio\left| estrato\right. }\times \pi
 _{setor\left| munic\acute{\imath}pio\right. }\times \pi _{domic\acute{\imath}
@@ -435,10 +454,9 @@ _{\pi }\right) \right] \left[ \hat{J}\left( \mathbf{\hat{\theta}}_{\pi
 <span class="math display" id="eq:modpar14">\[\begin{equation}
 \hat{V}_{p}\left[ \sum\limits_{i\in s}\pi _{i}^{-1}\mathbf{u}_{i}\left( 
 \mathbf{\hat{\theta}}_{\pi }\right) \right] =\sum\limits_{i\in
-s}\sum\limits_{j\in s}\frac{\pi _{ij}-\pi _{i}\pi _{j}}{\pi _{i}\pi _{j}}
+s}\sum\limits_{j\in s}\frac{1}{\pi _{ij}}\frac{\pi _{ij}-\pi _{i}\pi _{j}}{\pi _{i}\pi _{j}}
 \left[ \mathbf{u}_{i}\left( \mathbf{\hat{\theta}}_{\pi }\right) \right]
-\left[ \mathbf{u}_{j}\left( \mathbf{\hat{\theta}}_{\pi }\right) \right]
-^{^{\prime }}  
+\left[ \mathbf{u}_{j}\left( \mathbf{\hat{\theta}}_{\pi }\right) \right]^{^{\prime }}  
 \tag{5.14}
 \end{equation}\]</span>
 <p>e</p>
@@ -630,8 +648,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-Cap5.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "download": ["bookdown-adac.pdf"],
 "toc": {

@@ -19,14 +19,16 @@ language:
 
     prp: "Proposição "
 
-    ex: "Exemplo "
-
+    exm: "Exemplo "
+    
+    exe: "Exercício "
+    
     proof: "Prova. "
 
-    remark: "Observação "
+    remark: "Observação. "
 
   ui:
-
+    
     chapter_name: "Capítulo "
 
 

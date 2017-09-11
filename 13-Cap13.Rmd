@@ -78,7 +78,7 @@ aos diversos estratos, exceto o último. Tais modelos podem ser úteis
 em uma variedade de situações de interesse prático. Um caso
 importante é o do emprego de planos amostrais estratificados. Nesse
 caso, o analista pode optar por modificar seu modelo agregado \@ref(eq:hier1) em
-favor de um modelo desagregado da forma \@ref(eq:hier2)2}), pois acredita que este
+favor de um modelo desagregado da forma \@ref(eq:hier2), pois acredita que este
 último representa melhor a realidade subjacente. Se o plano
 amostral for do tipo amostragem estratificada simples e os estratos (de seleção) coincidirem com os do modelo (de análise), a inferência
 para os parâmetros do modelo pode ser feita usando procedimentos e
@@ -451,36 +451,25 @@ ignorando a existência de conglomerados e de pesos distintos, que
 chamaremos aqui de `análise ingênua`. Neste caso, os
 coeficientes podem ser estimados pelo método padrão de Máxima
 Verossimilhança, utilizando um dos pacotes padrões. Os resultados
-dessa análise são apresentados na Tabela \ref{tab91}.
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Análise do modelo (9.16) sob hipótese de observações
-IID, ignorando complexidades do plano amostral }\bigskip \label{tab91} 
-\begin{tabular}{|c|c|r|r|r|r|}
-\hline\hline
-Variável & Coeficiente & 
-\begin{tabular}{r}
-Desvio \\ 
-Padrão
-\end{tabular}
-& Teste-t & $p$valor & EPA \\ \hline\hline
-\multicolumn{1}{|l|}{Intercepto} & \multicolumn{1}{|r|}{$2,912$} & $0,427$ & 
-$6,82$ & $0,000$ & $1$ \\ 
-\multicolumn{1}{|l|}{$TEMP$} & \multicolumn{1}{|r|}{$-0,894$} & $0,174$ & $%
--5,14$ & $0,000$ & $1$ \\ 
-\multicolumn{1}{|l|}{$EXP$} & \multicolumn{1}{|r|}{$0,254$} & $0,127$ & $%
-2,00 $ & $0,045$ & $1$ \\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
+dessa análise são apresentados na Tabela \@ref(tab:iid).
 
-Os $p$valores da Tabela \ref{tab91} indicam que os coeficientes são
+
+```{r iid, echo=FALSE}
+iid_df <- data.frame(
+  Variável = c("Intercepto", "TEMP", "EXP"),
+Coeficiente = c(2.912, -0.894, 0.254),
+  Desvio_Padrão = c(0.427,0.174,0.127),
+  Teste_t = c(6.82,-5.14, 2.00 ),
+  pvalor = c(0.000,0.000,0.045 ),
+  EPA = c(1,1,1)
+  )
+
+knitr::kable(iid_df,booktabs=TRUE, align = "cccccc", 
+  caption="Análise do modelo (9.16) sob hipótese de observações IID, ignorando complexidades do plano amostral")
+```
+
+
+Os $p$valores da Tabela \@ref(tab:iid) indicam que os coeficientes são
 significantemente diferentes de $0$ ao nível de significância $\alpha =5\%$, sugerindo que todas as variáveis preditoras têm poder
 de explicação, e portanto devem permanecer no modelo.
 
@@ -491,41 +480,25 @@ testar hipóteses. Esta abordagem pode ser usada também na etapa de
 seleção de modelos, com testes de significância baseados, por
 exemplo, na estatística de Wald ou ajustes desta, no caso de
 instabilidade. Os resultados dessa análise são apresentados na
-Tabela \ref{tab92}.
+Tabela \@ref(tab:wald).
 
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Análise agregada do modelo (9.16), usando MPV e
-estatísticas de Wald ({\bf PROC LOGISTIC} do {\bf SUDAAN })}\bigskip \label%
-{tab92} 
-\begin{tabular}{|l|l|l|l|l|l|}
-\hline\hline
-Variável & Coeficiente & 
-\begin{tabular}{r}
-Desvio \\ 
-Padrão
-\end{tabular}
-& Teste-t & $p$valor & EPA \\ \hline\hline
-Intercepto & \multicolumn{1}{|r|}{$2,899$} & \multicolumn{1}{|r|}{$0,578$} & 
-\multicolumn{1}{|r|}{$5,02$} & \multicolumn{1}{|r|}{$0,00$} & 
-\multicolumn{1}{|r|}{$1,83$} \\ 
-$TEMP$ & \multicolumn{1}{|r|}{$-0,906$} & \multicolumn{1}{|r|}{$0,211$} & 
-\multicolumn{1}{|r|}{$-4,29$} & \multicolumn{1}{|r|}{$0,00$} & 
-\multicolumn{1}{|r|}{$1,47$} \\ 
-$EXP$ & \multicolumn{1}{|r|}{$0,271$} & \multicolumn{1}{|r|}{$0,181$} & 
-\multicolumn{1}{|r|}{$1,50$} & \multicolumn{1}{|r|}{$0,14$} & 
-\multicolumn{1}{|r|}{$2,03$} \\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
 
-A coluna de $p$valores da Tabela \ref{tab92} indica que o coeficiente de 
+```{r logist, echo=FALSE}
+logist_df <- data.frame(
+  Variável = c("Intercepto", "TEMP", "EXP"),
+Coeficiente = c(2.899, -0.906, 0.271),
+  Desvio_Padrão = c(0.578,0.211,0.181),
+  Teste_t = c(5.02,-4.29, 1.50 ),
+  pvalor = c(0.000,0.000,0.14 ),
+  EPA = c(1.83,1.47,2.03)
+  )
+
+knitr::kable(logist_df ,booktabs=TRUE, align = "cccccc", 
+  caption="Análise agregada do modelo (9.16), usando MPV e
+estatísticas de Wald (PROC LOGISTIC do SUDAAN)")
+```
+
+A coluna de $p$valores da Tabela \@ref(tab:wald) indica que o coeficiente de 
 $TEMP$ é significantemente diferente de zero, e também que a
 hipótese de nulidade do coeficiente de $EXP$ não é rejeitada no
 nível de significância $\alpha =5\%$.
@@ -535,40 +508,25 @@ de covariância $9\times 9$ baseada no plano amostral. Como o estimador
 poderia ser instável, foi calculada a estatística corrigida de Wald.
 A correção usada foi a implementada no pacote PC-CARP, que difere da
 correção F antes mencionada. Os resultados da análise permanecem
-os mesmos que os da análise reportada na Tabela \ref{tab92}, conforme se
-pode verificar consultando os valores da Tabela \ref{tab93}. Em ambos os
+os mesmos que os da análise reportada na Tabela \@ref(tab:logist), conforme se
+pode verificar consultando os valores da Tabela \@ref(tab:wald). Em ambos os
 casos, observamos EPAs moderados com máximo em torno de $2$.
 
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Análise agregada do modelo (9.16), usando estatísticas
-de Wald corrigidas (programa {\bf PC CARP}) }\bigskip \label{tab93} 
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline\hline
-Variável & Coeficiente & 
-\begin{tabular}{r}
-Desvio \\ 
-Padrão
-\end{tabular}
-& Teste-t & $p$valor & EPA \\ \hline\hline
-\multicolumn{1}{|l|}{Intercepto} & \multicolumn{1}{|r|}{$2,899$} & 
-\multicolumn{1}{|r|}{$0,597$} & \multicolumn{1}{|r|}{$4,86$} & 
-\multicolumn{1}{|r|}{$0,00$} & \multicolumn{1}{|r|}{$1,95$} \\ 
-\multicolumn{1}{|l|}{$TEMP$} & \multicolumn{1}{|r|}{$-0,906$} & 
-\multicolumn{1}{|r|}{$0,219$} & \multicolumn{1}{|r|}{$-4,14$} & 
-\multicolumn{1}{|r|}{$0,00$} & \multicolumn{1}{|r|}{$1,58$} \\ 
-\multicolumn{1}{|l|}{$EXP$} & \multicolumn{1}{|r|}{$0,271$} & 
-\multicolumn{1}{|r|}{$0,186$} & \multicolumn{1}{|r|}{$1,46$} & 
-\multicolumn{1}{|r|}{$0,15$} & \multicolumn{1}{|r|}{$2,14$} \\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
+
+```{r wald, echo=FALSE}
+wald_df <- data.frame(
+  Variável = c("Intercepto", "TEMP", "EXP"),
+Coeficiente = c(2.899, -0.906, 0.271),
+  Desvio_Padrão = c(0.597,0.219,0.186),
+  Teste_t = c(4.86,-4.14, 1.46 ),
+  pvalor = c(0.000,0.000,0.15 ),
+  EPA = c(1.95,1.58,2.14)
+  )
+
+knitr::kable(wald_df,booktabs=TRUE, align = "cccccc", 
+  caption="Análise agregada do modelo (9.16), usando estatísticas
+de Wald corrigidas (programa  PC CARP)")
+```
 
 Finalmente, a `análise desagregada` que, neste exemplo, usaria um 
 `modelo hierárquico` com dois níveis, a saber:
@@ -600,47 +558,34 @@ variabilidade entre alunos acarreta uma variação extra-binomial
 (\#eq:hier18)
 \end{equation}
 
-Os resultados desta análise são apresentados na Tabela \ref{tab94}.
+Os resultados desta análise são apresentados na Tabela \@ref(tab:ml3).
 
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Análise desagregada do modelo (9.18) via programa {\bf ML3}}%
-\bigskip \label{tab94} 
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline\hline
-Variável & Coeficiente & 
-\begin{tabular}{r}
-Desvio \\ 
-Padrão
-\end{tabular}
-& Teste-t & $p$valor & EPA \\ \hline\hline
-\multicolumn{1}{|l|}{Intercepto} & \multicolumn{1}{|r|}{$2,941$} & 
-\multicolumn{1}{|r|}{$0,538$} & \multicolumn{1}{|r|}{$5,47$} & 
-\multicolumn{1}{|r|}{$0,00$} & \multicolumn{1}{|r|}{$1,58$} \\ 
-\multicolumn{1}{|l|}{$TEMP$} & \multicolumn{1}{|r|}{$-0,927$} & 
-\multicolumn{1}{|r|}{$0,179$} & \multicolumn{1}{|r|}{$-5,18$} & 
-\multicolumn{1}{|r|}{$0,00$} & \multicolumn{1}{|r|}{$1,06$} \\ 
-\multicolumn{1}{|l|}{$EXP$} & \multicolumn{1}{|r|}{$0,254$} & 
-\multicolumn{1}{|r|}{$0,188$} & \multicolumn{1}{|r|}{$1,35$} & 
-\multicolumn{1}{|r|}{$0,19$} & \multicolumn{1}{|r|}{$2,19$} \\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
 
-A coluna de $p$valores da Tabela \ref{tab94} indica novamente que o
+
+
+```{r ml3, echo=FALSE}
+ml3_df <- data.frame(
+  Variável = c("Intercepto", "TEMP", "EXP"),
+Coeficiente = c(2.941, -0.927, 0.254),
+  Desvio_Padrão = c(0.538,0.179,0.188),
+  Teste_t = c(5.47,-5.18, 1.36 ),
+  pvalor = c(0.00,0.00,0.19 ),
+  EPA = c(1.58,1.06,2.19)
+  )
+
+knitr::kable(ml3_df,booktabs=TRUE, align = "cccccc", 
+  caption="Análise desagregada do modelo (9.18) via programa (ML3)")
+```
+
+
+A coluna de $p$valores da Tabela \@ref(tab:ml3) indica novamente que o
 coeficiente de $EXP$ não é significantemente diferente de zero ao
 nível $\alpha =5\%$. A variação no nível 2 foi estimada por $\sigma_{u}^{2}=0,42$ com desvio-padrão $0,189$, e portanto é
 significante ao nível $\alpha =5\%$. Isto sugere a existência de
 diferença de avaliação dos professores sobre o aprendizado de
 Matemática dos alunos.
 
-No ajuste da Tabela \ref{tab94}, a variação entre alunos foi tomada
+No ajuste da Tabela \@ref(tab:ml3), a variação entre alunos foi tomada
 como $\sigma _{e}^{2}=1.$ Uma alternativa seria estimar também este
 valor a partir dos dados.
 
@@ -754,41 +699,23 @@ Modelo explanatório de nível 2:
 \beta _{0j}=\gamma _{00}+\sum\limits_{k=1}^{6}\gamma _{0j}x_{kj}+u_{0j}.
 \]
 
-A Tabela \ref{tab95} apresenta as estimativas dos parâmetros para este
+A Tabela \@ref(tab:mod2) apresenta as estimativas dos parâmetros para este
 modelo.
 
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Efeitos da escola na eficácia do professor (Modelo II)}\bigskip
-\label{tab95}
-\begin{tabular}{|c|c|c|}
-\hline\hline
-Coeficiente & Estimativa & Desvio Padrão \\ \hline\hline
-$\hat{\gamma}_{01}$ & \multicolumn{1}{|r|}{$0,044$} & \multicolumn{1}{|r|}{$%
-0,020$} \\
-$\hat{\gamma}_{02}$ & \multicolumn{1}{|r|}{$0,133$} & \multicolumn{1}{|r|}{$%
-0,023$} \\
-$\hat{\gamma}_{03}$ & \multicolumn{1}{|r|}{$0,031$} & \multicolumn{1}{|r|}{$%
-0,046$} \\
-$\hat{\gamma}_{04}$ & \multicolumn{1}{|r|}{$-0,066$} & \multicolumn{1}{|r|}{$%
-0,027$} \\
-$\hat{\gamma}_{05}$ & \multicolumn{1}{|r|}{$-0,014$} & \multicolumn{1}{|r|}{$%
-0,019$} \\
-$\hat{\gamma}_{06}$ & \multicolumn{1}{|r|}{$-0,028$} & \multicolumn{1}{|r|}{$%
-0,023$} \\
-$\hat{\sigma}^{2}$ & \multicolumn{1}{|r|}{$0,915$} & \multicolumn{1}{|r|}{-}
-\\
-$\hat{\tau}_{00}$ & \multicolumn{1}{|r|}{$0,055$} & \multicolumn{1}{|r|}{-}
-\\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
+
+```{r mod2, echo=FALSE}
+mod2_df <- data.frame(
+Coeficiente = c("gamma_01", "gamma_02", "gamma_03",
+  "gamma_04", "gamma_05","gamma_06", "sigma_2",
+  "tau_00"),
+  Estimativa = c(0.044, 0.133, 0.031, -0.066, -0.014, -0.028, 0.915, 0.055),
+  Desvio_Padrão =c (0.020, 0.023, 0.046, 0.027, 0.019, 0.023, NA, NA)
+)
+knitr::kable(mod2_df,booktabs=TRUE, align = "ccc", 
+  caption="Efeitos da escola na eficácia do professor (Modelo II)")
+
+```
+
 
 Com essas estimativas, a proporção da variação total entre
 escolas do parâmetro $\beta _{0j}$ (nível médio da eficácia
@@ -806,7 +733,7 @@ nível da escola.
 **Modelo III:** Modelo Hierárquico com dois níveis,
 usando as variáveis $\left( x_{1},\ldots ,x_{7}\right)$, definidas no
 nível 2, para explicar a variação da eficiência média do
-professor por escola\textbf{.}
+professor por escola.
 
 Modelo de nível 1
 \[
@@ -818,43 +745,24 @@ Modelo Explanatório de nível 2
 \beta _{0j}=\gamma _{00}+\sum\limits_{k=1}^{7}\gamma _{0j}x_{kj}+u_{0j}.
 \]
 
-A Tabela \ref{tab96} apresenta as estimativas dos coeficientes do Modelo III
+A Tabela \@ref(tab:mod3) apresenta as estimativas dos coeficientes do Modelo III
 e seus respectivos desvios padrões.
 
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Efeitos da escola na eficácia do professor (Modelo III)}\bigskip
-\label{tab96}
-\begin{tabular}{|c|c|c|}
-\hline\hline
-Coeficiente & Estimativa & Desvio Padrão \\ \hline\hline
-$\hat{\gamma}_{01}$ & \multicolumn{1}{|r|}{$0,038$} & \multicolumn{1}{|r|}{$%
-0,017$} \\
-$\hat{\gamma}_{02}$ & \multicolumn{1}{|r|}{$0,015$} & \multicolumn{1}{|r|}{$%
-0,022$} \\
-$\hat{\gamma}_{03}$ & \multicolumn{1}{|r|}{$-0,055$} & \multicolumn{1}{|r|}{$%
-0,040$} \\
-$\hat{\gamma}_{04}$ & \multicolumn{1}{|r|}{$0,061$} & \multicolumn{1}{|r|}{$%
-0,026$} \\
-$\hat{\gamma}_{05}$ & \multicolumn{1}{|r|}{$-0,014$} & \multicolumn{1}{|r|}{$%
-0,016$} \\
-$\hat{\gamma}_{06}$ & \multicolumn{1}{|r|}{$-0,001$} & \multicolumn{1}{|r|}{$%
-0,020$} \\
-$\hat{\gamma}_{07}$ & \multicolumn{1}{|r|}{$0,504$} & \multicolumn{1}{|r|}{$%
-0,045$} \\
-$\hat{\sigma}^{2}$ & \multicolumn{1}{|r|}{$0,915$} & \multicolumn{1}{|r|}{-}
-\\
-$\hat{\tau}_{00}$ & \multicolumn{1}{|r|}{$0,031$} & \multicolumn{1}{|r|}{-}
-\\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
+
+```{r mod3, echo= FALSE}
+mod3_df <- data.frame(
+Coeficiente = c("gamma_01", "gamma_02", "gamma_03",
+  "gamma_04", "gamma_05","gamma_06","gamma_07", "sigma_2",
+  "tau_00"),
+  Estimativa = c(0.038, 0.015, -0.055, 0.061, -0.014, -0.001, 0.504, 0.915, 0.031),
+  Desvio_Padrão =c (0.017, 0.022, 0.040, 0.026, 0.016, 0.020, 0.045, NA, NA)
+)
+knitr::kable(mod3_df,booktabs=TRUE, align = "ccc", 
+  caption="Efeitos da escola na eficácia do professor (Modelo III)")
+
+```
+
+
 
 A proporção da variação total entre escolas do parâmetro
 $\beta _{0j}$ (nível médio da eficácia dos professores por
@@ -886,44 +794,28 @@ escrito como
 Y_{ij}=\gamma _{0}+\sum\limits_{k=1}^{7}\gamma _{k}x_{kj}+e_{ij}.
 \]
 
-A Tabela \ref{tab97} apresenta as estimativas de Mínimos Quadrados
+A Tabela \@ref(tab:mod4) apresenta as estimativas de Mínimos Quadrados
 Ponderados de $\left( \gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)$
 com pesos dados por $n_{j}=$ número de professores da escola $j$.
 
-\begin{center}
-%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
-%BeginExpansion
-\begin{table}[tbp] \centering%
-%EndExpansion
-\caption{Efeitos da escola na eficácia do professor (Modelo IV)}\bigskip
-\label{tab97}
-\begin{tabular}{|c|c|c|}
-\hline\hline
-Coeficiente & Estimativa & Desvio Padrão \\ \hline\hline
-$\hat{\gamma}_{1}$ & \multicolumn{1}{|r|}{$0,040$} & \multicolumn{1}{|r|}{$%
-0,013$} \\
-$\hat{\gamma}_{2}$ & \multicolumn{1}{|r|}{$0,015$} & \multicolumn{1}{|r|}{$%
-0,017$} \\
-$\hat{\gamma}_{3}$ & \multicolumn{1}{|r|}{$-0,056$} & \multicolumn{1}{|r|}{$%
-0,031$} \\
-$\hat{\gamma}_{4}$ & \multicolumn{1}{|r|}{$0,062$} & \multicolumn{1}{|r|}{$%
-0,021$} \\
-$\hat{\gamma}_{5}$ & \multicolumn{1}{|r|}{$-0,014$} & \multicolumn{1}{|r|}{$%
-0,013$} \\
-$\hat{\gamma}_{6}$ & \multicolumn{1}{|r|}{$0,002$} & \multicolumn{1}{|r|}{$%
-0,016$} \\
-$\hat{\gamma}_{7}$ & \multicolumn{1}{|r|}{$0,507$} & \multicolumn{1}{|r|}{$%
-0,035$} \\ \hline\hline
-\end{tabular}
-%TCIMACRO{\TeXButton{E}{\end{table}}}
-%BeginExpansion
-\end{table}%
-%EndExpansion
-\end{center}
+
+
+```{r mod4, echo=FALSE}
+mod4_df <- data.frame(
+Coeficiente = c("gamma_01", "gamma_02", "gamma_03",
+  "gamma_04", "gamma_05","gamma_06","gamma_07"),
+  Estimativa = c(0.040, 0.015, -0.056, 0.062, -0.014, -0.002, 0.507),
+  Desvio_Padrão =c (0.013, 0.017, 0.031, 0.021, 0.013, 0.016, 0.035)
+)
+knitr::kable(mod4_df,booktabs=TRUE, align = "ccc", 
+  caption="Efeitos da escola na eficácia do professor (Modelo IV)")
+
+```
+
 
 A proporção de variação explicada pelo Modelo IV é de
 apenas $5,4\%$. Os coeficientes da análise de nível 2 (Modelo III,
-Tabela \ref{tab96}) foram bem semelhantes neste exemplo, o que pode ser
+Tabela \@ref(tab:mod3) foram bem semelhantes neste exemplo, o que pode ser
 explicado em parte pela pequena variação do número de
 professores por escola.
 

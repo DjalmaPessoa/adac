@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-06">
+<meta name="date" content="2017-09-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +87,6 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -100,9 +99,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Análise de Dados Amostrais Complexos</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
 </ul></li>
@@ -212,9 +208,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.2" data-path="pacotes.html"><a href="pacotes.html#pacotes-computacionais"><i class="fa fa-check"></i><b>14.2</b> Pacotes Computacionais</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -267,46 +260,6 @@ Figura 2.1: Modelagem Clássica
 </tr>
 </tbody>
 </table>
-<!-- \begin{center} -->
-<!-- \begin{table}[tbp] \centering -->
-<!-- \caption{Representação esquemática da abordagem 1}  -->
-<!-- \label{Tab21}  -->
-<!-- \begin{tabular}{|c|c|} -->
-<!-- \hline\hline -->
-<!-- \multicolumn{2}{|c|}{Abordagem 1 - Modelagem Clássica} \\ \hline\hline -->
-<!-- Dados Amostrais &  -->
-<!-- \begin{tabular}{l} -->
-<!-- $Y_{1}$ \\  -->
-<!-- $\downarrow $ \\  -->
-<!-- $y_{1}$ -->
-<!-- \end{tabular} -->
-<!-- $,\ldots ,  -->
-<!-- \begin{tabular}{l} -->
-<!-- $Y_{n}$ \\  -->
-<!-- $\downarrow $ \\  -->
-<!-- $y_{n}$ -->
-<!-- \end{tabular} -->
-<!-- $ \\ \hline -->
-<!-- \begin{tabular}{l} -->
-<!-- Modelo Paramétrico/ \\  -->
-<!-- Hipóteses -->
-<!-- \end{tabular} -->
-<!-- &  -->
-<!-- \begin{tabular}{r} -->
-<!-- $Y_{1},\ldots ,Y_{n}$ vetores aleatórios IID \\  -->
-<!-- com distribuição $f\left( y;\theta \right)$, onde $\theta \in -->
-<!-- \Theta $ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline -->
-<!-- Objetivo &  -->
-<!-- \begin{tabular}{c} -->
-<!-- Inferir sobre $\theta$ \\  -->
-<!-- usando observações $y_{1},\ldots ,y_{n}$ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
 <p>Do ponto de vista matemático, o parâmetro <span class="math inline">\(\theta\)</span> serve para indexar os elementos da família de distribuições <span class="math inline">\(\left\{f\left( y;\theta \right);\theta \in \Theta \right\}\)</span>. Na prática, as questões relevantes da pesquisa são traduzidas em termos de perguntas sobre o valor ou região a que pertence o parâmetro <span class="math inline">\(\theta\)</span>, e a inferência sobre <span class="math inline">\(\theta\)</span> a partir dos dados ajuda a responder tais questões. Esta abordagem é útil em estudos analíticos tais como, por exemplo, na investigação da natureza da associação entre variáveis (modelos de regressão linear ou logística, modelos log-lineares, etc.). Vários exemplos discutidos ao longo dos Capítulos <a href="modreg.html#modreg">6</a>, <a href="testqualajust.html#testqualajust">7</a> e <a href="testetab2.html#testetab2">8</a> ilustram situações deste tipo. No Capítulo <a href="estimacao-de-densidades.html#estimacao-de-densidades">9</a> o foco vai ser a estimação não paramétrica da forma da função <span class="math inline">\(f(y;\theta)\)</span>.</p>
 <p>Investigando a existência de diferenciais de salários por sexo e raça</p>
 <p>Uma questão de grande interesse para o debate sobre a existência de desigualdades numa sociedade diz respeito à possível existência de diferenciais de salários entre pessoas de sexo e raça distintos, após controlar por características do trabalhador tais como escolaridade, ocupação e experiência, e da firma, tais como tamanho, setor de atividade e outras. <span class="citation">(Rodrigues <a href="#ref-Rodrigues">2003</a>)</span> examinou este problema empregando modelos de regressão para explicar o logaritmo do salário hora dos trabalhadores empregados, ajustados a dados obtidos através da Pesquisa sobre Padrões de Vida do IBGE, e tomando como variáveis explicativas características do trabalhador, do posto de trabalho e da empresa. A autora concluiu que não se pode rejeitar a hipótese de existência de discriminação racial e de sexo no mercado de trabalho, pois trabalhadores igualmente produtivos inseridos em trabalhos de características similares apresentavam diferenciais de salários com base em atributos não produtivos, como o sexo, a raça, e o estado civil, por exemplo. Tais conclusões foram obtidas mediante testes de hipóteses sobre valores dos parâmetros do modelo ajustado.</p>
@@ -342,42 +295,6 @@ Figura 2.2: Amostragem Probabilística
 </tr>
 </tbody>
 </table>
-<!-- \begin{center} -->
-<!-- \begin{table}[tbp] \centering -->
-<!-- \caption{Representação esquemática da abordagem 2}\bigskip  -->
-<!-- \label{Tab22}  -->
-<!-- \begin{tabular}{|c|c|} -->
-<!-- \hline\hline -->
-<!-- \multicolumn{2}{|c|}{Abordagem 2 - Amostragem Probabilística} \\  -->
-<!-- \hline\hline -->
-<!-- Dados Amostrais &  -->
-<!-- \begin{tabular}{l} -->
-<!-- $Y_{i_1}$ \\  -->
-<!-- $\downarrow $ \\  -->
-<!-- $y_{i_1}$ -->
-<!-- \end{tabular} -->
-<!-- $,\ldots ,  -->
-<!-- \begin{tabular}{l} -->
-<!-- $Y_{i_n}$ \\  -->
-<!-- $\downarrow $ \\  -->
-<!-- $y_{i_n}$ -->
-<!-- \end{tabular} -->
-<!-- $ \\ \hline -->
-<!-- Hipóteses/Modelo &  -->
-<!-- \begin{tabular}{c} -->
-<!-- extraídos de $y_{1},\ldots ,y_{N}$ \\  -->
-<!-- segundo $p\left( a\right)$ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline -->
-<!-- Objetivo &  -->
-<!-- \begin{tabular}{c} -->
-<!-- Inferir sobre sobre funções $g\left( y_{1},\ldots ,y_{N}\right)$ \\  -->
-<!-- usando $y_{i_1},\ldots ,y_{i_n}$ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
 <p>Investigando a existência de diferenciais de salários por sexo e raça</p>
 <p>Ainda no contexto do exemplo da investigação da existência de diferenciais de salários por sexo e raça, os dados da Pesquisa sobre Padrões de Vida do IBGE podem ser utilizados para obter uma tabela cruzada tendo como entradas de linha o sexo dos trabalhadores, e como entrada das colunas um indicador de trabalhadores de raça / cor = branco, sendo as celas da tabela utilizadas para apresentar estimativas dos valores médios dos salários dos trabalhadores nas várias classes definidas pelos valores dos indicadores de linha e coluna. Tabelas como esta são habitualmente produzidas como resultado da realização de pesquisas amostrais pelas agências oficiais de estatísticas no Brasil e em muitos outros países. Embora capazes de revelar diferenças nos salários médios de trabalhadores de sexo e raça distintos, tais tabelas são insuficientes para investigar a questão da discriminação de gênero ou raça no mercado de trabalho, pois tais diferenças de salários médios poderiam ser explicadas por diferenças de características dos trabalhadores tais como escolaridade, que poderiam ter origem fora do mercado de trabalho. Por outro lado, ilustram bem os alvos de inferência freqüentemente definidos para pesquisas amostrais de populações finitas. Aqui o que se busca estimar é o valor médio de uma característica de interesse (no caso, o salário) para a população finita de onde foi extraída a amostra disponível para análise. Apesar de úteis, tais estimativas representam apenas medidas descritivas da população alvo.</p>
 </div>
@@ -441,55 +358,6 @@ Figura 2.3: Modelagem de Superpopulação
 </tr>
 </tbody>
 </table>
-<!-- \begin{center} -->
-<!-- \begin{table}[tbp] \centering -->
-<!-- \caption{Representação esquemática da abordagem 3}\bigskip  -->
-<!-- \label{Tab23}  -->
-<!-- \begin{tabular}{|c|c|} -->
-<!-- \hline\hline -->
-<!-- \multicolumn{2}{|c|}{Abordagem 3 - Modelagem de Superpopulação} \\  -->
-<!-- \hline\hline -->
-<!-- Dados amostrais &  -->
-<!-- \begin{tabular}{l} -->
-<!-- $Y_{i_1}$ \\  -->
-<!-- $\downarrow $ \\  -->
-<!-- $y_{i_1}$ -->
-<!-- \end{tabular} -->
-<!-- $,\ldots ,  -->
-<!-- \begin{tabular}{l} -->
-<!-- $Y_{i_n}$ \\  -->
-<!-- $\downarrow $ \\  -->
-<!-- $y_{i_n}$ -->
-<!-- \end{tabular} -->
-<!-- $ \\ \hline -->
-<!-- \begin{tabular}{c} -->
-<!-- População e \\  -->
-<!-- esquema de seleção -->
-<!-- \end{tabular} -->
-<!-- \textbf{\ } & Extraídos de $y_{1},\ldots ,y_{N}$ segundo $p\left( -->
-<!-- s\right)$ \\ \hline -->
-<!-- \begin{tabular}{c} -->
-<!-- Modelo para \\  -->
-<!-- população -->
-<!-- \end{tabular} -->
-<!-- \textbf{\ } &  -->
-<!-- \begin{tabular}{c} -->
-<!-- $Y_{1},\ldots ,Y_{N}$ vetores aleatórios IID \\  -->
-<!-- com distribuição $f\left( y;\theta \right)$, onde $\theta \in -->
-<!-- \Theta $ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline -->
-<!-- Parâmetro-alvo & associar $\theta \longleftrightarrow g\left( -->
-<!-- Y_{1},\ldots Y_{N}\right)$ \\ \hline -->
-<!-- Objetivo &  -->
-<!-- \begin{tabular}{c} -->
-<!-- Inferir sobre $g\left( Y_{1},\ldots Y_{N}\right)$ \\  -->
-<!-- a partir de $y_{i_1},\ldots ,y_{i_n}$ usando $p\left( s\right)$ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
 <p>A descrição da abordagem adotada neste livro foi apresentada de maneira propositadamente simplificada e vaga nesta seção, mas será aprofundada ao longo do texto. Admitiremos que o leitor esteja familiarizado com a <code>abordagem 1</code> e com as noções básicas da <code>abordagem 2</code>. A título de recordação, serão apresentados no Capítulo <a href="refinf.html#planamo">2.4</a> alguns resultados básicos da Teoria de Amostragem. A ênfase do texto, porém, será na apresentação da <code>abordagem 3</code>, sendo para isto apresentados os elementos indispensáveis das <code>abordagens 1 e 2</code>.</p>
 <p>Ao construir e ajustar modelos a partir de dados de pesquisas amostrais <code>complexas</code>, tais como as executadas pelo IBGE, o usuário precisa incorporar as informações sobre pesos e planos amostrais utilizados. Em geral, ao publicar os resultados das pesquisas, os pesos são considerados, sendo possível produzir estimativas pontuais <code>corretas</code> utilizando os pacotes tradicionais. Por outro lado, para construir intervalos de confiança e testar hipóteses sobre parâmetros de modelos, seria preciso o conhecimento das estimativas de variâncias e covariâncias das estimativas, obtidas a partir do plano amostral utilizado. Mesmo conhecendo o plano amostral, geralmente não é simples incorporar pesos e plano amostral na análise sem o uso de pacotes especializados, ou de rotinas específicas já agora disponíveis em alguns dos pacotes mais comumente utilizados (por exemplo, SAS, Stata, SPSS, ou R entre outros). Tais pacotes especializados ou rotinas específicas utilizam na maioria métodos aproximados para estimar matrizes de covariância, tais como os de Máxima Pseudo-Verossimilhança e de Linearização, que serão descritos mais adiante.</p>
 <p>Em outras palavras, o uso dos pacotes usuais para analisar dados produzidos por pesquisas com planos amostrais complexos, tal como o uso de muitos remédios, pode ter contra-indicações. Cabe ao usuário <code>ler a bula</code> e identificar situações em que o uso de tais pacotes pode ser inadequado, e buscar opções de rotinas específicas ou de pacotes especializados capazes de incorporar adequadamente a estrutura do plano amostral nas análises. Ao longo deste livro faremos uso intensivo da library <code>survey</code> disponível no R, mas o leitor encontrará funcionalidade semelhante em vários outros pacotes. Nossa escolha se deveu a dois fatores principais: primeiro ao fato do pacote R ser aberto, livre e gratuito, dispensando o usuário de custos de licenciamento, bem como possibilitando aos interessados o acesso ao código fonte e a capacidade de modificar as rotinas de análise, caso necessário. O segundo fator é de natureza mais técnica, porém transitória. No presente momento, a library <code>survey</code> é a coleção de rotinas mais completa e genérica para análise de dados amostrais complexos existente, dispondo de rotinas capazes de ajustar os modelos usuais mas também de ajustar modelos não convencionais mediante maximização de verossimilhanças especificadas pelo usuário. Sabemos, entretanto, que muitos usuários habituados à facilidade de uso de pacotes com interfaces gráficas do tipo <code>aponte e clique</code> terão dificuldade adicional de adaptar-se à linguagem de comandos utilizada pelo pacote R, mas acreditamos que os benefícios do aprendizado desta nova ferramenta compensam largamente os custos adicionais do aprendizado.</p>
@@ -693,8 +561,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-Cap2.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "download": ["bookdown-adac.pdf"],
 "toc": {

@@ -2,13 +2,12 @@
 --- 
 title: "Análise de Dados Amostrais Complexos"
 author: "Djalma Pessoa e Pedro Nascimento Silva"
-date: "2017-09-06"
+date: "2017-09-11"
+
 site: bookdown::bookdown_site
 
 output:
-  bookdown::github_book:
-    toc: yes
-    css: toc.css
+  bookdown::gitbook: default
   bookdown::pdf_book:
     includes:
       in_header: preamble.tex

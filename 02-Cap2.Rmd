@@ -33,50 +33,6 @@ Objetivo              Inferir sobre $\theta$ usando as
  Table: (#tab:modelclass) Representação esquemática da abordagem 1.
 
 
-
-<!-- \begin{center} -->
-<!-- \begin{table}[tbp] \centering -->
-<!-- \caption{Representação esquemática da abordagem 1}  -->
-<!-- \label{Tab21}  -->
-<!-- \begin{tabular}{|c|c|} -->
-<!-- \hline\hline -->
-<!-- \multicolumn{2}{|c|}{Abordagem 1 - Modelagem Clássica} \\ \hline\hline -->
-<!-- Dados Amostrais &  -->
-<!-- \begin{tabular}{l} -->
-<!-- $Y_{1}$ \\  -->
-<!-- $\downarrow $ \\  -->
-<!-- $y_{1}$ -->
-<!-- \end{tabular} -->
-<!-- $,\ldots ,  -->
-<!-- \begin{tabular}{l} -->
-<!-- $Y_{n}$ \\  -->
-<!-- $\downarrow $ \\  -->
-<!-- $y_{n}$ -->
-<!-- \end{tabular} -->
-<!-- $ \\ \hline -->
-<!-- \begin{tabular}{l} -->
-<!-- Modelo Paramétrico/ \\  -->
-<!-- Hipóteses -->
-<!-- \end{tabular} -->
-<!-- &  -->
-<!-- \begin{tabular}{r} -->
-<!-- $Y_{1},\ldots ,Y_{n}$ vetores aleatórios IID \\  -->
-<!-- com distribuição $f\left( y;\theta \right)$, onde $\theta \in -->
-<!-- \Theta $ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline -->
-<!-- Objetivo &  -->
-<!-- \begin{tabular}{c} -->
-<!-- Inferir sobre $\theta$ \\  -->
-<!-- usando observações $y_{1},\ldots ,y_{n}$ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
-
-
-
 Do ponto de vista matemático, o parâmetro $\theta$ serve para
 indexar os elementos da família de distribuições 
 $\left\{f\left( y;\theta \right);\theta \in \Theta \right\}$. Na prática, as
@@ -131,48 +87,6 @@ Objetivo              Inferir sobre funções $g(y_1, \ldots, y_N)$
 ------------------    -----------------------------------------------
 
  Table: (#tab:modelamo) Representação esquemática da abordagem 2.
-
-
-
-
-
-<!-- \begin{center} -->
-<!-- \begin{table}[tbp] \centering -->
-<!-- \caption{Representação esquemática da abordagem 2}\bigskip  -->
-<!-- \label{Tab22}  -->
-<!-- \begin{tabular}{|c|c|} -->
-<!-- \hline\hline -->
-<!-- \multicolumn{2}{|c|}{Abordagem 2 - Amostragem Probabilística} \\  -->
-<!-- \hline\hline -->
-<!-- Dados Amostrais &  -->
-<!-- \begin{tabular}{l} -->
-<!-- $Y_{i_1}$ \\  -->
-<!-- $\downarrow $ \\  -->
-<!-- $y_{i_1}$ -->
-<!-- \end{tabular} -->
-<!-- $,\ldots ,  -->
-<!-- \begin{tabular}{l} -->
-<!-- $Y_{i_n}$ \\  -->
-<!-- $\downarrow $ \\  -->
-<!-- $y_{i_n}$ -->
-<!-- \end{tabular} -->
-<!-- $ \\ \hline -->
-<!-- Hipóteses/Modelo &  -->
-<!-- \begin{tabular}{c} -->
-<!-- extraídos de $y_{1},\ldots ,y_{N}$ \\  -->
-<!-- segundo $p\left( a\right)$ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline -->
-<!-- Objetivo &  -->
-<!-- \begin{tabular}{c} -->
-<!-- Inferir sobre sobre funções $g\left( y_{1},\ldots ,y_{N}\right)$ \\  -->
-<!-- usando $y_{i_1},\ldots ,y_{i_n}$ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
-
 
 
  Investigando a existência de diferenciais de salários por sexo e raça
@@ -296,55 +210,6 @@ Objetivo              Inferir sobre $g\left( Y_{1},\ldots Y_{N}\right)$ partir d
 
  Table: (#tab:modelsuperpop) Representação esquemática da abordagem 3.
 
-<!-- \begin{center} -->
-<!-- \begin{table}[tbp] \centering -->
-<!-- \caption{Representação esquemática da abordagem 3}\bigskip  -->
-<!-- \label{Tab23}  -->
-<!-- \begin{tabular}{|c|c|} -->
-<!-- \hline\hline -->
-<!-- \multicolumn{2}{|c|}{Abordagem 3 - Modelagem de Superpopulação} \\  -->
-<!-- \hline\hline -->
-<!-- Dados amostrais &  -->
-<!-- \begin{tabular}{l} -->
-<!-- $Y_{i_1}$ \\  -->
-<!-- $\downarrow $ \\  -->
-<!-- $y_{i_1}$ -->
-<!-- \end{tabular} -->
-<!-- $,\ldots ,  -->
-<!-- \begin{tabular}{l} -->
-<!-- $Y_{i_n}$ \\  -->
-<!-- $\downarrow $ \\  -->
-<!-- $y_{i_n}$ -->
-<!-- \end{tabular} -->
-<!-- $ \\ \hline -->
-<!-- \begin{tabular}{c} -->
-<!-- População e \\  -->
-<!-- esquema de seleção -->
-<!-- \end{tabular} -->
-<!-- \textbf{\ } & Extraídos de $y_{1},\ldots ,y_{N}$ segundo $p\left( -->
-<!-- s\right)$ \\ \hline -->
-<!-- \begin{tabular}{c} -->
-<!-- Modelo para \\  -->
-<!-- população -->
-<!-- \end{tabular} -->
-<!-- \textbf{\ } &  -->
-<!-- \begin{tabular}{c} -->
-<!-- $Y_{1},\ldots ,Y_{N}$ vetores aleatórios IID \\  -->
-<!-- com distribuição $f\left( y;\theta \right)$, onde $\theta \in -->
-<!-- \Theta $ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline -->
-<!-- Parâmetro-alvo & associar $\theta \longleftrightarrow g\left( -->
-<!-- Y_{1},\ldots Y_{N}\right)$ \\ \hline -->
-<!-- Objetivo &  -->
-<!-- \begin{tabular}{c} -->
-<!-- Inferir sobre $g\left( Y_{1},\ldots Y_{N}\right)$ \\  -->
-<!-- a partir de $y_{i_1},\ldots ,y_{i_n}$ usando $p\left( s\right)$ -->
-<!-- \end{tabular} -->
-<!-- \\ \hline\hline -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-<!-- \end{center} -->
 
 A descrição da abordagem adotada neste livro foi apresentada de
 maneira propositadamente simplificada e vaga nesta seção, mas será aprofundada

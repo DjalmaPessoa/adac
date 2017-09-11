@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-06">
+<meta name="date" content="2017-09-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +87,6 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -100,9 +99,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Análise de Dados Amostrais Complexos</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
 </ul></li>
@@ -212,9 +208,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.2" data-path="pacotes.html"><a href="pacotes.html#pacotes-computacionais"><i class="fa fa-check"></i><b>14.2</b> Pacotes Computacionais</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -257,7 +250,7 @@ _{0}+\beta _{1}x_{i}+\beta _{2}z_{i}+\beta _{3}x_{i}z_{i}  \tag{13.2}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(z_{i}=1\)</span> se a unidade pertence ao estrato 1 e <span class="math inline">\(z_{i}=0\)</span> caso contrário. Observe que neste novo modelo aparecem dois novos parâmetros, a saber <span class="math inline">\(\beta _{2}\)</span> e <span class="math inline">\(\beta _{3}\)</span> .</p>
 <p>Se <span class="math inline">\(\beta _{3}=0\)</span>, o efeito do estrato é modificar o intercepto de <span class="math inline">\(\beta _{0}\)</span> para <span class="math inline">\(\beta _{0}+\beta _{1}\)</span>, quando <span class="math inline">\(z_{i}\)</span> passa de <span class="math inline">\(0\)</span> a <span class="math inline">\(1\)</span>. Se <span class="math inline">\(\beta _{3}\neq 0\)</span> , além da variação do intercepto, há também modificação na declividade, que passa de <span class="math inline">\(\beta _{1}\)</span> para <span class="math inline">\(\beta _{1}+\beta _{3}\)</span> quando <span class="math inline">\(z_{i}\)</span> passa de <span class="math inline">\(0\)</span> a <span class="math inline">\(1\)</span>.</p>
-<p>Modelos com o efeito de estratificação aqui ilustrado podem ser facilmente generalizados para o caso de mais de dois estratos, bastando para isso adicionar de forma similar variáveis indicadoras de pertinência aos diversos estratos, exceto o último. Tais modelos podem ser úteis em uma variedade de situações de interesse prático. Um caso importante é o do emprego de planos amostrais estratificados. Nesse caso, o analista pode optar por modificar seu modelo agregado <a href="agregdesag.html#eq:hier1">(13.1)</a> em favor de um modelo desagregado da forma <a href="agregdesag.html#eq:hier2">(13.2)</a>2}), pois acredita que este último representa melhor a realidade subjacente. Se o plano amostral for do tipo amostragem estratificada simples e os estratos (de seleção) coincidirem com os do modelo (de análise), a inferência para os parâmetros do modelo pode ser feita usando procedimentos e pacotes padrões, sem maiores problemas. O mesmo já não ocorre se os estratos de análise diferem dos de seleção ou se o plano amostral empregado envolver outros aspectos de complexidade, tais como conglomeração e/ou probabilidades desiguais de seleção dentro dos estratos.</p>
+<p>Modelos com o efeito de estratificação aqui ilustrado podem ser facilmente generalizados para o caso de mais de dois estratos, bastando para isso adicionar de forma similar variáveis indicadoras de pertinência aos diversos estratos, exceto o último. Tais modelos podem ser úteis em uma variedade de situações de interesse prático. Um caso importante é o do emprego de planos amostrais estratificados. Nesse caso, o analista pode optar por modificar seu modelo agregado <a href="agregdesag.html#eq:hier1">(13.1)</a> em favor de um modelo desagregado da forma <a href="agregdesag.html#eq:hier2">(13.2)</a>, pois acredita que este último representa melhor a realidade subjacente. Se o plano amostral for do tipo amostragem estratificada simples e os estratos (de seleção) coincidirem com os do modelo (de análise), a inferência para os parâmetros do modelo pode ser feita usando procedimentos e pacotes padrões, sem maiores problemas. O mesmo já não ocorre se os estratos de análise diferem dos de seleção ou se o plano amostral empregado envolver outros aspectos de complexidade, tais como conglomeração e/ou probabilidades desiguais de seleção dentro dos estratos.</p>
 <p>Outro caso de interesse prático é aquele em que os estratos de análise são definidos por razões substantivas ligadas à modelagem pretendida, independentemente de como foi selecionada a amostra da pesquisa que gerou os dados (este caso englobaria inclusive dados coletados mediante censos). Nesse caso, os efeitos de estratificação são intrínsecos ao modelo e a estimação dos parâmetros correspondentes é o alvo da inferência desejada. Um exemplo típico é a análise de efeitos de sexo sobre relações entre educação (medida em termos de anos de estudo, por exemplo) e renda, que sustenta discussões sobre preconceito contra mulheres no mercado de trabalho (estamos simplificando aqui a situação, pois em geral se precisa remover efeitos de profissão, posição na ocupação, número de horas trabalhadas e outros que afetam a renda de assalariados). Em casos como este, em que dados de pesquisas amostrais domiciliares são frequentemente usados para ajustar modelos com efeitos de estratificação, os estratos de análise (pessoas classificadas por sexo) são formados a posteriori, porque as pessoas da amostra não são selecionadas em grupos devido à inexistência de cadastros que suportassem esse tipo de plano amostral. Na prática, as amostras selecionadas são de domicílios e nestes investigadas todas as pessoas moradoras.</p>
 <p>Uma outra situação de interesse prático que pode requerer modificação dos modelos de interesse é a ocorrência de efeitos de conglomeração. Estes podem tanto se originar de necessidades administrativas que motivam a adoção de planos amostrais conglomerados (vide o caso das pesquisas por amostragem domiciliar, em que municípios, setores e domicílios formam conglomerados de pessoas, estas últimas as unidades de análise de interesse da modelagem), quanto de necessidades substantivas, em que os grupos de unidades elementares fazem parte de uma estrutura populacional cujas propriedades se deseja modelar de forma mais explícita. Um exemplo é o caso de estudos demográficos sobre mortalidade infantil, em que os filhos tidos por uma determinada mulher são considerados um conglomerado e se pretende identificar algum efeito potencial do tamanho dos conglomerados sobre os eventos de interesse, no caso a mortalidade infantil.</p>
 Efeitos de conglomeração podem ser introduzidos no modelo <a href="agregdesag.html#eq:hier1">(13.1)</a> de maneira simples, bastando para isso considerar um modelo da forma
@@ -415,14 +408,128 @@ Vários modelos foram ajustados, com complexidades e abordagens diferentes. Cons
 _{1}(TEMP)_{j}+\beta _{2}\left( EXP\right) _{j},  \tag{13.16}
 \end{equation}\]</span>
 <p>no qual <span class="math inline">\(\beta _{0},\beta _{1}\)</span> e <span class="math inline">\(\beta _{2}\)</span> são coeficientes a serem estimados, e o índice <span class="math inline">\(j\)</span> se refere a um domínio de estudo, <span class="math inline">\(j=1,\ldots ,9\)</span> (tais domínios não foram identificados na referência citada).</p>
-Podemos analisar os dados considerando as observações como IID, ignorando a existência de conglomerados e de pesos distintos, que chamaremos aqui de <code>análise ingênua</code>. Neste caso, os coeficientes podem ser estimados pelo método padrão de Máxima Verossimilhança, utilizando um dos pacotes padrões. Os resultados dessa análise são apresentados na Tabela .
-
-<p>Os <span class="math inline">\(p\)</span>valores da Tabela  indicam que os coeficientes são significantemente diferentes de <span class="math inline">\(0\)</span> ao nível de significância <span class="math inline">\(\alpha =5\%\)</span>, sugerindo que todas as variáveis preditoras têm poder de explicação, e portanto devem permanecer no modelo.</p>
-<p>Outra opção é a <code>análise agregada</code>, que incorpora o plano amostral e os pesos através do método de MPV para estimar parâmetros, e do uso de estatísticas baseadas no plano amostral para testar hipóteses. Esta abordagem pode ser usada também na etapa de seleção de modelos, com testes de significância baseados, por exemplo, na estatística de Wald ou ajustes desta, no caso de instabilidade. Os resultados dessa análise são apresentados na Tabela .</p>
-
-<p>A coluna de <span class="math inline">\(p\)</span>valores da Tabela  indica que o coeficiente de <span class="math inline">\(TEMP\)</span> é significantemente diferente de zero, e também que a hipótese de nulidade do coeficiente de <span class="math inline">\(EXP\)</span> não é rejeitada no nível de significância <span class="math inline">\(\alpha =5\%\)</span>.</p>
-<p>Neste exemplo, <span class="math inline">\(f=38\)</span> graus de liberdade para a estimação da matriz de covariância <span class="math inline">\(9\times 9\)</span> baseada no plano amostral. Como o estimador poderia ser instável, foi calculada a estatística corrigida de Wald. A correção usada foi a implementada no pacote PC-CARP, que difere da correção F antes mencionada. Os resultados da análise permanecem os mesmos que os da análise reportada na Tabela , conforme se pode verificar consultando os valores da Tabela . Em ambos os casos, observamos EPAs moderados com máximo em torno de <span class="math inline">\(2\)</span>.</p>
-
+<p>Podemos analisar os dados considerando as observações como IID, ignorando a existência de conglomerados e de pesos distintos, que chamaremos aqui de <code>análise ingênua</code>. Neste caso, os coeficientes podem ser estimados pelo método padrão de Máxima Verossimilhança, utilizando um dos pacotes padrões. Os resultados dessa análise são apresentados na Tabela @ref{tab:iid}.</p>
+<table>
+<caption><span id="tab:iid">Tabela 13.1: </span>Análise do modelo (9.16) sob hipótese de observações IID, ignorando complexidades do plano amostral</caption>
+<thead>
+<tr class="header">
+<th align="center">Variável</th>
+<th align="center">Coeficiente</th>
+<th align="center">Desvio_Padrão</th>
+<th align="center">Teste_t</th>
+<th align="center">pvalor</th>
+<th align="center">EPA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Intercepto</td>
+<td align="center">2.912</td>
+<td align="center">0.427</td>
+<td align="center">6.82</td>
+<td align="center">0.000</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">TEMP</td>
+<td align="center">-0.894</td>
+<td align="center">0.174</td>
+<td align="center">-5.14</td>
+<td align="center">0.000</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">EXP</td>
+<td align="center">0.254</td>
+<td align="center">0.127</td>
+<td align="center">2.00</td>
+<td align="center">0.045</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<p>Os <span class="math inline">\(p\)</span>valores da Tabela @ref{tab:iid} indicam que os coeficientes são significantemente diferentes de <span class="math inline">\(0\)</span> ao nível de significância <span class="math inline">\(\alpha =5\%\)</span>, sugerindo que todas as variáveis preditoras têm poder de explicação, e portanto devem permanecer no modelo.</p>
+<p>Outra opção é a <code>análise agregada</code>, que incorpora o plano amostral e os pesos através do método de MPV para estimar parâmetros, e do uso de estatísticas baseadas no plano amostral para testar hipóteses. Esta abordagem pode ser usada também na etapa de seleção de modelos, com testes de significância baseados, por exemplo, na estatística de Wald ou ajustes desta, no caso de instabilidade. Os resultados dessa análise são apresentados na Tabela @ref{tab:wald}.</p>
+<table>
+<caption><span id="tab:logist">Tabela 13.2: </span>Análise agregada do modelo (9.16), usando MPV e estatísticas de Wald (PROC LOGISTIC do SUDAAN)</caption>
+<thead>
+<tr class="header">
+<th align="center">Variável</th>
+<th align="center">Coeficiente</th>
+<th align="center">Desvio_Padrão</th>
+<th align="center">Teste_t</th>
+<th align="center">pvalor</th>
+<th align="center">EPA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Intercepto</td>
+<td align="center">2.899</td>
+<td align="center">0.578</td>
+<td align="center">5.02</td>
+<td align="center">0.00</td>
+<td align="center">1.83</td>
+</tr>
+<tr class="even">
+<td align="center">TEMP</td>
+<td align="center">-0.906</td>
+<td align="center">0.211</td>
+<td align="center">-4.29</td>
+<td align="center">0.00</td>
+<td align="center">1.47</td>
+</tr>
+<tr class="odd">
+<td align="center">EXP</td>
+<td align="center">0.271</td>
+<td align="center">0.181</td>
+<td align="center">1.50</td>
+<td align="center">0.14</td>
+<td align="center">2.03</td>
+</tr>
+</tbody>
+</table>
+<p>A coluna de <span class="math inline">\(p\)</span>valores da Tabela @ref{tab:wald} indica que o coeficiente de <span class="math inline">\(TEMP\)</span> é significantemente diferente de zero, e também que a hipótese de nulidade do coeficiente de <span class="math inline">\(EXP\)</span> não é rejeitada no nível de significância <span class="math inline">\(\alpha =5\%\)</span>.</p>
+<p>Neste exemplo, <span class="math inline">\(f=38\)</span> graus de liberdade para a estimação da matriz de covariância <span class="math inline">\(9\times 9\)</span> baseada no plano amostral. Como o estimador poderia ser instável, foi calculada a estatística corrigida de Wald. A correção usada foi a implementada no pacote PC-CARP, que difere da correção F antes mencionada. Os resultados da análise permanecem os mesmos que os da análise reportada na Tabela @ref{tab:logist}, conforme se pode verificar consultando os valores da Tabela @ref{tab:wald}. Em ambos os casos, observamos EPAs moderados com máximo em torno de <span class="math inline">\(2\)</span>.</p>
+<table>
+<caption><span id="tab:wald">Tabela 13.3: </span>Análise agregada do modelo (9.16), usando estatísticas de Wald corrigidas (programa PC CARP)</caption>
+<thead>
+<tr class="header">
+<th align="center">Variável</th>
+<th align="center">Coeficiente</th>
+<th align="center">Desvio_Padrão</th>
+<th align="center">Teste_t</th>
+<th align="center">pvalor</th>
+<th align="center">EPA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Intercepto</td>
+<td align="center">2.899</td>
+<td align="center">0.597</td>
+<td align="center">4.86</td>
+<td align="center">0.00</td>
+<td align="center">1.95</td>
+</tr>
+<tr class="even">
+<td align="center">TEMP</td>
+<td align="center">-0.906</td>
+<td align="center">0.219</td>
+<td align="center">-4.14</td>
+<td align="center">0.00</td>
+<td align="center">1.58</td>
+</tr>
+<tr class="odd">
+<td align="center">EXP</td>
+<td align="center">0.271</td>
+<td align="center">0.186</td>
+<td align="center">1.46</td>
+<td align="center">0.15</td>
+<td align="center">2.14</td>
+</tr>
+</tbody>
+</table>
 <p>Finalmente, a <code>análise desagregada</code> que, neste exemplo, usaria um <code>modelo hierárquico</code> com dois níveis, a saber:</p>
 <ul>
 <li><p>nível 1 - alunos;</p></li>
@@ -438,10 +545,48 @@ O erro aleatório <span class="math inline">\(u_{k}\sim N\left( 0,\sigma _{u}^{2
 \frac{p_{jk}\left( 1-p_{jk}\right) \sigma _{e}^{2}}{n_{jk}}\;\;.
 \tag{13.18}
 \end{equation}\]</span>
-<p>Os resultados desta análise são apresentados na Tabela .</p>
-
-<p>A coluna de <span class="math inline">\(p\)</span>valores da Tabela  indica novamente que o coeficiente de <span class="math inline">\(EXP\)</span> não é significantemente diferente de zero ao nível <span class="math inline">\(\alpha =5\%\)</span>. A variação no nível 2 foi estimada por <span class="math inline">\(\sigma_{u}^{2}=0,42\)</span> com desvio-padrão <span class="math inline">\(0,189\)</span>, e portanto é significante ao nível <span class="math inline">\(\alpha =5\%\)</span>. Isto sugere a existência de diferença de avaliação dos professores sobre o aprendizado de Matemática dos alunos.</p>
-<p>No ajuste da Tabela , a variação entre alunos foi tomada como <span class="math inline">\(\sigma _{e}^{2}=1.\)</span> Uma alternativa seria estimar também este valor a partir dos dados.</p>
+<p>Os resultados desta análise são apresentados na Tabela @ref{tab:ml3}.</p>
+<table>
+<caption><span id="tab:ml3">Tabela 13.4: </span>Análise desagregada do modelo (9.18) via programa (ML3)</caption>
+<thead>
+<tr class="header">
+<th align="center">Variável</th>
+<th align="center">Coeficiente</th>
+<th align="center">Desvio_Padrão</th>
+<th align="center">Teste_t</th>
+<th align="center">pvalor</th>
+<th align="center">EPA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Intercepto</td>
+<td align="center">2.941</td>
+<td align="center">0.538</td>
+<td align="center">5.47</td>
+<td align="center">0.00</td>
+<td align="center">1.58</td>
+</tr>
+<tr class="even">
+<td align="center">TEMP</td>
+<td align="center">-0.927</td>
+<td align="center">0.179</td>
+<td align="center">-5.18</td>
+<td align="center">0.00</td>
+<td align="center">1.06</td>
+</tr>
+<tr class="odd">
+<td align="center">EXP</td>
+<td align="center">0.254</td>
+<td align="center">0.188</td>
+<td align="center">1.36</td>
+<td align="center">0.19</td>
+<td align="center">2.19</td>
+</tr>
+</tbody>
+</table>
+<p>A coluna de <span class="math inline">\(p\)</span>valores da Tabela @ref{tab:ml3} indica novamente que o coeficiente de <span class="math inline">\(EXP\)</span> não é significantemente diferente de zero ao nível <span class="math inline">\(\alpha =5\%\)</span>. A variação no nível 2 foi estimada por <span class="math inline">\(\sigma_{u}^{2}=0,42\)</span> com desvio-padrão <span class="math inline">\(0,189\)</span>, e portanto é significante ao nível <span class="math inline">\(\alpha =5\%\)</span>. Isto sugere a existência de diferença de avaliação dos professores sobre o aprendizado de Matemática dos alunos.</p>
+<p>No ajuste da Tabela @ref{tab:ml3}, a variação entre alunos foi tomada como <span class="math inline">\(\sigma _{e}^{2}=1.\)</span> Uma alternativa seria estimar também este valor a partir dos dados.</p>
 <p>Este exemplo ilustra bem o efeito de ignorar efeitos de plano amostral, ao fazer a análise ingênua, cujas conclusões levariam a incluir a variável <span class="math inline">\(EXP\)</span> no modelo quando esta parece não ser importante, como revelaram as análises alternativas que levaram em conta o plano amostral ou a estrutura da população (análises agregada e desagregada, respectivamente).</p>
 
 <div class="example">
@@ -494,21 +639,128 @@ Y_{ij}=\beta _{0j}+r_{ij}.
 <p>Modelo explanatório de nível 2: <span class="math display">\[
 \beta _{0j}=\gamma _{00}+\sum\limits_{k=1}^{6}\gamma _{0j}x_{kj}+u_{0j}.
 \]</span></p>
-<p>A Tabela  apresenta as estimativas dos parâmetros para este modelo.</p>
-
+<p>A Tabela @ref{tab:mod2} apresenta as estimativas dos parâmetros para este modelo.</p>
+<table>
+<caption><span id="tab:mod2">Tabela 13.5: </span>Efeitos da escola na eficácia do professor (Modelo II)</caption>
+<thead>
+<tr class="header">
+<th align="center">Coeficiente</th>
+<th align="center">Estimativa</th>
+<th align="center">Desvio_Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">gamma_01</td>
+<td align="center">0.044</td>
+<td align="center">0.020</td>
+</tr>
+<tr class="even">
+<td align="center">gamma_02</td>
+<td align="center">0.133</td>
+<td align="center">0.023</td>
+</tr>
+<tr class="odd">
+<td align="center">gamma_03</td>
+<td align="center">0.031</td>
+<td align="center">0.046</td>
+</tr>
+<tr class="even">
+<td align="center">gamma_04</td>
+<td align="center">-0.066</td>
+<td align="center">0.027</td>
+</tr>
+<tr class="odd">
+<td align="center">gamma_05</td>
+<td align="center">-0.014</td>
+<td align="center">0.019</td>
+</tr>
+<tr class="even">
+<td align="center">gamma_06</td>
+<td align="center">-0.028</td>
+<td align="center">0.023</td>
+</tr>
+<tr class="odd">
+<td align="center">sigma_2</td>
+<td align="center">0.915</td>
+<td align="center">NA</td>
+</tr>
+<tr class="even">
+<td align="center">tau_00</td>
+<td align="center">0.055</td>
+<td align="center">NA</td>
+</tr>
+</tbody>
+</table>
 <p>Com essas estimativas, a proporção da variação total entre escolas do parâmetro <span class="math inline">\(\beta _{0j}\)</span> (nível médio da eficácia dos professores por escola) explicada pelas variáveis <span class="math inline">\(\left(x_{1},\ldots ,x_{6}\right)\)</span> aumentou para <span class="math display">\[
 \frac{0,084-0,055}{0,084}=35.
 \]</span></p>
 <p>Embora esse aumento do poder explicativo do modelo já tenha sido substancial, ainda é relativamente baixa a proporção de variação explicada, e portanto consideramos um terceiro modelo, em que foi adicionada ao Modelo II a variável preditora <span class="math inline">\(x_{7}=Comunit\)</span> ao nível da escola.</p>
-<p><strong>Modelo III:</strong> Modelo Hierárquico com dois níveis, usando as variáveis <span class="math inline">\(\left( x_{1},\ldots ,x_{7}\right)\)</span>, definidas no nível 2, para explicar a variação da eficiência média do professor por escola</p>
+<p><strong>Modelo III:</strong> Modelo Hierárquico com dois níveis, usando as variáveis <span class="math inline">\(\left( x_{1},\ldots ,x_{7}\right)\)</span>, definidas no nível 2, para explicar a variação da eficiência média do professor por escola.</p>
 <p>Modelo de nível 1 <span class="math display">\[
 Y_{ij}=\beta _{0j}+r_{ij},
 \]</span></p>
 <p>Modelo Explanatório de nível 2 <span class="math display">\[
 \beta _{0j}=\gamma _{00}+\sum\limits_{k=1}^{7}\gamma _{0j}x_{kj}+u_{0j}.
 \]</span></p>
-<p>A Tabela  apresenta as estimativas dos coeficientes do Modelo III e seus respectivos desvios padrões.</p>
-
+<p>A Tabela @ref{tab:mod3} apresenta as estimativas dos coeficientes do Modelo III e seus respectivos desvios padrões.</p>
+<table>
+<caption><span id="tab:mod3">Tabela 13.6: </span>Efeitos da escola na eficácia do professor (Modelo III)</caption>
+<thead>
+<tr class="header">
+<th align="center">Coeficiente</th>
+<th align="center">Estimativa</th>
+<th align="center">Desvio_Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">gamma_01</td>
+<td align="center">0.038</td>
+<td align="center">0.017</td>
+</tr>
+<tr class="even">
+<td align="center">gamma_02</td>
+<td align="center">0.015</td>
+<td align="center">0.022</td>
+</tr>
+<tr class="odd">
+<td align="center">gamma_03</td>
+<td align="center">-0.055</td>
+<td align="center">0.040</td>
+</tr>
+<tr class="even">
+<td align="center">gamma_04</td>
+<td align="center">0.061</td>
+<td align="center">0.026</td>
+</tr>
+<tr class="odd">
+<td align="center">gamma_05</td>
+<td align="center">-0.014</td>
+<td align="center">0.016</td>
+</tr>
+<tr class="even">
+<td align="center">gamma_06</td>
+<td align="center">-0.001</td>
+<td align="center">0.020</td>
+</tr>
+<tr class="odd">
+<td align="center">gamma_07</td>
+<td align="center">0.504</td>
+<td align="center">0.045</td>
+</tr>
+<tr class="even">
+<td align="center">sigma_2</td>
+<td align="center">0.915</td>
+<td align="center">NA</td>
+</tr>
+<tr class="odd">
+<td align="center">tau_00</td>
+<td align="center">0.031</td>
+<td align="center">NA</td>
+</tr>
+</tbody>
+</table>
 <p>A proporção da variação total entre escolas do parâmetro <span class="math inline">\(\beta _{0j}\)</span> (nível médio da eficácia dos professores por escola) explicada pelas variáveis <span class="math inline">\(\left( x_{1},\ldots ,x_{7}\right)\)</span> aumentou para <span class="math display">\[
 \frac{0,084-0,031}{0,084}=63.
 \]</span></p>
@@ -518,9 +770,55 @@ Y_{ij}=\beta _{0j}+r_{ij},
 <p>Vamos considerar um modelo de regressão linear simples, com o resultado do professor <span class="math inline">\(Y_{ij}\)</span> dependendo das características <span class="math inline">\(\left(x_{1j},\ldots ,x_{7j}\right)\)</span> da escola, que teriam seus valores “repetidos” para os professores de uma mesma escola. Esse modelo pode ser escrito como <span class="math display">\[
 Y_{ij}=\gamma _{0}+\sum\limits_{k=1}^{7}\gamma _{k}x_{kj}+e_{ij}.
 \]</span></p>
-<p>A Tabela  apresenta as estimativas de Mínimos Quadrados Ponderados de <span class="math inline">\(\left( \gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)\)</span> com pesos dados por <span class="math inline">\(n_{j}=\)</span> número de professores da escola <span class="math inline">\(j\)</span>.</p>
-
-<p>A proporção de variação explicada pelo Modelo IV é de apenas <span class="math inline">\(5,4\%\)</span>. Os coeficientes da análise de nível 2 (Modelo III, Tabela ) foram bem semelhantes neste exemplo, o que pode ser explicado em parte pela pequena variação do número de professores por escola.</p>
+<p>A Tabela @ref{tab:mod4} apresenta as estimativas de Mínimos Quadrados Ponderados de <span class="math inline">\(\left( \gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)\)</span> com pesos dados por <span class="math inline">\(n_{j}=\)</span> número de professores da escola <span class="math inline">\(j\)</span>.</p>
+<table>
+<caption><span id="tab:mod4">Tabela 13.7: </span>Efeitos da escola na eficácia do professor (Modelo IV)</caption>
+<thead>
+<tr class="header">
+<th align="center">Coeficiente</th>
+<th align="center">Estimativa</th>
+<th align="center">Desvio_Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">gamma_01</td>
+<td align="center">0.040</td>
+<td align="center">0.013</td>
+</tr>
+<tr class="even">
+<td align="center">gamma_02</td>
+<td align="center">0.015</td>
+<td align="center">0.017</td>
+</tr>
+<tr class="odd">
+<td align="center">gamma_03</td>
+<td align="center">-0.056</td>
+<td align="center">0.031</td>
+</tr>
+<tr class="even">
+<td align="center">gamma_04</td>
+<td align="center">0.062</td>
+<td align="center">0.021</td>
+</tr>
+<tr class="odd">
+<td align="center">gamma_05</td>
+<td align="center">-0.014</td>
+<td align="center">0.013</td>
+</tr>
+<tr class="even">
+<td align="center">gamma_06</td>
+<td align="center">-0.002</td>
+<td align="center">0.016</td>
+</tr>
+<tr class="odd">
+<td align="center">gamma_07</td>
+<td align="center">0.507</td>
+<td align="center">0.035</td>
+</tr>
+</tbody>
+</table>
+<p>A proporção de variação explicada pelo Modelo IV é de apenas <span class="math inline">\(5,4\%\)</span>. Os coeficientes da análise de nível 2 (Modelo III, Tabela @ref{tab:mod3}) foram bem semelhantes neste exemplo, o que pode ser explicado em parte pela pequena variação do número de professores por escola.</p>
 <p>A introdução da variável <span class="math inline">\(Comunit\)</span>, neste modelo, só aumentou a quantidade de variação explicada em <span class="math inline">\(2,5\%\)</span>. A julgar por este resultado, a importância da variável <span class="math inline">\(Comunit\)</span> é pequena. Este resultado é enganador devido ao fato de usar, no cálculo da razão de variação explicada, a variação total <span class="math inline">\(\left( \tau _{00}+\sigma ^{2}\right)\)</span> no denominador. No modelo hierárquico correspondente (Modelo III) este denominador é <span class="math inline">\(\tau_{00}\)</span>, que é a parte explicável da variação. A estatística de variação explicada da análise hierárquica fornece uma evidência mais clara para se julgar a importância de preditores do nível 2.</p>
 <p>Com este exemplo, procuramos ilustrar uma situação em que a estrutura populacional hierárquica não pode ser ignorada na modelagem, sob pena de se chegar a conclusões incorretas sobre a importância de determinadas variáveis preditoras num modelo de regressão, quando este é ajustado de forma ingênua a dados provenientes de uma estrutura hierárquica. Os modelos hierárquicos II e III aqui considerados são modelos de interceptos aleatórios do tipo <span class="math inline">\(y_{ij}=\beta _{0j}+\mathbf{x}_{j}^{T}\mathbf{\beta +}v_{ij}\;\)</span>, onde os coeficientes de regressão <span class="math inline">\(\mathbf{\beta }\)</span> são considerados fixos e apenas os interceptos <span class="math inline">\(\beta _{0j}=\beta _{0}+u_{j}\)</span> são efeitos aleatórios. Tais modelos poderiam ser generalizados mediante suposição de que os coeficientes de regressão nas variáveis preditoras <span class="math inline">\(\mathbf{\beta}\)</span> também são aleatórios. O Modelo V a seguir é desse tipo.</p>
 <p><strong>Modelo V:</strong> Modelo de Coeficientes Aleatórios <span class="math display">\[
@@ -608,8 +906,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/13-Cap13.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "download": ["bookdown-adac.pdf"],
 "toc": {
