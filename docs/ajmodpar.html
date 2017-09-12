@@ -250,7 +250,7 @@ f\left( \mathbf{y}_{i};\mathbf{\theta }\right) \right] \;.
 \sum_{i=1}^n\mathbf{u}_{i}\left( \mathbf{\theta }\right) =\mathbf{0}, 
 \]</span></p>
 <p>onde, <span class="math inline">\(\mathbf{u}_{i}\left(\mathbf{\theta }\right) =\partial\log\left[f\left(\mathbf{y}_{i};\mathbf{\theta}\right) \right] /\partial \mathbf{\theta }\)</span> é o vetor dos escores da unidade <span class="math inline">\(i\)</span>, de dimensão <span class="math inline">\(K\times1\)</span>.</p>
-<p>Sob condições de regularidade p. 281 <span class="citation">(Cox and Hinkley <a href="#ref-cox">1974</a>)</span>, a solução <span class="math inline">\(\mathbf{\hat{\theta}}\)</span> deste sistema de equações é o <strong>Estimador de Máxima Verossimilhança (EMV)</strong> de <span class="math inline">\(\mathbf{\theta}\)</span>. A variância assintótica do estimador <span class="math inline">\(\mathbf{\hat{\theta}}\)</span> sob o modelo adotado, denominado aqui abreviadamente modelo $M $, é dada por <span class="math display">\[
+<p>Sob condições de regularidade p. 281 <span class="citation">(Cox and Hinkley <a href="#ref-cox">1974</a>)</span>, a solução <span class="math inline">\(\mathbf{\hat{\theta}}\)</span> deste sistema de equações é o <strong>Estimador de Máxima Verossimilhança (EMV)</strong> de <span class="math inline">\(\mathbf{\theta}\)</span>. A variância assintótica do estimador <span class="math inline">\(\mathbf{\hat{\theta}}\)</span> sob o modelo adotado, denominado aqui abreviadamente modelo <span class="math inline">\(M\)</span>, é dada por <span class="math display">\[
 V_{M}\left( \mathbf{\hat{\theta}}\right) \simeq \left[ J\left( \mathbf{
 \theta }\right) \right] ^{-1} 
 \]</span> e um estimador consistente dessa variância é dado por <span class="math display">\[
@@ -269,10 +269,10 @@ J\left( \mathbf{\hat{\theta}}\right) =\left. J\left( \mathbf{\theta }\right)
 <p>O papel da ponderação <code>na análise de dados amostrais</code> é alvo de controvérsia entre os estatísticos. Apesar de incorporada comumente na inferência descritiva, não há concordância com respeito a seu uso na inferência analítica, havendo um espectro de opiniões entre dois extremos. Num extremo estão os <code>modelistas</code>, que consideram o uso de pesos irrelevante, e no outro os <code>amostristas</code>, que incorporam pesos em qualquer análise.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-1" class="example"><strong>Exemplo 1.2  </strong></span>Uso analítico dos dados da Pesquisa Nacional por Amostra de Domicílios (PNAD)
+<span id="exm:pnad" class="example"><strong>Exemplo 5.1  </strong></span>Uso analítico dos dados da Pesquisa Nacional por Amostra de Domicílios (PNAD)
 </div>
 
-<p>A título de ilustração, consideremos uma pesquisa com uma amostra complexa como a da PNAD do IBGE, que emprega uma amostra estratificada de domicílios em três estágios, tendo como unidades primárias de amostragem (UPAs) os municípios, que são estratificados segundo as unidades da federação (UFs), e regiões menores dentro das UFs (veja IBGE, 1981, p. 67).</p>
+<p>A título de ilustração, consideremos uma pesquisa com uma amostra complexa como a da PNAD do IBGE, que emprega uma amostra estratificada de domicílios em três estágios, tendo como unidades primárias de amostragem (UPAs) os municípios, que são estratificados segundo as unidades da federação (UFs), e regiões menores dentro das UFs (veja <span class="citation">(IBGE <a href="#ref-IBGE81">1981</a>)</span>, p. 67).</p>
 <p>A seleção de municípios dentro de cada estrato é feita com probabilidades desiguais, proporcionais ao tamanho, havendo inclusive municípios incluídos na amostra com certeza (chamados de municípios auto-representativos). Da mesma forma, a seleção de setores (unidades secundárias de amostragem ou USAs) dentro de cada município é feita com probabilidades proporcionais ao número de domicílios em cada setor segundo o último censo disponível. Dentro de cada setor, a seleção de domicílios é feita por amostragem sistemática simples (portanto, com equiprobabilidade). Todas as pessoas moradoras em cada domicílio da amostra são pesquisadas.</p>
 <p>A amostra de domicílios e de pessoas dentro de cada estrato é <code>autoponderada</code>, isto é, tal que todos os domicílios e pessoas dentro de um mesmo estrato têm igual probabilidade de seleção. Entretanto, as probabilidades de inclusão (e conseqüentemente os pesos) variam bastante entre as várias regiões de pesquisa. A Tabela <a href="ajmodpar.html#tab:proselpnad">5.1</a> revela como variam essas probabilidades de seleção entre as regiões cobertas pela amostra da PNAD de 93. Como se pode observar, tais probabilidades de inclusão chegam a ser <span class="math inline">\(5\)</span> vezes maiores em Belém do que em São Paulo, e portanto variação semelhante será observada nos pesos.</p>
 <table>
@@ -301,7 +301,7 @@ J\left( \mathbf{\hat{\theta}}\right) =\left. J\left( \mathbf{\theta }\right)
 <td align="center">1/250</td>
 </tr>
 <tr class="even">
-<td align="left">Rondô}nia, Acre, Amazonas, Roraima, Amapá, Tocantins, Sergipe, Mato Grosso do Sul, Mato Grosso e Goiás</td>
+<td align="left">Rondônia, Acre, Amazonas, Roraima, Amapá, Tocantins, Sergipe, Mato Grosso do Sul, Mato Grosso e Goiás</td>
 <td align="center">1/300</td>
 </tr>
 <tr class="odd">
@@ -388,7 +388,7 @@ onde
 <p>Seja <span class="math inline">\(\mathbf{T}=\sum_{i\in U}\mathbf{u}_{i}\left( \mathbf{\theta }\right)\)</span> a soma dos vetores de escores na população, o qual é um vetor de totais populacionais. Para estimar este vetor de totais, podemos então usar um estimador linear ponderado da forma <span class="math inline">\(\mathbf{\hat{T}}=\sum_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta }\right)\)</span> (veja Capítulo <a href="refinf.html#planamo">2.4</a>) onde <span class="math inline">\(w_{i}\)</span> são pesos propriamente definidos. Com essa notação, podemos agora obter um estimador para <span class="math inline">\(\mathbf{\theta }_{U}\)</span> resolvendo o sistema de equações obtido igualando o estimador <span class="math inline">\(\mathbf{\hat{T}}\)</span> do total <span class="math inline">\(\mathbf{T}\)</span> a zero.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-2" class="definition"><strong>Definição 4.2  </strong></span>O estimador de Máxima Pseudo-Verossimilhança (MPV) <span class="math inline">\(\mathbf{\hat{\theta}}_{MPV}\)</span> de <span class="math inline">\(\mathbf{\theta }_{U}\)</span> (e consequentemente de <span class="math inline">\(\mathbf{\theta}\)</span>) será a solução das equações dePseudo-Verossimilhança dadas por
+<span id="def:unnamed-chunk-1" class="definition"><strong>Definição 4.1  </strong></span>O estimador de Máxima Pseudo-Verossimilhança (MPV) <span class="math inline">\(\mathbf{\hat{\theta}}_{MPV}\)</span> de <span class="math inline">\(\mathbf{\theta }_{U}\)</span> (e consequentemente de <span class="math inline">\(\mathbf{\theta}\)</span>) será a solução das equações dePseudo-Verossimilhança dadas por
 <span class="math display" id="eq:modpar7">\[\begin{equation}
 \mathbf{\hat{T}}=\sum_{i\in s}w_{i}\mathbf{u}_{i}\left( \mathbf{\theta }
 \right) =\mathbf{0\;\;.}  
@@ -454,9 +454,9 @@ _{\pi }\right) \right] \left[ \hat{J}\left( \mathbf{\hat{\theta}}_{\pi
 <span class="math display" id="eq:modpar14">\[\begin{equation}
 \hat{V}_{p}\left[ \sum\limits_{i\in s}\pi _{i}^{-1}\mathbf{u}_{i}\left( 
 \mathbf{\hat{\theta}}_{\pi }\right) \right] =\sum\limits_{i\in
-s}\sum\limits_{j\in s}\frac{1}{\pi _{ij}}\frac{\pi _{ij}-\pi _{i}\pi _{j}}{\pi _{i}\pi _{j}}
-\left[ \mathbf{u}_{i}\left( \mathbf{\hat{\theta}}_{\pi }\right) \right]
-\left[ \mathbf{u}_{j}\left( \mathbf{\hat{\theta}}_{\pi }\right) \right]^{^{\prime }}  
+s}\sum\limits_{j\in s}\frac{\pi _{ij}-\pi _{i}\pi _{j}}{\pi _{ij}}
+\frac{\mathbf{u}_{i}\left(\mathbf{\hat{\theta}}_{\pi }\right)}{\pi _{i}} 
+\frac{\mathbf{u}_{j}^{\prime}\left(\mathbf{\hat{\theta}}_{\pi}\right)}{\pi _{j}} 
 \tag{5.14}
 \end{equation}\]</span>
 <p>e</p>
@@ -525,7 +525,7 @@ s}\pi _{i}^{-1}\left. \frac{\partial \mathbf{u}_{i}\left( \mathbf{\theta }
 <p>Se o modelo postulado para os dados amostrais for correto, o uso de estimadores ponderados pode resultar em perda substancial de eficiência comparado com o estimador ótimo, sob o modelo. Em geral, a perda de eficiência aumenta quando diminui o tamanho da amostra e aumenta a variação dos pesos. Há casos onde a ponderação é a única alternativa. Por exemplo, se os dados disponíveis já estão na forma de estimativas amostrais ponderadas, então o uso de pesos é inevitável. Um exemplo clássico é discutido a seguir.</p>
 
 <div class="example">
-<span id="exm:Analisec" class="example"><strong>Exemplo 5.1  </strong></span>Análise secundária de tabelas de contingência.
+<span id="exm:Analisec" class="example"><strong>Exemplo 5.2  </strong></span>Análise secundária de tabelas de contingência.
 </div>
 
 <p>A pesquisa <code>Canada Health Survey</code> usa um plano amostral estratificado com vários estágios de seleção. Nessa pesquisa, a estimativa de contagem na cela <span class="math inline">\(k\)</span> de uma tabela de contingência qualquer é dada por <span class="math display">\[
@@ -572,6 +572,9 @@ s}\pi _{i}^{-1}\left. \frac{\partial \mathbf{u}_{i}\left( \mathbf{\theta }
 </div>
 <div id="ref-cox">
 <p>Cox, D. R., and D. V. Hinkley. 1974. <em>Theoretical Statistics</em>. Londres: Chapman &amp; Hall.</p>
+</div>
+<div id="ref-IBGE81">
+<p>IBGE. 1981. “Metodologia Da Pesquisa Nacional Por Amostra de Domicílios Na Década de 70.” Série Relatórios Metodológicos 1. Rio de Janeiro: IBGE.</p>
 </div>
 <div id="ref-Leote">
 <p>Leote, R. M. D. 1996. “Um Perfil Sócio-Econômico Das Pessoas Ocupadas No Setor Informal Na área Urbana Do Rio de Janeiro.” 2. Rio de Janeiro: IBGE, Escola Nacional de Ciências Estatísticas.</p>

@@ -1,4 +1,4 @@
-# Testes em Tabelas de Duas Entradas  {#testetab2}
+# Testes em Tabelas de Duas Entradas {#testetab2}
 
 ## Introdução
 

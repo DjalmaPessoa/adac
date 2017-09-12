@@ -1023,7 +1023,7 @@ Vale a pena incluir as contas que não dependem da simulação?
 
 Exemplo \@ref(ex:deffuni) Parte de simulação do exemplo para salario
 
-```{r}
+```{r, message=FALSE, warning=FALSE }
 library(survey)
 popul <- readRDS("~\\GitHub\\adac\\data\\popul.rds")
 ```
@@ -1084,9 +1084,7 @@ vp_sal <- sum(Wh^2*(1-fh)*vp_sal_h[,"sal"]/nh)
 vp_rec <- sum(Wh^2*(1-fh)*vp_rec_h[,"rec"]/nh)
 ```
 
-```{r}
-# valor esperado v0 usando população
-```
+
 
 
 

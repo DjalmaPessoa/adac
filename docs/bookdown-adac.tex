@@ -3568,7 +3568,7 @@ Para o método \texttt{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01172893
+## [1,] 0.01228502
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -5062,42 +5062,6 @@ Exemplo \ref{ex:deffuni} Parte de simulação do exemplo para salario
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(survey)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'survey' was built under R version 3.4.1
-\end{verbatim}
-
-\begin{verbatim}
-## Carregando pacotes exigidos: grid
-\end{verbatim}
-
-\begin{verbatim}
-## Carregando pacotes exigidos: methods
-\end{verbatim}
-
-\begin{verbatim}
-## Carregando pacotes exigidos: Matrix
-\end{verbatim}
-
-\begin{verbatim}
-## Carregando pacotes exigidos: survival
-\end{verbatim}
-
-\begin{verbatim}
-## 
-## Attaching package: 'survey'
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:graphics':
-## 
-##     dotchart
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{popul <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{popul.rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -5150,7 +5114,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1407878
+## [1] 0.1409008
 \end{verbatim}
 
 \begin{Shaded}
@@ -5161,7 +5125,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3061095
+## [1] 0.308617
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -5173,12 +5137,6 @@ Usando a fórmula \eqref{eq:epa3}
 \NormalTok{vp_rec_h <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(rec}\OperatorTok{~}\NormalTok{estrat, popul, var)}
 \NormalTok{vp_sal <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(Wh}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{fh)}\OperatorTok{*}\NormalTok{vp_sal_h[,}\StringTok{"sal"}\NormalTok{]}\OperatorTok{/}\NormalTok{nh)}
 \NormalTok{vp_rec <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(Wh}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{fh)}\OperatorTok{*}\NormalTok{vp_rec_h[,}\StringTok{"rec"}\NormalTok{]}\OperatorTok{/}\NormalTok{nh)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# valor esperado v0 usando população}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5286,7 +5244,7 @@ Sob condições de regularidade p.~281 \citep{cox}, a solução
 \textbf{Estimador de Máxima Verossimilhança (EMV)} de
 \(\mathbf{\theta}\). A variância assintótica do estimador
 \(\mathbf{\hat{\theta}}\) sob o modelo adotado, denominado aqui
-abreviadamente modelo \$M \$, é dada por \[
+abreviadamente modelo \(M\), é dada por \[
 V_{M}\left( \mathbf{\hat{\theta}}\right) \simeq \left[ J\left( \mathbf{
 \theta }\right) \right] ^{-1} 
 \] e um estimador consistente dessa variância é dado por \[
@@ -5312,9 +5270,8 @@ de pesos irrelevante, e no outro os \texttt{amostristas}, que incorporam
 pesos em qualquer análise.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{exm:unnamed-chunk-1}{}{\label{exm:unnamed-chunk-1} }Uso
-analítico dos dados da Pesquisa Nacional por Amostra de Domicílios
-(PNAD)
+\protect\hypertarget{exm:pnad}{}{\label{exm:pnad} }Uso analítico dos dados
+da Pesquisa Nacional por Amostra de Domicílios (PNAD)
 \EndKnitrBlock{example}
 
 A título de ilustração, consideremos uma pesquisa com uma amostra
@@ -5322,7 +5279,7 @@ complexa como a da PNAD do IBGE, que emprega uma amostra estratificada
 de domicílios em três estágios, tendo como unidades primárias de
 amostragem (UPAs) os municípios, que são estratificados segundo as
 unidades da federação (UFs), e regiões menores dentro das UFs (veja
-IBGE, 1981, p.~67).
+\citep{IBGE81}, p.~67).
 
 A seleção de municípios dentro de cada estrato é feita com
 probabilidades desiguais, proporcionais ao tamanho, havendo inclusive
@@ -5381,7 +5338,7 @@ RMs de Belo Horizonte e Curitiba\strut
 1/250\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.75\columnwidth}\raggedright\strut
-Rondô\}nia, Acre, Amazonas, Roraima, Amapá, Tocantins, Sergipe, Mato
+Rondônia, Acre, Amazonas, Roraima, Amapá, Tocantins, Sergipe, Mato
 Grosso do Sul, Mato Grosso e Goiás\strut
 \end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering\strut
 1/300\strut
@@ -5639,7 +5596,7 @@ igualando o estimador \(\mathbf{\hat{T}}\) do total \(\mathbf{T}\) a
 zero.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-2}{}{\label{def:unnamed-chunk-2} }O
+\protect\hypertarget{def:unnamed-chunk-1}{}{\label{def:unnamed-chunk-1} }O
 estimador de Máxima Pseudo-Verossimilhança (MPV)
 \(\mathbf{\hat{\theta}}_{MPV}\) de \(\mathbf{\theta }_{U}\) (e
 consequentemente de \(\mathbf{\theta}\)) será a solução das equações
@@ -5762,9 +5719,9 @@ Pseudo-Verossimilhança seria dado pelos passos indicados a seguir.
 \begin{equation}
 \hat{V}_{p}\left[ \sum\limits_{i\in s}\pi _{i}^{-1}\mathbf{u}_{i}\left( 
 \mathbf{\hat{\theta}}_{\pi }\right) \right] =\sum\limits_{i\in
-s}\sum\limits_{j\in s}\frac{1}{\pi _{ij}}\frac{\pi _{ij}-\pi _{i}\pi _{j}}{\pi _{i}\pi _{j}}
-\left[ \mathbf{u}_{i}\left( \mathbf{\hat{\theta}}_{\pi }\right) \right]
-\left[ \mathbf{u}_{j}\left( \mathbf{\hat{\theta}}_{\pi }\right) \right]^{^{\prime }}  
+s}\sum\limits_{j\in s}\frac{\pi _{ij}-\pi _{i}\pi _{j}}{\pi _{ij}}
+\frac{\mathbf{u}_{i}\left(\mathbf{\hat{\theta}}_{\pi }\right)}{\pi _{i}} 
+\frac{\mathbf{u}_{j}^{\prime}\left(\mathbf{\hat{\theta}}_{\pi}\right)}{\pi _{j}} 
 \label{eq:modpar14}
 \end{equation}
 
