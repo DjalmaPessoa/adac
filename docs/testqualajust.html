@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-11">
+<meta name="date" content="2017-09-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -238,7 +238,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">7.2</span> Teste para uma Proporção</h2>
 <div id="correcao-de-estatisticas-classicas" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Correção de Estatísticas Clássicas</h3>
-<p>No Exemplo @ref{ex:exebin} a estatística de teste <span class="math inline">\(Z_{bin},\)</span> que foi utilizada para comparar com um valor hipotético pré-fixado a proporção de empregados cobertos por plano de saúde, resultou num teste mais liberal do que o teste que empregou a estatística <span class="math inline">\(Z_{p}\)</span>, baseada no plano amostral efetivamente adotado. A causa disto foi o fato de <span class="math inline">\(Z_{bin}\)</span> não considerar o efeito de conglomeração existente. Vamos examinar com mais detalhes o comportamento assintótico da estatística de teste <span class="math inline">\(Z_{bin}\)</span>, construindo a estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> de Pearson para o exemplo correspondente. Para isto, consideremos a Tabela <a href="testqualajust.html#tab:prophip">7.1</a> contendo a distribuição de frequências, onde <span class="math inline">\(n_{j}\)</span> e <span class="math inline">\(p_{oj}\)</span> são as frequências (absolutas) observadas na amostra e as proporções hipotéticas nas categorias de interesse, respectivamente.</p>
+<p>No Exemplo <a href="epa.html#exm:exebin">4.4</a> a estatística de teste <span class="math inline">\(Z_{bin},\)</span> que foi utilizada para comparar com um valor hipotético pré-fixado a proporção de empregados cobertos por plano de saúde, resultou num teste mais liberal do que o teste que empregou a estatística <span class="math inline">\(Z_{p}\)</span>, baseada no plano amostral efetivamente adotado. A causa disto foi o fato de <span class="math inline">\(Z_{bin}\)</span> não considerar o efeito de conglomeração existente. Vamos examinar com mais detalhes o comportamento assintótico da estatística de teste <span class="math inline">\(Z_{bin}\)</span>, construindo a estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> de Pearson para o exemplo correspondente. Para isto, consideremos a Tabela <a href="testqualajust.html#tab:prophip">7.1</a> contendo a distribuição de frequências, onde <span class="math inline">\(n_{j}\)</span> e <span class="math inline">\(p_{oj}\)</span> são as frequências (absolutas) observadas na amostra e as proporções hipotéticas nas categorias de interesse, respectivamente.</p>
 <table style="width:53%;">
 <caption><span id="tab:prophip">Tabela 7.1: </span> Frequências observadas e proporções hipotéticas</caption>
 <colgroup>
@@ -300,7 +300,7 @@ _{j}-p_{0j}\right) ^{2}/p_{0j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{%
 p_{0}\left( 1-p_{0}\right) /n}=Z_{bin}^{2}  
 \tag{7.2}
 \end{equation}\]</span>
-<p>onde <span class="math inline">\(\widehat{p}=\widehat{p}_{1}\)</span> e <span class="math inline">\(p_{0}=p_{01}\)</span> para simplicidade e coerência com a notação do Exemplo @ref{ex:exebin}.</p>
+<p>onde <span class="math inline">\(\widehat{p}=\widehat{p}_{1}\)</span> e <span class="math inline">\(p_{0}=p_{01}\)</span> para simplicidade e coerência com a notação do Exemplo <a href="epa.html#exm:exebin">4.4</a>.</p>
 <p>Sob a hipótese de observações IID, a distribuição assintótica da estatística <span class="math inline">\(X_{P}^{2}\)</span> é qui-quadrado (<span class="math inline">\(\chi^{2}\)</span>). Neste caso, em que há apenas duas categorias e uma restrição (soma das proporções igual a <span class="math inline">\(1\)</span>), a distribuição da estatística <span class="math inline">\(X_{P}^{2}\)</span> em <a href="testqualajust.html#eq:qual2">(7.2)</a> tem apenas um grau de liberdade.</p>
 <p>Rao e Scott(1981) obtiveram resultados gerais para a distribuição assintótica da estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> de Pearson sob planos amostrais complexos. Com apenas duas celas, a distribuição assintótica da estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> é a distribuição da variável aleatória <span class="math inline">\(dW\)</span>, onde <span class="math inline">\(W\)</span> tem distribuição <span class="math inline">\(\chi ^{2}\left( 1\right)\)</span> (qui-quadrado com um grau de liberdade) e <span class="math inline">\(d\)</span> é o efeito de plano amostral (EPA) da estimativa <span class="math inline">\(\widehat{p}\)</span> da proporção <span class="math inline">\(p\)</span>. O efeito de plano amostral nesse caso é dado por <span class="math inline">\(d=V_{p}\left( \widehat{p}\right) /V_{bin}\left( \widehat{p}\right)\)</span>.</p>
 <p>Para uma amostra de empregados selecionada por amostragem aleatória simples, teríamos <span class="math inline">\(d=1\)</span> pois <span class="math inline">\(V_{p}\left( \widehat{p}\right)\)</span> e <span class="math inline">\(V_{bin}\left( \widehat{p}\right)\)</span> seriam iguais. Neste caso, a estatística <span class="math inline">\(X_{P}^{2}\)</span> de teste seria assintoticamente <span class="math inline">\(\chi ^{2}\left(1\right)\)</span>. Como a amostra foi efetivamente selecionada por amostragem de conglomerados, devido à correlação intraclasse positiva o efeito de plano amostral <span class="math inline">\(d\)</span> é maior que um, e portanto a distribuição assintótica da estatística de teste <span class="math inline">\(X_{P}^{2}\)</span> não é mais <span class="math inline">\(\chi ^{2}\left( 1\right)\)</span>.</p>
@@ -322,7 +322,7 @@ No caso de amostragem aleatória simples, a estatística <span class="math inlin
 X_{RV}^{2}(d)=X_{RV}^{2}/d\;\;.  
 \tag{7.5}
 \end{equation}\]</span>
-<p>Vamos calcular os valores das estatísticas de Pearson e de RV, com suas correções de Rao-Scott, para os dados do Exemplo @ref{ex:exebin}. Para as correções, primeiro é preciso calcular o efeito do plano amostral</p>
+<p>Vamos calcular os valores das estatísticas de Pearson e de RV, com suas correções de Rao-Scott, para os dados do Exemplo <a href="epa.html#exm:exebin">4.4</a>. Para as correções, primeiro é preciso calcular o efeito do plano amostral</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span>p0[<span class="dv">1</span>]
 m &lt;-<span class="st"> </span><span class="dv">50</span>
 <span class="co"># Efeito do plano amostral</span>
@@ -389,7 +389,7 @@ X_{W}^{2}=\left( \widehat{p}-p_{0}\right) ^{2}/\hat{V}_{p}\left( \widehat{p}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(\hat{V}_{p}\left( \widehat{p}\right)\)</span> é uma estimativa da variância de aleatorização de <span class="math inline">\(\hat{p}\)</span>, correspondente ao plano amostral efetivamente utilizado.</p>
 <p>O efeito do termo <span class="math inline">\(\hat{V}_{p}\left( \widehat{p}\right)\)</span>, que aparece no denominador de <span class="math inline">\(X_{W}^{2}\)</span>, é incorporar na estatística de bondade de ajuste o efeito do plano amostral utilizado. No caso particular de amostragem aleatória simples, usamos no lugar de <span class="math inline">\(\widehat{V}_{p}\left( \widehat{p}\right)\)</span> a variância <span class="math inline">\(\widehat{V}_{bin}\left( \widehat{p}\right) =\)</span> <span class="math inline">\(\widehat{p}\left( 1-\widehat{p}\right) /n\)</span>. Neste caso, estatística resultante <span class="math inline">\(X_{bin}^{2}\)</span> coincide com a estatística <span class="math inline">\(X_{N}^{2}\)</span> de Neyman.</p>
-<p>Para o plano amostral de conglomerados considerado no Exemplo @ref{ex:exebin}, a estatística <span class="math inline">\(X_{W}^{2}\)</span>, sem qualquer ajuste auxiliar, já é distribuída assintoticamente como qui-quadrado com um grau de liberdade. O valor da estatística de Wald para esse exemplo é</p>
+<p>Para o plano amostral de conglomerados considerado no Exemplo <a href="epa.html#exm:exebin">4.4</a>, a estatística <span class="math inline">\(X_{W}^{2}\)</span>, sem qualquer ajuste auxiliar, já é distribuída assintoticamente como qui-quadrado com um grau de liberdade. O valor da estatística de Wald para esse exemplo é</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x2n &lt;-<span class="st"> </span><span class="dv">1000</span><span class="op">*</span><span class="st"> </span><span class="kw">sum</span>((phat<span class="op">-</span>p0)<span class="op">^</span><span class="dv">2</span><span class="op">/</span>phat)
 vhatp &lt;-<span class="st"> </span>(phat[<span class="dv">1</span>]<span class="op">*</span>phat[<span class="dv">2</span>])<span class="op">/</span>m <span class="co"># variância usa número efetivo</span>
 <span class="co"># Estatística de Wald</span>
@@ -545,7 +545,7 @@ FX_{P}^{2}\left( \hat{\delta}_{.}\right) =X_{W}^{2}/\left( \left( J-1\right)
 <p>A estatística <span class="math inline">\(FX_{P}^{2}\left( \hat{\delta}_{.}\right)\)</span> tem distribuição de referência <span class="math inline">\(F\)</span> com <span class="math inline">\(J-1\)</span> e <span class="math inline">\(f\)</span> graus de liberdade. <span class="citation">(Thomas and Rao <a href="#ref-TR87">1987</a>)</span> observaram que esta estatística, em situações instáveis, é melhor que a estatística sem correção de primeira ordem.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-6" class="example"><strong>Example 7.1  </strong></span>Teste de bondade de ajuste para a distribuição etária da PPV 96-97 na Região Sudeste.
+<span id="exm:unnamed-chunk-6" class="example"><strong>Exemplo 7.1  </strong></span>Teste de bondade de ajuste para a distribuição etária da PPV 96-97 na Região Sudeste.
 </div>
 
 <p>Vamos considerar um teste da bondade de ajuste da distribuição das idades para a Pesquisa sobre Padrões de Vida (PPV) 96/97, para os subgrupos de 0 a 14; de 15 a 29; de 30 a 44; de 45 a 59 e de 60 e mais anos de idade. As proporções correspondentes para a população foram obtidas da Contagem Populacional de 96. Na Região Sudeste, o número de estratos é <span class="math inline">\(H=15\)</span> e o número total de conglomerados (setores) na amostra da PPV é <span class="math inline">\(m=276\)</span> e portanto <span class="math inline">\(f=m-H=261\)</span>. As informações utilizadas neste exemplo são apresentadas na Tabela <a href="testqualajust.html#tab:ppcount">7.3</a>.</p>

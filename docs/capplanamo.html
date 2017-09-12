@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-11">
+<meta name="date" content="2017-09-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -265,7 +265,7 @@ E_p \left[ \hat{V}_p \left( \mathbf{\hat{Y}}_{\pi} \right) \right] = V_p \left( 
 <p>Observe que embora as expressões da variância <a href="capplanamo.html#eq:estpa2">(3.2)</a> e <a href="capplanamo.html#eq:estpa3">(3.3)</a> coincidam para planos amostrais de tamanho fixo, o mesmo não vale para os estimadores de variância <a href="capplanamo.html#eq:estpa4">(3.4)</a> e <a href="capplanamo.html#eq:estpa6">(3.6)</a>, apesar de <span class="math inline">\(\hat{V}_{SYG} \left( \mathbf{\hat{Y}}_{\pi} \right)\)</span> ser também não-viciado para <span class="math inline">\(V_{p} \left( \mathbf{\hat{Y}}_{\pi} \right)\)</span> para planos amostrais de tamanho fixo.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-1" class="example"><strong>Example 1.2  </strong></span>Amostragem Aleatória Simples Sem Reposição (AAS)
+<span id="exm:unnamed-chunk-1" class="example"><strong>Exemplo 1.2  </strong></span>Amostragem Aleatória Simples Sem Reposição (AAS)
 </div>
 
 <p>Quando o plano é amostragem aleatória simples sem reposição (AAS), as expressões apresentadas para o estimador de total, sua variância e estimadores desta variância simplificam bastante, porque as probabilidades de inclusão ficam iguais a <span class="math display">\[
@@ -387,7 +387,7 @@ V_{p}\left( \mathbf{\hat{Y}}_{\pi }\right) \mathbf{\Delta g(Y)}^{^{\prime }}
 <p>Linearização de Taylor pode não ser imediatamente possível, pois as quantidades de interesse podem não ser expressas como funções de totais ou médias populacionais (este é o caso de quantis de distribuições, por exemplo).</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-2" class="example"><strong>Example 3.1  </strong></span>Matriz de covariância para um vetor de razões
+<span id="exm:unnamed-chunk-2" class="example"><strong>Exemplo 3.1  </strong></span>Matriz de covariância para um vetor de razões
 </div>
 
 <p>Para ilustrar a aplicação dos resultados anteriores, consideremos o problema de estimar a matriz de covariância de um vetor de razões. Sejam <span class="math inline">\(\mathbf{Y}=\left( Y_{1},\ldots Y_{u}\right) ^{^{\prime }}\)</span> e <span class="math inline">\(\mathbf{X}=\left( X_{1},\ldots ,X_{u}\right) ^{^{\prime }}\)</span> vetores de totais e consideremos o vetor de razões <span class="math inline">\(\mathbf{R=}\left( \frac{Y_{1}}{X_{1}},\ldots ,\frac{Y_{u}}{X_{u}}\right) ^{\prime }.\)</span> Conhecendo estimativas das matrizes <span class="math inline">\(V_{p}\left( \mathbf{\hat{Y}}_{\pi }\right)\)</span>, <span class="math inline">\(V_{p}\left( \mathbf{\hat{X}}_{\pi }\right)\)</span> e <span class="math inline">\(COV_{p}\left( \mathbf{\hat{Y}}_{\pi }\mathbf{;\hat{X}}_{\pi }\right)\)</span>, queremos calcular a matriz de variância de <span class="math display">\[
@@ -523,17 +523,17 @@ ou
 <p>onde <span class="math inline">\(\widehat{\theta }_{J}=\frac{1}{G}\sum_{g=1}^{G}\widehat{\theta }_{\left( g\right)}\)</span> é um estimador pontual <em>jackknife</em> para <span class="math inline">\(\theta\)</span>, alternativo ao estimador da amostra inteira <span class="math inline">\(\hat{\theta}\)</span>.</p>
 
 <div class="remark">
- <span class="remark"><em>Observação </em></span> A descrição do método <em>jackknife</em> aqui apresentada não cobre o caso de planos amostrais estratificados, que é mais complexo. Para detalhes sobre este caso, consulte <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, pág. 174.
+ <span class="remark"><em>Observação. </em></span> A descrição do método <em>jackknife</em> aqui apresentada não cobre o caso de planos amostrais estratificados, que é mais complexo. Para detalhes sobre este caso, consulte <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, pág. 174.
 </div>
 
 
 <div class="remark">
- <span class="remark"><em>Observação </em></span> O estimador <span class="math inline">\(\widehat{V}_{J2}\left( \widehat{\theta }\right)\)</span> é mais conservador que o estimador <span class="math inline">\(\widehat{V}_{J1}\left( \widehat{\theta }\right)\)</span>.
+ <span class="remark"><em>Observação. </em></span> O estimador <span class="math inline">\(\widehat{V}_{J2}\left( \widehat{\theta }\right)\)</span> é mais conservador que o estimador <span class="math inline">\(\widehat{V}_{J1}\left( \widehat{\theta }\right)\)</span>.
 </div>
 
 
 <div class="remark">
- <span class="remark"><em>Observação </em></span> É comum aplicar a técnica fazendo o número de grupos igual ao tamanho da amostra, isto é, tomando <span class="math inline">\(G=n\)</span> e portanto eliminando uma observação da amostra de cada vez ao calcular os pseudo-valores. Essa regra deve ser aplicada considerando o número de unidades primárias na amostra (UPAs) quando o plano amostral é em múltiplos estágios, pois as UPAs devem sempre ser eliminadas com todas as unidades subordinadas.
+ <span class="remark"><em>Observação. </em></span> É comum aplicar a técnica fazendo o número de grupos igual ao tamanho da amostra, isto é, tomando <span class="math inline">\(G=n\)</span> e portanto eliminando uma observação da amostra de cada vez ao calcular os pseudo-valores. Essa regra deve ser aplicada considerando o número de unidades primárias na amostra (UPAs) quando o plano amostral é em múltiplos estágios, pois as UPAs devem sempre ser eliminadas com todas as unidades subordinadas.
 </div>
 
 <p>Os estimadores de variância do método <code>jackknife</code> fornecem resultado idêntico aos dos estimadores usuais de variância quando aplicados para o caso de estimadores lineares nas observações amostrais. Além disso, suas propriedades são razoáveis para vários outros casos de estimadores não lineares de interesse (veja, por exemplo, <span class="citation">(Cochran <a href="#ref-cochran">1977</a>)</span>, p. 321 e <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, p. 306. A situação merece maiores cuidados para o caso de quantis ou estatísticas de ordem, tais como a mediana e o máximo, pois neste caso essa técnica não funciona bem <span class="citation">(Wolter <a href="#ref-W85">1985</a>)</span>, p. 163.</p>
@@ -601,7 +601,7 @@ Var.raz&lt;-(<span class="dv">1</span><span class="op">/</span>y2hat)<span class
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01164842</code></pre>
+## [1,] 0.01109061</code></pre>
 <p>Vamos apresentar mais detalhes sobre a obtenção dos estimadores de Jackknife e Bootstrap na library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. A classe do objeto <code>ppv.se.des.jkn</code> é <code>svyrep.design</code> e ele contém as seguintes componentes:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(ppv.se.des.jkn)</code></pre></div>
 <pre><code>## [1] &quot;svyrep.design&quot;</code></pre>

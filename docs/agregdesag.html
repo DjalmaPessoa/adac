@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-11">
+<meta name="date" content="2017-09-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -388,7 +388,7 @@ CORR_{M}\left( ESC_{ij},ESC_{ij^{^{\prime }}}\right) = \frac{\sigma_{0}^{2}}{\si
 <p>Nas considerações anteriores, não mencionamos explicitamente o plano amostral utilizado. Os modelos hierárquicos, ao incorporarem covariáveis características da estrutura populacional e também do plano amostral, tais como efeitos de estratificação e de conglomeração, tornam o plano amostral ignorável, condicionalmente nestas características, no sentido definido por <span class="citation">(Rubin <a href="#ref-Rubin76">1976</a>)</span>. Este raciocínio, porém, não é aplicável quando unidades em qualquer nível da hierarquia são selecionadas com probabilidades desiguais, de formas não consideradas pelas covariáveis. Por exemplo, quando as unidades são selecionadas com probabilidades proporcionais a uma medida de tamanho que é relacionada à variável resposta. <span class="citation">(Pfeffermann et al. <a href="#ref-Pfefetalli">1998</a>)</span> apresentam uma forma de incorporar pesos no ajuste de modelos hierárquicos para compensar diferentes probabilidades de inclusão das unidades na amostra.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-1" class="example"><strong>Example 1.2  </strong></span>Plano amostral de pesquisa educacional (<span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span>, p. 297).
+<span id="exm:unnamed-chunk-1" class="example"><strong>Exemplo 1.2  </strong></span>Plano amostral de pesquisa educacional (<span class="citation">(Lehtonen and Pahkinen <a href="#ref-lethonen">1995</a>)</span>, p. 297).
 </div>
 <p> Os dados deste exemplo se referem a uma pesquisa de avaliação de escolas (SNACS), na qual foi analisado o desempenho em Matemática de alunos da sexta série. A população de conglomerados consistiu em <span class="math inline">\(4.126\)</span> escolas, da qual foi selecionada uma amostra de <span class="math inline">\(53\)</span> escolas, que produziu <span class="math inline">\(1.071\)</span> alunos, numa população de <span class="math inline">\(60.934\)</span> alunos. O tamanho total da amostra de alunos não foi fixado, de início. O plano amostral utilizado foi uma amostra estratificada de escolas (conglomerados) com um estágio, selecionada de um cadastro de escolas. Foi usada estratificação regional e as amostras nos estratos foram proporcionais ao tamanhos dos estratos.</p>
 <p>A variável resposta binária <span class="math inline">\(DESEMP\)</span>, indica se o aluno atingiu ou não um nível de conhecimento desejado em matemática. As variáveis explicativas quantitativas são:</p>
@@ -408,7 +408,7 @@ Vários modelos foram ajustados, com complexidades e abordagens diferentes. Cons
 _{1}(TEMP)_{j}+\beta _{2}\left( EXP\right) _{j},  \tag{13.16}
 \end{equation}\]</span>
 <p>no qual <span class="math inline">\(\beta _{0},\beta _{1}\)</span> e <span class="math inline">\(\beta _{2}\)</span> são coeficientes a serem estimados, e o índice <span class="math inline">\(j\)</span> se refere a um domínio de estudo, <span class="math inline">\(j=1,\ldots ,9\)</span> (tais domínios não foram identificados na referência citada).</p>
-<p>Podemos analisar os dados considerando as observações como IID, ignorando a existência de conglomerados e de pesos distintos, que chamaremos aqui de <code>análise ingênua</code>. Neste caso, os coeficientes podem ser estimados pelo método padrão de Máxima Verossimilhança, utilizando um dos pacotes padrões. Os resultados dessa análise são apresentados na Tabela @ref{tab:iid}.</p>
+<p>Podemos analisar os dados considerando as observações como IID, ignorando a existência de conglomerados e de pesos distintos, que chamaremos aqui de <code>análise ingênua</code>. Neste caso, os coeficientes podem ser estimados pelo método padrão de Máxima Verossimilhança, utilizando um dos pacotes padrões. Os resultados dessa análise são apresentados na Tabela <a href="agregdesag.html#tab:iid">13.1</a>.</p>
 <table>
 <caption><span id="tab:iid">Tabela 13.1: </span>Análise do modelo (9.16) sob hipótese de observações IID, ignorando complexidades do plano amostral</caption>
 <thead>
@@ -448,8 +448,8 @@ _{1}(TEMP)_{j}+\beta _{2}\left( EXP\right) _{j},  \tag{13.16}
 </tr>
 </tbody>
 </table>
-<p>Os <span class="math inline">\(p\)</span>valores da Tabela @ref{tab:iid} indicam que os coeficientes são significantemente diferentes de <span class="math inline">\(0\)</span> ao nível de significância <span class="math inline">\(\alpha =5\%\)</span>, sugerindo que todas as variáveis preditoras têm poder de explicação, e portanto devem permanecer no modelo.</p>
-<p>Outra opção é a <code>análise agregada</code>, que incorpora o plano amostral e os pesos através do método de MPV para estimar parâmetros, e do uso de estatísticas baseadas no plano amostral para testar hipóteses. Esta abordagem pode ser usada também na etapa de seleção de modelos, com testes de significância baseados, por exemplo, na estatística de Wald ou ajustes desta, no caso de instabilidade. Os resultados dessa análise são apresentados na Tabela @ref{tab:wald}.</p>
+<p>Os <span class="math inline">\(p\)</span>valores da Tabela <a href="agregdesag.html#tab:iid">13.1</a> indicam que os coeficientes são significantemente diferentes de <span class="math inline">\(0\)</span> ao nível de significância <span class="math inline">\(\alpha =5\%\)</span>, sugerindo que todas as variáveis preditoras têm poder de explicação, e portanto devem permanecer no modelo.</p>
+<p>Outra opção é a <code>análise agregada</code>, que incorpora o plano amostral e os pesos através do método de MPV para estimar parâmetros, e do uso de estatísticas baseadas no plano amostral para testar hipóteses. Esta abordagem pode ser usada também na etapa de seleção de modelos, com testes de significância baseados, por exemplo, na estatística de Wald ou ajustes desta, no caso de instabilidade. Os resultados dessa análise são apresentados na Tabela <a href="agregdesag.html#tab:wald">13.3</a>.</p>
 <table>
 <caption><span id="tab:logist">Tabela 13.2: </span>Análise agregada do modelo (9.16), usando MPV e estatísticas de Wald (PROC LOGISTIC do SUDAAN)</caption>
 <thead>
@@ -489,8 +489,8 @@ _{1}(TEMP)_{j}+\beta _{2}\left( EXP\right) _{j},  \tag{13.16}
 </tr>
 </tbody>
 </table>
-<p>A coluna de <span class="math inline">\(p\)</span>valores da Tabela @ref{tab:wald} indica que o coeficiente de <span class="math inline">\(TEMP\)</span> é significantemente diferente de zero, e também que a hipótese de nulidade do coeficiente de <span class="math inline">\(EXP\)</span> não é rejeitada no nível de significância <span class="math inline">\(\alpha =5\%\)</span>.</p>
-<p>Neste exemplo, <span class="math inline">\(f=38\)</span> graus de liberdade para a estimação da matriz de covariância <span class="math inline">\(9\times 9\)</span> baseada no plano amostral. Como o estimador poderia ser instável, foi calculada a estatística corrigida de Wald. A correção usada foi a implementada no pacote PC-CARP, que difere da correção F antes mencionada. Os resultados da análise permanecem os mesmos que os da análise reportada na Tabela @ref{tab:logist}, conforme se pode verificar consultando os valores da Tabela @ref{tab:wald}. Em ambos os casos, observamos EPAs moderados com máximo em torno de <span class="math inline">\(2\)</span>.</p>
+<p>A coluna de <span class="math inline">\(p\)</span>valores da Tabela <a href="agregdesag.html#tab:wald">13.3</a> indica que o coeficiente de <span class="math inline">\(TEMP\)</span> é significantemente diferente de zero, e também que a hipótese de nulidade do coeficiente de <span class="math inline">\(EXP\)</span> não é rejeitada no nível de significância <span class="math inline">\(\alpha =5\%\)</span>.</p>
+<p>Neste exemplo, <span class="math inline">\(f=38\)</span> graus de liberdade para a estimação da matriz de covariância <span class="math inline">\(9\times 9\)</span> baseada no plano amostral. Como o estimador poderia ser instável, foi calculada a estatística corrigida de Wald. A correção usada foi a implementada no pacote PC-CARP, que difere da correção F antes mencionada. Os resultados da análise permanecem os mesmos que os da análise reportada na Tabela <a href="agregdesag.html#tab:logist">13.2</a>, conforme se pode verificar consultando os valores da Tabela <a href="agregdesag.html#tab:wald">13.3</a>. Em ambos os casos, observamos EPAs moderados com máximo em torno de <span class="math inline">\(2\)</span>.</p>
 <table>
 <caption><span id="tab:wald">Tabela 13.3: </span>Análise agregada do modelo (9.16), usando estatísticas de Wald corrigidas (programa PC CARP)</caption>
 <thead>
@@ -545,7 +545,7 @@ O erro aleatório <span class="math inline">\(u_{k}\sim N\left( 0,\sigma _{u}^{2
 \frac{p_{jk}\left( 1-p_{jk}\right) \sigma _{e}^{2}}{n_{jk}}\;\;.
 \tag{13.18}
 \end{equation}\]</span>
-<p>Os resultados desta análise são apresentados na Tabela @ref{tab:ml3}.</p>
+<p>Os resultados desta análise são apresentados na Tabela <a href="agregdesag.html#tab:ml3">13.4</a>.</p>
 <table>
 <caption><span id="tab:ml3">Tabela 13.4: </span>Análise desagregada do modelo (9.18) via programa (ML3)</caption>
 <thead>
@@ -585,12 +585,12 @@ O erro aleatório <span class="math inline">\(u_{k}\sim N\left( 0,\sigma _{u}^{2
 </tr>
 </tbody>
 </table>
-<p>A coluna de <span class="math inline">\(p\)</span>valores da Tabela @ref{tab:ml3} indica novamente que o coeficiente de <span class="math inline">\(EXP\)</span> não é significantemente diferente de zero ao nível <span class="math inline">\(\alpha =5\%\)</span>. A variação no nível 2 foi estimada por <span class="math inline">\(\sigma_{u}^{2}=0,42\)</span> com desvio-padrão <span class="math inline">\(0,189\)</span>, e portanto é significante ao nível <span class="math inline">\(\alpha =5\%\)</span>. Isto sugere a existência de diferença de avaliação dos professores sobre o aprendizado de Matemática dos alunos.</p>
-<p>No ajuste da Tabela @ref{tab:ml3}, a variação entre alunos foi tomada como <span class="math inline">\(\sigma _{e}^{2}=1.\)</span> Uma alternativa seria estimar também este valor a partir dos dados.</p>
+<p>A coluna de <span class="math inline">\(p\)</span>valores da Tabela <a href="agregdesag.html#tab:ml3">13.4</a> indica novamente que o coeficiente de <span class="math inline">\(EXP\)</span> não é significantemente diferente de zero ao nível <span class="math inline">\(\alpha =5\%\)</span>. A variação no nível 2 foi estimada por <span class="math inline">\(\sigma_{u}^{2}=0,42\)</span> com desvio-padrão <span class="math inline">\(0,189\)</span>, e portanto é significante ao nível <span class="math inline">\(\alpha =5\%\)</span>. Isto sugere a existência de diferença de avaliação dos professores sobre o aprendizado de Matemática dos alunos.</p>
+<p>No ajuste da Tabela <a href="agregdesag.html#tab:ml3">13.4</a>, a variação entre alunos foi tomada como <span class="math inline">\(\sigma _{e}^{2}=1.\)</span> Uma alternativa seria estimar também este valor a partir dos dados.</p>
 <p>Este exemplo ilustra bem o efeito de ignorar efeitos de plano amostral, ao fazer a análise ingênua, cujas conclusões levariam a incluir a variável <span class="math inline">\(EXP\)</span> no modelo quando esta parece não ser importante, como revelaram as análises alternativas que levaram em conta o plano amostral ou a estrutura da população (análises agregada e desagregada, respectivamente).</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-2" class="example"><strong>Example 3.1  </strong></span>(<span class="citation">(Bryk and Raudenbush <a href="#ref-bryk">1992</a>)</span>, Cap. 5)
+<span id="exm:unnamed-chunk-2" class="example"><strong>Exemplo 3.1  </strong></span>(<span class="citation">(Bryk and Raudenbush <a href="#ref-bryk">1992</a>)</span>, Cap. 5)
 </div>
 
 <p>Os dados consistiram em respostas de <span class="math inline">\(8.000\)</span> professores aninhados em <span class="math inline">\(357\)</span> escolas. A média de professores por escola foi <span class="math inline">\(8.000/357=22\)</span> professores por escola. Os níveis da estrutura hierárquica considerados e os índices usados para representá-los foram:</p>
@@ -639,7 +639,7 @@ Y_{ij}=\beta _{0j}+r_{ij}.
 <p>Modelo explanatório de nível 2: <span class="math display">\[
 \beta _{0j}=\gamma _{00}+\sum\limits_{k=1}^{6}\gamma _{0j}x_{kj}+u_{0j}.
 \]</span></p>
-<p>A Tabela @ref{tab:mod2} apresenta as estimativas dos parâmetros para este modelo.</p>
+<p>A Tabela <a href="agregdesag.html#tab:mod2">13.5</a> apresenta as estimativas dos parâmetros para este modelo.</p>
 <table>
 <caption><span id="tab:mod2">Tabela 13.5: </span>Efeitos da escola na eficácia do professor (Modelo II)</caption>
 <thead>
@@ -703,7 +703,7 @@ Y_{ij}=\beta _{0j}+r_{ij},
 <p>Modelo Explanatório de nível 2 <span class="math display">\[
 \beta _{0j}=\gamma _{00}+\sum\limits_{k=1}^{7}\gamma _{0j}x_{kj}+u_{0j}.
 \]</span></p>
-<p>A Tabela @ref{tab:mod3} apresenta as estimativas dos coeficientes do Modelo III e seus respectivos desvios padrões.</p>
+<p>A Tabela <a href="agregdesag.html#tab:mod3">13.6</a> apresenta as estimativas dos coeficientes do Modelo III e seus respectivos desvios padrões.</p>
 <table>
 <caption><span id="tab:mod3">Tabela 13.6: </span>Efeitos da escola na eficácia do professor (Modelo III)</caption>
 <thead>
@@ -770,7 +770,7 @@ Y_{ij}=\beta _{0j}+r_{ij},
 <p>Vamos considerar um modelo de regressão linear simples, com o resultado do professor <span class="math inline">\(Y_{ij}\)</span> dependendo das características <span class="math inline">\(\left(x_{1j},\ldots ,x_{7j}\right)\)</span> da escola, que teriam seus valores “repetidos” para os professores de uma mesma escola. Esse modelo pode ser escrito como <span class="math display">\[
 Y_{ij}=\gamma _{0}+\sum\limits_{k=1}^{7}\gamma _{k}x_{kj}+e_{ij}.
 \]</span></p>
-<p>A Tabela @ref{tab:mod4} apresenta as estimativas de Mínimos Quadrados Ponderados de <span class="math inline">\(\left( \gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)\)</span> com pesos dados por <span class="math inline">\(n_{j}=\)</span> número de professores da escola <span class="math inline">\(j\)</span>.</p>
+<p>A Tabela <a href="agregdesag.html#tab:mod4">13.7</a> apresenta as estimativas de Mínimos Quadrados Ponderados de <span class="math inline">\(\left( \gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)\)</span> com pesos dados por <span class="math inline">\(n_{j}=\)</span> número de professores da escola <span class="math inline">\(j\)</span>.</p>
 <table>
 <caption><span id="tab:mod4">Tabela 13.7: </span>Efeitos da escola na eficácia do professor (Modelo IV)</caption>
 <thead>
@@ -818,7 +818,7 @@ Y_{ij}=\gamma _{0}+\sum\limits_{k=1}^{7}\gamma _{k}x_{kj}+e_{ij}.
 </tr>
 </tbody>
 </table>
-<p>A proporção de variação explicada pelo Modelo IV é de apenas <span class="math inline">\(5,4\%\)</span>. Os coeficientes da análise de nível 2 (Modelo III, Tabela @ref{tab:mod3}) foram bem semelhantes neste exemplo, o que pode ser explicado em parte pela pequena variação do número de professores por escola.</p>
+<p>A proporção de variação explicada pelo Modelo IV é de apenas <span class="math inline">\(5,4\%\)</span>. Os coeficientes da análise de nível 2 (Modelo III, Tabela <a href="agregdesag.html#tab:mod3">13.6</a> foram bem semelhantes neste exemplo, o que pode ser explicado em parte pela pequena variação do número de professores por escola.</p>
 <p>A introdução da variável <span class="math inline">\(Comunit\)</span>, neste modelo, só aumentou a quantidade de variação explicada em <span class="math inline">\(2,5\%\)</span>. A julgar por este resultado, a importância da variável <span class="math inline">\(Comunit\)</span> é pequena. Este resultado é enganador devido ao fato de usar, no cálculo da razão de variação explicada, a variação total <span class="math inline">\(\left( \tau _{00}+\sigma ^{2}\right)\)</span> no denominador. No modelo hierárquico correspondente (Modelo III) este denominador é <span class="math inline">\(\tau_{00}\)</span>, que é a parte explicável da variação. A estatística de variação explicada da análise hierárquica fornece uma evidência mais clara para se julgar a importância de preditores do nível 2.</p>
 <p>Com este exemplo, procuramos ilustrar uma situação em que a estrutura populacional hierárquica não pode ser ignorada na modelagem, sob pena de se chegar a conclusões incorretas sobre a importância de determinadas variáveis preditoras num modelo de regressão, quando este é ajustado de forma ingênua a dados provenientes de uma estrutura hierárquica. Os modelos hierárquicos II e III aqui considerados são modelos de interceptos aleatórios do tipo <span class="math inline">\(y_{ij}=\beta _{0j}+\mathbf{x}_{j}^{T}\mathbf{\beta +}v_{ij}\;\)</span>, onde os coeficientes de regressão <span class="math inline">\(\mathbf{\beta }\)</span> são considerados fixos e apenas os interceptos <span class="math inline">\(\beta _{0j}=\beta _{0}+u_{j}\)</span> são efeitos aleatórios. Tais modelos poderiam ser generalizados mediante suposição de que os coeficientes de regressão nas variáveis preditoras <span class="math inline">\(\mathbf{\beta}\)</span> também são aleatórios. O Modelo V a seguir é desse tipo.</p>
 <p><strong>Modelo V:</strong> Modelo de Coeficientes Aleatórios <span class="math display">\[
