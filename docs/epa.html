@@ -342,7 +342,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 
 <span class="math display" id="eq:epa2">\[\begin{equation}
-\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left( \hat{%
+\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left(\hat{
 \theta}\right) }{E_{VERD}\left( v_{0}\right) }\;.  \tag{4.2}
 \end{equation}\]</span>
 <p>Desta forma, o <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> mede a tendência de <span class="math inline">\(v_{0}\)</span> a subestimar ou superestimar <span class="math inline">\(V_{VERD}\left( \hat{\theta}\right) ,\)</span> variância <code>verdadeira</code> de <span class="math inline">\(\hat{\theta}\)</span>. Quanto mais afastado de <span class="math inline">\(1\)</span> for o valor de <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span>, mais incorreta será considerada a especificação do plano amostral ou do modelo.</p>
@@ -703,7 +703,7 @@ O conceito de efeito de plano amostral introduzido em <a href="epa.html#eq:epa2"
 <p>onde <span class="math inline">\(\mathbf{E}_{VERD}\left( \mathbf{V}_{0}\right)\)</span> é o valor esperado de <span class="math inline">\(\mathbf{V}_{0}\)</span> e, <span class="math inline">\(\mathbf{V}_{VERD}(\mathbf{\hat{\theta})}\)</span> é a matriz de covariância de <span class="math inline">\(\mathbf{\hat{\theta}}\)</span>, ambas calculadas com respeito `{a} distribuição de aleatorização induzida pelo plano amostral efetivamente utilizado, ou alternativamente sob o <code>modelo correto</code>.</p>
 Os autovalores <span class="math inline">\(\delta _{1}\geq \ldots \geq \delta _{K}\)</span> da matriz <span class="math inline">\(\mathbf{\Delta }\)</span> são denominados <code>efeitos generalizados do plano amostral</code>. A partir deles, e utilizando resultados padrões de teoria das matrizes (p.64, <span class="citation">(Johnson and Wichern <a href="#ref-Johnson">1988</a>)</span>) é possível definir limitantes para os efeitos (univariados) do plano amostral para combinações lineares <span class="math inline">\(\mathbf{c}^{^{\prime }}\widehat{\mathbf{\theta }}\)</span> das componentes de <span class="math inline">\(\widehat{\mathbf{\theta }}\)</span>. Temos os seguintes resultados:
 <span class="math display">\[\begin{eqnarray*}
-\delta _{1} &amp;=&amp;\max \mathbf{EPA}(\mathbf{c}^{^{\prime }}\widehat{\mathbf{%
+\delta _{1} &amp;=&amp;\max \mathbf{EPA}(\mathbf{c}^{^{\prime }}\widehat{\mathbf{
 \theta }}\mathbf{,c}^{^{\prime }}\mathbf{V}_{0}\mathbf{c)}, \\
 \delta _{K} &amp;=&amp;\min \mathbf{EPA}(\mathbf{c}^{^{\prime }}\widehat{\mathbf{\theta }}\mathbf{,c}^{^{\prime }}\mathbf{V}_{0}\mathbf{c)}.
 \end{eqnarray*}\]</span>
@@ -921,10 +921,10 @@ rec_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(rec.
 
 epa_sal1 &lt;-<span class="st"> </span>sal_res_mean[<span class="dv">4</span>]<span class="op">/</span>sal_res_mean[<span class="dv">3</span>]
 epa_sal1</code></pre></div>
-<pre><code>## [1] 0.1402978</code></pre>
+<pre><code>## [1] 0.140401</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">epa_rec1 &lt;-<span class="st"> </span>rec_res_mean[<span class="dv">4</span>]<span class="op">/</span>rec_res_mean[<span class="dv">3</span>]
 epa_rec1</code></pre></div>
-<pre><code>## [1] 0.4029898</code></pre>
+<pre><code>## [1] 0.339427</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 vp_sal_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(sal<span class="op">~</span>estrat, popul, var)

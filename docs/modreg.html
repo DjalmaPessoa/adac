@@ -264,7 +264,7 @@ y_{i}-\mathbf{z}_{i}^{\prime }\mathbf{\beta }\right) ^{2}-\sigma _{e}\right]
 Se todos os elementos da população tivessem sido pesquisados, os EMVs de <span class="math inline">\(\mathbf{\beta }\)</span> e <span class="math inline">\(\sigma _{e}\)</span> do censo, denotados por <span class="math inline">\(\mathbf{B}\)</span> e <span class="math inline">\(S_{e}\)</span> respectivamente, poderiam ser facilmente obtidos como soluções das equações de verossimilhança do censo dadas por
 <span class="math display" id="eq:norm4">\[\begin{equation}
 \sum\limits_{i\in U}\mathbf{u}_{i}\left( \mathbf{B}\right)
-=\sum\limits_{i\in U}\mathbf{z}_{i}\left( y_{i}-\mathbf{z}_{i}^{\prime }%
+=\sum\limits_{i\in U}\mathbf{z}_{i}\left( y_{i}-\mathbf{z}_{i}^{\prime }
 \mathbf{\beta }\right) =\mathbf{z}_{U}^{^{\prime }}\mathbf{y}_{U}-\left( 
 \mathbf{z}_{U}^{^{\prime }}\mathbf{z}_{U}\right) \mathbf{B}=\mathbf{0}
 \tag{6.4}
@@ -480,15 +480,48 @@ _{i}^{\prime }\mathbf{\beta }\right) \right] \mathbf{z}_{i}  \tag{6.26}
 </ul>
 <p>As pessoas que trabalhavam em locais com até cinco pessoas ocupadas foram classificadas no setor informal, independente da posição de ocupação delas, enquanto as que trabalhavam em locais com mais de cinco pessoas ocupadas foram classificadas no setor formal. O trabalho refere-se ao trabalho principal. Para a variável renda considerou-se a soma dos rendimentos de todos os trabalhos.</p>
 <p>Foi considerada uma amostra de <span class="math inline">\(6.507\)</span> pessoas (após a exclusão de <span class="math inline">\(9\)</span> registros considerados atípicos), classificadas de acordo com as variáveis descritas na Tabela @ref(tab:varexp}, todas tratadas como fatores na análise. A variável ht foi considerada como a soma de horas trabalhadas em todos os trabalhos, por semana. A variável re compreende a renda média mensal de todos os trabalhos, em salários mínimos.</p>
-
-<!-- |       Fatores                 | Níveis  |Descrição dos níveis | -->
-<!-- | ----------------------------- | ------- | ------------------- | -->
-<!-- | Sexo(sx)| sx(1)<br>sx(2)| Homens<br>Mulheres|                               -->
-<!-- | Anos de estudo(ht)| ae(1)<br>ae(2)<br>ae(3)| Até 4<br>De 5 a 8<br>9 ou mais |                     -->
-<!-- | Horas trabalhadas(ht) | ht(1)<br>ht(2)<br>ht(3) | Menos de 40<br>De 40 a 48<br>Mais de 48 | -->
-<!-- | Idade em anos completos(id) | id(1)<br>id(2)<br>id(3)<br>id(4) | Até 17<br>De 18 a 25<br>De 26 a 49<br>50 ou mais | -->
-<!-- | Rendimento médio mensal(re) | re(1)<br>re(2)<br>re(3) |Menos de 1<br>De 1 a 5<br>Mais de 5 -->
-<!-- Table:(#tab:varexp)Descrição das variáveis explicativas -->
+<table style="width:81%;">
+<caption><span id="tab:varexp">Tabela 6.1: </span>Descrição das variáveis explicativas</caption>
+<colgroup>
+<col width="41%" />
+<col width="11%" />
+<col width="27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fatores</th>
+<th>Níveis</th>
+<th>Descrição dos níveis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sexo(sx)</td>
+<td>sx(1)<br>sx(2)</td>
+<td>Homens<br>Mulheres</td>
+</tr>
+<tr class="even">
+<td>Anos de estudo(ht)</td>
+<td>ae(1)<br>ae(2)<br>ae(3)</td>
+<td>Até 4<br>De 5 a 8<br>9 ou mais</td>
+</tr>
+<tr class="odd">
+<td>Horas trabalhadas(ht)</td>
+<td>ht(1)<br>ht(2)<br>ht(3)</td>
+<td>Menos de 40<br>De 40 a 48<br>Mais de 48</td>
+</tr>
+<tr class="even">
+<td>Idade em anos completos(id)</td>
+<td>id(1)<br>id(2)<br>id(3)<br>id(4)</td>
+<td>Até 17<br>De 18 a 25<br>De 26 a 49<br>50 ou mais</td>
+</tr>
+<tr class="odd">
+<td>Rendimento médio mensal(re)</td>
+<td>re(1)<br>re(2)<br>re(3)</td>
+<td>Menos de 1<br>De 1 a 5<br>Mais de 5</td>
+</tr>
+</tbody>
+</table>
 <p>Os fatores considerados foram tomados como explicativos e a variável resposta foi o indicador de pertinência ao setor informal da economia. Foi ajustado um modelo logístico (Agresti, 1990) para explicar a probabilidade de uma pessoa pertencer ao setor informal da economia.</p>
 <p>Para a seleção do modelo foi usada a função <code>glm</code> do <strong>S-Plus</strong>, aplicada aos dados tabelados. O modelo final selecionado foi escolhido passo a passo, incluindo em cada passo as interações que produziam maior decréscimo do desvio residual, considerando a perda de graus de liberdade. O modelo selecionado foi</p>
 <span class="math display" id="eq:norm28">\[\begin{eqnarray}
@@ -883,7 +916,7 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 </tr>
 </tbody>
 </table>
-<p>Além dos ajustes aqui comparados, foram feitos (embora não apresentados) os seguintes ajustes com a utilização do :</p>
+<p>Além dos ajustes aqui comparados, foram feitos (embora não apresentados) os seguintes ajustes com a utilização do <strong>S-Plus</strong>:</p>
 <ol style="list-style-type: decimal">
 <li><p>dados individuais (resposta 0-1) considerando os pesos;</p></li>
 <li><p>dados da tabela estimada considerando os pesos e</p></li>

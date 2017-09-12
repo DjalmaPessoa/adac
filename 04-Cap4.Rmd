@@ -209,7 +209,7 @@ O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a e
 ```
 
 \begin{equation}
-\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left( \hat{%
+\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left(\hat{
 \theta}\right) }{E_{VERD}\left( v_{0}\right) }\;.  (\#eq:epa2)
 \end{equation}
 
@@ -793,7 +793,7 @@ Os autovalores $\delta _{1}\geq \ldots \geq \delta _{K}$ da matriz $\mathbf{\Del
 limitantes para os efeitos (univariados) do plano amostral para combinações lineares $\mathbf{c}^{^{\prime }}\widehat{\mathbf{\theta }}$ das
 componentes de $\widehat{\mathbf{\theta }}$. Temos os seguintes resultados: 
 \begin{eqnarray*}
-\delta _{1} &=&\max \mathbf{EPA}(\mathbf{c}^{^{\prime }}\widehat{\mathbf{%
+\delta _{1} &=&\max \mathbf{EPA}(\mathbf{c}^{^{\prime }}\widehat{\mathbf{
 \theta }}\mathbf{,c}^{^{\prime }}\mathbf{V}_{0}\mathbf{c)}, \\
 \delta _{K} &=&\min \mathbf{EPA}(\mathbf{c}^{^{\prime }}\widehat{\mathbf{\theta }}\mathbf{,c}^{^{\prime }}\mathbf{V}_{0}\mathbf{c)}.
 \end{eqnarray*}

@@ -107,8 +107,8 @@ $p_{02}=1-p_{01}$. Isto acarreta na equivalência entre as
 estatísticas $Z_{bin}$ e $X_{P}^{2}$ demonstrada pela relação
 
 \begin{equation}
-X_{P}^{2}=n\sum\limits_{j=1}^{2}\left( \widehat{p}%
-_{j}-p_{0j}\right) ^{2}/p_{0j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{%
+X_{P}^{2}=n\sum\limits_{j=1}^{2}\left( \widehat{p}
+_{j}-p_{0j}\right) ^{2}/p_{0j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{
 p_{0}\left( 1-p_{0}\right) /n}=Z_{bin}^{2}  
 (\#eq:qual2)
 \end{equation}
@@ -275,7 +275,7 @@ Como alternativa à estatística de teste de Pearson, podemos usar a
 estatística de bondade de ajuste $X_{N}^{2}$ de Neyman. No caso
 de duas celas, ela se reduz a 
 \begin{equation}
-X_{N}^{2}=n\sum\limits_{j=1}^{2}\left( \hat{p}_{j}-p_{0j}\right) ^{2}/\hat{p}%
+X_{N}^{2}=n\sum\limits_{j=1}^{2}\left( \hat{p}_{j}-p_{0j}\right) ^{2}/\hat{p}
 _{j}=\frac{\left( \widehat{p}-p_{0}\right) ^{2}}{\hat{p}\left( 1-\hat{p}
 \right) /n}\;\;\mbox{.}  
 (\#eq:qual6)
