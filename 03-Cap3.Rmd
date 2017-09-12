@@ -370,8 +370,7 @@ A partir deste resultado, aplicando \@ref(eq:estpa21) podemos escrever:
 \widehat{V}_{p}\left( \widehat{\mathbf{R}}\right) & \doteq & \left[ 
 \begin{array}{lll}
 \mathbf{\mathbf{D}_{\widehat{\mathbf{R}}}D}_{\mathbf{\hat{Y}}_{\pi }}^{-1} & 
-\left. {}\right. & \mathbf{-\mathbf{D}_{\widehat{\mathbf{R}}}D}_{\mathbf{%
-\hat{X}}_{\pi }}^{-1}
+\left. {}\right. & \mathbf{-\mathbf{D}_{\widehat{\mathbf{R}}}D}_{\mathbf{\hat{X}}_{\pi }}^{-1}
 \end{array}
 \right]
 \end{array}
@@ -380,8 +379,7 @@ A partir deste resultado, aplicando \@ref(eq:estpa21) podemos escrever:
 \begin{array}{lll}
 &  & \times \left[ 
 \begin{array}{cc}
-\widehat{V}_{p}\left( \mathbf{\hat{Y}}_{\pi }\right) & \widehat{COV}%
-_{p}\left( \mathbf{\hat{Y}}_{\pi }\mathbf{,\hat{X}}_{\pi }\right) \\ 
+\widehat{V}_{p}\left( \mathbf{\hat{Y}}_{\pi }\right) & \widehat{COV}_{p}\left( \mathbf{\hat{Y}}_{\pi }\mathbf{,\hat{X}}_{\pi }\right) \\ 
 \widehat{COV}_{p}\left( \mathbf{\hat{X}}_{\pi }\mathbf{,\hat{Y}}_{\pi
 }\right) & \widehat{V}_{p}\left( \mathbf{\hat{X}}_{\pi }\right)
 \end{array}
@@ -392,9 +390,9 @@ _{p}\left( \mathbf{\hat{Y}}_{\pi }\mathbf{,\hat{X}}_{\pi }\right) \\
 \begin{array}{lll}
 &  & \times \left[ 
 \begin{array}{l}
-\mathbf{D}_{\mathbf{\hat{Y}}_{\pi }}^{-1}\mathbf{\mathbf{D}_{\widehat{%
+\mathbf{D}_{\mathbf{\hat{Y}}_{\pi }}^{-1}\mathbf{\mathbf{D}_{\widehat{
 \mathbf{R}}}} \\ 
--\mathbf{D}_{\mathbf{\hat{X}}_{\pi }}^{-1}\mathbf{\mathbf{D}_{\widehat{%
+-\mathbf{D}_{\mathbf{\hat{X}}_{\pi }}^{-1}\mathbf{\mathbf{D}_{\widehat{
 \mathbf{R}}}}
 \end{array}
 \right]
@@ -404,19 +402,19 @@ _{p}\left( \mathbf{\hat{Y}}_{\pi }\mathbf{,\hat{X}}_{\pi }\right) \\
 
 Efetuando os produtos das matrizes em blocos obtemos 
 \begin{eqnarray}
-\widehat{V}_{p}\left( \widehat{\mathbf{R}}\right) &=&\mathbf{\mathbf{D}_{%
+\widehat{V}_{p}\left( \widehat{\mathbf{R}}\right) &=&\mathbf{\mathbf{D}_{
 \widehat{\mathbf{R}}}}\left[ \mathbf{D}_{\mathbf{\hat{Y}}_{\pi }}^{-1}%
-\widehat{V}_{p}\left( \mathbf{\hat{Y}}_{\pi }\right) \mathbf{D}_{\mathbf{%
-\hat{Y}}_{\pi }}^{-1}+\mathbf{D}_{\mathbf{\hat{X}}_{\pi }}^{-1}\widehat{V}%
+\widehat{V}_{p}\left( \mathbf{\hat{Y}}_{\pi }\right) \mathbf{D}_{\mathbf{
+\hat{Y}}_{\pi }}^{-1}+\mathbf{D}_{\mathbf{\hat{X}}_{\pi }}^{-1}\widehat{V}
 _{p}\left( \mathbf{\hat{X}}_{\pi }\right) \mathbf{D}_{\mathbf{\hat{X}}_{\pi
 }}^{-1}\right] \mathbf{\mathbf{D}_{\widehat{\mathbf{R}}}}  \nonumber \\
-&&-\mathbf{\mathbf{D}_{\widehat{\mathbf{R}}}}\left[ \mathbf{D}_{\mathbf{\hat{%
-Y}}_{\pi }}^{-1}\widehat{COV}_{p}\left( \mathbf{\hat{Y}}_{\pi }\mathbf{,\hat{%
+&&-\mathbf{\mathbf{D}_{\widehat{\mathbf{R}}}}\left[ \mathbf{D}_{\mathbf{\hat{
+Y}}_{\pi }}^{-1}\widehat{COV}_{p}\left( \mathbf{\hat{Y}}_{\pi }\mathbf{,\hat{
 X}}_{\pi }\right) \mathbf{D}_{\mathbf{\hat{X}}_{\pi }}^{-1}\right.
 (\#eq:estpa22) \\
 &&+\left. \mathbf{D}_{\mathbf{\hat{X}}_{\pi }}^{-1}\widehat{COV}_{p}\left( 
-\mathbf{\hat{X}}_{\pi }\mathbf{,\hat{Y}}_{\pi }\right) \mathbf{D}_{\mathbf{%
-\hat{Y}}_{\pi }}^{-1}\right] \mathbf{\mathbf{D}_{\widehat{\mathbf{R}}}}\;\;%
+\mathbf{\hat{X}}_{\pi }\mathbf{,\hat{Y}}_{\pi }\right) \mathbf{D}_{\mathbf{
+\hat{Y}}_{\pi }}^{-1}\right] \mathbf{\mathbf{D}_{\widehat{\mathbf{R}}}}\;\;
 \mbox{,}  \nonumber
 \end{eqnarray}
 que fornece o resultado desejado, isto é, uma expressão de estimador
@@ -464,9 +462,9 @@ $$
 e um estimador não viciado da variância de aleatorização
 correspondente por 
 \begin{equation}
-\widehat{V}_{p}\left( \widehat{Y}_{CP}\right) =\sum_{h=1}^{H}\frac{n_{h}}{%
-n_{h}-1}\sum_{i=1}^{n_{h}}\left( \frac{\widehat{Y}_{hi}}{\pi _{hi}}-\frac{%
-\widehat{Y}_{h}}{n_{h}}\right) ^{2}  (\#eq:estpa23)
+\widehat{V}_{p}\left( \widehat{Y}_{CP}\right) =\sum_{h=1}^{H}\frac{n_{h}}
+{n_{h}-1}\sum_{i=1}^{n_{h}}\left( \frac{\widehat{Y}_{hi}}{\pi _{hi}}-
+\frac{\widehat{Y}_{h}}{n_{h}}\right) ^{2}  (\#eq:estpa23)
 \end{equation}
 onde $\widehat{Y}_{h}=\sum_{i=1}^{n_{h}}\widehat{Y}_{hi}/\pi _{hi}$ para 
 $h=1,\ldots ,H$. (Veja por exemplo, [@Sudaan93], p. 4).
@@ -508,7 +506,7 @@ $$
 
 \begin{equation}
 \widehat{V}_{R}\left( \widehat{\theta }_{R}\right) =\frac{1}{G\left(
-G-1\right) }\sum_{g=1}^{G}\left( \widehat{\theta }_{g}-\widehat{\theta }%
+G-1\right) }\sum_{g=1}^{G}\left( \widehat{\theta }_{g}-\widehat{\theta }
 _{R}\right) ^{2}  (\#eq:estpa24)
 \end{equation}
 é um estimador não viciado da variância do estimador (de replicação) $\widehat{\theta }_{R}$ .
@@ -590,13 +588,13 @@ método pode então ser feita de duas maneiras alternativas, usando um
 dos estimadores dados por 
 \begin{equation}
 \widehat{V}_{J1}\left( \widehat{\theta }\right) =\frac{1}{G\left( G-1\right) 
-}\sum_{g=1}^{G}\left( \widehat{\theta }_{\left( g\right) }-\widehat{\theta }%
+}\sum_{g=1}^{G}\left( \widehat{\theta }_{\left( g\right) }-\widehat{\theta }
 _{J}\right) ^{2}  (\#eq:estpa26)
 \end{equation}
 ou 
 \begin{equation}
 \widehat{V}_{J2}\left( \widehat{\theta }\right) =\frac{1}{G\left( G-1\right) 
-}\sum_{g=1}^{G}\left( \widehat{\theta }_{\left( g\right) }-\widehat{\theta }%
+}\sum_{g=1}^{G}\left( \widehat{\theta }_{\left( g\right) }-\widehat{\theta }
 \right) ^{2}  (\#eq:estpa27)
 \end{equation}
 onde $\widehat{\theta }_{J}=\frac{1}{G}\sum_{g=1}^{G}\widehat{\theta }_{\left( g\right)}$ é um estimador pontual *jackknife*  para $\theta$,  alternativo ao estimador da amostra inteira $\hat{\theta}$.
