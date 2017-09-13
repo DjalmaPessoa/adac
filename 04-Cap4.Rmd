@@ -504,7 +504,7 @@ definido por Kish, em particular porque a origem do efeito pode estar na
 estrutura da população e não no plano amostral usado para obter
 os dados.
 
-```{example}
+```{example, label= "exe43"}
 População conglomerada com conglomerados de tamanho 2 
 [@SHS89], p. 25
 ```
@@ -1009,7 +1009,7 @@ mat.res[i,] <- round(pchisq(qsup/delta[i], K, lower.tail = F)*100, 0)
 mat.res <- cbind(delta, mat.res)
 df.res <- as.data.frame (mat.res)
 names(df.res)<- c("delta", "K=1","K=2", "K=3", "K=4")
-knitr::kable(df.res, booktabs=TRUE, align = "cccc",
+knitr::kable(df.res, booktabs=TRUE, align = "ccccc",
 caption="Níveis de significância (%) verdadeiros do teste T2 para o nível nominal
 de 5% assumindo autovalores iguais para delta.")
 

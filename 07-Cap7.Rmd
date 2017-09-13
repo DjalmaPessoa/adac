@@ -33,7 +33,7 @@ estratificação e/ou pesos desiguais. Neste capítulo examinaremos
 o impacto do plano amostral sobre as estatísticas de teste usuais
 notando que, em alguns casos, os valores observados dessas estatísticas
 de teste podem ser muito grandes, acarretando inferências incorretas,
-conforme já ilustrado no Exemplo \@ref{ex:exebin}. Isto
+conforme já ilustrado no Exemplo \@ref{ex:exebin). Isto
 ocorre porque a probabilidade de erros do tipo I (rejeitar a hipótese
 nula quando esta é verdadeira) é muito maior que o nível nominal
 de significância $\alpha$ especificado.
@@ -658,7 +658,7 @@ A estatística $FX_{P}^{2}\left( \hat{\delta}_{.}\right)$ tem distribuição de 
 instáveis, é melhor que a estatística sem correção de
 primeira ordem.
 
-```{example}
+```{example, label= "exe71"}
 Teste de bondade de ajuste para a distribuição etária da PPV
 96-97 na Região Sudeste.
 ```

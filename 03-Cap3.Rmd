@@ -58,7 +58,7 @@ O segundo estimador da variância, chamado estimador de Sen-Yates-Grundy, é mot
 Observe que embora as expressões da variância \@ref(eq:estpa2) e \@ref(eq:estpa3) coincidam para planos amostrais de tamanho fixo, o mesmo não vale para os estimadores de variância \@ref(eq:estpa4) e \@ref(eq:estpa6), apesar de $\hat{V}_{SYG} \left( \mathbf{\hat{Y}}_{\pi} \right)$ ser também
 não-viciado para $V_{p} \left( \mathbf{\hat{Y}}_{\pi} \right)$ para planos amostrais de tamanho fixo.
 
-```{example}
+```{example, label = "exe31"}
 Amostragem Aleatória Simples Sem Reposição (AAS)
 ```
 
@@ -319,7 +319,7 @@ Linearização de Taylor pode não ser imediatamente possível,
 pois as quantidades de interesse podem não ser expressas como funções de totais ou médias populacionais (este é o caso de quantis
 de distribuições, por exemplo).\medskip 
 
-```{example}
+```{example, label= "exe32"}
 Matriz de covariância para um vetor de razões
 ```
 

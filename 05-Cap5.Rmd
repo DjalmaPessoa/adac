@@ -526,7 +526,7 @@ normal e utilizá-las para fazer inferência sobre os componentes de
 $\mathbf{\theta}$.
 
 
-```{remark}
+```{remark, label="obs51" }
 No Método de Máxima Pseudo-Verossimilhança, os pesos amostrais
 são incorporados na análise através das equações de
 estimação dos parâmetros \@ref(eq:modpar7) e através das 
@@ -535,12 +535,12 @@ equações de estimação da matriz de covariância dos estimadores
 ```
 
 
-```{remark}
+```{remark, label="obs52"}
 O plano amostral é também incorporado no método de estimação MPV através da expressão para a variância do total dos escores sob o plano amostral \@ref(eq:modpar14), onde as propriedades do plano amostral estão resumidas nas probabilidades de inclusão de primeira
 e segunda ordem, isto é, os $\pi _{i}$ e os $\pi _{ij}$ respectivamente.
 ```
 
-```{remark}
+```{remark, label= "obs53"}
 Sob probabilidades de seleção iguais, os pesos $\pi _{i}^{-1}$
 serão constantes e o estimador pontual $\hat{\theta}_{\pi }$ será
 idêntico ao estimador de Máxima Verossimilhança (MV) ordinário para uma amostra de observações IID com distribuição 
@@ -654,7 +654,7 @@ pela distribuição $f\left( \mathbf{y};\mathbf{\theta }\right)$ deve
 seguir os cuidados necessários para garantir que esta escolha 
 forneça uma aproximação razoável da realidade.
 
-```{remark}
+```{remark, label="obs44"}
 Consistência referente à distribuição de aleatorização.
 ```
 

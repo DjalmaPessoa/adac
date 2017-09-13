@@ -413,7 +413,7 @@ opção interessante.
 
 ## Laboratório de R do Capítulo 1. {#epa}
 
-```{example}
+```{example, label= "exe12"}
 Utilização da library survey do R para estimar totais e razões na PPV 
 ```
 Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref(ex:distppv) . Inicialmente, vamos ler os dados e definir variáveis de interesse por meio de transformação das variáveis existentes.
@@ -488,7 +488,7 @@ svyby(~analf1, ~regiao, ppv.des, svytotal, deff = TRUE)
 Observe que as estimativas de totais e desvios padrão obtidas coincidem com as Tabela \@ref(tab:epas), porém as estimativas de Efeitos de Plano Amostral(DEff) são distintas.
 
 
-```{example}
+```{example, label= "exe13"}
 Exemplo anterior usando a library srvyr
 ```
 
@@ -629,7 +629,7 @@ obtemos resultados diferentes quando usamos `analf1.se` ou `analf1`,   com os pe
 No segundo caso, a soma dos pesos não estima $N$. Deve-se ter o cuidado, quando estimamos em um domínio, de trabalhar 
 com pesos cuja soma seja um estimador do tamanho da população.
 
-```{example}
+```{example, label = "exe14"}
 Utilização da library survey do R para estimar taxa de desocupação para um trimestre na  PNADC 
 ```
 
@@ -742,7 +742,7 @@ result
 ```
 
 
-```{example}
+```{example, label= "exe15"}
 Utilização da library survey do R para análise de microdados da  PNS 
 ```
 

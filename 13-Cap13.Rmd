@@ -398,7 +398,7 @@ probabilidades proporcionais a uma medida de tamanho que é relacionada
 de incorporar pesos no ajuste de modelos hierárquicos para compensar
 diferentes probabilidades de inclusão das unidades na amostra.
 
-```{example}
+```{example, label= "exe131"}
 Plano amostral de pesquisa educacional ([@lethonen], p. 297).
 ```
 Os dados deste exemplo se referem a uma pesquisa de avaliação de
@@ -596,7 +596,7 @@ revelaram as análises alternativas que levaram em conta o plano amostral
 ou a estrutura da população (análises agregada e desagregada,
 respectivamente).\pagebreak 
 
-```{example}
+```{example, label= "exe132"}
 ([@bryk],  Cap. 5)
 ```
 

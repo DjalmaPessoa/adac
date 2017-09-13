@@ -710,7 +710,7 @@ A estatística \@ref(eq:Tab16) tem distribuição de referência $F$
 com $\left( L-1\right)$ $\times\left( C-1\right)$ e $f$ graus
 de liberdade.
 
-```{example}
+```{example, label= "exe81"}
 Correções de EPA médio das estatísticas $X_{P}^{2}\left(I\right)$ e $X_{P}^{2}\left(H\right)$.
 ```
 
@@ -862,7 +862,7 @@ variável sexo, que é o sexo masculino.
 
 Vamos reproduzir alguns resultados usando dados da PNAD descritos na Seção ??? 
 
-```{example}
+```{example, label= "exe82"}
 Estimativas de medidas descritivas em tabelas
 ```
 ```{r, message=FALSE, warning=FALSE}
@@ -931,7 +931,7 @@ sx.re_mean <- data.frame(svymean(~interaction(sx,re), pnad.des, deff=T))
 mean(sx.re_mean$deff)
 ```
 
-```{example}
+```{example, label="exe83"}
 Testes de Hipóteses
 ```
 

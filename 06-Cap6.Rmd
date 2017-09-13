@@ -424,7 +424,7 @@ refere-se ao trabalho principal. Para a variável renda considerou-se a
 soma dos rendimentos de todos os trabalhos.
 
 Foi considerada uma amostra de $6.507$ pessoas (após a exclusão de $9$ registros considerados atípicos), classificadas de acordo com as
-variáveis descritas na Tabela \@ref(tab:varexp}, todas tratadas como
+variáveis descritas na Tabela \@ref(tab:varexp), todas tratadas como
 fatores na análise. A variável ht foi considerada como a soma de
 horas trabalhadas em todos os trabalhos, por semana. A variável re
 compreende a renda média mensal de todos os trabalhos, em salários
@@ -466,8 +466,7 @@ explicativas, sendo i=1, 2 o nível de sx; j=1, 2, 3 o nível de ae;
 k=1, 2, 3 o nível de ht; l=1, 2, 3, 4 o nível de id e m=1, 2, 3 o
 nível de re.
 
-Os efeitos foram adicionados sequencialmente na ordem da Tabela \ref
-{tab61}. Depois de introduzidos os efeitos principais, as interações
+Os efeitos foram adicionados sequencialmente na ordem da Tabela \@ref(tab:varexp). Depois de introduzidos os efeitos principais, as interações
 de dois fatores foram introduzidas na ordem definida pela 
 `função step do S-Plus`.
 
@@ -501,7 +500,7 @@ aproximação que consiste em considerar que as unidades primárias
 de amostragem foram selecionadas com reposição, conforme descrito na Seção .
 
 
-```{r, logit, echo=FALSE, warning=FALSE, message=FALSE}
+```{r logit, echo=FALSE, warning=FALSE, message=FALSE}
 library(survey)
 pnadrj90 <- readRDS("~\\GitHub\\adac\\data\\pnadrj90.rds")
 pnadrj90$sx<-as.factor(pnadrj90$sx)
@@ -524,21 +523,21 @@ knitr::kable(summary(inf.logit)$coefficients, booktabs=TRUE, digits=3,
 
 
 
-Na Tabela \ref{tab63} são apresentadas as probabilidades de
+Na Tabela \@ref(tab:testmodlogit) são apresentadas as probabilidades de
 significância dos testes de nulidade dos efeitos do modelo. Todos os
 efeitos incluídos no modelo são significativos, nos níveis
 usuais de significância. A **PROC LOGISTIC** do pacote 
 **SUDAAN** não inclui testes para os efeitos principais, por não ser
 possível separar tais efeitos das interações. A coluna de $p$
-valores da Tabela \ref{tab63}, obtida pela PROC LOGISTIC do pacote SUDAAN,
-utiliza a estatística de Wald baseada no plano amostral com correção. Mais detalhes são encontrados em Shah et al.(1993).
+valores da Tabela\@ref(tab:testmodlogit), obtida pela função `svyglm()` da library survey,
+utiliza a estatística de Wald baseada no plano amostral com correção. 
 
 Os testes da Tabela \@ref(tab:testmodlogit) indicam a significância de todas as
 interações de 2 fatores que entraram no modelo selecionado. O teste
 de qualidade global de ajuste, na primeira linha da Tabela \@ref(tab:testmodlogit), indica a necessidade de serem introduzidas novas interações.
 
 
-```{r, testmodlogit, echo=FALSE}
+```{r testmodlogit, echo=FALSE}
 testa_ht_re <- regTermTest(inf.logit,"ht:re")
 testa_ht_id <- regTermTest(inf.logit,"ht:id")
 testa_sx_id <- regTermTest(inf.logit,"sx:id")
@@ -563,11 +562,10 @@ caption="Testes de hipóteses de Wald de nulidade dos efeitos do modelo"
 ```
 
 
-Para comparação, apresentamos na Tabela \ref{tab64} algumas
+Para comparação, apresentamos na Tabela \@ref(tab:razvant) algumas
 estimativas de razões de vantagens, relevantes na análise,
-calculadas tanto pela função glm do \textbf{S-Plus} como pela 
-\textbf{PROC LOGISTIC} do pacote \textbf{SUDAAN} e, na\textbf{\ }Tabela \ref
-{tab65} os correspondentes intervalos de confiança de $95\%$. Na
+calculadas pela função `svyglm()` da library survey e, na 
+Tabela \@ref(tab:icvant) os correspondentes intervalos de confiança de $95\%$. Na
 construção destes intervalos foi necessário utilizar estimativas
 pontuais dos efeitos bem como a matriz de covariância estimada dos
 estimadores dos efeitos do modelo. Deste modo, estes intervalos sumarizam,
@@ -575,7 +573,7 @@ ao mesmo tempo, discrepâncias existentes tanto nas estimativas pontuais
 dos efeitos como nas variâncias e covariâncias das estimativas.
 
 
-```{r, razvant, echo=FALSE}
+```{r razvant, echo=FALSE}
 est_coef <- coef(inf.logit)
 one <- rep(0, length(coef(inf.logit)))
 names(one)<- names(coef(inf.logit))
@@ -614,29 +612,29 @@ knitr::kable(raz_vant, booktabs=TRUE, digits=c(0,0,3),
 
 
 
-```{r, icvant, echo=FALSE}
+```{r icvant, echo=FALSE}
 var_raz112 <- matrix(raz112, nrow=1)%*% vcov(inf.logit)%*%matrix(raz112, ncol=1)
-ic_raz112 <- exp(sum(raz112*coef(inf.logit))*c(1,1)+1.96* sqrt(var_raz112)*c(-1,1))
+ic_raz112 <- exp(sum(raz112*coef(inf.logit))*c(1,1)+1.96* as.vector(sqrt(var_raz112))*c(-1,1))
 names(ic_raz112)<- NULL
 
 var_raz123 <- matrix(raz123, nrow=1)%*% vcov(inf.logit)%*%matrix(raz123, ncol=1)
-ic_raz123 <- exp(sum(raz123*coef(inf.logit))*c(1,1)+1.96* sqrt(var_raz123)*c(-1,1))
+ic_raz123 <- exp(sum(raz123*coef(inf.logit))*c(1,1)+1.96* as.vector(sqrt(var_raz123))*c(-1,1))
 names(ic_raz123)<- NULL
 
 var_raz212 <- matrix(raz212, nrow=1)%*% vcov(inf.logit)%*%matrix(raz212, ncol=1)
-ic_raz212 <- exp(sum(raz212*coef(inf.logit))*c(1,1)+1.96* sqrt(var_raz212)*c(-1,1))
+ic_raz212 <- exp(sum(raz212*coef(inf.logit))*c(1,1)+1.96* as.vector(sqrt(var_raz212))*c(-1,1))
 names(ic_raz212)<- NULL 
 
 var_raz223 <- matrix(raz223, nrow=1)%*% vcov(inf.logit)%*%matrix(raz223, ncol=1)
-ic_raz223 <- exp(sum(raz223*coef(inf.logit))*c(1,1)+1.96* sqrt(var_raz223)*c(-1,1))
+ic_raz223 <- exp(sum(raz223*coef(inf.logit))*c(1,1)+1.96* as.vector(sqrt(var_raz223))*c(-1,1))
 names(ic_raz223)<- NULL
 
 var_raz312 <- matrix(raz312, nrow=1)%*% vcov(inf.logit)%*%matrix(raz312, ncol=1)
-ic_raz312 <- exp(sum(raz223*coef(inf.logit))*c(1,1)+1.96* sqrt(var_raz312)*c(-1,1))
+ic_raz312 <- exp(sum(raz223*coef(inf.logit))*c(1,1)+1.96*as.vector(sqrt(var_raz312))*c(-1,1))
 names(ic_raz312)<- NULL
 
 var_raz323 <- matrix(raz323, nrow=1)%*% vcov(inf.logit)%*%matrix(raz323, ncol=1)
-ic_raz323 <- exp(sum(raz323*coef(inf.logit))*c(1,1)+1.96* sqrt(var_raz323)*c(-1,1))
+ic_raz323 <- exp(sum(raz323*coef(inf.logit))*c(1,1)+1.96* as.vector(sqrt(var_raz323))*c(-1,1))
 names(ic_raz323)<- NULL
 
 ic_frame <- data.frame(
@@ -671,7 +669,7 @@ concordância entre as estimativas pontuais obtidas pelos dois pacotes.
 
 A concordância das estimativas dos coeficientes pode ser explicada, em
 parte, pela pequena variabilidade dos pesos das unidades, tal como se pode
-verificar na Tabela \ref{tab66}, que apresenta a distribuição de
+verificar na Tabela \@ref(tab:pesofreq), que apresenta a distribuição de
 frequências dos pesos.
 
 
@@ -685,7 +683,7 @@ Urbana do Rio de Janeiro")
 ```
 
 
-Como foi visto na Tabela \ref{tab62}, o impacto do plano amostral nas
+Como foi visto na Tabela \@ref(tab:logit), o impacto do plano amostral nas
 estimativas de precisão é um pouco maior. As maiores diferenças
 entre os dois métodos ocorrem na estimação dos desvios das
 estimativas dos parâmetros do primeiro nível de idade (até 17
@@ -876,7 +874,7 @@ Cria objeto de desenho
 pnad.des<-svydesign(id=~psu,strata=~stra,weights=~pesopes,data=pnadrj90,nest=TRUE)
 ```
 
-Ajusta modelo de regressão logística na Tabela 6.2
+Ajusta modelo de regressão logística na Tabela \@ref(tab:logit)
 Comparar resultado com o da página 106 de Pessoa e Silva (1998)
 
 ```{r, message=FALSE, warning=FALSE}
@@ -885,7 +883,7 @@ inf.logit<-svyglm(informal~sx+ae+ht+id+re+sx*id+sx*ht+ae*ht+ht*id+ht*re,design=p
 
 
 ```{r, results='asis'}
-knitr::kable(summary(inf.logit)$coefficients,booktabs=TRUE, digits= c(0,3,3,2,3))
+knitr::kable(summary(inf.logit)$coefficients,booktabs=TRUE, digits= c(3,3,3,2))
 ```
 
 

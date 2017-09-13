@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-12">
+<meta name="date" content="2017-09-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -479,7 +479,7 @@ _{i}^{\prime }\mathbf{\beta }\right) \right] \mathbf{z}_{i}  \tag{6.26}
 <li><p>desenvolviam atividades não agrícolas.</p></li>
 </ul>
 <p>As pessoas que trabalhavam em locais com até cinco pessoas ocupadas foram classificadas no setor informal, independente da posição de ocupação delas, enquanto as que trabalhavam em locais com mais de cinco pessoas ocupadas foram classificadas no setor formal. O trabalho refere-se ao trabalho principal. Para a variável renda considerou-se a soma dos rendimentos de todos os trabalhos.</p>
-<p>Foi considerada uma amostra de <span class="math inline">\(6.507\)</span> pessoas (após a exclusão de <span class="math inline">\(9\)</span> registros considerados atípicos), classificadas de acordo com as variáveis descritas na Tabela @ref(tab:varexp}, todas tratadas como fatores na análise. A variável ht foi considerada como a soma de horas trabalhadas em todos os trabalhos, por semana. A variável re compreende a renda média mensal de todos os trabalhos, em salários mínimos.</p>
+<p>Foi considerada uma amostra de <span class="math inline">\(6.507\)</span> pessoas (após a exclusão de <span class="math inline">\(9\)</span> registros considerados atípicos), classificadas de acordo com as variáveis descritas na Tabela <a href="modreg.html#tab:varexp">6.1</a>, todas tratadas como fatores na análise. A variável ht foi considerada como a soma de horas trabalhadas em todos os trabalhos, por semana. A variável re compreende a renda média mensal de todos os trabalhos, em salários mínimos.</p>
 <table style="width:81%;">
 <caption><span id="tab:varexp">Tabela 6.1: </span>Descrição das variáveis explicativas</caption>
 <colgroup>
@@ -532,7 +532,7 @@ _{i}^{sx}+\beta _{j}^{ae}+\beta _{k}^{ht}+\beta _{l}^{id}+\beta _{m}^{re}
 _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 \end{eqnarray}\]</span>
 <p>onde <span class="math inline">\(p_{ijklm}\)</span> é a probabilidade de pertencer ao setor informal correspondente à combinação de níveis das variáveis explicativas, sendo i=1, 2 o nível de sx; j=1, 2, 3 o nível de ae; k=1, 2, 3 o nível de ht; l=1, 2, 3, 4 o nível de id e m=1, 2, 3 o nível de re.</p>
-<p>Os efeitos foram adicionados sequencialmente na ordem da Tabela . Depois de introduzidos os efeitos principais, as interações de dois fatores foram introduzidas na ordem definida pela <code>função step do S-Plus</code>.</p>
+<p>Os efeitos foram adicionados sequencialmente na ordem da Tabela <a href="modreg.html#tab:varexp">6.1</a>. Depois de introduzidos os efeitos principais, as interações de dois fatores foram introduzidas na ordem definida pela <code>função step do S-Plus</code>.</p>
 <p>O <span class="math inline">\(p\)</span>valor do teste de nulidade das interações não incluídas no modelo é 0,0515, aceitando-se a hipótese de nulidade destes efeitos ao nível <span class="math inline">\(\alpha =0,05\)</span>. O modelo obtido difere do selecionado em Leote(1996) só pela inclusão de mais um efeito, referente à interação ae:ht.</p>
 <p>Uma descrição detalhada do plano amostral da PNAD 90 foi apresentada no Exemplo <a href="ajmodpar.html#exm:pnad">5.1</a>. Como se pode observar dessa descrição, o plano amostral da PNAD apresenta todos os aspectos de um plano amostral complexo, incluindo estratificação (geográfica), seleção de unidades primárias (municípios, ou setores nos municípios auto-representativos) ou secundárias (setores nos municípios não auto-representativos) com probabilidades desiguais, conglomeração (de domicílios em setores, e de pessoas nos domicílios) e seleção sistemática sem reposição de unidades. Nesse caso, fica difícil admitir a priori com confiança as hipóteses usuais de modelagem das observações amostrais como IID. Por esse motivo foram considerados métodos alternativos de modelagem e ajuste.</p>
 <p>Apresentamos a seguir as estimativas dos efeitos principais e interações do modelo selecionado e seus respectivos desvios padrões, calculadas pela função <code>svyglm()</code>da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>.</p>
@@ -761,7 +761,7 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 </tr>
 </tbody>
 </table>
-<p>Na Tabela  são apresentadas as probabilidades de significância dos testes de nulidade dos efeitos do modelo. Todos os efeitos incluídos no modelo são significativos, nos níveis usuais de significância. A <strong>PROC LOGISTIC</strong> do pacote <strong>SUDAAN</strong> não inclui testes para os efeitos principais, por não ser possível separar tais efeitos das interações. A coluna de <span class="math inline">\(p\)</span> valores da Tabela , obtida pela PROC LOGISTIC do pacote SUDAAN, utiliza a estatística de Wald baseada no plano amostral com correção. Mais detalhes são encontrados em Shah et al.(1993).</p>
+<p>Na Tabela <a href="modreg.html#tab:testmodlogit">6.3</a> são apresentadas as probabilidades de significância dos testes de nulidade dos efeitos do modelo. Todos os efeitos incluídos no modelo são significativos, nos níveis usuais de significância. A <strong>PROC LOGISTIC</strong> do pacote <strong>SUDAAN</strong> não inclui testes para os efeitos principais, por não ser possível separar tais efeitos das interações. A coluna de <span class="math inline">\(p\)</span> valores da Tabela<a href="modreg.html#tab:testmodlogit">6.3</a>, obtida pela função <code>svyglm()</code> da library survey, utiliza a estatística de Wald baseada no plano amostral com correção.</p>
 <p>Os testes da Tabela <a href="modreg.html#tab:testmodlogit">6.3</a> indicam a significância de todas as interações de 2 fatores que entraram no modelo selecionado. O teste de qualidade global de ajuste, na primeira linha da Tabela <a href="modreg.html#tab:testmodlogit">6.3</a>, indica a necessidade de serem introduzidas novas interações.</p>
 <table>
 <caption><span id="tab:testmodlogit">Tabela 6.3: </span>Testes de hipóteses de Wald de nulidade dos efeitos do modelo</caption>
@@ -812,7 +812,7 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 </tr>
 </tbody>
 </table>
-<p>Para comparação, apresentamos na Tabela  algumas estimativas de razões de vantagens, relevantes na análise, calculadas tanto pela função glm do  como pela  do pacote  e, naTabela  os correspondentes intervalos de confiança de <span class="math inline">\(95\%\)</span>. Na construção destes intervalos foi necessário utilizar estimativas pontuais dos efeitos bem como a matriz de covariância estimada dos estimadores dos efeitos do modelo. Deste modo, estes intervalos sumarizam, ao mesmo tempo, discrepâncias existentes tanto nas estimativas pontuais dos efeitos como nas variâncias e covariâncias das estimativas.</p>
+<p>Para comparação, apresentamos na Tabela <a href="modreg.html#tab:razvant">6.4</a> algumas estimativas de razões de vantagens, relevantes na análise, calculadas pela função <code>svyglm()</code> da library survey e, na Tabela <a href="modreg.html#tab:icvant">6.5</a> os correspondentes intervalos de confiança de <span class="math inline">\(95\%\)</span>. Na construção destes intervalos foi necessário utilizar estimativas pontuais dos efeitos bem como a matriz de covariância estimada dos estimadores dos efeitos do modelo. Deste modo, estes intervalos sumarizam, ao mesmo tempo, discrepâncias existentes tanto nas estimativas pontuais dos efeitos como nas variâncias e covariâncias das estimativas.</p>
 <table>
 <caption><span id="tab:razvant">Tabela 6.4: </span>Estimativas das razões de vantagens, variando-se os níveis de ae para níveis fixos de ht</caption>
 <thead>
@@ -855,18 +855,6 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 </tr>
 </tbody>
 </table>
-<pre><code>## Warning in 1.96 * sqrt(var_raz112) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
-##   Use c() or as.vector() instead.</code></pre>
-<pre><code>## Warning in 1.96 * sqrt(var_raz123) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
-##   Use c() or as.vector() instead.</code></pre>
-<pre><code>## Warning in 1.96 * sqrt(var_raz212) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
-##   Use c() or as.vector() instead.</code></pre>
-<pre><code>## Warning in 1.96 * sqrt(var_raz223) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
-##   Use c() or as.vector() instead.</code></pre>
-<pre><code>## Warning in 1.96 * sqrt(var_raz312) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
-##   Use c() or as.vector() instead.</code></pre>
-<pre><code>## Warning in 1.96 * sqrt(var_raz323) * c(-1, 1): Recycling array of length 1 in array-vector arithmetic is deprecated.
-##   Use c() or as.vector() instead.</code></pre>
 <table>
 <caption><span id="tab:icvant">Tabela 6.5: </span>Intervalos de confiança de 95% para razões de vantagens, variando-se os níveis de ae para níveis fixos de ht</caption>
 <thead>
@@ -923,7 +911,7 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 <li><p>dados individuais com pesos normalizados.</p></li>
 </ol>
 <p>Em todas estas análises, como esperado, as estimativas pontuais dos efeitos coincidiram com as obtidas pela <strong>PROC LOGISTIC</strong> do pacote <strong>SUDAAN</strong>. Pode-se notar que, neste exemplo, há estreita concordância entre as estimativas pontuais obtidas pelos dois pacotes.</p>
-<p>A concordância das estimativas dos coeficientes pode ser explicada, em parte, pela pequena variabilidade dos pesos das unidades, tal como se pode verificar na Tabela , que apresenta a distribuição de frequências dos pesos.</p>
+<p>A concordância das estimativas dos coeficientes pode ser explicada, em parte, pela pequena variabilidade dos pesos das unidades, tal como se pode verificar na Tabela <a href="modreg.html#tab:pesofreq">6.6</a>, que apresenta a distribuição de frequências dos pesos.</p>
 <table>
 <caption><span id="tab:pesofreq">Tabela 6.6: </span>Distribuição de frequências dos pesos da amostra da PNAD-90 - Parte Urbana do Rio de Janeiro</caption>
 <thead>
@@ -951,7 +939,7 @@ _{kl}^{ht.id}+\beta _{km}^{ht.re},  \nonumber
 </tr>
 </tbody>
 </table>
-<p>Como foi visto na Tabela , o impacto do plano amostral nas estimativas de precisão é um pouco maior. As maiores diferenças entre os dois métodos ocorrem na estimação dos desvios das estimativas dos parâmetros do primeiro nível de idade (até 17 anos) e da interação deste com horas trabalhadas (tanto no nível de menos de 40 horas semanais como no nível de 40 a 48 horas semanais trabalhadas). Esta diferenciação maior no caso dos desvios padrões já era esperada. Quando não levamos em conta os pesos nem o plano amostral na estimação dos parâmetros, podemos até chegar em uma estimativa pontual dos coeficientes bem próxima de quando levamos ambos em conta, mas as estimativas dos desvios padrões são mais sensíveis a esta diferença entre as análises. A tendência revelada é de subestimação dos desvios padrões pelo <strong>S-Plus</strong> ao ignorar o plano amostral e a variação dos pesos.</p>
+<p>Como foi visto na Tabela <a href="modreg.html#tab:logit">6.2</a>, o impacto do plano amostral nas estimativas de precisão é um pouco maior. As maiores diferenças entre os dois métodos ocorrem na estimação dos desvios das estimativas dos parâmetros do primeiro nível de idade (até 17 anos) e da interação deste com horas trabalhadas (tanto no nível de menos de 40 horas semanais como no nível de 40 a 48 horas semanais trabalhadas). Esta diferenciação maior no caso dos desvios padrões já era esperada. Quando não levamos em conta os pesos nem o plano amostral na estimação dos parâmetros, podemos até chegar em uma estimativa pontual dos coeficientes bem próxima de quando levamos ambos em conta, mas as estimativas dos desvios padrões são mais sensíveis a esta diferença entre as análises. A tendência revelada é de subestimação dos desvios padrões pelo <strong>S-Plus</strong> ao ignorar o plano amostral e a variação dos pesos.</p>
 <p>Neste exemplo, foi utilizada a função glm do <strong>S-Plus</strong> na seleção do modelo. Feita a seleção, o mesmo modelo foi ajustado através da <strong>PROC LOGISTIC</strong> do <strong>SUDAAN</strong>. O propósito foi imitar uma situação onde o modelo já tivesse sido selecionado e ajustado por usuário secundário dos dados, sem considerar os pesos e o plano amostral, tal como é usual. Outra possibilidade seria repetir o processo de seleção do modelo usando-se a <strong>PROC LOGISTIC</strong> do <strong>SUDAAN</strong>. Isto poderia ser feito passo a passo, incluindo efeitos e interações que melhorassem mais a qualidade de ajuste, tal como foi feito automaticamente pela função <strong>step do S-Plus</strong>. Este procedimento possibilitaria comparar a seleção de modelos quando são considerados os pesos e o plano amostral na análise.</p>
 <p>Diferentemente dos pacotes mais usados de análise estatística, tais como SAS, S-Plus, BMDP, etc., o SUDAAN não possui, atualmente, ferramentas usuais de diagnóstico de ajuste de modelos, como gráficos de resíduos padronizados, etc., tornando mais difícil seu uso na etapa de seleção de modelos. Considerando-se a maior dificuldade de seleção de modelos através do <strong>SUDAAN</strong>, preferiu-se usá-lo aqui apenas para ajustar um modelo já selecionado.</p>
 </div>
@@ -1015,9 +1003,9 @@ pnadrj90<span class="op">$</span>re&lt;-<span class="kw">relevel</span>(pnadrj90
 pnadrj90<span class="op">$</span>informal&lt;-<span class="kw">ifelse</span>(pnadrj90<span class="op">$</span>informal<span class="op">==</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>)</code></pre></div>
 <p>Cria objeto de desenho</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnad.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span><span class="op">~</span>psu,<span class="dt">strata=</span><span class="op">~</span>stra,<span class="dt">weights=</span><span class="op">~</span>pesopes,<span class="dt">data=</span>pnadrj90,<span class="dt">nest=</span><span class="ot">TRUE</span>)</code></pre></div>
-<p>Ajusta modelo de regressão logística na Tabela 6.2 Comparar resultado com o da página 106 de Pessoa e Silva (1998)</p>
+<p>Ajusta modelo de regressão logística na Tabela <a href="modreg.html#tab:logit">6.2</a> Comparar resultado com o da página 106 de Pessoa e Silva (1998)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">inf.logit&lt;-<span class="kw">svyglm</span>(informal<span class="op">~</span>sx<span class="op">+</span>ae<span class="op">+</span>ht<span class="op">+</span>id<span class="op">+</span>re<span class="op">+</span>sx<span class="op">*</span>id<span class="op">+</span>sx<span class="op">*</span>ht<span class="op">+</span>ae<span class="op">*</span>ht<span class="op">+</span>ht<span class="op">*</span>id<span class="op">+</span>ht<span class="op">*</span>re,<span class="dt">design=</span>pnad.des,<span class="dt">family=</span>binomial)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">summary</span>(inf.logit)<span class="op">$</span>coefficients,<span class="dt">booktabs=</span><span class="ot">TRUE</span>, <span class="dt">digits=</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">summary</span>(inf.logit)<span class="op">$</span>coefficients,<span class="dt">booktabs=</span><span class="ot">TRUE</span>, <span class="dt">digits=</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>))</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1031,210 +1019,210 @@ pnadrj90<span class="op">$</span>informal&lt;-<span class="kw">ifelse</span>(pna
 <tbody>
 <tr class="odd">
 <td>(Intercept)</td>
-<td align="right">-1</td>
+<td align="right">-0.515</td>
 <td align="right">0.260</td>
 <td align="right">-1.978</td>
 <td align="right">0.05</td>
 </tr>
 <tr class="even">
 <td>sx1</td>
-<td align="right">0</td>
+<td align="right">0.148</td>
 <td align="right">0.222</td>
 <td align="right">0.666</td>
 <td align="right">0.51</td>
 </tr>
 <tr class="odd">
 <td>ae1</td>
-<td align="right">1</td>
+<td align="right">0.745</td>
 <td align="right">0.165</td>
 <td align="right">4.528</td>
 <td align="right">0.00</td>
 </tr>
 <tr class="even">
 <td>ae2</td>
-<td align="right">0</td>
+<td align="right">0.496</td>
 <td align="right">0.156</td>
 <td align="right">3.176</td>
 <td align="right">0.00</td>
 </tr>
 <tr class="odd">
 <td>ht1</td>
-<td align="right">0</td>
+<td align="right">-0.377</td>
 <td align="right">0.317</td>
 <td align="right">-1.187</td>
 <td align="right">0.24</td>
 </tr>
 <tr class="even">
 <td>ht2</td>
-<td align="right">-1</td>
+<td align="right">-0.697</td>
 <td align="right">0.275</td>
 <td align="right">-2.531</td>
 <td align="right">0.01</td>
 </tr>
 <tr class="odd">
 <td>id1</td>
-<td align="right">0</td>
+<td align="right">-0.239</td>
 <td align="right">0.540</td>
 <td align="right">-0.442</td>
 <td align="right">0.66</td>
 </tr>
 <tr class="even">
 <td>id2</td>
-<td align="right">-1</td>
+<td align="right">-0.729</td>
 <td align="right">0.302</td>
 <td align="right">-2.412</td>
 <td align="right">0.02</td>
 </tr>
 <tr class="odd">
 <td>id3</td>
-<td align="right">0</td>
+<td align="right">0.227</td>
 <td align="right">0.231</td>
 <td align="right">0.982</td>
 <td align="right">0.33</td>
 </tr>
 <tr class="even">
 <td>re1</td>
-<td align="right">0</td>
+<td align="right">0.286</td>
 <td align="right">0.277</td>
 <td align="right">1.032</td>
 <td align="right">0.30</td>
 </tr>
 <tr class="odd">
 <td>re2</td>
-<td align="right">0</td>
+<td align="right">0.065</td>
 <td align="right">0.144</td>
 <td align="right">0.451</td>
 <td align="right">0.65</td>
 </tr>
 <tr class="even">
 <td>sx1:id1</td>
-<td align="right">1</td>
+<td align="right">0.878</td>
 <td align="right">0.348</td>
 <td align="right">2.521</td>
 <td align="right">0.01</td>
 </tr>
 <tr class="odd">
 <td>sx1:id2</td>
-<td align="right">0</td>
+<td align="right">0.300</td>
 <td align="right">0.231</td>
 <td align="right">1.296</td>
 <td align="right">0.20</td>
 </tr>
 <tr class="even">
 <td>sx1:id3</td>
-<td align="right">0</td>
+<td align="right">-0.259</td>
 <td align="right">0.190</td>
 <td align="right">-1.363</td>
 <td align="right">0.17</td>
 </tr>
 <tr class="odd">
 <td>sx1:ht1</td>
-<td align="right">-1</td>
+<td align="right">-0.736</td>
 <td align="right">0.206</td>
 <td align="right">-3.572</td>
 <td align="right">0.00</td>
 </tr>
 <tr class="even">
 <td>sx1:ht2</td>
-<td align="right">0</td>
+<td align="right">-0.089</td>
 <td align="right">0.185</td>
 <td align="right">-0.480</td>
 <td align="right">0.63</td>
 </tr>
 <tr class="odd">
 <td>ae1:ht1</td>
-<td align="right">1</td>
+<td align="right">0.792</td>
 <td align="right">0.240</td>
 <td align="right">3.294</td>
 <td align="right">0.00</td>
 </tr>
 <tr class="even">
 <td>ae2:ht1</td>
-<td align="right">1</td>
+<td align="right">0.739</td>
 <td align="right">0.227</td>
 <td align="right">3.261</td>
 <td align="right">0.00</td>
 </tr>
 <tr class="odd">
 <td>ae1:ht2</td>
-<td align="right">0</td>
+<td align="right">0.026</td>
 <td align="right">0.197</td>
 <td align="right">0.132</td>
 <td align="right">0.90</td>
 </tr>
 <tr class="even">
 <td>ae2:ht2</td>
-<td align="right">0</td>
+<td align="right">0.089</td>
 <td align="right">0.183</td>
 <td align="right">0.488</td>
 <td align="right">0.63</td>
 </tr>
 <tr class="odd">
 <td>ht1:id1</td>
-<td align="right">-1</td>
+<td align="right">-1.420</td>
 <td align="right">0.605</td>
 <td align="right">-2.345</td>
 <td align="right">0.02</td>
 </tr>
 <tr class="even">
 <td>ht2:id1</td>
-<td align="right">0</td>
+<td align="right">-0.413</td>
 <td align="right">0.506</td>
 <td align="right">-0.817</td>
 <td align="right">0.41</td>
 </tr>
 <tr class="odd">
 <td>ht1:id2</td>
-<td align="right">0</td>
+<td align="right">-0.124</td>
 <td align="right">0.355</td>
 <td align="right">-0.351</td>
 <td align="right">0.73</td>
 </tr>
 <tr class="even">
 <td>ht2:id2</td>
-<td align="right">0</td>
+<td align="right">-0.109</td>
 <td align="right">0.279</td>
 <td align="right">-0.391</td>
 <td align="right">0.70</td>
 </tr>
 <tr class="odd">
 <td>ht1:id3</td>
-<td align="right">0</td>
+<td align="right">-0.220</td>
 <td align="right">0.248</td>
 <td align="right">-0.888</td>
 <td align="right">0.37</td>
 </tr>
 <tr class="even">
 <td>ht2:id3</td>
-<td align="right">-1</td>
+<td align="right">-0.537</td>
 <td align="right">0.205</td>
 <td align="right">-2.619</td>
 <td align="right">0.01</td>
 </tr>
 <tr class="odd">
 <td>ht1:re1</td>
-<td align="right">2</td>
+<td align="right">1.529</td>
 <td align="right">0.356</td>
 <td align="right">4.293</td>
 <td align="right">0.00</td>
 </tr>
 <tr class="even">
 <td>ht2:re1</td>
-<td align="right">0</td>
+<td align="right">0.338</td>
 <td align="right">0.320</td>
 <td align="right">1.056</td>
 <td align="right">0.29</td>
 </tr>
 <tr class="odd">
 <td>ht1:re2</td>
-<td align="right">0</td>
+<td align="right">0.490</td>
 <td align="right">0.233</td>
 <td align="right">2.100</td>
 <td align="right">0.04</td>
 </tr>
 <tr class="even">
 <td>ht2:re2</td>
-<td align="right">0</td>
+<td align="right">-0.115</td>
 <td align="right">0.183</td>
 <td align="right">-0.629</td>
 <td align="right">0.53</td>
