@@ -48,8 +48,7 @@ amostral real para ilustrar como os pontos i) a iv) acima mencionados afetam a
 inferência sobre quantidades descritivas populacionais tais como
 médias, proporções, razões e totais.
 
-
-````{example, label="distppv"}
+```{example, label="distppv"}
 Distribuição dos pesos da amostra da PPV
 ```
 
@@ -416,7 +415,7 @@ opção interessante.
 ```{example, label= "exe12"}
 Utilização da library survey do R para estimar totais e razões na PPV 
 ```
-Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref(ex:distppv) . Inicialmente, vamos ler os dados e definir variáveis de interesse por meio de transformação das variáveis existentes.
+Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref(exm:distppv) . Inicialmente, vamos ler os dados e definir variáveis de interesse por meio de transformação das variáveis existentes.
 ```{r, message=FALSE, warning=FALSE}
 # leitura dos dados
 ppv1 <- readRDS("~\\GitHub\\adac\\data\\ppv.rds")
@@ -547,7 +546,7 @@ EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AA
 
 Na definição do EPA,  a estimativa do numerador pode ser obtida usando-se a library `survey` [@R-survey], a partir do objeto de `ppv.se.des` que incorpora as características do plano amostral utilizado para coletar os dados. Não é possível estimar diretamente o denominador, pois o plano amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta dos dados. Devemos estimar o denominador a partir de dados obtidos através do plano amostral VERD, como se eles tivessem sido obtidos através de AAS.
 
-Supondo conhecido o tamanho da população $N$ e a fração amostral $f=n/N$ pequena, a estimativa da variância de $\widehat{Y}$ é dada na expressão \@ref:(\#eq:estpa9)
+Supondo conhecido o tamanho da população $N$ e a fração amostral $f=n/N$ pequena, a estimativa da variância de $\widehat{Y}$ é dada na expressão \@ref(eq:estpa9)
 \[
 \widehat{V}_{AAS}\left(\widehat{Y}\right)=N^2\frac{\widehat{S}_y}{n-1}
 \]

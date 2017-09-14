@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-13">
+<meta name="date" content="2017-09-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -595,7 +595,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">as
 EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
 \]</span></p>
 <p>Na definição do EPA, a estimativa do numerador pode ser obtida usando-se a library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>, a partir do objeto de <code>ppv.se.des</code> que incorpora as características do plano amostral utilizado para coletar os dados. Não é possível estimar diretamente o denominador, pois o plano amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta dos dados. Devemos estimar o denominador a partir de dados obtidos através do plano amostral VERD, como se eles tivessem sido obtidos através de AAS.</p>
-<p>Supondo conhecido o tamanho da população <span class="math inline">\(N\)</span> e a fração amostral <span class="math inline">\(f=n/N\)</span> pequena, a estimativa da variância de <span class="math inline">\(\widehat{Y}\)</span> é dada na expressão @ref:\tag{1.1} <span class="math display" id="eq:estpa9">\[
+<p>Supondo conhecido o tamanho da população <span class="math inline">\(N\)</span> e a fração amostral <span class="math inline">\(f=n/N\)</span> pequena, a estimativa da variância de <span class="math inline">\(\widehat{Y}\)</span> é dada na expressão <a href="capplanamo.html#eq:estpa9">(3.9)</a> <span class="math display">\[
 \widehat{V}_{AAS}\left(\widehat{Y}\right)=N^2\frac{\widehat{S}_y}{n-1}
 \]</span> onde <span class="math inline">\(\widehat{S}_y= n^{-1}\sum_{i\in s}\left(y_i-\overline{y}\right)^2\)</span> é a estimativa de <span class="math inline">\(S_y=N^{-1}\sum_{i\in U}\left(y_i-\overline{Y}\right)^2\)</span>, com <span class="math inline">\(\overline{Y}=N^{-1}Y\)</span>.</p>
 No lugar dessa estimativa, vamos utilizar os pesos do plano amostral verdadeiro para estimar <span class="math inline">\(S_y\)</span>. Vamos ainda estimar <span class="math inline">\(N\)</span>, em geral é desconhecido, por <span class="math inline">\(\widehat{N}=\sum_{i \in s} w_i\)</span>. Dessa forma obtemos a estimativa

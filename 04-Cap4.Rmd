@@ -177,7 +177,7 @@ censo 80.
 
 ## Efeito do Plano Amostral Ampliado
 
-O que se observou no Exemplo \@ref(ex:epakish) com respeito à dificuldade de
+O que se observou no Exemplo \@ref(exm:epakish) com respeito à dificuldade de
 uso dos EPAs de Kish calculados para fins analíticos também se
 aplica para outras situações e é uma deficiência estrutural
 do conceito de EPA proposto por Kish. Para tentar contornar essa
@@ -800,7 +800,7 @@ componentes de $\widehat{\mathbf{\theta }}$. Temos os seguintes resultados:
 
 No caso particular onde $\mathbf{\Delta =I}_{K\times K}$ , temos $\delta_{1}=\ldots =\delta _{K}=1$ e os efeitos (univariados) do plano amostral das combinações lineares para componentes de $\mathbf{\hat{\theta}}$
 são todos iguais a $1$. Para ilustrar esse conceito, vamos reconsiderar
-o Exemplo \@ref(ex:deffuni) de estimação de médias com amostragem
+o Exemplo \@ref(exm:deffuni) de estimação de médias com amostragem
 estratificada desproporcional anteriormente apresentado, mas agora
 considerando a natureza multivariada do problema (há duas variáveis
 de pesquisa).
@@ -812,10 +812,10 @@ de Salários e de Receitas
 
 Vamos considerar as variáveis Salário (em R\$ $1.000$) e Receita (em
 R\$ $1.000.000$) definidas na população de empresas do Exemplo 
-\@ref(ex:deffuni) e calcular a matriz $\mathbf{EMPA}\left( \mathbf{\hat{\theta},V}_{0}\right)$, onde $\mathbf{\hat{\theta}=}\left( \overline{SAL}_{w},\overline{REC}_{w}\right) ^{\prime }$. Neste exemplo, os dados populacionais
+\@ref(exm:deffuni) e calcular a matriz $\mathbf{EMPA}\left( \mathbf{\hat{\theta},V}_{0}\right)$, onde $\mathbf{\hat{\theta}=}\left( \overline{SAL}_{w},\overline{REC}_{w}\right) ^{\prime }$. Neste exemplo, os dados populacionais
 são conhecidos, e portanto podemos calcular a covariância dos
 estimadores $\left( \overline{SAL}_{w},\overline{REC}_{w}\right)$. Usando a
-mesma notação do Exemplo \@ref(ex:deffuni), temos que 
+mesma notação do Exemplo \@ref(exm:deffuni), temos que 
 \[
 COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=}\sum\limits_{h=1}^{2}W_{h}^{2}\frac{\left( 1-f_{h}\right) }{n_{h}}S_{SAL,REC}^{\left( h\right) } 
 \]
@@ -842,7 +842,7 @@ fica igual a
 \right]   (\#eq:epa7)
 \end{equation}
 onde os valores das variâncias em \@ref(eq:epa7) foram os calculados no
-Exemplo \@ref(ex:deffuni) e coincidem, respectivamente, com os valores usados
+Exemplo \@ref(exm:deffuni) e coincidem, respectivamente, com os valores usados
 nos numeradores de $\mathbf{EPA}\left( \overline{SAL}_{w}\right)$ e de 
 $\mathbf{EPA}\left( \overline{REC}_{w}\right)$ lá apresentados. Para
 calcular o $\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})$ é
@@ -850,8 +850,8 @@ preciso agora obter $\mathbf{E}_{VERD}\left(\mathbf{V}_{0}\right)$.
 
 Neste exemplo, a matriz de efeito do plano amostral $\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})=\mathbf{\Delta }$ pode também ser calculada
 através de simulação, de modo análogo ao que foi feito no
-Exemplo \@ref(ex:deffuni). Para isto, foram utilizadas outras $500$ amostras de
-tamanho $60$ segundo o plano amostral descrito no Exemplo \@ref(ex:deffuni).
+Exemplo \@ref(exm:deffuni). Para isto, foram utilizadas outras $500$ amostras de
+tamanho $60$ segundo o plano amostral descrito no Exemplo \@ref(exm:deffuni).
 Para cada uma das $500$ amostras foram calculadas estimativas:
 
 
@@ -1021,7 +1021,7 @@ de 5% assumindo autovalores iguais para delta.")
 
 Vale a pena incluir as contas que não dependem da simulação?
 
-Exemplo \@ref(ex:deffuni) Parte de simulação do exemplo para salario
+Exemplo \@ref(exm:deffuni) Parte de simulação do exemplo para salario
 
 ```{r, message=FALSE, warning=FALSE }
 library(survey)

@@ -477,7 +477,7 @@ em Leote(1996) só pela inclusão de mais um efeito, referente à
 interação ae:ht.
 
 Uma descrição detalhada do plano amostral da PNAD 90 foi apresentada
-no Exemplo \@ref(ex:pnad). Como se pode observar dessa descrição, o
+no Exemplo \@ref(exm:pnad). Como se pode observar dessa descrição, o
 plano amostral da PNAD apresenta todos os aspectos de um plano amostral
 complexo, incluindo estratificação (geográfica), seleção
 de unidades primárias (municípios, ou setores nos municípios

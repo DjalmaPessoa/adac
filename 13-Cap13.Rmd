@@ -542,19 +542,17 @@ aluno da turma $k$ no domínio $j$ atingir o nível desejado em
 Matemática, podemos modificar o modelo \@ref(eq:hier16) para incluir o
 efeito da turma empregando 
 \begin{equation}
-\log \left( \frac{p_{jk}}{1-p_{jk}}\right) =\beta _{0}+\beta
-_{1}TEMP_{jk}+\beta _{2}EXP_{j}+u_{k}.  (\#eq:hier17)
+\log\left(\frac{p_{jk}}{1-p_{jk}}\right)=\beta_0+\beta_1TEMP_{jk}+\beta_2EXP_j+u_k.  (\#eq:hier17)
 \end{equation}
 
 O erro aleatório $u_{k}\sim N\left( 0,\sigma _{u}^{2}\right)$
 representa a variação aleatória no nível 2. A variação no nível 1, entre alunos, é introduzida da seguinte forma.
 Sob a hipótese binomial, em cada domínio, a proporção de
-alunos atingindo o nível adequado tem variância $p_{jk}\left(
-1-p_{jk}\right) /n_{jk}$. Vamos supor que a variação residual no
+alunos atingindo o nível adequado tem variância $p_{jk}\left(1-p_{jk}\right)/n_{jk}$. Vamos supor que a variação residual no
 nível 1 é denotada por $\sigma _{e}^{2}$, e também que a
 variabilidade entre alunos acarreta uma variação extra-binomial 
 \begin{equation}
-\frac{p_{jk}\left( 1-p_{jk}\right) \sigma _{e}^{2}}{n_{jk}}\;\;.
+\frac{p_{jk}\left( 1-p_{jk}\right)\sigma_{e}^{2}}{n_{jk}}\;\;.
 (\#eq:hier18)
 \end{equation}
 
@@ -665,15 +663,14 @@ Ou juntando as duas equações
 \[
 Y_{ij}=\gamma _{00}+u_{0j}+r_{ij},
 \]
-com $E_{M}\left( r_{ij}\right) =E_{M}\left( u_{0j}\right) =0$ e $V_{M}\left(
-r_{ij}\right) =\sigma ^{2}$ , $V_{M}\left( u_{0j}\right) =\tau _{00}$.
+com $E_{M}\left(r_{ij}\right) =E_{M}\left( u_{0j}\right) =0$ e $V_{M}\left(r_{ij}\right) =\sigma ^{2}$ , $V_{M}\left( u_{0j}\right) =\tau _{00}$.
 
 Foram obtidas as seguintes estimativas para os parâmetros deste modelo:
 \[
 \hat{\sigma}^{2}=0,915;\;\hat{\tau}_{00}=0,084\;\mbox{ e}
 \]
 \[
-\mbox{Correlação Intra-Escola}=\frac{\hat{\tau}_{00}}{\hat{
+\text{Correlação Intra-Escola}=\frac{\hat{\tau}_{00}}{\hat{
 \sigma}^{2}+\hat{\tau}_{00}}=0,092.
 \]
 
@@ -795,7 +792,7 @@ Y_{ij}=\gamma _{0}+\sum\limits_{k=1}^{7}\gamma _{k}x_{kj}+e_{ij}.
 \]
 
 A Tabela \@ref(tab:mod4) apresenta as estimativas de Mínimos Quadrados
-Ponderados de $\left( \gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)$
+Ponderados de $\left(\gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)$
 com pesos dados por $n_{j}=$ número de professores da escola $j$.
 
 

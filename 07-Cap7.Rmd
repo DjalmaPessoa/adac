@@ -54,7 +54,7 @@ superpopulação.
 
 ### Correção de Estatísticas Clássicas
 
-No Exemplo \@ref(ex:exebin) a estatística de teste $Z_{bin},$ que foi utilizada para comparar com um valor hipotético pré-fixado a proporção de empregados cobertos por plano de
+No Exemplo \@ref(exm:exebin) a estatística de teste $Z_{bin},$ que foi utilizada para comparar com um valor hipotético pré-fixado a proporção de empregados cobertos por plano de
 saúde, resultou num teste mais liberal do que o teste que empregou a
 estatística $Z_{p}$, baseada no plano amostral efetivamente adotado. A
 causa disto foi o fato de $Z_{bin}$ não considerar o efeito de conglomeração existente. Vamos examinar com mais detalhes o comportamento
@@ -118,7 +118,7 @@ p_{0}\left( 1-p_{0}\right) /n}=Z_{bin}^{2}
 (\#eq:qual2)
 \end{equation}
 onde $\widehat{p}=\widehat{p}_{1}$ e $p_{0}=p_{01}$ para simplicidade e
-coerência com a notação do Exemplo \@ref(ex:exebin).
+coerência com a notação do Exemplo \@ref(exm:exebin).
 
 Sob a hipótese de observações IID, a distribuição
 assintótica da estatística $X_{P}^{2}$ é qui-quadrado ($\chi^{2}$). Neste caso, em que há apenas duas categorias e uma restrição (soma das proporções igual a $1$), a distribuição da estatística $X_{P}^{2}$ em \@ref(eq:qual2) tem apenas um grau de liberdade.
@@ -174,7 +174,7 @@ X_{RV}^{2}(d)=X_{RV}^{2}/d\;\;.
 \end{equation}
 
 Vamos calcular os valores das estatísticas de Pearson e de RV, com suas
-correções de Rao-Scott, para os dados do Exemplo \@ref(ex:exebin). Para
+correções de Rao-Scott, para os dados do Exemplo \@ref(exm:exebin). Para
 as correções, primeiro é preciso calcular o efeito do plano
 amostral
 
@@ -310,7 +310,7 @@ amostragem aleatória simples, usamos no lugar de $\widehat{V}_{p}\left(
 $\widehat{V}_{bin}\left( \widehat{p}\right) =$ $\widehat{p}\left( 1-\widehat{p}\right) /n$. Neste caso,
 estatística resultante $X_{bin}^{2}$ coincide com a estatística $X_{N}^{2}$ de Neyman.
 
-Para o plano amostral de conglomerados considerado no Exemplo \@ref(ex:exebin),
+Para o plano amostral de conglomerados considerado no Exemplo \@ref(exm:exebin),
 a estatística $X_{W}^{2}$, sem qualquer ajuste auxiliar, já é
 distribuída assintoticamente como qui-quadrado com um grau de liberdade.
 O valor da estatística de Wald para esse exemplo é

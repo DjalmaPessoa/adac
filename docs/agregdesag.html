@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-13">
+<meta name="date" content="2017-09-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -537,12 +537,11 @@ _{1}(TEMP)_{j}+\beta _{2}\left( EXP\right) _{j},  \tag{13.16}
 </ul>
 No modelo hierárquico, para cada nível se considera uma variação aleatória. Denotando por <span class="math inline">\(p_{jk}\)</span> a probabilidade de um aluno da turma <span class="math inline">\(k\)</span> no domínio <span class="math inline">\(j\)</span> atingir o nível desejado em Matemática, podemos modificar o modelo <a href="agregdesag.html#eq:hier16">(13.16)</a> para incluir o efeito da turma empregando
 <span class="math display" id="eq:hier17">\[\begin{equation}
-\log \left( \frac{p_{jk}}{1-p_{jk}}\right) =\beta _{0}+\beta
-_{1}TEMP_{jk}+\beta _{2}EXP_{j}+u_{k}.  \tag{13.17}
+\log\left(\frac{p_{jk}}{1-p_{jk}}\right)=\beta_0+\beta_1TEMP_{jk}+\beta_2EXP_j+u_k.  \tag{13.17}
 \end{equation}\]</span>
-O erro aleatório <span class="math inline">\(u_{k}\sim N\left( 0,\sigma _{u}^{2}\right)\)</span> representa a variação aleatória no nível 2. A variação no nível 1, entre alunos, é introduzida da seguinte forma. Sob a hipótese binomial, em cada domínio, a proporção de alunos atingindo o nível adequado tem variância <span class="math inline">\(p_{jk}\left( 1-p_{jk}\right) /n_{jk}\)</span>. Vamos supor que a variação residual no nível 1 é denotada por <span class="math inline">\(\sigma _{e}^{2}\)</span>, e também que a variabilidade entre alunos acarreta uma variação extra-binomial
+O erro aleatório <span class="math inline">\(u_{k}\sim N\left( 0,\sigma _{u}^{2}\right)\)</span> representa a variação aleatória no nível 2. A variação no nível 1, entre alunos, é introduzida da seguinte forma. Sob a hipótese binomial, em cada domínio, a proporção de alunos atingindo o nível adequado tem variância <span class="math inline">\(p_{jk}\left(1-p_{jk}\right)/n_{jk}\)</span>. Vamos supor que a variação residual no nível 1 é denotada por <span class="math inline">\(\sigma _{e}^{2}\)</span>, e também que a variabilidade entre alunos acarreta uma variação extra-binomial
 <span class="math display" id="eq:hier18">\[\begin{equation}
-\frac{p_{jk}\left( 1-p_{jk}\right) \sigma _{e}^{2}}{n_{jk}}\;\;.
+\frac{p_{jk}\left( 1-p_{jk}\right)\sigma_{e}^{2}}{n_{jk}}\;\;.
 \tag{13.18}
 \end{equation}\]</span>
 <p>Os resultados desta análise são apresentados na Tabela <a href="agregdesag.html#tab:ml3">13.4</a>.</p>
@@ -624,11 +623,11 @@ Y_{ij}=\beta _{0j}+r_{ij},
 \]</span></p>
 <p>Ou juntando as duas equações <span class="math display">\[
 Y_{ij}=\gamma _{00}+u_{0j}+r_{ij},
-\]</span> com <span class="math inline">\(E_{M}\left( r_{ij}\right) =E_{M}\left( u_{0j}\right) =0\)</span> e <span class="math inline">\(V_{M}\left( r_{ij}\right) =\sigma ^{2}\)</span> , <span class="math inline">\(V_{M}\left( u_{0j}\right) =\tau _{00}\)</span>.</p>
+\]</span> com <span class="math inline">\(E_{M}\left(r_{ij}\right) =E_{M}\left( u_{0j}\right) =0\)</span> e <span class="math inline">\(V_{M}\left(r_{ij}\right) =\sigma ^{2}\)</span> , <span class="math inline">\(V_{M}\left( u_{0j}\right) =\tau _{00}\)</span>.</p>
 <p>Foram obtidas as seguintes estimativas para os parâmetros deste modelo: <span class="math display">\[
 \hat{\sigma}^{2}=0,915;\;\hat{\tau}_{00}=0,084\;\mbox{ e}
 \]</span> <span class="math display">\[
-\mbox{Correlação Intra-Escola}=\frac{\hat{\tau}_{00}}{\hat{
+\text{Correlação Intra-Escola}=\frac{\hat{\tau}_{00}}{\hat{
 \sigma}^{2}+\hat{\tau}_{00}}=0,092.
 \]</span></p>
 <p>Logo cerca de apenas <span class="math inline">\(9\%\)</span> da variação na eficiência do professor é explicada pelas diferenças entre as escolas. Como essa proporção da variação explicada é pequena, na tentativa de aumentar o poder explicativo do modelo, vamos introduzir no modelo algumas variáveis explicativas referentes à escola, a saber as variáveis <span class="math inline">\(\left( x_{1},\ldots ,x_{6}\right)\)</span>.</p>
@@ -770,7 +769,7 @@ Y_{ij}=\beta _{0j}+r_{ij},
 <p>Vamos considerar um modelo de regressão linear simples, com o resultado do professor <span class="math inline">\(Y_{ij}\)</span> dependendo das características <span class="math inline">\(\left(x_{1j},\ldots ,x_{7j}\right)\)</span> da escola, que teriam seus valores “repetidos” para os professores de uma mesma escola. Esse modelo pode ser escrito como <span class="math display">\[
 Y_{ij}=\gamma _{0}+\sum\limits_{k=1}^{7}\gamma _{k}x_{kj}+e_{ij}.
 \]</span></p>
-<p>A Tabela <a href="agregdesag.html#tab:mod4">13.7</a> apresenta as estimativas de Mínimos Quadrados Ponderados de <span class="math inline">\(\left( \gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)\)</span> com pesos dados por <span class="math inline">\(n_{j}=\)</span> número de professores da escola <span class="math inline">\(j\)</span>.</p>
+<p>A Tabela <a href="agregdesag.html#tab:mod4">13.7</a> apresenta as estimativas de Mínimos Quadrados Ponderados de <span class="math inline">\(\left(\gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)\)</span> com pesos dados por <span class="math inline">\(n_{j}=\)</span> número de professores da escola <span class="math inline">\(j\)</span>.</p>
 <table>
 <caption><span id="tab:mod4">Tabela 13.7: </span>Efeitos da escola na eficácia do professor (Modelo IV)</caption>
 <thead>
