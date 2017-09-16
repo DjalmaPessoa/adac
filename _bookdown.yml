@@ -40,4 +40,4 @@ rmd_files: ["index.Rmd", "01-Cap1.Rmd", "02-Cap2.Rmd", "03-Cap3.Rmd",
 "13-Cap13.Rmd", "14-Cap14.Rmd", "15-references.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes
-
+delete_merged_file: TRUE

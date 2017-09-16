@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-09-13}
+  \date{2017-09-16}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -716,7 +716,7 @@ nosso, o livro de \citep{lethonen} pode ser uma opção interessante.
 survey do R para estimar totais e razões na PPV
 \EndKnitrBlock{example} Os exemplos a seguir utilizam dados da Pesquisa
 de Padrões de Vida (\texttt{PPV}) de 2004 do IBGE, cujo plano amostral
-encontra-se descrito no Exemplo \ref{ex:distppv} . Inicialmente, vamos
+encontra-se descrito no Exemplo \ref{exm:distppv} . Inicialmente, vamos
 ler os dados e definir variáveis de interesse por meio de transformação
 das variáveis existentes.
 
@@ -989,7 +989,7 @@ tivessem sido obtidos através de AAS.
 
 Supondo conhecido o tamanho da população \(N\) e a fração amostral
 \(f=n/N\) pequena, a estimativa da variância de \(\widehat{Y}\) é dada
-na expressão @ref:\label{eq:estpa9} \[
+na expressão \eqref{eq:estpa9} \[
 \widehat{V}_{AAS}\left(\widehat{Y}\right)=N^2\frac{\widehat{S}_y}{n-1}
 \] onde
 \(\widehat{S}_y= n^{-1}\sum_{i\in s}\left(y_i-\overline{y}\right)^2\) é
@@ -2412,7 +2412,7 @@ Com amostragem complexa, porém, os modelos para a população e a amostra
 podem ser muito diferentes (plano amostral \texttt{não-ignorável}),
 mesmo que o mecanismo de seleção não dependa das variáveis de pesquisa,
 mas somente das variáveis auxiliares. Neste caso, ignorar o plano
-amostral pode viciar a inferência. Veja o Exemplo \ref{ex:nonigno}
+amostral pode viciar a inferência. Veja o Exemplo \ref{exm:nonigno}
 adiante.
 
 A definição precisa de ignorabilidade e as condições sob as quais um
@@ -3566,8 +3566,8 @@ Para o método \texttt{Bootstrap}, temos:
 ##                faixa
 ## analf.faixa 0.118689
 ## SEs=
-##            [,1]
-## [1,] 0.01246762
+##             [,1]
+## [1,] 0.009895701
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -3998,13 +3998,14 @@ da amostra do censo 80.
 \section{Efeito do Plano Amostral
 Ampliado}\label{efeito-do-plano-amostral-ampliado}
 
-O que se observou no Exemplo \ref{ex:epakish} com respeito à dificuldade
-de uso dos EPAs de Kish calculados para fins analíticos também se aplica
-para outras situações e é uma deficiência estrutural do conceito de EPA
-proposto por Kish. Para tentar contornar essa dificuldade, é necessário
-considerar um conceito ampliado de EPA, correspondente ao conceito de
-\emph{misspecification effect} \texttt{meff} proposto por p.~24,
-\citep{SHS89}, que apresentamos e discutimos nesta seção.
+O que se observou no Exemplo \ref{exm:epakish} com respeito à
+dificuldade de uso dos EPAs de Kish calculados para fins analíticos
+também se aplica para outras situações e é uma deficiência estrutural do
+conceito de EPA proposto por Kish. Para tentar contornar essa
+dificuldade, é necessário considerar um conceito ampliado de EPA,
+correspondente ao conceito de \emph{misspecification effect}
+\texttt{meff} proposto por p.~24, \citep{SHS89}, que apresentamos e
+discutimos nesta seção.
 
 Para introduzir este conceito ampliado de EPA, que tem utilidade também
 para fins de inferência analítica, vamos agora considerar um modelo
@@ -4809,7 +4810,7 @@ No caso particular onde \(\mathbf{\Delta =I}_{K\times K}\) , temos
 \(\delta_{1}=\ldots =\delta _{K}=1\) e os efeitos (univariados) do plano
 amostral das combinações lineares para componentes de
 \(\mathbf{\hat{\theta}}\) são todos iguais a \(1\). Para ilustrar esse
-conceito, vamos reconsiderar o Exemplo \ref{ex:deffuni} de estimação de
+conceito, vamos reconsiderar o Exemplo \ref{exm:deffuni} de estimação de
 médias com amostragem estratificada desproporcional anteriormente
 apresentado, mas agora considerando a natureza multivariada do problema
 (há duas variáveis de pesquisa).
@@ -4821,13 +4822,13 @@ Multivariados do Plano Amostral para as médias de Salários e de Receitas
 
 Vamos considerar as variáveis Salário (em R\$ \(1.000\)) e Receita (em
 R\$ \(1.000.000\)) definidas na população de empresas do Exemplo
-\ref{ex:deffuni} e calcular a matriz
+\ref{exm:deffuni} e calcular a matriz
 \(\mathbf{EMPA}\left( \mathbf{\hat{\theta},V}_{0}\right)\), onde
 \(\mathbf{\hat{\theta}=}\left( \overline{SAL}_{w},\overline{REC}_{w}\right) ^{\prime }\).
 Neste exemplo, os dados populacionais são conhecidos, e portanto podemos
 calcular a covariância dos estimadores
 \(\left( \overline{SAL}_{w},\overline{REC}_{w}\right)\). Usando a mesma
-notação do Exemplo \ref{ex:deffuni}, temos que \[
+notação do Exemplo \ref{exm:deffuni}, temos que \[
 COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=}\sum\limits_{h=1}^{2}W_{h}^{2}\frac{\left( 1-f_{h}\right) }{n_{h}}S_{SAL,REC}^{\left( h\right) } 
 \] onde \[
 S_{SAL,REC}^{\left( h\right) }=\frac{1}{N_{h}-1}\sum\limits_{i\in
@@ -4851,7 +4852,7 @@ fica igual a
 \end{equation}
 
 onde os valores das variâncias em \eqref{eq:epa7} foram os calculados no
-Exemplo \ref{ex:deffuni} e coincidem, respectivamente, com os valores
+Exemplo \ref{exm:deffuni} e coincidem, respectivamente, com os valores
 usados nos numeradores de
 \(\mathbf{EPA}\left( \overline{SAL}_{w}\right)\) e de
 \(\mathbf{EPA}\left( \overline{REC}_{w}\right)\) lá apresentados. Para
@@ -4861,9 +4862,9 @@ agora obter \(\mathbf{E}_{VERD}\left(\mathbf{V}_{0}\right)\).
 Neste exemplo, a matriz de efeito do plano amostral
 \(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})=\mathbf{\Delta }\) pode
 também ser calculada através de simulação, de modo análogo ao que foi
-feito no Exemplo \ref{ex:deffuni}. Para isto, foram utilizadas outras
+feito no Exemplo \ref{exm:deffuni}. Para isto, foram utilizadas outras
 \(500\) amostras de tamanho \(60\) segundo o plano amostral descrito no
-Exemplo \ref{ex:deffuni}. Para cada uma das \(500\) amostras foram
+Exemplo \ref{exm:deffuni}. Para cada uma das \(500\) amostras foram
 calculadas estimativas:
 
 \begin{enumerate}
@@ -5055,7 +5056,7 @@ delta & K=1 & K=2 & K=3 & K=4\\
 
 Vale a pena incluir as contas que não dependem da simulação?
 
-Exemplo \ref{ex:deffuni} Parte de simulação do exemplo para salario
+Exemplo \ref{exm:deffuni} Parte de simulação do exemplo para salario
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5112,7 +5113,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1406147
+## [1] 0.1406194
 \end{verbatim}
 
 \begin{Shaded}
@@ -5123,7 +5124,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3816183
+## [1] 0.4146265
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -6550,7 +6551,7 @@ O \(p\)valor do teste de nulidade das interações não incluídas no modelo
 só pela inclusão de mais um efeito, referente à interação ae:ht.
 
 Uma descrição detalhada do plano amostral da PNAD 90 foi apresentada no
-Exemplo \ref{ex:pnad}. Como se pode observar dessa descrição, o plano
+Exemplo \ref{exm:pnad}. Como se pode observar dessa descrição, o plano
 amostral da PNAD apresenta todos os aspectos de um plano amostral
 complexo, incluindo estratificação (geográfica), seleção de unidades
 primárias (municípios, ou setores nos municípios auto-representativos)
@@ -7095,7 +7096,7 @@ parâmetros especificam algum modelo de superpopulação.
 \subsection{Correção de Estatísticas
 Clássicas}\label{correcao-de-estatisticas-classicas}
 
-No Exemplo \ref{ex:exebin} a estatística de teste \(Z_{bin},\) que foi
+No Exemplo \ref{exm:exebin} a estatística de teste \(Z_{bin},\) que foi
 utilizada para comparar com um valor hipotético pré-fixado a proporção
 de empregados cobertos por plano de saúde, resultou num teste mais
 liberal do que o teste que empregou a estatística \(Z_{p}\), baseada no
@@ -7215,7 +7216,7 @@ p_{0}\left( 1-p_{0}\right) /n}=Z_{bin}^{2}
 \end{equation}
 
 onde \(\widehat{p}=\widehat{p}_{1}\) e \(p_{0}=p_{01}\) para
-simplicidade e coerência com a notação do Exemplo \ref{ex:exebin}.
+simplicidade e coerência com a notação do Exemplo \ref{exm:exebin}.
 
 Sob a hipótese de observações IID, a distribuição assintótica da
 estatística \(X_{P}^{2}\) é qui-quadrado (\(\chi^{2}\)). Neste caso, em
@@ -7285,7 +7286,7 @@ X_{RV}^{2}(d)=X_{RV}^{2}/d\;\;.
 \end{equation}
 
 Vamos calcular os valores das estatísticas de Pearson e de RV, com suas
-correções de Rao-Scott, para os dados do Exemplo \ref{ex:exebin}. Para
+correções de Rao-Scott, para os dados do Exemplo \ref{exm:exebin}. Para
 as correções, primeiro é preciso calcular o efeito do plano amostral
 
 \begin{Shaded}
@@ -7460,7 +7461,7 @@ resultante \(X_{bin}^{2}\) coincide com a estatística \(X_{N}^{2}\) de
 Neyman.
 
 Para o plano amostral de conglomerados considerado no Exemplo
-\ref{ex:exebin}, a estatística \(X_{W}^{2}\), sem qualquer ajuste
+\ref{exm:exebin}, a estatística \(X_{W}^{2}\), sem qualquer ajuste
 auxiliar, já é distribuída assintoticamente como qui-quadrado com um
 grau de liberdade. O valor da estatística de Wald para esse exemplo é
 
@@ -8589,7 +8590,7 @@ distribuição assintótica qui-quadrado com um grau de liberdade.
 Por outro lado, é importante observar que as agências produtoras de
 dados estatísticos geralmente apresentam os resultados de suas pesquisas
 em tabelas contendo as estimativas \(\hat{N}_{lc}\), como ilustrado no
-Exemplo \ref{ex:Analisec} do Capítulo \ref{ajmodpar}. Se calcularmos as
+Exemplo \ref{exm:Analisec} do Capítulo \ref{ajmodpar}. Se calcularmos as
 estatísticas \(X_{P}^{2}\left( I\right)\) e \(X_{P}^{2}\left( H\right)\)
 a partir dos valores dos \(\hat{N}_{lc}\) fornecidos, com a estimativa
 do tamanho da população \(\hat{N}\) no lugar de \(n\), os resultados
@@ -9181,52 +9182,117 @@ das estatísticas \(X_{P}^{2}\left(I\right)\) e
 \(X_{P}^{2}\left(H\right)\).
 \EndKnitrBlock{example}
 
-Considerando os dados do Exemplo \ref{ex:pnad} do Capítulo \ref{modreg},
-vamos testar a hipótese de independência entre as variáveis Sexo (sx) e
-Rendimento médio mensal (re). Vamos fazer também um teste de
-homogeneidade, para comparar as distribuições de renda para os dois
-sexos.
+Considerando os dados do Exemplo \ref{exm:pnad} do Capítulo
+\ref{modreg}, vamos testar a hipótese de independência entre as
+variáveis Sexo (sx) e Rendimento médio mensal (re). Vamos fazer também
+um teste de homogeneidade, para comparar as distribuições de renda para
+os dois sexos.
 
 A variável \texttt{sx} tem dois níveis: sx(1)-Homens, sx(2)- Mulheres e
 a variável \texttt{re} tem três níveis: re(1)- Menos de salário mínimo,
 re(2) - de 1 a 5 salário mínimos e re(3)- mais de 5 salários mínimos. A
-Tabela \ref{tab84} apresenta as frequências nas celas para a amostra
-pesquisada.
+Tabela \ref{tab:frqamost} apresenta as frequências nas celas para a
+amostra pesquisada.
+
+\begin{table}
+
+\caption{\label{tab:frqamost}Frequências Amostrais por celas na PNADRJ90}
+\centering
+\begin{tabular}[t]{l|r|r|r|r}
+\hline
+  & 1 & 2 & 3 & Sum\\
+\hline
+1 & 476 & 2527 & 1273 & 4276\\
+\hline
+2 & 539 & 1270 & 422 & 2231\\
+\hline
+Sum & 1015 & 3797 & 1695 & 6507\\
+\hline
+\end{tabular}
+\end{table}
 
 No teste de homogeneidade das distribuições de renda, consideramos
-fixadas as marginais \(4.276\) e \(2.231\) da variável Sexo na tabela de
-frequências amostrais. Usando o programa Stata, calculamos as
+fixadas as marginais \texttt{4276} e \texttt{2231} da variável Sexo na
+tabela de frequências amostrais. Usando a library survey, calculamos as
 estimativas das proporções nas linhas da tabela. Nestas estimativas são
 considerados os pesos das unidades da amostra e o plano amostral
 utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo
-\ref(ex:pnad90) do Capítulo \ref{modreg}.
+\ref{exm:pnad} do Capítulo \ref{modreg}.
 
 Vamos considerar o teste de homogeneidade entre as variáveis Sexo e
 Renda e calcular o efeito de plano amostral médio das estimativas das
-proporções nas celas da tabela. A Tabela \ref{tab85} contém, em cada
-cela, as estimativas: da proporção na linha, do desvio-padrão da
-estimativa da proporção na linha (\(\times10.000\)), e do efeito de
+proporções nas celas da tabela. A Tabela \ref{tab:proplinha} contém,
+para cada sexo, as estimativas: da proporção na linha, do desvio-padrão
+da estimativa da proporção na linha (\(\times10.000\)), e do efeito de
 plano amostral da estimativa de proporção na linha.
+
+\begin{table}
+
+\caption{\label{tab:proplinha}Proporções nas linha, desvios padrões e EPAs de re para cada nivel de sx}
+\centering
+\begin{tabular}[t]{lrrrrrrrrr}
+\toprule
+sx & re1 & re2 & re3 & se.re1 & se.re2 & se.re3 & DEff.re1 & DEff.re2 & DEff.re3\\
+\midrule
+1 & 0.111 & 0.591 & 0.298 & 57.269 & 102.576 & 111.213 & 1.422 & 1.863 & 2.531\\
+2 & 0.240 & 0.570 & 0.190 & 125.026 & 119.375 & 111.410 & 1.911 & 1.298 & 1.802\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+As mesmas estimativas para a tabela marginal de \texttt{Rendas} são
+dadas por:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{marg_re_pop <-}\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{re,pnad.des, }\DataTypeTok{deff=}\OtherTok{TRUE}\NormalTok{ ))}
+\NormalTok{marg_re_pop<-}\StringTok{ }\KeywordTok{transform}\NormalTok{(marg_re_pop, }\DataTypeTok{SE=}\DecValTok{10000}\OperatorTok{*}\NormalTok{SE )}
 \NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(marg_re_pop ,}\DataTypeTok{booktabs=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{digits=}\DecValTok{3}\NormalTok{,}
   \DataTypeTok{caption=}\StringTok{"Proporções nas linha, desvios padrões e EPAs de `re` na população"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Vamos calcular, a título de ilustração, uma das celas de tabela de
-efeitos de plano amostral, digamos a cela (1,1). A estimativa da
-variância do estimador da proporção de linha nesta cela é
-\(\left( 0,0057269\right) ^{2}\). Sob amostragem aleatória simples com
-reposição, a estimativa da variância do estimador de proporção de linha
-na cela é: \(0,111\left( 1-0,111\right) /4.276\). A estimativa do efeito
-de plano amostral do estimador de proporção na cela é portanto igual a
-\[
-\frac{\left( 0,0057269\right) ^{2}}{0,111\left( 1-0,111\right) /4.276}\cong
-1,420\;\;. 
-\]
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-1}Proporções nas linha, desvios padrões e EPAs de `re` na população}
+\centering
+\begin{tabular}[t]{lrrr}
+\toprule
+  & mean & SE & deff\\
+\midrule
+re1 & 0.155 & 68.977 & 2.361\\
+re2 & 0.584 & 82.001 & 1.803\\
+re3 & 0.261 & 96.130 & 3.122\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Vamos calcular, a título de ilustração, o efeito do plano amostral da
+estimativa na cela (1,1) da \ref{tab:proplinha}, apresentado na cela
+(1,7) dessa tabela.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# cria dummy para re=1}
+\NormalTok{pnad.des <-}\StringTok{ }\KeywordTok{update}\NormalTok{(pnad.des, }
+  \DataTypeTok{ind_rend1=} \KeywordTok{as.numeric}\NormalTok{(re}\OperatorTok{==}\DecValTok{1}\NormalTok{))}
+\CommentTok{# proporção de re=1 quando  sx= 1:}
+\NormalTok{prop_re1_des <-}\StringTok{ }\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{ind_rend1, }\KeywordTok{subset}\NormalTok{(pnad.des, sx}\OperatorTok{==}\DecValTok{1}\NormalTok{))}
+\CommentTok{# objeto de desenho AAS}
+\NormalTok{pnad.des_AAS<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{id=}\OperatorTok{~}\DecValTok{1}\NormalTok{,}\DataTypeTok{data=}\NormalTok{pnadrj90)}
+\CommentTok{# dummy para re=1}
+\NormalTok{pnad.des_AAS <-}\StringTok{ }\KeywordTok{update}\NormalTok{(pnad.des_AAS, }
+  \DataTypeTok{ind_rend1=} \KeywordTok{as.numeric}\NormalTok{(re}\OperatorTok{==}\DecValTok{1}\NormalTok{))}
+\CommentTok{# proporção de re=1 quando sx=1}
+\NormalTok{prop_re1_AAS <-}\StringTok{ }\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{ind_rend1, }\KeywordTok{subset}\NormalTok{(pnad.des_AAS, sx}\OperatorTok{==}\DecValTok{1}\NormalTok{))}
+\KeywordTok{round}\NormalTok{(}\KeywordTok{attr}\NormalTok{(prop_re1_des,}\StringTok{"var"}\NormalTok{)}\OperatorTok{/}\KeywordTok{attr}\NormalTok{(prop_re1_AAS,}\StringTok{"var"}\NormalTok{),}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           ind_rend1
+## ind_rend1      1.42
+\end{verbatim}
 
 A estimativa do efeito médio de plano amostral para corrigir a
 estatística \(X_{P}^{2}\left( H\right)\) é \(\hat{d}_{.}=1,802\) ,
@@ -9240,6 +9306,24 @@ cela, as estimativas: da proporção na cela, do desvio-padrão da
 estimativa da proporção na cela (\(\times 10.000\)), e do efeito de
 plano amostral da estimativa de proporção na cela.
 
+\begin{table}
+
+\caption{\label{tab:propcelas}Proporções nas cela, desvios padrões e EPAs}
+\centering
+\begin{tabular}[t]{lrrr}
+\toprule
+  & mean & SE & deff\\
+\midrule
+sx=1,re=1 & 0.073 & 38.343 & 1.416\\
+sx=2,re=1 & 0.082 & 44.401 & 1.698\\
+sx=1,re=2 & 0.388 & 80.435 & 1.775\\
+sx=2,re=2 & 0.195 & 51.582 & 1.103\\
+sx=1,re=3 & 0.196 & 71.772 & 2.131\\
+sx=2,re=3 & 0.065 & 40.219 & 1.731\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 Tabela de proporções de \texttt{sx} para a população inteira:
 
 \begin{Shaded}
@@ -9250,6 +9334,21 @@ Tabela de proporções de \texttt{sx} para a população inteira:
   \DataTypeTok{caption=}\StringTok{"Proporções nas linha, desvios padrões e EPAs de sx na população"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-3}Proporções nas linha, desvios padrões e EPAs de sx na população}
+\centering
+\begin{tabular}[t]{l|r|r|r}
+\hline
+  & mean & SE & deff\\
+\hline
+sx1 & 0.657 & 55.814 & 0.901\\
+\hline
+sx2 & 0.343 & 55.814 & 0.901\\
+\hline
+\end{tabular}
+\end{table}
 
 Vamos calcular, a título de ilustração, o efeito de plano amostral na
 cela (1,1) da Tabela \ref{tab86}. A estimativa da variância do estimador
@@ -9470,12 +9569,22 @@ Exemplos de funções extratoras e atributos
 Podemos obter estimativas de proporções nas classes de renda por
 domínios definidos pela variável \texttt{sx}:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(xtable)}
-\KeywordTok{print}\NormalTok{(}\KeywordTok{xtable}\NormalTok{(}\KeywordTok{svyby}\NormalTok{(}\OperatorTok{~}\NormalTok{re,}\OperatorTok{~}\NormalTok{sx,pnad.des, svymean,}\DataTypeTok{keep.var=}\OtherTok{TRUE}\NormalTok{), }\DataTypeTok{caption=}\StringTok{"Proporções por sexo"}\NormalTok{),}\DataTypeTok{type=}\StringTok{"html"}\NormalTok{, }\DataTypeTok{size=}\StringTok{"small"}\NormalTok{, }\DataTypeTok{include.rownames=}\OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+## % latex table generated in R 3.4.0 by xtable 1.8-2 package
+## % Sat Sep 16 15:53:11 2017
+## \begin{table}[ht]
+## \centering
+## \begin{tabular}{lrrrrrr}
+##   \hline
+## sx & re1 & re2 & re3 & se.re1 & se.re2 & se.re3 \\ 
+##   \hline
+## 1 & 0.11 & 0.59 & 0.30 & 0.01 & 0.01 & 0.01 \\ 
+##   2 & 0.24 & 0.57 & 0.19 & 0.01 & 0.01 & 0.01 \\ 
+##    \hline
+## \end{tabular}
+## \caption{Proporções por sexo} 
+## \end{table}
+\end{verbatim}
 
 As proporções estimadas nas classes de renda e a tabela cruzada das
 variáveis sexo e renda são obtidas a seguir:
@@ -10288,21 +10397,20 @@ modificar o modelo \eqref{eq:hier16} para incluir o efeito da turma
 empregando
 
 \begin{equation}
-\log \left( \frac{p_{jk}}{1-p_{jk}}\right) =\beta _{0}+\beta
-_{1}TEMP_{jk}+\beta _{2}EXP_{j}+u_{k}.  \label{eq:hier17}
+\log\left(\frac{p_{jk}}{1-p_{jk}}\right)=\beta_0+\beta_1TEMP_{jk}+\beta_2EXP_j+u_k.  \label{eq:hier17}
 \end{equation}
 
 O erro aleatório \(u_{k}\sim N\left( 0,\sigma _{u}^{2}\right)\)
 representa a variação aleatória no nível 2. A variação no nível 1, entre
 alunos, é introduzida da seguinte forma. Sob a hipótese binomial, em
 cada domínio, a proporção de alunos atingindo o nível adequado tem
-variância \(p_{jk}\left( 1-p_{jk}\right) /n_{jk}\). Vamos supor que a
+variância \(p_{jk}\left(1-p_{jk}\right)/n_{jk}\). Vamos supor que a
 variação residual no nível 1 é denotada por \(\sigma _{e}^{2}\), e
 também que a variabilidade entre alunos acarreta uma variação
 extra-binomial
 
 \begin{equation}
-\frac{p_{jk}\left( 1-p_{jk}\right) \sigma _{e}^{2}}{n_{jk}}\;\;.
+\frac{p_{jk}\left( 1-p_{jk}\right)\sigma_{e}^{2}}{n_{jk}}\;\;.
 \label{eq:hier18}
 \end{equation}
 
@@ -10411,15 +10519,15 @@ Modelo de nível 2 \[
 
 Ou juntando as duas equações \[
 Y_{ij}=\gamma _{00}+u_{0j}+r_{ij},
-\] com \(E_{M}\left( r_{ij}\right) =E_{M}\left( u_{0j}\right) =0\) e
-\(V_{M}\left( r_{ij}\right) =\sigma ^{2}\) ,
+\] com \(E_{M}\left(r_{ij}\right) =E_{M}\left( u_{0j}\right) =0\) e
+\(V_{M}\left(r_{ij}\right) =\sigma ^{2}\) ,
 \(V_{M}\left( u_{0j}\right) =\tau _{00}\).
 
 Foram obtidas as seguintes estimativas para os parâmetros deste modelo:
 \[
 \hat{\sigma}^{2}=0,915;\;\hat{\tau}_{00}=0,084\;\mbox{ e}
 \] \[
-\mbox{Correlação Intra-Escola}=\frac{\hat{\tau}_{00}}{\hat{
+\text{Correlação Intra-Escola}=\frac{\hat{\tau}_{00}}{\hat{
 \sigma}^{2}+\hat{\tau}_{00}}=0,092.
 \]
 
@@ -10544,7 +10652,7 @@ Y_{ij}=\gamma _{0}+\sum\limits_{k=1}^{7}\gamma _{k}x_{kj}+e_{ij}.
 
 A Tabela \ref{tab:mod4} apresenta as estimativas de Mínimos Quadrados
 Ponderados de
-\(\left( \gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)\) com pesos
+\(\left(\gamma _{0},\gamma _{1},\ldots \gamma _{7}\right)\) com pesos
 dados por \(n_{j}=\) número de professores da escola \(j\).
 
 \begin{table}
