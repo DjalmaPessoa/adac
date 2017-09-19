@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-16">
+<meta name="date" content="2017-09-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -571,7 +571,7 @@ _{.}\right) /\left( L-1\right) \left( C-1\right) \;\;.  \tag{8.16}
 <span id="exm:exe81" class="example"><strong>Exemplo 8.1  </strong></span>Correções de EPA médio das estatísticas <span class="math inline">\(X_{P}^{2}\left(I\right)\)</span> e <span class="math inline">\(X_{P}^{2}\left(H\right)\)</span>.
 </div>
 
-<p>Considerando os dados do Exemplo <a href="ajmodpar.html#exm:pnad">5.1</a> do Capítulo <a href="modreg.html#modreg">6</a>, vamos testar a hipótese de independência entre as variáveis Sexo (sx) e Rendimento médio mensal (re). Vamos fazer também um teste de homogeneidade, para comparar as distribuições de renda para os dois sexos.</p>
+<p>Considerando os dados do Exemplo <a href="modreg.html#exm:pnad6">6.1</a>, vamos testar a hipótese de independência entre as variáveis Sexo (sx) e Rendimento médio mensal (re). Vamos fazer também um teste de homogeneidade, para comparar as distribuições de renda para os dois sexos.</p>
 <p>A variável <code>sx</code> tem dois níveis: sx(1)-Homens, sx(2)- Mulheres e a variável <code>re</code> tem três níveis: re(1)- Menos de salário mínimo, re(2) - de 1 a 5 salário mínimos e re(3)- mais de 5 salários mínimos. A Tabela <a href="testetab2.html#tab:frqamost">8.2</a> apresenta as frequências nas celas para a amostra pesquisada.</p>
 <table>
 <caption><span id="tab:frqamost">Tabela 8.2: </span>Frequências Amostrais por celas na PNADRJ90</caption>
@@ -608,48 +608,61 @@ _{.}\right) /\left( L-1\right) \left( C-1\right) \;\;.  \tag{8.16}
 </tr>
 </tbody>
 </table>
-<p>No teste de homogeneidade das distribuições de renda, consideramos fixadas as marginais <code>4276</code> e <code>2231</code> da variável Sexo na tabela de frequências amostrais. Usando a library survey, calculamos as estimativas das proporções nas linhas da tabela. Nestas estimativas são considerados os pesos das unidades da amostra e o plano amostral utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo <a href="ajmodpar.html#exm:pnad">5.1</a> do Capítulo <a href="modreg.html#modreg">6</a>.</p>
+<p>No teste de homogeneidade das distribuições de renda, consideramos fixadas as marginais <code>4276</code> e <code>2231</code> da variável Sexo na tabela de frequências amostrais. Usando a library survey, calculamos as estimativas das proporções nas linhas da tabela. Nestas estimativas são considerados os pesos das unidades da amostra e o plano amostral utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo <a href="modreg.html#exm:pnad6">6.1</a>.</p>
 <p>Vamos considerar o teste de homogeneidade entre as variáveis Sexo e Renda e calcular o efeito de plano amostral médio das estimativas das proporções nas celas da tabela. A Tabela <a href="testetab2.html#tab:proplinha">8.1</a> contém, para cada sexo, as estimativas: da proporção na linha, do desvio-padrão da estimativa da proporção na linha (<span class="math inline">\(\times10.000\)</span>), e do efeito de plano amostral da estimativa de proporção na linha.</p>
 <table>
 <caption><span id="tab:proplinha">Tabela 8.1: </span>Proporções nas linha, desvios padrões e EPAs de re para cada nivel de sx</caption>
 <thead>
 <tr class="header">
-<th align="left">sx</th>
-<th align="right">re1</th>
-<th align="right">re2</th>
-<th align="right">re3</th>
-<th align="right">se.re1</th>
-<th align="right">se.re2</th>
-<th align="right">se.re3</th>
-<th align="right">DEff.re1</th>
-<th align="right">DEff.re2</th>
-<th align="right">DEff.re3</th>
+<th align="left">Est</th>
+<th align="center">Sexo</th>
+<th align="center">r1</th>
+<th align="center">r2</th>
+<th align="center">r3</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">1</td>
-<td align="right">0.111</td>
-<td align="right">0.591</td>
-<td align="right">0.298</td>
-<td align="right">57.269</td>
-<td align="right">102.576</td>
-<td align="right">111.213</td>
-<td align="right">1.422</td>
-<td align="right">1.863</td>
-<td align="right">2.531</td>
+<td align="left">prop_lin</td>
+<td align="center">1</td>
+<td align="center">0.111</td>
+<td align="center">0.591</td>
+<td align="center">0.298</td>
 </tr>
 <tr class="even">
-<td align="left">2</td>
-<td align="right">0.240</td>
-<td align="right">0.570</td>
-<td align="right">0.190</td>
-<td align="right">125.026</td>
-<td align="right">119.375</td>
-<td align="right">111.410</td>
-<td align="right">1.911</td>
-<td align="right">1.298</td>
-<td align="right">1.802</td>
+<td align="left">SE_prop_lin</td>
+<td align="center">1</td>
+<td align="center">57.269</td>
+<td align="center">102.576</td>
+<td align="center">111.213</td>
+</tr>
+<tr class="odd">
+<td align="left">Def_prop_lin</td>
+<td align="center">1</td>
+<td align="center">1.422</td>
+<td align="center">1.863</td>
+<td align="center">2.531</td>
+</tr>
+<tr class="even">
+<td align="left">prop_lin</td>
+<td align="center">2</td>
+<td align="center">0.240</td>
+<td align="center">0.570</td>
+<td align="center">0.190</td>
+</tr>
+<tr class="odd">
+<td align="left">SE_prop_lin</td>
+<td align="center">2</td>
+<td align="center">125.026</td>
+<td align="center">119.375</td>
+<td align="center">111.410</td>
+</tr>
+<tr class="even">
+<td align="left">Def_prop_lin</td>
+<td align="center">2</td>
+<td align="center">1.911</td>
+<td align="center">1.298</td>
+<td align="center">1.802</td>
 </tr>
 </tbody>
 </table>
@@ -707,52 +720,62 @@ prop_re1_AAS &lt;-<span class="st"> </span><span class="kw">svymean</span>(<span
 ## ind_rend1      1.42</code></pre>
 <p>A estimativa do efeito médio de plano amostral para corrigir a estatística <span class="math inline">\(X_{P}^{2}\left( H\right)\)</span> é <span class="math inline">\(\hat{d}_{.}=1,802\)</span> , calculada tomando a média dos EPAs das celas correspondentes aos níveis 1 e 2 da variável <code>sx</code>.</p>
 <p>Vamos agora considerar o teste de independência entre as variáveis Sexo e Renda e calcular o efeito de plano amostral médio das estimativas das proporções nas celas da tabela. A Tabela  contém, em cada cela, as estimativas: da proporção na cela, do desvio-padrão da estimativa da proporção na cela (<span class="math inline">\(\times 10.000\)</span>), e do efeito de plano amostral da estimativa de proporção na cela.</p>
+<pre><code>##  [1] &quot;mean1&quot; &quot;mean2&quot; &quot;mean3&quot; &quot;mean4&quot; &quot;mean5&quot; &quot;mean6&quot; &quot;SE1&quot;   &quot;SE2&quot;  
+##  [9] &quot;SE3&quot;   &quot;SE4&quot;   &quot;SE5&quot;   &quot;SE6&quot;   &quot;deff1&quot; &quot;deff2&quot; &quot;deff3&quot; &quot;deff4&quot;
+## [17] &quot;deff5&quot; &quot;deff6&quot;</code></pre>
 <table>
 <caption><span id="tab:propcelas">Tabela 8.4: </span>Proporções nas cela, desvios padrões e EPAs</caption>
 <thead>
 <tr class="header">
-<th></th>
-<th align="right">mean</th>
-<th align="right">SE</th>
-<th align="right">deff</th>
+<th align="left">Est</th>
+<th align="center">Sexo</th>
+<th align="center">r1</th>
+<th align="center">r2</th>
+<th align="center">r3</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>sx=1,re=1</td>
-<td align="right">0.073</td>
-<td align="right">38.343</td>
-<td align="right">1.416</td>
+<td align="left">prop_lin</td>
+<td align="center">1</td>
+<td align="center">0.073</td>
+<td align="center">0.388</td>
+<td align="center">0.196</td>
 </tr>
 <tr class="even">
-<td>sx=2,re=1</td>
-<td align="right">0.082</td>
-<td align="right">44.401</td>
-<td align="right">1.698</td>
+<td align="left">SE_prop_lin</td>
+<td align="center">1</td>
+<td align="center">38.343</td>
+<td align="center">80.435</td>
+<td align="center">71.772</td>
 </tr>
 <tr class="odd">
-<td>sx=1,re=2</td>
-<td align="right">0.388</td>
-<td align="right">80.435</td>
-<td align="right">1.775</td>
+<td align="left">Def_prop_lin</td>
+<td align="center">1</td>
+<td align="center">1.416</td>
+<td align="center">1.775</td>
+<td align="center">2.131</td>
 </tr>
 <tr class="even">
-<td>sx=2,re=2</td>
-<td align="right">0.195</td>
-<td align="right">51.582</td>
-<td align="right">1.103</td>
+<td align="left">prop_lin</td>
+<td align="center">2</td>
+<td align="center">0.082</td>
+<td align="center">0.195</td>
+<td align="center">0.065</td>
 </tr>
 <tr class="odd">
-<td>sx=1,re=3</td>
-<td align="right">0.196</td>
-<td align="right">71.772</td>
-<td align="right">2.131</td>
+<td align="left">SE_prop_lin</td>
+<td align="center">2</td>
+<td align="center">44.401</td>
+<td align="center">51.582</td>
+<td align="center">40.219</td>
 </tr>
 <tr class="even">
-<td>sx=2,re=3</td>
-<td align="right">0.065</td>
-<td align="right">40.219</td>
-<td align="right">1.731</td>
+<td align="left">Def_prop_lin</td>
+<td align="center">2</td>
+<td align="center">1.698</td>
+<td align="center">1.103</td>
+<td align="center">1.731</td>
 </tr>
 </tbody>
 </table>
@@ -867,7 +890,7 @@ pnadrj90 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span cla
 ## ht3 -3.436592e-06 -3.436106e-05  3.779765e-05</code></pre>
 <p>Podemos obter estimativas de proporções nas classes de renda por domínios definidos pela variável <code>sx</code>:</p>
 <pre><code>## % latex table generated in R 3.4.0 by xtable 1.8-2 package
-## % Sat Sep 16 15:44:32 2017
+## % Tue Sep 19 16:01:11 2017
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{lrrrrrr}

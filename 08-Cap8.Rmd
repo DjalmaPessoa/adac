@@ -714,7 +714,7 @@ de liberdade.
 Correções de EPA médio das estatísticas $X_{P}^{2}\left(I\right)$ e $X_{P}^{2}\left(H\right)$.
 ```
 
-Considerando os dados do Exemplo \@ref(exm:pnad) do Capítulo \@ref(modreg), vamos
+Considerando os dados do Exemplo \@ref(exm:pnad6), vamos 
 testar a hipótese de independência entre as variáveis Sexo (sx)
 e Rendimento médio mensal (re). Vamos fazer também um teste de
 homogeneidade, para comparar as distribuições de renda para os dois
@@ -740,8 +740,7 @@ fixadas as marginais `4276` e `2231` da variável Sexo na tabela de
 frequências amostrais. Usando a library survey, calculamos as
 estimativas das proporções nas linhas da tabela. Nestas
 estimativas são considerados os pesos das unidades da amostra e o plano
-amostral utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo 
-\@ref(exm:pnad) do Capítulo \@ref(modreg).
+amostral utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo \@ref(exm:pnad6).
 
 Vamos considerar o teste de homogeneidade entre as variáveis Sexo e Renda
 e calcular o efeito de plano amostral médio das estimativas
@@ -754,10 +753,18 @@ desvio-padrão da estimativa da proporção na linha ($\times10.000$), e do efei
 library(survey)
 pnadrj90<-transform(pnadrj90,sx=factor(sx),id=factor(id),ae=factor(ae),ht=factor(ht),re=factor(re))
 pnad.des<-svydesign(id=~psu,strata=~stra,weights=~pesopes,data=pnadrj90,nest=TRUE)
-marg_re <- as.data.frame(svyby(~re,~sx,pnad.des,svymean,keep.var=T,deff = TRUE))
-marg_ret <- transform (marg_re, se.re1= 10000*se.re1, se.re2= 10000*se.re2,se.re3= 10000*se.re3)
-knitr::kable(marg_ret ,booktabs=TRUE, digits=3,
-  caption="Proporções nas linha, desvios padrões e EPAs de re para cada nivel de sx")
+marg_re <- svyby(~re,~sx,pnad.des,svymean,keep.var=T,deff = TRUE)
+marg_re <- transform (marg_re, se.re1= 10000*se.re1, se.re2= 10000*se.re2,se.re3= 10000*se.re3)
+marg_re <- unlist(marg_re)
+result <- data.frame(
+Est = rep(c("prop_lin","SE_prop_lin", "Def_prop_lin"),2),  
+Sexo = rep(1:2,c(3,3)),
+r1 = marg_re[c(c("re11","se.re11","DEff.re11" ), c("re12","se.re12","DEff.re12" ))] ,
+r2 = marg_re[c(c("re21","se.re21","DEff.re21" ), c("re22","se.re22","DEff.re22" ))],
+r3 =  marg_re[c(c("re31","se.re31","DEff.re31" ), c("re32","se.re32","DEff.re32" ))]
+)
+knitr::kable(result ,booktabs=TRUE, digits=c(3,3,3), align= c("l","c","c","c", "c"), row.names= FALSE, caption="Proporções nas linha, desvios padrões e EPAs de re para cada nivel de sx")
+
 ```
 
 As mesmas estimativas para a tabela marginal de `Rendas` são dadas por: 
@@ -804,9 +811,16 @@ estimativas das proporções nas celas da tabela. A Tabela \ref{tab86} contém, 
 sx.re_mean<-svymean(~interaction(sx,re),pnad.des,deff=T)
 frame_sx_re <- as.data.frame(sx.re_mean)
 frame_sx_re <- transform(frame_sx_re, SE = 10000*SE)
-row.names(frame_sx_re)<-c("sx=1,re=1","sx=2,re=1",
-  "sx=1,re=2","sx=2,re=2", "sx=1,re=3", "sx=2,re=3")
-knitr::kable(frame_sx_re,booktabs=TRUE, digits=3,
+frame_sx_re<-unlist(frame_sx_re)
+names(frame_sx_re)
+result <- data.frame(
+Est = rep(c("prop_lin","SE_prop_lin", "Def_prop_lin"),2),  
+Sexo = rep(1:2,c(3,3)),
+r1 = frame_sx_re[c(c("mean1","SE1","deff1"),c("mean2","SE2","deff2"))],
+r2 = frame_sx_re[c(c("mean3","SE3","deff3"),c("mean4","SE4","deff4") )],
+r3 = frame_sx_re[c(c("mean5","SE5","deff5"),c("mean6","SE6","deff6") )]
+)  
+knitr::kable(result,booktabs=TRUE, digits=3, align= c("l","c", "c", "c", "c"),row.names=FALSE,
   caption="Proporções nas cela, desvios padrões e EPAs")
 ```
 

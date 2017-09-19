@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-09-16}
+  \date{2017-09-19}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -3566,8 +3566,8 @@ Para o método \texttt{Bootstrap}, temos:
 ##                faixa
 ## analf.faixa 0.118689
 ## SEs=
-##             [,1]
-## [1,] 0.009895701
+##            [,1]
+## [1,] 0.01120612
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -5113,7 +5113,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1406194
+## [1] 0.1414556
 \end{verbatim}
 
 \begin{Shaded}
@@ -5124,7 +5124,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.4146265
+## [1] 0.3277822
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -6416,7 +6416,7 @@ efetuar os cálculos. Hoje em dia já estão disponíveis vários pacotes com
 essa funcionalidade, conforme se discute no Capítulo \ref{pacotes}.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{exm:pnad}{}{\label{exm:pnad} }Análise do perfil
+\protect\hypertarget{exm:pnad6}{}{\label{exm:pnad6} }Análise do perfil
 sócio-econômico das pessoas ocupadas no setor informal da economia na
 área urbana do Rio de Janeiro
 \EndKnitrBlock{example}
@@ -9182,11 +9182,10 @@ das estatísticas \(X_{P}^{2}\left(I\right)\) e
 \(X_{P}^{2}\left(H\right)\).
 \EndKnitrBlock{example}
 
-Considerando os dados do Exemplo \ref{exm:pnad} do Capítulo
-\ref{modreg}, vamos testar a hipótese de independência entre as
-variáveis Sexo (sx) e Rendimento médio mensal (re). Vamos fazer também
-um teste de homogeneidade, para comparar as distribuições de renda para
-os dois sexos.
+Considerando os dados do Exemplo \ref{exm:pnad6}, vamos testar a
+hipótese de independência entre as variáveis Sexo (sx) e Rendimento
+médio mensal (re). Vamos fazer também um teste de homogeneidade, para
+comparar as distribuições de renda para os dois sexos.
 
 A variável \texttt{sx} tem dois níveis: sx(1)-Homens, sx(2)- Mulheres e
 a variável \texttt{re} tem três níveis: re(1)- Menos de salário mínimo,
@@ -9217,7 +9216,7 @@ tabela de frequências amostrais. Usando a library survey, calculamos as
 estimativas das proporções nas linhas da tabela. Nestas estimativas são
 considerados os pesos das unidades da amostra e o plano amostral
 utilizado na pesquisa (PNAD 90), conforme descrito no Exemplo
-\ref{exm:pnad} do Capítulo \ref{modreg}.
+\ref{exm:pnad6}.
 
 Vamos considerar o teste de homogeneidade entre as variáveis Sexo e
 Renda e calcular o efeito de plano amostral médio das estimativas das
@@ -9230,12 +9229,16 @@ plano amostral da estimativa de proporção na linha.
 
 \caption{\label{tab:proplinha}Proporções nas linha, desvios padrões e EPAs de re para cada nivel de sx}
 \centering
-\begin{tabular}[t]{lrrrrrrrrr}
+\begin{tabular}[t]{lcccc}
 \toprule
-sx & re1 & re2 & re3 & se.re1 & se.re2 & se.re3 & DEff.re1 & DEff.re2 & DEff.re3\\
+Est & Sexo & r1 & r2 & r3\\
 \midrule
-1 & 0.111 & 0.591 & 0.298 & 57.269 & 102.576 & 111.213 & 1.422 & 1.863 & 2.531\\
-2 & 0.240 & 0.570 & 0.190 & 125.026 & 119.375 & 111.410 & 1.911 & 1.298 & 1.802\\
+prop\_lin & 1 & 0.111 & 0.591 & 0.298\\
+SE\_prop\_lin & 1 & 57.269 & 102.576 & 111.213\\
+Def\_prop\_lin & 1 & 1.422 & 1.863 & 2.531\\
+prop\_lin & 2 & 0.240 & 0.570 & 0.190\\
+SE\_prop\_lin & 2 & 125.026 & 119.375 & 111.410\\
+Def\_prop\_lin & 2 & 1.911 & 1.298 & 1.802\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -9306,20 +9309,26 @@ cela, as estimativas: da proporção na cela, do desvio-padrão da
 estimativa da proporção na cela (\(\times 10.000\)), e do efeito de
 plano amostral da estimativa de proporção na cela.
 
+\begin{verbatim}
+##  [1] "mean1" "mean2" "mean3" "mean4" "mean5" "mean6" "SE1"   "SE2"  
+##  [9] "SE3"   "SE4"   "SE5"   "SE6"   "deff1" "deff2" "deff3" "deff4"
+## [17] "deff5" "deff6"
+\end{verbatim}
+
 \begin{table}
 
 \caption{\label{tab:propcelas}Proporções nas cela, desvios padrões e EPAs}
 \centering
-\begin{tabular}[t]{lrrr}
+\begin{tabular}[t]{lcccc}
 \toprule
-  & mean & SE & deff\\
+Est & Sexo & r1 & r2 & r3\\
 \midrule
-sx=1,re=1 & 0.073 & 38.343 & 1.416\\
-sx=2,re=1 & 0.082 & 44.401 & 1.698\\
-sx=1,re=2 & 0.388 & 80.435 & 1.775\\
-sx=2,re=2 & 0.195 & 51.582 & 1.103\\
-sx=1,re=3 & 0.196 & 71.772 & 2.131\\
-sx=2,re=3 & 0.065 & 40.219 & 1.731\\
+prop\_lin & 1 & 0.073 & 0.388 & 0.196\\
+SE\_prop\_lin & 1 & 38.343 & 80.435 & 71.772\\
+Def\_prop\_lin & 1 & 1.416 & 1.775 & 2.131\\
+prop\_lin & 2 & 0.082 & 0.195 & 0.065\\
+SE\_prop\_lin & 2 & 44.401 & 51.582 & 40.219\\
+Def\_prop\_lin & 2 & 1.698 & 1.103 & 1.731\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -9571,7 +9580,7 @@ domínios definidos pela variável \texttt{sx}:
 
 \begin{verbatim}
 ## % latex table generated in R 3.4.0 by xtable 1.8-2 package
-## % Sat Sep 16 15:53:11 2017
+## % Tue Sep 19 16:08:08 2017
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{lrrrrrr}
