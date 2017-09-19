@@ -720,9 +720,6 @@ prop_re1_AAS &lt;-<span class="st"> </span><span class="kw">svymean</span>(<span
 ## ind_rend1      1.42</code></pre>
 <p>A estimativa do efeito médio de plano amostral para corrigir a estatística <span class="math inline">\(X_{P}^{2}\left( H\right)\)</span> é <span class="math inline">\(\hat{d}_{.}=1,802\)</span> , calculada tomando a média dos EPAs das celas correspondentes aos níveis 1 e 2 da variável <code>sx</code>.</p>
 <p>Vamos agora considerar o teste de independência entre as variáveis Sexo e Renda e calcular o efeito de plano amostral médio das estimativas das proporções nas celas da tabela. A Tabela  contém, em cada cela, as estimativas: da proporção na cela, do desvio-padrão da estimativa da proporção na cela (<span class="math inline">\(\times 10.000\)</span>), e do efeito de plano amostral da estimativa de proporção na cela.</p>
-<pre><code>##  [1] &quot;mean1&quot; &quot;mean2&quot; &quot;mean3&quot; &quot;mean4&quot; &quot;mean5&quot; &quot;mean6&quot; &quot;SE1&quot;   &quot;SE2&quot;  
-##  [9] &quot;SE3&quot;   &quot;SE4&quot;   &quot;SE5&quot;   &quot;SE6&quot;   &quot;deff1&quot; &quot;deff2&quot; &quot;deff3&quot; &quot;deff4&quot;
-## [17] &quot;deff5&quot; &quot;deff6&quot;</code></pre>
 <table>
 <caption><span id="tab:propcelas">Tabela 8.4: </span>Proporções nas cela, desvios padrões e EPAs</caption>
 <thead>
@@ -809,15 +806,15 @@ knitr<span class="op">::</span><span class="kw">kable</span>(marg_sx_pop, <span 
 </tr>
 </tbody>
 </table>
-<p>Vamos calcular, a título de ilustração, o efeito de plano amostral na cela (1,1) da Tabela . A estimativa da variância do estimador de proporção nesta cela é <span class="math inline">\(\left(0,0038343\right) ^{2}\)</span>. Sob amostragem aleatória simples com reposição, a estimativa da variância do estimador de proporção na cela é: <span class="math inline">\(0,073\times \left( 1-0,073\right) /6.507\)</span>. A estimativa do efeito de plano amostral do estimador de proporção na cela é</p>
+<p>Vamos calcular, a título de ilustração, o efeito de plano amostral na cela (1,1) da Tabela <a href="testetab2.html#tab:propcelas">8.4</a> A estimativa da variância do estimador de proporção nesta cela é <span class="math inline">\(\left(0,0038343\right) ^{2}\)</span>. Sob amostragem aleatória simples com reposição, a estimativa da variância do estimador de proporção na cela é: <span class="math inline">\(0,073\times \left( 1-0,073\right) /6.507\)</span>. A estimativa do efeito de plano amostral do estimador de proporção na cela é</p>
 <p><span class="math display">\[
 \frac{\left( 0,0038343\right) ^{2}}{0,073\left( 1-0,073\right) /6.507}\cong
 1,414\;\;. 
 \]</span></p>
 <p>Portanto, a estimativa do efeito médio de plano amostral requerida para corrigir a estatística <span class="math inline">\(X_{P}^{2}\left( I\right)\)</span> é <span class="math inline">\(\hat{d}_{.}=1,640,\)</span> calculada tomando a média dos EPAs das celas correspondentes aos níveis 1 e 2 da variável <code>sx</code>.</p>
-<p>Calculando as estatísticas <span class="math inline">\(X_{P}^{2}\left( I\right)\)</span> e <span class="math inline">\(X_{P}^{2}\left( H\right)\)</span> para os testes clássicos de independência e homogeneidade a partir da Tabela , obtemos os valores <span class="math inline">\(X_{P}^{2}\left( I\right) =X_{P}^{2}\left( H\right) =227,025\)</span>, com distribuição de referência <span class="math inline">\(\chi ^{2}\left( 2\right)\)</span>, resultado que indica rejeição da hipótese de independência entre <code>sx</code> e <code>re</code>, bem como da hipótese de igualdade de distribuição de renda para os dois sexos a partir do teste de homogeneidade. O valor comum das estatísticas <span class="math inline">\(X_{P}^{2}\left( I\right)\)</span> e <span class="math inline">\(X_{P}^{2}\left( H\right)\)</span> foi calculado sem considerar os pesos e o plano amostral. Considerando estes últimos, mediante a correção de EPA médio das estatísticas clássicas, obtemos os valores <span class="math inline">\(X_{P}^{2}\left( I;\hat{d} _{.}\right) =137,117\)</span> e <span class="math inline">\(X_{P}^{2}\left( H;\hat{d}_{.}\right) =124,742\)</span>, que também indicam a rejeição das hipóteses de independência e de homogeneidade.</p>
+<p>Calculando as estatísticas <span class="math inline">\(X_{P}^{2}\left( I\right)\)</span> e <span class="math inline">\(X_{P}^{2}\left( H\right)\)</span> para os testes clássicos de independência e homogeneidade a partir da Tabela <a href="testetab2.html#tab:propcelas">8.4</a>, obtemos os valores <span class="math inline">\(X_{P}^{2}\left( I\right) =X_{P}^{2}\left( H\right) =227,025\)</span>, com distribuição de referência <span class="math inline">\(\chi ^{2}\left( 2\right)\)</span>, resultado que indica rejeição da hipótese de independência entre <code>sx</code> e <code>re</code>, bem como da hipótese de igualdade de distribuição de renda para os dois sexos a partir do teste de homogeneidade. O valor comum das estatísticas <span class="math inline">\(X_{P}^{2}\left( I\right)\)</span> e <span class="math inline">\(X_{P}^{2}\left( H\right)\)</span> foi calculado sem considerar os pesos e o plano amostral. Considerando estes últimos, mediante a correção de EPA médio das estatísticas clássicas, obtemos os valores <span class="math inline">\(X_{P}^{2}\left( I;\hat{d} _{.}\right) =137,117\)</span> e <span class="math inline">\(X_{P}^{2}\left( H;\hat{d}_{.}\right) =124,742\)</span>, que também indicam a rejeição das hipóteses de independência e de homogeneidade.</p>
 <p>Vale ressaltar que apesar de todos os testes mencionados indicarem forte rejeição das hipóteses de independência e de homogeneidade, os valores das estatísticas de teste <span class="math inline">\(137,117\)</span> e <span class="math inline">\(124,742\)</span> , calculados considerando os pesos e plano amostral, são bem menores que o valor <span class="math inline">\(227,025\)</span> obtido para o caso de amostra IID. Sob a hipótese nula, a distribuição de referência de todas essas estatísticas de teste é <span class="math inline">\(\chi ^{2}\left( 2\right)\)</span>, mostrando novamente que a estatística de teste calculada sob a hipótese de amostra IID tem maior tendência a rejeitar a hipótese nula.</p>
-<p>A partir da Tabela , examinando as estimativas das proporções nas celas da tabela para cada sexo, observamos uma ordenação estocástica das distribuições de renda para os dois sexos, com proporções maiores em valores mais altos para o nível 1 da variável sexo, que é o sexo masculino.</p>
+<p>A partir da Tabela <a href="testetab2.html#tab:propcelas">8.4</a>, examinando as estimativas das proporções nas celas da tabela para cada sexo, observamos uma ordenação estocástica das distribuições de renda para os dois sexos, com proporções maiores em valores mais altos para o nível 1 da variável sexo, que é o sexo masculino.</p>
 </div>
 </div>
 <div id="laboratorio-de-r-5" class="section level2">
@@ -890,7 +887,7 @@ pnadrj90 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span cla
 ## ht3 -3.436592e-06 -3.436106e-05  3.779765e-05</code></pre>
 <p>Podemos obter estimativas de proporções nas classes de renda por domínios definidos pela variável <code>sx</code>:</p>
 <pre><code>## % latex table generated in R 3.4.0 by xtable 1.8-2 package
-## % Tue Sep 19 16:01:11 2017
+## % Tue Sep 19 16:25:55 2017
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{lrrrrrr}

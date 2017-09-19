@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  19 SEP 2017 16:08
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  19 SEP 2017 16:29
 entering extended mode
 **./bookdown-adac.tex
 (bookdown-adac.tex
@@ -1243,18 +1243,7 @@ LaTeX Warning: Reference `tab82' on page 113 undefined on input line 8639.
 
 LaTeX Warning: Reference `tab86' on page 121 undefined on input line 9307.
 
-[121]
-
-LaTeX Warning: Reference `tab86' on page 122 undefined on input line 9363.
-
-
-LaTeX Warning: Reference `tab86' on page 122 undefined on input line 9382.
-
-[122]
-
-LaTeX Warning: Reference `tab86' on page 123 undefined on input line 9406.
-
-[123] [124] [125] [126]
+[121] [122] [123] [124] [125] [126]
 Cap\'{\i }tulo 9.
 [127
 
@@ -1282,12 +1271,12 @@ Cap\'{\i }tulo 14.
 ] [150] [151] [152] [153] (bookdown-adac.bbl [154] [155
 
 ] [156] [157])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 11328.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 11322.
 [158]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 11328.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 11322.
 (bookdown-adac.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 11328.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 11328.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 11322.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 11322.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 

@@ -812,7 +812,6 @@ sx.re_mean<-svymean(~interaction(sx,re),pnad.des,deff=T)
 frame_sx_re <- as.data.frame(sx.re_mean)
 frame_sx_re <- transform(frame_sx_re, SE = 10000*SE)
 frame_sx_re<-unlist(frame_sx_re)
-names(frame_sx_re)
 result <- data.frame(
 Est = rep(c("prop_lin","SE_prop_lin", "Def_prop_lin"),2),  
 Sexo = rep(1:2,c(3,3)),
@@ -836,7 +835,7 @@ knitr::kable(marg_sx_pop, digits=3,
 
 
 Vamos calcular, a título de ilustração, o efeito de plano
-amostral na cela (1,1) da Tabela \ref{tab86}. A estimativa da variância
+amostral na cela (1,1) da Tabela \@ref(tab:propcelas) A estimativa da variância
 do estimador de proporção nesta cela é 
 $\left(0,0038343\right) ^{2}$. Sob amostragem aleatória simples com reposição, a estimativa da variância do estimador de proporção na
 cela é: $0,073\times \left( 1-0,073\right) /6.507$. A
@@ -853,7 +852,7 @@ corrigir a estatística $X_{P}^{2}\left( I\right)$ é $\hat{d}_{.}=1,640,$ calcu
 
 Calculando as estatísticas $X_{P}^{2}\left( I\right)$ e 
 $X_{P}^{2}\left( H\right)$ para os testes clássicos de independência
-e homogeneidade a partir da Tabela \ref{tab86}, obtemos os valores 
+e homogeneidade a partir da Tabela \@ref(tab:propcelas), obtemos os valores 
 $X_{P}^{2}\left( I\right) =X_{P}^{2}\left( H\right) =227,025$, com distribuição de referência $\chi ^{2}\left( 2\right)$, resultado que
 indica rejeição da hipótese de independência entre `sx` e `re`,
 bem como da hipótese de igualdade de distribuição de renda para
@@ -876,8 +875,7 @@ teste é $\chi ^{2}\left( 2\right)$, mostrando novamente que a
 estatística de teste calculada sob a hipótese de amostra IID tem
 maior tendência a rejeitar a hipótese nula.
 
-A partir da Tabela \ref{tab86}, examinando as estimativas das 
-proporções nas celas da tabela para cada sexo, observamos uma ordenação
+A partir da Tabela \@ref(tab:propcelas), examinando as estimativas das proporções nas celas da tabela para cada sexo, observamos uma ordenação
 estocástica das distribuições de renda para os dois sexos, com
 proporções maiores em valores mais altos para o nível 1 da
 variável sexo, que é o sexo masculino.
