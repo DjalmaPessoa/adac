@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-09-19}
+  \date{2017-09-20}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -3566,8 +3566,8 @@ Para o método \texttt{Bootstrap}, temos:
 ##                faixa
 ## analf.faixa 0.118689
 ## SEs=
-##            [,1]
-## [1,] 0.01396463
+##           [,1]
+## [1,] 0.0130822
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -5113,7 +5113,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1398333
+## [1] 0.1410148
 \end{verbatim}
 
 \begin{Shaded}
@@ -5124,7 +5124,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.36284
+## [1] 0.3174321
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -8477,28 +8477,31 @@ binárias, por exemplo), porém não serão aqui considerados.
 
 Para fixar idéias, vamos considerar inicialmente uma tabela de
 contingência \(2\times 2\), isto é, com \(L=2\) e \(C=2\), representada
-pela Tabela \ref{tab81}. A entrada \(p_{lc}\) na Tabela \ref{tab81}
-representa a proporção populacional de unidades no nível \(l\) da
-variável 1 e \(c\) da variável 2, ou seja \(p_{lc}=\frac{N_{lc}}{N}\) ,
-onde \(N_{lc}\) é o número de observações na cela \(\left( l,c\right)\)
-na população, \(N\) é o tamanho da população e
-\(\sum\nolimits_{l}\sum\nolimits_{c}p_{lc}=1\). Vamos denotar, ainda, as
-proporções marginais na tabela por \(p_{l+}=\sum\nolimits_{c}p_{lc}\) e
-\(p_{+c}=\sum_{l}p_{lc}\).
+pela Tabela \ref{tab:tab81}. A entrada \(p_{lc}\) na Tabela
+\ref{tab:tab81} representa a proporção populacional de unidades no nível
+\(l\) da variável 1 e \(c\) da variável 2, ou seja
+\(p_{lc}=\frac{N_{lc}}{N}\) , onde \(N_{lc}\) é o número de observações
+na cela \(\left( l,c\right)\) na população, \(N\) é o tamanho da
+população e \(\sum\nolimits_{l}\sum\nolimits_{c}p_{lc}=1\). Vamos
+denotar, ainda, as proporções marginais na tabela por
+\(p_{l+}=\sum\nolimits_{c}p_{lc}\) e \(p_{+c}=\sum_{l}p_{lc}\).
 
-\begin{center}
-\begin{table}[tbp] \centering
-\caption{Tabela 2x2 de proporções }\bigskip \label{tab81}
-\begin{tabular}{|c|c|c|c|}
-\hline
-& \multicolumn{3}{|c|}{Var 2} \\ \cline{2-4}
-Var 1 & 1 & 2 & Total \\ \hline
-1 & $p_{11}$ & $p_{12}$ & $p_{1+}$ \\ 
-2 & $p_{21}$ & $p_{22}$ & $p_{2+}$ \\ \hline
-Total & $p_{+1}$ & $p_{+2}$ & $1$ \\ \hline
-\end{tabular}
-\end{table}
-\end{center}
+\begin{longtable}[]{@{}lllll@{}}
+\caption{\label{tab:tab81} Tabela 2x2 de proporções.}\tabularnewline
+\toprule
+& & & var2 &\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+& & & var2 &\tabularnewline
+\midrule
+\endhead
+& & 1 & 2 & Total\tabularnewline
+Var1 & 1 & \(p_{11}\) & \(p_{12}\) & \(p_{1+}\)\tabularnewline
+& 2 & \(p_{21}\) & \(p_{22}\) & \(p_{2+}\)\tabularnewline
+& Total & \(p_{+1}\) & \(p_{+2}\) & 1\tabularnewline
+\bottomrule
+\end{longtable}
 
 \subsection{Teste de Independência}\label{teste-de-independencia}
 
@@ -8636,7 +8639,7 @@ tabela \(L\times C\) e supor que as colunas da tabela correspondem às
 classes da variável resposta e as linhas correspondem às regiões, de
 modo que as somas da proporções nas linhas na tabela de proporções são
 iguais a \(1\). A tabela para a população é da forma da Tabela
-\ref{tab82}.
+\ref{tab:proplinha}.
 
 \begin{longtable}[]{@{}llllllll@{}}
 \caption{\label{tab:proplinha} Proporções de linhas em tabela
@@ -8890,35 +8893,37 @@ _{.}\right) /\left( C-1\right),
 
 Vamos considerar o teste de independência no caso geral de tabela
 \(L\times C\), onde os dados são extraídos de uma única população, sem
-fixar marginais. Consideremos a Tabela \ref{tab83} com as proporções nas
-celas a nível da população, onde agora novamente se tem
+fixar marginais. Consideremos a Tabela \ref{tab:tab83} com as proporções
+nas celas a nível da população, onde agora novamente se tem
 \(p_{lc}=N_{lc}/N\).
 
-\begin{center}
-\begin{table}[tbp] \centering
-\caption{Proporções por cela na população}\bigskip \label{tab83}
-\begin{tabular}{|c|cccccc|c|}
-\hline\hline
-& \multicolumn{7}{|c|}{Variável 2} \\ \cline{2-8}
-Variável 1 & $1$ & $2$ & $\ldots $ & $c$ & $\ldots $ & $C$ & Total \\
-\hline\hline
-$1$ & $p_{11}$ & $p_{12}$ & $\ldots $ & $p_{1c}$ & $\ldots $ & $p_{1C}$ & $
-p_{1+}$ \\
-$2$ & $p_{21}$ & $p_{22}$ & $\ldots $ & $p_{2c}$ & $\ldots $ & $p_{2C}$ & $
-p_{2+}$ \\
-$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
-\\
-$l$ & $p_{l1}$ & $p_{l1}$ & $\ldots $ & $p_{lc}$ & $\ldots $ & $p_{lC}$ & $
-p_{l+}$ \\
-$\vdots $ & $\vdots $ & $\vdots $ & . & $\vdots $ & . & $\vdots $ & $\vdots $
-\\
-$L$ & $p_{L1}$ & $p_{L2}$ & $\ldots $ & $p_{Lc}$ & $\ldots $ & $p_{LC}$ & $
-p_{L+}$ \\ \hline\hline
-Total & $p_{+1}$ & $p_{+2}$ & $\ldots $ & $p_{+c}$ & $\ldots $ & $p_{+C}$ & $
-1$ \\ \hline\hline
-\end{tabular}
-\end{table}
-\end{center}
+\begin{longtable}[]{@{}llllllll@{}}
+\caption{\label{tab:tab83} Proporções por cela na população.}\tabularnewline
+\toprule
+& & & Var2 & & & &\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+& & & Var2 & & & &\tabularnewline
+\midrule
+\endhead
+Var 1 & 1 & 2 & \(\ldots\) & c & \(\ldots\) & C & Total\tabularnewline
+1 & \(p_{11}\) & \(p_{12}\) & \(\ldots\) & \(p_{1c}\) & \(\ldots\) &
+\(p_{1C}\) & \(p_{1+}\)\tabularnewline
+2 & \(p_{21}\) & \(p_{22}\) & \(\ldots\) & \(p_{2c}\) & \(\ldots\) &
+\(p_{2C}\) & \(p_{2+}\)\tabularnewline
+\(\vdots\) & \(\vdots\) & \(\vdots\) & . & \(\vdots\) & . & \(\vdots\) &
+\(\vdots\)\tabularnewline
+l & \(p_{l1}\) & \(p_{l2}\) & \(\ldots\) & \(p_{lc}\) & \(\ldots\) &
+\(p_{lC}\) & \(p_{l+}\)\tabularnewline
+\(\vdots\) & \(\vdots\) & \(\vdots\) & . & \(\vdots\) & . & \(\vdots\) &
+\(\vdots\)\tabularnewline
+L & \(p_{L1}\) & \(p_{L2}\) & \(\ldots\) & \(p_{Lc}\) & \(\ldots\) &
+\(p_{LC}\) & \(p_{L+}\)\tabularnewline
+Total & \(p_{+1}\) & \(p_{+2}\) & \(\ldots\) & \(p_{+c}\) & \(\ldots\) &
+\(p_{+c}\) & 1\tabularnewline
+\bottomrule
+\end{longtable}
 
 Estamos interessados em testar a hipótese de independência \[
 H_{0}:p_{lc}=p_{l+}p_{+c},\quad l=1,\ldots ,L-1,\ c=1,\ldots,C-1, 
@@ -9271,8 +9276,8 @@ re3 & 0.261 & 96.130 & 3.122\\
 \end{table}
 
 Vamos calcular, a título de ilustração, o efeito do plano amostral da
-estimativa na cela (1,1) da \ref{tab:proplinha}, apresentado na cela
-(1,7) dessa tabela.
+estimativa na cela (1,1) da Tabela \ref{tab:proplinha}, apresentado na
+cela (1,7) dessa tabela.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9304,8 +9309,8 @@ calculada tomando a média dos EPAs das celas correspondentes aos níveis
 
 Vamos agora considerar o teste de independência entre as variáveis Sexo
 e Renda e calcular o efeito de plano amostral médio das estimativas das
-proporções nas celas da tabela. A Tabela \ref{tab86} contém, em cada
-cela, as estimativas: da proporção na cela, do desvio-padrão da
+proporções nas celas da tabela. A Tabela \ref{tab:propcelas} contém, em
+cada cela, as estimativas: da proporção na cela, do desvio-padrão da
 estimativa da proporção na cela (\(\times 10.000\)), e do efeito de
 plano amostral da estimativa de proporção na cela.
 
@@ -9574,7 +9579,7 @@ domínios definidos pela variável \texttt{sx}:
 
 \begin{verbatim}
 ## % latex table generated in R 3.4.0 by xtable 1.8-2 package
-## % Tue Sep 19 16:28:40 2017
+## % Wed Sep 20 15:13:58 2017
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{lrrrrrr}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  19 SEP 2017 16:29
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  20 SEP 2017 15:14
 entering extended mode
 **./bookdown-adac.tex
 (bookdown-adac.tex
@@ -1235,15 +1235,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Cap\'{\i }tulo 8.
 [111
 
-] [112]
-
-LaTeX Warning: Reference `tab82' on page 113 undefined on input line 8639.
-
-[113] [114] [115] [116] [117] [118] [119] [120]
-
-LaTeX Warning: Reference `tab86' on page 121 undefined on input line 9307.
-
-[121] [122] [123] [124] [125] [126]
+] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122] [123] [124]
+[125] [126]
 Cap\'{\i }tulo 9.
 [127
 
@@ -1271,12 +1264,12 @@ Cap\'{\i }tulo 14.
 ] [150] [151] [152] [153] (bookdown-adac.bbl [154] [155
 
 ] [156] [157])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 11322.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 11327.
 [158]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 11322.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 11327.
 (bookdown-adac.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 11322.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 11322.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 11327.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 11327.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1289,8 +1282,8 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  23470 strings out of 427918
- 441113 string characters out of 3149834
- 550182 words of memory out of 3000000
+ 441118 string characters out of 3149834
+ 550368 words of memory out of 3000000
  27085 multiletter control sequences out of 15000+200000
  25898 words of font info for 55 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
