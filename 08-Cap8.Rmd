@@ -866,7 +866,7 @@ variável sexo, que é o sexo masculino.
 
 ## Laboratório de R  
 
-Vamos reproduzir alguns resultados usando dados da PNAD descritos na Seção ??? 
+Vamos reproduzir alguns resultados usando dados da PNAD90 para o Rio de Janeiro, descritos no Exemplo \@ref(exm:pnad6). 
 
 ```{example, label= "exe82"}
 Estimativas de medidas descritivas em tabelas
@@ -877,7 +877,8 @@ pnadrj90 <- readRDS("~\\GitHub\\adac\\data\\pnadrj90.rds")
 names(pnadrj90)
 n <- nrow (pnadrj90)
 ```
-Transformação em fatores:
+
+- Transformação em fatores:
 ```{r}
 unlist(lapply(pnadrj90, mode))
 pnadrj90<-transform(pnadrj90,sx=factor(sx),id=factor(id),ae=factor(ae),ht=factor(ht),re=factor(re))
@@ -888,7 +889,7 @@ Definição do objeto de desenho:
 pnad.des<-svydesign(id=~psu,strata=~stra,weights=~pesopes,data=pnadrj90,nest=TRUE)
 ```
 
-Estimativas de proporções:
+- Estimativas de proporções:
 
 ```{r}
 svymean(~sx,pnad.des)         #estimativa de proporção para sx
@@ -897,7 +898,7 @@ svymean(~ae,pnad.des)         #estimativa de proporção para ae
 ht.mean<-svymean(~ht,pnad.des)
 ```
 
-Exemplos de funções extratoras e atributos
+- Exemplos de funções extratoras e atributos:
 
 
 ```{r}
@@ -907,14 +908,14 @@ vcov(ht.mean)                         #estimativas de variâncias e covariância
 attr(ht.mean, "var")
 ```
 
-Podemos obter estimativas de proporções nas classes de renda por domínios definidos pela variável `sx`:
+- Estimativas de proporções nas classes de renda por domínios definidos pela variável `sx`:
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, results='asis'}
 library(xtable)
-print(xtable(svyby(~re,~sx,pnad.des, svymean,keep.var=TRUE), caption="Proporções por sexo"), include.rownames=FALSE)
+print(xtable(svyby(~re,~sx,pnad.des, svymean,keep.var=TRUE), caption="Proporções por sexo"), include.rownames=FALSE, type="html")
 ```
 
-As proporções estimadas nas classes de renda e a tabela cruzada das variáveis sexo e renda são obtidas a seguir:
+- Estimativas das proporções nas classes de renda e a tabela cruzada das variáveis sexo e renda:
 
 ```{r}
 svymean(~re,pnad.des,deff=T)
@@ -941,7 +942,7 @@ mean(sx.re_mean$deff)
 Testes de Hipóteses
 ```
 
-Teste de independência e homogeneidade baseado nos dados da amostra sem considerar o plano amostral:
+- Teste de independência e homogeneidade baseado nos dados da amostra sem considerar o plano amostral:
 
 ```{r}
 attach(pnadrj90)
@@ -950,12 +951,12 @@ chisq.test(tab.amo)
 ```
 
 
-
-
-Resultados dos testes obtidos pela library `survey` [@R-survey] precisam ser identificados com as fórmulas do texto:
-
+```{remark}
+Identificar resultados dos testes obtidos pela library `survey` [@R-survey] com as fórmulas do texto:
+```
+  
+  
 ```{r}
-
 n <- nrow (pnadrj90)
 pearson <- chisq.test( pnadrj90$sx, pnadrj90$re, correct = FALSE )
 
@@ -975,7 +976,7 @@ pearsonAdjWald <-svychisq( ~ sx+re , pnad.des, statistic = "adjWald", na.rm=TRUE
 
 ```
 
-```{r }
+```{r}
 result <- data.frame(
 Metodo = c("AASR", "AASRPOND", "RAO-SCOTT", "RAO.SCOTT.F", "WALD","ADJWALD" ), Estatistica = c(pearson$statistic, pearsonPond$statistic, pearsonChisq$statistic, pearsonF$statistic, pearsonWald$statistic, pearsonAdjWald$statistic), 
 Valorp = c(pearson$p.value, pearsonPond$p.value, pearsonChisq$p.value, pearsonF$p.value, pearsonWald$p.value, pearsonAdjWald$p.value)

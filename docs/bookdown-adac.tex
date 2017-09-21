@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-09-20}
+  \date{2017-09-21}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -3566,8 +3566,8 @@ Para o método \texttt{Bootstrap}, temos:
 ##                faixa
 ## analf.faixa 0.118689
 ## SEs=
-##           [,1]
-## [1,] 0.0130822
+##            [,1]
+## [1,] 0.01129982
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -5113,7 +5113,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1410148
+## [1] 0.1418903
 \end{verbatim}
 
 \begin{Shaded}
@@ -5124,7 +5124,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3174321
+## [1] 0.338907
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -9410,8 +9410,8 @@ sexo, que é o sexo masculino.
 
 \section{Laboratório de R}\label{laboratorio-de-r-5}
 
-Vamos reproduzir alguns resultados usando dados da PNAD descritos na
-Seção ???
+Vamos reproduzir alguns resultados usando dados da PNAD90 para o Rio de
+Janeiro, descritos no Exemplo \ref{exm:pnad6}.
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:exe82}{}{\label{exm:exe82} }Estimativas de medidas
@@ -9437,7 +9437,11 @@ descritivas em tabelas
 \end{Highlighting}
 \end{Shaded}
 
-Transformação em fatores:
+\begin{itemize}
+\tightlist
+\item
+  Transformação em fatores:
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9466,7 +9470,11 @@ Definição do objeto de desenho:
 \end{Highlighting}
 \end{Shaded}
 
-Estimativas de proporções:
+\begin{itemize}
+\tightlist
+\item
+  Estimativas de proporções:
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9512,7 +9520,11 @@ Estimativas de proporções:
 \end{Highlighting}
 \end{Shaded}
 
-Exemplos de funções extratoras e atributos
+\begin{itemize}
+\tightlist
+\item
+  Exemplos de funções extratoras e atributos:
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9574,28 +9586,63 @@ Exemplos de funções extratoras e atributos
 ## ht3 -3.436592e-06 -3.436106e-05  3.779765e-05
 \end{verbatim}
 
-Podemos obter estimativas de proporções nas classes de renda por
-domínios definidos pela variável \texttt{sx}:
+\begin{itemize}
+\tightlist
+\item
+  Estimativas de proporções nas classes de renda por domínios definidos
+  pela variável \texttt{sx}:
+\end{itemize}
 
-\begin{verbatim}
-## % latex table generated in R 3.4.0 by xtable 1.8-2 package
-## % Wed Sep 20 15:13:58 2017
-## \begin{table}[ht]
-## \centering
-## \begin{tabular}{lrrrrrr}
-##   \hline
-## sx & re1 & re2 & re3 & se.re1 & se.re2 & se.re3 \\ 
-##   \hline
-## 1 & 0.11 & 0.59 & 0.30 & 0.01 & 0.01 & 0.01 \\ 
-##   2 & 0.24 & 0.57 & 0.19 & 0.01 & 0.01 & 0.01 \\ 
-##    \hline
-## \end{tabular}
-## \caption{Proporções por sexo} 
-## \end{table}
-\end{verbatim}
+Proporções por sexo
 
-As proporções estimadas nas classes de renda e a tabela cruzada das
-variáveis sexo e renda são obtidas a seguir:
+sx
+
+re1
+
+re2
+
+re3
+
+se.re1
+
+se.re2
+
+se.re3
+
+1
+
+0.11
+
+0.59
+
+0.30
+
+0.01
+
+0.01
+
+0.01
+
+2
+
+0.24
+
+0.57
+
+0.19
+
+0.01
+
+0.01
+
+0.01
+
+\begin{itemize}
+\tightlist
+\item
+  Estimativas das proporções nas classes de renda e a tabela cruzada das
+  variáveis sexo e renda:
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9693,8 +9740,12 @@ variáveis sexo e renda são obtidas a seguir:
 \protect\hypertarget{exm:exe83}{}{\label{exm:exe83} }Testes de Hipóteses
 \EndKnitrBlock{example}
 
-Teste de independência e homogeneidade baseado nos dados da amostra sem
-considerar o plano amostral:
+\begin{itemize}
+\tightlist
+\item
+  Teste de independência e homogeneidade baseado nos dados da amostra
+  sem considerar o plano amostral:
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9712,8 +9763,10 @@ considerar o plano amostral:
 ## X-squared = 227.03, df = 2, p-value < 2.2e-16
 \end{verbatim}
 
-Resultados dos testes obtidos pela library \texttt{survey}
-\citep{R-survey} precisam ser identificados com as fórmulas do texto:
+\BeginKnitrBlock{remark}
+\iffalse{} {Observação. } \fi{}Identificar resultados dos testes obtidos
+pela library \texttt{survey} \citep{R-survey} com as fórmulas do texto:
+\EndKnitrBlock{remark}
 
 \begin{Shaded}
 \begin{Highlighting}[]

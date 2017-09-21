@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-20">
+<meta name="date" content="2017-09-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -956,7 +956,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(marg_sx_pop, <span 
 </div>
 <div id="laboratorio-de-r-5" class="section level2">
 <h2><span class="header-section-number">8.4</span> Laboratório de R</h2>
-<p>Vamos reproduzir alguns resultados usando dados da PNAD descritos na Seção ???</p>
+<p>Vamos reproduzir alguns resultados usando dados da PNAD90 para o Rio de Janeiro, descritos no Exemplo <a href="modreg.html#exm:pnad6">6.1</a>.</p>
 
 <div class="example">
 <span id="exm:exe82" class="example"><strong>Exemplo 8.2  </strong></span>Estimativas de medidas descritivas em tabelas
@@ -968,7 +968,9 @@ pnadrj90 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span cla
 <pre><code>##  [1] &quot;stra&quot;     &quot;psu&quot;      &quot;pesopes&quot;  &quot;informal&quot; &quot;sx&quot;       &quot;id&quot;      
 ##  [7] &quot;ae&quot;       &quot;ht&quot;       &quot;re&quot;       &quot;um&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="kw">nrow</span> (pnadrj90)</code></pre></div>
-<p>Transformação em fatores:</p>
+<ul>
+<li>Transformação em fatores:</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unlist</span>(<span class="kw">lapply</span>(pnadrj90, mode))</code></pre></div>
 <pre><code>##      stra       psu   pesopes  informal        sx        id        ae 
 ## &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; 
@@ -977,7 +979,9 @@ pnadrj90 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span cla
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnadrj90&lt;-<span class="kw">transform</span>(pnadrj90,<span class="dt">sx=</span><span class="kw">factor</span>(sx),<span class="dt">id=</span><span class="kw">factor</span>(id),<span class="dt">ae=</span><span class="kw">factor</span>(ae),<span class="dt">ht=</span><span class="kw">factor</span>(ht),<span class="dt">re=</span><span class="kw">factor</span>(re))</code></pre></div>
 <p>Definição do objeto de desenho:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnad.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span><span class="op">~</span>psu,<span class="dt">strata=</span><span class="op">~</span>stra,<span class="dt">weights=</span><span class="op">~</span>pesopes,<span class="dt">data=</span>pnadrj90,<span class="dt">nest=</span><span class="ot">TRUE</span>)</code></pre></div>
-<p>Estimativas de proporções:</p>
+<ul>
+<li>Estimativas de proporções:</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svymean</span>(<span class="op">~</span>sx,pnad.des)         <span class="co">#estimativa de proporção para sx</span></code></pre></div>
 <pre><code>##        mean     SE
 ## sx1 0.65708 0.0056
@@ -993,7 +997,9 @@ pnadrj90 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span cla
 ## ae2 0.31972 0.0071
 ## ae3 0.36725 0.0105</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht.mean&lt;-<span class="kw">svymean</span>(<span class="op">~</span>ht,pnad.des)</code></pre></div>
-<p>Exemplos de funções extratoras e atributos</p>
+<ul>
+<li>Exemplos de funções extratoras e atributos:</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coef</span>(ht.mean)                         <span class="co">#estimativas das proporções</span></code></pre></div>
 <pre><code>##       ht1       ht2       ht3 
 ## 0.2103714 0.6148881 0.1747405</code></pre>
@@ -1022,22 +1028,88 @@ pnadrj90 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span cla
 ## ht1  3.666206e-05 -3.322546e-05 -3.436592e-06
 ## ht2 -3.322546e-05  6.758652e-05 -3.436106e-05
 ## ht3 -3.436592e-06 -3.436106e-05  3.779765e-05</code></pre>
-<p>Podemos obter estimativas de proporções nas classes de renda por domínios definidos pela variável <code>sx</code>:</p>
-<pre><code>## % latex table generated in R 3.4.0 by xtable 1.8-2 package
-## % Wed Sep 20 15:11:04 2017
-## \begin{table}[ht]
-## \centering
-## \begin{tabular}{lrrrrrr}
-##   \hline
-## sx &amp; re1 &amp; re2 &amp; re3 &amp; se.re1 &amp; se.re2 &amp; se.re3 \\ 
-##   \hline
-## 1 &amp; 0.11 &amp; 0.59 &amp; 0.30 &amp; 0.01 &amp; 0.01 &amp; 0.01 \\ 
-##   2 &amp; 0.24 &amp; 0.57 &amp; 0.19 &amp; 0.01 &amp; 0.01 &amp; 0.01 \\ 
-##    \hline
-## \end{tabular}
-## \caption{Proporções por sexo} 
-## \end{table}</code></pre>
-<p>As proporções estimadas nas classes de renda e a tabela cruzada das variáveis sexo e renda são obtidas a seguir:</p>
+<ul>
+<li>Estimativas de proporções nas classes de renda por domínios definidos pela variável <code>sx</code>:</li>
+</ul>
+<!-- html table generated in R 3.4.0 by xtable 1.8-2 package -->
+<!-- Thu Sep 21 10:33:31 2017 -->
+<table border="1">
+<caption align="bottom">
+Proporções por sexo
+</caption>
+<tr>
+<th>
+sx
+</th>
+<th>
+re1
+</th>
+<th>
+re2
+</th>
+<th>
+re3
+</th>
+<th>
+se.re1
+</th>
+<th>
+se.re2
+</th>
+<th>
+se.re3
+</th>
+</tr>
+<tr>
+<td>
+1
+</td>
+<td align="right">
+0.11
+</td>
+<td align="right">
+0.59
+</td>
+<td align="right">
+0.30
+</td>
+<td align="right">
+0.01
+</td>
+<td align="right">
+0.01
+</td>
+<td align="right">
+0.01
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td align="right">
+0.24
+</td>
+<td align="right">
+0.57
+</td>
+<td align="right">
+0.19
+</td>
+<td align="right">
+0.01
+</td>
+<td align="right">
+0.01
+</td>
+<td align="right">
+0.01
+</td>
+</tr>
+</table>
+<ul>
+<li>Estimativas das proporções nas classes de renda e a tabela cruzada das variáveis sexo e renda:</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svymean</span>(<span class="op">~</span>re,pnad.des,<span class="dt">deff=</span>T)</code></pre></div>
 <pre><code>##          mean        SE   DEff
 ## re1 0.1554555 0.0068977 2.3611
@@ -1079,7 +1151,9 @@ sx.re_mean &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<spa
 <span id="exm:exe83" class="example"><strong>Exemplo 8.3  </strong></span>Testes de Hipóteses
 </div>
 
-<p>Teste de independência e homogeneidade baseado nos dados da amostra sem considerar o plano amostral:</p>
+<ul>
+<li>Teste de independência e homogeneidade baseado nos dados da amostra sem considerar o plano amostral:</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(pnadrj90)
 tab.amo &lt;-<span class="st"> </span><span class="kw">table</span>(sx,re)
 <span class="kw">chisq.test</span>(tab.amo)</code></pre></div>
@@ -1088,7 +1162,11 @@ tab.amo &lt;-<span class="st"> </span><span class="kw">table</span>(sx,re)
 ## 
 ## data:  tab.amo
 ## X-squared = 227.03, df = 2, p-value &lt; 2.2e-16</code></pre>
-<p>Resultados dos testes obtidos pela library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> precisam ser identificados com as fórmulas do texto:</p>
+
+<div class="remark">
+ <span class="remark"><em>Observação. </em></span> Identificar resultados dos testes obtidos pela library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> com as fórmulas do texto:
+</div>
+
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="kw">nrow</span> (pnadrj90)
 pearson &lt;-<span class="st"> </span><span class="kw">chisq.test</span>( pnadrj90<span class="op">$</span>sx, pnadrj90<span class="op">$</span>re, <span class="dt">correct =</span> <span class="ot">FALSE</span> )
 
