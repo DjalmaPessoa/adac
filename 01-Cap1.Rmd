@@ -98,7 +98,7 @@ estrat <- data.frame (Estrato =
  14931, 25855, 12001, 112016), Amostra = c(62, 61, 61, 61, 33, 62,
    61, 61, 61,31,554)
     )
-knitr::kable(estrat,booktabs = TRUE, align= "lcc",
+knitr::kable(estrat,booktabs = TRUE, align= "lrr",
   caption = "Número de setores na população e na amostra, por estrato geográfico"
   )
 ```
@@ -735,7 +735,7 @@ result <- data.frame(
 )
 row.names(result)<- NULL
 names(result) <-NULL
-names(result) <- c("Taxa", "Erro_Padrao", "CV")
+names(result) <- c("Taxa", "Erro_Padrão", "CV")
 # taxa de desocupação
 result
 ```
@@ -810,7 +810,7 @@ pes_sel_des_pos <- postStratify( pes_sel_des , ~v00293.y , post_pop )
 
 
 ```{r, eval= FALSE , echo=FALSE}
-saveRDS(pes_sel_des_pos, file = "pns_des_sel.rds" )
+saveRDS(pes_sel_des_pos, file = "C:/adac/PNS/pns_des_sel.rds" )
 ```
 
 ```{r, echo=FALSE}
@@ -841,7 +841,7 @@ o país inteiro usamos o seguinte comando:
 
 ```{r}
 diagdepbr <- svymean(~diag_dep, pes_sel_des_pos)
-# estimativa em e % e erro padrão
+# estimativa em % e erro padrão
 round(100* coef(diagdepbr),1)
 round(100*SE(diagdepbr),1)
 ```
@@ -945,6 +945,12 @@ svymean , na.rm = TRUE ) )
 byeduc <- byeduc[,-1]
 names(byeduc) <- c("Prop", "l.i.c.", "l.s.c.")
 ```
+
+
+```{r, eval= FALSE , echo=FALSE}
+saveRDS(byeduc, file = "C:/adac/PNS/byeduc.rds" )
+```
+
 
 ```{r, eval=TRUE, echo=FALSE}
 byeduc <- readRDS("C:/adac/PNS/byeduc.rds")
