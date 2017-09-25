@@ -808,16 +808,17 @@ Utilizando a função `postStratify()` da library `survey` [@R-survey] incorpora
 pes_sel_des_pos <- postStratify( pes_sel_des , ~v00293.y , post_pop )
 ```
 
+Salvar objeto de desenho pós-estratificado para posterior utilização:
 
-```{r, eval= FALSE , echo=FALSE}
+```{r, eval= FALSE}
 saveRDS(pes_sel_des_pos, file = "C:/adac/PNS/pns_des_sel.rds" )
 ```
 
-```{r, echo=FALSE}
-pes_sel_des_pos <- readRDS("pns_des_sel.rds")
+```{r, eval=FALSE}
+pes_sel_des_pos <- readRDS("C:/adac/PNS/pns_des_sel.rds")
 ```
 
-Os comandos acimas foram apresentados apenas para ilustrar como, a partir dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não seria necessária a execução desses comandos pois o  objeto de desenho `pes_sel_des_pos` já se encontra disponível no arquivo 1 `2013 all questionnaire survey design.rds`. 
+Os comandos acima foram apresentados apenas para ilustrar como, a partir dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não seria necessária a execução desses comandos pois o  objeto de desenho `pes_sel_des_pos` já se encontra disponível no arquivo 1 `2013 all questionnaire survey design.rds`. 
 
 Para exemplificar, vamos agora reproduzir estimativas na Tabela 6.42.1.1 da publicação em ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf.
 

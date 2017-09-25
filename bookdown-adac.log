@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  21 SEP 2017 10:39
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  25 SEP 2017 10:37
 entering extended mode
 **./bookdown-adac.tex
 (bookdown-adac.tex
@@ -1114,30 +1114,30 @@ LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 118
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmtt.fd"
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [17] [18] [19] [20]
-File: 01-Cap1_files/figure-latex/unnamed-chunk-56-1.pdf Graphic file (type QTm)
+File: 01-Cap1_files/figure-latex/unnamed-chunk-57-1.pdf Graphic file (type QTm)
 
-<use  "01-Cap1_files/figure-latex/unnamed-chunk-56-1.pdf" >
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<use  "01-Cap1_files/figure-latex/unnamed-chunk-57-1.pdf" >
+Underfull \vbox (badness 1152) has occurred while \output is active []
 
 [21] [22] [23] [24
 
 ]
 Cap\'{\i }tulo 2.
 
-LaTeX Warning: Reference `Tab21' on page 25 undefined on input line 1728.
+LaTeX Warning: Reference `Tab21' on page 25 undefined on input line 1742.
 
 File: Figuras/fig21.png Graphic file (type QTm)
 <use  "Figuras/fig21.png" > [25] [26]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 1805
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 1819
 .
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 1805.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 1819.
 
 
-LaTeX Warning: Reference `Tab22' on page 27 undefined on input line 1818.
+LaTeX Warning: Reference `Tab22' on page 27 undefined on input line 1832.
 
 File: Figuras/fig22.png Graphic file (type QTm)
 <use  "Figuras/fig22.png" >
@@ -1147,7 +1147,7 @@ Underfull \vbox (badness 6016) has occurred while \output is active []
 File: Figuras/fig23.png Graphic file (type QTm)
 <use  "Figuras/fig23.png" >
 
-LaTeX Warning: Reference `Tab23' on page 30 undefined on input line 2002.
+LaTeX Warning: Reference `Tab23' on page 30 undefined on input line 2016.
 
 [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40
 
@@ -1158,19 +1158,19 @@ Cap\'{\i }tulo 3.
 ]
 Cap\'{\i }tulo 4.
 [55]
-LaTeX Font Info:    Try loading font information for OML+lmr on input line 3931
+LaTeX Font Info:    Try loading font information for OML+lmr on input line 3945
 .
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllmr.fd"
 File: omllmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OML/lmr/m/n' in size <10> not available
-(Font)              Font shape `OML/lmm/m/it' tried instead on input line 3931.
+(Font)              Font shape `OML/lmm/m/it' tried instead on input line 3945.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [56] [57] [58] [59]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 4217
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 4231
 .
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1180,7 +1180,7 @@ Overfull \vbox (1.1959pt too high) has occurred while \output is active []
 [60] [61]
 File: Figuras/fig41.png Graphic file (type QTm)
 <use  "Figuras/fig41.png" > [62] [63]
-Overfull \hbox (37.50438pt too wide) in paragraph at lines 4593--4599
+Overfull \hbox (37.50438pt too wide) in paragraph at lines 4607--4613
 []\TU/lmr/m/n/10 Neste caso, um intervalo de confiança de nível de confiança ap
 roximado $[]$ é dado por $[]$,
  []
@@ -1194,22 +1194,22 @@ Cap\'{\i }tulo 6.
 [81
 
 ] [82] [83] [84] [85]
-Overfull \hbox (19.68164pt too wide) in paragraph at lines 6490--6492
+Overfull \hbox (19.68164pt too wide) in paragraph at lines 6504--6506
 []|\TU/lmr/m/n/10 ae(1)ae(2)ae(3)|  
  []
 
 
-Overfull \hbox (18.87164pt too wide) in paragraph at lines 6497--6499
+Overfull \hbox (18.87164pt too wide) in paragraph at lines 6511--6513
 []|\TU/lmr/m/n/10 ht(1)ht(2)ht(3)|  
  []
 
 
-Overfull \hbox (37.50165pt too wide) in paragraph at lines 6504--6506
+Overfull \hbox (37.50165pt too wide) in paragraph at lines 6518--6520
 []|\TU/lmr/m/n/10 id(1)id(2)id(3)id(4)|  
  []
 
 
-Overfull \hbox (16.44164pt too wide) in paragraph at lines 6511--6513
+Overfull \hbox (16.44164pt too wide) in paragraph at lines 6525--6527
 []|\TU/lmr/m/n/10 re(1)re(2)re(3)|  
  []
 
@@ -1224,7 +1224,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [105] [106] [107]
-Overfull \hbox (4.29082pt too wide) in paragraph at lines 8230--8232
+Overfull \hbox (4.29082pt too wide) in paragraph at lines 8244--8246
 []|\TU/lmr/m/n/10 11.640|  
  []
 
@@ -1264,12 +1264,12 @@ Cap\'{\i }tulo 14.
 ] [150] [151] [152] [153] (bookdown-adac.bbl [154] [155
 
 ] [156] [157])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 11380.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 11394.
 [158]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 11380.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 11394.
 (bookdown-adac.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 11380.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 11380.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 11394.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 11394.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 

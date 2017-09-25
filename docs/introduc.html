@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-21">
+<meta name="date" content="2017-09-25">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -250,65 +250,65 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <thead>
 <tr class="header">
 <th align="left">Estrato</th>
-<th align="center">População</th>
-<th align="center">Amostra</th>
+<th align="right">População</th>
+<th align="right">Amostra</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">RM Fortaleza</td>
-<td align="center">2263</td>
-<td align="center">62</td>
+<td align="right">2263</td>
+<td align="right">62</td>
 </tr>
 <tr class="even">
 <td align="left">RM Recife</td>
-<td align="center">2309</td>
-<td align="center">61</td>
+<td align="right">2309</td>
+<td align="right">61</td>
 </tr>
 <tr class="odd">
 <td align="left">RM Salvador</td>
-<td align="center">2186</td>
-<td align="center">61</td>
+<td align="right">2186</td>
+<td align="right">61</td>
 </tr>
 <tr class="even">
 <td align="left">Restante Nordeste Urbano</td>
-<td align="center">15057</td>
-<td align="center">61</td>
+<td align="right">15057</td>
+<td align="right">61</td>
 </tr>
 <tr class="odd">
 <td align="left">Restante Nordeste Rural</td>
-<td align="center">23711</td>
-<td align="center">33</td>
+<td align="right">23711</td>
+<td align="right">33</td>
 </tr>
 <tr class="even">
 <td align="left">RM Belo Horizonte</td>
-<td align="center">3283</td>
-<td align="center">62</td>
+<td align="right">3283</td>
+<td align="right">62</td>
 </tr>
 <tr class="odd">
 <td align="left">RM Rio de Janeiro</td>
-<td align="center">10420</td>
-<td align="center">61</td>
+<td align="right">10420</td>
+<td align="right">61</td>
 </tr>
 <tr class="even">
 <td align="left">RM São Paulo</td>
-<td align="center">14931</td>
-<td align="center">61</td>
+<td align="right">14931</td>
+<td align="right">61</td>
 </tr>
 <tr class="odd">
 <td align="left">Restante Sudeste Urbano</td>
-<td align="center">25855</td>
-<td align="center">61</td>
+<td align="right">25855</td>
+<td align="right">61</td>
 </tr>
 <tr class="even">
 <td align="left">Restante Sudeste Rural</td>
-<td align="center">12001</td>
-<td align="center">31</td>
+<td align="right">12001</td>
+<td align="right">31</td>
 </tr>
 <tr class="odd">
 <td align="left">Total</td>
-<td align="center">112016</td>
-<td align="center">554</td>
+<td align="right">112016</td>
+<td align="right">554</td>
 </tr>
 </tbody>
 </table>
@@ -711,10 +711,10 @@ result &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
 )
 <span class="kw">row.names</span>(result)&lt;-<span class="st"> </span><span class="ot">NULL</span>
 <span class="kw">names</span>(result) &lt;-<span class="ot">NULL</span>
-<span class="kw">names</span>(result) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Taxa&quot;</span>, <span class="st">&quot;Erro_Padrao&quot;</span>, <span class="st">&quot;CV&quot;</span>)
+<span class="kw">names</span>(result) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Taxa&quot;</span>, <span class="st">&quot;Erro_Padrão&quot;</span>, <span class="st">&quot;CV&quot;</span>)
 <span class="co"># taxa de desocupação</span>
 result</code></pre></div>
-<pre><code>##       Taxa Erro_Padrao        CV
+<pre><code>##       Taxa Erro_Padrão        CV
 ## 1 11.80303   0.1174791 0.9953299</code></pre>
 
 <div class="example">
@@ -760,7 +760,10 @@ pes_sel_des &lt;-
 <span class="kw">names</span>( post_pop ) &lt;-<span class="st"> </span><span class="kw">c</span>( <span class="st">&quot;v00293.y&quot;</span> , <span class="st">&quot;Freq&quot;</span> )</code></pre></div>
 <p>Utilizando a função <code>postStratify()</code> da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> incorpora-se no objeto de desenho <code>pes_sel_des</code> as informações contidas no data frame <code>post_pop</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel_des_pos &lt;-<span class="st"> </span><span class="kw">postStratify</span>( pes_sel_des , <span class="op">~</span>v00293.y , post_pop )</code></pre></div>
-<p>Os comandos acimas foram apresentados apenas para ilustrar como, a partir dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não seria necessária a execução desses comandos pois o objeto de desenho <code>pes_sel_des_pos</code> já se encontra disponível no arquivo 1 <code>2013 all questionnaire survey design.rds</code>.</p>
+<p>Salvar objeto de desenho pós-estratificado para posterior utilização:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(pes_sel_des_pos, <span class="dt">file =</span> <span class="st">&quot;C:/adac/PNS/pns_des_sel.rds&quot;</span> )</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel_des_pos &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;C:/adac/PNS/pns_des_sel.rds&quot;</span>)</code></pre></div>
+<p>Os comandos acima foram apresentados apenas para ilustrar como, a partir dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não seria necessária a execução desses comandos pois o objeto de desenho <code>pes_sel_des_pos</code> já se encontra disponível no arquivo 1 <code>2013 all questionnaire survey design.rds</code>.</p>
 <p>Para exemplificar, vamos agora reproduzir estimativas na Tabela 6.42.1.1 da publicação em <a href="ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf" class="uri">ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf</a>.</p>
 <p>A variável de interesse tem código Q092 e sua descrição é: “Algum médico ou profissional de saúde mental (como psiquiatra ou psicólogo) já lhe deu o diagnóstico de depressão?”</p>
 <p>Essa variável é de classe <code>character</code> e tem dois valores “1” e “2”. Vamos definir uma nova variável <code>diag_dep</code> que é igual a 1 se recebe diagnóstico de depressão e 0 caso contrário:</p>
@@ -769,7 +772,7 @@ pes_sel_des &lt;-
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel_des_pos &lt;-<span class="st"> </span><span class="kw">update</span> (pes_sel_des_pos, <span class="dt">diag_dep =</span> diag_dep )</code></pre></div>
 <p>Para calcular a proporção de pessoas que receberam diagnóstico de depressão para o país inteiro usamos o seguinte comando:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepbr &lt;-<span class="st"> </span><span class="kw">svymean</span>(<span class="op">~</span>diag_dep, pes_sel_des_pos)
-<span class="co"># estimativa em e % e erro padrão</span>
+<span class="co"># estimativa em % e erro padrão</span>
 <span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="st"> </span><span class="kw">coef</span>(diagdepbr),<span class="dv">1</span>)</code></pre></div>
 <pre><code>## diag_dep 
 ##      7.6</code></pre>
@@ -1035,7 +1038,7 @@ byeduc &lt;-<span class="st"> </span>byeduc[,<span class="op">-</span><span clas
 <span class="st">    </span><span class="kw">ylab</span>( <span class="st">&quot;% com seguro de saúde&quot; )+</span>
 <span class="st">  ggtitle(&quot;</span>% de pessoas com plano de saúde, com indicação do intervalo de
   confiança de <span class="dv">95</span>%, segundo grupos de nível de instrução <span class="op">-</span><span class="st"> </span>Brasil <span class="op">-</span><span class="st"> </span><span class="dv">2013</span><span class="st">&quot;)</span></code></pre></div>
-<p><img src="01-Cap1_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
+<p><img src="01-Cap1_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
 
 </div>
 </div>

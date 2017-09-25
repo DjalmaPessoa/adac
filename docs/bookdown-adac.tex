@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-09-21}
+  \date{2017-09-25}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -318,7 +318,7 @@ a Tabela \ref{tab:numset}.
 
 \caption{\label{tab:numset}Número de setores na população e na amostra, por estrato geográfico}
 \centering
-\begin{tabular}[t]{lcclcclcc}
+\begin{tabular}[t]{lrrlrrlrr}
 \toprule
 Estrato & População & Amostra\\
 \midrule
@@ -1293,14 +1293,14 @@ ou mais na semana de referência(PIA) e calcula a razão de dois totais:
 \NormalTok{)}
 \KeywordTok{row.names}\NormalTok{(result)<-}\StringTok{ }\OtherTok{NULL}
 \KeywordTok{names}\NormalTok{(result) <-}\OtherTok{NULL}
-\KeywordTok{names}\NormalTok{(result) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Taxa"}\NormalTok{, }\StringTok{"Erro_Padrao"}\NormalTok{, }\StringTok{"CV"}\NormalTok{)}
+\KeywordTok{names}\NormalTok{(result) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Taxa"}\NormalTok{, }\StringTok{"Erro_Padrão"}\NormalTok{, }\StringTok{"CV"}\NormalTok{)}
 \CommentTok{# taxa de desocupação}
 \NormalTok{result}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##       Taxa Erro_Padrao        CV
+##       Taxa Erro_Padrão        CV
 ## 1 11.80303   0.1174791 0.9953299
 \end{verbatim}
 
@@ -1413,11 +1413,25 @@ Utilizando a função \texttt{postStratify()} da library \texttt{survey}
 \end{Highlighting}
 \end{Shaded}
 
-Os comandos acimas foram apresentados apenas para ilustrar como, a
-partir dos microdados da pesquisa, obtemos o objeto de desenho da
-pesquisa. Não seria necessária a execução desses comandos pois o objeto
-de desenho \texttt{pes\_sel\_des\_pos} já se encontra disponível no
-arquivo 1 \texttt{2013\ all\ questionnaire\ survey\ design.rds}.
+Salvar objeto de desenho pós-estratificado para posterior utilização:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{saveRDS}\NormalTok{(pes_sel_des_pos, }\DataTypeTok{file =} \StringTok{"C:/adac/PNS/pns_des_sel.rds"}\NormalTok{ )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pes_sel_des_pos <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/PNS/pns_des_sel.rds"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Os comandos acima foram apresentados apenas para ilustrar como, a partir
+dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não
+seria necessária a execução desses comandos pois o objeto de desenho
+\texttt{pes\_sel\_des\_pos} já se encontra disponível no arquivo 1
+\texttt{2013\ all\ questionnaire\ survey\ design.rds}.
 
 Para exemplificar, vamos agora reproduzir estimativas na Tabela 6.42.1.1
 da publicação em \url{ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf}.
@@ -1454,7 +1468,7 @@ depressão para o país inteiro usamos o seguinte comando:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{diagdepbr <-}\StringTok{ }\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{diag_dep, pes_sel_des_pos)}
-\CommentTok{# estimativa em e % e erro padrão}
+\CommentTok{# estimativa em % e erro padrão}
 \KeywordTok{round}\NormalTok{(}\DecValTok{100}\OperatorTok{*}\StringTok{ }\KeywordTok{coef}\NormalTok{(diagdepbr),}\DecValTok{1}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1661,7 +1675,7 @@ Imprime tabela:
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-55}Proporção de pessoas com seguro de saúde por nível 
+\caption{\label{tab:unnamed-chunk-56}Proporção de pessoas com seguro de saúde por nível 
 de instrução}
 \centering
 \begin{tabular}[t]{rrr}
@@ -1695,7 +1709,7 @@ Gráfico de barras usando a library \texttt{ggplot2} \citep{R-ggplot2}:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{01-Cap1_files/figure-latex/unnamed-chunk-56-1.pdf}
+\includegraphics{01-Cap1_files/figure-latex/unnamed-chunk-57-1.pdf}
 
 \chapter{Referencial para Inferência}\label{refinf}
 
@@ -3566,8 +3580,8 @@ Para o método \texttt{Bootstrap}, temos:
 ##                faixa
 ## analf.faixa 0.118689
 ## SEs=
-##            [,1]
-## [1,] 0.01129982
+##           [,1]
+## [1,] 0.0115157
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -5113,7 +5127,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1418903
+## [1] 0.1397523
 \end{verbatim}
 
 \begin{Shaded}
@@ -5124,7 +5138,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.338907
+## [1] 0.352054
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
