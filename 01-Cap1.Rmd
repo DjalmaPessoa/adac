@@ -111,22 +111,22 @@ amostra da PPV.
 
 ```{r, dispesos, echo=FALSE}
 # leitura dos dados
-ppv1 <- readRDS("~/GitHub/adac/data/ppv.rds")
-Nordeste <- ppv1$pesof[ppv1$regiao=="1"]
-Sudeste <- ppv1$pesof[ppv1$regiao=="2"]
-Q1 <- c(quantile(Nordeste,.25),quantile(Sudeste,.25), quantile(ppv1$pesof,.25) )
+library(anamco)
+Nordeste <- ppv$pesof[ppv$regiao=="1"]
+Sudeste <- ppv$pesof[ppv$regiao=="2"]
+Q1 <- c(quantile(Nordeste,.25),quantile(Sudeste,.25), quantile(ppv$pesof,.25) )
 names(Q1)<- NULL
-Mediana<-  c(quantile(Nordeste,.50),quantile(Sudeste,.50), quantile(ppv1$pesof,.50) )
+Mediana<-  c(quantile(Nordeste,.50),quantile(Sudeste,.50), quantile(ppv$pesof,.50) )
 names(Mediana)<- NULL
-Q3 = c(quantile(Nordeste,.75),quantile(Sudeste,.75), quantile(ppv1$pesof,.75))
+Q3 = c(quantile(Nordeste,.75),quantile(Sudeste,.75), quantile(ppv$pesof,.75))
 names(Q3) <- NULL 
 Pesos <- data.frame(
   Região = c("Nordeste", "Sudeste", "Nordeste_Sudeste"),
-  Mínimo = c(min(Nordeste), min(Sudeste), min(ppv1$pesof)),
+  Mínimo = c(min(Nordeste), min(Sudeste), min(ppv$pesof)),
   Q1 = Q1,
   Mediana= Mediana,
   Q3 = Q3,
-  Máximo = c(max(Nordeste), max(Sudeste), max(ppv1$pesof)) 
+  Máximo = c(max(Nordeste), max(Sudeste), max(ppv$pesof)) 
   )
 knitr::kable(Pesos ,booktabs = TRUE, align = "lccccc",
   caption = "Distribuição dos pesos da amostra da PPV")
@@ -418,13 +418,14 @@ Utilização da library survey do R para estimar totais e razões na PPV
 Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref(exm:distppv) . Inicialmente, vamos ler os dados e definir variáveis de interesse por meio de transformação das variáveis existentes.
 ```{r, message=FALSE, warning=FALSE}
 # leitura dos dados
-ppv1 <- readRDS("~\\GitHub\\adac\\data\\ppv.rds")
-library(survey)
+library(anamco)
+dim(ppv)
+names(ppv)
 ```
 Criação das variáveis analf1, analf2, faixa1 e faixa2:
 
 ```{r}
-ppv1 <- transform(ppv1, 
+ppv1 <- transform(ppv, 
 analf1 = ((v04a01 == 2 | v04a02 == 2) & (v02a08 >= 7 & v02a08 <= 14)) * 1, 
 analf2 = ((v04a01 == 2 | v04a02 == 2) & (v02a08 >14)) * 1, 
 faixa1 = (v02a08 >= 7 & v02a08 <= 14) *1, 
@@ -491,10 +492,6 @@ Observe que as estimativas de totais e desvios padrão obtidas coincidem com as 
 Exemplo anterior usando a library srvyr
 ```
 
-```{r, message=FALSE, warning=FALSE}
-# leitura dos dados
-ppv1 <- readRDS("~\\GitHub\\adac\\data\\ppv.rds")
-```
 Carrega a library `srvyr`:
 
 ```{r, message=FALSE, warning=FALSE}

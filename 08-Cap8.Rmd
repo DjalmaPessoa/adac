@@ -712,7 +712,7 @@ frequências nas celas para a amostra pesquisada.
 
 
 ```{r frqamost, echo=FALSE}
-pnadrj90 <- readRDS("~\\GitHub\\adac\\data\\pnadrj90.rds")
+library(anamco) # carrega dados
 freq.sx.re <-table(pnadrj90$sx, pnadrj90$re , dnn= c("Sexo", "Renda_Mensal"))
 freq.sx.re <- addmargins(freq.sx.re)
 knitr::kable(freq.sx.re, caption= "Frequências Amostrais por celas na PNADRJ90")
@@ -873,7 +873,7 @@ Estimativas de medidas descritivas em tabelas
 ```
 ```{r, message=FALSE, warning=FALSE}
 library(survey)
-pnadrj90 <- readRDS("~\\GitHub\\adac\\data\\pnadrj90.rds")
+library(anamco) #carrega dados
 names(pnadrj90)
 n <- nrow (pnadrj90)
 ```

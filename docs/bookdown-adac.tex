@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-09-25}
+  \date{2017-09-27}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -723,16 +723,32 @@ das variáveis existentes.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# leitura dos dados}
-\NormalTok{ppv1 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{ppv.rds"}\NormalTok{)}
-\KeywordTok{library}\NormalTok{(survey)}
+\KeywordTok{library}\NormalTok{(anamco)}
+\KeywordTok{dim}\NormalTok{(ppv)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## [1] 19409    13
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{names}\NormalTok{(ppv)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "serie"    "ident"    "codmor"   "v04a01"   "v04a02"   "v04a03"  
+##  [7] "estratof" "peso1"    "peso2"    "pesof"    "nsetor"   "regiao"  
+## [13] "v02a08"
+\end{verbatim}
 
 Criação das variáveis analf1, analf2, faixa1 e faixa2:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ppv1 <-}\StringTok{ }\KeywordTok{transform}\NormalTok{(ppv1, }
+\NormalTok{ppv1 <-}\StringTok{ }\KeywordTok{transform}\NormalTok{(ppv, }
 \DataTypeTok{analf1 =}\NormalTok{ ((v04a01 }\OperatorTok{==}\StringTok{ }\DecValTok{2} \OperatorTok{|}\StringTok{ }\NormalTok{v04a02 }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(v02a08 }\OperatorTok{>=}\StringTok{ }\DecValTok{7} \OperatorTok{&}\StringTok{ }\NormalTok{v02a08 }\OperatorTok{<=}\StringTok{ }\DecValTok{14}\NormalTok{)) }\OperatorTok{*}\StringTok{ }\DecValTok{1}\NormalTok{, }
 \DataTypeTok{analf2 =}\NormalTok{ ((v04a01 }\OperatorTok{==}\StringTok{ }\DecValTok{2} \OperatorTok{|}\StringTok{ }\NormalTok{v04a02 }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(v02a08 }\OperatorTok{>}\DecValTok{14}\NormalTok{)) }\OperatorTok{*}\StringTok{ }\DecValTok{1}\NormalTok{, }
 \DataTypeTok{faixa1 =}\NormalTok{ (v02a08 }\OperatorTok{>=}\StringTok{ }\DecValTok{7} \OperatorTok{&}\StringTok{ }\NormalTok{v02a08 }\OperatorTok{<=}\StringTok{ }\DecValTok{14}\NormalTok{) }\OperatorTok{*}\DecValTok{1}\NormalTok{, }
@@ -896,13 +912,6 @@ Amostral(DEff) são distintas.
 a library srvyr
 \EndKnitrBlock{example}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# leitura dos dados}
-\NormalTok{ppv1 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{ppv.rds"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 Carrega a library \texttt{srvyr}:
 
 \begin{Shaded}
@@ -952,7 +961,7 @@ anos e mais de 14 anos.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-12}Proporção de analfabetos para faixas etárias 7-14 anos e mais de 14 anos}
+\caption{\label{tab:unnamed-chunk-11}Proporção de analfabetos para faixas etárias 7-14 anos e mais de 14 anos}
 \centering
 \begin{tabular}[t]{lrrrr}
 \toprule
@@ -1543,7 +1552,7 @@ Para o país por sexo:
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-47}Proporção de diagnóstico de depressão por sexo}
+\caption{\label{tab:unnamed-chunk-46}Proporção de diagnóstico de depressão por sexo}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
@@ -1570,7 +1579,7 @@ Por situação (rural e urbano)
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-48}Proporção de diagnóstico de depressão por situação}
+\caption{\label{tab:unnamed-chunk-47}Proporção de diagnóstico de depressão por situação}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
@@ -1597,7 +1606,7 @@ Por Unidade da Federação:
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-50}Proporção de diagnóstico de depressão por uf}
+\caption{\label{tab:unnamed-chunk-49}Proporção de diagnóstico de depressão por uf}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
@@ -1675,7 +1684,7 @@ Imprime tabela:
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-56}Proporção de pessoas com seguro de saúde por nível 
+\caption{\label{tab:unnamed-chunk-55}Proporção de pessoas com seguro de saúde por nível 
 de instrução}
 \centering
 \begin{tabular}[t]{rrr}
@@ -1709,7 +1718,7 @@ Gráfico de barras usando a library \texttt{ggplot2} \citep{R-ggplot2}:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{01-Cap1_files/figure-latex/unnamed-chunk-57-1.pdf}
+\includegraphics{01-Cap1_files/figure-latex/unnamed-chunk-56-1.pdf}
 
 \chapter{Referencial para Inferência}\label{refinf}
 
@@ -3466,10 +3475,9 @@ Vamos criar duas variáveis:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(survey)}
-\NormalTok{ppv1 <-}\KeywordTok{readRDS}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{ppv.rds"}\NormalTok{) }
-\KeywordTok{library}\NormalTok{(survey)}
+\KeywordTok{library}\NormalTok{(anamco) }\CommentTok{# carrega dados}
 \NormalTok{ppv.des<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{ids =} \OperatorTok{~}\NormalTok{nsetor, }\DataTypeTok{strata =} \OperatorTok{~}\NormalTok{estratof,}
-\DataTypeTok{data =}\NormalTok{ ppv1, }\DataTypeTok{nest =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{weights =} \OperatorTok{~}\NormalTok{pesof)}
+\DataTypeTok{data =}\NormalTok{ ppv, }\DataTypeTok{nest =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{weights =} \OperatorTok{~}\NormalTok{pesof)}
 
 \NormalTok{ppv.des<-}\KeywordTok{update}\NormalTok{(ppv.des,}
   \DataTypeTok{analf=}\NormalTok{(v04a01 }\OperatorTok{==}\StringTok{ }\DecValTok{2} \OperatorTok{|}\StringTok{ }\NormalTok{v04a02 }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{)}\OperatorTok{*}\DecValTok{1}\NormalTok{,}
@@ -3580,8 +3588,8 @@ Para o método \texttt{Bootstrap}, temos:
 ##                faixa
 ## analf.faixa 0.118689
 ## SEs=
-##           [,1]
-## [1,] 0.0115157
+##            [,1]
+## [1,] 0.01365178
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -5075,7 +5083,8 @@ Exemplo \ref{exm:deffuni} Parte de simulação do exemplo para salario
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(survey)}
-\NormalTok{popul <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{popul.rds"}\NormalTok{)}
+\CommentTok{# load data}
+\KeywordTok{library}\NormalTok{(anamco)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5127,7 +5136,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1397523
+## [1] 0.1425858
 \end{verbatim}
 
 \begin{Shaded}
@@ -5138,7 +5147,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.352054
+## [1] 0.353405
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -9435,7 +9444,7 @@ descritivas em tabelas
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(survey)}
-\NormalTok{pnadrj90 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{pnadrj90.rds"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(anamco) }\CommentTok{#carrega dados}
 \KeywordTok{names}\NormalTok{(pnadrj90)}
 \end{Highlighting}
 \end{Shaded}

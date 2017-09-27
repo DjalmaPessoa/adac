@@ -502,7 +502,7 @@ de amostragem foram selecionadas com reposição, conforme descrito na Seção .
 
 ```{r logit, echo=FALSE, warning=FALSE, message=FALSE}
 library(survey)
-pnadrj90 <- readRDS("~\\GitHub\\adac\\data\\pnadrj90.rds")
+library(anamco) # carrega dados
 pnadrj90$sx<-as.factor(pnadrj90$sx)
 pnadrj90$sx<-relevel(pnadrj90$sx,ref="2")
 pnadrj90$id<-as.factor(pnadrj90$id)

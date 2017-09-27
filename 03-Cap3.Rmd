@@ -645,10 +645,9 @@ Vamos criar duas variáveis:
 
 ```{r, message=FALSE, warning=FALSE}
 library(survey)
-ppv1 <-readRDS("~\\GitHub\\adac\\data\\ppv.rds") 
-library(survey)
+library(anamco) # carrega dados
 ppv.des<-svydesign(ids = ~nsetor, strata = ~estratof,
-data = ppv1, nest = TRUE, weights = ~pesof)
+data = ppv, nest = TRUE, weights = ~pesof)
 
 ppv.des<-update(ppv.des,
   analf=(v04a01 == 2 | v04a02 == 2)*1,

@@ -1025,7 +1025,8 @@ Exemplo \@ref(exm:deffuni) Parte de simulação do exemplo para salario
 
 ```{r, message=FALSE, warning=FALSE }
 library(survey)
-popul <- readRDS("~\\GitHub\\adac\\data\\popul.rds")
+# load data
+library(anamco)
 ```
 
 ```{r}
