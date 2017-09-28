@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-09-27}
+  \date{2017-09-28}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -3589,7 +3589,7 @@ Para o método \texttt{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01365178
+## [1,] 0.01191771
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -4600,8 +4600,7 @@ Efeitos como esse são comuns também devido ao planejamento amostral,
 mesmo em populações onde a conglomeração é imposta artificialmente pelo
 amostrista.
 
-\section{Intervalos de Confiança e Testes de
-Hipóteses}\label{intervalos-de-confianca-e-testes-de-hipoteses}
+\section{Intervalos de Confiança e Testes de Hipóteses}\label{icth}
 
 A partir da estimativa pontual \(\hat{\theta}\) de um parâmetro
 \(\theta\) (da população finita ou do modelo de superpopulação) é
@@ -5136,7 +5135,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1425858
+## [1] 0.1415694
 \end{verbatim}
 
 \begin{Shaded}
@@ -5147,7 +5146,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.353405
+## [1] 0.4004491
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -5161,6 +5160,136 @@ Usando a fórmula \eqref{eq:epa3}
 \NormalTok{vp_rec <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(Wh}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{fh)}\OperatorTok{*}\NormalTok{vp_rec_h[,}\StringTok{"rec"}\NormalTok{]}\OperatorTok{/}\NormalTok{nh)}
 \end{Highlighting}
 \end{Shaded}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:eqmean}{}{\label{exm:eqmean} }Teste da igualdade de
+médias para duas populações
+\EndKnitrBlock{example}
+
+Para exemplificar o material descrito na Seção \ref{icth}, vamos
+utilizar o data frame \texttt{amolim}, contendo dados da
+\texttt{Amostra\ do\ Censo\ Experimental\ de\ Limeira}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# carregar dados}
+\KeywordTok{library}\NormalTok{(anamco)}
+\KeywordTok{dim}\NormalTok{(amolim)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 706  14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{names}\NormalTok{(amolim)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "setor"  "np"     "domic"  "sexo"   "renda"  "lrenda" "raca"  
+##  [8] "estudo" "idade"  "na"     "peso"   "domtot" "peso1"  "pesof"
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Objeto de desenho para os dados da Amostra de Limeira:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(survey)}
+\NormalTok{amolim.des<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{id=}\OperatorTok{~}\NormalTok{setor}\OperatorTok{+}\NormalTok{domic, }\DataTypeTok{weights=}\OperatorTok{~}\NormalTok{pesof,}
+  \DataTypeTok{data=}\NormalTok{amolim)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Vamos estimar, a renda média por raça:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{svyby}\NormalTok{(}\OperatorTok{~}\NormalTok{renda, }\OperatorTok{~}\NormalTok{raca, amolim.des, svymean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   raca     renda        se
+## 1    1 110405.93 11261.845
+## 2    2  73559.84  8207.357
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Vamos estimar, a renda média por sexo:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{svyby}\NormalTok{(}\OperatorTok{~}\NormalTok{renda, }\OperatorTok{~}\NormalTok{sexo, amolim.des, svymean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   sexo     renda        se
+## 1    1 108746.01 11695.974
+## 2    2  40039.39  4042.393
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Vamos testar a igualdade de rendas por sexo:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{svyttest}\NormalTok{(renda }\OperatorTok{~}\StringTok{ }\NormalTok{sexo, amolim.des)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Design-based t-test
+## 
+## data:  renda ~ sexo
+## t = -5.9251, df = 23, p-value = 4.855e-06
+## alternative hypothesis: true difference in mean is not equal to 0
+## sample estimates:
+## difference in mean 
+##          -68706.63
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Vamos testar a igualdade de rendas por raça:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{svyttest}\NormalTok{(renda }\OperatorTok{~}\StringTok{ }\NormalTok{raca, amolim.des)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Design-based t-test
+## 
+## data:  renda ~ raca
+## t = -3.9714, df = 23, p-value = 0.000604
+## alternative hypothesis: true difference in mean is not equal to 0
+## sample estimates:
+## difference in mean 
+##          -36846.09
+\end{verbatim}
 
 \chapter{Ajuste de Modelos Paramétricos}\label{ajmodpar}
 

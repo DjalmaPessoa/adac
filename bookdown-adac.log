@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  27 SEP 2017 17:00
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  28 SEP 2017 18:02
 entering extended mode
 **./bookdown-adac.tex
 (bookdown-adac.tex
@@ -1181,96 +1181,96 @@ Overfull \vbox (1.1959pt too high) has occurred while \output is active []
 [60] [61]
 File: Figuras/fig41.png Graphic file (type QTm)
 <use  "Figuras/fig41.png" > [62] [63]
-Overfull \hbox (37.50438pt too wide) in paragraph at lines 4615--4621
+Overfull \hbox (37.50438pt too wide) in paragraph at lines 4614--4620
 []\TU/lmr/m/n/10 Neste caso, um intervalo de confiança de nível de confiança ap
 roximado $[]$ é dado por $[]$,
  []
 
-[64] [65] [66] [67] [68] [69] [70]
+[64] [65] [66] [67] [68] [69] [70] [71] [72
+
+]
 Cap\'{\i }tulo 5.
-[71
-
-] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[73] [74] [75] [76] [77] [78] [79] [80] [81] [82]
 Cap\'{\i }tulo 6.
-[81
+[83
 
-] [82] [83] [84] [85]
-Overfull \hbox (19.68164pt too wide) in paragraph at lines 6513--6515
+] [84] [85] [86] [87]
+Overfull \hbox (19.68164pt too wide) in paragraph at lines 6642--6644
 []|\TU/lmr/m/n/10 ae(1)ae(2)ae(3)|  
  []
 
 
-Overfull \hbox (18.87164pt too wide) in paragraph at lines 6520--6522
+Overfull \hbox (18.87164pt too wide) in paragraph at lines 6649--6651
 []|\TU/lmr/m/n/10 ht(1)ht(2)ht(3)|  
  []
 
 
-Overfull \hbox (37.50165pt too wide) in paragraph at lines 6527--6529
+Overfull \hbox (37.50165pt too wide) in paragraph at lines 6656--6658
 []|\TU/lmr/m/n/10 id(1)id(2)id(3)id(4)|  
  []
 
 
-Overfull \hbox (16.44164pt too wide) in paragraph at lines 6534--6536
+Overfull \hbox (16.44164pt too wide) in paragraph at lines 6663--6665
 []|\TU/lmr/m/n/10 re(1)re(2)re(3)|  
  []
 
-[86] [87] [88] [89] [90] [91] [92] [93] [94]
+[88] [89] [90] [91] [92] [93] [94] [95] [96]
 Cap\'{\i }tulo 7.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[95
+[97
 
-] [96] [97] [98] [99] [100] [101] [102] [103] [104]
+] [98] [99] [100] [101] [102] [103] [104] [105] [106]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[105] [106] [107]
-Overfull \hbox (4.29082pt too wide) in paragraph at lines 8253--8255
+[107] [108] [109]
+Overfull \hbox (4.29082pt too wide) in paragraph at lines 8382--8384
 []|\TU/lmr/m/n/10 11.640|  
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[108] [109] [110]
+[110] [111] [112]
 Cap\'{\i }tulo 8.
-[111
+[113
 
-] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122] [123] [124]
-[125] [126]
+] [114] [115] [116] [117] [118] [119] [120] [121] [122] [123] [124] [125] [126]
+[127] [128]
 Cap\'{\i }tulo 9.
-[127
+[129
 
-] [128
+] [130
 
 ]
 Cap\'{\i }tulo 10.
-[129] [130
-
-]
-Cap\'{\i }tulo 11.
 [131] [132
 
 ]
-Cap\'{\i }tulo 12.
+Cap\'{\i }tulo 11.
 [133] [134
 
 ]
+Cap\'{\i }tulo 12.
+[135] [136
+
+]
 Cap\'{\i }tulo 13.
-[135] [136] [137] [138] [139] [140] [141] [142] [143] [144] [145] [146] [147] [
-148]
+[137] [138] [139] [140] [141] [142] [143] [144] [145] [146] [147] [148] [149] [
+150]
 Cap\'{\i }tulo 14.
-[149
+[151
 
-] [150] [151] [152] [153] (bookdown-adac.bbl [154] [155
+] [152] [153] [154] [155] (bookdown-adac.bbl [156] [157
 
-] [156] [157])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 11403.
-[158]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 11403.
+] [158] [159])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 11532.
+[160]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 11532.
 (bookdown-adac.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 11403.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 11403.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 11532.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 11532.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1282,12 +1282,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 23470 strings out of 427918
- 441118 string characters out of 3149834
- 550368 words of memory out of 3000000
- 27085 multiletter control sequences out of 15000+200000
+ 23471 strings out of 427918
+ 441089 string characters out of 3149834
+ 550399 words of memory out of 3000000
+ 27086 multiletter control sequences out of 15000+200000
  25898 words of font info for 55 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  41i,21n,68p,10413b,567s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bookdown-adac.pdf (158 pages).
+Output written on bookdown-adac.pdf (160 pages).

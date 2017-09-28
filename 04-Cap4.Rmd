@@ -595,7 +595,7 @@ que seria tanto maior quanto maior fosse o coeficiente de correlação
 intraclasse $\rho$. Efeitos como esse são comuns também devido ao
 planejamento amostral, mesmo em populações onde a conglomeração é imposta artificialmente pelo amostrista.
 
-## Intervalos de Confiança e Testes de Hipóteses
+## Intervalos de Confiança e Testes de Hipóteses {#icth}
 
 A partir da estimativa pontual $\hat{\theta}$ de um parâmetro 
 $\theta$ (da população finita ou do modelo de superpopulação) é
@@ -1084,11 +1084,47 @@ vp_rec_h <- aggregate(rec~estrat, popul, var)
 vp_sal <- sum(Wh^2*(1-fh)*vp_sal_h[,"sal"]/nh)
 vp_rec <- sum(Wh^2*(1-fh)*vp_rec_h[,"rec"]/nh)
 ```
+```{example, label="eqmean" }
+Teste da igualdade de médias para duas populações
+```
 
+Para exemplificar o material descrito na Seção \@ref(icth), vamos utilizar o data frame `amolim`, contendo dados da `Amostra do Censo Experimental de Limeira`.
 
+```{r}
+# carregar dados
+library(anamco)
+dim(amolim)
+names(amolim)
+```
+- Objeto de desenho para os dados da Amostra de Limeira:
 
+```{r}
+library(survey)
+amolim.des<-svydesign(id=~setor+domic, weights=~pesof,
+  data=amolim)
+```
 
+- Vamos estimar, a renda média por raça:
 
+```{r}
+svyby(~renda, ~raca, amolim.des, svymean)
+```
 
+- Vamos estimar, a renda média por sexo:
+
+```{r}
+svyby(~renda, ~sexo, amolim.des, svymean)
+```
+- Vamos testar a igualdade de rendas por sexo:
+
+```{r}
+svyttest(renda ~ sexo, amolim.des)
+```
+
+- Vamos testar a igualdade de rendas por raça:
+
+```{r}
+svyttest(renda ~ raca, amolim.des)
+```
 
 
