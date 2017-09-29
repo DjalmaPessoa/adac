@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-28">
+<meta name="date" content="2017-09-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -978,7 +978,7 @@ X_{W}^{2}/R\sim \mathbf{F}(R,\upsilon),
 <h2><span class="header-section-number">6.4</span> Laboratório de R</h2>
 <p>Usar exemplo da amolim ou conseguir exemplo melhor? Reproduzir usando a survey os resultados do Exemplo 6.1???</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
-pnadrj90 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;~</span><span class="ch">\\</span><span class="st">GitHub</span><span class="ch">\\</span><span class="st">adac</span><span class="ch">\\</span><span class="st">data</span><span class="ch">\\</span><span class="st">pnadrj90.rds&quot;</span>)
+<span class="kw">library</span>(anamco)
 <span class="kw">names</span>(pnadrj90)</code></pre></div>
 <pre><code>##  [1] &quot;stra&quot;     &quot;psu&quot;      &quot;pesopes&quot;  &quot;informal&quot; &quot;sx&quot;       &quot;id&quot;      
 ##  [7] &quot;ae&quot;       &quot;ht&quot;       &quot;re&quot;       &quot;um&quot;</code></pre>
@@ -1004,7 +1004,8 @@ pnadrj90<span class="op">$</span>informal&lt;-<span class="kw">ifelse</span>(pna
 <p>Cria objeto de desenho</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnad.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span><span class="op">~</span>psu,<span class="dt">strata=</span><span class="op">~</span>stra,<span class="dt">weights=</span><span class="op">~</span>pesopes,<span class="dt">data=</span>pnadrj90,<span class="dt">nest=</span><span class="ot">TRUE</span>)</code></pre></div>
 <p>Ajusta modelo de regressão logística na Tabela <a href="modreg.html#tab:logit">6.2</a> Comparar resultado com o da página 106 de Pessoa e Silva (1998)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">inf.logit&lt;-<span class="kw">svyglm</span>(informal<span class="op">~</span>sx<span class="op">+</span>ae<span class="op">+</span>ht<span class="op">+</span>id<span class="op">+</span>re<span class="op">+</span>sx<span class="op">*</span>id<span class="op">+</span>sx<span class="op">*</span>ht<span class="op">+</span>ae<span class="op">*</span>ht<span class="op">+</span>ht<span class="op">*</span>id<span class="op">+</span>ht<span class="op">*</span>re,<span class="dt">design=</span>pnad.des,<span class="dt">family=</span>binomial)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">inf.logit&lt;-<span class="kw">svyglm</span>(informal<span class="op">~</span>sx<span class="op">+</span>ae<span class="op">+</span>ht<span class="op">+</span>id<span class="op">+</span>re<span class="op">+</span>sx<span class="op">*</span>id<span class="op">+</span>sx<span class="op">*</span>ht<span class="op">+</span>ae<span class="op">*</span>ht<span class="op">+</span>ht<span class="op">*</span>id<span class="op">+</span>ht<span class="op">*</span>re,
+  <span class="dt">design=</span>pnad.des, <span class="dt">family=</span><span class="kw">quasibinomial</span>())</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">summary</span>(inf.logit)<span class="op">$</span>coefficients,<span class="dt">booktabs=</span><span class="ot">TRUE</span>, <span class="dt">digits=</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>))</code></pre></div>
 <table>
 <thead>
@@ -1234,7 +1235,7 @@ pnadrj90<span class="op">$</span>informal&lt;-<span class="kw">ifelse</span>(pna
 <pre><code>## Wald test for ht:re
 ##  in svyglm(formula = informal ~ sx + ae + ht + id + re + sx * id + 
 ##     sx * ht + ae * ht + ht * id + ht * re, design = pnad.des, 
-##     family = binomial)
+##     family = quasibinomial())
 ## F =  6.742662  on  4  and  616  df: p= 2.58e-05</code></pre>
 
 </div>

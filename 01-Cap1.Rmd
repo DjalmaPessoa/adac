@@ -415,16 +415,25 @@ opção interessante.
 ```{example, label= "exe12"}
 Utilização da library survey do R para estimar totais e razões na PPV 
 ```
-Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref(exm:distppv) . Inicialmente, vamos ler os dados e definir variáveis de interesse por meio de transformação das variáveis existentes.
+Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref(exm:distppv) . Os dados da `PPV` estão no data frame `ppv` da library `anamco`. 
+
+
 ```{r, message=FALSE, warning=FALSE}
 # leitura dos dados
 library(anamco)
 dim(ppv)
 names(ppv)
 ```
-Criação das variáveis analf1, analf2, faixa1 e faixa2:
+Inicialmente, vamos criar  variáveis de interesse por meio de transformação das variáveis existentes no data frame `ppv`. Agumas dessas variáveis são:
+
+- analf1 - indicador de analfabeto na faixa etária de 7 a 14 anos;
+- analf2 - indicador de analfabeto na faixa etária acima de 14 anos;
+- faixa1 - indicador de idade entre 7 e 14 anos;
+- faixa2 - indicador de idade acima de 14 anos;
+
 
 ```{r}
+# cria novo data frame ppv1
 ppv1 <- transform(ppv, 
 analf1 = ((v04a01 == 2 | v04a02 == 2) & (v02a08 >= 7 & v02a08 <= 14)) * 1, 
 analf2 = ((v04a01 == 2 | v04a02 == 2) & (v02a08 >14)) * 1, 
@@ -432,32 +441,24 @@ faixa1 = (v02a08 >= 7 & v02a08 <= 14) *1,
 faixa2 = (v02a08 > 14) * 1)
 ```
 
-A seguir, mostramos a utilização da library `survey` [@R-survey] do R para obter algumas estimativas da Tabela \@ref(tab:epas). Vamos supor que os dados da pesquisa estão contidos no data frame `ppv1`, que contém as variáveis  que caracterizam o plano amostral
+A seguir, mostramos como utilizar a library `survey` [@R-survey] do R para obter algumas estimativas da Tabela \@ref(tab:epas). Os dados da pesquisa estão contidos no data frame `ppv1`, que contém as variáveis que caracterizam o plano amostral:
 
 - nsetor - conglomerados;
 - estratof - estratos;
 - pesof - pesos do plano amostral;
 
-e variáveis de interesse tais como:
-
-- regiao - regiões de abrangência: 1- Nordeste, 2- Sudeste;
-- analf1 - indicador de analfabeto na faixa etária de 7 a 14 anos;
-- analf2 - indicador de analfabeto na faixa etária acima de 14 anos;
-- faixa1 - indicador de idade entre 7 e 14 anos;
-- faixa2 - indicador de idade acima de 14 anos;
-
-
 O passo fundamental para utilização da library `survey` [@R-survey] é criar um objeto que guarde as informações relevantes do plano amostral. Isso é feito por meio da função `svydesign()`.
 As variáveis que definem estratos, conglomerados e pesos na `PPV` são respectivamente, `estratof`, `nsetor` e `pesof`. O objeto de desenho amostral, `ppv.des` incorpora as informações do plano amostral adotado na `PPV`.
 
 ```{r, message=FALSE, warning=FALSE}
+# carrega library survey
 library(survey)
+# cria objeto de desenho
 ppv.des<-svydesign(ids = ~nsetor, strata = ~estratof,
 data = ppv1, nest = TRUE, weights = ~pesof)
 ```
 
-Como todos os exemplos a seguir serão relativos a estimativas na Região Sudeste, vamos
-restringir o desenho a esse domínio:
+Como todos os exemplos a seguir serão relativos a estimativas na Região Sudeste, vamos criar um objeto de desenho restrito a essa região:
 
 
 ```{r}
@@ -465,7 +466,7 @@ ppv.se.des <- subset(ppv.des, regiao == 2)
 ```
 Para exemplificar, vamos estimar algumas características da população, descritas na Tabela \@ref(tab:epas). Os totais das variáveis `analf1` e `analf2` para a região Sudeste fornecem os resultados nas linhas 4 e 5 da  Tabela \@ref(tab:epas):
 
-- totais de analfabetos nas faixas etárias de 7 a 14 anos e acima de 14 anos.
+- total de analfabetos nas faixas etárias de 7 a 14 anos (`analf1`) e acima de 14 anos (`analf2`).
 
 
 ```{r}
@@ -473,14 +474,13 @@ svytotal(~analf1, ppv.se.des, deff = TRUE)
 svytotal(~analf2, ppv.se.des, deff = TRUE)
 ```
 
--  percentual de analfabetos nas faixas 
-etárias consideradas, que fornece os resultados nas linhas 6 e 7 da Tabela \@ref(tab:epas):
+-  percentual de analfabetos nas faixas etárias consideradas, que fornece os resultados nas linhas 6 e 7 da Tabela \@ref(tab:epas):
 
 ```{r}
 svyratio(~analf1, ~faixa1, ppv.se.des)
 svyratio(~analf2, ~faixa2, ppv.se.des)
 ```
-Na library `survey` [@R-survey], uma alternativa para estimar por domínio é utilizar a função `svyby`. Poderíamos estimar os totais da variável `analf1` para as regiões `Nordeste (1)` e  `Sudeste(2)` da seguinte forma:
+Uma alternativa para obter estimativa por domínios  é utilizar a função `svyby()` da library `survey` [@R-survey]. Assim, poderíamos estimar os totais da variável `analf1` para as regiões `Nordeste (1)` e  `Sudeste(2)` da seguinte forma:
 
 ```{r}
 svyby(~analf1, ~regiao, ppv.des, svytotal, deff = TRUE)
@@ -491,20 +491,19 @@ Observe que as estimativas de totais e desvios padrão obtidas coincidem com as 
 ```{example, label= "exe13"}
 Exemplo anterior usando a library srvyr
 ```
-
-Carrega a library `srvyr`:
+- Carrega a library `srvyr`:
 
 ```{r, message=FALSE, warning=FALSE}
 library(srvyr)
 ```
 
-Cria objeto de desenho:
+- Cria objeto de desenho:
 ```{r}
 ppv.des <- ppv1 %>% as_survey_design (ids = nsetor, strata = estratof,
 nest = TRUE, weights = pesof)
 ```
 
-Vamos criar novas variáveis:
+- Vamos criar novas variáveis:
 
 ```{r}
 ppv.des <- ppv.des %>% 
@@ -516,8 +515,7 @@ faixa2 = as.numeric(v02a08 > 14)
 )
 ```
 
-Estimar a taxa de analfabetos por região para as faixas etárias de 7-14 anos e 
-mais de 14 anos.
+- Estimar a taxa de analfabetos por região para as faixas etárias de 7-14 anos e mais de 14 anos.
 
 ```{r}
 res <- ppv.des %>%  
@@ -577,12 +575,9 @@ vwaas
 }
 ```
 
-Vamos utilizar a função `Vwaas` para estimar os valores de `Efeitos do Plano Amostral` 
-das estimativas de totais apresentadas anteriormente.
+Vamos utilizar a função `Vwaas` para estimar os valores de `Efeitos do Plano Amostral`das estimativas de totais apresentadas anteriormente.
 Consideremos o plano amostral `ppv.se.des` anteriormente definido. 
-Vamos usar a função `Vwaas` para obter uma estimativa da variância do 
-total estimado da variável `analf1`. Todos os elementos os elementos necessários 
-estão contidos no objeto `ppv.se.des`:
+Vamos usar a função `Vwaas` para obter uma estimativa da variância do total estimado da variável `analf1`. Todos os elementos os elementos necessários estão contidos no objeto `ppv.se.des`:
 
 
 ```{r}
@@ -630,8 +625,7 @@ Utilização da library survey do R para estimar taxa de desocupação para um t
 ```
 
 - Instala library `lodown` [@R-lodown] do github:
-  
- 
+
 
 ```{r, eval=FALSE}
 library(devtools)

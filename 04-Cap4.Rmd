@@ -1021,12 +1021,13 @@ de 5% assumindo autovalores iguais para delta.")
 
 Vale a pena incluir as contas que não dependem da simulação?
 
-Exemplo \@ref(exm:deffuni) Parte de simulação do exemplo para salario
+Exemplo \@ref(exm:deffuni) Parte de simulação do exemplo para salarios.
 
 ```{r, message=FALSE, warning=FALSE }
 library(survey)
-# load data
+# carrega dados
 library(anamco)
+data(popul)
 ```
 
 ```{r}

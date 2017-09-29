@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-28">
+<meta name="date" content="2017-09-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -873,10 +873,11 @@ _{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) &gt;\chi _{\alpha
 <div id="laboratorio-de-r-1" class="section level2">
 <h2><span class="header-section-number">4.6</span> Laboratório de R</h2>
 <p>Vale a pena incluir as contas que não dependem da simulação?</p>
-<p>Exemplo <a href="epa.html#exm:deffuni">4.2</a> Parte de simulação do exemplo para salario</p>
+<p>Exemplo <a href="epa.html#exm:deffuni">4.2</a> Parte de simulação do exemplo para salarios.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
-<span class="co"># load data</span>
-<span class="kw">library</span>(anamco)</code></pre></div>
+<span class="co"># carrega dados</span>
+<span class="kw">library</span>(anamco)
+<span class="kw">data</span>(popul)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">N&lt;-<span class="kw">nrow</span>(popul)
 n1&lt;-<span class="dv">30</span>; n2&lt;-<span class="dv">30</span>
 nh=<span class="kw">c</span>(n1,n2)
@@ -912,10 +913,10 @@ rec_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(rec.
 
 epa_sal1 &lt;-<span class="st"> </span>sal_res_mean[<span class="dv">4</span>]<span class="op">/</span>sal_res_mean[<span class="dv">3</span>]
 epa_sal1</code></pre></div>
-<pre><code>## [1] 0.1404927</code></pre>
+<pre><code>## [1] 0.1401558</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">epa_rec1 &lt;-<span class="st"> </span>rec_res_mean[<span class="dv">4</span>]<span class="op">/</span>rec_res_mean[<span class="dv">3</span>]
 epa_rec1</code></pre></div>
-<pre><code>## [1] 0.3917409</code></pre>
+<pre><code>## [1] 0.3257104</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 vp_sal_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(sal<span class="op">~</span>estrat, popul, var)

@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-09-28}
+  \date{2017-09-29}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -716,9 +716,9 @@ nosso, o livro de \citep{lethonen} pode ser uma opção interessante.
 survey do R para estimar totais e razões na PPV
 \EndKnitrBlock{example} Os exemplos a seguir utilizam dados da Pesquisa
 de Padrões de Vida (\texttt{PPV}) de 2004 do IBGE, cujo plano amostral
-encontra-se descrito no Exemplo \ref{exm:distppv} . Inicialmente, vamos
-ler os dados e definir variáveis de interesse por meio de transformação
-das variáveis existentes.
+encontra-se descrito no Exemplo \ref{exm:distppv} . Os dados da
+\texttt{PPV} estão no data frame \texttt{ppv} da library
+\texttt{anamco}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -744,10 +744,25 @@ das variáveis existentes.
 ## [13] "v02a08"
 \end{verbatim}
 
-Criação das variáveis analf1, analf2, faixa1 e faixa2:
+Inicialmente, vamos criar variáveis de interesse por meio de
+transformação das variáveis existentes no data frame \texttt{ppv}.
+Agumas dessas variáveis são:
+
+\begin{itemize}
+\tightlist
+\item
+  analf1 - indicador de analfabeto na faixa etária de 7 a 14 anos;
+\item
+  analf2 - indicador de analfabeto na faixa etária acima de 14 anos;
+\item
+  faixa1 - indicador de idade entre 7 e 14 anos;
+\item
+  faixa2 - indicador de idade acima de 14 anos;
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# cria novo data frame ppv1}
 \NormalTok{ppv1 <-}\StringTok{ }\KeywordTok{transform}\NormalTok{(ppv, }
 \DataTypeTok{analf1 =}\NormalTok{ ((v04a01 }\OperatorTok{==}\StringTok{ }\DecValTok{2} \OperatorTok{|}\StringTok{ }\NormalTok{v04a02 }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(v02a08 }\OperatorTok{>=}\StringTok{ }\DecValTok{7} \OperatorTok{&}\StringTok{ }\NormalTok{v02a08 }\OperatorTok{<=}\StringTok{ }\DecValTok{14}\NormalTok{)) }\OperatorTok{*}\StringTok{ }\DecValTok{1}\NormalTok{, }
 \DataTypeTok{analf2 =}\NormalTok{ ((v04a01 }\OperatorTok{==}\StringTok{ }\DecValTok{2} \OperatorTok{|}\StringTok{ }\NormalTok{v04a02 }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(v02a08 }\OperatorTok{>}\DecValTok{14}\NormalTok{)) }\OperatorTok{*}\StringTok{ }\DecValTok{1}\NormalTok{, }
@@ -756,11 +771,11 @@ Criação das variáveis analf1, analf2, faixa1 e faixa2:
 \end{Highlighting}
 \end{Shaded}
 
-A seguir, mostramos a utilização da library \texttt{survey}
+A seguir, mostramos como utilizar a library \texttt{survey}
 \citep{R-survey} do R para obter algumas estimativas da Tabela
-\ref{tab:epas}. Vamos supor que os dados da pesquisa estão contidos no
-data frame \texttt{ppv1}, que contém as variáveis que caracterizam o
-plano amostral
+\ref{tab:epas}. Os dados da pesquisa estão contidos no data frame
+\texttt{ppv1}, que contém as variáveis que caracterizam o plano
+amostral:
 
 \begin{itemize}
 \tightlist
@@ -770,22 +785,6 @@ plano amostral
   estratof - estratos;
 \item
   pesof - pesos do plano amostral;
-\end{itemize}
-
-e variáveis de interesse tais como:
-
-\begin{itemize}
-\tightlist
-\item
-  regiao - regiões de abrangência: 1- Nordeste, 2- Sudeste;
-\item
-  analf1 - indicador de analfabeto na faixa etária de 7 a 14 anos;
-\item
-  analf2 - indicador de analfabeto na faixa etária acima de 14 anos;
-\item
-  faixa1 - indicador de idade entre 7 e 14 anos;
-\item
-  faixa2 - indicador de idade acima de 14 anos;
 \end{itemize}
 
 O passo fundamental para utilização da library \texttt{survey}
@@ -798,14 +797,16 @@ as informações do plano amostral adotado na \texttt{PPV}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# carrega library survey}
 \KeywordTok{library}\NormalTok{(survey)}
+\CommentTok{# cria objeto de desenho}
 \NormalTok{ppv.des<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{ids =} \OperatorTok{~}\NormalTok{nsetor, }\DataTypeTok{strata =} \OperatorTok{~}\NormalTok{estratof,}
 \DataTypeTok{data =}\NormalTok{ ppv1, }\DataTypeTok{nest =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{weights =} \OperatorTok{~}\NormalTok{pesof)}
 \end{Highlighting}
 \end{Shaded}
 
 Como todos os exemplos a seguir serão relativos a estimativas na Região
-Sudeste, vamos restringir o desenho a esse domínio:
+Sudeste, vamos criar um objeto de desenho restrito a essa região:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -821,8 +822,8 @@ resultados nas linhas 4 e 5 da Tabela \ref{tab:epas}:
 \begin{itemize}
 \tightlist
 \item
-  totais de analfabetos nas faixas etárias de 7 a 14 anos e acima de 14
-  anos.
+  total de analfabetos nas faixas etárias de 7 a 14 anos
+  (\texttt{analf1}) e acima de 14 anos (\texttt{analf2}).
 \end{itemize}
 
 \begin{Shaded}
@@ -886,9 +887,9 @@ resultados nas linhas 4 e 5 da Tabela \ref{tab:epas}:
 ## analf2 0.006732254
 \end{verbatim}
 
-Na library \texttt{survey} \citep{R-survey}, uma alternativa para
-estimar por domínio é utilizar a função \texttt{svyby}. Poderíamos
-estimar os totais da variável \texttt{analf1} para as regiões
+Uma alternativa para obter estimativa por domínios é utilizar a função
+\texttt{svyby()} da library \texttt{survey} \citep{R-survey}. Assim,
+poderíamos estimar os totais da variável \texttt{analf1} para as regiões
 \texttt{Nordeste\ (1)} e \texttt{Sudeste(2)} da seguinte forma:
 
 \begin{Shaded}
@@ -910,9 +911,7 @@ Amostral(DEff) são distintas.
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:exe13}{}{\label{exm:exe13} }Exemplo anterior usando
 a library srvyr
-\EndKnitrBlock{example}
-
-Carrega a library \texttt{srvyr}:
+\EndKnitrBlock{example} - Carrega a library \texttt{srvyr}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -920,7 +919,11 @@ Carrega a library \texttt{srvyr}:
 \end{Highlighting}
 \end{Shaded}
 
-Cria objeto de desenho:
+\begin{itemize}
+\tightlist
+\item
+  Cria objeto de desenho:
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -929,7 +932,11 @@ Cria objeto de desenho:
 \end{Highlighting}
 \end{Shaded}
 
-Vamos criar novas variáveis:
+\begin{itemize}
+\tightlist
+\item
+  Vamos criar novas variáveis:
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -943,8 +950,12 @@ Vamos criar novas variáveis:
 \end{Highlighting}
 \end{Shaded}
 
-Estimar a taxa de analfabetos por região para as faixas etárias de 7-14
-anos e mais de 14 anos.
+\begin{itemize}
+\tightlist
+\item
+  Estimar a taxa de analfabetos por região para as faixas etárias de
+  7-14 anos e mais de 14 anos.
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1042,7 +1053,7 @@ função do R:
 \end{Shaded}
 
 Vamos utilizar a função \texttt{Vwaas} para estimar os valores de
-\texttt{Efeitos\ do\ Plano\ Amostral} das estimativas de totais
+\texttt{Efeitos\ do\ Plano\ Amostral}das estimativas de totais
 apresentadas anteriormente. Consideremos o plano amostral
 \texttt{ppv.se.des} anteriormente definido. Vamos usar a função
 \texttt{Vwaas} para obter uma estimativa da variância do total estimado
@@ -3476,15 +3487,15 @@ Vamos criar duas variáveis:
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(survey)}
 \KeywordTok{library}\NormalTok{(anamco) }\CommentTok{# carrega dados}
+\CommentTok{# cria objeto de desenho}
 \NormalTok{ppv.des<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{ids =} \OperatorTok{~}\NormalTok{nsetor, }\DataTypeTok{strata =} \OperatorTok{~}\NormalTok{estratof,}
 \DataTypeTok{data =}\NormalTok{ ppv, }\DataTypeTok{nest =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{weights =} \OperatorTok{~}\NormalTok{pesof)}
-
+\CommentTok{# atualiza objeto de desenho com novas variáveis}
 \NormalTok{ppv.des<-}\KeywordTok{update}\NormalTok{(ppv.des,}
   \DataTypeTok{analf=}\NormalTok{(v04a01 }\OperatorTok{==}\StringTok{ }\DecValTok{2} \OperatorTok{|}\StringTok{ }\NormalTok{v04a02 }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{)}\OperatorTok{*}\DecValTok{1}\NormalTok{,}
-  \DataTypeTok{faixa=}\NormalTok{(v02a08 }\OperatorTok{>=}\StringTok{ }\DecValTok{7} \OperatorTok{&}\StringTok{ }\NormalTok{v02a08 }\OperatorTok{<=}\StringTok{ }\DecValTok{14}\NormalTok{) }\OperatorTok{*}\DecValTok{1}
+  \DataTypeTok{faixa=}\NormalTok{(v02a08 }\OperatorTok{>=}\StringTok{ }\DecValTok{7} \OperatorTok{&}\StringTok{ }\NormalTok{v02a08 }\OperatorTok{<=}\StringTok{ }\DecValTok{14}\NormalTok{) }\OperatorTok{*}\DecValTok{1}\NormalTok{,}
+  \DataTypeTok{analf.faixa=}\NormalTok{ (analf}\OperatorTok{==}\DecValTok{1} \OperatorTok{&}\StringTok{ }\NormalTok{faixa}\OperatorTok{==}\DecValTok{1}\NormalTok{)}\OperatorTok{*}\DecValTok{1}
 \NormalTok{)}
-\NormalTok{ppv.se.des <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(ppv.des, regiao }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{)}
-\NormalTok{ppv.des<-}\KeywordTok{update}\NormalTok{(ppv.des,}\DataTypeTok{analf.faixa=}\NormalTok{ (analf}\OperatorTok{==}\DecValTok{1} \OperatorTok{&}\StringTok{ }\NormalTok{faixa}\OperatorTok{==}\DecValTok{1}\NormalTok{)}\OperatorTok{*}\DecValTok{1}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3507,7 +3518,9 @@ Vamos estimar os totais das variáveis \texttt{analf.faixa} e
 \end{Highlighting}
 \end{Shaded}
 
-Substituindo os valores na expressão \eqref{eq:estpa21}
+Substituindo os valores na expressão \eqref{eq:estpa21}, obtemos a
+estimativa da variância da razão de totais das variáveis
+\texttt{analf.faixa} e \texttt{faixa}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3515,6 +3528,7 @@ Substituindo os valores na expressão \eqref{eq:estpa21}
 \NormalTok{y2hat<-}\KeywordTok{coef}\NormalTok{(tot.est)[}\DecValTok{2}\NormalTok{]}
 \NormalTok{Var.raz<-(}\DecValTok{1}\OperatorTok{/}\NormalTok{y2hat)}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{y2hat)}\OperatorTok{*}\NormalTok{Vcov.Y1.Y2[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\DecValTok{2}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{y2hat)}\OperatorTok{*}\NormalTok{(}\OperatorTok{-}\NormalTok{y1hat}\OperatorTok{/}\NormalTok{y2hat}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{Vcov.Y1.Y2[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{]}\OperatorTok{+}
 \NormalTok{(}\OperatorTok{-}\NormalTok{y1hat}\OperatorTok{/}\NormalTok{y2hat}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{(}\OperatorTok{-}\NormalTok{y1hat}\OperatorTok{/}\NormalTok{y2hat}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{Vcov.Y1.Y2[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{]}
+\CommentTok{# estimativa do desvio-padrão}
 \KeywordTok{sqrt}\NormalTok{(Var.raz)}
 \end{Highlighting}
 \end{Shaded}
@@ -3550,11 +3564,11 @@ de linearização de Taylor.
 
 A library \texttt{survey} dispõe de métodos alternativos para a
 estimação de variância. Vamos utilizar os métodos de replicação de
-\texttt{Jackknife} e de \texttt{Bootstrap} para estimar esta variância
-de razão. Inicialmente, vamos converter o objeto de desenho
-\texttt{ppv1.se.design} em um objeto de desenho de replicação de
-\emph{Jackknife}, contendo as réplicas de pesos que vão gerar as
-réplicas de estimativas.
+\emph{Jackknife} e de \emph{Bootstrap} para estimar esta variância de
+razão. Inicialmente, vamos converter o objeto de desenho
+\texttt{ppv1.se.design} em um objeto de desenho de replicação de tipo
+\emph{Jackknife}, contendo as réplicas de pesos que fornecem
+correspondentes réplicas de estimativas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3573,7 +3587,7 @@ réplicas de estimativas.
 ## [1,] 0.01181434
 \end{verbatim}
 
-Para o método \texttt{Bootstrap}, temos:
+Para o tipo \emph{Bootstrap}, temos:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3589,13 +3603,13 @@ Para o método \texttt{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01191771
+## [1,] 0.01270333
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
-Jackknife e Bootstrap na library \texttt{survey} \citep{R-survey}. A
-classe do objeto \texttt{ppv.se.des.jkn} é \texttt{svyrep.design} e ele
-contém as seguintes componentes:
+\emph{Jackknife} e \emph{Bootstrap} na library \texttt{survey}
+\citep{R-survey}. A classe do objeto \texttt{ppv.se.des.jkn} é
+\texttt{svyrep.design} e ele contém as seguintes componentes:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3747,9 +3761,9 @@ Resultado que coincide com a estimativa obtida pela aplicação da função
 
 A vantagem de utilizar métodos de replicação é a facilidade com que
 estimamos a variância de qualquer característica da população, cujo
-estimador é conhecido. Por exemplo, se quisermos estimar a variância da
-razão das taxas de analfabetos nas faixas etárias de 0 a 14 anos e acima
-de 14 anos podemos usar as mesmas réplicas de pesos:
+estimador pontual é conhecido. Por exemplo, se quisermos estimar a
+variância da razão das taxas de analfabetos nas faixas etárias de 0 a 14
+anos e acima de 14 anos podemos usar as mesmas réplicas de pesos:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5077,13 +5091,14 @@ delta & K=1 & K=2 & K=3 & K=4\\
 
 Vale a pena incluir as contas que não dependem da simulação?
 
-Exemplo \ref{exm:deffuni} Parte de simulação do exemplo para salario
+Exemplo \ref{exm:deffuni} Parte de simulação do exemplo para salarios.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(survey)}
-\CommentTok{# load data}
+\CommentTok{# carrega dados}
 \KeywordTok{library}\NormalTok{(anamco)}
+\KeywordTok{data}\NormalTok{(popul)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5135,7 +5150,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1415694
+## [1] 0.1406018
 \end{verbatim}
 
 \begin{Shaded}
@@ -5146,7 +5161,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.4004491
+## [1] 0.4082074
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -7072,7 +7087,7 @@ survey os resultados do Exemplo 6.1???
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(survey)}
-\NormalTok{pnadrj90 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{pnadrj90.rds"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(anamco)}
 \KeywordTok{names}\NormalTok{(pnadrj90)}
 \end{Highlighting}
 \end{Shaded}
@@ -7131,7 +7146,8 @@ resultado com o da página 106 de Pessoa e Silva (1998)
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{inf.logit<-}\KeywordTok{svyglm}\NormalTok{(informal}\OperatorTok{~}\NormalTok{sx}\OperatorTok{+}\NormalTok{ae}\OperatorTok{+}\NormalTok{ht}\OperatorTok{+}\NormalTok{id}\OperatorTok{+}\NormalTok{re}\OperatorTok{+}\NormalTok{sx}\OperatorTok{*}\NormalTok{id}\OperatorTok{+}\NormalTok{sx}\OperatorTok{*}\NormalTok{ht}\OperatorTok{+}\NormalTok{ae}\OperatorTok{*}\NormalTok{ht}\OperatorTok{+}\NormalTok{ht}\OperatorTok{*}\NormalTok{id}\OperatorTok{+}\NormalTok{ht}\OperatorTok{*}\NormalTok{re,}\DataTypeTok{design=}\NormalTok{pnad.des,}\DataTypeTok{family=}\NormalTok{binomial)}
+\NormalTok{inf.logit<-}\KeywordTok{svyglm}\NormalTok{(informal}\OperatorTok{~}\NormalTok{sx}\OperatorTok{+}\NormalTok{ae}\OperatorTok{+}\NormalTok{ht}\OperatorTok{+}\NormalTok{id}\OperatorTok{+}\NormalTok{re}\OperatorTok{+}\NormalTok{sx}\OperatorTok{*}\NormalTok{id}\OperatorTok{+}\NormalTok{sx}\OperatorTok{*}\NormalTok{ht}\OperatorTok{+}\NormalTok{ae}\OperatorTok{*}\NormalTok{ht}\OperatorTok{+}\NormalTok{ht}\OperatorTok{*}\NormalTok{id}\OperatorTok{+}\NormalTok{ht}\OperatorTok{*}\NormalTok{re,}
+  \DataTypeTok{design=}\NormalTok{pnad.des, }\DataTypeTok{family=}\KeywordTok{quasibinomial}\NormalTok{())}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7195,7 +7211,7 @@ Teste de Wald para a hipótese \(H_0: ht:re=0\)
 ## Wald test for ht:re
 ##  in svyglm(formula = informal ~ sx + ae + ht + id + re + sx * id + 
 ##     sx * ht + ae * ht + ht * id + ht * re, design = pnad.des, 
-##     family = binomial)
+##     family = quasibinomial())
 ## F =  6.742662  on  4  and  616  df: p= 2.58e-05
 \end{verbatim}
 

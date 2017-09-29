@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-28">
+<meta name="date" content="2017-09-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -493,7 +493,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="example">
 <span id="exm:exe12" class="example"><strong>Exemplo 1.2  </strong></span>Utilização da library survey do R para estimar totais e razões na PPV
 </div>
-<p> Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (<code>PPV</code>) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo <a href="introduc.html#exm:distppv">1.1</a> . Inicialmente, vamos ler os dados e definir variáveis de interesse por meio de transformação das variáveis existentes.</p>
+<p> Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (<code>PPV</code>) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo <a href="introduc.html#exm:distppv">1.1</a> . Os dados da <code>PPV</code> estão no data frame <code>ppv</code> da library <code>anamco</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># leitura dos dados</span>
 <span class="kw">library</span>(anamco)
 <span class="kw">dim</span>(ppv)</code></pre></div>
@@ -502,35 +502,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>##  [1] &quot;serie&quot;    &quot;ident&quot;    &quot;codmor&quot;   &quot;v04a01&quot;   &quot;v04a02&quot;   &quot;v04a03&quot;  
 ##  [7] &quot;estratof&quot; &quot;peso1&quot;    &quot;peso2&quot;    &quot;pesof&quot;    &quot;nsetor&quot;   &quot;regiao&quot;  
 ## [13] &quot;v02a08&quot;</code></pre>
-<p>Criação das variáveis analf1, analf2, faixa1 e faixa2:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv1 &lt;-<span class="st"> </span><span class="kw">transform</span>(ppv, 
-<span class="dt">analf1 =</span> ((v04a01 <span class="op">==</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span>v04a02 <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(v02a08 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>v02a08 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">14</span>)) <span class="op">*</span><span class="st"> </span><span class="dv">1</span>, 
-<span class="dt">analf2 =</span> ((v04a01 <span class="op">==</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span>v04a02 <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(v02a08 <span class="op">&gt;</span><span class="dv">14</span>)) <span class="op">*</span><span class="st"> </span><span class="dv">1</span>, 
-<span class="dt">faixa1 =</span> (v02a08 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>v02a08 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">14</span>) <span class="op">*</span><span class="dv">1</span>, 
-<span class="dt">faixa2 =</span> (v02a08 <span class="op">&gt;</span><span class="st"> </span><span class="dv">14</span>) <span class="op">*</span><span class="st"> </span><span class="dv">1</span>)</code></pre></div>
-<p>A seguir, mostramos a utilização da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> do R para obter algumas estimativas da Tabela <a href="introduc.html#tab:epas">1.3</a>. Vamos supor que os dados da pesquisa estão contidos no data frame <code>ppv1</code>, que contém as variáveis que caracterizam o plano amostral</p>
+<p>Inicialmente, vamos criar variáveis de interesse por meio de transformação das variáveis existentes no data frame <code>ppv</code>. Agumas dessas variáveis são:</p>
 <ul>
-<li>nsetor - conglomerados;</li>
-<li>estratof - estratos;</li>
-<li>pesof - pesos do plano amostral;</li>
-</ul>
-<p>e variáveis de interesse tais como:</p>
-<ul>
-<li>regiao - regiões de abrangência: 1- Nordeste, 2- Sudeste;</li>
 <li>analf1 - indicador de analfabeto na faixa etária de 7 a 14 anos;</li>
 <li>analf2 - indicador de analfabeto na faixa etária acima de 14 anos;</li>
 <li>faixa1 - indicador de idade entre 7 e 14 anos;</li>
 <li>faixa2 - indicador de idade acima de 14 anos;</li>
 </ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cria novo data frame ppv1</span>
+ppv1 &lt;-<span class="st"> </span><span class="kw">transform</span>(ppv, 
+<span class="dt">analf1 =</span> ((v04a01 <span class="op">==</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span>v04a02 <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(v02a08 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>v02a08 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">14</span>)) <span class="op">*</span><span class="st"> </span><span class="dv">1</span>, 
+<span class="dt">analf2 =</span> ((v04a01 <span class="op">==</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span>v04a02 <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(v02a08 <span class="op">&gt;</span><span class="dv">14</span>)) <span class="op">*</span><span class="st"> </span><span class="dv">1</span>, 
+<span class="dt">faixa1 =</span> (v02a08 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>v02a08 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">14</span>) <span class="op">*</span><span class="dv">1</span>, 
+<span class="dt">faixa2 =</span> (v02a08 <span class="op">&gt;</span><span class="st"> </span><span class="dv">14</span>) <span class="op">*</span><span class="st"> </span><span class="dv">1</span>)</code></pre></div>
+<p>A seguir, mostramos como utilizar a library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> do R para obter algumas estimativas da Tabela <a href="introduc.html#tab:epas">1.3</a>. Os dados da pesquisa estão contidos no data frame <code>ppv1</code>, que contém as variáveis que caracterizam o plano amostral:</p>
+<ul>
+<li>nsetor - conglomerados;</li>
+<li>estratof - estratos;</li>
+<li>pesof - pesos do plano amostral;</li>
+</ul>
 <p>O passo fundamental para utilização da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> é criar um objeto que guarde as informações relevantes do plano amostral. Isso é feito por meio da função <code>svydesign()</code>. As variáveis que definem estratos, conglomerados e pesos na <code>PPV</code> são respectivamente, <code>estratof</code>, <code>nsetor</code> e <code>pesof</code>. O objeto de desenho amostral, <code>ppv.des</code> incorpora as informações do plano amostral adotado na <code>PPV</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># carrega library survey</span>
+<span class="kw">library</span>(survey)
+<span class="co"># cria objeto de desenho</span>
 ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span>nsetor, <span class="dt">strata =</span> <span class="op">~</span>estratof,
 <span class="dt">data =</span> ppv1, <span class="dt">nest =</span> <span class="ot">TRUE</span>, <span class="dt">weights =</span> <span class="op">~</span>pesof)</code></pre></div>
-<p>Como todos os exemplos a seguir serão relativos a estimativas na Região Sudeste, vamos restringir o desenho a esse domínio:</p>
+<p>Como todos os exemplos a seguir serão relativos a estimativas na Região Sudeste, vamos criar um objeto de desenho restrito a essa região:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.des &lt;-<span class="st"> </span><span class="kw">subset</span>(ppv.des, regiao <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
 <p>Para exemplificar, vamos estimar algumas características da população, descritas na Tabela <a href="introduc.html#tab:epas">1.3</a>. Os totais das variáveis <code>analf1</code> e <code>analf2</code> para a região Sudeste fornecem os resultados nas linhas 4 e 5 da Tabela <a href="introduc.html#tab:epas">1.3</a>:</p>
 <ul>
-<li>totais de analfabetos nas faixas etárias de 7 a 14 anos e acima de 14 anos.</li>
+<li>total de analfabetos nas faixas etárias de 7 a 14 anos (<code>analf1</code>) e acima de 14 anos (<code>analf2</code>).</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(<span class="op">~</span>analf1, ppv.se.des, <span class="dt">deff =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>##          total      SE   DEff
@@ -557,7 +558,7 @@ ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <spa
 ## SEs=
 ##             faixa2
 ## analf2 0.006732254</code></pre>
-<p>Na library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>, uma alternativa para estimar por domínio é utilizar a função <code>svyby</code>. Poderíamos estimar os totais da variável <code>analf1</code> para as regiões <code>Nordeste (1)</code> e <code>Sudeste(2)</code> da seguinte forma:</p>
+<p>Uma alternativa para obter estimativa por domínios é utilizar a função <code>svyby()</code> da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. Assim, poderíamos estimar os totais da variável <code>analf1</code> para as regiões <code>Nordeste (1)</code> e <code>Sudeste(2)</code> da seguinte forma:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyby</span>(<span class="op">~</span>analf1, <span class="op">~</span>regiao, ppv.des, svytotal, <span class="dt">deff =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>##   regiao  analf1       se DEff.analf1
 ## 1      1 3512866 352619.5    9.660561
@@ -567,13 +568,16 @@ ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <spa
 <div class="example">
 <span id="exm:exe13" class="example"><strong>Exemplo 1.3  </strong></span>Exemplo anterior usando a library srvyr
 </div>
-
-<p>Carrega a library <code>srvyr</code>:</p>
+<p> - Carrega a library <code>srvyr</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(srvyr)</code></pre></div>
-<p>Cria objeto de desenho:</p>
+<ul>
+<li>Cria objeto de desenho:</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.des &lt;-<span class="st"> </span>ppv1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_survey_design</span> (<span class="dt">ids =</span> nsetor, <span class="dt">strata =</span> estratof,
 <span class="dt">nest =</span> <span class="ot">TRUE</span>, <span class="dt">weights =</span> pesof)</code></pre></div>
-<p>Vamos criar novas variáveis:</p>
+<ul>
+<li>Vamos criar novas variáveis:</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.des &lt;-<span class="st"> </span>ppv.des <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="kw">mutate</span>(
 <span class="dt">analf1 =</span> <span class="kw">as.numeric</span>((v04a01 <span class="op">==</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span>v04a02 <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(v02a08 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>v02a08 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">14</span>)), 
@@ -581,7 +585,9 @@ ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <spa
 <span class="dt">faixa1 =</span> <span class="kw">as.numeric</span>(v02a08 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>v02a08 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">14</span>), 
 <span class="dt">faixa2 =</span> <span class="kw">as.numeric</span>(v02a08 <span class="op">&gt;</span><span class="st"> </span><span class="dv">14</span>)   
 )</code></pre></div>
-<p>Estimar a taxa de analfabetos por região para as faixas etárias de 7-14 anos e mais de 14 anos.</p>
+<ul>
+<li>Estimar a taxa de analfabetos por região para as faixas etárias de 7-14 anos e mais de 14 anos.</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res &lt;-<span class="st"> </span>ppv.des <span class="op">%&gt;%</span><span class="st">  </span>
 <span class="kw">group_by</span>(regiao) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="kw">summarise</span>(
@@ -623,7 +629,7 @@ nhat&lt;-<span class="kw">sum</span>(w)
 vwaas&lt;-(nhat<span class="op">/</span>n1)<span class="op">*</span>(wsum2<span class="op">-</span>wsum<span class="op">^</span><span class="dv">2</span><span class="op">/</span>nhat)
 vwaas
 }</code></pre></div>
-<p>Vamos utilizar a função <code>Vwaas</code> para estimar os valores de <code>Efeitos do Plano Amostral</code> das estimativas de totais apresentadas anteriormente. Consideremos o plano amostral <code>ppv.se.des</code> anteriormente definido. Vamos usar a função <code>Vwaas</code> para obter uma estimativa da variância do total estimado da variável <code>analf1</code>. Todos os elementos os elementos necessários estão contidos no objeto <code>ppv.se.des</code>:</p>
+<p>Vamos utilizar a função <code>Vwaas</code> para estimar os valores de <code>Efeitos do Plano Amostral</code>das estimativas de totais apresentadas anteriormente. Consideremos o plano amostral <code>ppv.se.des</code> anteriormente definido. Vamos usar a função <code>Vwaas</code> para obter uma estimativa da variância do total estimado da variável <code>analf1</code>. Todos os elementos os elementos necessários estão contidos no objeto <code>ppv.se.des</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">VAAS1&lt;-<span class="st"> </span><span class="kw">Vwaas</span>(ppv.se.des<span class="op">$</span>variables[,<span class="st">&quot;analf1&quot;</span>],<span class="kw">weights</span>(ppv.se.des))
 VAAS2&lt;-<span class="st"> </span><span class="kw">Vwaas</span>(ppv.se.des<span class="op">$</span>variables[,<span class="st">&quot;analf2&quot;</span>],<span class="kw">weights</span>(ppv.se.des))</code></pre></div>
 <p>O efeito de plano amostral da estimativa do total de <code>analf1</code> pode agora ser calculada por</p>

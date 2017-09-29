@@ -646,17 +646,16 @@ Vamos criar duas variáveis:
 ```{r, message=FALSE, warning=FALSE}
 library(survey)
 library(anamco) # carrega dados
+# cria objeto de desenho
 ppv.des<-svydesign(ids = ~nsetor, strata = ~estratof,
 data = ppv, nest = TRUE, weights = ~pesof)
-
+# atualiza objeto de desenho com novas variáveis
 ppv.des<-update(ppv.des,
   analf=(v04a01 == 2 | v04a02 == 2)*1,
-  faixa=(v02a08 >= 7 & v02a08 <= 14) *1
+  faixa=(v02a08 >= 7 & v02a08 <= 14) *1,
+  analf.faixa= (analf==1 & faixa==1)*1
 )
-ppv.se.des <- subset(ppv.des, regiao == 2)
-ppv.des<-update(ppv.des,analf.faixa= (analf==1 & faixa==1)*1)
 ```
-
 
 Como estamos interessados em estimativas relativas à Região Sudeste, vamos restringir o desenho a esse domínio:
 
@@ -670,7 +669,7 @@ Vamos estimar os totais das variáveis `analf.faixa` e `faixa`:
 tot.est<-svytotal(~analf.faixa+faixa ,ppv.se.des )
 Vcov.Y1.Y2<-vcov(tot.est) 
 ```
-Substituindo os valores na expressão \@ref(eq:estpa21)
+Substituindo os valores na expressão \@ref(eq:estpa21), obtemos a estimativa da variância da razão de totais das variáveis `analf.faixa` e `faixa`.
 
 
 ```{r}
@@ -678,6 +677,7 @@ y1hat<-coef(tot.est)[1]
 y2hat<-coef(tot.est)[2]
 Var.raz<-(1/y2hat)*(1/y2hat)*Vcov.Y1.Y2[1,1]+2*(1/y2hat)*(-y1hat/y2hat^2)*Vcov.Y1.Y2[1,2]+
 (-y1hat/y2hat^2)*(-y1hat/y2hat^2)*Vcov.Y1.Y2[2,2]
+# estimativa do desvio-padrão
 sqrt(Var.raz)
 ```
 
@@ -693,20 +693,20 @@ de linearização, e é igual a `r round(sqrt(Var.raz),digits=5)`. O método def
 usado pela library `survey` [@R-survey] do R é o de linearização de Taylor.
 
 A library `survey` dispõe de métodos alternativos para a estimação de variância.  Vamos utilizar os métodos de replicação
-de `Jackknife` e de `Bootstrap` para estimar esta variância de razão. Inicialmente, vamos converter o objeto de desenho `ppv1.se.design` em um objeto de desenho de replicação de *Jackknife*, contendo as réplicas de pesos que vão gerar as réplicas de estimativas.
+de *Jackknife* e de *Bootstrap* para estimar esta variância de razão. Inicialmente, vamos converter o objeto de desenho `ppv1.se.design` em um objeto de desenho de replicação de tipo *Jackknife*, contendo as réplicas de pesos que fornecem correspondentes réplicas de estimativas.
 
 ```{r}
 ppv.se.des.jkn<-as.svrepdesign(ppv.se.des,type="JKn")
 svyratio(~analf.faixa, ~faixa, ppv.se.des.jkn)
 ```
-Para o método `Bootstrap`, temos:
+Para o tipo *Bootstrap*, temos:
 
 ```{r}
 ppv.se.des.boot<-as.svrepdesign(ppv.se.des,type="bootstrap")
 svyratio(~analf.faixa, ~faixa, ppv.se.des.boot)
 
 ```
-Vamos apresentar mais detalhes sobre a obtenção dos estimadores de Jackknife e Bootstrap na library `survey` [@R-survey].
+Vamos apresentar mais detalhes sobre a obtenção dos estimadores de *Jackknife* e *Bootstrap* na library `survey` [@R-survey].
 A classe do objeto `ppv.se.des.jkn` é `svyrep.design` e ele contém as seguintes componentes:
 
 ```{r}
@@ -787,7 +787,7 @@ var.raz.rep
 Resultado que coincide com a estimativa obtida pela aplicação da função `svyratio`.
 
 A vantagem de utilizar métodos de replicação é a facilidade com que estimamos a variância de qualquer
-característica da população, cujo estimador é conhecido. Por exemplo, se quisermos estimar a variância da razão das taxas de analfabetos nas faixas etárias de 0 a 14 anos e acima de 14 anos podemos usar as mesmas réplicas de pesos:
+característica da população, cujo estimador pontual é conhecido. Por exemplo, se quisermos estimar a variância da razão das taxas de analfabetos nas faixas etárias de 0 a 14 anos e acima de 14 anos podemos usar as mesmas réplicas de pesos:
 
 ```{r}
 withReplicates(ppv.se.des.jkn,function(w,ppv.se) with(ppv.se,

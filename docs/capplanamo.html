@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-28">
+<meta name="date" content="2017-09-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -547,25 +547,26 @@ ou
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
 <span class="kw">library</span>(anamco) <span class="co"># carrega dados</span>
+<span class="co"># cria objeto de desenho</span>
 ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span>nsetor, <span class="dt">strata =</span> <span class="op">~</span>estratof,
 <span class="dt">data =</span> ppv, <span class="dt">nest =</span> <span class="ot">TRUE</span>, <span class="dt">weights =</span> <span class="op">~</span>pesof)
-
+<span class="co"># atualiza objeto de desenho com novas variáveis</span>
 ppv.des&lt;-<span class="kw">update</span>(ppv.des,
   <span class="dt">analf=</span>(v04a01 <span class="op">==</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span>v04a02 <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>,
-  <span class="dt">faixa=</span>(v02a08 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>v02a08 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">14</span>) <span class="op">*</span><span class="dv">1</span>
-)
-ppv.se.des &lt;-<span class="st"> </span><span class="kw">subset</span>(ppv.des, regiao <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)
-ppv.des&lt;-<span class="kw">update</span>(ppv.des,<span class="dt">analf.faixa=</span> (analf<span class="op">==</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>faixa<span class="op">==</span><span class="dv">1</span>)<span class="op">*</span><span class="dv">1</span>)</code></pre></div>
+  <span class="dt">faixa=</span>(v02a08 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>v02a08 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">14</span>) <span class="op">*</span><span class="dv">1</span>,
+  <span class="dt">analf.faixa=</span> (analf<span class="op">==</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>faixa<span class="op">==</span><span class="dv">1</span>)<span class="op">*</span><span class="dv">1</span>
+)</code></pre></div>
 <p>Como estamos interessados em estimativas relativas à Região Sudeste, vamos restringir o desenho a esse domínio:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.des &lt;-<span class="st"> </span><span class="kw">subset</span>(ppv.des, regiao <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
 <p>Vamos estimar os totais das variáveis <code>analf.faixa</code> e <code>faixa</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tot.est&lt;-<span class="kw">svytotal</span>(<span class="op">~</span>analf.faixa<span class="op">+</span>faixa ,ppv.se.des )
 Vcov.Y1.Y2&lt;-<span class="kw">vcov</span>(tot.est) </code></pre></div>
-<p>Substituindo os valores na expressão <a href="capplanamo.html#eq:estpa21">(3.21)</a></p>
+<p>Substituindo os valores na expressão <a href="capplanamo.html#eq:estpa21">(3.21)</a>, obtemos a estimativa da variância da razão de totais das variáveis <code>analf.faixa</code> e <code>faixa</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y1hat&lt;-<span class="kw">coef</span>(tot.est)[<span class="dv">1</span>]
 y2hat&lt;-<span class="kw">coef</span>(tot.est)[<span class="dv">2</span>]
 Var.raz&lt;-(<span class="dv">1</span><span class="op">/</span>y2hat)<span class="op">*</span>(<span class="dv">1</span><span class="op">/</span>y2hat)<span class="op">*</span>Vcov.Y1.Y2[<span class="dv">1</span>,<span class="dv">1</span>]<span class="op">+</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span>y2hat)<span class="op">*</span>(<span class="op">-</span>y1hat<span class="op">/</span>y2hat<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>Vcov.Y1.Y2[<span class="dv">1</span>,<span class="dv">2</span>]<span class="op">+</span>
 (<span class="op">-</span>y1hat<span class="op">/</span>y2hat<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>(<span class="op">-</span>y1hat<span class="op">/</span>y2hat<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>Vcov.Y1.Y2[<span class="dv">2</span>,<span class="dv">2</span>]
+<span class="co"># estimativa do desvio-padrão</span>
 <span class="kw">sqrt</span>(Var.raz)</code></pre></div>
 <pre><code>##      faixa 
 ## 0.01178896</code></pre>
@@ -579,7 +580,7 @@ Var.raz&lt;-(<span class="dv">1</span><span class="op">/</span>y2hat)<span class
 ##                  faixa
 ## analf.faixa 0.01178896</code></pre>
 <p>A estimativa do desvio-padrão obtida por meio da função <code>svyratio</code> coincide com a obtida diretamente pelo método de linearização, e é igual a 0.01179. O método default para estimar variâncias usado pela library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> do R é o de linearização de Taylor.</p>
-<p>A library <code>survey</code> dispõe de métodos alternativos para a estimação de variância. Vamos utilizar os métodos de replicação de <code>Jackknife</code> e de <code>Bootstrap</code> para estimar esta variância de razão. Inicialmente, vamos converter o objeto de desenho <code>ppv1.se.design</code> em um objeto de desenho de replicação de <em>Jackknife</em>, contendo as réplicas de pesos que vão gerar as réplicas de estimativas.</p>
+<p>A library <code>survey</code> dispõe de métodos alternativos para a estimação de variância. Vamos utilizar os métodos de replicação de <em>Jackknife</em> e de <em>Bootstrap</em> para estimar esta variância de razão. Inicialmente, vamos converter o objeto de desenho <code>ppv1.se.design</code> em um objeto de desenho de replicação de tipo <em>Jackknife</em>, contendo as réplicas de pesos que fornecem correspondentes réplicas de estimativas.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.des.jkn&lt;-<span class="kw">as.svrepdesign</span>(ppv.se.des,<span class="dt">type=</span><span class="st">&quot;JKn&quot;</span>)
 <span class="kw">svyratio</span>(<span class="op">~</span>analf.faixa, <span class="op">~</span>faixa, ppv.se.des.jkn)</code></pre></div>
 <pre><code>## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv.se.des.jkn)
@@ -589,7 +590,7 @@ Var.raz&lt;-(<span class="dv">1</span><span class="op">/</span>y2hat)<span class
 ## SEs=
 ##            [,1]
 ## [1,] 0.01181434</code></pre>
-<p>Para o método <code>Bootstrap</code>, temos:</p>
+<p>Para o tipo <em>Bootstrap</em>, temos:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.des.boot&lt;-<span class="kw">as.svrepdesign</span>(ppv.se.des,<span class="dt">type=</span><span class="st">&quot;bootstrap&quot;</span>)
 <span class="kw">svyratio</span>(<span class="op">~</span>analf.faixa, <span class="op">~</span>faixa, ppv.se.des.boot)</code></pre></div>
 <pre><code>## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv.se.des.boot)
@@ -598,8 +599,8 @@ Var.raz&lt;-(<span class="dv">1</span><span class="op">/</span>y2hat)<span class
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01229911</code></pre>
-<p>Vamos apresentar mais detalhes sobre a obtenção dos estimadores de Jackknife e Bootstrap na library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. A classe do objeto <code>ppv.se.des.jkn</code> é <code>svyrep.design</code> e ele contém as seguintes componentes:</p>
+## [1,] 0.01346768</code></pre>
+<p>Vamos apresentar mais detalhes sobre a obtenção dos estimadores de <em>Jackknife</em> e <em>Bootstrap</em> na library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. A classe do objeto <code>ppv.se.des.jkn</code> é <code>svyrep.design</code> e ele contém as seguintes componentes:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(ppv.se.des.jkn)</code></pre></div>
 <pre><code>## [1] &quot;svyrep.design&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(ppv.se.des.jkn)</code></pre></div>
@@ -645,7 +646,7 @@ var.raz.rep </code></pre></div>
 <pre><code>##        theta     SE
 ## [1,] 0.11869 0.0118</code></pre>
 <p>Resultado que coincide com a estimativa obtida pela aplicação da função <code>svyratio</code>.</p>
-<p>A vantagem de utilizar métodos de replicação é a facilidade com que estimamos a variância de qualquer característica da população, cujo estimador é conhecido. Por exemplo, se quisermos estimar a variância da razão das taxas de analfabetos nas faixas etárias de 0 a 14 anos e acima de 14 anos podemos usar as mesmas réplicas de pesos:</p>
+<p>A vantagem de utilizar métodos de replicação é a facilidade com que estimamos a variância de qualquer característica da população, cujo estimador pontual é conhecido. Por exemplo, se quisermos estimar a variância da razão das taxas de analfabetos nas faixas etárias de 0 a 14 anos e acima de 14 anos podemos usar as mesmas réplicas de pesos:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">withReplicates</span>(ppv.se.des.jkn,<span class="cf">function</span>(w,ppv.se) <span class="kw">with</span>(ppv.se,
 (<span class="kw">sum</span>(w<span class="op">*</span>(analf<span class="op">==</span><span class="dv">1</span><span class="op">&amp;</span>faixa<span class="op">==</span><span class="dv">1</span>))<span class="op">/</span><span class="kw">sum</span>(faixa<span class="op">==</span><span class="dv">1</span>))<span class="op">/</span>(<span class="kw">sum</span>(w<span class="op">*</span>(analf<span class="op">==</span><span class="dv">1</span><span class="op">&amp;</span>faixa<span class="op">==</span><span class="dv">0</span>))<span class="op">/</span><span class="kw">sum</span>(faixa<span class="op">==</span><span class="dv">0</span>))))</code></pre></div>
 <pre><code>##        theta     SE
