@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-09-29}
+  \date{2017-09-30}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -927,7 +927,7 @@ a library srvyr
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ppv.des <-}\StringTok{ }\NormalTok{ppv1 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{as_survey_design}\NormalTok{ (}\DataTypeTok{ids =}\NormalTok{ nsetor, }\DataTypeTok{strata =}\NormalTok{ estratof,}
+\NormalTok{ppv.des <-}\StringTok{ }\NormalTok{ppv }\OperatorTok{%>%}\StringTok{ }\KeywordTok{as_survey_design}\NormalTok{ (}\DataTypeTok{ids =}\NormalTok{ nsetor, }\DataTypeTok{strata =}\NormalTok{ estratof,}
 \DataTypeTok{nest =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{weights =}\NormalTok{ pesof)}
 \end{Highlighting}
 \end{Shaded}
@@ -965,7 +965,7 @@ a library srvyr
 \DataTypeTok{taxa_analf1 =} \KeywordTok{survey_ratio}\NormalTok{(analf1, faixa1),}
 \DataTypeTok{taxa_analf2 =} \KeywordTok{survey_ratio}\NormalTok{(analf2, faixa2)  }
 \NormalTok{)}
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}\KeywordTok{as_tibble}\NormalTok{(res), }\DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{format =} \StringTok{"latex"}\NormalTok{, }
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(res), }\DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{digits =} \DecValTok{3}\NormalTok{, }
 \DataTypeTok{caption =} \StringTok{"Proporção de analfabetos para faixas etárias 7-14 anos e mais de 14 anos"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -978,8 +978,8 @@ a library srvyr
 \toprule
 regiao & taxa\_analf1 & taxa\_analf1\_se & taxa\_analf2 & taxa\_analf2\_se\\
 \midrule
-1 & 0.422853 & 0.0306791 & 0.3363222 & 0.0159066\\
-2 & 0.118689 & 0.0117890 & 0.1086871 & 0.0067323\\
+1 & 0.423 & 0.031 & 0.336 & 0.016\\
+2 & 0.119 & 0.012 & 0.109 & 0.007\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1550,17 +1550,6 @@ que coincidem com os resultados já obtidos.
 
 Para o país por sexo:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{diagdepsex <-}\StringTok{ }\KeywordTok{svyby}\NormalTok{(}\OperatorTok{~}\NormalTok{diag_dep, }\OperatorTok{~}\NormalTok{c006, }\DataTypeTok{design =}\NormalTok{ pes_sel_des_pos, }
-\NormalTok{  svymean)}
-\NormalTok{res <-}\StringTok{ }\KeywordTok{three_stats}\NormalTok{(diagdepsex)}
-\NormalTok{dfsex <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{( }\DataTypeTok{sexo =} \KeywordTok{names}\NormalTok{(res)[}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{], }\DataTypeTok{prop =}\NormalTok{ res[}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{], }\DataTypeTok{l.i.c. =}\NormalTok{ res[}\DecValTok{3}\OperatorTok{:}\DecValTok{4}\NormalTok{],}\DataTypeTok{l.s.c =}\NormalTok{res[}\DecValTok{5}\OperatorTok{:}\DecValTok{6}\NormalTok{])}
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(dfsex,}\DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{format =} \StringTok{"latex"}\NormalTok{, }
-\DataTypeTok{caption =} \StringTok{"Proporção de diagnóstico de depressão por sexo"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{table}
 
 \caption{\label{tab:unnamed-chunk-46}Proporção de diagnóstico de depressão por sexo}
@@ -1577,17 +1566,6 @@ feminino & 10.9 & 10.3 & 11.6\\
 
 Por situação (rural e urbano)
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{diagdepsitu <-}\StringTok{ }\KeywordTok{svyby}\NormalTok{(}\OperatorTok{~}\NormalTok{diag_dep, }\OperatorTok{~}\NormalTok{situ, }\DataTypeTok{design =}\NormalTok{ pes_sel_des_pos, }
-\NormalTok{  svymean)}
-\NormalTok{res <-}\StringTok{ }\KeywordTok{three_stats}\NormalTok{(diagdepsitu)}
-\NormalTok{dfsitu <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{( }\DataTypeTok{situ =} \KeywordTok{names}\NormalTok{(res)[}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{], }\DataTypeTok{prop =}\NormalTok{ res[}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{], }\DataTypeTok{l.i.c. =}\NormalTok{ res[}\DecValTok{3}\OperatorTok{:}\DecValTok{4}\NormalTok{],}\DataTypeTok{l.s.c =}\NormalTok{res[}\DecValTok{5}\OperatorTok{:}\DecValTok{6}\NormalTok{])}
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(dfsitu,}\DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }
-\DataTypeTok{caption =} \StringTok{"Proporção de diagnóstico de depressão por situação"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{table}
 
 \caption{\label{tab:unnamed-chunk-47}Proporção de diagnóstico de depressão por situação}
@@ -1603,17 +1581,6 @@ rural & 5.6 & 4.9 & 6.3\\
 \end{table}
 
 Por Unidade da Federação:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{diagdepuf <-}\StringTok{ }\KeywordTok{svyby}\NormalTok{(}\OperatorTok{~}\NormalTok{diag_dep, }\OperatorTok{~}\NormalTok{uf, }\DataTypeTok{design =}\NormalTok{ pes_sel_des_pos, svymean)}
-\NormalTok{res <-}\StringTok{ }\KeywordTok{three_stats}\NormalTok{(diagdepuf)}
-\NormalTok{dfuf <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{uf =} \KeywordTok{names}\NormalTok{(res)[}\DecValTok{1}\OperatorTok{:}\DecValTok{27}\NormalTok{], }\DataTypeTok{prop =}\NormalTok{ res[}\DecValTok{1}\OperatorTok{:}\DecValTok{27}\NormalTok{], }
-  \DataTypeTok{l.i.c. =}\NormalTok{ res[}\DecValTok{28}\OperatorTok{:}\DecValTok{54}\NormalTok{], }\DataTypeTok{l.s.c =}\NormalTok{res[}\DecValTok{55}\OperatorTok{:}\DecValTok{81}\NormalTok{]  )}
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(dfuf,}\DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }
-\DataTypeTok{caption =} \StringTok{"Proporção de diagnóstico de depressão por uf"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{table}
 
@@ -1687,25 +1654,23 @@ Imprime tabela:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(byeduc,}\DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{format =} \StringTok{"latex"}\NormalTok{, }
-\DataTypeTok{digits=} \DecValTok{3}\NormalTok{, }\DataTypeTok{caption =} \StringTok{"Proporção de pessoas com seguro de saúde por nível }
-\StringTok{de instrução"}\NormalTok{)}
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(byeduc,}\DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{,  }
+\DataTypeTok{digits=} \DecValTok{3}\NormalTok{, }\DataTypeTok{caption =} \StringTok{"Proporção de pessoas com seguro de saúde por nível de instrução"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-55}Proporção de pessoas com seguro de saúde por nível 
-de instrução}
+\caption{\label{tab:unnamed-chunk-55}Proporção de pessoas com seguro de saúde por nível de instrução}
 \centering
-\begin{tabular}[t]{rrr}
+\begin{tabular}[t]{lrrr}
 \toprule
-Prop & l.i.c. & l.s.c.\\
+  & Prop & l.i.c. & l.s.c.\\
 \midrule
-0.164 & 0.157 & 0.171\\
-0.228 & 0.217 & 0.238\\
-0.374 & 0.363 & 0.384\\
-0.688 & 0.672 & 0.704\\
+SinstFundi & 0.164 & 0.157 & 0.171\\
+FundcMedi & 0.228 & 0.217 & 0.238\\
+MedcSupi & 0.374 & 0.363 & 0.384\\
+Supc & 0.688 & 0.672 & 0.704\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -3603,7 +3568,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01270333
+## [1,] 0.01268444
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -5150,7 +5115,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1406018
+## [1] 0.1406889
 \end{verbatim}
 
 \begin{Shaded}
@@ -5161,7 +5126,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.4082074
+## [1] 0.3407386
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}

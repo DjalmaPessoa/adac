@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-29">
+<meta name="date" content="2017-09-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -573,7 +573,7 @@ ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <spa
 <ul>
 <li>Cria objeto de desenho:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.des &lt;-<span class="st"> </span>ppv1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_survey_design</span> (<span class="dt">ids =</span> nsetor, <span class="dt">strata =</span> estratof,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.des &lt;-<span class="st"> </span>ppv <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_survey_design</span> (<span class="dt">ids =</span> nsetor, <span class="dt">strata =</span> estratof,
 <span class="dt">nest =</span> <span class="ot">TRUE</span>, <span class="dt">weights =</span> pesof)</code></pre></div>
 <ul>
 <li>Vamos criar novas variáveis:</li>
@@ -594,9 +594,36 @@ ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <spa
 <span class="dt">taxa_analf1 =</span> <span class="kw">survey_ratio</span>(analf1, faixa1),
 <span class="dt">taxa_analf2 =</span> <span class="kw">survey_ratio</span>(analf2, faixa2)  
 )
-knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">as_tibble</span>(res), <span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span> <span class="st">&quot;latex&quot;</span>, 
+knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">as.data.frame</span>(res), <span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, <span class="dt">digits =</span> <span class="dv">3</span>, 
 <span class="dt">caption =</span> <span class="st">&quot;Proporção de analfabetos para faixas etárias 7-14 anos e mais de 14 anos&quot;</span>)</code></pre></div>
-
+<table>
+<caption><span id="tab:unnamed-chunk-11">Tabela 1.4: </span>Proporção de analfabetos para faixas etárias 7-14 anos e mais de 14 anos</caption>
+<thead>
+<tr class="header">
+<th align="left">regiao</th>
+<th align="right">taxa_analf1</th>
+<th align="right">taxa_analf1_se</th>
+<th align="right">taxa_analf2</th>
+<th align="right">taxa_analf2_se</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="right">0.423</td>
+<td align="right">0.031</td>
+<td align="right">0.336</td>
+<td align="right">0.016</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="right">0.119</td>
+<td align="right">0.012</td>
+<td align="right">0.109</td>
+<td align="right">0.007</td>
+</tr>
+</tbody>
+</table>
 <div id="estimativa-do-efeito-de-plano-amostral-epa" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Estimativa do efeito de plano amostral (EPA)</h3>
 <p>Esse assunto será tratado em detalhes no Capítulo <a href="introduc.html#epa">1.3</a> . Por enquanto, apresentaremos uma introdução necessária para compreender os valores na Tabela <a href="introduc.html#tab:epas">1.3</a>.</p>
@@ -800,22 +827,34 @@ pes_sel_des &lt;-
 ##      7.6      7.2      8.1</code></pre>
 <p>que coincidem com os resultados já obtidos.</p>
 <p>Para o país por sexo:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepsex &lt;-<span class="st"> </span><span class="kw">svyby</span>(<span class="op">~</span>diag_dep, <span class="op">~</span>c006, <span class="dt">design =</span> pes_sel_des_pos, 
-  svymean)
-res &lt;-<span class="st"> </span><span class="kw">three_stats</span>(diagdepsex)
-dfsex &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">sexo =</span> <span class="kw">names</span>(res)[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dt">prop =</span> res[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dt">l.i.c. =</span> res[<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>],<span class="dt">l.s.c =</span>res[<span class="dv">5</span><span class="op">:</span><span class="dv">6</span>])
-knitr<span class="op">::</span><span class="kw">kable</span>(dfsex,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span> <span class="st">&quot;latex&quot;</span>, 
-<span class="dt">caption =</span> <span class="st">&quot;Proporção de diagnóstico de depressão por sexo&quot;</span>)</code></pre></div>
-
-<p>Por situação (rural e urbano)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepsitu &lt;-<span class="st"> </span><span class="kw">svyby</span>(<span class="op">~</span>diag_dep, <span class="op">~</span>situ, <span class="dt">design =</span> pes_sel_des_pos, 
-  svymean)
-res &lt;-<span class="st"> </span><span class="kw">three_stats</span>(diagdepsitu)
-dfsitu &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">situ =</span> <span class="kw">names</span>(res)[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dt">prop =</span> res[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dt">l.i.c. =</span> res[<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>],<span class="dt">l.s.c =</span>res[<span class="dv">5</span><span class="op">:</span><span class="dv">6</span>])
-knitr<span class="op">::</span><span class="kw">kable</span>(dfsitu,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, 
-<span class="dt">caption =</span> <span class="st">&quot;Proporção de diagnóstico de depressão por situação&quot;</span>)</code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-47">Tabela 1.4: </span>Proporção de diagnóstico de depressão por situação</caption>
+<caption><span id="tab:unnamed-chunk-46">Tabela 1.5: </span>Proporção de diagnóstico de depressão por sexo</caption>
+<thead>
+<tr class="header">
+<th align="left">sexo</th>
+<th align="right">prop</th>
+<th align="right">l.i.c.</th>
+<th align="right">l.s.c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">masculino</td>
+<td align="right">3.9</td>
+<td align="right">3.5</td>
+<td align="right">4.4</td>
+</tr>
+<tr class="even">
+<td align="left">feminino</td>
+<td align="right">10.9</td>
+<td align="right">10.3</td>
+<td align="right">11.6</td>
+</tr>
+</tbody>
+</table>
+<p>Por situação (rural e urbano)</p>
+<table>
+<caption><span id="tab:unnamed-chunk-47">Tabela 1.6: </span>Proporção de diagnóstico de depressão por situação</caption>
 <thead>
 <tr class="header">
 <th align="left">situ</th>
@@ -840,14 +879,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(dfsitu,<span class=
 </tbody>
 </table>
 <p>Por Unidade da Federação:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepuf &lt;-<span class="st"> </span><span class="kw">svyby</span>(<span class="op">~</span>diag_dep, <span class="op">~</span>uf, <span class="dt">design =</span> pes_sel_des_pos, svymean)
-res &lt;-<span class="st"> </span><span class="kw">three_stats</span>(diagdepuf)
-dfuf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">uf =</span> <span class="kw">names</span>(res)[<span class="dv">1</span><span class="op">:</span><span class="dv">27</span>], <span class="dt">prop =</span> res[<span class="dv">1</span><span class="op">:</span><span class="dv">27</span>], 
-  <span class="dt">l.i.c. =</span> res[<span class="dv">28</span><span class="op">:</span><span class="dv">54</span>], <span class="dt">l.s.c =</span>res[<span class="dv">55</span><span class="op">:</span><span class="dv">81</span>]  )
-knitr<span class="op">::</span><span class="kw">kable</span>(dfuf,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, 
-<span class="dt">caption =</span> <span class="st">&quot;Proporção de diagnóstico de depressão por uf&quot;</span>)</code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-49">Tabela 1.5: </span>Proporção de diagnóstico de depressão por uf</caption>
+<caption><span id="tab:unnamed-chunk-49">Tabela 1.7: </span>Proporção de diagnóstico de depressão por uf</caption>
 <thead>
 <tr class="header">
 <th align="left">uf</th>
@@ -1030,10 +1063,45 @@ svymean , <span class="dt">na.rm =</span> <span class="ot">TRUE</span> ) )
 byeduc &lt;-<span class="st"> </span>byeduc[,<span class="op">-</span><span class="dv">1</span>]
 <span class="kw">names</span>(byeduc) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Prop&quot;</span>, <span class="st">&quot;l.i.c.&quot;</span>, <span class="st">&quot;l.s.c.&quot;</span>)</code></pre></div>
 <p>Imprime tabela:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(byeduc,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, <span class="dt">format =</span> <span class="st">&quot;latex&quot;</span>, 
-<span class="dt">digits=</span> <span class="dv">3</span>, <span class="dt">caption =</span> <span class="st">&quot;Proporção de pessoas com seguro de saúde por nível </span>
-<span class="st">de instrução&quot;</span>)</code></pre></div>
-
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(byeduc,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>,  
+<span class="dt">digits=</span> <span class="dv">3</span>, <span class="dt">caption =</span> <span class="st">&quot;Proporção de pessoas com seguro de saúde por nível de instrução&quot;</span>)</code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-55">Tabela 1.8: </span>Proporção de pessoas com seguro de saúde por nível de instrução</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Prop</th>
+<th align="right">l.i.c.</th>
+<th align="right">l.s.c.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SinstFundi</td>
+<td align="right">0.164</td>
+<td align="right">0.157</td>
+<td align="right">0.171</td>
+</tr>
+<tr class="even">
+<td>FundcMedi</td>
+<td align="right">0.228</td>
+<td align="right">0.217</td>
+<td align="right">0.238</td>
+</tr>
+<tr class="odd">
+<td>MedcSupi</td>
+<td align="right">0.374</td>
+<td align="right">0.363</td>
+<td align="right">0.384</td>
+</tr>
+<tr class="even">
+<td>Supc</td>
+<td align="right">0.688</td>
+<td align="right">0.672</td>
+<td align="right">0.704</td>
+</tr>
+</tbody>
+</table>
 <p>Gráfico de barras usando a library <code>ggplot2</code> <span class="citation">(Wickham and Chang <a href="#ref-R-ggplot2">2016</a>)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 <span class="kw">ggplot</span>(

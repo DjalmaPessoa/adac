@@ -499,7 +499,7 @@ library(srvyr)
 
 - Cria objeto de desenho:
 ```{r}
-ppv.des <- ppv1 %>% as_survey_design (ids = nsetor, strata = estratof,
+ppv.des <- ppv %>% as_survey_design (ids = nsetor, strata = estratof,
 nest = TRUE, weights = pesof)
 ```
 
@@ -524,7 +524,7 @@ summarise(
 taxa_analf1 = survey_ratio(analf1, faixa1),
 taxa_analf2 = survey_ratio(analf2, faixa2)  
 )
-knitr::kable(as_tibble(res), booktabs = TRUE, row.names = FALSE, format = "latex", 
+knitr::kable(as.data.frame(res), booktabs = TRUE, row.names = FALSE, digits = 3, 
 caption = "Proporção de analfabetos para faixas etárias 7-14 anos e mais de 14 anos")
 ```
 
@@ -759,7 +759,7 @@ Nos arquivos acima, além das variáveis contidas no dicionário da PNS, foram a
 
 Inicialmente, vamos estimar características de pessoas com 18 anos ou mais mais que responderam o questionário longo e salvar os microdados dessa amostra no data frame `pes_sel`.
 
-```{r}
+```{r, cache=TRUE}
 pes_sel <- readRDS("C:/adac/PNS/2013 long questionnaire survey.rds")
 dim(pes_sel)
 ```
@@ -866,19 +866,19 @@ que coincidem com os resultados já obtidos.
 Para o país por sexo:
 
 
-```{r}
+```{r, echo=FALSE}
 diagdepsex <- svyby(~diag_dep, ~c006, design = pes_sel_des_pos, 
   svymean)
 res <- three_stats(diagdepsex)
 dfsex <- data.frame( sexo = names(res)[1:2], prop = res[1:2], l.i.c. = res[3:4],l.s.c =res[5:6])
-knitr::kable(dfsex,booktabs = TRUE, row.names = FALSE, format = "latex", 
+knitr::kable(dfsex,booktabs = TRUE, row.names = FALSE,  
 caption = "Proporção de diagnóstico de depressão por sexo")
 
 ```
 
 Por situação (rural e urbano)
 
-```{r}
+```{r, echo= FALSE, cache=TRUE}
 diagdepsitu <- svyby(~diag_dep, ~situ, design = pes_sel_des_pos, 
   svymean)
 res <- three_stats(diagdepsitu)
@@ -901,7 +901,7 @@ caption = "Proporção de diagnóstico de depressão por situação e sexo")
 
 Por Unidade da Federação:
 
-```{r}
+```{r, echo=FALSE, cache=TRUE}
 diagdepuf <- svyby(~diag_dep, ~uf, design = pes_sel_des_pos, svymean)
 res <- three_stats(diagdepuf)
 dfuf <- data.frame(uf = names(res)[1:27], prop = res[1:27], 
@@ -951,9 +951,8 @@ byeduc <- readRDS("C:/adac/PNS/byeduc.rds")
 Imprime tabela: 
 
 ```{r}
-knitr::kable(byeduc,booktabs = TRUE, row.names = FALSE, format = "latex", 
-digits= 3, caption = "Proporção de pessoas com seguro de saúde por nível 
-de instrução")
+knitr::kable(byeduc,booktabs = TRUE,  
+digits= 3, caption = "Proporção de pessoas com seguro de saúde por nível de instrução")
 ```
 
 Gráfico de barras usando a library `ggplot2` [@R-ggplot2]:
