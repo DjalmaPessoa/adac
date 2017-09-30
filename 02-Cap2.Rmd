@@ -384,14 +384,14 @@ Uma hipótese básica assumida com relação aos planos amostrais aqui considera
 
 ## Planos Amostrais Informativos e Ignoráveis {#inform}
 
-Ao fazer inferência usando dados de pesquisas amostrais precisamos distinguir duas situações que requerem tratamento diferenciado. Uma dessas situações ocorre quando o plano amostral empregado para coletar os dados é \emph{informativo}, isto é, quando o mecanismo de seleção das unidades amostrais pode depender dos valores das variáveis de pesquisa. Um exemplo típico desta situação é o dos \emph{estudos de caso-controle}, em que a amostra é selecionada de tal forma que há \emph{casos} (unidades com determinada  condição) e \emph{controles} (unidades sem essa condição), sendo de interesse a modelagem do indicador de presença ou ausência da condição em função de variáveis preditoras, e sendo esse indicador uma das variáveis de pesquisa, que é considerada no mecanismo de seleção da amostra. Os métodos que discutiremos ao longo deste livro não são adequados, em geral, para esse tipo de situação, e portanto uma hipótese fundamental adotada ao longo deste texto é que os planos amostrais considerados são \emph{não-informativos}, isto é, não podem depender diretamente dos valores das variáveis da pesquisa. Logo eles satisfazem
+Ao fazer inferência usando dados de pesquisas amostrais precisamos distinguir duas situações que requerem tratamento diferenciado. Uma dessas situações ocorre quando o plano amostral empregado para coletar os dados é `informativo`, isto é, quando o mecanismo de seleção das unidades amostrais pode depender dos valores das variáveis de pesquisa. Um exemplo típico desta situação é o dos `estudos de caso-controle`, em que a amostra é selecionada de tal forma que há `casos` (unidades com determinada  condição) e `controles` (unidades sem essa condição), sendo de interesse a modelagem do indicador de presença ou ausência da condição em função de variáveis preditoras, e sendo esse indicador uma das variáveis de pesquisa, que é considerada no mecanismo de seleção da amostra. Os métodos que discutiremos ao longo deste livro não são adequados, em geral, para esse tipo de situação, e portanto uma hipótese fundamental adotada ao longo deste texto é que os planos amostrais considerados são `não-informativos`, isto é, não podem depender diretamente dos valores das variáveis da pesquisa. Logo eles satisfazem
 
 \begin{equation}
 f\left[ \mathbf{\delta }_a | \left( \mathbf{y}_U , \mathbf{x}_U \right)
 \right] = f\left( \mathbf{\delta }_a | \mathbf{x}_U \right) . (\#eq:ref7)
 \end{equation}
 
-Entre os planos amostrais \emph{não-informativos}, precisamos ainda distinguir duas outras situações de interesse. Quando o plano amostral é amostragem aleatória simples com reposição (AASC), o modelo adotado para a amostra é o mesmo que o modelo adotado para a população antes da amostragem. Quando isto ocorre, o plano amostral é dito \emph{ignorável}, porque a inferência baseada na amostra utilizando a abordagem clássica descrita em \@ref(classic) pode prosseguir sem problemas. Entretanto, esquemas
+Entre os planos amostrais `não-informativos`, precisamos ainda distinguir duas outras situações de interesse. Quando o plano amostral é amostragem aleatória simples com reposição (AASC), o modelo adotado para a amostra é o mesmo que o modelo adotado para a população antes da amostragem. Quando isto ocorre, o plano amostral é dito \emph{ignorável}, porque a inferência baseada na amostra utilizando a abordagem clássica descrita em \@ref(classic) pode prosseguir sem problemas. Entretanto, esquemas
 amostrais desse tipo são raramente empregados na prática, por razões de eficiência e custo. Em vez disso, são geralmente empregados planos amostrais envolvendo estratificação, conglomeração e probabilidades desiguais de seleção (amostragem complexa).
 
 Com amostragem complexa, porém, os modelos para a população e a amostra podem ser muito diferentes (plano amostral `não-ignorável`), mesmo que o mecanismo de seleção não
@@ -401,7 +401,7 @@ A definição precisa de ignorabilidade e as condições sob as quais um plano a
 
 Uma forma simples de lidar com os efeitos do plano amostral na estimação pontual de quantidades descritivas populacionais de interesse é incorporar pesos adequados na análise, como se verá no Capítulo \@ref(capplanamo). Essa forma porém, não resolve por si só o problema de estimação da precisão das estimativas pontuais, nem mesmo o caso da estimação pontual de parâmetros em modelos de superpopulação, o que vai requerer métodos específicos discutidos no Capítulo \@ref(ajmodpar).
 
-Como incluir os pesos para proteger contra planos amostrais \emph{não-ignoráveis} e a possibilidade de má especificação do modelo? Uma ideia é modificar os estimadores dos parâmetros de modo que sejam consistentes (em termos da distribuição de aleatorização) para quantidades descritivas da população finita da qual a amostra foi extraída, que por
+Como incluir os pesos para proteger contra planos amostrais `não-ignoráveis` e a possibilidade de má especificação do modelo? Uma ideia é modificar os estimadores dos parâmetros de modo que sejam consistentes (em termos da distribuição de aleatorização) para quantidades descritivas da população finita da qual a amostra foi extraída, que por
 sua vez seriam boas aproximações para os parâmetros dos modelos de interesse. Afirmações probabilísticas são então feitas com respeito à distribuição de aleatorização das estatísticas amostrais $p$ ou com respeito à distribuição mista $Mp$.
 
 A seguir apresentamos um exemplo com a finalidade de ilustrar uma situação de plano amostral não-ignorável.
@@ -412,42 +412,53 @@ Efeito da amostragem estratificada simples com alocação desproporcional
 
 Considere $N$ observações de uma população finita $U$ onde são consideradas de interesse duas variáveis binárias $(x_i ; y_i )$. Suponha que na população os vetores aleatórios $(X_i ; Y_i )$ são independentes e identicamente distribuídos com distribuição de probabilidades conjunta dada por:
 
-\begin{table}[h]
-	\centering
-	\caption{Distribuição de probabilidades conjunta na população $Pr( Y_i = y ; X_i = x )$} 
-	\label{Tab24}
-	\bigskip 
-		\begin{tabular}{c|c|c|c}
-		\hline
-		\hline
-	  { } & \multicolumn{2}{|c|} {$y$} & { } \\
-		$x$ & 0 & 1 & Total \\
-		\hline
-		\hline
-		$0$ & $\eta_{00}$ & $\eta_{01}$ & $\eta_{0+}$ \\
-		$1$ & $\eta_{10}$ & $\eta_{11}$ & $\eta_{1+}$ \\
-		\hline
-		\hline
-	  Total & $\eta_{+0}$ & $\eta_{+1}$ & 1 \\
-		\hline
-		\hline
-		\end{tabular}
-\end{table}
+<!-- \begin{table}[h] -->
+<!-- 	\centering -->
+<!-- 	\caption{Distribuição de probabilidades conjunta na população $Pr( Y_i = y ; X_i = x )$}  -->
+<!-- 	\label{Tab24} -->
+<!-- 	\bigskip  -->
+<!-- 		\begin{tabular}{c|c|c|c} -->
+<!-- 		\hline -->
+<!-- 		\hline -->
+<!-- 	  { } & \multicolumn{2}{|c|} {$y$} & { } \\ -->
+<!-- 		$x$ & 0 & 1 & Total \\ -->
+<!-- 		\hline -->
+<!-- 		\hline -->
+<!-- 		$0$ & $\eta_{00}$ & $\eta_{01}$ & $\eta_{0+}$ \\ -->
+<!-- 		$1$ & $\eta_{10}$ & $\eta_{11}$ & $\eta_{1+}$ \\ -->
+<!-- 		\hline -->
+<!-- 		\hline -->
+<!-- 	  Total & $\eta_{+0}$ & $\eta_{+1}$ & 1 \\ -->
+<!-- 		\hline -->
+<!-- 		\hline -->
+<!-- 		\end{tabular} -->
+<!-- \end{table} -->
+
+
+|       |             |      y      |             |
+|:-----:|:-----------:|:-----------:|:-----------:|
+|   x   |      0      |      1      |    Total    |
+|   0   | $\eta_{00}$ | $\eta_{01}$ | $\eta_{0+}$ |
+|   1   | $\eta_{10}$ | $\eta_{11}$ | $\eta_{1+}$ |
+| Total | $\eta_{+0}$ | $\eta_{+1}$ |      1      |
+Table: (#tab:Tab24) Distribuição de probabilidades conjunta na população $Pr( Y_i = y ; X_i = x )$.
+
+
 que também pode ser representada por:
 
 \begin{eqnarray}
  f_U (x ; y) &=& Pr( X = x ; Y = y )\\
              & =& \eta_{00}^{(1-x)(1-y)} \times \eta_{01}^{(1-x)y} \times \eta_{10}^{x(1-y)} (1 - \eta_{00} - \eta_{01} - \eta_{10})^{xy} \nonumber
 \end{eqnarray}
-onde a designação $f_U$ é utilizada para denotar a distribuição \emph{na população}.
+onde a designação $f_U$ é utilizada para denotar a distribuição `na população`.
 
-Note agora que a distribuição marginal da variável $y$ \emph{na população} é Bernoulli com parâmetro $1 - \eta_{00} - \eta_{10}$, ou alternativamente:
+Note agora que a distribuição marginal da variável $y$ `na população` é Bernoulli com parâmetro $1 - \eta_{00} - \eta_{10}$, ou alternativamente:
 
 \begin{equation}
  f_U (y) = Pr( Y = y ) = (\eta_{00} + \eta_{10})^{(1-y)} \times (1 - \eta_{00} - \eta_{10})^y
 \end{equation}
 
-De forma análoga, a distribuição marginal da variável $x$ \emph{na população} também é Bernoulli, mas com parâmetro $1 - \eta_{00} - \eta_{01}$, ou alternativamente:
+De forma análoga, a distribuição marginal da variável $x$ `na população` também é Bernoulli, mas com parâmetro $1 - \eta_{00} - \eta_{01}$, ou alternativamente:
 
 \begin{equation}
  f_U (x) = Pr( X = x ) = (\eta_{00} + \eta_{01})^{(1-x)} \times (1 - \eta_{00} - \eta_{01})^x
@@ -457,28 +468,38 @@ Seja $N_{xy}$ o número de unidades na população com a combinação de valores
 
 Após observada uma realização do modelo que dê origem a uma população, como seria o caso da realização de um censo na população, a proporção de valores de $y$ iguais a 1 observada no censo seria dada por $(N_{+1} / N = 1 - (N_{00} - N_{10})/N$. E a proporção de valores de $x$ iguais a 1 na população seria igual a  $(N_{1+} / N = 1 - (N_{00} - N_{01})/N$.
 
-Agora suponha que uma amostra estratificada simples \emph{com reposição} de tamanho $n$ inteiro e par seja selecionada da população, onde os estratos são definidos com base nos valores da variável $x$, e onde a alocação da amostra nos estratos é dada por $n_0 = n_1 = n/2$, sendo $n_x$ o tamanho da amostra no estrato correspondente ao valor $x$ usado como índice. Esta alocação é dita \emph{alocação igual}, pois o tamanho total da amostra é repartido em partes iguais entre os estratos definidos para seleção, e no caso, há apenas dois estratos. A alocação desta amostra será desproporcional exceto no caso em que $N_{0+} = N_{1+}$. 
+Agora suponha que uma amostra estratificada simples `com reposição` de tamanho $n$ inteiro e par seja selecionada da população, onde os estratos são definidos com base nos valores da variável $x$, e onde a alocação da amostra nos estratos é dada por $n_0 = n_1 = n/2$, sendo $n_x$ o tamanho da amostra no estrato correspondente ao valor $x$ usado como índice. Esta alocação é dita \emph{alocação igual}, pois o tamanho total da amostra é repartido em partes iguais entre os estratos definidos para seleção, e no caso, há apenas dois estratos. A alocação desta amostra será desproporcional exceto no caso em que $N_{0+} = N_{1+}$. 
 
 Nosso interesse aqui é ilustrar o efeito que uma alocação desproporcional pode causar na análise dos dados amostrais, caso não sejam levadas em conta na análise informações relevantes sobre a estrutura do plano amostra. Para isto, vamos precisar obter a distribuição amostral da variável de interesse $y$. Isto pode ser feito em dois passos. Primeiro, note que a distribuição condicional de $y$ dado $x$ na população é dada por:
 
-\begin{table}[h]
-	\centering
-	\caption{Distribuição de probabilidades condicional de $y$ dado $x$ na população - $Pr( Y_i = y | X_i = x )$} 
-	\label{Tab25}
-	\bigskip 
-		\begin{tabular}{c|c|c|c}
-		\hline
-		\hline
-	  { } & \multicolumn{2}{|c|} {$y$} & { } \\
-		$x$ & 0 & 1 & Total \\
-		\hline
-		\hline
-		$0$ & $\eta_{00} / \eta_{0+}$ & $\eta_{01} / \eta_{0+}$ & 1 \\
-		$1$ & $\eta_{10} / \eta_{1+}$ & $\eta_{11} / \eta_{1+}$ & 1 \\
-		\hline
-		\hline
-		\end{tabular}
-\end{table}
+<!-- \begin{table}[h] -->
+<!-- 	\centering -->
+<!-- 	\caption{Distribuição de probabilidades condicional de $y$ dado $x$ na população - $Pr( Y_i = y | X_i = x )$}  -->
+<!-- 	\label{Tab25} -->
+<!-- 	\bigskip  -->
+<!-- 		\begin{tabular}{c|c|c|c} -->
+<!-- 		\hline -->
+<!-- 		\hline -->
+<!-- 	  { } & \multicolumn{2}{|c|} {$y$} & { } \\ -->
+<!-- 		$x$ & 0 & 1 & Total \\ -->
+<!-- 		\hline -->
+<!-- 		\hline -->
+<!-- 		$0$ & $\eta_{00} / \eta_{0+}$ & $\eta_{01} / \eta_{0+}$ & 1 \\ -->
+<!-- 		$1$ & $\eta_{10} / \eta_{1+}$ & $\eta_{11} / \eta_{1+}$ & 1 \\ -->
+<!-- 		\hline -->
+<!-- 		\hline -->
+<!-- 		\end{tabular} -->
+<!-- \end{table} -->
+
+
+|   |            y            |                         |       |
+|---|:-----------------------:|-------------------------|-------|
+| x |            0            |            1            | Total |
+| 0 | $\eta_{00}$/$\eta_{0+}$ | $\eta_{01}$/$\eta_{0+}$ |   1   |
+| 1 | $\eta_{10}$/$\eta_{1+}$ | $\eta_{11}$/$\eta_{1+}$ |   1   |
+
+Table: (#tab:Tab25) Distribuição de probabilidades condicional de $y$ dado $x$ na população - $Pr( Y_i = y | X_i = x )$.
+
 ou, alternativamente
 
 \begin{eqnarray}
@@ -491,7 +512,7 @@ Dado o plano amostral acima descrito, a distribuição marginal de $x$ \emph{na 
 \begin{equation}
  f_a (x) = Pr( X_i = x | i \in a ) = 1 / 2,\; \forall x \in \Omega \mbox{ e } \forall i \in U
 \end{equation}
-onde a designação $f_a$ é utilizada para denotar a distribuição \emph{na amostra}.
+onde a designação $f_a$ é utilizada para denotar a distribuição `na amostra`.
 
 Podemos usar a informação sobre a distribuição condicional de $y$ dado $x$ na população e a informação sobre a distribuição marginal de $x$ na amostra para obter a distribuição marginal de $y$ na amostra, que é dada por:
 	
@@ -569,7 +590,7 @@ e que a distribuição marginal de $y$ na população e na amostra são dadas po
 		\end{tabular}
 \end{table}
 
-Assim, inferência sobre a distribuição de $y$ \emph{na população} levada a cabo a partir dos dados da amostra observada sem considerar a estrutura do plano amostral será equivocada, pois a alocação igual da amostra nos estratos leva à observação de uma proporção maior de valores de $x$ iguais a 1 na amostra (1/2) do que a correspondente proporção existente na população (1/5). Em conseqüência, a proporção de valores de $y$ iguais a 1 na amostra (0.3125) é 56\% maior que a correspondente proporção na população (0.2). 
+Assim, inferência sobre a distribuição de $y$ `na população` levada a cabo a partir dos dados da amostra observada sem considerar a estrutura do plano amostral será equivocada, pois a alocação igual da amostra nos estratos leva à observação de uma proporção maior de valores de $x$ iguais a 1 na amostra (1/2) do que a correspondente proporção existente na população (1/5). Em conseqüência, a proporção de valores de $y$ iguais a 1 na amostra (0.3125) é 56\% maior que a correspondente proporção na população (0.2). 
 
 Este exemplo é propositalmente simples, envolve apenas duas variáveis com distribuição Bernoulli, mas ilustra bem como a amostragem pode modificar distribuições de variáveis da amostra em relação à correspondente distribuição na população. 
 

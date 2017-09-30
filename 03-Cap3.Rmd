@@ -495,7 +495,7 @@ tais como WesVarPC (veja [@Westat]).
 A ideia básica é construir a amostra de tamanho $n$ como a
 união de $G$ amostras de tamanho $n/G$ cada uma, selecionadas de forma
 independente e usando o mesmo plano amostral, onde $G$ é o número de 
-\emph{replicações}. Nesse caso, se $\theta$ é o
+`replicações`. Nesse caso, se $\theta$ é o
 parâmetro-alvo, e $\widehat{\theta}_{g}$ é um estimador não
 viciado de $\theta$ baseado na $g$-ésima replicação 
 $(g=1,\ldots ,G)$, segue-se que 

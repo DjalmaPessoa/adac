@@ -484,7 +484,7 @@ Para descrever o método, considere um plano amostral em vários estágios, no q
 <div id="metodos-de-replicacao" class="section level2">
 <h2><span class="header-section-number">3.5</span> Métodos de Replicação</h2>
 <p>A ideia de usar métodos indiretos ou de replicação para estimar variâncias em amostragem não é nova. <span class="citation">(Mahalanobis <a href="#ref-Mahala39">1939</a>)</span>, <span class="citation">(Mahalanobis <a href="#ref-Mahala44">1944</a>)</span> e <span class="citation">(Deming <a href="#ref-deming">1956</a>)</span> foram os precursores e muitos desenvolvimentos importantes se seguiram. Hoje em dia várias técnicas baseadas nessa ideia são rotineiramente empregadas por praticantes de amostragem, e inclusive formam a base para pacotes especializados de estimação tais como WesVarPC (veja <span class="citation">(Westat <a href="#ref-Westat">1996</a>)</span>).</p>
-<p>A ideia básica é construir a amostra de tamanho <span class="math inline">\(n\)</span> como a união de <span class="math inline">\(G\)</span> amostras de tamanho <span class="math inline">\(n/G\)</span> cada uma, selecionadas de forma independente e usando o mesmo plano amostral, onde <span class="math inline">\(G\)</span> é o número de . Nesse caso, se <span class="math inline">\(\theta\)</span> é o parâmetro-alvo, e <span class="math inline">\(\widehat{\theta}_{g}\)</span> é um estimador não viciado de <span class="math inline">\(\theta\)</span> baseado na <span class="math inline">\(g\)</span>-ésima replicação <span class="math inline">\((g=1,\ldots ,G)\)</span>, segue-se que <span class="math display">\[
+<p>A ideia básica é construir a amostra de tamanho <span class="math inline">\(n\)</span> como a união de <span class="math inline">\(G\)</span> amostras de tamanho <span class="math inline">\(n/G\)</span> cada uma, selecionadas de forma independente e usando o mesmo plano amostral, onde <span class="math inline">\(G\)</span> é o número de <code>replicações</code>. Nesse caso, se <span class="math inline">\(\theta\)</span> é o parâmetro-alvo, e <span class="math inline">\(\widehat{\theta}_{g}\)</span> é um estimador não viciado de <span class="math inline">\(\theta\)</span> baseado na <span class="math inline">\(g\)</span>-ésima replicação <span class="math inline">\((g=1,\ldots ,G)\)</span>, segue-se que <span class="math display">\[
 \widehat{\theta }_{R}=\frac{1}{G}\sum_{g=1}^{G}\widehat{\theta }_{g} 
 \]</span> é um estimador não viciado de <span class="math inline">\(\theta\)</span> e</p>
 <span class="math display" id="eq:estpa24">\[\begin{equation}
@@ -598,8 +598,8 @@ Var.raz&lt;-(<span class="dv">1</span><span class="op">/</span>y2hat)<span class
 ##                faixa
 ## analf.faixa 0.118689
 ## SEs=
-##            [,1]
-## [1,] 0.01195819</code></pre>
+##          [,1]
+## [1,] 0.013267</code></pre>
 <p>Vamos apresentar mais detalhes sobre a obtenção dos estimadores de <em>Jackknife</em> e <em>Bootstrap</em> na library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. A classe do objeto <code>ppv.se.des.jkn</code> é <code>svyrep.design</code> e ele contém as seguintes componentes:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(ppv.se.des.jkn)</code></pre></div>
 <pre><code>## [1] &quot;svyrep.design&quot;</code></pre>

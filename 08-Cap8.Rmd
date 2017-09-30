@@ -177,7 +177,7 @@ observar que os efeitos de plano amostral e as correções a serem
 considerados são distintos para as duas estatísticas 
 $X_{P}^{2}\left( I\right)$ e $X_{P}^{2}\left(H\right)$.
 
-Para ilustrar esse ponto vamos considerar o \emph{ajuste de EPA médio},
+Para ilustrar esse ponto vamos considerar o `ajuste de EPA médio`,
 que será apresentado na próxima seção para o caso de tabelas 
 $L\times C$ . Este ajuste, no caso da estatística $X_{P}^{2}\left(
 I\right)$, se baseia no EPA médio das estimativas das proporções
@@ -300,7 +300,7 @@ $\left( f-\left( C-1\right)+1\right)$ graus de liberdade e, ainda,
 F_{2.p}=X_{W}^{2}\left( H\right) /\left(C-1\right) (\#eq:Tab3)
 \end{equation}
 
-que tem distribuição de referência \emph{F} com $\left(C-1\right)$ e $f$ graus de liberdade.
+que tem distribuição de referência `F` com $\left(C-1\right)$ e $f$ graus de liberdade.
 
 As estatísticas $F_{1.p}$ e $F_{2.p}$ podem amenizar o efeito de
 instabilidade, quando $f$ não é grande relativamente ao número
@@ -421,7 +421,7 @@ caso de duas regiões, por
 FX_{P}^{2}\left( H;\hat{\delta}_{.}\right) =X_{P}^{2}\left( H;\hat{\delta}
 _{.}\right) /\left( C-1\right),
 \]
-e tem distribuição de referência \emph{F} com $\left(C-1\right)$ e
+e tem distribuição de referência `F` com $\left(C-1\right)$ e
 $f$ graus de liberdade.
 
 ### Teste de Independência

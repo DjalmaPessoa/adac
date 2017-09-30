@@ -2374,19 +2374,19 @@ de totais e de médias.
 Ao fazer inferência usando dados de pesquisas amostrais precisamos
 distinguir duas situações que requerem tratamento diferenciado. Uma
 dessas situações ocorre quando o plano amostral empregado para coletar
-os dados é \emph{informativo}, isto é, quando o mecanismo de seleção das
-unidades amostrais pode depender dos valores das variáveis de pesquisa.
-Um exemplo típico desta situação é o dos
-\emph{estudos de caso-controle}, em que a amostra é selecionada de tal
-forma que há \emph{casos} (unidades com determinada condição) e
-\emph{controles} (unidades sem essa condição), sendo de interesse a
+os dados é \texttt{informativo}, isto é, quando o mecanismo de seleção
+das unidades amostrais pode depender dos valores das variáveis de
+pesquisa. Um exemplo típico desta situação é o dos
+\texttt{estudos\ de\ caso-controle}, em que a amostra é selecionada de
+tal forma que há \texttt{casos} (unidades com determinada condição) e
+\texttt{controles} (unidades sem essa condição), sendo de interesse a
 modelagem do indicador de presença ou ausência da condição em função de
 variáveis preditoras, e sendo esse indicador uma das variáveis de
 pesquisa, que é considerada no mecanismo de seleção da amostra. Os
 métodos que discutiremos ao longo deste livro não são adequados, em
 geral, para esse tipo de situação, e portanto uma hipótese fundamental
 adotada ao longo deste texto é que os planos amostrais considerados são
-\emph{não-informativos}, isto é, não podem depender diretamente dos
+\texttt{não-informativos}, isto é, não podem depender diretamente dos
 valores das variáveis da pesquisa. Logo eles satisfazem
 
 \begin{equation}
@@ -2394,7 +2394,7 @@ f\left[ \mathbf{\delta }_a | \left( \mathbf{y}_U , \mathbf{x}_U \right)
 \right] = f\left( \mathbf{\delta }_a | \mathbf{x}_U \right) . \label{eq:ref7}
 \end{equation}
 
-Entre os planos amostrais \emph{não-informativos}, precisamos ainda
+Entre os planos amostrais \texttt{não-informativos}, precisamos ainda
 distinguir duas outras situações de interesse. Quando o plano amostral é
 amostragem aleatória simples com reposição (AASC), o modelo adotado para
 a amostra é o mesmo que o modelo adotado para a população antes da
@@ -2430,7 +2430,7 @@ estimação pontual de parâmetros em modelos de superpopulação, o que vai
 requerer métodos específicos discutidos no Capítulo \ref{ajmodpar}.
 
 Como incluir os pesos para proteger contra planos amostrais
-\emph{não-ignoráveis} e a possibilidade de má especificação do modelo?
+\texttt{não-ignoráveis} e a possibilidade de má especificação do modelo?
 Uma ideia é modificar os estimadores dos parâmetros de modo que sejam
 consistentes (em termos da distribuição de aleatorização) para
 quantidades descritivas da população finita da qual a amostra foi
@@ -2453,27 +2453,23 @@ Suponha que na população os vetores aleatórios \((X_i ; Y_i )\) são
 independentes e identicamente distribuídos com distribuição de
 probabilidades conjunta dada por:
 
-\begin{table}[h]
-    \centering
-    \caption{Distribuição de probabilidades conjunta na população $Pr( Y_i = y ; X_i = x )$} 
-    \label{Tab24}
-    \bigskip 
-        \begin{tabular}{c|c|c|c}
-        \hline
-        \hline
-      { } & \multicolumn{2}{|c|} {$y$} & { } \\
-        $x$ & 0 & 1 & Total \\
-        \hline
-        \hline
-        $0$ & $\eta_{00}$ & $\eta_{01}$ & $\eta_{0+}$ \\
-        $1$ & $\eta_{10}$ & $\eta_{11}$ & $\eta_{1+}$ \\
-        \hline
-        \hline
-      Total & $\eta_{+0}$ & $\eta_{+1}$ & 1 \\
-        \hline
-        \hline
-        \end{tabular}
-\end{table}
+\begin{longtable}[]{@{}cccc@{}}
+\caption{\label{tab:Tab24} Distribuição de probabilidades conjunta na
+população \(Pr( Y_i = y ; X_i = x )\).}\tabularnewline
+\toprule
+& & y &\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+& & y &\tabularnewline
+\midrule
+\endhead
+x & 0 & 1 & Total\tabularnewline
+0 & \(\eta_{00}\) & \(\eta_{01}\) & \(\eta_{0+}\)\tabularnewline
+1 & \(\eta_{10}\) & \(\eta_{11}\) & \(\eta_{1+}\)\tabularnewline
+Total & \(\eta_{+0}\) & \(\eta_{+1}\) & 1\tabularnewline
+\bottomrule
+\end{longtable}
 
 que também pode ser representada por:
 
@@ -2483,10 +2479,10 @@ que também pode ser representada por:
 \end{eqnarray}
 
 onde a designação \(f_U\) é utilizada para denotar a distribuição
-\emph{na população}.
+\texttt{na\ população}.
 
 Note agora que a distribuição marginal da variável \(y\)
-\emph{na população} é Bernoulli com parâmetro
+\texttt{na\ população} é Bernoulli com parâmetro
 \(1 - \eta_{00} - \eta_{10}\), ou alternativamente:
 
 \begin{equation}
@@ -2494,7 +2490,7 @@ Note agora que a distribuição marginal da variável \(y\)
 \end{equation}
 
 De forma análoga, a distribuição marginal da variável \(x\)
-\emph{na população} também é Bernoulli, mas com parâmetro
+\texttt{na\ população} também é Bernoulli, mas com parâmetro
 \(1 - \eta_{00} - \eta_{01}\), ou alternativamente:
 
 \begin{equation}
@@ -2516,16 +2512,16 @@ valores de \(y\) iguais a 1 observada no censo seria dada por
 \(x\) iguais a 1 na população seria igual a
 \((N_{1+} / N = 1 - (N_{00} - N_{01})/N\).
 
-Agora suponha que uma amostra estratificada simples \emph{com reposição}
-de tamanho \(n\) inteiro e par seja selecionada da população, onde os
-estratos são definidos com base nos valores da variável \(x\), e onde a
-alocação da amostra nos estratos é dada por \(n_0 = n_1 = n/2\), sendo
-\(n_x\) o tamanho da amostra no estrato correspondente ao valor \(x\)
-usado como índice. Esta alocação é dita \emph{alocação igual}, pois o
-tamanho total da amostra é repartido em partes iguais entre os estratos
-definidos para seleção, e no caso, há apenas dois estratos. A alocação
-desta amostra será desproporcional exceto no caso em que
-\(N_{0+} = N_{1+}\).
+Agora suponha que uma amostra estratificada simples
+\texttt{com\ reposição} de tamanho \(n\) inteiro e par seja selecionada
+da população, onde os estratos são definidos com base nos valores da
+variável \(x\), e onde a alocação da amostra nos estratos é dada por
+\(n_0 = n_1 = n/2\), sendo \(n_x\) o tamanho da amostra no estrato
+correspondente ao valor \(x\) usado como índice. Esta alocação é dita
+\emph{alocação igual}, pois o tamanho total da amostra é repartido em
+partes iguais entre os estratos definidos para seleção, e no caso, há
+apenas dois estratos. A alocação desta amostra será desproporcional
+exceto no caso em que \(N_{0+} = N_{1+}\).
 
 Nosso interesse aqui é ilustrar o efeito que uma alocação
 desproporcional pode causar na análise dos dados amostrais, caso não
@@ -2535,24 +2531,25 @@ distribuição amostral da variável de interesse \(y\). Isto pode ser
 feito em dois passos. Primeiro, note que a distribuição condicional de
 \(y\) dado \(x\) na população é dada por:
 
-\begin{table}[h]
-    \centering
-    \caption{Distribuição de probabilidades condicional de $y$ dado $x$ na população - $Pr( Y_i = y | X_i = x )$} 
-    \label{Tab25}
-    \bigskip 
-        \begin{tabular}{c|c|c|c}
-        \hline
-        \hline
-      { } & \multicolumn{2}{|c|} {$y$} & { } \\
-        $x$ & 0 & 1 & Total \\
-        \hline
-        \hline
-        $0$ & $\eta_{00} / \eta_{0+}$ & $\eta_{01} / \eta_{0+}$ & 1 \\
-        $1$ & $\eta_{10} / \eta_{1+}$ & $\eta_{11} / \eta_{1+}$ & 1 \\
-        \hline
-        \hline
-        \end{tabular}
-\end{table}
+\begin{longtable}[]{@{}lcll@{}}
+\caption{\label{tab:Tab25} Distribuição de probabilidades condicional de
+\(y\) dado \(x\) na população -
+\(Pr( Y_i = y | X_i = x )\).}\tabularnewline
+\toprule
+& y & &\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+& y & &\tabularnewline
+\midrule
+\endhead
+x & 0 & 1 & Total\tabularnewline
+0 & \(\eta_{00}\)/\(\eta_{0+}\) & \(\eta_{01}\)/\(\eta_{0+}\) &
+1\tabularnewline
+1 & \(\eta_{10}\)/\(\eta_{1+}\) & \(\eta_{11}\)/\(\eta_{1+}\) &
+1\tabularnewline
+\bottomrule
+\end{longtable}
 
 ou, alternativamente
 
@@ -2573,7 +2570,7 @@ Isto pode ser representado como:
 \end{equation}
 
 onde a designação \(f_a\) é utilizada para denotar a distribuição
-\emph{na amostra}.
+\texttt{na\ amostra}.
 
 Podemos usar a informação sobre a distribuição condicional de \(y\) dado
 \(x\) na população e a informação sobre a distribuição marginal de \(x\)
@@ -2665,7 +2662,7 @@ dadas por
         \end{tabular}
 \end{table}
 
-Assim, inferência sobre a distribuição de \(y\) \emph{na população}
+Assim, inferência sobre a distribuição de \(y\) \texttt{na\ população}
 levada a cabo a partir dos dados da amostra observada sem considerar a
 estrutura do plano amostral será equivocada, pois a alocação igual da
 amostra nos estratos leva à observação de uma proporção maior de valores
@@ -3274,7 +3271,7 @@ como WesVarPC (veja \citep{Westat}).
 A ideia básica é construir a amostra de tamanho \(n\) como a união de
 \(G\) amostras de tamanho \(n/G\) cada uma, selecionadas de forma
 independente e usando o mesmo plano amostral, onde \(G\) é o número de
-\emph{replicações}. Nesse caso, se \(\theta\) é o parâmetro-alvo, e
+\texttt{replicações}. Nesse caso, se \(\theta\) é o parâmetro-alvo, e
 \(\widehat{\theta}_{g}\) é um estimador não viciado de \(\theta\)
 baseado na \(g\)-ésima replicação \((g=1,\ldots ,G)\), segue-se que \[
 \widehat{\theta }_{R}=\frac{1}{G}\sum_{g=1}^{G}\widehat{\theta }_{g} 
@@ -3568,7 +3565,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01268444
+## [1,] 0.01302419
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -5115,7 +5112,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1406889
+## [1] 0.1397472
 \end{verbatim}
 
 \begin{Shaded}
@@ -5126,7 +5123,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3407386
+## [1] 0.3549304
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -8743,13 +8740,13 @@ observar que os efeitos de plano amostral e as correções a serem
 considerados são distintos para as duas estatísticas
 \(X_{P}^{2}\left( I\right)\) e \(X_{P}^{2}\left(H\right)\).
 
-Para ilustrar esse ponto vamos considerar o \emph{ajuste de EPA médio},
-que será apresentado na próxima seção para o caso de tabelas
-\(L\times C\) . Este ajuste, no caso da estatística
-\(X_{P}^{2}\left( I\right)\), se baseia no EPA médio das estimativas das
-proporções nas celas \(\hat{p}_{lc}=\hat{n}_{lc}/n\), enquanto que para
-a estatística \(X_{P}^{2}\left( H\right)\) ele se baseia no EPA médio
-das estimativas das proporções nas linhas
+Para ilustrar esse ponto vamos considerar o
+\texttt{ajuste\ de\ EPA\ médio}, que será apresentado na próxima seção
+para o caso de tabelas \(L\times C\) . Este ajuste, no caso da
+estatística \(X_{P}^{2}\left( I\right)\), se baseia no EPA médio das
+estimativas das proporções nas celas \(\hat{p}_{lc}=\hat{n}_{lc}/n\),
+enquanto que para a estatística \(X_{P}^{2}\left( H\right)\) ele se
+baseia no EPA médio das estimativas das proporções nas linhas
 \(\hat{p}_{lc}=\hat{n} _{lc}/n_{l+}\).
 
 Os valores das estatísticas \(X_{P}^{2}\left( I\right)\) e
@@ -8888,7 +8885,7 @@ que tem distribuição de referência \(F\) com \(\left(C-1\right)\) e
 F_{2.p}=X_{W}^{2}\left( H\right) /\left(C-1\right) \label{eq:Tab3}
 \end{equation}
 
-que tem distribuição de referência \emph{F} com \(\left(C-1\right)\) e
+que tem distribuição de referência \texttt{F} com \(\left(C-1\right)\) e
 \(f\) graus de liberdade.
 
 As estatísticas \(F_{1.p}\) e \(F_{2.p}\) podem amenizar o efeito de
@@ -9019,8 +9016,8 @@ a estatística F-corrigida de Pearson. Ela é dada, no caso de duas
 regiões, por \[
 FX_{P}^{2}\left( H;\hat{\delta}_{.}\right) =X_{P}^{2}\left( H;\hat{\delta}
 _{.}\right) /\left( C-1\right),
-\] e tem distribuição de referência \emph{F} com \(\left(C-1\right)\) e
-\(f\) graus de liberdade.
+\] e tem distribuição de referência \texttt{F} com \(\left(C-1\right)\)
+e \(f\) graus de liberdade.
 
 \subsection{Teste de Independência}\label{teste-de-independencia-1}
 
