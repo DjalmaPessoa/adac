@@ -9,7 +9,7 @@ abordagens alternativas de análise estatística.
 ### Abordagem 1 - Modelagem Clássica 
 
 Seja $Y$ um vetor $P \times 1$ de variáveis de pesquisa (ou de interesse), e sejam $n$ vetores de observações destas variáveis para uma amostra de unidades de interesse denotados por $y_1,\ldots ,y_n$. Em Inferência Estatística, a abordagem que aqui chamamos de `Modelagem clássica` considera $y_1,\ldots ,y_n$ como valores (realizações) de vetores de variáveis aleatórias $y_1,\ldots ,y_n$. Podemos formular modelos bastante sofisticados para a distribuição conjunta destes vetores aleatórios, mas para simplificar a discussão, vamos inicialmente supor que $y_1,\ldots ,y_n$ são vetores aleatórios independentes e identicamente distribuídos (IID), com a mesma distribuição de $Y$, caracterizada pela função de densidade ou de frequência $f(y;\theta)$, onde $\theta \in \Theta$ é o parâmetro (um vetor de dimensão $K \times 1$) indexador da distribuição $f$, e $\Theta$ é o espaço paramétrico. A partir das observações $y_1,\ldots ,y_n$, são feitas inferências a respeito do parâmetro $\theta$. Uma representação gráfica esquemática dessa abordagem é apresentada na Figura \@ref(fig:modclas) a seguir, e uma descrição esquemática resumida é apresentada na 
-Tabela \ref{Tab21}.
+Tabela \@ref(tab:Tab21).
 
 
 ```{r,modclas, echo=FALSE, fig.cap="Modelagem Clássica"}
@@ -68,7 +68,7 @@ populacionais (QDPs), também denominadas
 tais como totais $g\left( y_{1},\ldots ,y_{N}\right) =\sum_{i=1}^{N}y_{i}$ ,
 médias $g\left( y_{1},\ldots ,y_{N}\right) =N^{-1}\sum_{i=1}^{N}y_{i}$,
 proporções, razões, etc. Uma descrição esquemática resumida
-dessa abordagem é apresentada no Tabela  \ref{Tab22}, e uma representação gráfica resumida na Figura \@ref(fig:modamo).
+dessa abordagem é apresentada no Tabela  \@ref(tab:Tab22), e uma representação gráfica resumida na Figura \@ref(fig:modamo).
 
 ```{r, modamo,echo=FALSE, fig.cap="Amostragem Probabilística" }
 knitr::include_graphics("Figuras/fig22.png")
@@ -189,7 +189,7 @@ populacionais $y_{1},\ldots ,y_{N}$, já que estes não são
 conhecidos ou observados. Este último passo adiciona a informação sobre o
 plano amostral utilizado, contida em $p(s)$,  à informação
 estrutural contida no modelo $\left\{ f\left( y;\theta \right) ;\theta \in \Theta\right\}$. Uma representação esquemática dessa abordagem é
-apresentada no Tabela  \ref{Tab23}.
+apresentada no Tabela  \@ref(tab:Tab23).
 
 -------------------   ----------------------------------------------
 Dados Amostrais       $Y_1=y_1,\ldots, Y_n=y_n$
@@ -412,27 +412,6 @@ Efeito da amostragem estratificada simples com alocação desproporcional
 
 Considere $N$ observações de uma população finita $U$ onde são consideradas de interesse duas variáveis binárias $(x_i ; y_i )$. Suponha que na população os vetores aleatórios $(X_i ; Y_i )$ são independentes e identicamente distribuídos com distribuição de probabilidades conjunta dada por:
 
-<!-- \begin{table}[h] -->
-<!-- 	\centering -->
-<!-- 	\caption{Distribuição de probabilidades conjunta na população $Pr( Y_i = y ; X_i = x )$}  -->
-<!-- 	\label{Tab24} -->
-<!-- 	\bigskip  -->
-<!-- 		\begin{tabular}{c|c|c|c} -->
-<!-- 		\hline -->
-<!-- 		\hline -->
-<!-- 	  { } & \multicolumn{2}{|c|} {$y$} & { } \\ -->
-<!-- 		$x$ & 0 & 1 & Total \\ -->
-<!-- 		\hline -->
-<!-- 		\hline -->
-<!-- 		$0$ & $\eta_{00}$ & $\eta_{01}$ & $\eta_{0+}$ \\ -->
-<!-- 		$1$ & $\eta_{10}$ & $\eta_{11}$ & $\eta_{1+}$ \\ -->
-<!-- 		\hline -->
-<!-- 		\hline -->
-<!-- 	  Total & $\eta_{+0}$ & $\eta_{+1}$ & 1 \\ -->
-<!-- 		\hline -->
-<!-- 		\hline -->
-<!-- 		\end{tabular} -->
-<!-- \end{table} -->
 
 
 |       |             |      y      |             |
@@ -472,31 +451,12 @@ Agora suponha que uma amostra estratificada simples `com reposição` de tamanho
 
 Nosso interesse aqui é ilustrar o efeito que uma alocação desproporcional pode causar na análise dos dados amostrais, caso não sejam levadas em conta na análise informações relevantes sobre a estrutura do plano amostra. Para isto, vamos precisar obter a distribuição amostral da variável de interesse $y$. Isto pode ser feito em dois passos. Primeiro, note que a distribuição condicional de $y$ dado $x$ na população é dada por:
 
-<!-- \begin{table}[h] -->
-<!-- 	\centering -->
-<!-- 	\caption{Distribuição de probabilidades condicional de $y$ dado $x$ na população - $Pr( Y_i = y | X_i = x )$}  -->
-<!-- 	\label{Tab25} -->
-<!-- 	\bigskip  -->
-<!-- 		\begin{tabular}{c|c|c|c} -->
-<!-- 		\hline -->
-<!-- 		\hline -->
-<!-- 	  { } & \multicolumn{2}{|c|} {$y$} & { } \\ -->
-<!-- 		$x$ & 0 & 1 & Total \\ -->
-<!-- 		\hline -->
-<!-- 		\hline -->
-<!-- 		$0$ & $\eta_{00} / \eta_{0+}$ & $\eta_{01} / \eta_{0+}$ & 1 \\ -->
-<!-- 		$1$ & $\eta_{10} / \eta_{1+}$ & $\eta_{11} / \eta_{1+}$ & 1 \\ -->
-<!-- 		\hline -->
-<!-- 		\hline -->
-<!-- 		\end{tabular} -->
-<!-- \end{table} -->
 
-
-|   |            y            |                         |       |
-|---|:-----------------------:|-------------------------|-------|
-| x |            0            |            1            | Total |
-| 0 | $\eta_{00}$/$\eta_{0+}$ | $\eta_{01}$/$\eta_{0+}$ |   1   |
-| 1 | $\eta_{10}$/$\eta_{1+}$ | $\eta_{11}$/$\eta_{1+}$ |   1   |
+|     |            y            |                           |         |
+|:---:|:-----------------------:|:-------------------------:|:-------:|
+| x   |            0            |            1              | Total   |
+| 0   | $\eta_{00}$/$\eta_{0+}$ | $\eta_{01}$/$\eta_{0+}$   |   1     |
+| 1   | $\eta_{10}$/$\eta_{1+}$ | $\eta_{11}$/$\eta_{1+}$   |   1     |
 
 Table: (#tab:Tab25) Distribuição de probabilidades condicional de $y$ dado $x$ na população - $Pr( Y_i = y | X_i = x )$.
 
@@ -527,68 +487,40 @@ Podemos usar a informação sobre a distribuição condicional de $y$ dado $x$ n
 
 Isto mostra que a distribuição marginal de $y$ na amostra é diferente da distribuição marginal de $y$ na população, mesmo quando o plano amostral é especialmente simples e utiliza amostragem aleatória simples com reposição dentro de cada estrato definido pela variável $x$. Isto ocorre devido à alocação desproporcional da amostra, apesar de a distribuição condicional de $y$ dado $x$ na população e na amostra ser a mesma. 
 
-Um exemplo numérico facilita a compreensão. Se a distribuição conjunta de $x$ e $y$ na população é dada por:\newpage
+Um exemplo numérico facilita a compreensão. Se a distribuição conjunta de $x$ e $y$ na população é dada por:
 
-\begin{table}[h]
-	\centering
-	\caption{Distribuição de probabilidades conjunta na população $f_U( x ; y )$} 
-	\label{Tab26}
-	\bigskip 
-		\begin{tabular}{c|c|c|c}
-		\hline
-		\hline
-	  { } & \multicolumn{2}{|c|} {$y$} & { } \\
-		$x$ & 0 & 1 & Total \\
-		\hline
-		\hline
-		$0$ & $0.7$ & $0.1$ & $0.8$ \\
-		$1$ & $0.1$ & $0.1$ & $0.2$ \\
-		\hline
-		\hline
-	  Total & $0.8$ & $0.2$ & 1 \\
-		\hline
-		\hline
-		\end{tabular}
-\end{table}
+|         |  y  |     |         |
+|:-------:|:---:|-----|:-------:|
+|   x     |  0  |  1  | Total   |
+|   0     | 0.7 | 0.1 |  0.8    |
+|   1     | 0.1 | 0.1 |  0.2    |
+| Total   | 0.8 | 0.2 |   1     |
+
+Table: (#tab:Tab26) Distribuição de probabilidades conjunta na população $f_U( x ; y )$.
+
+
 segue-se que a distribuição condicional de $y$ dado $x$ na população (mas também na amostra) é dada por
 
-\begin{table}[h]
-	\centering
-	\caption{Distribuição de probabilidades condicional de $y$ dado $x$ na população - $f_U( y | x )$} 
-	\label{Tab27}
-	\bigskip 
-		\begin{tabular}{c|c|c|c}
-		\hline
-		\hline
-	  { } & \multicolumn{2}{|c|} {$y$} & { } \\
-		$x$ & 0 & 1 & Total \\
-		\hline
-		\hline
-		$0$ & $0.875$ & $0.125$ & 1 \\
-		$1$ & $0.5$ & $0.5$ & 1 \\
-		\hline
-		\hline
-		\end{tabular}
-\end{table}
+
+|     |   y   |         |         |
+|:---:|:-----:|:-------:|:-------:|
+| x   |   0   |   1     | Total   |
+| 0   | 0.875 | 0.125   |   1     |
+| 1   |  0.5  |  0.5    |   1     |
+
+Table: (#tab:Tab27) Distribuição de probabilidades condicional de $y$ dado $x$ na população - $f_U( y | x )$.
+
 e que a distribuição marginal de $y$ na população e na amostra são dadas por
 
-\begin{table}[h]
-	\centering
-	\caption{Distribuição de probabilidades marginal de $y$ na população - $f_U( y )$} 
-	\label{Tab28}
-	\bigskip 
-		\begin{tabular}{c|c|c}
-		\hline
-		\hline
-	  $y$ & 0 & 1 \\
-	  \hline
-		$f_U ( y )$ & $0.8$ & $0.2$ \\
-		\hline
-		$f_a ( y )$ & $0.6875$ & $0.3125$ \\
-		\hline
-		\hline
-		\end{tabular}
-\end{table}
+
+
+|     y    |    0   |    1   |
+|:--------:|:------:|:------:|
+| $f_U(y)$ |   0.8  |   0.2  |
+| $f_a(y)$ | 0.6875 | 0.3125 |
+
+Table: (#tab:Tab28) Distribuição de probabilidades marginal de $y$ na população - $f_U( y )$.
+
 
 Assim, inferência sobre a distribuição de $y$ `na população` levada a cabo a partir dos dados da amostra observada sem considerar a estrutura do plano amostral será equivocada, pois a alocação igual da amostra nos estratos leva à observação de uma proporção maior de valores de $x$ iguais a 1 na amostra (1/2) do que a correspondente proporção existente na população (1/5). Em conseqüência, a proporção de valores de $y$ iguais a 1 na amostra (0.3125) é 56\% maior que a correspondente proporção na população (0.2). 
 

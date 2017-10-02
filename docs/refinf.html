@@ -232,7 +232,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Com o objetivo de dar uma primeira ideia sobre o assunto a ser tratado neste livro vamos considerar, numa situação simples, algumas abordagens alternativas de análise estatística.</p>
 <div id="abordagem-1---modelagem-classica" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Abordagem 1 - Modelagem Clássica</h3>
-<p>Seja <span class="math inline">\(Y\)</span> um vetor <span class="math inline">\(P \times 1\)</span> de variáveis de pesquisa (ou de interesse), e sejam <span class="math inline">\(n\)</span> vetores de observações destas variáveis para uma amostra de unidades de interesse denotados por <span class="math inline">\(y_1,\ldots ,y_n\)</span>. Em Inferência Estatística, a abordagem que aqui chamamos de <code>Modelagem clássica</code> considera <span class="math inline">\(y_1,\ldots ,y_n\)</span> como valores (realizações) de vetores de variáveis aleatórias <span class="math inline">\(y_1,\ldots ,y_n\)</span>. Podemos formular modelos bastante sofisticados para a distribuição conjunta destes vetores aleatórios, mas para simplificar a discussão, vamos inicialmente supor que <span class="math inline">\(y_1,\ldots ,y_n\)</span> são vetores aleatórios independentes e identicamente distribuídos (IID), com a mesma distribuição de <span class="math inline">\(Y\)</span>, caracterizada pela função de densidade ou de frequência <span class="math inline">\(f(y;\theta)\)</span>, onde <span class="math inline">\(\theta \in \Theta\)</span> é o parâmetro (um vetor de dimensão <span class="math inline">\(K \times 1\)</span>) indexador da distribuição <span class="math inline">\(f\)</span>, e <span class="math inline">\(\Theta\)</span> é o espaço paramétrico. A partir das observações <span class="math inline">\(y_1,\ldots ,y_n\)</span>, são feitas inferências a respeito do parâmetro <span class="math inline">\(\theta\)</span>. Uma representação gráfica esquemática dessa abordagem é apresentada na Figura <a href="refinf.html#fig:modclas">2.1</a> a seguir, e uma descrição esquemática resumida é apresentada na Tabela .</p>
+<p>Seja <span class="math inline">\(Y\)</span> um vetor <span class="math inline">\(P \times 1\)</span> de variáveis de pesquisa (ou de interesse), e sejam <span class="math inline">\(n\)</span> vetores de observações destas variáveis para uma amostra de unidades de interesse denotados por <span class="math inline">\(y_1,\ldots ,y_n\)</span>. Em Inferência Estatística, a abordagem que aqui chamamos de <code>Modelagem clássica</code> considera <span class="math inline">\(y_1,\ldots ,y_n\)</span> como valores (realizações) de vetores de variáveis aleatórias <span class="math inline">\(y_1,\ldots ,y_n\)</span>. Podemos formular modelos bastante sofisticados para a distribuição conjunta destes vetores aleatórios, mas para simplificar a discussão, vamos inicialmente supor que <span class="math inline">\(y_1,\ldots ,y_n\)</span> são vetores aleatórios independentes e identicamente distribuídos (IID), com a mesma distribuição de <span class="math inline">\(Y\)</span>, caracterizada pela função de densidade ou de frequência <span class="math inline">\(f(y;\theta)\)</span>, onde <span class="math inline">\(\theta \in \Theta\)</span> é o parâmetro (um vetor de dimensão <span class="math inline">\(K \times 1\)</span>) indexador da distribuição <span class="math inline">\(f\)</span>, e <span class="math inline">\(\Theta\)</span> é o espaço paramétrico. A partir das observações <span class="math inline">\(y_1,\ldots ,y_n\)</span>, são feitas inferências a respeito do parâmetro <span class="math inline">\(\theta\)</span>. Uma representação gráfica esquemática dessa abordagem é apresentada na Figura <a href="refinf.html#fig:modclas">2.1</a> a seguir, e uma descrição esquemática resumida é apresentada na Tabela <a href="#tab:Tab21"><strong>??</strong></a>.</p>
 <div class="figure"><span id="fig:modclas"></span>
 <img src="Figuras/fig21.png" alt="Modelagem Clássica"  />
 <p class="caption">
@@ -267,7 +267,7 @@ Figura 2.1: Modelagem Clássica
 <div id="abordagem-2---amostragem-probabilistica" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Abordagem 2 - Amostragem Probabilística</h3>
 <p>A abordagem adotada pelos praticantes de amostragem (amostristas) considera uma população finita <span class="math inline">\(U=\{1,\ldots ,N\}\)</span>, da qual é selecionada uma amostra <span class="math inline">\(a=\left\{ i_{1},\ldots ,i_{n}\right\}\)</span>, segundo um plano amostral caracterizado por <span class="math inline">\(p\left( a\right)\)</span>, probabilidade de ser selecionada a amostra <span class="math inline">\(a\)</span>, suposta calculável para todas as possíveis amostras. Os valores <span class="math inline">\(y_{1},\ldots ,y_{N}\)</span> das variáveis de interesse <span class="math inline">\(Y\)</span> na população finita são considerados fixos, porém desconhecidos. Sem perda de generalidade, podemos reindexar a população de tal forma que a amostra observada seja formada pelos índices <span class="math inline">\(s=\{1,\ldots,n\}\)</span> |</p>
-<p>A partir dos valores observados na amostra, denotados por <span class="math inline">\(y_{i_{1}},\ldots,y_{i_{n}}\)</span>, são feitas inferências a respeito de funções dos valores populacionais, digamos <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right)\)</span>. Os valores de tais funções são quantidades descritivas populacionais (QDPs), também denominadas <code>parâmetros da população finita</code> pelos amostristas. Em geral, o objetivo desta abordagem é fazer estudos descritivos utilizando funções <span class="math inline">\(g\)</span> particulares, tais como totais <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right) =\sum_{i=1}^{N}y_{i}\)</span> , médias <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right) =N^{-1}\sum_{i=1}^{N}y_{i}\)</span>, proporções, razões, etc. Uma descrição esquemática resumida dessa abordagem é apresentada no Tabela , e uma representação gráfica resumida na Figura <a href="refinf.html#fig:modamo">2.2</a>.</p>
+<p>A partir dos valores observados na amostra, denotados por <span class="math inline">\(y_{i_{1}},\ldots,y_{i_{n}}\)</span>, são feitas inferências a respeito de funções dos valores populacionais, digamos <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right)\)</span>. Os valores de tais funções são quantidades descritivas populacionais (QDPs), também denominadas <code>parâmetros da população finita</code> pelos amostristas. Em geral, o objetivo desta abordagem é fazer estudos descritivos utilizando funções <span class="math inline">\(g\)</span> particulares, tais como totais <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right) =\sum_{i=1}^{N}y_{i}\)</span> , médias <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right) =N^{-1}\sum_{i=1}^{N}y_{i}\)</span>, proporções, razões, etc. Uma descrição esquemática resumida dessa abordagem é apresentada no Tabela <a href="#tab:Tab22"><strong>??</strong></a>, e uma representação gráfica resumida na Figura <a href="refinf.html#fig:modamo">2.2</a>.</p>
 <div class="figure"><span id="fig:modamo"></span>
 <img src="Figuras/fig22.png" alt="Amostragem Probabilística"  />
 <p class="caption">
@@ -328,7 +328,7 @@ Figura 2.2: Amostragem Probabilística
 Figura 2.3: Modelagem de Superpopulação
 </p>
 </div>
-<p>Adotando o modelo de superpopulação e considerando métodos usuais disponíveis na <code>abordagem 1</code>, podemos utilizar funções de <span class="math inline">\(y_{1},\ldots ,y_{N}\)</span> , digamos <span class="math inline">\(g( y_{1},\ldots ,y_{N})\)</span>, para fazer inferências sobre <span class="math inline">\(\theta\)</span>. Desta forma, definimos estatísticas <span class="math inline">\(\left( y_{1},\ldots ,y_{N}\right)\)</span> (no sentido da <code>abordagem 1</code>) que são quantidades descritivas populacionais (parâmetros populacionais no contexto da <code>abordagem 2</code>), que passam a ser os novos parâmetros-alvo. O passo seguinte é utilizar métodos disponíveis na <code>abordagem 2</code> para fazer inferência sobre <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right)\)</span> baseada em <span class="math inline">\(y_{i_1},\ldots ,y_{i_n}\)</span>. Note que não é possível basear a inferência nos valores populacionais <span class="math inline">\(y_{1},\ldots ,y_{N}\)</span>, já que estes não são conhecidos ou observados. Este último passo adiciona a informação sobre o plano amostral utilizado, contida em <span class="math inline">\(p(s)\)</span>, à informação estrutural contida no modelo <span class="math inline">\(\left\{ f\left( y;\theta \right) ;\theta \in \Theta\right\}\)</span>. Uma representação esquemática dessa abordagem é apresentada no Tabela .</p>
+<p>Adotando o modelo de superpopulação e considerando métodos usuais disponíveis na <code>abordagem 1</code>, podemos utilizar funções de <span class="math inline">\(y_{1},\ldots ,y_{N}\)</span> , digamos <span class="math inline">\(g( y_{1},\ldots ,y_{N})\)</span>, para fazer inferências sobre <span class="math inline">\(\theta\)</span>. Desta forma, definimos estatísticas <span class="math inline">\(\left( y_{1},\ldots ,y_{N}\right)\)</span> (no sentido da <code>abordagem 1</code>) que são quantidades descritivas populacionais (parâmetros populacionais no contexto da <code>abordagem 2</code>), que passam a ser os novos parâmetros-alvo. O passo seguinte é utilizar métodos disponíveis na <code>abordagem 2</code> para fazer inferência sobre <span class="math inline">\(g\left( y_{1},\ldots ,y_{N}\right)\)</span> baseada em <span class="math inline">\(y_{i_1},\ldots ,y_{i_n}\)</span>. Note que não é possível basear a inferência nos valores populacionais <span class="math inline">\(y_{1},\ldots ,y_{N}\)</span>, já que estes não são conhecidos ou observados. Este último passo adiciona a informação sobre o plano amostral utilizado, contida em <span class="math inline">\(p(s)\)</span>, à informação estrutural contida no modelo <span class="math inline">\(\left\{ f\left( y;\theta \right) ;\theta \in \Theta\right\}\)</span>. Uma representação esquemática dessa abordagem é apresentada no Tabela <a href="#tab:Tab23"><strong>??</strong></a>.</p>
 <table style="width:94%;">
 <caption><span id="tab:modelsuperpop">Tabela 2.3: </span> Representação esquemática da abordagem 3.</caption>
 <colgroup>
@@ -450,27 +450,6 @@ f\left[ \mathbf{\delta }_a | \left( \mathbf{y}_U , \mathbf{x}_U \right)
 </div>
 
 <p>Considere <span class="math inline">\(N\)</span> observações de uma população finita <span class="math inline">\(U\)</span> onde são consideradas de interesse duas variáveis binárias <span class="math inline">\((x_i ; y_i )\)</span>. Suponha que na população os vetores aleatórios <span class="math inline">\((X_i ; Y_i )\)</span> são independentes e identicamente distribuídos com distribuição de probabilidades conjunta dada por:</p>
-<!-- \begin{table}[h] -->
-<!--    \centering -->
-<!--    \caption{Distribuição de probabilidades conjunta na população $Pr( Y_i = y ; X_i = x )$}  -->
-<!--    \label{Tab24} -->
-<!--    \bigskip  -->
-<!--        \begin{tabular}{c|c|c|c} -->
-<!--        \hline -->
-<!--        \hline -->
-<!--      { } & \multicolumn{2}{|c|} {$y$} & { } \\ -->
-<!--        $x$ & 0 & 1 & Total \\ -->
-<!--        \hline -->
-<!--        \hline -->
-<!--        $0$ & $\eta_{00}$ & $\eta_{01}$ & $\eta_{0+}$ \\ -->
-<!--        $1$ & $\eta_{10}$ & $\eta_{11}$ & $\eta_{1+}$ \\ -->
-<!--        \hline -->
-<!--        \hline -->
-<!--      Total & $\eta_{+0}$ & $\eta_{+1}$ & 1 \\ -->
-<!--        \hline -->
-<!--        \hline -->
-<!--        \end{tabular} -->
-<!-- \end{table} -->
 <table>
 <caption><span id="tab:Tab24">Tabela 2.4: </span> Distribuição de probabilidades conjunta na população <span class="math inline">\(Pr( Y_i = y ; X_i = x )\)</span>.</caption>
 <thead>
@@ -526,52 +505,34 @@ f\left[ \mathbf{\delta }_a | \left( \mathbf{y}_U , \mathbf{x}_U \right)
 <p>Após observada uma realização do modelo que dê origem a uma população, como seria o caso da realização de um censo na população, a proporção de valores de <span class="math inline">\(y\)</span> iguais a 1 observada no censo seria dada por <span class="math inline">\((N_{+1} / N = 1 - (N_{00} - N_{10})/N\)</span>. E a proporção de valores de <span class="math inline">\(x\)</span> iguais a 1 na população seria igual a <span class="math inline">\((N_{1+} / N = 1 - (N_{00} - N_{01})/N\)</span>.</p>
 <p>Agora suponha que uma amostra estratificada simples <code>com reposição</code> de tamanho <span class="math inline">\(n\)</span> inteiro e par seja selecionada da população, onde os estratos são definidos com base nos valores da variável <span class="math inline">\(x\)</span>, e onde a alocação da amostra nos estratos é dada por <span class="math inline">\(n_0 = n_1 = n/2\)</span>, sendo <span class="math inline">\(n_x\)</span> o tamanho da amostra no estrato correspondente ao valor <span class="math inline">\(x\)</span> usado como índice. Esta alocação é dita , pois o tamanho total da amostra é repartido em partes iguais entre os estratos definidos para seleção, e no caso, há apenas dois estratos. A alocação desta amostra será desproporcional exceto no caso em que <span class="math inline">\(N_{0+} = N_{1+}\)</span>.</p>
 <p>Nosso interesse aqui é ilustrar o efeito que uma alocação desproporcional pode causar na análise dos dados amostrais, caso não sejam levadas em conta na análise informações relevantes sobre a estrutura do plano amostra. Para isto, vamos precisar obter a distribuição amostral da variável de interesse <span class="math inline">\(y\)</span>. Isto pode ser feito em dois passos. Primeiro, note que a distribuição condicional de <span class="math inline">\(y\)</span> dado <span class="math inline">\(x\)</span> na população é dada por:</p>
-<!-- \begin{table}[h] -->
-<!--    \centering -->
-<!--    \caption{Distribuição de probabilidades condicional de $y$ dado $x$ na população - $Pr( Y_i = y | X_i = x )$}  -->
-<!--    \label{Tab25} -->
-<!--    \bigskip  -->
-<!--        \begin{tabular}{c|c|c|c} -->
-<!--        \hline -->
-<!--        \hline -->
-<!--      { } & \multicolumn{2}{|c|} {$y$} & { } \\ -->
-<!--        $x$ & 0 & 1 & Total \\ -->
-<!--        \hline -->
-<!--        \hline -->
-<!--        $0$ & $\eta_{00} / \eta_{0+}$ & $\eta_{01} / \eta_{0+}$ & 1 \\ -->
-<!--        $1$ & $\eta_{10} / \eta_{1+}$ & $\eta_{11} / \eta_{1+}$ & 1 \\ -->
-<!--        \hline -->
-<!--        \hline -->
-<!--        \end{tabular} -->
-<!-- \end{table} -->
 <table>
 <caption><span id="tab:Tab25">Tabela 2.5: </span> Distribuição de probabilidades condicional de <span class="math inline">\(y\)</span> dado <span class="math inline">\(x\)</span> na população - <span class="math inline">\(Pr( Y_i = y | X_i = x )\)</span>.</caption>
 <thead>
 <tr class="header">
-<th></th>
+<th align="center"></th>
 <th align="center">y</th>
-<th></th>
-<th></th>
+<th align="center"></th>
+<th align="center"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>x</td>
+<td align="center">x</td>
 <td align="center">0</td>
-<td>1</td>
-<td>Total</td>
+<td align="center">1</td>
+<td align="center">Total</td>
 </tr>
 <tr class="even">
-<td>0</td>
+<td align="center">0</td>
 <td align="center"><span class="math inline">\(\eta_{00}\)</span>/<span class="math inline">\(\eta_{0+}\)</span></td>
-<td><span class="math inline">\(\eta_{01}\)</span>/<span class="math inline">\(\eta_{0+}\)</span></td>
-<td>1</td>
+<td align="center"><span class="math inline">\(\eta_{01}\)</span>/<span class="math inline">\(\eta_{0+}\)</span></td>
+<td align="center">1</td>
 </tr>
 <tr class="odd">
-<td>1</td>
+<td align="center">1</td>
 <td align="center"><span class="math inline">\(\eta_{10}\)</span>/<span class="math inline">\(\eta_{1+}\)</span></td>
-<td><span class="math inline">\(\eta_{11}\)</span>/<span class="math inline">\(\eta_{1+}\)</span></td>
-<td>1</td>
+<td align="center"><span class="math inline">\(\eta_{11}\)</span>/<span class="math inline">\(\eta_{1+}\)</span></td>
+<td align="center">1</td>
 </tr>
 </tbody>
 </table>
@@ -596,11 +557,98 @@ f\left[ \mathbf{\delta }_a | \left( \mathbf{y}_U , \mathbf{x}_U \right)
 \end{eqnarray}\]</span>
 <p>Isto mostra que a distribuição marginal de <span class="math inline">\(y\)</span> na amostra é diferente da distribuição marginal de <span class="math inline">\(y\)</span> na população, mesmo quando o plano amostral é especialmente simples e utiliza amostragem aleatória simples com reposição dentro de cada estrato definido pela variável <span class="math inline">\(x\)</span>. Isto ocorre devido à alocação desproporcional da amostra, apesar de a distribuição condicional de <span class="math inline">\(y\)</span> dado <span class="math inline">\(x\)</span> na população e na amostra ser a mesma.</p>
 <p>Um exemplo numérico facilita a compreensão. Se a distribuição conjunta de <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> na população é dada por:</p>
-
+<table>
+<caption><span id="tab:Tab26">Tabela 2.6: </span> Distribuição de probabilidades conjunta na população <span class="math inline">\(f_U( x ; y )\)</span>.</caption>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">y</th>
+<th></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">x</td>
+<td align="center">0</td>
+<td>1</td>
+<td align="center">Total</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">0.7</td>
+<td>0.1</td>
+<td align="center">0.8</td>
+</tr>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">0.1</td>
+<td>0.1</td>
+<td align="center">0.2</td>
+</tr>
+<tr class="even">
+<td align="center">Total</td>
+<td align="center">0.8</td>
+<td>0.2</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
 <p>segue-se que a distribuição condicional de <span class="math inline">\(y\)</span> dado <span class="math inline">\(x\)</span> na população (mas também na amostra) é dada por</p>
-
+<table>
+<caption><span id="tab:Tab27">Tabela 2.7: </span> Distribuição de probabilidades condicional de <span class="math inline">\(y\)</span> dado <span class="math inline">\(x\)</span> na população - <span class="math inline">\(f_U( y | x )\)</span>.</caption>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">y</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">x</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">Total</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">0.875</td>
+<td align="center">0.125</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">0.5</td>
+<td align="center">0.5</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
 <p>e que a distribuição marginal de <span class="math inline">\(y\)</span> na população e na amostra são dadas por</p>
-
+<table>
+<caption><span id="tab:Tab28">Tabela 2.8: </span> Distribuição de probabilidades marginal de <span class="math inline">\(y\)</span> na população - <span class="math inline">\(f_U( y )\)</span>.</caption>
+<thead>
+<tr class="header">
+<th align="center">y</th>
+<th align="center">0</th>
+<th align="center">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(f_U(y)\)</span></td>
+<td align="center">0.8</td>
+<td align="center">0.2</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(f_a(y)\)</span></td>
+<td align="center">0.6875</td>
+<td align="center">0.3125</td>
+</tr>
+</tbody>
+</table>
 <p>Assim, inferência sobre a distribuição de <span class="math inline">\(y\)</span> <code>na população</code> levada a cabo a partir dos dados da amostra observada sem considerar a estrutura do plano amostral será equivocada, pois a alocação igual da amostra nos estratos leva à observação de uma proporção maior de valores de <span class="math inline">\(x\)</span> iguais a 1 na amostra (1/2) do que a correspondente proporção existente na população (1/5). Em conseqüência, a proporção de valores de <span class="math inline">\(y\)</span> iguais a 1 na amostra (0.3125) é 56% maior que a correspondente proporção na população (0.2).</p>
 <p>Este exemplo é propositalmente simples, envolve apenas duas variáveis com distribuição Bernoulli, mas ilustra bem como a amostragem pode modificar distribuições de variáveis da amostra em relação à correspondente distribuição na população.</p>
 <p>Note que caso a inferência requerida fosse sobre parâmetros da distribuição condicional de <span class="math inline">\(y\)</span> dado <span class="math inline">\(x\)</span>, a amostragem seria ignorável, isto é, <span class="math inline">\(f_a ( y | x) = f_U (y | x)\)</span>. Assim fica evidenciado também que a noção de que o plano amostral pode ser ignorável depende da inferência desejada. No nosso exemplo, o plano amostral é ignorável para inferência sobre a distribuição condicional de <span class="math inline">\(y\)</span> dado <span class="math inline">\(x\)</span>, mas não é ignorável para inferência sobre a distribuição marginal de <span class="math inline">\(y\)</span>.</p>

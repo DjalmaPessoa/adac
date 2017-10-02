@@ -1724,7 +1724,7 @@ vetor de dimensão \(K \times 1\)) indexador da distribuição \(f\), e
 \(y_1,\ldots ,y_n\), são feitas inferências a respeito do parâmetro
 \(\theta\). Uma representação gráfica esquemática dessa abordagem é
 apresentada na Figura \ref{fig:modclas} a seguir, e uma descrição
-esquemática resumida é apresentada na Tabela \ref{Tab21}.
+esquemática resumida é apresentada na Tabela \ref{tab:Tab21}.
 
 \begin{figure}
 \centering
@@ -1814,7 +1814,7 @@ funções \(g\) particulares, tais como totais
 \(g\left( y_{1},\ldots ,y_{N}\right) =\sum_{i=1}^{N}y_{i}\) , médias
 \(g\left( y_{1},\ldots ,y_{N}\right) =N^{-1}\sum_{i=1}^{N}y_{i}\),
 proporções, razões, etc. Uma descrição esquemática resumida dessa
-abordagem é apresentada no Tabela \ref{Tab22}, e uma representação
+abordagem é apresentada no Tabela \ref{tab:Tab22}, e uma representação
 gráfica resumida na Figura \ref{fig:modamo}.
 
 \begin{figure}
@@ -1998,7 +1998,7 @@ o plano amostral utilizado, contida em \(p(s)\), à informação estrutural
 contida no modelo
 \(\left\{ f\left( y;\theta \right) ;\theta \in \Theta\right\}\). Uma
 representação esquemática dessa abordagem é apresentada no Tabela
-\ref{Tab23}.
+\ref{tab:Tab23}.
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:modelsuperpop} Representação esquemática da abordagem
@@ -2531,7 +2531,7 @@ distribuição amostral da variável de interesse \(y\). Isto pode ser
 feito em dois passos. Primeiro, note que a distribuição condicional de
 \(y\) dado \(x\) na população é dada por:
 
-\begin{longtable}[]{@{}lcll@{}}
+\begin{longtable}[]{@{}cccc@{}}
 \caption{\label{tab:Tab25} Distribuição de probabilidades condicional de
 \(y\) dado \(x\) na população -
 \(Pr( Y_i = y | X_i = x )\).}\tabularnewline
@@ -2595,72 +2595,64 @@ distribuição condicional de \(y\) dado \(x\) na população e na amostra
 ser a mesma.
 
 Um exemplo numérico facilita a compreensão. Se a distribuição conjunta
-de \(x\) e \(y\) na população é dada por:\newpage
+de \(x\) e \(y\) na população é dada por:
 
-\begin{table}[h]
-    \centering
-    \caption{Distribuição de probabilidades conjunta na população $f_U( x ; y )$} 
-    \label{Tab26}
-    \bigskip 
-        \begin{tabular}{c|c|c|c}
-        \hline
-        \hline
-      { } & \multicolumn{2}{|c|} {$y$} & { } \\
-        $x$ & 0 & 1 & Total \\
-        \hline
-        \hline
-        $0$ & $0.7$ & $0.1$ & $0.8$ \\
-        $1$ & $0.1$ & $0.1$ & $0.2$ \\
-        \hline
-        \hline
-      Total & $0.8$ & $0.2$ & 1 \\
-        \hline
-        \hline
-        \end{tabular}
-\end{table}
+\begin{longtable}[]{@{}cclc@{}}
+\caption{\label{tab:Tab26} Distribuição de probabilidades conjunta na
+população \(f_U( x ; y )\).}\tabularnewline
+\toprule
+& y & &\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+& y & &\tabularnewline
+\midrule
+\endhead
+x & 0 & 1 & Total\tabularnewline
+0 & 0.7 & 0.1 & 0.8\tabularnewline
+1 & 0.1 & 0.1 & 0.2\tabularnewline
+Total & 0.8 & 0.2 & 1\tabularnewline
+\bottomrule
+\end{longtable}
 
 segue-se que a distribuição condicional de \(y\) dado \(x\) na população
 (mas também na amostra) é dada por
 
-\begin{table}[h]
-    \centering
-    \caption{Distribuição de probabilidades condicional de $y$ dado $x$ na população - $f_U( y | x )$} 
-    \label{Tab27}
-    \bigskip 
-        \begin{tabular}{c|c|c|c}
-        \hline
-        \hline
-      { } & \multicolumn{2}{|c|} {$y$} & { } \\
-        $x$ & 0 & 1 & Total \\
-        \hline
-        \hline
-        $0$ & $0.875$ & $0.125$ & 1 \\
-        $1$ & $0.5$ & $0.5$ & 1 \\
-        \hline
-        \hline
-        \end{tabular}
-\end{table}
+\begin{longtable}[]{@{}cccc@{}}
+\caption{\label{tab:Tab27} Distribuição de probabilidades condicional de
+\(y\) dado \(x\) na população - \(f_U( y | x )\).}\tabularnewline
+\toprule
+& y & &\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+& y & &\tabularnewline
+\midrule
+\endhead
+x & 0 & 1 & Total\tabularnewline
+0 & 0.875 & 0.125 & 1\tabularnewline
+1 & 0.5 & 0.5 & 1\tabularnewline
+\bottomrule
+\end{longtable}
 
 e que a distribuição marginal de \(y\) na população e na amostra são
 dadas por
 
-\begin{table}[h]
-    \centering
-    \caption{Distribuição de probabilidades marginal de $y$ na população - $f_U( y )$} 
-    \label{Tab28}
-    \bigskip 
-        \begin{tabular}{c|c|c}
-        \hline
-        \hline
-      $y$ & 0 & 1 \\
-      \hline
-        $f_U ( y )$ & $0.8$ & $0.2$ \\
-        \hline
-        $f_a ( y )$ & $0.6875$ & $0.3125$ \\
-        \hline
-        \hline
-        \end{tabular}
-\end{table}
+\begin{longtable}[]{@{}ccc@{}}
+\caption{\label{tab:Tab28} Distribuição de probabilidades marginal de \(y\)
+na população - \(f_U( y )\).}\tabularnewline
+\toprule
+y & 0 & 1\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+y & 0 & 1\tabularnewline
+\midrule
+\endhead
+\(f_U(y)\) & 0.8 & 0.2\tabularnewline
+\(f_a(y)\) & 0.6875 & 0.3125\tabularnewline
+\bottomrule
+\end{longtable}
 
 Assim, inferência sobre a distribuição de \(y\) \texttt{na\ população}
 levada a cabo a partir dos dados da amostra observada sem considerar a
@@ -3565,7 +3557,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01208894
+## [1,] 0.01080893
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -5114,7 +5106,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1416104
+## [1] 0.1398175
 \end{verbatim}
 
 \begin{Shaded}
@@ -5125,7 +5117,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3296086
+## [1] 0.3103891
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -5160,8 +5152,8 @@ resultados da simulação:
 Quantidade\_de\_interesse & Salários & Receitas\\
 \midrule
 Média\_populacional\_Ybar & 78.32826 & 2.106846\\
-Média\_de\_ybar\_sobre\_ 500\_ amostras & 160.72319 & 4.289349\\
-Média\_de\_ybarw\_sobre\_500\_amostras & 76.67527 & 2.121696\\
+Média\_de\_ybar\_sobre\_ 500\_ amostras & 166.71024 & 4.329960\\
+Média\_de\_ybarw\_sobre\_500\_amostras & 79.35198 & 2.132731\\
 \bottomrule
 \end{tabular}
 
@@ -5185,9 +5177,9 @@ simulação:
 Quantidade\_de\_interesse & Salários & Receitas\\
 \midrule
 Variância\_populacional\_V\_AES(ybarw) & 244.1758 & 0.4349945\\
-Média\_de\_ Vhat\_AES(yvarw) & 232.7219 & 0.4382666\\
+Média\_de\_ Vhat\_AES(yvarw) & 248.1744 & 0.4074866\\
 Valor\_esperado\_de\_v0\_usando\_população & NA & NA\\
-Média\_de\_v0\_usando\_500\_amostras & 1643.3960 & 1.3296574\\
+Média\_de\_v0\_usando\_500\_amostras & 1774.9875 & 1.3128248\\
 \bottomrule
 \end{tabular}
 
