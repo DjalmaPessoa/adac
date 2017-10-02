@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-09-30}
+  \date{2017-10-02}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -3565,7 +3565,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01302419
+## [1,] 0.01208894
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -5053,7 +5053,7 @@ delta & K=1 & K=2 & K=3 & K=4\\
 
 Vale a pena incluir as contas que não dependem da simulação?
 
-Exemplo \ref{exm:deffuni} Parte de simulação do exemplo para salarios.
+Exemplo \ref{exm:deffuni} Parte de simulação do exemplo para salários.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5089,6 +5089,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{500}\NormalTok{)\{}
 \NormalTok{s<-}\KeywordTok{strata}\NormalTok{(popul, }\StringTok{"estrat"}\NormalTok{,}\KeywordTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{,}\DecValTok{30}\NormalTok{),}\DataTypeTok{method=} \StringTok{"srswor"}\NormalTok{)}
 \NormalTok{dados<-}\KeywordTok{getdata}\NormalTok{(popul,s)}
+\CommentTok{# média amostral de salário e de receita}
 \NormalTok{sal_med_y<-}\KeywordTok{mean}\NormalTok{(dados}\OperatorTok{$}\NormalTok{sal)}
 \NormalTok{rec_med_y<-}\KeywordTok{mean}\NormalTok{(dados}\OperatorTok{$}\NormalTok{rec)}
 \CommentTok{# estimador v0}
@@ -5096,7 +5097,8 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \NormalTok{rec_var_aas<-(}\DecValTok{1}\OperatorTok{-}\NormalTok{f)}\OperatorTok{*}\KeywordTok{var}\NormalTok{(dados}\OperatorTok{$}\NormalTok{rec)}\OperatorTok{/}\NormalTok{n}
 \CommentTok{# vhat_aes estimador não-viciado}
 \NormalTok{desenho<-}\KeywordTok{svydesign}\NormalTok{(}\OperatorTok{~}\DecValTok{1}\NormalTok{,}\DataTypeTok{strata=}\OperatorTok{~}\NormalTok{estrat,}\DataTypeTok{data=}\NormalTok{dados,}\DataTypeTok{fpc=}\OperatorTok{~}\NormalTok{Prob)}
-\NormalTok{sal_med_yw<-}\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{sal,desenho)}
+\CommentTok{# estimador não-viciado da média de  salario e receita}
+\NormalTok{sal_med_yw<-}\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{sal,desenho) }
 \NormalTok{rec_med_yw<-}\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{rec,desenho)}
 \NormalTok{sal.mat.res[i,]<-}\KeywordTok{c}\NormalTok{(sal_med_y,}\KeywordTok{coef}\NormalTok{(sal_med_yw),sal_var_aas,}\KeywordTok{SE}\NormalTok{(sal_med_yw)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
 \NormalTok{rec.mat.res[i,]<-}\KeywordTok{c}\NormalTok{(rec_med_y,}\KeywordTok{coef}\NormalTok{(rec_med_yw),rec_var_aas,}\KeywordTok{SE}\NormalTok{(rec_med_yw)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
@@ -5112,7 +5114,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1397472
+## [1] 0.1416104
 \end{verbatim}
 
 \begin{Shaded}
@@ -5123,7 +5125,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3549304
+## [1] 0.3296086
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -5137,6 +5139,57 @@ Usando a fórmula \eqref{eq:epa3}
 \NormalTok{vp_rec <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(Wh}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{fh)}\OperatorTok{*}\NormalTok{vp_rec_h[,}\StringTok{"rec"}\NormalTok{]}\OperatorTok{/}\NormalTok{nh)}
 \end{Highlighting}
 \end{Shaded}
+
+A seguir, reproduzimos a Tabela \ref{tab:proestmed}, usando os
+resultados da simulação:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab_}\DecValTok{43}\NormalTok{ <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+\DataTypeTok{Quantidade_de_interesse =} \KeywordTok{c}\NormalTok{(}\StringTok{"Média_populacional_Ybar"}\NormalTok{, }\StringTok{"Média_de_ybar_sobre_ 500_ amostras"}\NormalTok{,}
+  \StringTok{"Média_de_ybarw_sobre_500_amostras"}\NormalTok{),}
+\NormalTok{Salá}\DataTypeTok{rios =} \KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(popul}\OperatorTok{$}\NormalTok{sal), sal_res_mean[}\DecValTok{1}\NormalTok{],sal_res_mean[}\DecValTok{2}\NormalTok{] ),}
+\DataTypeTok{Receitas =} \KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(popul}\OperatorTok{$}\NormalTok{rec),rec_res_mean[}\DecValTok{1}\NormalTok{],rec_res_mean[}\DecValTok{2}\NormalTok{] )  }
+\NormalTok{)}
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(tab_}\DecValTok{43}\NormalTok{, }\DataTypeTok{booktabs=}\OtherTok{TRUE}\NormalTok{ )    }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{lrr}
+\toprule
+Quantidade\_de\_interesse & Salários & Receitas\\
+\midrule
+Média\_populacional\_Ybar & 78.32826 & 2.106846\\
+Média\_de\_ybar\_sobre\_ 500\_ amostras & 160.72319 & 4.289349\\
+Média\_de\_ybarw\_sobre\_500\_amostras & 76.67527 & 2.121696\\
+\bottomrule
+\end{tabular}
+
+A seguir reproduzimos a Tabela \ref{tab:varest}, usando os resultados da
+simulação:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab_}\DecValTok{44}\NormalTok{ <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+\DataTypeTok{Quantidade_de_interesse =} \KeywordTok{c}\NormalTok{(}\StringTok{"Variância_populacional_V_AES(ybarw)"}\NormalTok{, }\StringTok{"Média_de_ Vhat_AES(yvarw)"}\NormalTok{,}
+\StringTok{"Valor_esperado_de_v0_usando_população"}\NormalTok{,}\StringTok{"Média_de_v0_usando_500_amostras"}\NormalTok{),}
+\NormalTok{Salá}\DataTypeTok{rios=} \KeywordTok{c}\NormalTok{(vp_sal, sal_res_mean[}\DecValTok{4}\NormalTok{], }\OtherTok{NA}\NormalTok{, sal_res_mean[}\DecValTok{3}\NormalTok{]),}
+\DataTypeTok{Receitas =} \KeywordTok{c}\NormalTok{(vp_rec, rec_res_mean[}\DecValTok{4}\NormalTok{], }\OtherTok{NA}\NormalTok{, rec_res_mean[}\DecValTok{3}\NormalTok{])  }
+\NormalTok{ )}
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(tab_}\DecValTok{44}\NormalTok{, }\DataTypeTok{booktabs=} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{lrr}
+\toprule
+Quantidade\_de\_interesse & Salários & Receitas\\
+\midrule
+Variância\_populacional\_V\_AES(ybarw) & 244.1758 & 0.4349945\\
+Média\_de\_ Vhat\_AES(yvarw) & 232.7219 & 0.4382666\\
+Valor\_esperado\_de\_v0\_usando\_população & NA & NA\\
+Média\_de\_v0\_usando\_500\_amostras & 1643.3960 & 1.3296574\\
+\bottomrule
+\end{tabular}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:eqmean}{}{\label{exm:eqmean} }Teste da igualdade de

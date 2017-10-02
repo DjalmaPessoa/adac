@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-09-30">
+<meta name="date" content="2017-10-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -873,7 +873,7 @@ _{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) &gt;\chi _{\alpha
 <div id="laboratorio-de-r-1" class="section level2">
 <h2><span class="header-section-number">4.6</span> Laboratório de R</h2>
 <p>Vale a pena incluir as contas que não dependem da simulação?</p>
-<p>Exemplo <a href="epa.html#exm:deffuni">4.2</a> Parte de simulação do exemplo para salarios.</p>
+<p>Exemplo <a href="epa.html#exm:deffuni">4.2</a> Parte de simulação do exemplo para salários.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
 <span class="co"># carrega dados</span>
 <span class="kw">library</span>(anamco)
@@ -894,6 +894,7 @@ popul<span class="op">$</span>rec &lt;-<span class="st"> </span>popul<span class
 <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">500</span>){
 s&lt;-<span class="kw">strata</span>(popul, <span class="st">&quot;estrat&quot;</span>,<span class="kw">c</span>(<span class="dv">30</span>,<span class="dv">30</span>),<span class="dt">method=</span> <span class="st">&quot;srswor&quot;</span>)
 dados&lt;-<span class="kw">getdata</span>(popul,s)
+<span class="co"># média amostral de salário e de receita</span>
 sal_med_y&lt;-<span class="kw">mean</span>(dados<span class="op">$</span>sal)
 rec_med_y&lt;-<span class="kw">mean</span>(dados<span class="op">$</span>rec)
 <span class="co"># estimador v0</span>
@@ -901,7 +902,8 @@ sal_var_aas&lt;-(<span class="dv">1</span><span class="op">-</span>f)<span class
 rec_var_aas&lt;-(<span class="dv">1</span><span class="op">-</span>f)<span class="op">*</span><span class="kw">var</span>(dados<span class="op">$</span>rec)<span class="op">/</span>n
 <span class="co"># vhat_aes estimador não-viciado</span>
 desenho&lt;-<span class="kw">svydesign</span>(<span class="op">~</span><span class="dv">1</span>,<span class="dt">strata=</span><span class="op">~</span>estrat,<span class="dt">data=</span>dados,<span class="dt">fpc=</span><span class="op">~</span>Prob)
-sal_med_yw&lt;-<span class="kw">svymean</span>(<span class="op">~</span>sal,desenho)
+<span class="co"># estimador não-viciado da média de  salario e receita</span>
+sal_med_yw&lt;-<span class="kw">svymean</span>(<span class="op">~</span>sal,desenho) 
 rec_med_yw&lt;-<span class="kw">svymean</span>(<span class="op">~</span>rec,desenho)
 sal.mat.res[i,]&lt;-<span class="kw">c</span>(sal_med_y,<span class="kw">coef</span>(sal_med_yw),sal_var_aas,<span class="kw">SE</span>(sal_med_yw)<span class="op">^</span><span class="dv">2</span>)
 rec.mat.res[i,]&lt;-<span class="kw">c</span>(rec_med_y,<span class="kw">coef</span>(rec_med_yw),rec_var_aas,<span class="kw">SE</span>(rec_med_yw)<span class="op">^</span><span class="dv">2</span>)
@@ -913,16 +915,89 @@ rec_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(rec.
 
 epa_sal1 &lt;-<span class="st"> </span>sal_res_mean[<span class="dv">4</span>]<span class="op">/</span>sal_res_mean[<span class="dv">3</span>]
 epa_sal1</code></pre></div>
-<pre><code>## [1] 0.1396357</code></pre>
+<pre><code>## [1] 0.140491</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">epa_rec1 &lt;-<span class="st"> </span>rec_res_mean[<span class="dv">4</span>]<span class="op">/</span>rec_res_mean[<span class="dv">3</span>]
 epa_rec1</code></pre></div>
-<pre><code>## [1] 0.3867774</code></pre>
+<pre><code>## [1] 0.389554</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 vp_sal_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(sal<span class="op">~</span>estrat, popul, var)
 vp_rec_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(rec<span class="op">~</span>estrat, popul, var)
 vp_sal &lt;-<span class="st"> </span><span class="kw">sum</span>(Wh<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>fh)<span class="op">*</span>vp_sal_h[,<span class="st">&quot;sal&quot;</span>]<span class="op">/</span>nh)
 vp_rec &lt;-<span class="st"> </span><span class="kw">sum</span>(Wh<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>fh)<span class="op">*</span>vp_rec_h[,<span class="st">&quot;rec&quot;</span>]<span class="op">/</span>nh)</code></pre></div>
+<p>A seguir, reproduzimos a Tabela <a href="epa.html#tab:proestmed">4.3</a>, usando os resultados da simulação:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tab_<span class="dv">43</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+<span class="dt">Quantidade_de_interesse =</span> <span class="kw">c</span>(<span class="st">&quot;Média_populacional_Ybar&quot;</span>, <span class="st">&quot;Média_de_ybar_sobre_ 500_ amostras&quot;</span>,
+  <span class="st">&quot;Média_de_ybarw_sobre_500_amostras&quot;</span>),
+Salá<span class="dt">rios =</span> <span class="kw">c</span>(<span class="kw">mean</span>(popul<span class="op">$</span>sal), sal_res_mean[<span class="dv">1</span>],sal_res_mean[<span class="dv">2</span>] ),
+<span class="dt">Receitas =</span> <span class="kw">c</span>(<span class="kw">mean</span>(popul<span class="op">$</span>rec),rec_res_mean[<span class="dv">1</span>],rec_res_mean[<span class="dv">2</span>] )  
+)
+knitr<span class="op">::</span><span class="kw">kable</span>(tab_<span class="dv">43</span>, <span class="dt">booktabs=</span><span class="ot">TRUE</span> )    </code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Quantidade_de_interesse</th>
+<th align="right">Salários</th>
+<th align="right">Receitas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Média_populacional_Ybar</td>
+<td align="right">78.32826</td>
+<td align="right">2.106846</td>
+</tr>
+<tr class="even">
+<td align="left">Média_de_ybar_sobre_ 500_ amostras</td>
+<td align="right">163.06945</td>
+<td align="right">4.219654</td>
+</tr>
+<tr class="odd">
+<td align="left">Média_de_ybarw_sobre_500_amostras</td>
+<td align="right">77.64009</td>
+<td align="right">2.110253</td>
+</tr>
+</tbody>
+</table>
+<p>A seguir reproduzimos a Tabela <a href="epa.html#tab:varest">4.4</a>, usando os resultados da simulação:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tab_<span class="dv">44</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+<span class="dt">Quantidade_de_interesse =</span> <span class="kw">c</span>(<span class="st">&quot;Variância_populacional_V_AES(ybarw)&quot;</span>, <span class="st">&quot;Média_de_ Vhat_AES(yvarw)&quot;</span>,
+<span class="st">&quot;Valor_esperado_de_v0_usando_população&quot;</span>,<span class="st">&quot;Média_de_v0_usando_500_amostras&quot;</span>),
+Salá<span class="dt">rios=</span> <span class="kw">c</span>(vp_sal, sal_res_mean[<span class="dv">4</span>], <span class="ot">NA</span>, sal_res_mean[<span class="dv">3</span>]),
+<span class="dt">Receitas =</span> <span class="kw">c</span>(vp_rec, rec_res_mean[<span class="dv">4</span>], <span class="ot">NA</span>, rec_res_mean[<span class="dv">3</span>])  
+ )
+knitr<span class="op">::</span><span class="kw">kable</span>(tab_<span class="dv">44</span>, <span class="dt">booktabs=</span> <span class="ot">TRUE</span>)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Quantidade_de_interesse</th>
+<th align="right">Salários</th>
+<th align="right">Receitas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Variância_populacional_V_AES(ybarw)</td>
+<td align="right">244.1758</td>
+<td align="right">0.4349945</td>
+</tr>
+<tr class="even">
+<td align="left">Média_de_ Vhat_AES(yvarw)</td>
+<td align="right">237.7536</td>
+<td align="right">0.4857395</td>
+</tr>
+<tr class="odd">
+<td align="left">Valor_esperado_de_v0_usando_população</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Média_de_v0_usando_500_amostras</td>
+<td align="right">1692.3054</td>
+<td align="right">1.2469120</td>
+</tr>
+</tbody>
+</table>
 
 <div class="example">
 <span id="exm:eqmean" class="example"><strong>Exemplo 4.6  </strong></span>Teste da igualdade de médias para duas populações

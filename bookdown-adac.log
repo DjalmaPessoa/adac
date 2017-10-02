@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  30 SEP 2017 11:40
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  2 OCT 2017 11:58
 entering extended mode
 **./bookdown-adac.tex
 (bookdown-adac.tex
@@ -1189,31 +1189,31 @@ Overfull \hbox (37.50438pt too wide) in paragraph at lines 4590--4596
 roximado $[]$ é dado por $[]$,
  []
 
-[64] [65] [66] [67] [68] [69] [70] [71] [72
-
-]
+[64] [65] [66] [67] [68] [69] [70] [71] [72]
 Cap\'{\i }tulo 5.
-[73] [74] [75] [76] [77] [78] [79] [80] [81] [82]
+[73
+
+] [74] [75] [76] [77] [78] [79] [80] [81] [82]
 Cap\'{\i }tulo 6.
 [83
 
 ] [84] [85] [86] [87]
-Overfull \hbox (19.68164pt too wide) in paragraph at lines 6619--6621
+Overfull \hbox (19.68164pt too wide) in paragraph at lines 6672--6674
 []|\TU/lmr/m/n/10 ae(1)ae(2)ae(3)|  
  []
 
 
-Overfull \hbox (18.87164pt too wide) in paragraph at lines 6626--6628
+Overfull \hbox (18.87164pt too wide) in paragraph at lines 6679--6681
 []|\TU/lmr/m/n/10 ht(1)ht(2)ht(3)|  
  []
 
 
-Overfull \hbox (37.50165pt too wide) in paragraph at lines 6633--6635
+Overfull \hbox (37.50165pt too wide) in paragraph at lines 6686--6688
 []|\TU/lmr/m/n/10 id(1)id(2)id(3)id(4)|  
  []
 
 
-Overfull \hbox (16.44164pt too wide) in paragraph at lines 6640--6642
+Overfull \hbox (16.44164pt too wide) in paragraph at lines 6693--6695
 []|\TU/lmr/m/n/10 re(1)re(2)re(3)|  
  []
 
@@ -1228,7 +1228,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [107] [108] [109]
-Overfull \hbox (4.29082pt too wide) in paragraph at lines 8360--8362
+Overfull \hbox (4.29082pt too wide) in paragraph at lines 8413--8415
 []|\TU/lmr/m/n/10 11.640|  
  []
 
@@ -1268,12 +1268,12 @@ Cap\'{\i }tulo 14.
 ] [152] [153] [154] [155] (bookdown-adac.bbl [156] [157
 
 ] [158] [159])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 11510.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 11563.
 [160]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 11510.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 11563.
 (bookdown-adac.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 11510.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 11510.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 11563.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 11563.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 

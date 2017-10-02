@@ -1016,12 +1016,11 @@ de 5% assumindo autovalores iguais para delta.")
 ```
 
 
-
 ## Laboratório de R
 
 Vale a pena incluir as contas que não dependem da simulação?
 
-Exemplo \@ref(exm:deffuni) Parte de simulação do exemplo para salarios.
+Exemplo \@ref(exm:deffuni) Parte de simulação do exemplo para salários.
 
 ```{r, message=FALSE, warning=FALSE }
 library(survey)
@@ -1054,6 +1053,7 @@ library(sampling)
 for(i in 1:500){
 s<-strata(popul, "estrat",c(30,30),method= "srswor")
 dados<-getdata(popul,s)
+# média amostral de salário e de receita
 sal_med_y<-mean(dados$sal)
 rec_med_y<-mean(dados$rec)
 # estimador v0
@@ -1061,7 +1061,8 @@ sal_var_aas<-(1-f)*var(dados$sal)/n
 rec_var_aas<-(1-f)*var(dados$rec)/n
 # vhat_aes estimador não-viciado
 desenho<-svydesign(~1,strata=~estrat,data=dados,fpc=~Prob)
-sal_med_yw<-svymean(~sal,desenho)
+# estimador não-viciado da média de  salario e receita
+sal_med_yw<-svymean(~sal,desenho) 
 rec_med_yw<-svymean(~rec,desenho)
 sal.mat.res[i,]<-c(sal_med_y,coef(sal_med_yw),sal_var_aas,SE(sal_med_yw)^2)
 rec.mat.res[i,]<-c(rec_med_y,coef(rec_med_yw),rec_var_aas,SE(rec_med_yw)^2)
@@ -1084,7 +1085,37 @@ vp_sal_h <- aggregate(sal~estrat, popul, var)
 vp_rec_h <- aggregate(rec~estrat, popul, var)
 vp_sal <- sum(Wh^2*(1-fh)*vp_sal_h[,"sal"]/nh)
 vp_rec <- sum(Wh^2*(1-fh)*vp_rec_h[,"rec"]/nh)
+
 ```
+
+A seguir, reproduzimos a Tabela \@ref(tab:proestmed), usando os resultados da simulação:
+
+```{r}
+tab_43 <- data.frame(
+Quantidade_de_interesse = c("Média_populacional_Ybar", "Média_de_ybar_sobre_ 500_ amostras",
+  "Média_de_ybarw_sobre_500_amostras"),
+Salários = c(mean(popul$sal), sal_res_mean[1],sal_res_mean[2] ),
+Receitas = c(mean(popul$rec),rec_res_mean[1],rec_res_mean[2] )  
+)
+knitr::kable(tab_43, booktabs=TRUE )    
+```
+
+A seguir reproduzimos a Tabela \@ref(tab:varest), usando os resultados da simulação:
+
+```{r}
+tab_44 <- data.frame(
+Quantidade_de_interesse = c("Variância_populacional_V_AES(ybarw)", "Média_de_ Vhat_AES(yvarw)",
+"Valor_esperado_de_v0_usando_população","Média_de_v0_usando_500_amostras"),
+Salários= c(vp_sal, sal_res_mean[4], NA, sal_res_mean[3]),
+Receitas = c(vp_rec, rec_res_mean[4], NA, rec_res_mean[3])  
+ )
+knitr::kable(tab_44, booktabs= TRUE)
+```
+
+
+
+
+
 ```{example, label="eqmean" }
 Teste da igualdade de médias para duas populações
 ```
