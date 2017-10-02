@@ -2246,7 +2246,7 @@ Este modelo foi considerado em \citep{cassel}, que o chamaram de
 subjacente ao desenvolvimento da teoria de amostragem encontrada nos
 livros clássicos tais como \citep{cochran} e outros. Aqui esta abordagem
 é chamada de abordagem baseada no planejamento amostral ou
-\emph{abordagem de aleatorização}, pois neste caso a única fonte de
+\texttt{abordagem\ de\ aleatorização}, pois neste caso a única fonte de
 variação (aleatoriedade) é proveniente do planejamento amostral. Em
 geral, a distribuição conjunta de
 \(\left( \mathbf{Y}_U , \mathbf{X}_U \right)\) não precisa ser
@@ -2281,7 +2281,7 @@ somente para a população finita sob análise, tais como funções
 variáveis da pesquisa, o modelo de superpopulação não é estritamente
 necessário, embora possa ser útil. Inferência para tais quantidades,
 chamadas parâmetros da população finita ou quantidades descritivas
-populacionais (QDPs), é chamada \emph{inferência descritiva}.
+populacionais (QDPs), é chamada \texttt{inferência\ descritiva}.
 
 \section{Planejamento Amostral}\label{planamo}
 
@@ -2399,7 +2399,7 @@ distinguir duas outras situações de interesse. Quando o plano amostral é
 amostragem aleatória simples com reposição (AASC), o modelo adotado para
 a amostra é o mesmo que o modelo adotado para a população antes da
 amostragem. Quando isto ocorre, o plano amostral é dito
-\emph{ignorável}, porque a inferência baseada na amostra utilizando a
+\texttt{ignorável}, porque a inferência baseada na amostra utilizando a
 abordagem clássica descrita em \ref{classic} pode prosseguir sem
 problemas. Entretanto, esquemas amostrais desse tipo são raramente
 empregados na prática, por razões de eficiência e custo. Em vez disso,
@@ -2518,7 +2518,7 @@ da população, onde os estratos são definidos com base nos valores da
 variável \(x\), e onde a alocação da amostra nos estratos é dada por
 \(n_0 = n_1 = n/2\), sendo \(n_x\) o tamanho da amostra no estrato
 correspondente ao valor \(x\) usado como índice. Esta alocação é dita
-\emph{alocação igual}, pois o tamanho total da amostra é repartido em
+\texttt{alocação\ igual}, pois o tamanho total da amostra é repartido em
 partes iguais entre os estratos definidos para seleção, e no caso, há
 apenas dois estratos. A alocação desta amostra será desproporcional
 exceto no caso em que \(N_{0+} = N_{1+}\).
@@ -2536,18 +2536,16 @@ feito em dois passos. Primeiro, note que a distribuição condicional de
 \(y\) dado \(x\) na população -
 \(Pr( Y_i = y | X_i = x )\).}\tabularnewline
 \toprule
-& y & &\tabularnewline
+& & y &\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-& y & &\tabularnewline
+& & y &\tabularnewline
 \midrule
 \endhead
 x & 0 & 1 & Total\tabularnewline
-0 & \(\eta_{00}\)/\(\eta_{0+}\) & \(\eta_{01}\)/\(\eta_{0+}\) &
-1\tabularnewline
-1 & \(\eta_{10}\)/\(\eta_{1+}\) & \(\eta_{11}\)/\(\eta_{1+}\) &
-1\tabularnewline
+0 & \(\eta_{00}/\eta_{0+}\) & \(\eta_{01}/\eta_{0+}\) & 1\tabularnewline
+1 & \(\eta_{10}/\eta_{1+}\) & \(\eta_{11}/\eta_{1+}\) & 1\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -2559,11 +2557,11 @@ ou, alternativamente
 \end{eqnarray}
 
 Dado o plano amostral acima descrito, a distribuição marginal de \(x\)
-\emph{na amostra} é Bernoulli com parâmetro \(1/2\). Isto segue devido
-ao fato de que a amostra foi alocada igualmente com base nos valores de
-\(x\) na população, e portanto, sempre teremos metade da amostra com
-valores de \(x\) iguais a \(0\) e metade com valores iguais a \(1\).
-Isto pode ser representado como:
+\texttt{na\ amostra} é Bernoulli com parâmetro \(1/2\). Isto segue
+devido ao fato de que a amostra foi alocada igualmente com base nos
+valores de \(x\) na população, e portanto, sempre teremos metade da
+amostra com valores de \(x\) iguais a \(0\) e metade com valores iguais
+a \(1\). Isto pode ser representado como:
 
 \begin{equation}
  f_a (x) = Pr( X_i = x | i \in a ) = 1 / 2,\; \forall x \in \Omega \mbox{ e } \forall i \in U
@@ -3557,7 +3555,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01080893
+## [1,] 0.01414087
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -5106,7 +5104,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1398175
+## [1] 0.1411188
 \end{verbatim}
 
 \begin{Shaded}
@@ -5117,7 +5115,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3103891
+## [1] 0.3555202
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -5152,8 +5150,8 @@ resultados da simulação:
 Quantidade\_de\_interesse & Salários & Receitas\\
 \midrule
 Média\_populacional\_Ybar & 78.32826 & 2.106846\\
-Média\_de\_ybar\_sobre\_ 500\_ amostras & 166.71024 & 4.329960\\
-Média\_de\_ybarw\_sobre\_500\_amostras & 79.35198 & 2.132731\\
+Média\_de\_ybar\_sobre\_ 500\_ amostras & 164.25035 & 4.224629\\
+Média\_de\_ybarw\_sobre\_500\_amostras & 78.17184 & 2.104395\\
 \bottomrule
 \end{tabular}
 
@@ -5177,9 +5175,9 @@ simulação:
 Quantidade\_de\_interesse & Salários & Receitas\\
 \midrule
 Variância\_populacional\_V\_AES(ybarw) & 244.1758 & 0.4349945\\
-Média\_de\_ Vhat\_AES(yvarw) & 248.1744 & 0.4074866\\
+Média\_de\_ Vhat\_AES(yvarw) & 246.3286 & 0.4510018\\
 Valor\_esperado\_de\_v0\_usando\_população & NA & NA\\
-Média\_de\_v0\_usando\_500\_amostras & 1774.9875 & 1.3128248\\
+Média\_de\_v0\_usando\_500\_amostras & 1745.5405 & 1.2685689\\
 \bottomrule
 \end{tabular}
 
