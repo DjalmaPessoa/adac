@@ -8,8 +8,7 @@ abordagens alternativas de análise estatística.
 
 ### Abordagem 1 - Modelagem Clássica 
 
-Seja $Y$ um vetor $P \times 1$ de variáveis de pesquisa (ou de interesse), e sejam $n$ vetores de observações destas variáveis para uma amostra de unidades de interesse denotados por $y_1,\ldots ,y_n$. Em Inferência Estatística, a abordagem que aqui chamamos de `Modelagem clássica` considera $y_1,\ldots ,y_n$ como valores (realizações) de vetores de variáveis aleatórias $y_1,\ldots ,y_n$. Podemos formular modelos bastante sofisticados para a distribuição conjunta destes vetores aleatórios, mas para simplificar a discussão, vamos inicialmente supor que $y_1,\ldots ,y_n$ são vetores aleatórios independentes e identicamente distribuídos (IID), com a mesma distribuição de $Y$, caracterizada pela função de densidade ou de frequência $f(y;\theta)$, onde $\theta \in \Theta$ é o parâmetro (um vetor de dimensão $K \times 1$) indexador da distribuição $f$, e $\Theta$ é o espaço paramétrico. A partir das observações $y_1,\ldots ,y_n$, são feitas inferências a respeito do parâmetro $\theta$. Uma representação gráfica esquemática dessa abordagem é apresentada na Figura \@ref(fig:modclas) a seguir, e uma descrição esquemática resumida é apresentada na 
-Tabela \@ref(tab:Tab21).
+Seja $Y$ um vetor $P \times 1$ de variáveis de pesquisa (ou de interesse), e sejam $n$ vetores de observações destas variáveis para uma amostra de unidades de interesse denotados por $y_1,\ldots ,y_n$. Em Inferência Estatística, a abordagem que aqui chamamos de `Modelagem clássica` considera $y_1,\ldots ,y_n$ como valores (realizações) de vetores de variáveis aleatórias $y_1,\ldots ,y_n$. Podemos formular modelos bastante sofisticados para a distribuição conjunta destes vetores aleatórios, mas para simplificar a discussão, vamos inicialmente supor que $y_1,\ldots ,y_n$ são vetores aleatórios independentes e identicamente distribuídos (IID), com a mesma distribuição de $Y$, caracterizada pela função de densidade ou de frequência $f(y;\theta)$, onde $\theta \in \Theta$ é o parâmetro (um vetor de dimensão $K \times 1$) indexador da distribuição $f$, e $\Theta$ é o espaço paramétrico. A partir das observações $y_1,\ldots ,y_n$, são feitas inferências a respeito do parâmetro $\theta$. Uma representação gráfica esquemática dessa abordagem é apresentada na Figura \@ref(fig:modclas) a seguir, e uma descrição esquemática resumida é apresentada na Tabela \@ref(tab:modelclass).
 
 
 ```{r,modclas, echo=FALSE, fig.cap="Modelagem Clássica"}
@@ -68,7 +67,7 @@ populacionais (QDPs), também denominadas
 tais como totais $g\left( y_{1},\ldots ,y_{N}\right) =\sum_{i=1}^{N}y_{i}$ ,
 médias $g\left( y_{1},\ldots ,y_{N}\right) =N^{-1}\sum_{i=1}^{N}y_{i}$,
 proporções, razões, etc. Uma descrição esquemática resumida
-dessa abordagem é apresentada no Tabela  \@ref(tab:Tab22), e uma representação gráfica resumida na Figura \@ref(fig:modamo).
+dessa abordagem é apresentada no Tabela  \@ref(tab:modelamo), e uma representação gráfica resumida na Figura \@ref(fig:modamo).
 
 ```{r, modamo,echo=FALSE, fig.cap="Amostragem Probabilística" }
 knitr::include_graphics("Figuras/fig22.png")
@@ -189,7 +188,7 @@ populacionais $y_{1},\ldots ,y_{N}$, já que estes não são
 conhecidos ou observados. Este último passo adiciona a informação sobre o
 plano amostral utilizado, contida em $p(s)$,  à informação
 estrutural contida no modelo $\left\{ f\left( y;\theta \right) ;\theta \in \Theta\right\}$. Uma representação esquemática dessa abordagem é
-apresentada no Tabela  \@ref(tab:Tab23).
+apresentada no Tabela  \@ref(tab:modelsuperpop).
 
 -------------------   ----------------------------------------------
 Dados Amostrais       $Y_1=y_1,\ldots, Y_n=y_n$

@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-10-02}
+  \date{2017-10-03}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -441,8 +441,9 @@ parâmetros populacionais:
 \item
   Total de mulheres de 12 a 49 anos que tiveram filhos;
 \item
-  Total de mulheres de 12 a 49 anos que tiveram filhos vivos; 10.Total
-  de mulheres de 12 a 49 anos que tiveram filhos mortos;
+  Total de mulheres de 12 a 49 anos que tiveram filhos vivos;
+\item
+  Total de mulheres de 12 a 49 anos que tiveram filhos mortos;
 \item
   Número médio de filhos tidos por mulheres de 12 a 49 anos;
 \item
@@ -454,7 +455,7 @@ parâmetros populacionais:
 \caption{\label{tab:epas}Estimativas de Efeitos de Plano Amostral (EPAs)
 para variáveis selecionadas da PPV - Região Sudeste}
 \centering
-\begin{tabular}[t]{lrrrlrrrlrrrlrrr}
+\begin{tabular}[t]{llllllllllllllll}
 \toprule
 Parâmetro & Estimativa & DP & EPA\\
 \midrule
@@ -724,6 +725,7 @@ encontra-se descrito no Exemplo \ref{exm:distppv} . Os dados da
 \begin{Highlighting}[]
 \CommentTok{# leitura dos dados}
 \KeywordTok{library}\NormalTok{(anamco)}
+\KeywordTok{data}\NormalTok{(ppv)}
 \KeywordTok{dim}\NormalTok{(ppv)}
 \end{Highlighting}
 \end{Shaded}
@@ -1724,7 +1726,7 @@ vetor de dimensão \(K \times 1\)) indexador da distribuição \(f\), e
 \(y_1,\ldots ,y_n\), são feitas inferências a respeito do parâmetro
 \(\theta\). Uma representação gráfica esquemática dessa abordagem é
 apresentada na Figura \ref{fig:modclas} a seguir, e uma descrição
-esquemática resumida é apresentada na Tabela \ref{tab:Tab21}.
+esquemática resumida é apresentada na Tabela \ref{tab:modelclass}.
 
 \begin{figure}
 \centering
@@ -1814,8 +1816,8 @@ funções \(g\) particulares, tais como totais
 \(g\left( y_{1},\ldots ,y_{N}\right) =\sum_{i=1}^{N}y_{i}\) , médias
 \(g\left( y_{1},\ldots ,y_{N}\right) =N^{-1}\sum_{i=1}^{N}y_{i}\),
 proporções, razões, etc. Uma descrição esquemática resumida dessa
-abordagem é apresentada no Tabela \ref{tab:Tab22}, e uma representação
-gráfica resumida na Figura \ref{fig:modamo}.
+abordagem é apresentada no Tabela \ref{tab:modelamo}, e uma
+representação gráfica resumida na Figura \ref{fig:modamo}.
 
 \begin{figure}
 \centering
@@ -1998,7 +2000,7 @@ o plano amostral utilizado, contida em \(p(s)\), à informação estrutural
 contida no modelo
 \(\left\{ f\left( y;\theta \right) ;\theta \in \Theta\right\}\). Uma
 representação esquemática dessa abordagem é apresentada no Tabela
-\ref{tab:Tab23}.
+\ref{tab:modelsuperpop}.
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:modelsuperpop} Representação esquemática da abordagem
@@ -3555,7 +3557,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01414087
+## [1,] 0.01207287
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -5104,7 +5106,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1411188
+## [1] 0.1404682
 \end{verbatim}
 
 \begin{Shaded}
@@ -5115,7 +5117,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3555202
+## [1] 0.3086889
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -5150,8 +5152,8 @@ resultados da simulação:
 Quantidade\_de\_interesse & Salários & Receitas\\
 \midrule
 Média\_populacional\_Ybar & 78.32826 & 2.106846\\
-Média\_de\_ybar\_sobre\_ 500\_ amostras & 164.25035 & 4.224629\\
-Média\_de\_ybarw\_sobre\_500\_amostras & 78.17184 & 2.104395\\
+Média\_de\_ybar\_sobre\_ 500\_ amostras & 165.72956 & 4.285953\\
+Média\_de\_ybarw\_sobre\_500\_amostras & 78.89921 & 2.109562\\
 \bottomrule
 \end{tabular}
 
@@ -5175,9 +5177,9 @@ simulação:
 Quantidade\_de\_interesse & Salários & Receitas\\
 \midrule
 Variância\_populacional\_V\_AES(ybarw) & 244.1758 & 0.4349945\\
-Média\_de\_ Vhat\_AES(yvarw) & 246.3286 & 0.4510018\\
+Média\_de\_ Vhat\_AES(yvarw) & 242.9075 & 0.3891936\\
 Valor\_esperado\_de\_v0\_usando\_população & NA & NA\\
-Média\_de\_v0\_usando\_500\_amostras & 1745.5405 & 1.2685689\\
+Média\_de\_v0\_usando\_500\_amostras & 1729.2699 & 1.2607955\\
 \bottomrule
 \end{tabular}
 

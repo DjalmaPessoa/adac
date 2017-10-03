@@ -190,16 +190,16 @@ efeitos de plano amostral (EPA). Exemplos de utilização da library `survey` pa
 
 Na Tabela \@ref(tab:epas) apresentamos as estimativas dos seguintes parâmetros populacionais:
 
-1. Número médio de pessoas por domicílio;
-2. % de domicílios alugados;
-3. Número total de pessoas que avaliaram seu estado de de saúde como ruim;
-4. Total de analfabetos de 7 a 14 anos;
-5. Total de analfabetos de mais de 14 anos;
-6. % de analfabetos de 7 a 14 anos;
-7. % de analfabetos de mais de 14 anos;
-8. Total de mulheres de 12 a 49 anos que tiveram filhos;
-9. Total de mulheres de 12 a 49 anos que tiveram filhos vivos;
-10.Total de mulheres de 12 a 49 anos que tiveram filhos mortos;
+ 1. Número médio de pessoas por domicílio;
+ 2. % de domicílios alugados;
+ 3. Número total de pessoas que avaliaram seu estado de de saúde como ruim;
+ 4. Total de analfabetos de 7 a 14 anos;
+ 5. Total de analfabetos de mais de 14 anos;
+ 6. % de analfabetos de 7 a 14 anos;
+ 7. % de analfabetos de mais de 14 anos;
+ 8. Total de mulheres de 12 a 49 anos que tiveram filhos;
+ 9. Total de mulheres de 12 a 49 anos que tiveram filhos vivos;
+10. Total de mulheres de 12 a 49 anos que tiveram filhos mortos;
 11. Número médio de filhos tidos por mulheres de 12 a 49 anos;
 12. Razão de dependência.
 
@@ -213,7 +213,7 @@ Estimativa = c(3.62, 10.70, 1208123, 1174220,4792344, 11.87, 10.87, 10817590, 10
 DP =c(0.05, 1.15, 146681, 127982, 318877, 1.18, 0.67, 322947, 323182, 87363, 0.03, 0.01),
 EPA= c(2.64, 2.97, 3.37,2.64, 4.17,2.46, 3.86, 2.02, 3.02, 2.03, 1.26, 1.99 )
 )
-knitr::kable(epas, booktabs=TRUE,align = "lrrr",
+knitr::kable(epas, booktabs=TRUE,align = "llll",
 caption="Estimativas de Efeitos de Plano Amostral (EPAs)
 para variáveis selecionadas da PPV - Região Sudeste"
 )
@@ -421,6 +421,7 @@ Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2
 ```{r, message=FALSE, warning=FALSE}
 # leitura dos dados
 library(anamco)
+data(ppv)
 dim(ppv)
 names(ppv)
 ```
