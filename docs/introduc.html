@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-10-03">
+<meta name="date" content="2017-10-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -105,9 +105,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="introduc.html"><a href="introduc.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduc.html"><a href="introduc.html#motivacao"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
 <li class="chapter" data-level="1.2" data-path="introduc.html"><a href="introduc.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.2</b> Objetivos do Livro</a></li>
-<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#epa"><i class="fa fa-check"></i><b>1.3</b> Laboratório de R do Capítulo 1.</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="introduc.html"><a href="introduc.html#estimativa-do-efeito-de-plano-amostral-epa"><i class="fa fa-check"></i><b>1.3.1</b> Estimativa do efeito de plano amostral (EPA)</a></li>
-</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#epa"><i class="fa fa-check"></i><b>1.3</b> Laboratório de R do Capítulo 1.</a></li>
+<li class="chapter" data-level="1.4" data-path="introduc.html"><a href="introduc.html#laboratorio-de-r-do-capitulo-1---extra."><i class="fa fa-check"></i><b>1.4</b> Laboratório de R do Capítulo 1 - Extra.</a></li>
+<li class="chapter" data-level="1.5" data-path="introduc.html"><a href="introduc.html#apendice-estimativa-do-efeito-de-plano-amostral-epa"><i class="fa fa-check"></i><b>1.5</b> Apêndice: Estimativa do efeito de plano amostral (EPA)</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="refinf.html"><a href="refinf.html"><i class="fa fa-check"></i><b>2</b> Referencial para Inferência</a><ul>
 <li class="chapter" data-level="2.1" data-path="refinf.html"><a href="refinf.html#classic"><i class="fa fa-check"></i><b>2.1</b> Modelagem - Primeiras Idéias</a><ul>
@@ -492,15 +492,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">1.3</span> Laboratório de R do Capítulo 1.</h2>
 
 <div class="example">
-<span id="exm:exe12" class="example"><strong>Exemplo 1.2  </strong></span>Utilização da library survey do R para estimar totais e razões na PPV
+<span id="exm:exe12" class="example"><strong>Exemplo 1.2  </strong></span>Utilização da library survey do R para estimar alguns totais e razões na Tabela <a href="introduc.html#tab:epas">1.3</a>
 </div>
 <p> Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (<code>PPV</code>) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo <a href="introduc.html#exm:distppv">1.1</a> . Os dados da <code>PPV</code> estão no data frame <code>ppv</code> da library <code>anamco</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># leitura dos dados</span>
 <span class="kw">library</span>(anamco)
-<span class="kw">data</span>(ppv)
-<span class="kw">dim</span>(ppv)</code></pre></div>
+ppv.dat &lt;-<span class="st"> </span>ppv
+<span class="kw">dim</span>(ppv.dat)</code></pre></div>
 <pre><code>## [1] 19409    13</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(ppv)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(ppv.dat)</code></pre></div>
 <pre><code>##  [1] &quot;serie&quot;    &quot;ident&quot;    &quot;codmor&quot;   &quot;v04a01&quot;   &quot;v04a02&quot;   &quot;v04a03&quot;  
 ##  [7] &quot;estratof&quot; &quot;peso1&quot;    &quot;peso2&quot;    &quot;pesof&quot;    &quot;nsetor&quot;   &quot;regiao&quot;  
 ## [13] &quot;v02a08&quot;</code></pre>
@@ -512,7 +512,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>faixa2 - indicador de idade acima de 14 anos;</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cria novo data frame ppv1</span>
-ppv1 &lt;-<span class="st"> </span><span class="kw">transform</span>(ppv, 
+ppv1.dat &lt;-<span class="st"> </span><span class="kw">transform</span>(ppv.dat, 
 <span class="dt">analf1 =</span> ((v04a01 <span class="op">==</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span>v04a02 <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(v02a08 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>v02a08 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">14</span>)) <span class="op">*</span><span class="st"> </span><span class="dv">1</span>, 
 <span class="dt">analf2 =</span> ((v04a01 <span class="op">==</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span>v04a02 <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(v02a08 <span class="op">&gt;</span><span class="dv">14</span>)) <span class="op">*</span><span class="st"> </span><span class="dv">1</span>, 
 <span class="dt">faixa1 =</span> (v02a08 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>v02a08 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">14</span>) <span class="op">*</span><span class="dv">1</span>, 
@@ -523,37 +523,37 @@ ppv1 &lt;-<span class="st"> </span><span class="kw">transform</span>(ppv,
 <li>estratof - estratos;</li>
 <li>pesof - pesos do plano amostral;</li>
 </ul>
-<p>O passo fundamental para utilização da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> é criar um objeto que guarde as informações relevantes do plano amostral. Isso é feito por meio da função <code>svydesign()</code>. As variáveis que definem estratos, conglomerados e pesos na <code>PPV</code> são respectivamente, <code>estratof</code>, <code>nsetor</code> e <code>pesof</code>. O objeto de desenho amostral, <code>ppv.des</code> incorpora as informações do plano amostral adotado na <code>PPV</code>.</p>
+<p>O passo fundamental para utilização da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> é criar um objeto que guarde as informações relevantes do plano amostral. Isso é feito por meio da função <code>svydesign()</code>. As variáveis que definem estratos, conglomerados e pesos na <code>PPV</code> são respectivamente, <code>estratof</code>, <code>nsetor</code> e <code>pesof</code>. O objeto de desenho amostral, <code>ppv.plan</code> incorpora as informações do plano amostral adotado na <code>PPV</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># carrega library survey</span>
 <span class="kw">library</span>(survey)
 <span class="co"># cria objeto de desenho</span>
-ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span>nsetor, <span class="dt">strata =</span> <span class="op">~</span>estratof,
-<span class="dt">data =</span> ppv1, <span class="dt">nest =</span> <span class="ot">TRUE</span>, <span class="dt">weights =</span> <span class="op">~</span>pesof)</code></pre></div>
+ppv.plan&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span>nsetor, <span class="dt">strata =</span> <span class="op">~</span>estratof,
+<span class="dt">data =</span> ppv1.dat, <span class="dt">nest =</span> <span class="ot">TRUE</span>, <span class="dt">weights =</span> <span class="op">~</span>pesof)</code></pre></div>
 <p>Como todos os exemplos a seguir serão relativos a estimativas na Região Sudeste, vamos criar um objeto de desenho restrito a essa região:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.des &lt;-<span class="st"> </span><span class="kw">subset</span>(ppv.des, regiao <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.plan &lt;-<span class="st"> </span><span class="kw">subset</span>(ppv.plan, regiao <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
 <p>Para exemplificar, vamos estimar algumas características da população, descritas na Tabela <a href="introduc.html#tab:epas">1.3</a>. Os totais das variáveis <code>analf1</code> e <code>analf2</code> para a região Sudeste fornecem os resultados nas linhas 4 e 5 da Tabela <a href="introduc.html#tab:epas">1.3</a>:</p>
 <ul>
 <li>total de analfabetos nas faixas etárias de 7 a 14 anos (<code>analf1</code>) e acima de 14 anos (<code>analf2</code>).</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(<span class="op">~</span>analf1, ppv.se.des, <span class="dt">deff =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(<span class="op">~</span>analf1, ppv.se.plan, <span class="dt">deff =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>##          total      SE   DEff
 ## analf1 1174220  127982 2.0543</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(<span class="op">~</span>analf2, ppv.se.des, <span class="dt">deff =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(<span class="op">~</span>analf2, ppv.se.plan, <span class="dt">deff =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>##          total      SE   DEff
 ## analf2 4792344  318877 3.3237</code></pre>
 <ul>
 <li>percentual de analfabetos nas faixas etárias consideradas, que fornece os resultados nas linhas 6 e 7 da Tabela <a href="introduc.html#tab:epas">1.3</a>:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyratio</span>(<span class="op">~</span>analf1, <span class="op">~</span>faixa1, ppv.se.des)</code></pre></div>
-<pre><code>## Ratio estimator: svyratio.survey.design2(~analf1, ~faixa1, ppv.se.des)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyratio</span>(<span class="op">~</span>analf1, <span class="op">~</span>faixa1, ppv.se.plan)</code></pre></div>
+<pre><code>## Ratio estimator: svyratio.survey.design2(~analf1, ~faixa1, ppv.se.plan)
 ## Ratios=
 ##          faixa1
 ## analf1 0.118689
 ## SEs=
 ##            faixa1
 ## analf1 0.01178896</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyratio</span>(<span class="op">~</span>analf2, <span class="op">~</span>faixa2, ppv.se.des)</code></pre></div>
-<pre><code>## Ratio estimator: svyratio.survey.design2(~analf2, ~faixa2, ppv.se.des)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyratio</span>(<span class="op">~</span>analf2, <span class="op">~</span>faixa2, ppv.se.plan)</code></pre></div>
+<pre><code>## Ratio estimator: svyratio.survey.design2(~analf2, ~faixa2, ppv.se.plan)
 ## Ratios=
 ##           faixa2
 ## analf2 0.1086871
@@ -561,11 +561,14 @@ ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <spa
 ##             faixa2
 ## analf2 0.006732254</code></pre>
 <p>Uma alternativa para obter estimativa por domínios é utilizar a função <code>svyby()</code> da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. Assim, poderíamos estimar os totais da variável <code>analf1</code> para as regiões <code>Nordeste (1)</code> e <code>Sudeste(2)</code> da seguinte forma:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyby</span>(<span class="op">~</span>analf1, <span class="op">~</span>regiao, ppv.des, svytotal, <span class="dt">deff =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyby</span>(<span class="op">~</span>analf1, <span class="op">~</span>regiao, ppv.plan, svytotal, <span class="dt">deff =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>##   regiao  analf1       se DEff.analf1
 ## 1      1 3512866 352619.5    9.660561
 ## 2      2 1174220 127982.2    2.054345</code></pre>
-<p>Observe que as estimativas de totais e desvios padrão obtidas coincidem com as Tabela <a href="introduc.html#tab:epas">1.3</a>, porém as estimativas de Efeitos de Plano Amostral(DEff) são distintas.</p>
+<p>Observe que as estimativas de totais e desvios padrão obtidas coincidem com as Tabela <a href="introduc.html#tab:epas">1.3</a>, porém as estimativas de Efeitos de Plano Amostral(EPA) são distintas.</p>
+</div>
+<div id="laboratorio-de-r-do-capitulo-1---extra." class="section level2">
+<h2><span class="header-section-number">1.4</span> Laboratório de R do Capítulo 1 - Extra.</h2>
 
 <div class="example">
 <span id="exm:exe13" class="example"><strong>Exemplo 1.3  </strong></span>Exemplo anterior usando a library srvyr
@@ -575,12 +578,12 @@ ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <spa
 <ul>
 <li>Cria objeto de desenho:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.des &lt;-<span class="st"> </span>ppv <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_survey_design</span> (<span class="dt">ids =</span> nsetor, <span class="dt">strata =</span> estratof,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.plan &lt;-<span class="st"> </span>ppv.dat <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_survey_design</span> (<span class="dt">ids =</span> nsetor, <span class="dt">strata =</span> estratof,
 <span class="dt">nest =</span> <span class="ot">TRUE</span>, <span class="dt">weights =</span> pesof)</code></pre></div>
 <ul>
 <li>Vamos criar novas variáveis:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.des &lt;-<span class="st"> </span>ppv.des <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.plan &lt;-<span class="st"> </span>ppv.plan <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="kw">mutate</span>(
 <span class="dt">analf1 =</span> <span class="kw">as.numeric</span>((v04a01 <span class="op">==</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span>v04a02 <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(v02a08 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>v02a08 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">14</span>)), 
 <span class="dt">analf2 =</span> <span class="kw">as.numeric</span>((v04a01 <span class="op">==</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span>v04a02 <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(v02a08 <span class="op">&gt;</span><span class="dv">14</span>)), 
@@ -590,7 +593,7 @@ ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <spa
 <ul>
 <li>Estimar a taxa de analfabetos por região para as faixas etárias de 7-14 anos e mais de 14 anos.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res &lt;-<span class="st"> </span>ppv.des <span class="op">%&gt;%</span><span class="st">  </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res &lt;-<span class="st"> </span>ppv.plan <span class="op">%&gt;%</span><span class="st">  </span>
 <span class="kw">group_by</span>(regiao) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="kw">summarise</span>(
 <span class="dt">taxa_analf1 =</span> <span class="kw">survey_ratio</span>(analf1, faixa1),
@@ -626,66 +629,6 @@ knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">as
 </tr>
 </tbody>
 </table>
-<div id="estimativa-do-efeito-de-plano-amostral-epa" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> Estimativa do efeito de plano amostral (EPA)</h3>
-<p>Esse assunto será tratado em detalhes no Capítulo <a href="introduc.html#epa">1.3</a> . Por enquanto, apresentaremos uma introdução necessária para compreender os valores na Tabela <a href="introduc.html#tab:epas">1.3</a>.</p>
-<p>O efeito de plano amostral (EPA) de Kish é definido na fórmula <a href="epa.html#eq:epa1">(4.1)</a>. Vamos considerar o caso particular em que <span class="math inline">\(\hat{\theta}\)</span> é um estimador de total de uma variável <span class="math inline">\(Y\)</span>.Ou seja <span class="math display">\[
-EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
-\]</span></p>
-<p>Na definição do EPA, a estimativa do numerador pode ser obtida usando-se a library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>, a partir do objeto de <code>ppv.se.des</code> que incorpora as características do plano amostral utilizado para coletar os dados. Não é possível estimar diretamente o denominador, pois o plano amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta dos dados. Devemos estimar o denominador a partir de dados obtidos através do plano amostral VERD, como se eles tivessem sido obtidos através de AAS.</p>
-<p>Supondo conhecido o tamanho da população <span class="math inline">\(N\)</span> e a fração amostral <span class="math inline">\(f=n/N\)</span> pequena, a estimativa da variância de <span class="math inline">\(\widehat{Y}\)</span> é dada na expressão <a href="capplanamo.html#eq:estpa9">(3.9)</a> <span class="math display">\[
-\widehat{V}_{AAS}\left(\widehat{Y}\right)=N^2\frac{\widehat{S}_y}{n-1}
-\]</span> onde <span class="math inline">\(\widehat{S}_y= n^{-1}\sum_{i\in s}\left(y_i-\overline{y}\right)^2\)</span> é a estimativa de <span class="math inline">\(S_y=N^{-1}\sum_{i\in U}\left(y_i-\overline{Y}\right)^2\)</span>, com <span class="math inline">\(\overline{Y}=N^{-1}Y\)</span>.</p>
-No lugar dessa estimativa, vamos utilizar os pesos do plano amostral verdadeiro para estimar <span class="math inline">\(S_y\)</span>. Vamos ainda estimar <span class="math inline">\(N\)</span>, em geral é desconhecido, por <span class="math inline">\(\widehat{N}=\sum_{i \in s} w_i\)</span>. Dessa forma obtemos a estimativa
-<span class="math display">\[\begin{eqnarray*}
-\widehat{V}_{w-AAS}\left(\widehat{Y}\right)&amp;=&amp; \widehat{N}^2\left[\sum_{i \in s}w_i\left(y_i-\overline{y}\right)^2/\widehat{N}\right]/(n-1)\\
-&amp;=&amp;\frac{\widehat{N}}{n-1}\left[\sum_{i \in s}w_iy_i^2-\left(\sum_{i \in s}w_iy_i\right)^2/\widehat{N}\right],
-\end{eqnarray*}\]</span>
-<p>onde <span class="math inline">\(\overline{y}=\sum_{i \in s}w_iy_i/n\)</span>.</p>
-<p>A expressão acima pode ser calculada facilmente através da seguinte função do R:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Vwaas&lt;-<span class="cf">function</span>(y,w)
-{
-<span class="co">#função auxiliar usada em outras funções</span>
-<span class="co">#entrada:</span>
-<span class="co">#y - valores de variavel na amostra;</span>
-<span class="co">#w - pesos amostrais;</span>
-<span class="co">#saida:  estimativa de variância de desenho para o total (segundo o SUDAAN)</span>
-
-n1&lt;-<span class="kw">length</span>(y)<span class="op">-</span><span class="dv">1</span>
-wsum&lt;-<span class="kw">sum</span>(y<span class="op">*</span>w)
-wsum2&lt;-<span class="kw">sum</span>((y<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>w)
-nhat&lt;-<span class="kw">sum</span>(w)
-vwaas&lt;-(nhat<span class="op">/</span>n1)<span class="op">*</span>(wsum2<span class="op">-</span>wsum<span class="op">^</span><span class="dv">2</span><span class="op">/</span>nhat)
-vwaas
-}</code></pre></div>
-<p>Vamos utilizar a função <code>Vwaas</code> para estimar os valores de <code>Efeitos do Plano Amostral</code>das estimativas de totais apresentadas anteriormente. Consideremos o plano amostral <code>ppv.se.des</code> anteriormente definido. Vamos usar a função <code>Vwaas</code> para obter uma estimativa da variância do total estimado da variável <code>analf1</code>. Todos os elementos os elementos necessários estão contidos no objeto <code>ppv.se.des</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">VAAS1&lt;-<span class="st"> </span><span class="kw">Vwaas</span>(ppv.se.des<span class="op">$</span>variables[,<span class="st">&quot;analf1&quot;</span>],<span class="kw">weights</span>(ppv.se.des))
-VAAS2&lt;-<span class="st"> </span><span class="kw">Vwaas</span>(ppv.se.des<span class="op">$</span>variables[,<span class="st">&quot;analf2&quot;</span>],<span class="kw">weights</span>(ppv.se.des))</code></pre></div>
-<p>O efeito de plano amostral da estimativa do total de <code>analf1</code> pode agora ser calculada por</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attr</span>(<span class="kw">svytotal</span>(<span class="op">~</span>analf1, ppv.se.des),<span class="st">&quot;var&quot;</span>)<span class="op">/</span>VAAS1</code></pre></div>
-<pre><code>##          analf1
-## analf1 2.054049</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attr</span>(<span class="kw">svytotal</span>(<span class="op">~</span>analf2, ppv.se.des),<span class="st">&quot;var&quot;</span>)<span class="op">/</span>VAAS2</code></pre></div>
-<pre><code>##         analf2
-## analf2 3.32324</code></pre>
-<p>Esses valores do EPA coincidem com os obtidos acima através da library <code>survey</code><span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> e são distintos daqueles apresentados na Tabela <a href="introduc.html#tab:epas">1.3</a>. Para obter os valores correspondentes aos da Tabela <a href="introduc.html#tab:epas">1.3</a>, através da library <code>survey</code><span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>, vamos definir as variáveis:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">analf1.se&lt;-<span class="kw">with</span>(ppv1,((v04a01<span class="op">==</span><span class="dv">2</span><span class="op">|</span>v04a02<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(v02a08<span class="op">&gt;=</span><span class="dv">7</span><span class="op">&amp;</span>v02a08<span class="op">&lt;=</span><span class="dv">14</span>))<span class="op">&amp;</span>(regiao<span class="op">==</span><span class="dv">2</span>))
-analf2.se&lt;-<span class="kw">with</span>(ppv1,((v04a01<span class="op">==</span><span class="dv">2</span><span class="op">|</span>v04a02<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(v02a08<span class="op">&gt;</span><span class="dv">14</span>))<span class="op">&amp;</span>(regiao<span class="op">==</span><span class="dv">2</span>))
-ppv.des &lt;-<span class="st"> </span><span class="kw">update</span> (ppv.des,<span class="dt">analf1.se=</span>analf1.se,<span class="dt">analf2.se=</span>analf2.se  )
-<span class="kw">svytotal</span>(analf1.se,ppv.des,<span class="dt">deff=</span>T)</code></pre></div>
-<pre><code>##        total      SE   DEff
-## [1,] 1174220  127982 2.6426</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(analf2.se,ppv.des,<span class="dt">deff=</span>T)</code></pre></div>
-<pre><code>##        total      SE   DEff
-## [1,] 4792344  318877 4.1667</code></pre>
-<p>Ou, alternativamente,</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(<span class="op">~</span><span class="kw">I</span>(<span class="kw">ifelse</span>(regiao<span class="op">==</span><span class="dv">2</span>,analf1,<span class="dv">0</span>)),ppv.des,<span class="dt">deff=</span>T)</code></pre></div>
-<pre><code>##                                     total      SE   DEff
-## I(ifelse(regiao == 2, analf1, 0)) 1174220  127982 2.6426</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(<span class="op">~</span><span class="kw">I</span>(<span class="kw">ifelse</span>(regiao<span class="op">==</span><span class="dv">2</span>,analf2,<span class="dv">0</span>)),ppv.des,<span class="dt">deff=</span>T)</code></pre></div>
-<pre><code>##                                     total      SE   DEff
-## I(ifelse(regiao == 2, analf2, 0)) 4792344  318877 4.1667</code></pre>
-<p>Observe que as estimativas de variância para o desenho verdadeiro (numerador do EPA) são iguais quando usamos: a variável <code>analf1.se</code> com o objeto de desenho <code>ppv.des</code> ou a variável <code>analf1</code> com o objeto <code>ppv.se.des</code>. Porém na estimativa do denominador do EPA, obtida a partir da função <code>Vwaas</code>, obtemos resultados diferentes quando usamos <code>analf1.se</code> ou <code>analf1</code>, com os pesos correspondentes. No segundo caso, a soma dos pesos não estima <span class="math inline">\(N\)</span>. Deve-se ter o cuidado, quando estimamos em um domínio, de trabalhar com pesos cuja soma seja um estimador do tamanho da população.</p>
 
 <div class="example">
 <span id="exm:exe14" class="example"><strong>Exemplo 1.4  </strong></span>Utilização da library survey do R para estimar taxa de desocupação para um trimestre na PNADC
@@ -704,13 +647,13 @@ ppv.des &lt;-<span class="st"> </span><span class="kw">update</span> (ppv.des,<s
 <li>Baixa catálogo da PNADC com arquivos disponíveis:</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnadc_cat &lt;-<span class="st"> </span><span class="kw">get_catalog</span>( <span class="st">&quot;pnadc&quot;</span> , <span class="dt">output_dir =</span><span class="kw">tempdir</span>() )</code></pre></div>
-<p>Os microdados de interesse são terceiro trimestre de 2016. Vamos ler os microdados e salvá-los em um data frame <code>x</code>.</p>
+<p>Os microdados de interesse são terceiro trimestre de 2016. Vamos ler os microdados e salvá-los em um data frame <code>pnadc032016.dat</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lodown</span>( <span class="st">&quot;pnadc&quot;</span> , <span class="kw">subset</span>( pnadc_cat , year <span class="op">==</span><span class="st"> </span><span class="dv">2016</span> <span class="op">&amp;</span><span class="st"> </span>quarter <span class="op">==</span><span class="st"> &#39;03&#39;</span> ) )
-x &lt;-<span class="st"> </span><span class="kw">readRDS</span>( <span class="kw">paste0</span>( <span class="kw">tempdir</span>() , <span class="st">&quot;/pnadc 2016 03.rds&quot;</span> ) )</code></pre></div>
+pnadc032016.dat &lt;-<span class="st"> </span><span class="kw">readRDS</span>( <span class="kw">paste0</span>( <span class="kw">tempdir</span>() , <span class="st">&quot;/pnadc 2016 03.rds&quot;</span> ) )</code></pre></div>
 <p>vamos salvar o data frame <code>x</code> para uso posterior, :</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(x, <span class="dt">file=</span><span class="st">&quot;C:/adac/pnadc/pnadc 2016 03.rds&quot;</span>)</code></pre></div>
-<p>Partindo do arquivo <code>pnadc 2016 03.rds</code>, podemos recuperar o data frame <code>x</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;C:/adac/pnadc/pnadc 2016 03.rds&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(pnadc032016.dat, <span class="dt">file=</span><span class="st">&quot;C:/adac/pnadc/pnadc 2016 03.rds&quot;</span>)</code></pre></div>
+<p>Partindo do arquivo <code>pnadc 2016 03.rds</code>, podemos recuperar o data frame <code>pnadc032016.dat</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnadc032016.dat &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;C:/adac/pnadc/pnadc 2016 03.rds&quot;</span>)</code></pre></div>
 <ul>
 <li>Carrega a library <code>survey</code></li>
 </ul>
@@ -722,17 +665,17 @@ x &lt;-<span class="st"> </span><span class="kw">readRDS</span>( <span class="kw
 <ul>
 <li>Cria versão inicial de objeto de desenho:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pre_w &lt;-<span class="st"> </span><span class="kw">svydesign</span>(<span class="dt">ids =</span><span class="op">~</span>upa, <span class="dt">strata=</span><span class="op">~</span>estrato, 
-  <span class="dt">weights=</span><span class="op">~</span>v1027, <span class="dt">data =</span> x, <span class="dt">nest=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnadc032016.plan &lt;-<span class="st"> </span><span class="kw">svydesign</span>(<span class="dt">ids =</span><span class="op">~</span>upa, <span class="dt">strata=</span><span class="op">~</span>estrato, 
+  <span class="dt">weights=</span><span class="op">~</span>v1027, <span class="dt">data =</span> pnadc032016.dat, <span class="dt">nest=</span><span class="ot">TRUE</span>)</code></pre></div>
 <ul>
 <li>Especifica totais de pós-estratos na população:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df_pos &lt;-<span class="kw">data.frame</span>(<span class="dt">posest=</span><span class="kw">unique</span>(x<span class="op">$</span>posest), 
-  <span class="dt">Freq=</span><span class="kw">unique</span>(x<span class="op">$</span>v1029))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df_pos &lt;-<span class="kw">data.frame</span>(<span class="dt">posest=</span><span class="kw">unique</span>(pnadc032016.dat<span class="op">$</span>posest), 
+  <span class="dt">Freq=</span><span class="kw">unique</span>(pnadc032016.dat<span class="op">$</span>v1029))</code></pre></div>
 <ul>
 <li>Pós-estratifica objeto de desenho inicial:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">w &lt;-<span class="kw">postStratify</span>(pre_w, <span class="op">~</span>posest, df_pos)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnadc032016.calib &lt;-<span class="kw">postStratify</span>(pnadc032016.plan, <span class="op">~</span>posest, df_pos)</code></pre></div>
 <p>Para calcular a taxa de desocupação, o IBGE considera pessoas de 14 anos ou mais na semana de referência(PIA) e calcula a razão de dois totais:</p>
 <ol style="list-style-type: decimal">
 <li><p>Numerador: total de pessoas desocupadas (vd4002==2)</p></li>
@@ -740,7 +683,7 @@ x &lt;-<span class="st"> </span><span class="kw">readRDS</span>( <span class="kw
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># estima taxa de desocupação</span>
 taxa_des &lt;-<span class="st"> </span><span class="kw">svyratio</span>(<span class="op">~</span><span class="st"> </span>vd4002<span class="op">==</span><span class="st">&quot;2&quot;</span> ,
-  <span class="op">~</span><span class="st"> </span>vd4001 <span class="op">==</span><span class="st"> &quot;1&quot;</span> , w , <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+  <span class="op">~</span><span class="st"> </span>vd4001 <span class="op">==</span><span class="st"> &quot;1&quot;</span> , pnadc032016.calib , <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
 <span class="co"># organiza saída</span>
 result &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
   <span class="dv">100</span><span class="op">*</span><span class="kw">coef</span>(taxa_des),
@@ -774,42 +717,42 @@ result</code></pre></div>
  <span class="remark"><em>Observação. </em></span> Nos arquivos acima, além das variáveis contidas no dicionário da PNS, foram acrescentadas variáveis derivadas, utilizadas nos exemplos no site <a href="https://github.com/ajdamico/asdfree/tree/master/Pesquisa%20Nacional%20De%20Saude">asdfree.com</a>
 </div>
 
-<p>Inicialmente, vamos estimar características de pessoas com 18 anos ou mais mais que responderam o questionário longo e salvar os microdados dessa amostra no data frame <code>pes_sel</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;C:/adac/PNS/2013 long questionnaire survey.rds&quot;</span>)
-<span class="kw">dim</span>(pes_sel)</code></pre></div>
+<p>Inicialmente, vamos estimar características de pessoas com 18 anos ou mais mais que responderam o questionário longo e salvar os microdados dessa amostra no data frame <code>pes_sel.dat</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel.dat &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;C:/adac/PNS/2013 long questionnaire survey.rds&quot;</span>)
+<span class="kw">dim</span>(pes_sel.dat)</code></pre></div>
 <pre><code>## [1] 60202  1019</code></pre>
 
 <div class="remark">
  <span class="remark"><em>Observação. </em></span> No data frame pes_sel o nome das variáveis, obtidos por <code>names(pes_sel)</code>, estão em minúsculas. No dicionário da PNS os códigos correspondentes estão em maiúsculas.
 </div>
-<p> O data frame <code>pes_sel</code> contém as variáveis descritas no dicionário da <code>PNS</code> e algumas variáveis obtidas derivadas.</p>
+<p> O data frame <code>pes_sel.dat</code> contém as variáveis descritas no dicionário da <code>PNS</code> e algumas variáveis obtidas derivadas.</p>
 <p>O passo inicial para a análise dos microdados é definir um objeto de desenho que salva as características do plano amostral da pesquisa. Isso é feito por meio da função <code>svydesign()</code> da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
-pes_sel_des &lt;-
+pes_sel.plan &lt;-
 <span class="st">    </span><span class="kw">svydesign</span>(
         <span class="dt">id =</span> <span class="op">~</span><span class="st"> </span>upa_pns ,
         <span class="dt">strata =</span> <span class="op">~</span><span class="st"> </span>v0024 ,
-        <span class="dt">data =</span> pes_sel ,
+        <span class="dt">data =</span> pes_sel.dat ,
         <span class="dt">weights =</span> <span class="op">~</span><span class="st"> </span>pre_pes_long ,
         <span class="dt">nest =</span> <span class="ot">TRUE</span>
     )</code></pre></div>
-<p>Os pesos do objeto de desenho <code>pes_sel_des</code> devem ser modificados de modo que as estimativas dos totais populacionais dos pós-estratos fixados coincidam com os totais populacionais dos pós-estratos conhecidos a partir do Censo Demográfico. O data frame <code>post_pop</code> contém na primeira coluna a identidade dos pós-estratos e na segunda seus totais populacionais.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post_pop &lt;-<span class="st"> </span><span class="kw">unique</span>( pes_sel[ <span class="kw">c</span>( <span class="st">&#39;v00293.y&#39;</span> , <span class="st">&#39;v00292.y&#39;</span> ) ] )
+<p>Os pesos do objeto de desenho <code>pes_sel.plan</code> devem ser modificados de modo que as estimativas dos totais populacionais dos pós-estratos fixados coincidam com os totais populacionais dos pós-estratos conhecidos a partir do Censo Demográfico. O data frame <code>post_pop</code> contém na primeira coluna a identidade dos pós-estratos e na segunda seus totais populacionais.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post_pop &lt;-<span class="st"> </span><span class="kw">unique</span>( pes_sel.dat[ <span class="kw">c</span>( <span class="st">&#39;v00293.y&#39;</span> , <span class="st">&#39;v00292.y&#39;</span> ) ] )
 <span class="kw">names</span>( post_pop ) &lt;-<span class="st"> </span><span class="kw">c</span>( <span class="st">&quot;v00293.y&quot;</span> , <span class="st">&quot;Freq&quot;</span> )</code></pre></div>
-<p>Utilizando a função <code>postStratify()</code> da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> incorpora-se no objeto de desenho <code>pes_sel_des</code> as informações contidas no data frame <code>post_pop</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel_des_pos &lt;-<span class="st"> </span><span class="kw">postStratify</span>( pes_sel_des , <span class="op">~</span>v00293.y , post_pop )</code></pre></div>
+<p>Utilizando a função <code>postStratify()</code> da library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> incorpora-se no objeto de desenho <code>pes_sel.plan</code> as informações contidas no data frame <code>post_pop</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel.calib &lt;-<span class="st"> </span><span class="kw">postStratify</span>( pes_sel.plan , <span class="op">~</span>v00293.y , post_pop )</code></pre></div>
 <p>Salvar objeto de desenho pós-estratificado para posterior utilização:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(pes_sel_des_pos, <span class="dt">file =</span> <span class="st">&quot;C:/adac/PNS/pns_des_sel.rds&quot;</span> )</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel_des_pos &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;C:/adac/PNS/pns_des_sel.rds&quot;</span>)</code></pre></div>
-<p>Os comandos acima foram apresentados apenas para ilustrar como, a partir dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não seria necessária a execução desses comandos pois o objeto de desenho <code>pes_sel_des_pos</code> já se encontra disponível no arquivo 1 <code>2013 all questionnaire survey design.rds</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(pes_sel.calib, <span class="dt">file =</span> <span class="st">&quot;C:/adac/PNS/pns_des_sel.rds&quot;</span> )</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel.calib &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;C:/adac/PNS/pns_des_sel.rds&quot;</span>)</code></pre></div>
+<p>Os comandos acima foram apresentados apenas para ilustrar como, a partir dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não seria necessária a execução desses comandos pois o objeto de desenho <code>pes_sel.calib</code> já se encontra disponível no arquivo 1 <code>2013 all questionnaire survey design.rds</code>.</p>
 <p>Para exemplificar, vamos agora reproduzir estimativas na Tabela 6.42.1.1 da publicação em <a href="ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf" class="uri">ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf</a>.</p>
 <p>A variável de interesse tem código Q092 e sua descrição é: “Algum médico ou profissional de saúde mental (como psiquiatra ou psicólogo) já lhe deu o diagnóstico de depressão?”</p>
 <p>Essa variável é de classe <code>character</code> e tem dois valores “1” e “2”. Vamos definir uma nova variável <code>diag_dep</code> que é igual a 1 se recebe diagnóstico de depressão e 0 caso contrário:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diag_dep &lt;-<span class="st"> </span><span class="kw">as.numeric</span> (pes_sel<span class="op">$</span>q092<span class="op">==</span><span class="st">&quot;1&quot;</span>)</code></pre></div>
-<p>Como mencionado, o objeto de desenho pós-estratificado <code>pes_sel_des_pos</code> pode ser lido do arquivo <code>2013 all questionnaire survey design.rds</code>. Vamos atualizar o objeto de desenho <code>pes_sel_des_pos</code> para incluir a variável <code>diad_dep</code> na componente <code>variables</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel_des_pos &lt;-<span class="st"> </span><span class="kw">update</span> (pes_sel_des_pos, <span class="dt">diag_dep =</span> diag_dep )</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diag_dep &lt;-<span class="st"> </span><span class="kw">as.numeric</span> (pes_sel.dat<span class="op">$</span>q092<span class="op">==</span><span class="st">&quot;1&quot;</span>)</code></pre></div>
+<p>Como mencionado, o objeto de desenho pós-estratificado <code>pes_sel.calib</code> pode ser lido do arquivo <code>2013 all questionnaire survey design.rds</code>. Vamos atualizar o objeto de desenho <code>pes_sel.calib</code> para incluir a variável <code>diad_dep</code> na componente <code>variables</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_sel.calib &lt;-<span class="st"> </span><span class="kw">update</span> (pes_sel.calib, <span class="dt">diag_dep =</span> diag_dep )</code></pre></div>
 <p>Para calcular a proporção de pessoas que receberam diagnóstico de depressão para o país inteiro usamos o seguinte comando:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepbr &lt;-<span class="st"> </span><span class="kw">svymean</span>(<span class="op">~</span>diag_dep, pes_sel_des_pos)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diagdepbr &lt;-<span class="st"> </span><span class="kw">svymean</span>(<span class="op">~</span>diag_dep, pes_sel.calib)
 <span class="co"># estimativa em % e erro padrão</span>
 <span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="st"> </span><span class="kw">coef</span>(diagdepbr),<span class="dv">1</span>)</code></pre></div>
 <pre><code>## diag_dep 
@@ -830,7 +773,7 @@ pes_sel_des &lt;-
 <p>que coincidem com os resultados já obtidos.</p>
 <p>Para o país por sexo:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-46">Tabela 1.5: </span>Proporção de diagnóstico de depressão por sexo</caption>
+<caption><span id="tab:unnamed-chunk-41">Tabela 1.5: </span>Proporção de diagnóstico de depressão por sexo</caption>
 <thead>
 <tr class="header">
 <th align="left">sexo</th>
@@ -856,7 +799,7 @@ pes_sel_des &lt;-
 </table>
 <p>Por situação (rural e urbano)</p>
 <table>
-<caption><span id="tab:unnamed-chunk-47">Tabela 1.6: </span>Proporção de diagnóstico de depressão por situação</caption>
+<caption><span id="tab:unnamed-chunk-42">Tabela 1.6: </span>Proporção de diagnóstico de depressão por situação</caption>
 <thead>
 <tr class="header">
 <th align="left">situ</th>
@@ -882,7 +825,7 @@ pes_sel_des &lt;-
 </table>
 <p>Por Unidade da Federação:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-49">Tabela 1.7: </span>Proporção de diagnóstico de depressão por uf</caption>
+<caption><span id="tab:unnamed-chunk-44">Tabela 1.7: </span>Proporção de diagnóstico de depressão por uf</caption>
 <thead>
 <tr class="header">
 <th align="left">uf</th>
@@ -1057,7 +1000,7 @@ pes_sel_des &lt;-
 </tbody>
 </table>
 <p>Usando o objeto de desenho para todas as pessoas que reponderam o questionário curto, salvo no arquivo em <code>2013 all questionnaire survey design.rds</code>, vamos estimar a proporção de pessoas que possuem plano de saúde por grupos de nível de instrução.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_all_des_pos &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;C:/adac/PNS/2013 all questionnaire survey design.rds&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pes_all.calib &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;C:/adac/PNS/2013 all questionnaire survey design.rds&quot;</span>)</code></pre></div>
 <p>Proporção de pessoas com seguro de saúde por nível de instrução:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">byeduc &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="kw">svyby</span>( <span class="op">~</span><span class="st"> </span><span class="kw">as.numeric</span>( i001 <span class="op">==</span><span class="st"> </span><span class="dv">1</span> ) , <span class="op">~</span><span class="st"> </span>educ ,
 <span class="dt">design =</span> pes_all_des_pos , <span class="dt">vartype =</span> <span class="st">&quot;ci&quot;</span> ,  <span class="dt">level =</span> <span class="fl">0.95</span> ,
@@ -1068,7 +1011,7 @@ byeduc &lt;-<span class="st"> </span>byeduc[,<span class="op">-</span><span clas
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(byeduc,<span class="dt">booktabs =</span> <span class="ot">TRUE</span>,  
 <span class="dt">digits=</span> <span class="dv">3</span>, <span class="dt">caption =</span> <span class="st">&quot;Proporção de pessoas com seguro de saúde por nível de instrução&quot;</span>)</code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-55">Tabela 1.8: </span>Proporção de pessoas com seguro de saúde por nível de instrução</caption>
+<caption><span id="tab:unnamed-chunk-50">Tabela 1.8: </span>Proporção de pessoas com seguro de saúde por nível de instrução</caption>
 <thead>
 <tr class="header">
 <th></th>
@@ -1117,9 +1060,69 @@ byeduc &lt;-<span class="st"> </span>byeduc[,<span class="op">-</span><span clas
 <span class="st">    </span><span class="kw">ylab</span>( <span class="st">&quot;% com seguro de saúde&quot; )+</span>
 <span class="st">  ggtitle(&quot;</span>% de pessoas com plano de saúde, com indicação do intervalo de
   confiança de <span class="dv">95</span>%, segundo grupos de nível de instrução <span class="op">-</span><span class="st"> </span>Brasil <span class="op">-</span><span class="st"> </span><span class="dv">2013</span><span class="st">&quot;)</span></code></pre></div>
-<p><img src="01-Cap1_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
-
+<p><img src="01-Cap1_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
 </div>
+<div id="apendice-estimativa-do-efeito-de-plano-amostral-epa" class="section level2">
+<h2><span class="header-section-number">1.5</span> Apêndice: Estimativa do efeito de plano amostral (EPA)</h2>
+<p>Esse assunto será tratado em detalhes no Capítulo <a href="introduc.html#epa">1.3</a> . Por enquanto, apresentaremos uma introdução necessária para compreender os valores na Tabela <a href="introduc.html#tab:epas">1.3</a>.</p>
+<p>O efeito de plano amostral (EPA) de Kish é definido na fórmula <a href="epa.html#eq:epa1">(4.1)</a>. Vamos considerar o caso particular em que <span class="math inline">\(\hat{\theta}\)</span> é um estimador de total de uma variável <span class="math inline">\(Y\)</span>.Ou seja <span class="math display">\[
+EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
+\]</span></p>
+<p>Na definição do EPA, a estimativa do numerador pode ser obtida usando-se a library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>, a partir do objeto de <code>ppv.se.plan</code> que incorpora as características do plano amostral utilizado para coletar os dados. Não é possível estimar diretamente o denominador, pois o plano amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta dos dados. Devemos estimar o denominador a partir de dados obtidos através do plano amostral VERD, como se eles tivessem sido obtidos através de AAS.</p>
+<p>Supondo conhecido o tamanho da população <span class="math inline">\(N\)</span> e a fração amostral <span class="math inline">\(f=n/N\)</span> pequena, a estimativa da variância de <span class="math inline">\(\widehat{Y}\)</span> é dada na expressão <a href="capplanamo.html#eq:estpa9">(3.9)</a> <span class="math display">\[
+\widehat{V}_{AAS}\left(\widehat{Y}\right)=N^2\frac{\widehat{S}_y}{n-1}
+\]</span> onde <span class="math inline">\(\widehat{S}_y= n^{-1}\sum_{i\in s}\left(y_i-\overline{y}\right)^2\)</span> é a estimativa de <span class="math inline">\(S_y=N^{-1}\sum_{i\in U}\left(y_i-\overline{Y}\right)^2\)</span>, com <span class="math inline">\(\overline{Y}=N^{-1}Y\)</span>.</p>
+No lugar dessa estimativa, vamos utilizar os pesos do plano amostral verdadeiro para estimar <span class="math inline">\(S_y\)</span>. Vamos ainda estimar <span class="math inline">\(N\)</span>, em geral é desconhecido, por <span class="math inline">\(\widehat{N}=\sum_{i \in s} w_i\)</span>. Dessa forma obtemos a estimativa
+<span class="math display">\[\begin{eqnarray*}
+\widehat{V}_{w-AAS}\left(\widehat{Y}\right)&amp;=&amp; \widehat{N}^2\left[\sum_{i \in s}w_i\left(y_i-\overline{y}\right)^2/\widehat{N}\right]/(n-1)\\
+&amp;=&amp;\frac{\widehat{N}}{n-1}\left[\sum_{i \in s}w_iy_i^2-\left(\sum_{i \in s}w_iy_i\right)^2/\widehat{N}\right],
+\end{eqnarray*}\]</span>
+<p>onde <span class="math inline">\(\overline{y}=\sum_{i \in s}w_iy_i/n\)</span>.</p>
+<p>A expressão acima pode ser calculada facilmente através da seguinte função do R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Vwaas&lt;-<span class="cf">function</span>(y,w)
+{
+<span class="co">#função auxiliar usada em outras funções</span>
+<span class="co">#entrada:</span>
+<span class="co">#y - valores de variavel na amostra;</span>
+<span class="co">#w - pesos amostrais;</span>
+<span class="co">#saida:  estimativa de variância de desenho para o total (segundo o SUDAAN)</span>
+
+n1&lt;-<span class="kw">length</span>(y)<span class="op">-</span><span class="dv">1</span>
+wsum&lt;-<span class="kw">sum</span>(y<span class="op">*</span>w)
+wsum2&lt;-<span class="kw">sum</span>((y<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>w)
+nhat&lt;-<span class="kw">sum</span>(w)
+vwaas&lt;-(nhat<span class="op">/</span>n1)<span class="op">*</span>(wsum2<span class="op">-</span>wsum<span class="op">^</span><span class="dv">2</span><span class="op">/</span>nhat)
+vwaas
+}</code></pre></div>
+<p>Vamos utilizar a função <code>Vwaas</code> para estimar os valores de <code>Efeitos do Plano Amostral</code>das estimativas de totais apresentadas anteriormente. Consideremos o plano amostral <code>ppv.se.plan</code> anteriormente definido. Vamos usar a função <code>Vwaas</code> para obter uma estimativa da variância do total estimado da variável <code>analf1</code>. Todos os elementos os elementos necessários estão contidos no objeto <code>ppv.se.plan</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">VAAS1&lt;-<span class="st"> </span><span class="kw">Vwaas</span>(ppv.se.plan<span class="op">$</span>variables[,<span class="st">&quot;analf1&quot;</span>],<span class="kw">weights</span>(ppv.se.plan))
+VAAS2&lt;-<span class="st"> </span><span class="kw">Vwaas</span>(ppv.se.plan<span class="op">$</span>variables[,<span class="st">&quot;analf2&quot;</span>],<span class="kw">weights</span>(ppv.se.plan))</code></pre></div>
+<p>O efeito de plano amostral da estimativa do total de <code>analf1</code> pode agora ser calculada por</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attr</span>(<span class="kw">svytotal</span>(<span class="op">~</span>analf1, ppv.se.plan),<span class="st">&quot;var&quot;</span>)<span class="op">/</span>VAAS1</code></pre></div>
+<pre><code>##          analf1
+## analf1 2.054049</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attr</span>(<span class="kw">svytotal</span>(<span class="op">~</span>analf2, ppv.se.plan),<span class="st">&quot;var&quot;</span>)<span class="op">/</span>VAAS2</code></pre></div>
+<pre><code>##         analf2
+## analf2 3.32324</code></pre>
+<p>Esses valores do EPA coincidem com os obtidos acima através da library <code>survey</code><span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> e são distintos daqueles apresentados na Tabela <a href="introduc.html#tab:epas">1.3</a>. Para obter os valores correspondentes aos da Tabela <a href="introduc.html#tab:epas">1.3</a>, através da library <code>survey</code><span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>, vamos definir as variáveis:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">analf1.se&lt;-<span class="kw">with</span>(ppv1.dat,((v04a01<span class="op">==</span><span class="dv">2</span><span class="op">|</span>v04a02<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(v02a08<span class="op">&gt;=</span><span class="dv">7</span><span class="op">&amp;</span>v02a08<span class="op">&lt;=</span><span class="dv">14</span>))<span class="op">&amp;</span>(regiao<span class="op">==</span><span class="dv">2</span>))
+analf2.se&lt;-<span class="kw">with</span>(ppv1.dat,((v04a01<span class="op">==</span><span class="dv">2</span><span class="op">|</span>v04a02<span class="op">==</span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(v02a08<span class="op">&gt;</span><span class="dv">14</span>))<span class="op">&amp;</span>(regiao<span class="op">==</span><span class="dv">2</span>))
+ppv.plan &lt;-<span class="st"> </span><span class="kw">update</span> (ppv.plan,<span class="dt">analf1.se=</span>analf1.se,<span class="dt">analf2.se=</span>analf2.se  )
+<span class="kw">svytotal</span>(analf1.se,ppv.plan,<span class="dt">deff=</span>T)</code></pre></div>
+<pre><code>##        total      SE   DEff
+## [1,] 1174220  127982 2.6426</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(analf2.se,ppv.plan,<span class="dt">deff=</span>T)</code></pre></div>
+<pre><code>##        total      SE   DEff
+## [1,] 4792344  318877 4.1667</code></pre>
+<p>Ou, alternativamente,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(<span class="op">~</span><span class="kw">I</span>(<span class="kw">ifelse</span>(regiao<span class="op">==</span><span class="dv">2</span>,analf1,<span class="dv">0</span>)),ppv.plan,<span class="dt">deff=</span>T)</code></pre></div>
+<pre><code>##                                     total      SE   DEff
+## I(ifelse(regiao == 2, analf1, 0)) 1174220  127982 2.6426</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svytotal</span>(<span class="op">~</span><span class="kw">I</span>(<span class="kw">ifelse</span>(regiao<span class="op">==</span><span class="dv">2</span>,analf2,<span class="dv">0</span>)),ppv.plan,<span class="dt">deff=</span>T)</code></pre></div>
+<pre><code>##                                     total      SE   DEff
+## I(ifelse(regiao == 2, analf2, 0)) 4792344  318877 4.1667</code></pre>
+<p>Observe que as estimativas de variância para o desenho verdadeiro (numerador do EPA) são iguais quando usamos: a variável <code>analf1.se</code> com o objeto de desenho <code>ppv.plan</code> ou a variável <code>analf1</code> com o objeto <code>ppv.se.plan</code>. Porém na estimativa do denominador do EPA, obtida a partir da função <code>Vwaas</code>, obtemos resultados diferentes quando usamos <code>analf1.se</code> ou <code>analf1</code>, com os pesos correspondentes. No segundo caso, a soma dos pesos não estima <span class="math inline">\(N\)</span>. Deve-se ter o cuidado, quando estimamos em um domínio, de trabalhar com pesos cuja soma seja um estimador do tamanho da população.</p>
+
 </div>
 </div>
 <h3>Referências</h3>

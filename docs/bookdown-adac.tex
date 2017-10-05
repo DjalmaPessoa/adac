@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-10-03}
+  \date{2017-10-05}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -714,7 +714,7 @@ nosso, o livro de \citep{lethonen} pode ser uma opção interessante.
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:exe12}{}{\label{exm:exe12} }Utilização da library
-survey do R para estimar totais e razões na PPV
+survey do R para estimar alguns totais e razões na Tabela \ref{tab:epas}
 \EndKnitrBlock{example} Os exemplos a seguir utilizam dados da Pesquisa
 de Padrões de Vida (\texttt{PPV}) de 2004 do IBGE, cujo plano amostral
 encontra-se descrito no Exemplo \ref{exm:distppv} . Os dados da
@@ -725,8 +725,8 @@ encontra-se descrito no Exemplo \ref{exm:distppv} . Os dados da
 \begin{Highlighting}[]
 \CommentTok{# leitura dos dados}
 \KeywordTok{library}\NormalTok{(anamco)}
-\KeywordTok{data}\NormalTok{(ppv)}
-\KeywordTok{dim}\NormalTok{(ppv)}
+\NormalTok{ppv.dat <-}\StringTok{ }\NormalTok{ppv}
+\KeywordTok{dim}\NormalTok{(ppv.dat)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -736,7 +736,7 @@ encontra-se descrito no Exemplo \ref{exm:distppv} . Os dados da
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{names}\NormalTok{(ppv)}
+\KeywordTok{names}\NormalTok{(ppv.dat)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -765,7 +765,7 @@ Agumas dessas variáveis são:
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# cria novo data frame ppv1}
-\NormalTok{ppv1 <-}\StringTok{ }\KeywordTok{transform}\NormalTok{(ppv, }
+\NormalTok{ppv1.dat <-}\StringTok{ }\KeywordTok{transform}\NormalTok{(ppv.dat, }
 \DataTypeTok{analf1 =}\NormalTok{ ((v04a01 }\OperatorTok{==}\StringTok{ }\DecValTok{2} \OperatorTok{|}\StringTok{ }\NormalTok{v04a02 }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(v02a08 }\OperatorTok{>=}\StringTok{ }\DecValTok{7} \OperatorTok{&}\StringTok{ }\NormalTok{v02a08 }\OperatorTok{<=}\StringTok{ }\DecValTok{14}\NormalTok{)) }\OperatorTok{*}\StringTok{ }\DecValTok{1}\NormalTok{, }
 \DataTypeTok{analf2 =}\NormalTok{ ((v04a01 }\OperatorTok{==}\StringTok{ }\DecValTok{2} \OperatorTok{|}\StringTok{ }\NormalTok{v04a02 }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(v02a08 }\OperatorTok{>}\DecValTok{14}\NormalTok{)) }\OperatorTok{*}\StringTok{ }\DecValTok{1}\NormalTok{, }
 \DataTypeTok{faixa1 =}\NormalTok{ (v02a08 }\OperatorTok{>=}\StringTok{ }\DecValTok{7} \OperatorTok{&}\StringTok{ }\NormalTok{v02a08 }\OperatorTok{<=}\StringTok{ }\DecValTok{14}\NormalTok{) }\OperatorTok{*}\DecValTok{1}\NormalTok{, }
@@ -794,16 +794,16 @@ O passo fundamental para utilização da library \texttt{survey}
 do plano amostral. Isso é feito por meio da função \texttt{svydesign()}.
 As variáveis que definem estratos, conglomerados e pesos na \texttt{PPV}
 são respectivamente, \texttt{estratof}, \texttt{nsetor} e
-\texttt{pesof}. O objeto de desenho amostral, \texttt{ppv.des} incorpora
-as informações do plano amostral adotado na \texttt{PPV}.
+\texttt{pesof}. O objeto de desenho amostral, \texttt{ppv.plan}
+incorpora as informações do plano amostral adotado na \texttt{PPV}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# carrega library survey}
 \KeywordTok{library}\NormalTok{(survey)}
 \CommentTok{# cria objeto de desenho}
-\NormalTok{ppv.des<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{ids =} \OperatorTok{~}\NormalTok{nsetor, }\DataTypeTok{strata =} \OperatorTok{~}\NormalTok{estratof,}
-\DataTypeTok{data =}\NormalTok{ ppv1, }\DataTypeTok{nest =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{weights =} \OperatorTok{~}\NormalTok{pesof)}
+\NormalTok{ppv.plan<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{ids =} \OperatorTok{~}\NormalTok{nsetor, }\DataTypeTok{strata =} \OperatorTok{~}\NormalTok{estratof,}
+\DataTypeTok{data =}\NormalTok{ ppv1.dat, }\DataTypeTok{nest =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{weights =} \OperatorTok{~}\NormalTok{pesof)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -812,7 +812,7 @@ Sudeste, vamos criar um objeto de desenho restrito a essa região:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ppv.se.des <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(ppv.des, regiao }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{ppv.se.plan <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(ppv.plan, regiao }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -830,7 +830,7 @@ resultados nas linhas 4 e 5 da Tabela \ref{tab:epas}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\NormalTok{analf1, ppv.se.des, }\DataTypeTok{deff =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\NormalTok{analf1, ppv.se.plan, }\DataTypeTok{deff =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -841,7 +841,7 @@ resultados nas linhas 4 e 5 da Tabela \ref{tab:epas}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\NormalTok{analf2, ppv.se.des, }\DataTypeTok{deff =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\NormalTok{analf2, ppv.se.plan, }\DataTypeTok{deff =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -859,12 +859,12 @@ resultados nas linhas 4 e 5 da Tabela \ref{tab:epas}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{svyratio}\NormalTok{(}\OperatorTok{~}\NormalTok{analf1, }\OperatorTok{~}\NormalTok{faixa1, ppv.se.des)}
+\KeywordTok{svyratio}\NormalTok{(}\OperatorTok{~}\NormalTok{analf1, }\OperatorTok{~}\NormalTok{faixa1, ppv.se.plan)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Ratio estimator: svyratio.survey.design2(~analf1, ~faixa1, ppv.se.des)
+## Ratio estimator: svyratio.survey.design2(~analf1, ~faixa1, ppv.se.plan)
 ## Ratios=
 ##          faixa1
 ## analf1 0.118689
@@ -875,12 +875,12 @@ resultados nas linhas 4 e 5 da Tabela \ref{tab:epas}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{svyratio}\NormalTok{(}\OperatorTok{~}\NormalTok{analf2, }\OperatorTok{~}\NormalTok{faixa2, ppv.se.des)}
+\KeywordTok{svyratio}\NormalTok{(}\OperatorTok{~}\NormalTok{analf2, }\OperatorTok{~}\NormalTok{faixa2, ppv.se.plan)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Ratio estimator: svyratio.survey.design2(~analf2, ~faixa2, ppv.se.des)
+## Ratio estimator: svyratio.survey.design2(~analf2, ~faixa2, ppv.se.plan)
 ## Ratios=
 ##           faixa2
 ## analf2 0.1086871
@@ -896,7 +896,7 @@ poderíamos estimar os totais da variável \texttt{analf1} para as regiões
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{svyby}\NormalTok{(}\OperatorTok{~}\NormalTok{analf1, }\OperatorTok{~}\NormalTok{regiao, ppv.des, svytotal, }\DataTypeTok{deff =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{svyby}\NormalTok{(}\OperatorTok{~}\NormalTok{analf1, }\OperatorTok{~}\NormalTok{regiao, ppv.plan, svytotal, }\DataTypeTok{deff =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -908,7 +908,10 @@ poderíamos estimar os totais da variável \texttt{analf1} para as regiões
 
 Observe que as estimativas de totais e desvios padrão obtidas coincidem
 com as Tabela \ref{tab:epas}, porém as estimativas de Efeitos de Plano
-Amostral(DEff) são distintas.
+Amostral(EPA) são distintas.
+
+\section{Laboratório de R do Capítulo 1 -
+Extra.}\label{laboratorio-de-r-do-capitulo-1---extra.}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:exe13}{}{\label{exm:exe13} }Exemplo anterior usando
@@ -929,7 +932,7 @@ a library srvyr
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ppv.des <-}\StringTok{ }\NormalTok{ppv }\OperatorTok{%>%}\StringTok{ }\KeywordTok{as_survey_design}\NormalTok{ (}\DataTypeTok{ids =}\NormalTok{ nsetor, }\DataTypeTok{strata =}\NormalTok{ estratof,}
+\NormalTok{ppv.plan <-}\StringTok{ }\NormalTok{ppv.dat }\OperatorTok{%>%}\StringTok{ }\KeywordTok{as_survey_design}\NormalTok{ (}\DataTypeTok{ids =}\NormalTok{ nsetor, }\DataTypeTok{strata =}\NormalTok{ estratof,}
 \DataTypeTok{nest =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{weights =}\NormalTok{ pesof)}
 \end{Highlighting}
 \end{Shaded}
@@ -942,7 +945,7 @@ a library srvyr
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ppv.des <-}\StringTok{ }\NormalTok{ppv.des }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{ppv.plan <-}\StringTok{ }\NormalTok{ppv.plan }\OperatorTok{%>%}\StringTok{ }
 \KeywordTok{mutate}\NormalTok{(}
 \DataTypeTok{analf1 =} \KeywordTok{as.numeric}\NormalTok{((v04a01 }\OperatorTok{==}\StringTok{ }\DecValTok{2} \OperatorTok{|}\StringTok{ }\NormalTok{v04a02 }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(v02a08 }\OperatorTok{>=}\StringTok{ }\DecValTok{7} \OperatorTok{&}\StringTok{ }\NormalTok{v02a08 }\OperatorTok{<=}\StringTok{ }\DecValTok{14}\NormalTok{)), }
 \DataTypeTok{analf2 =} \KeywordTok{as.numeric}\NormalTok{((v04a01 }\OperatorTok{==}\StringTok{ }\DecValTok{2} \OperatorTok{|}\StringTok{ }\NormalTok{v04a02 }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(v02a08 }\OperatorTok{>}\DecValTok{14}\NormalTok{)), }
@@ -961,7 +964,7 @@ a library srvyr
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{res <-}\StringTok{ }\NormalTok{ppv.des }\OperatorTok{%>%}\StringTok{  }
+\NormalTok{res <-}\StringTok{ }\NormalTok{ppv.plan }\OperatorTok{%>%}\StringTok{  }
 \KeywordTok{group_by}\NormalTok{(regiao) }\OperatorTok{%>%}\StringTok{ }
 \KeywordTok{summarise}\NormalTok{(}
 \DataTypeTok{taxa_analf1 =} \KeywordTok{survey_ratio}\NormalTok{(analf1, faixa1),}
@@ -985,180 +988,6 @@ regiao & taxa\_analf1 & taxa\_analf1\_se & taxa\_analf2 & taxa\_analf2\_se\\
 \bottomrule
 \end{tabular}
 \end{table}
-
-\subsection{Estimativa do efeito de plano amostral
-(EPA)}\label{estimativa-do-efeito-de-plano-amostral-epa}
-
-Esse assunto será tratado em detalhes no Capítulo \ref{epa} . Por
-enquanto, apresentaremos uma introdução necessária para compreender os
-valores na Tabela \ref{tab:epas}.
-
-O efeito de plano amostral (EPA) de Kish é definido na fórmula
-\eqref{eq:epa1}. Vamos considerar o caso particular em que
-\(\hat{\theta}\) é um estimador de total de uma variável \(Y\).Ou seja
-\[
-EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
-\]
-
-Na definição do EPA, a estimativa do numerador pode ser obtida usando-se
-a library \texttt{survey} \citep{R-survey}, a partir do objeto de
-\texttt{ppv.se.des} que incorpora as características do plano amostral
-utilizado para coletar os dados. Não é possível estimar diretamente o
-denominador, pois o plano amostral AAS (Amostragem Aleatória Simples)
-não foi adotado na coleta dos dados. Devemos estimar o denominador a
-partir de dados obtidos através do plano amostral VERD, como se eles
-tivessem sido obtidos através de AAS.
-
-Supondo conhecido o tamanho da população \(N\) e a fração amostral
-\(f=n/N\) pequena, a estimativa da variância de \(\widehat{Y}\) é dada
-na expressão \eqref{eq:estpa9} \[
-\widehat{V}_{AAS}\left(\widehat{Y}\right)=N^2\frac{\widehat{S}_y}{n-1}
-\] onde
-\(\widehat{S}_y= n^{-1}\sum_{i\in s}\left(y_i-\overline{y}\right)^2\) é
-a estimativa de
-\(S_y=N^{-1}\sum_{i\in U}\left(y_i-\overline{Y}\right)^2\), com
-\(\overline{Y}=N^{-1}Y\).
-
-No lugar dessa estimativa, vamos utilizar os pesos do plano amostral
-verdadeiro para estimar \(S_y\). Vamos ainda estimar \(N\), em geral é
-desconhecido, por \(\widehat{N}=\sum_{i \in s} w_i\). Dessa forma
-obtemos a estimativa
-
-\begin{eqnarray*}
-\widehat{V}_{w-AAS}\left(\widehat{Y}\right)&=& \widehat{N}^2\left[\sum_{i \in s}w_i\left(y_i-\overline{y}\right)^2/\widehat{N}\right]/(n-1)\\
-&=&\frac{\widehat{N}}{n-1}\left[\sum_{i \in s}w_iy_i^2-\left(\sum_{i \in s}w_iy_i\right)^2/\widehat{N}\right],
-\end{eqnarray*}
-
-onde \(\overline{y}=\sum_{i \in s}w_iy_i/n\).
-
-A expressão acima pode ser calculada facilmente através da seguinte
-função do R:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{Vwaas<-}\ControlFlowTok{function}\NormalTok{(y,w)}
-\NormalTok{\{}
-\CommentTok{#função auxiliar usada em outras funções}
-\CommentTok{#entrada:}
-\CommentTok{#y - valores de variavel na amostra;}
-\CommentTok{#w - pesos amostrais;}
-\CommentTok{#saida:  estimativa de variância de desenho para o total (segundo o SUDAAN)}
-
-\NormalTok{n1<-}\KeywordTok{length}\NormalTok{(y)}\OperatorTok{-}\DecValTok{1}
-\NormalTok{wsum<-}\KeywordTok{sum}\NormalTok{(y}\OperatorTok{*}\NormalTok{w)}
-\NormalTok{wsum2<-}\KeywordTok{sum}\NormalTok{((y}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{w)}
-\NormalTok{nhat<-}\KeywordTok{sum}\NormalTok{(w)}
-\NormalTok{vwaas<-(nhat}\OperatorTok{/}\NormalTok{n1)}\OperatorTok{*}\NormalTok{(wsum2}\OperatorTok{-}\NormalTok{wsum}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\NormalTok{nhat)}
-\NormalTok{vwaas}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-Vamos utilizar a função \texttt{Vwaas} para estimar os valores de
-\texttt{Efeitos\ do\ Plano\ Amostral}das estimativas de totais
-apresentadas anteriormente. Consideremos o plano amostral
-\texttt{ppv.se.des} anteriormente definido. Vamos usar a função
-\texttt{Vwaas} para obter uma estimativa da variância do total estimado
-da variável \texttt{analf1}. Todos os elementos os elementos necessários
-estão contidos no objeto \texttt{ppv.se.des}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{VAAS1<-}\StringTok{ }\KeywordTok{Vwaas}\NormalTok{(ppv.se.des}\OperatorTok{$}\NormalTok{variables[,}\StringTok{"analf1"}\NormalTok{],}\KeywordTok{weights}\NormalTok{(ppv.se.des))}
-\NormalTok{VAAS2<-}\StringTok{ }\KeywordTok{Vwaas}\NormalTok{(ppv.se.des}\OperatorTok{$}\NormalTok{variables[,}\StringTok{"analf2"}\NormalTok{],}\KeywordTok{weights}\NormalTok{(ppv.se.des))}
-\end{Highlighting}
-\end{Shaded}
-
-O efeito de plano amostral da estimativa do total de \texttt{analf1}
-pode agora ser calculada por
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{attr}\NormalTok{(}\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\NormalTok{analf1, ppv.se.des),}\StringTok{"var"}\NormalTok{)}\OperatorTok{/}\NormalTok{VAAS1}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##          analf1
-## analf1 2.054049
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{attr}\NormalTok{(}\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\NormalTok{analf2, ppv.se.des),}\StringTok{"var"}\NormalTok{)}\OperatorTok{/}\NormalTok{VAAS2}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##         analf2
-## analf2 3.32324
-\end{verbatim}
-
-Esses valores do EPA coincidem com os obtidos acima através da library
-\texttt{survey}\citep{R-survey} e são distintos daqueles apresentados na
-Tabela \ref{tab:epas}. Para obter os valores correspondentes aos da
-Tabela \ref{tab:epas}, através da library
-\texttt{survey}\citep{R-survey}, vamos definir as variáveis:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{analf1.se<-}\KeywordTok{with}\NormalTok{(ppv1,((v04a01}\OperatorTok{==}\DecValTok{2}\OperatorTok{|}\NormalTok{v04a02}\OperatorTok{==}\DecValTok{2}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(v02a08}\OperatorTok{>=}\DecValTok{7}\OperatorTok{&}\NormalTok{v02a08}\OperatorTok{<=}\DecValTok{14}\NormalTok{))}\OperatorTok{&}\NormalTok{(regiao}\OperatorTok{==}\DecValTok{2}\NormalTok{))}
-\NormalTok{analf2.se<-}\KeywordTok{with}\NormalTok{(ppv1,((v04a01}\OperatorTok{==}\DecValTok{2}\OperatorTok{|}\NormalTok{v04a02}\OperatorTok{==}\DecValTok{2}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(v02a08}\OperatorTok{>}\DecValTok{14}\NormalTok{))}\OperatorTok{&}\NormalTok{(regiao}\OperatorTok{==}\DecValTok{2}\NormalTok{))}
-\NormalTok{ppv.des <-}\StringTok{ }\KeywordTok{update}\NormalTok{ (ppv.des,}\DataTypeTok{analf1.se=}\NormalTok{analf1.se,}\DataTypeTok{analf2.se=}\NormalTok{analf2.se  )}
-\KeywordTok{svytotal}\NormalTok{(analf1.se,ppv.des,}\DataTypeTok{deff=}\NormalTok{T)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##        total      SE   DEff
-## [1,] 1174220  127982 2.6426
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{svytotal}\NormalTok{(analf2.se,ppv.des,}\DataTypeTok{deff=}\NormalTok{T)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##        total      SE   DEff
-## [1,] 4792344  318877 4.1667
-\end{verbatim}
-
-Ou, alternativamente,
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\KeywordTok{I}\NormalTok{(}\KeywordTok{ifelse}\NormalTok{(regiao}\OperatorTok{==}\DecValTok{2}\NormalTok{,analf1,}\DecValTok{0}\NormalTok{)),ppv.des,}\DataTypeTok{deff=}\NormalTok{T)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##                                     total      SE   DEff
-## I(ifelse(regiao == 2, analf1, 0)) 1174220  127982 2.6426
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\KeywordTok{I}\NormalTok{(}\KeywordTok{ifelse}\NormalTok{(regiao}\OperatorTok{==}\DecValTok{2}\NormalTok{,analf2,}\DecValTok{0}\NormalTok{)),ppv.des,}\DataTypeTok{deff=}\NormalTok{T)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##                                     total      SE   DEff
-## I(ifelse(regiao == 2, analf2, 0)) 4792344  318877 4.1667
-\end{verbatim}
-
-Observe que as estimativas de variância para o desenho verdadeiro
-(numerador do EPA) são iguais quando usamos: a variável
-\texttt{analf1.se} com o objeto de desenho \texttt{ppv.des} ou a
-variável \texttt{analf1} com o objeto \texttt{ppv.se.des}. Porém na
-estimativa do denominador do EPA, obtida a partir da função
-\texttt{Vwaas}, obtemos resultados diferentes quando usamos
-\texttt{analf1.se} ou \texttt{analf1}, com os pesos correspondentes. No
-segundo caso, a soma dos pesos não estima \(N\). Deve-se ter o cuidado,
-quando estimamos em um domínio, de trabalhar com pesos cuja soma seja um
-estimador do tamanho da população.
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:exe14}{}{\label{exm:exe14} }Utilização da library
@@ -1203,12 +1032,12 @@ survey do R para estimar taxa de desocupação para um trimestre na PNADC
 \end{Shaded}
 
 Os microdados de interesse são terceiro trimestre de 2016. Vamos ler os
-microdados e salvá-los em um data frame \texttt{x}.
+microdados e salvá-los em um data frame \texttt{pnadc032016.dat}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{lodown}\NormalTok{( }\StringTok{"pnadc"}\NormalTok{ , }\KeywordTok{subset}\NormalTok{( pnadc_cat , year }\OperatorTok{==}\StringTok{ }\DecValTok{2016} \OperatorTok{&}\StringTok{ }\NormalTok{quarter }\OperatorTok{==}\StringTok{ '03'}\NormalTok{ ) )}
-\NormalTok{x <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{( }\KeywordTok{paste0}\NormalTok{( }\KeywordTok{tempdir}\NormalTok{() , }\StringTok{"/pnadc 2016 03.rds"}\NormalTok{ ) )}
+\NormalTok{pnadc032016.dat <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{( }\KeywordTok{paste0}\NormalTok{( }\KeywordTok{tempdir}\NormalTok{() , }\StringTok{"/pnadc 2016 03.rds"}\NormalTok{ ) )}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1216,16 +1045,16 @@ vamos salvar o data frame \texttt{x} para uso posterior, :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{saveRDS}\NormalTok{(x, }\DataTypeTok{file=}\StringTok{"C:/adac/pnadc/pnadc 2016 03.rds"}\NormalTok{)}
+\KeywordTok{saveRDS}\NormalTok{(pnadc032016.dat, }\DataTypeTok{file=}\StringTok{"C:/adac/pnadc/pnadc 2016 03.rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 Partindo do arquivo \texttt{pnadc\ 2016\ 03.rds}, podemos recuperar o
-data frame \texttt{x}:
+data frame \texttt{pnadc032016.dat}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/pnadc/pnadc 2016 03.rds"}\NormalTok{)}
+\NormalTok{pnadc032016.dat <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/pnadc/pnadc 2016 03.rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1261,8 +1090,8 @@ data frame \texttt{x}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pre_w <-}\StringTok{ }\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{ids =}\OperatorTok{~}\NormalTok{upa, }\DataTypeTok{strata=}\OperatorTok{~}\NormalTok{estrato, }
-  \DataTypeTok{weights=}\OperatorTok{~}\NormalTok{v1027, }\DataTypeTok{data =}\NormalTok{ x, }\DataTypeTok{nest=}\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{pnadc032016.plan <-}\StringTok{ }\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{ids =}\OperatorTok{~}\NormalTok{upa, }\DataTypeTok{strata=}\OperatorTok{~}\NormalTok{estrato, }
+  \DataTypeTok{weights=}\OperatorTok{~}\NormalTok{v1027, }\DataTypeTok{data =}\NormalTok{ pnadc032016.dat, }\DataTypeTok{nest=}\OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1274,8 +1103,8 @@ data frame \texttt{x}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{df_pos <-}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{posest=}\KeywordTok{unique}\NormalTok{(x}\OperatorTok{$}\NormalTok{posest), }
-  \DataTypeTok{Freq=}\KeywordTok{unique}\NormalTok{(x}\OperatorTok{$}\NormalTok{v1029))}
+\NormalTok{df_pos <-}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{posest=}\KeywordTok{unique}\NormalTok{(pnadc032016.dat}\OperatorTok{$}\NormalTok{posest), }
+  \DataTypeTok{Freq=}\KeywordTok{unique}\NormalTok{(pnadc032016.dat}\OperatorTok{$}\NormalTok{v1029))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1287,7 +1116,7 @@ data frame \texttt{x}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{w <-}\KeywordTok{postStratify}\NormalTok{(pre_w, }\OperatorTok{~}\NormalTok{posest, df_pos)}
+\NormalTok{pnadc032016.calib <-}\KeywordTok{postStratify}\NormalTok{(pnadc032016.plan, }\OperatorTok{~}\NormalTok{posest, df_pos)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1306,7 +1135,7 @@ ou mais na semana de referência(PIA) e calcula a razão de dois totais:
 \begin{Highlighting}[]
 \CommentTok{# estima taxa de desocupação}
 \NormalTok{taxa_des <-}\StringTok{ }\KeywordTok{svyratio}\NormalTok{(}\OperatorTok{~}\StringTok{ }\NormalTok{vd4002}\OperatorTok{==}\StringTok{"2"}\NormalTok{ ,}
-  \OperatorTok{~}\StringTok{ }\NormalTok{vd4001 }\OperatorTok{==}\StringTok{ "1"}\NormalTok{ , w , }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+  \OperatorTok{~}\StringTok{ }\NormalTok{vd4001 }\OperatorTok{==}\StringTok{ "1"}\NormalTok{ , pnadc032016.calib , }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
 \CommentTok{# organiza saída}
 \NormalTok{result <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
   \DecValTok{100}\OperatorTok{*}\KeywordTok{coef}\NormalTok{(taxa_des),}
@@ -1370,12 +1199,12 @@ utilizadas nos exemplos no site
 
 Inicialmente, vamos estimar características de pessoas com 18 anos ou
 mais mais que responderam o questionário longo e salvar os microdados
-dessa amostra no data frame \texttt{pes\_sel}.
+dessa amostra no data frame \texttt{pes\_sel.dat}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pes_sel <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/PNS/2013 long questionnaire survey.rds"}\NormalTok{)}
-\KeywordTok{dim}\NormalTok{(pes_sel)}
+\NormalTok{pes_sel.dat <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/PNS/2013 long questionnaire survey.rds"}\NormalTok{)}
+\KeywordTok{dim}\NormalTok{(pes_sel.dat)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1387,7 +1216,7 @@ dessa amostra no data frame \texttt{pes\_sel}.
 \iffalse{} {Observação. } \fi{}No data frame pes\_sel o nome das
 variáveis, obtidos por \texttt{names(pes\_sel)}, estão em minúsculas. No
 dicionário da PNS os códigos correspondentes estão em maiúsculas.
-\EndKnitrBlock{remark} O data frame \texttt{pes\_sel} contém as
+\EndKnitrBlock{remark} O data frame \texttt{pes\_sel.dat} contém as
 variáveis descritas no dicionário da \texttt{PNS} e algumas variáveis
 obtidas derivadas.
 
@@ -1399,18 +1228,18 @@ desenho que salva as características do plano amostral da pesquisa. Isso
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(survey)}
-\NormalTok{pes_sel_des <-}
+\NormalTok{pes_sel.plan <-}
 \StringTok{    }\KeywordTok{svydesign}\NormalTok{(}
         \DataTypeTok{id =} \OperatorTok{~}\StringTok{ }\NormalTok{upa_pns ,}
         \DataTypeTok{strata =} \OperatorTok{~}\StringTok{ }\NormalTok{v0024 ,}
-        \DataTypeTok{data =}\NormalTok{ pes_sel ,}
+        \DataTypeTok{data =}\NormalTok{ pes_sel.dat ,}
         \DataTypeTok{weights =} \OperatorTok{~}\StringTok{ }\NormalTok{pre_pes_long ,}
         \DataTypeTok{nest =} \OtherTok{TRUE}
 \NormalTok{    )}
 \end{Highlighting}
 \end{Shaded}
 
-Os pesos do objeto de desenho \texttt{pes\_sel\_des} devem ser
+Os pesos do objeto de desenho \texttt{pes\_sel.plan} devem ser
 modificados de modo que as estimativas dos totais populacionais dos
 pós-estratos fixados coincidam com os totais populacionais dos
 pós-estratos conhecidos a partir do Censo Demográfico. O data frame
@@ -1419,19 +1248,19 @@ pós-estratos e na segunda seus totais populacionais.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{post_pop <-}\StringTok{ }\KeywordTok{unique}\NormalTok{( pes_sel[ }\KeywordTok{c}\NormalTok{( }\StringTok{'v00293.y'}\NormalTok{ , }\StringTok{'v00292.y'}\NormalTok{ ) ] )}
+\NormalTok{post_pop <-}\StringTok{ }\KeywordTok{unique}\NormalTok{( pes_sel.dat[ }\KeywordTok{c}\NormalTok{( }\StringTok{'v00293.y'}\NormalTok{ , }\StringTok{'v00292.y'}\NormalTok{ ) ] )}
 \KeywordTok{names}\NormalTok{( post_pop ) <-}\StringTok{ }\KeywordTok{c}\NormalTok{( }\StringTok{"v00293.y"}\NormalTok{ , }\StringTok{"Freq"}\NormalTok{ )}
 \end{Highlighting}
 \end{Shaded}
 
 Utilizando a função \texttt{postStratify()} da library \texttt{survey}
 \citep{R-survey} incorpora-se no objeto de desenho
-\texttt{pes\_sel\_des} as informações contidas no data frame
+\texttt{pes\_sel.plan} as informações contidas no data frame
 \texttt{post\_pop}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pes_sel_des_pos <-}\StringTok{ }\KeywordTok{postStratify}\NormalTok{( pes_sel_des , }\OperatorTok{~}\NormalTok{v00293.y , post_pop )}
+\NormalTok{pes_sel.calib <-}\StringTok{ }\KeywordTok{postStratify}\NormalTok{( pes_sel.plan , }\OperatorTok{~}\NormalTok{v00293.y , post_pop )}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1439,20 +1268,20 @@ Salvar objeto de desenho pós-estratificado para posterior utilização:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{saveRDS}\NormalTok{(pes_sel_des_pos, }\DataTypeTok{file =} \StringTok{"C:/adac/PNS/pns_des_sel.rds"}\NormalTok{ )}
+\KeywordTok{saveRDS}\NormalTok{(pes_sel.calib, }\DataTypeTok{file =} \StringTok{"C:/adac/PNS/pns_des_sel.rds"}\NormalTok{ )}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pes_sel_des_pos <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/PNS/pns_des_sel.rds"}\NormalTok{)}
+\NormalTok{pes_sel.calib <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/PNS/pns_des_sel.rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 Os comandos acima foram apresentados apenas para ilustrar como, a partir
 dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não
 seria necessária a execução desses comandos pois o objeto de desenho
-\texttt{pes\_sel\_des\_pos} já se encontra disponível no arquivo 1
+\texttt{pes\_sel.calib} já se encontra disponível no arquivo 1
 \texttt{2013\ all\ questionnaire\ survey\ design.rds}.
 
 Para exemplificar, vamos agora reproduzir estimativas na Tabela 6.42.1.1
@@ -1468,19 +1297,19 @@ Essa variável é de classe \texttt{character} e tem dois valores ``1'' e
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{diag_dep <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{ (pes_sel}\OperatorTok{$}\NormalTok{q092}\OperatorTok{==}\StringTok{"1"}\NormalTok{)}
+\NormalTok{diag_dep <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{ (pes_sel.dat}\OperatorTok{$}\NormalTok{q092}\OperatorTok{==}\StringTok{"1"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 Como mencionado, o objeto de desenho pós-estratificado
-\texttt{pes\_sel\_des\_pos} pode ser lido do arquivo
+\texttt{pes\_sel.calib} pode ser lido do arquivo
 \texttt{2013\ all\ questionnaire\ survey\ design.rds}. Vamos atualizar o
-objeto de desenho \texttt{pes\_sel\_des\_pos} para incluir a variável
+objeto de desenho \texttt{pes\_sel.calib} para incluir a variável
 \texttt{diad\_dep} na componente \texttt{variables}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pes_sel_des_pos <-}\StringTok{ }\KeywordTok{update}\NormalTok{ (pes_sel_des_pos, }\DataTypeTok{diag_dep =}\NormalTok{ diag_dep )}
+\NormalTok{pes_sel.calib <-}\StringTok{ }\KeywordTok{update}\NormalTok{ (pes_sel.calib, }\DataTypeTok{diag_dep =}\NormalTok{ diag_dep )}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1489,7 +1318,7 @@ depressão para o país inteiro usamos o seguinte comando:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{diagdepbr <-}\StringTok{ }\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{diag_dep, pes_sel_des_pos)}
+\NormalTok{diagdepbr <-}\StringTok{ }\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{diag_dep, pes_sel.calib)}
 \CommentTok{# estimativa em % e erro padrão}
 \KeywordTok{round}\NormalTok{(}\DecValTok{100}\OperatorTok{*}\StringTok{ }\KeywordTok{coef}\NormalTok{(diagdepbr),}\DecValTok{1}\NormalTok{)}
 \end{Highlighting}
@@ -1554,7 +1383,7 @@ Para o país por sexo:
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-46}Proporção de diagnóstico de depressão por sexo}
+\caption{\label{tab:unnamed-chunk-41}Proporção de diagnóstico de depressão por sexo}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
@@ -1570,7 +1399,7 @@ Por situação (rural e urbano)
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-47}Proporção de diagnóstico de depressão por situação}
+\caption{\label{tab:unnamed-chunk-42}Proporção de diagnóstico de depressão por situação}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
@@ -1586,7 +1415,7 @@ Por Unidade da Federação:
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-49}Proporção de diagnóstico de depressão por uf}
+\caption{\label{tab:unnamed-chunk-44}Proporção de diagnóstico de depressão por uf}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
@@ -1636,7 +1465,7 @@ instrução.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pes_all_des_pos <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/PNS/2013 all questionnaire survey design.rds"}\NormalTok{)}
+\NormalTok{pes_all.calib <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/PNS/2013 all questionnaire survey design.rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1663,7 +1492,7 @@ Imprime tabela:
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-55}Proporção de pessoas com seguro de saúde por nível de instrução}
+\caption{\label{tab:unnamed-chunk-50}Proporção de pessoas com seguro de saúde por nível de instrução}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
@@ -1696,7 +1525,181 @@ Gráfico de barras usando a library \texttt{ggplot2} \citep{R-ggplot2}:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{01-Cap1_files/figure-latex/unnamed-chunk-56-1.pdf}
+\includegraphics{01-Cap1_files/figure-latex/unnamed-chunk-51-1.pdf}
+
+\section{Apêndice: Estimativa do efeito de plano amostral
+(EPA)}\label{apendice-estimativa-do-efeito-de-plano-amostral-epa}
+
+Esse assunto será tratado em detalhes no Capítulo \ref{epa} . Por
+enquanto, apresentaremos uma introdução necessária para compreender os
+valores na Tabela \ref{tab:epas}.
+
+O efeito de plano amostral (EPA) de Kish é definido na fórmula
+\eqref{eq:epa1}. Vamos considerar o caso particular em que
+\(\hat{\theta}\) é um estimador de total de uma variável \(Y\).Ou seja
+\[
+EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
+\]
+
+Na definição do EPA, a estimativa do numerador pode ser obtida usando-se
+a library \texttt{survey} \citep{R-survey}, a partir do objeto de
+\texttt{ppv.se.plan} que incorpora as características do plano amostral
+utilizado para coletar os dados. Não é possível estimar diretamente o
+denominador, pois o plano amostral AAS (Amostragem Aleatória Simples)
+não foi adotado na coleta dos dados. Devemos estimar o denominador a
+partir de dados obtidos através do plano amostral VERD, como se eles
+tivessem sido obtidos através de AAS.
+
+Supondo conhecido o tamanho da população \(N\) e a fração amostral
+\(f=n/N\) pequena, a estimativa da variância de \(\widehat{Y}\) é dada
+na expressão \eqref{eq:estpa9} \[
+\widehat{V}_{AAS}\left(\widehat{Y}\right)=N^2\frac{\widehat{S}_y}{n-1}
+\] onde
+\(\widehat{S}_y= n^{-1}\sum_{i\in s}\left(y_i-\overline{y}\right)^2\) é
+a estimativa de
+\(S_y=N^{-1}\sum_{i\in U}\left(y_i-\overline{Y}\right)^2\), com
+\(\overline{Y}=N^{-1}Y\).
+
+No lugar dessa estimativa, vamos utilizar os pesos do plano amostral
+verdadeiro para estimar \(S_y\). Vamos ainda estimar \(N\), em geral é
+desconhecido, por \(\widehat{N}=\sum_{i \in s} w_i\). Dessa forma
+obtemos a estimativa
+
+\begin{eqnarray*}
+\widehat{V}_{w-AAS}\left(\widehat{Y}\right)&=& \widehat{N}^2\left[\sum_{i \in s}w_i\left(y_i-\overline{y}\right)^2/\widehat{N}\right]/(n-1)\\
+&=&\frac{\widehat{N}}{n-1}\left[\sum_{i \in s}w_iy_i^2-\left(\sum_{i \in s}w_iy_i\right)^2/\widehat{N}\right],
+\end{eqnarray*}
+
+onde \(\overline{y}=\sum_{i \in s}w_iy_i/n\).
+
+A expressão acima pode ser calculada facilmente através da seguinte
+função do R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Vwaas<-}\ControlFlowTok{function}\NormalTok{(y,w)}
+\NormalTok{\{}
+\CommentTok{#função auxiliar usada em outras funções}
+\CommentTok{#entrada:}
+\CommentTok{#y - valores de variavel na amostra;}
+\CommentTok{#w - pesos amostrais;}
+\CommentTok{#saida:  estimativa de variância de desenho para o total (segundo o SUDAAN)}
+
+\NormalTok{n1<-}\KeywordTok{length}\NormalTok{(y)}\OperatorTok{-}\DecValTok{1}
+\NormalTok{wsum<-}\KeywordTok{sum}\NormalTok{(y}\OperatorTok{*}\NormalTok{w)}
+\NormalTok{wsum2<-}\KeywordTok{sum}\NormalTok{((y}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{w)}
+\NormalTok{nhat<-}\KeywordTok{sum}\NormalTok{(w)}
+\NormalTok{vwaas<-(nhat}\OperatorTok{/}\NormalTok{n1)}\OperatorTok{*}\NormalTok{(wsum2}\OperatorTok{-}\NormalTok{wsum}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\NormalTok{nhat)}
+\NormalTok{vwaas}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Vamos utilizar a função \texttt{Vwaas} para estimar os valores de
+\texttt{Efeitos\ do\ Plano\ Amostral}das estimativas de totais
+apresentadas anteriormente. Consideremos o plano amostral
+\texttt{ppv.se.plan} anteriormente definido. Vamos usar a função
+\texttt{Vwaas} para obter uma estimativa da variância do total estimado
+da variável \texttt{analf1}. Todos os elementos os elementos necessários
+estão contidos no objeto \texttt{ppv.se.plan}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{VAAS1<-}\StringTok{ }\KeywordTok{Vwaas}\NormalTok{(ppv.se.plan}\OperatorTok{$}\NormalTok{variables[,}\StringTok{"analf1"}\NormalTok{],}\KeywordTok{weights}\NormalTok{(ppv.se.plan))}
+\NormalTok{VAAS2<-}\StringTok{ }\KeywordTok{Vwaas}\NormalTok{(ppv.se.plan}\OperatorTok{$}\NormalTok{variables[,}\StringTok{"analf2"}\NormalTok{],}\KeywordTok{weights}\NormalTok{(ppv.se.plan))}
+\end{Highlighting}
+\end{Shaded}
+
+O efeito de plano amostral da estimativa do total de \texttt{analf1}
+pode agora ser calculada por
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{attr}\NormalTok{(}\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\NormalTok{analf1, ppv.se.plan),}\StringTok{"var"}\NormalTok{)}\OperatorTok{/}\NormalTok{VAAS1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          analf1
+## analf1 2.054049
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{attr}\NormalTok{(}\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\NormalTok{analf2, ppv.se.plan),}\StringTok{"var"}\NormalTok{)}\OperatorTok{/}\NormalTok{VAAS2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         analf2
+## analf2 3.32324
+\end{verbatim}
+
+Esses valores do EPA coincidem com os obtidos acima através da library
+\texttt{survey}\citep{R-survey} e são distintos daqueles apresentados na
+Tabela \ref{tab:epas}. Para obter os valores correspondentes aos da
+Tabela \ref{tab:epas}, através da library
+\texttt{survey}\citep{R-survey}, vamos definir as variáveis:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{analf1.se<-}\KeywordTok{with}\NormalTok{(ppv1.dat,((v04a01}\OperatorTok{==}\DecValTok{2}\OperatorTok{|}\NormalTok{v04a02}\OperatorTok{==}\DecValTok{2}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(v02a08}\OperatorTok{>=}\DecValTok{7}\OperatorTok{&}\NormalTok{v02a08}\OperatorTok{<=}\DecValTok{14}\NormalTok{))}\OperatorTok{&}\NormalTok{(regiao}\OperatorTok{==}\DecValTok{2}\NormalTok{))}
+\NormalTok{analf2.se<-}\KeywordTok{with}\NormalTok{(ppv1.dat,((v04a01}\OperatorTok{==}\DecValTok{2}\OperatorTok{|}\NormalTok{v04a02}\OperatorTok{==}\DecValTok{2}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{(v02a08}\OperatorTok{>}\DecValTok{14}\NormalTok{))}\OperatorTok{&}\NormalTok{(regiao}\OperatorTok{==}\DecValTok{2}\NormalTok{))}
+\NormalTok{ppv.plan <-}\StringTok{ }\KeywordTok{update}\NormalTok{ (ppv.plan,}\DataTypeTok{analf1.se=}\NormalTok{analf1.se,}\DataTypeTok{analf2.se=}\NormalTok{analf2.se  )}
+\KeywordTok{svytotal}\NormalTok{(analf1.se,ppv.plan,}\DataTypeTok{deff=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        total      SE   DEff
+## [1,] 1174220  127982 2.6426
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{svytotal}\NormalTok{(analf2.se,ppv.plan,}\DataTypeTok{deff=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        total      SE   DEff
+## [1,] 4792344  318877 4.1667
+\end{verbatim}
+
+Ou, alternativamente,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\KeywordTok{I}\NormalTok{(}\KeywordTok{ifelse}\NormalTok{(regiao}\OperatorTok{==}\DecValTok{2}\NormalTok{,analf1,}\DecValTok{0}\NormalTok{)),ppv.plan,}\DataTypeTok{deff=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                                     total      SE   DEff
+## I(ifelse(regiao == 2, analf1, 0)) 1174220  127982 2.6426
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\KeywordTok{I}\NormalTok{(}\KeywordTok{ifelse}\NormalTok{(regiao}\OperatorTok{==}\DecValTok{2}\NormalTok{,analf2,}\DecValTok{0}\NormalTok{)),ppv.plan,}\DataTypeTok{deff=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                                     total      SE   DEff
+## I(ifelse(regiao == 2, analf2, 0)) 4792344  318877 4.1667
+\end{verbatim}
+
+Observe que as estimativas de variância para o desenho verdadeiro
+(numerador do EPA) são iguais quando usamos: a variável
+\texttt{analf1.se} com o objeto de desenho \texttt{ppv.plan} ou a
+variável \texttt{analf1} com o objeto \texttt{ppv.se.plan}. Porém na
+estimativa do denominador do EPA, obtida a partir da função
+\texttt{Vwaas}, obtemos resultados diferentes quando usamos
+\texttt{analf1.se} ou \texttt{analf1}, com os pesos correspondentes. No
+segundo caso, a soma dos pesos não estima \(N\). Deve-se ter o cuidado,
+quando estimamos em um domínio, de trabalhar com pesos cuja soma seja um
+estimador do tamanho da população.
 
 \chapter{Referencial para Inferência}\label{refinf}
 
@@ -3557,7 +3560,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01207287
+## [1,] 0.01353499
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -5106,7 +5109,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1404682
+## [1] 0.1409347
 \end{verbatim}
 
 \begin{Shaded}
@@ -5117,7 +5120,7 @@ Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3086889
+## [1] 0.3297549
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
@@ -5152,8 +5155,8 @@ resultados da simulação:
 Quantidade\_de\_interesse & Salários & Receitas\\
 \midrule
 Média\_populacional\_Ybar & 78.32826 & 2.106846\\
-Média\_de\_ybar\_sobre\_ 500\_ amostras & 165.72956 & 4.285953\\
-Média\_de\_ybarw\_sobre\_500\_amostras & 78.89921 & 2.109562\\
+Média\_de\_ybar\_sobre\_ 500\_ amostras & 163.28824 & 4.281775\\
+Média\_de\_ybarw\_sobre\_500\_amostras & 77.90478 & 2.121751\\
 \bottomrule
 \end{tabular}
 
@@ -5177,9 +5180,9 @@ simulação:
 Quantidade\_de\_interesse & Salários & Receitas\\
 \midrule
 Variância\_populacional\_V\_AES(ybarw) & 244.1758 & 0.4349945\\
-Média\_de\_ Vhat\_AES(yvarw) & 242.9075 & 0.3891936\\
+Média\_de\_ Vhat\_AES(yvarw) & 232.9632 & 0.4252684\\
 Valor\_esperado\_de\_v0\_usando\_população & NA & NA\\
-Média\_de\_v0\_usando\_500\_amostras & 1729.2699 & 1.2607955\\
+Média\_de\_v0\_usando\_500\_amostras & 1652.9866 & 1.2896497\\
 \bottomrule
 \end{tabular}
 
