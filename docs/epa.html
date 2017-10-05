@@ -915,10 +915,10 @@ rec_res_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(rec.
 
 epa_sal1 &lt;-<span class="st"> </span>sal_res_mean[<span class="dv">4</span>]<span class="op">/</span>sal_res_mean[<span class="dv">3</span>]
 epa_sal1</code></pre></div>
-<pre><code>## [1] 0.1410037</code></pre>
+<pre><code>## [1] 0.1406066</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">epa_rec1 &lt;-<span class="st"> </span>rec_res_mean[<span class="dv">4</span>]<span class="op">/</span>rec_res_mean[<span class="dv">3</span>]
 epa_rec1</code></pre></div>
-<pre><code>## [1] 0.3865191</code></pre>
+<pre><code>## [1] 0.3526543</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira</span>
 vp_sal_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(sal<span class="op">~</span>estrat, popul, var)
@@ -949,13 +949,13 @@ knitr<span class="op">::</span><span class="kw">kable</span>(tab_<span class="dv
 </tr>
 <tr class="even">
 <td align="left">Média_de_ybar_sobre_ 500_ amostras</td>
-<td align="right">164.16907</td>
-<td align="right">4.255137</td>
+<td align="right">163.77020</td>
+<td align="right">4.198005</td>
 </tr>
 <tr class="odd">
 <td align="left">Média_de_ybarw_sobre_500_amostras</td>
-<td align="right">78.07310</td>
-<td align="right">2.127385</td>
+<td align="right">78.05939</td>
+<td align="right">2.090159</td>
 </tr>
 </tbody>
 </table>
@@ -983,8 +983,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(tab_<span class="dv
 </tr>
 <tr class="even">
 <td align="left">Média_de_ Vhat_AES(yvarw)</td>
-<td align="right">243.7640</td>
-<td align="right">0.5038275</td>
+<td align="right">243.2454</td>
+<td align="right">0.4356572</td>
 </tr>
 <tr class="odd">
 <td align="left">Valor_esperado_de_v0_usando_população</td>
@@ -993,8 +993,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(tab_<span class="dv
 </tr>
 <tr class="even">
 <td align="left">Média_de_v0_usando_500_amostras</td>
-<td align="right">1728.7768</td>
-<td align="right">1.3034994</td>
+<td align="right">1729.9712</td>
+<td align="right">1.2353661</td>
 </tr>
 </tbody>
 </table>
