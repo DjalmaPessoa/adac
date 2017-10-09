@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-10-05">
+<meta name="date" content="2017-10-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -546,24 +546,25 @@ ou
 <li>faixa - variável indicadora de faixa etária entre 7 e 14 anos.</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
-<span class="kw">library</span>(anamco) <span class="co"># carrega dados</span>
+<span class="kw">library</span>(anamco) 
+ppv_dat &lt;-<span class="st"> </span>ppv <span class="co"># carrega dados</span>
 <span class="co"># cria objeto de desenho</span>
-ppv.des&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span>nsetor, <span class="dt">strata =</span> <span class="op">~</span>estratof,
-<span class="dt">data =</span> ppv, <span class="dt">nest =</span> <span class="ot">TRUE</span>, <span class="dt">weights =</span> <span class="op">~</span>pesof)
+ppv_plan&lt;-<span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span>nsetor, <span class="dt">strata =</span> <span class="op">~</span>estratof,
+<span class="dt">data =</span> ppv_dat, <span class="dt">nest =</span> <span class="ot">TRUE</span>, <span class="dt">weights =</span> <span class="op">~</span>pesof)
 <span class="co"># atualiza objeto de desenho com novas variáveis</span>
-ppv.des&lt;-<span class="kw">update</span>(ppv.des,
+ppv_plan&lt;-<span class="kw">update</span>(ppv_plan,
   <span class="dt">analf=</span>(v04a01 <span class="op">==</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span>v04a02 <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>,
   <span class="dt">faixa=</span>(v02a08 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>v02a08 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">14</span>) <span class="op">*</span><span class="dv">1</span>,
   <span class="dt">analf.faixa=</span> (analf<span class="op">==</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>faixa<span class="op">==</span><span class="dv">1</span>)<span class="op">*</span><span class="dv">1</span>
 )</code></pre></div>
 <p>Como estamos interessados em estimativas relativas à Região Sudeste, vamos restringir o desenho a esse domínio:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.des &lt;-<span class="st"> </span><span class="kw">subset</span>(ppv.des, regiao <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv_se_plan &lt;-<span class="st"> </span><span class="kw">subset</span>(ppv_plan, regiao <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
 <p>Vamos estimar os totais das variáveis <code>analf.faixa</code> e <code>faixa</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tot.est&lt;-<span class="kw">svytotal</span>(<span class="op">~</span>analf.faixa<span class="op">+</span>faixa ,ppv.se.des )
-Vcov.Y1.Y2&lt;-<span class="kw">vcov</span>(tot.est) </code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">analf_faixa_tot_est&lt;-<span class="kw">svytotal</span>(<span class="op">~</span>analf.faixa<span class="op">+</span>faixa ,ppv_se_plan )
+Vcov.Y1.Y2&lt;-<span class="kw">vcov</span>(analf_faixa_tot_est) </code></pre></div>
 <p>Substituindo os valores na expressão <a href="capplanamo.html#eq:estpa21">(3.21)</a>, obtemos a estimativa da variância da razão de totais das variáveis <code>analf.faixa</code> e <code>faixa</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y1hat&lt;-<span class="kw">coef</span>(tot.est)[<span class="dv">1</span>]
-y2hat&lt;-<span class="kw">coef</span>(tot.est)[<span class="dv">2</span>]
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y1hat&lt;-<span class="kw">coef</span>(analf_faixa_tot_est)[<span class="dv">1</span>]
+y2hat&lt;-<span class="kw">coef</span>(analf_faixa_tot_est)[<span class="dv">2</span>]
 Var.raz&lt;-(<span class="dv">1</span><span class="op">/</span>y2hat)<span class="op">*</span>(<span class="dv">1</span><span class="op">/</span>y2hat)<span class="op">*</span>Vcov.Y1.Y2[<span class="dv">1</span>,<span class="dv">1</span>]<span class="op">+</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span>y2hat)<span class="op">*</span>(<span class="op">-</span>y1hat<span class="op">/</span>y2hat<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>Vcov.Y1.Y2[<span class="dv">1</span>,<span class="dv">2</span>]<span class="op">+</span>
 (<span class="op">-</span>y1hat<span class="op">/</span>y2hat<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>(<span class="op">-</span>y1hat<span class="op">/</span>y2hat<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>Vcov.Y1.Y2[<span class="dv">2</span>,<span class="dv">2</span>]
 <span class="co"># estimativa do desvio-padrão</span>
@@ -571,8 +572,8 @@ Var.raz&lt;-(<span class="dv">1</span><span class="op">/</span>y2hat)<span class
 <pre><code>##      faixa 
 ## 0.01178896</code></pre>
 <p>Podemos calcular diretamente o desvio-padrão:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyratio</span>(<span class="op">~</span>analf.faixa, <span class="op">~</span>faixa, ppv.se.des)</code></pre></div>
-<pre><code>## Ratio estimator: svyratio.survey.design2(~analf.faixa, ~faixa, ppv.se.des)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyratio</span>(<span class="op">~</span>analf.faixa, <span class="op">~</span>faixa, ppv_se_plan)</code></pre></div>
+<pre><code>## Ratio estimator: svyratio.survey.design2(~analf.faixa, ~faixa, ppv_se_plan)
 ## Ratios=
 ##                faixa
 ## analf.faixa 0.118689
@@ -580,10 +581,10 @@ Var.raz&lt;-(<span class="dv">1</span><span class="op">/</span>y2hat)<span class
 ##                  faixa
 ## analf.faixa 0.01178896</code></pre>
 <p>A estimativa do desvio-padrão obtida por meio da função <code>svyratio</code> coincide com a obtida diretamente pelo método de linearização, e é igual a 0.01179. O método default para estimar variâncias usado pela library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> do R é o de linearização de Taylor.</p>
-<p>A library <code>survey</code> dispõe de métodos alternativos para a estimação de variância. Vamos utilizar os métodos de replicação de <em>Jackknife</em> e de <em>Bootstrap</em> para estimar esta variância de razão. Inicialmente, vamos converter o objeto de desenho <code>ppv1.se.design</code> em um objeto de desenho de replicação de tipo <em>Jackknife</em>, contendo as réplicas de pesos que fornecem correspondentes réplicas de estimativas.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.des.jkn&lt;-<span class="kw">as.svrepdesign</span>(ppv.se.des,<span class="dt">type=</span><span class="st">&quot;JKn&quot;</span>)
-<span class="kw">svyratio</span>(<span class="op">~</span>analf.faixa, <span class="op">~</span>faixa, ppv.se.des.jkn)</code></pre></div>
-<pre><code>## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv.se.des.jkn)
+<p>A library <code>survey</code> dispõe de métodos alternativos para a estimação de variância. Vamos utilizar os métodos de replicação de <em>Jackknife</em> e de <em>Bootstrap</em> para estimar esta variância de razão. Inicialmente, vamos converter o objeto de desenho <code>ppv1_se_plan</code> em um objeto de desenho de replicação de tipo <em>Jackknife</em>, contendo as réplicas de pesos que fornecem correspondentes réplicas de estimativas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv_se_plan_jkn&lt;-<span class="kw">as.svrepdesign</span>(ppv_se_plan,<span class="dt">type=</span><span class="st">&quot;JKn&quot;</span>)
+<span class="kw">svyratio</span>(<span class="op">~</span>analf.faixa, <span class="op">~</span>faixa, ppv_se_plan_jkn)</code></pre></div>
+<pre><code>## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv_se_plan_jkn)
 ## Ratios=
 ##                faixa
 ## analf.faixa 0.118689
@@ -591,63 +592,63 @@ Var.raz&lt;-(<span class="dv">1</span><span class="op">/</span>y2hat)<span class
 ##            [,1]
 ## [1,] 0.01181434</code></pre>
 <p>Para o tipo <em>Bootstrap</em>, temos:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se.des.boot&lt;-<span class="kw">as.svrepdesign</span>(ppv.se.des,<span class="dt">type=</span><span class="st">&quot;bootstrap&quot;</span>)
-<span class="kw">svyratio</span>(<span class="op">~</span>analf.faixa, <span class="op">~</span>faixa, ppv.se.des.boot)</code></pre></div>
-<pre><code>## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv.se.des.boot)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv_se_plan_boot&lt;-<span class="kw">as.svrepdesign</span>(ppv_se_plan,<span class="dt">type=</span><span class="st">&quot;bootstrap&quot;</span>)
+<span class="kw">svyratio</span>(<span class="op">~</span>analf.faixa, <span class="op">~</span>faixa, ppv_se_plan_boot)</code></pre></div>
+<pre><code>## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv_se_plan_boot)
 ## Ratios=
 ##                faixa
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01052315</code></pre>
-<p>Vamos apresentar mais detalhes sobre a obtenção dos estimadores de <em>Jackknife</em> e <em>Bootstrap</em> na library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. A classe do objeto <code>ppv.se.des.jkn</code> é <code>svyrep.design</code> e ele contém as seguintes componentes:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(ppv.se.des.jkn)</code></pre></div>
+## [1,] 0.01244016</code></pre>
+<p>Vamos apresentar mais detalhes sobre a obtenção dos estimadores de <em>Jackknife</em> e <em>Bootstrap</em> na library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. A classe do objeto <code>ppv_se_plan_jkn</code> é <code>svyrep.design</code> e ele contém as seguintes componentes:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(ppv_se_plan_jkn)</code></pre></div>
 <pre><code>## [1] &quot;svyrep.design&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(ppv.se.des.jkn)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(ppv_se_plan_jkn)</code></pre></div>
 <pre><code>##  [1] &quot;repweights&quot;       &quot;pweights&quot;         &quot;type&quot;            
 ##  [4] &quot;rho&quot;              &quot;scale&quot;            &quot;rscales&quot;         
 ##  [7] &quot;call&quot;             &quot;combined.weights&quot; &quot;selfrep&quot;         
 ## [10] &quot;mse&quot;              &quot;variables&quot;        &quot;degf&quot;</code></pre>
 <p>A componente <code>repweights</code> é uma lista com duas componentes: <code>weights</code> e <code>index</code>. A componente <code>weights</code> é uma matriz de dimensão <span class="math inline">\(276 \times 276\)</span>, onde <span class="math inline">\(276\)</span> é o número de conglomerados primários do plano amostral da PPV na região Sudeste. A partir desta matriz, podemos obter <span class="math inline">\(276\)</span> réplicas de pesos de desenho de Jackknife.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv.se&lt;-ppv.se.des.jkn<span class="op">$</span>variables
-<span class="kw">nrow</span>(ppv.se)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv_se_dat&lt;-ppv_se_plan_jkn<span class="op">$</span>variables
+<span class="kw">nrow</span>(ppv_se_dat)</code></pre></div>
 <pre><code>## [1] 8903</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ncong&lt;-<span class="kw">sum</span>(<span class="kw">with</span>(ppv.se,<span class="kw">tapply</span>( nsetor,estratof, <span class="cf">function</span>(t) <span class="kw">length</span>(<span class="kw">unique</span>(t)))))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ncong&lt;-<span class="kw">sum</span>(<span class="kw">with</span>(ppv_se_dat,<span class="kw">tapply</span>( nsetor,estratof, <span class="cf">function</span>(t) <span class="kw">length</span>(<span class="kw">unique</span>(t)))))
 ncong</code></pre></div>
 <pre><code>## [1] 276</code></pre>
 <p>O argumento <code>compress</code> da função <code>as.svrepdesign</code> permite especificar se, na saída da função, a matriz <code>weights</code> será na forma comprimida ou não. Na aplicação feita foi usado o valor default que é a forma comprimida. A forma não comprimida da matriz <code>weights</code> tem 8903 linhas e 276 colunas. A forma comprimida permite economizar memória, e pode ser facilmente convertida para a forma não comprimida, utilizando-se a componente<code>index</code>.</p>
-<p>No método jackknife, cada um dos conglomerados primários é removido, e a réplica correspondente dos pesos é o produto do peso amostral original por um fator apropriado, definido da forma a seguir. Suponhamos que foi removido um conglomerado no estrato <span class="math inline">\(h\)</span>, então os pesos do plano amostral serão multiplicados por:</p>
+<p>No método <em>jackknife</em>, cada um dos conglomerados primários é removido, e a réplica correspondente dos pesos é o produto do peso amostral original por um fator apropriado, definido da forma a seguir. Suponhamos que foi removido um conglomerado no estrato <span class="math inline">\(h\)</span>, então os pesos do plano amostral serão multiplicados por:</p>
 <ul>
 <li><span class="math inline">\(0\)</span> para as unidades no conglomerado removido;</li>
 <li><span class="math inline">\(m_h/(m_h-1)\)</span> para unidades pertencentes a outros conglomerados do estrato <span class="math inline">\(h\)</span>;</li>
 <li><span class="math inline">\(1\)</span> para unidades em estratos <span class="math inline">\(h&#39;\neq h\)</span>.</li>
 </ul>
 <p>Podemos obter a matriz de fatores de correção do peso amostral na forma não comprimida da seguinte maneira:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fact.peso.comp&lt;-ppv.se.des.jkn<span class="op">$</span>repweights[[<span class="dv">1</span>]]
-ind.cong&lt;-ppv.se.des.jkn<span class="op">$</span>repweights[[<span class="dv">2</span>]]
-mat.fat.pesos&lt;-<span class="st"> </span>fact.peso.comp[ind.cong,]
-<span class="kw">str</span>(mat.fat.pesos)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fact_peso_comp_mat&lt;-ppv_se_plan_jkn<span class="op">$</span>repweights[[<span class="dv">1</span>]]
+ind_cong &lt;-ppv_se_plan_jkn<span class="op">$</span>repweights[[<span class="dv">2</span>]]
+fat_pesos_mat&lt;-<span class="st"> </span>fact_peso_comp_mat[ind_cong,]
+<span class="kw">str</span>(fat_pesos_mat)</code></pre></div>
 <pre><code>##  num [1:8903, 1:276] 0 0 1.06 1.06 1.06 ...</code></pre>
 <p>Podemos obter matriz de réplicas de pesos multiplicando cada coluna dessa matriz pelos pesos do plano amostra:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat.rep.pesos&lt;-<span class="kw">weights</span>(ppv.se.des)<span class="op">*</span>mat.fat.pesos</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rep_pesos_mat&lt;-<span class="kw">weights</span>(ppv_se_plan)<span class="op">*</span>fat_pesos_mat</code></pre></div>
 <p>Utilizando esta matriz de réplicas de pesos, podemos obter réplicas correspondentes de estimativas da razão.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rep.est.raz&lt;-<span class="kw">numeric</span>(<span class="kw">ncol</span>(mat.rep.pesos))
-<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(mat.rep.pesos)){
-rep.est.raz[i]&lt;-<span class="kw">sum</span>(mat.rep.pesos[,i]<span class="op">*</span>ppv.se<span class="op">$</span>analf.faixa)<span class="op">/</span><span class="kw">sum</span>(mat.rep.pesos[,i]<span class="op">*</span>ppv.se<span class="op">$</span>faixa)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rep_est_raz&lt;-<span class="kw">numeric</span>(<span class="kw">ncol</span>(rep_pesos_mat))
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(rep_pesos_mat)){
+rep_est_raz[i]&lt;-<span class="kw">sum</span>(rep_pesos_mat[,i]<span class="op">*</span>ppv_se_dat<span class="op">$</span>analf.faixa)<span class="op">/</span><span class="kw">sum</span>(rep_pesos_mat[,i]<span class="op">*</span>ppv_se_dat<span class="op">$</span>faixa)
 }</code></pre></div>
 <p>A partir destas réplicas de estimativas da razão, finalmente estimamos a variância:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean.raz&lt;-<span class="kw">mean</span>( rep.est.raz[ppv.se.des.jkn<span class="op">$</span>rscales<span class="op">&gt;</span><span class="dv">0</span>])
-var.jack.raz&lt;-<span class="st"> </span><span class="kw">sum</span>((rep.est.raz<span class="op">-</span>mean.raz)<span class="op">^</span><span class="dv">2</span><span class="op">*</span>ppv.se.des.jkn<span class="op">$</span>rscales)<span class="op">*</span>ppv.se.des.jkn<span class="op">$</span>scale
-<span class="kw">round</span>(<span class="kw">sqrt</span>(var.jack.raz),<span class="dv">5</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_raz&lt;-<span class="kw">mean</span>( rep_est_raz[ppv_se_plan_jkn<span class="op">$</span>rscales<span class="op">&gt;</span><span class="dv">0</span>])
+var_jack_raz&lt;-<span class="st"> </span><span class="kw">sum</span>((rep_est_raz<span class="op">-</span>mean_raz)<span class="op">^</span><span class="dv">2</span><span class="op">*</span>ppv_se_plan_jkn<span class="op">$</span>rscales)<span class="op">*</span>ppv_se_plan_jkn<span class="op">$</span>scale
+<span class="kw">round</span>(<span class="kw">sqrt</span>(var_jack_raz),<span class="dv">5</span>)</code></pre></div>
 <pre><code>## [1] 0.01181</code></pre>
 <p>A library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> fornece uma função para estimar a variância de uma função de totais a partir das réplicas de pesos:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">var.raz.rep&lt;-<span class="kw">withReplicates</span>(ppv.se.des.jkn, <span class="cf">function</span>(w,ppv.se) <span class="kw">sum</span>(w<span class="op">*</span>ppv.se<span class="op">$</span>analf.faixa)<span class="op">/</span><span class="kw">sum</span>(w<span class="op">*</span>ppv.se<span class="op">$</span>faixa))
-var.raz.rep </code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">var_raz_rep&lt;-<span class="kw">withReplicates</span>(ppv_se_plan_jkn, <span class="cf">function</span>(w,ppv_se_dat) <span class="kw">sum</span>(w<span class="op">*</span>ppv_se_dat<span class="op">$</span>analf.faixa)<span class="op">/</span><span class="kw">sum</span>(w<span class="op">*</span>ppv_se_dat<span class="op">$</span>faixa))
+var_raz_rep </code></pre></div>
 <pre><code>##        theta     SE
 ## [1,] 0.11869 0.0118</code></pre>
 <p>Resultado que coincide com a estimativa obtida pela aplicação da função <code>svyratio</code>.</p>
 <p>A vantagem de utilizar métodos de replicação é a facilidade com que estimamos a variância de qualquer característica da população, cujo estimador pontual é conhecido. Por exemplo, se quisermos estimar a variância da razão das taxas de analfabetos nas faixas etárias de 0 a 14 anos e acima de 14 anos podemos usar as mesmas réplicas de pesos:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">withReplicates</span>(ppv.se.des.jkn,<span class="cf">function</span>(w,ppv.se) <span class="kw">with</span>(ppv.se,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">withReplicates</span>(ppv_se_plan_jkn,<span class="cf">function</span>(w,ppv_se_dat) <span class="kw">with</span>(ppv_se_dat,
 (<span class="kw">sum</span>(w<span class="op">*</span>(analf<span class="op">==</span><span class="dv">1</span><span class="op">&amp;</span>faixa<span class="op">==</span><span class="dv">1</span>))<span class="op">/</span><span class="kw">sum</span>(faixa<span class="op">==</span><span class="dv">1</span>))<span class="op">/</span>(<span class="kw">sum</span>(w<span class="op">*</span>(analf<span class="op">==</span><span class="dv">1</span><span class="op">&amp;</span>faixa<span class="op">==</span><span class="dv">0</span>))<span class="op">/</span><span class="kw">sum</span>(faixa<span class="op">==</span><span class="dv">0</span>))))</code></pre></div>
 <pre><code>##        theta     SE
 ## [1,] 0.50623 0.0494</code></pre>

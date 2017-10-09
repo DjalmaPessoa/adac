@@ -432,16 +432,16 @@ são apresentadas na linha 4 da Tabela  \@ref(tab:varest). Os valores para o
 $\mathbf{EPA}$ foram calculados tanto com base nas estimativas de simulação como nos valores populacionais das variâncias, cujos cálculos estão ilustrados a seguir:
 
 \begin{eqnarray*}
-\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right) &=&\frac{231,84}{1.636,1}=0,142 \\
+\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right) &=&\frac{231.84}{1636.1}=0.142 \\
 \mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
-\right) &=&\frac{0,32569}{1,2121}=0,269
+\right) &=&\frac{0.32569}{1.2121}=0.269
 \end{eqnarray*}
 
 \begin{eqnarray*}
 \mathbf{EPA}\left( \overline{SAL}_{w},v_{0}\left( \overline{SAL}_{w}\right)
-\right) &=&\frac{244,18}{1.613,3}=0,151\mbox{ e } \\
+\right) &=&\frac{244.18}{1613.3}=0.151\mbox{ e } \\
 \mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
-\right) &=&\frac{0,43500}{1,1880}=0,366.
+\right) &=&\frac{0.43500}{1.1880}=0.366.
 \end{eqnarray*}
 
 A Tabela \@ref(tab:eparec) resume os principais resultados deste exercício,
@@ -829,15 +829,15 @@ U_{h}}\left( SAL_{hi}-\overline{SAL}_{h}\right) \left( REC_{hi}-\overline{REC
 Substituindo os valores conhecidos na população das variáveis 
 $SAL_{hi}$ e $REC_{hi}$, obtemos para esta covariância o valor 
 \[
-COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3,2358
+COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
 \]
 e portanto a matriz de variância dos estimadores ponderados da média
 fica igual a 
 \begin{equation}
 \mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}
 \left[ \begin{array}{rr}
-244,18 & 3,2358 \\ 
-3,2358 & 0,4350
+244.18 & 3.2358 \\ 
+3.2358 & 0.4350
 \end{array}
 \right]   (\#eq:epa7)
 \end{equation}
@@ -873,8 +873,8 @@ A partir da simulação foram obtidos os seguintes resultados:
 \begin{equation}
 \mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) =\left[ 
 \begin{array}{rr}
-1785,3 & 27,734 \\ 
-27,734 & 1,2852
+1785.3 & 27.734 \\ 
+27.734 & 1.2852
 \end{array}
 \right],  (\#eq:epa8)
 \end{equation}
@@ -882,8 +882,8 @@ A partir da simulação foram obtidos os seguintes resultados:
 \begin{equation}
 \mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
 \begin{array}{rr}
-250,41 & 3,2683 \\ 
-3,2683 & 0,42267
+250.41 & 3.2683 \\ 
+3.2683 & 0.42267
 \end{array}
 \right] \mbox{ e }  (\#eq:epa9)
 \end{equation}
@@ -892,8 +892,8 @@ A partir da simulação foram obtidos os seguintes resultados:
 \mathbf{\Delta =}\left[ \mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) \right]
 ^{-1}\mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
 \begin{array}{rr}
-0,1516 & -4,931 \\ 
--0,0007277 & 0,4353
+0.1516 & -4.931 \\ 
+-0.0007277 & 0.4353
 \end{array}
 \right] \;\;.  (\#eq:epa10)
 \end{equation}
@@ -1018,84 +1018,86 @@ de 5% assumindo autovalores iguais para delta.")
 
 ## Laboratório de R
 
-Vale a pena incluir as contas que não dependem da simulação?
-
-Exemplo \@ref(exm:deffuni) Parte de simulação do exemplo para salários.
+Utilizando o R, obtemos a seguir alguns resultados descritos no Exemplo \@ref(exm:deffuni).
 
 ```{r, message=FALSE, warning=FALSE }
 library(survey)
 # carrega dados
 library(anamco)
-data(popul)
+popul_dat <- popul
+names(popul_dat)
 ```
 
 ```{r}
-N<-nrow(popul)
+N<-nrow(popul_dat)
 n1<-30; n2<-30
 nh=c(n1,n2)
 n<-sum(nh)
-Nh<-table(popul$estrat)
+Nh<-table(popul_dat$estrat)
 fh<-nh/Nh ; Wh<-Nh/N ; f<- n/N
 ``` 
 
 
-Nessa simulação usamos a library `sampling` [@R-sampling] (incluir?)
+Na simulação, usamos a library `sampling` [@R-sampling] para gerar amostras estratificadas de tamanho 30, com estratos definidos na Tabela \@ref(tab:estempr), para reproduzir os elementos das Tabelas \@ref(tab:proestmed)
+e \@ref(tab:varest). 
 
 
 
 ```{r, message=FALSE, warning=FALSE}
-sal.mat.res<-matrix(NA,500,4)
-rec.mat.res<-matrix(NA,500,4)
-popul$sal <- popul$sal/1000
-popul$rec <- popul$rec/1000000
+# cria matrizes para serem preenchidas
+mat_sal_est<-matrix(NA,500,4)
+mat_rec_est<-matrix(NA,500,4)
+# muda escala de salários e receitas
+popul_dat$sal <- popul_dat$sal/1000
+popul_dat$rec <- popul_dat$rec/1000000
 library(sampling)
-#Geracão dos dados
+set.seed(123)
+# gera amostras com dois estratos de tamanho 30
 for(i in 1:500){
-s<-strata(popul, "estrat",c(30,30),method= "srswor")
-dados<-getdata(popul,s)
+s<-strata(popul_dat, "estrat",c(30,30),method= "srswor")
+dados<-getdata(popul_dat,s)
 # média amostral de salário e de receita
-sal_med_y<-mean(dados$sal)
-rec_med_y<-mean(dados$rec)
+sal_med_aas_est<-mean(dados$sal)
+rec_med_aas_est<-mean(dados$rec)
 # estimador v0
 sal_var_aas<-(1-f)*var(dados$sal)/n
 rec_var_aas<-(1-f)*var(dados$rec)/n
 # vhat_aes estimador não-viciado
-desenho<-svydesign(~1,strata=~estrat,data=dados,fpc=~Prob)
+popul_plan<-svydesign(~1,strata=~estrat,data=dados,fpc=~Prob)
 # estimador não-viciado da média de  salario e receita
-sal_med_yw<-svymean(~sal,desenho) 
-rec_med_yw<-svymean(~rec,desenho)
-sal.mat.res[i,]<-c(sal_med_y,coef(sal_med_yw),sal_var_aas,SE(sal_med_yw)^2)
-rec.mat.res[i,]<-c(rec_med_y,coef(rec_med_yw),rec_var_aas,SE(rec_med_yw)^2)
+sal_med_aes_est<-svymean(~sal,popul_plan) 
+rec_med_aes_est<-svymean(~rec,popul_plan)
+mat_sal_est[i,]<-c(sal_med_aas_est,coef(sal_med_aes_est),sal_var_aas,SE(sal_med_aes_est)^2)
+mat_rec_est[i,]<-c(rec_med_aas_est,coef(rec_med_aes_est),rec_var_aas,SE(rec_med_aes_est)^2)
 }
 # 1-media de ybar; 2- média de ybar_w; 3- média de v0; 4- média de vhat_aes
-sal_res_mean <-colMeans(sal.mat.res)
-rec_res_mean <- colMeans(rec.mat.res)
+sal_est_mean <-colMeans(mat_sal_est)
+rec_est_mean <- colMeans(mat_rec_est)
 # epa = média de vhat_aes/ média de v0
 
-epa_sal1 <- sal_res_mean[4]/sal_res_mean[3]
-epa_sal1
-epa_rec1 <- rec_res_mean[4]/rec_res_mean[3]
-epa_rec1
+sal_mean_epa_est <- sal_est_mean[4]/sal_est_mean[3]
+sal_mean_epa_est
+rec_mean_epa_est <- rec_est_mean[4]/rec_est_mean[3]
+rec_mean_epa_est
 ```
 Usando a fórmula \@ref(eq:epa3)
 
 ```{r}
-# variância sob distr. de aleatorização verdadeira
-vp_sal_h <- aggregate(sal~estrat, popul, var)
-vp_rec_h <- aggregate(rec~estrat, popul, var)
+# variância sob distr. de aleatorização verdadeira 
+vp_sal_h <- aggregate(sal ~ estrat, popul_dat, var)
+vp_rec_h <- aggregate(rec ~ estrat, popul_dat, var)
 vp_sal <- sum(Wh^2*(1-fh)*vp_sal_h[,"sal"]/nh)
 vp_rec <- sum(Wh^2*(1-fh)*vp_rec_h[,"rec"]/nh)
-
 ```
 
 A seguir, reproduzimos a Tabela \@ref(tab:proestmed), usando os resultados da simulação:
 
 ```{r}
 tab_43 <- data.frame(
-Quantidade_de_interesse = c("Média_populacional_Ybar", "Média_de_ybar_sobre_ 500_ amostras",
-  "Média_de_ybarw_sobre_500_amostras"),
-Salários = c(mean(popul$sal), sal_res_mean[1],sal_res_mean[2] ),
-Receitas = c(mean(popul$rec),rec_res_mean[1],rec_res_mean[2] )  
+"Quantidade de interesse" = c("Média Populacional", "Média de estimativas de média AAS",
+  "Média de estimativas de média AES"),
+Salários = c(mean(popul_dat$sal), sal_est_mean[1], sal_est_mean[2] ),
+Receitas = c(mean(popul_dat$rec), rec_est_mean[1], rec_est_mean[2] )  
 )
 knitr::kable(tab_43, booktabs=TRUE )    
 ```
@@ -1104,13 +1106,27 @@ A seguir reproduzimos a Tabela \@ref(tab:varest), usando os resultados da simula
 
 ```{r}
 tab_44 <- data.frame(
-Quantidade_de_interesse = c("Variância_populacional_V_AES(ybarw)", "Média_de_ Vhat_AES(yvarw)",
-"Valor_esperado_de_v0_usando_população","Média_de_v0_usando_500_amostras"),
-Salários= c(vp_sal, sal_res_mean[4], NA, sal_res_mean[3]),
-Receitas = c(vp_rec, rec_res_mean[4], NA, rec_res_mean[3])  
+"Quantidade de interesse" = c("Variância do estimador AES", "Média de estimativas de variância AES",
+"Valor esperado AES do estimador AAS de variância","Média de estimativas de variância AAS"),
+Salários= c(vp_sal, sal_est_mean[4], NA, sal_est_mean[3]),
+Receitas = c(vp_rec, rec_est_mean[4], NA, rec_est_mean[3])  
  )
 knitr::kable(tab_44, booktabs= TRUE)
 ```
+
+
+Resultados do Exemplo \@ref(exm:deffmult):
+
+
+```{r}
+# matriz de covariância dos estimadores ponderados da média
+mat_cov_pop <- by(popul_dat, popul_dat$estrat, function(t)var(cbind(t$sal,t$rec)) )
+
+(Wh[1]^2*(1-fh[1])/nh[1])*mat_cov_pop[[1]]+(Wh[2]^2*(1-fh[2])/nh[2])*mat_cov_pop[[2]]
+```
+
+
+
 
 
 
