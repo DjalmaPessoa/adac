@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-10-07">
+<meta name="date" content="2017-10-09">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -886,55 +886,58 @@ n&lt;-<span class="kw">sum</span>(nh)
 Nh&lt;-<span class="kw">table</span>(popul_dat<span class="op">$</span>estrat)
 fh&lt;-nh<span class="op">/</span>Nh ; Wh&lt;-Nh<span class="op">/</span>N ; f&lt;-<span class="st"> </span>n<span class="op">/</span>N</code></pre></div>
 <p>Na simulação, usamos a library <code>sampling</code> <span class="citation">(Tillé and Matei <a href="#ref-R-sampling">2016</a>)</span> para gerar amostras estratificadas de tamanho 30, com estratos definidos na Tabela <a href="epa.html#tab:estempr">4.2</a>, para reproduzir os elementos das Tabelas <a href="epa.html#tab:proestmed">4.3</a> e <a href="epa.html#tab:varest">4.4</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cria matrizes para serem preenchidas</span>
-mat_sal_est&lt;-<span class="kw">matrix</span>(<span class="ot">NA</span>,<span class="dv">500</span>,<span class="dv">4</span>)
-mat_rec_est&lt;-<span class="kw">matrix</span>(<span class="ot">NA</span>,<span class="dv">500</span>,<span class="dv">4</span>)
-<span class="co"># muda escala de salários e receitas</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># muda escala de salários e receitas</span>
 popul_dat<span class="op">$</span>sal &lt;-<span class="st"> </span>popul_dat<span class="op">$</span>sal<span class="op">/</span><span class="dv">1000</span>
 popul_dat<span class="op">$</span>rec &lt;-<span class="st"> </span>popul_dat<span class="op">$</span>rec<span class="op">/</span><span class="dv">1000000</span>
 <span class="kw">library</span>(sampling)
+<span class="co"># define espaços para salvar resultados</span>
+est_aas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)
+est_aes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)
+cov_mat_aas_est &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">2</span>)
+cov_mat_aes_est &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">2</span>)
 <span class="kw">set.seed</span>(<span class="dv">123</span>)
 <span class="co"># gera amostras com dois estratos de tamanho 30</span>
 <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">500</span>){
-s&lt;-<span class="kw">strata</span>(popul_dat, <span class="st">&quot;estrat&quot;</span>,<span class="kw">c</span>(<span class="dv">30</span>,<span class="dv">30</span>),<span class="dt">method=</span> <span class="st">&quot;srswor&quot;</span>)
+  s&lt;-<span class="kw">strata</span>(popul_dat, <span class="st">&quot;estrat&quot;</span>,<span class="kw">c</span>(<span class="dv">30</span>,<span class="dv">30</span>),<span class="dt">method=</span> <span class="st">&quot;srswor&quot;</span>)
 dados&lt;-<span class="kw">getdata</span>(popul_dat,s)
 <span class="co"># média amostral de salário e de receita</span>
-sal_med_aas_est&lt;-<span class="kw">mean</span>(dados<span class="op">$</span>sal)
-rec_med_aas_est&lt;-<span class="kw">mean</span>(dados<span class="op">$</span>rec)
+est_aas &lt;-<span class="st"> </span>est_aas<span class="op">+</span><span class="kw">c</span>(<span class="kw">mean</span>(dados<span class="op">$</span>sal), <span class="kw">mean</span>(dados<span class="op">$</span>rec))
 <span class="co"># estimador v0</span>
-sal_var_aas&lt;-(<span class="dv">1</span><span class="op">-</span>f)<span class="op">*</span><span class="kw">var</span>(dados<span class="op">$</span>sal)<span class="op">/</span>n
-rec_var_aas&lt;-(<span class="dv">1</span><span class="op">-</span>f)<span class="op">*</span><span class="kw">var</span>(dados<span class="op">$</span>rec)<span class="op">/</span>n
+cov_mat_aas_est &lt;-<span class="st"> </span>cov_mat_aas_est <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">-</span>f)<span class="op">*</span><span class="kw">cov</span>(<span class="kw">cbind</span>(dados<span class="op">$</span>sal, dados<span class="op">$</span>rec))<span class="op">/</span>n
+
 <span class="co"># vhat_aes estimador não-viciado</span>
 popul_plan&lt;-<span class="kw">svydesign</span>(<span class="op">~</span><span class="dv">1</span>,<span class="dt">strata=</span><span class="op">~</span>estrat,<span class="dt">data=</span>dados,<span class="dt">fpc=</span><span class="op">~</span>Prob)
 <span class="co"># estimador não-viciado da média de  salario e receita</span>
-sal_med_aes_est&lt;-<span class="kw">svymean</span>(<span class="op">~</span>sal,popul_plan) 
-rec_med_aes_est&lt;-<span class="kw">svymean</span>(<span class="op">~</span>rec,popul_plan)
-mat_sal_est[i,]&lt;-<span class="kw">c</span>(sal_med_aas_est,<span class="kw">coef</span>(sal_med_aes_est),sal_var_aas,<span class="kw">SE</span>(sal_med_aes_est)<span class="op">^</span><span class="dv">2</span>)
-mat_rec_est[i,]&lt;-<span class="kw">c</span>(rec_med_aas_est,<span class="kw">coef</span>(rec_med_aes_est),rec_var_aas,<span class="kw">SE</span>(rec_med_aes_est)<span class="op">^</span><span class="dv">2</span>)
+sal_rec_aes_est &lt;-<span class="st"> </span><span class="kw">svymean</span>(<span class="op">~</span>sal<span class="op">+</span>rec,popul_plan)
+est_aes &lt;-<span class="st"> </span>est_aes <span class="op">+</span><span class="st"> </span><span class="kw">coef</span>(sal_rec_aes_est)
+cov_mat_aes_est &lt;-<span class="st"> </span>cov_mat_aes_est<span class="op">+</span><span class="st"> </span><span class="kw">attr</span>(sal_rec_aes_est,<span class="st">&#39;var&#39;</span>)
 }
 <span class="co"># 1-media de ybar; 2- média de ybar_w; 3- média de v0; 4- média de vhat_aes</span>
-sal_est_mean &lt;-<span class="kw">colMeans</span>(mat_sal_est)
-rec_est_mean &lt;-<span class="st"> </span><span class="kw">colMeans</span>(mat_rec_est)
-<span class="co"># epa = média de vhat_aes/ média de v0</span>
 
-sal_mean_epa_est &lt;-<span class="st"> </span>sal_est_mean[<span class="dv">4</span>]<span class="op">/</span>sal_est_mean[<span class="dv">3</span>]
+mean_est_aas &lt;-<span class="st"> </span>est_aas<span class="op">/</span><span class="dv">500</span>
+mean_est_aes &lt;-<span class="st"> </span>est_aes<span class="op">/</span><span class="dv">500</span>
+mean_cov_mat_aas_est &lt;-<span class="st"> </span>cov_mat_aas_est<span class="op">/</span><span class="dv">500</span>
+mean_cov_mat_aes_est &lt;-<span class="st"> </span>cov_mat_aes_est<span class="op">/</span><span class="dv">500</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_cov_mat_aas_est &lt;-<span class="st"> </span>cov_mat_aas_est<span class="op">/</span><span class="dv">500</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># epa = média de vhat_aes/ média de v0</span>
+
+sal_mean_epa_est &lt;-<span class="st"> </span>mean_cov_mat_aes_est[<span class="dv">1</span>,<span class="dv">1</span>]<span class="op">/</span>mean_cov_mat_aas_est[<span class="dv">1</span>,<span class="dv">1</span>]
 sal_mean_epa_est</code></pre></div>
 <pre><code>## [1] 0.1425528</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rec_mean_epa_est &lt;-<span class="st"> </span>rec_est_mean[<span class="dv">4</span>]<span class="op">/</span>rec_est_mean[<span class="dv">3</span>]
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rec_mean_epa_est &lt;-<span class="st"> </span>mean_cov_mat_aes_est[<span class="dv">2</span>,<span class="dv">2</span>]<span class="op">/</span>mean_cov_mat_aas_est[<span class="dv">2</span>,<span class="dv">2</span>]
 rec_mean_epa_est</code></pre></div>
 <pre><code>## [1] 0.3325159</code></pre>
 <p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira </span>
-vp_sal_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(sal <span class="op">~</span><span class="st"> </span>estrat, popul_dat, var)
-vp_rec_h &lt;-<span class="st"> </span><span class="kw">aggregate</span>(rec <span class="op">~</span><span class="st"> </span>estrat, popul_dat, var)
-vp_sal &lt;-<span class="st"> </span><span class="kw">sum</span>(Wh<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>fh)<span class="op">*</span>vp_sal_h[,<span class="st">&quot;sal&quot;</span>]<span class="op">/</span>nh)
-vp_rec &lt;-<span class="st"> </span><span class="kw">sum</span>(Wh<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>fh)<span class="op">*</span>vp_rec_h[,<span class="st">&quot;rec&quot;</span>]<span class="op">/</span>nh)</code></pre></div>
+mat_cov_pop &lt;-<span class="st"> </span><span class="kw">by</span>(popul_dat, popul_dat<span class="op">$</span>estrat, <span class="cf">function</span>(t)<span class="kw">var</span>(<span class="kw">cbind</span>(t<span class="op">$</span>sal,t<span class="op">$</span>rec)) )
+
+mat_cov_aleat_verd &lt;-(Wh[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>fh[<span class="dv">1</span>])<span class="op">/</span>nh[<span class="dv">1</span>])<span class="op">*</span>mat_cov_pop[[<span class="dv">1</span>]]<span class="op">+</span>(Wh[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>fh[<span class="dv">2</span>])<span class="op">/</span>nh[<span class="dv">2</span>])<span class="op">*</span>mat_cov_pop[[<span class="dv">2</span>]]</code></pre></div>
 <p>A seguir, reproduzimos a Tabela <a href="epa.html#tab:proestmed">4.3</a>, usando os resultados da simulação:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tab_<span class="dv">43</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
 <span class="st">&quot;Quantidade de interesse&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Média Populacional&quot;</span>, <span class="st">&quot;Média de estimativas de média AAS&quot;</span>,
   <span class="st">&quot;Média de estimativas de média AES&quot;</span>),
-Salá<span class="dt">rios =</span> <span class="kw">c</span>(<span class="kw">mean</span>(popul_dat<span class="op">$</span>sal), sal_est_mean[<span class="dv">1</span>], sal_est_mean[<span class="dv">2</span>] ),
-<span class="dt">Receitas =</span> <span class="kw">c</span>(<span class="kw">mean</span>(popul_dat<span class="op">$</span>rec), rec_est_mean[<span class="dv">1</span>], rec_est_mean[<span class="dv">2</span>] )  
+Salá<span class="dt">rios =</span> <span class="kw">c</span>(<span class="kw">mean</span>(popul_dat<span class="op">$</span>sal), mean_est_aas[<span class="dv">1</span>], mean_est_aes[<span class="dv">1</span>] ),
+<span class="dt">Receitas =</span> <span class="kw">c</span>(<span class="kw">mean</span>(popul_dat<span class="op">$</span>rec), mean_est_aas[<span class="dv">2</span>], mean_est_aes[<span class="dv">2</span>] )  
 )
 knitr<span class="op">::</span><span class="kw">kable</span>(tab_<span class="dv">43</span>, <span class="dt">booktabs=</span><span class="ot">TRUE</span> )    </code></pre></div>
 <table>
@@ -967,8 +970,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(tab_<span class="dv
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tab_<span class="dv">44</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
 <span class="st">&quot;Quantidade de interesse&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Variância do estimador AES&quot;</span>, <span class="st">&quot;Média de estimativas de variância AES&quot;</span>,
 <span class="st">&quot;Valor esperado AES do estimador AAS de variância&quot;</span>,<span class="st">&quot;Média de estimativas de variância AAS&quot;</span>),
-Salá<span class="dt">rios=</span> <span class="kw">c</span>(vp_sal, sal_est_mean[<span class="dv">4</span>], <span class="ot">NA</span>, sal_est_mean[<span class="dv">3</span>]),
-<span class="dt">Receitas =</span> <span class="kw">c</span>(vp_rec, rec_est_mean[<span class="dv">4</span>], <span class="ot">NA</span>, rec_est_mean[<span class="dv">3</span>])  
+Salá<span class="dt">rios=</span> <span class="kw">c</span>(mat_cov_aleat_verd[<span class="dv">1</span>,<span class="dv">1</span>], mean_cov_mat_aes_est[<span class="dv">1</span>,<span class="dv">1</span>], <span class="ot">NA</span>, mean_cov_mat_aas_est[<span class="dv">1</span>,<span class="dv">1</span>]),
+<span class="dt">Receitas =</span> <span class="kw">c</span>(mat_cov_aleat_verd[<span class="dv">2</span>,<span class="dv">2</span>], mean_cov_mat_aes_est[<span class="dv">2</span>,<span class="dv">2</span>], <span class="ot">NA</span>, mean_cov_mat_aas_est[<span class="dv">2</span>,<span class="dv">2</span>])  
  )
 knitr<span class="op">::</span><span class="kw">kable</span>(tab_<span class="dv">44</span>, <span class="dt">booktabs=</span> <span class="ot">TRUE</span>)</code></pre></div>
 <table>
@@ -1002,7 +1005,27 @@ knitr<span class="op">::</span><span class="kw">kable</span>(tab_<span class="dv
 </tr>
 </tbody>
 </table>
-<p>Resultados do Exemplo <a href="epa.html#exm:deffmult">4.5</a>.</p>
+<p>A seguir, reproduzimos os resultados do Exemplo <a href="epa.html#exm:deffmult">4.5</a>, que utiliza também os resultados da simulação acima.</p>
+<p>Matriz de covariância dos estimadores ponderados da média, resultado em <a href="epa.html#eq:epa7">(4.7)</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat_cov_aleat_verd</code></pre></div>
+<pre><code>##            [,1]      [,2]
+## [1,] 244.175801 3.2357921
+## [2,]   3.235792 0.4349945</code></pre>
+<p>Média da matriz de covariância dos estimadores de média do salário e da receita assumindo observações IID, resultado em <a href="epa.html#eq:epa8">(4.8)</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_cov_mat_aas_est </code></pre></div>
+<pre><code>##           [,1]      [,2]
+## [1,] 1719.9794 26.780304
+## [2,]   26.7803  1.206505</code></pre>
+<p>Média da matriz de covariância dos estimadores de média do salário e da receita assumindo observações AES, resultado em <a href="epa.html#eq:epa9">(4.9)</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_cov_mat_aes_est </code></pre></div>
+<pre><code>##            sal       rec
+## sal 245.187815 3.1722720
+## rec   3.172272 0.4011822</code></pre>
+<p>A partir desses resultados, obtemos os efeitos multivariados para as médias de Sálários e Receitas, em <a href="epa.html#eq:epa10">(4.10)</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DELTA =<span class="st"> </span><span class="kw">solve</span>(mean_cov_mat_aas_est)<span class="op">%*%</span><span class="st"> </span>mean_cov_mat_aes_est
+<span class="kw">eigen</span>(DELTA)<span class="op">$</span>values</code></pre></div>
+<pre><code>## [1] 0.4592617 0.1415845</code></pre>
+<p>Os autovalores de DELTA 0.4592617 e 0.1415845 são os efeitos generalizados do plano amostral.</p>
 
 <div class="example">
 <span id="exm:eqmean" class="example"><strong>Exemplo 4.6  </strong></span>Teste da igualdade de médias para duas populações

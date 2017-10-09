@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-10-05}
+  \date{2017-10-09}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -1032,29 +1032,30 @@ survey do R para estimar taxa de desocupação para um trimestre na PNADC
 \end{Shaded}
 
 Os microdados de interesse são terceiro trimestre de 2016. Vamos ler os
-microdados e salvá-los em um data frame \texttt{pnadc032016.dat}.
+microdados e salvá-los em um data frame \texttt{pnadc032016\_dat}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{lodown}\NormalTok{( }\StringTok{"pnadc"}\NormalTok{ , }\KeywordTok{subset}\NormalTok{( pnadc_cat , year }\OperatorTok{==}\StringTok{ }\DecValTok{2016} \OperatorTok{&}\StringTok{ }\NormalTok{quarter }\OperatorTok{==}\StringTok{ '03'}\NormalTok{ ) )}
-\NormalTok{pnadc032016.dat <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{( }\KeywordTok{paste0}\NormalTok{( }\KeywordTok{tempdir}\NormalTok{() , }\StringTok{"/pnadc 2016 03.rds"}\NormalTok{ ) )}
+\NormalTok{pnadc032016_dat <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{( }\KeywordTok{paste0}\NormalTok{( }\KeywordTok{tempdir}\NormalTok{() , }\StringTok{"/pnadc201603.rds"}\NormalTok{ ) )}
 \end{Highlighting}
 \end{Shaded}
 
-vamos salvar o data frame \texttt{x} para uso posterior, :
+vamos salvar o data frame \texttt{pnadc032016\_dat} para uso posterior,
+:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{saveRDS}\NormalTok{(pnadc032016.dat, }\DataTypeTok{file=}\StringTok{"C:/adac/pnadc/pnadc 2016 03.rds"}\NormalTok{)}
+\KeywordTok{saveRDS}\NormalTok{(pnadc032016_dat, }\DataTypeTok{file=}\StringTok{"C:/adac/pnadc/pnadc201603.rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Partindo do arquivo \texttt{pnadc\ 2016\ 03.rds}, podemos recuperar o
-data frame \texttt{pnadc032016.dat}:
+Partindo do arquivo \texttt{pnadc201603.rds}, podemos recuperar o data
+frame \texttt{pnadc032016\_dat}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pnadc032016.dat <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/pnadc/pnadc 2016 03.rds"}\NormalTok{)}
+\NormalTok{pnadc032016_dat <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/pnadc/pnadc201603.rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1091,7 +1092,7 @@ data frame \texttt{pnadc032016.dat}:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{pnadc032016_plan <-}\StringTok{ }\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{ids =}\OperatorTok{~}\NormalTok{upa, }\DataTypeTok{strata=}\OperatorTok{~}\NormalTok{estrato, }
-  \DataTypeTok{weights=}\OperatorTok{~}\NormalTok{v1027, }\DataTypeTok{data =}\NormalTok{ pnadc032016.dat, }\DataTypeTok{nest=}\OtherTok{TRUE}\NormalTok{)}
+  \DataTypeTok{weights=}\OperatorTok{~}\NormalTok{v1027, }\DataTypeTok{data =}\NormalTok{ pnadc032016_dat, }\DataTypeTok{nest=}\OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1103,8 +1104,8 @@ data frame \texttt{pnadc032016.dat}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{df_pos <-}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{posest=}\KeywordTok{unique}\NormalTok{(pnadc032016.dat}\OperatorTok{$}\NormalTok{posest), }
-  \DataTypeTok{Freq=}\KeywordTok{unique}\NormalTok{(pnadc032016.dat}\OperatorTok{$}\NormalTok{v1029))}
+\NormalTok{df_pos <-}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{posest=}\KeywordTok{unique}\NormalTok{(pnadc032016_dat}\OperatorTok{$}\NormalTok{posest), }
+  \DataTypeTok{Freq=}\KeywordTok{unique}\NormalTok{(pnadc032016_dat}\OperatorTok{$}\NormalTok{v1029))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1199,12 +1200,12 @@ utilizadas nos exemplos no site
 
 Inicialmente, vamos estimar características de pessoas com 18 anos ou
 mais mais que responderam o questionário longo e salvar os microdados
-dessa amostra no data frame \texttt{pes\_sel.dat}.
+dessa amostra no data frame \texttt{pns\_dat}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pes_sel.dat <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/PNS/2013 long questionnaire survey.rds"}\NormalTok{)}
-\KeywordTok{dim}\NormalTok{(pes_sel.dat)}
+\NormalTok{pns_dat <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/PNS/2013 long questionnaire survey.rds"}\NormalTok{)}
+\KeywordTok{dim}\NormalTok{(pns_dat)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1213,10 +1214,10 @@ dessa amostra no data frame \texttt{pes\_sel.dat}.
 \end{verbatim}
 
 \BeginKnitrBlock{remark}
-\iffalse{} {Observação. } \fi{}No data frame pes\_sel o nome das
-variáveis, obtidos por \texttt{names(pes\_sel)}, estão em minúsculas. No
+\iffalse{} {Observação. } \fi{}No data frame pns\_dat o nome das
+variáveis, obtidos por \texttt{names(pns)}, estão em minúsculas. No
 dicionário da PNS os códigos correspondentes estão em maiúsculas.
-\EndKnitrBlock{remark} O data frame \texttt{pes\_sel.dat} contém as
+\EndKnitrBlock{remark} O data frame \texttt{pns\_dat} contém as
 variáveis descritas no dicionário da \texttt{PNS} e algumas variáveis
 obtidas derivadas.
 
@@ -1228,39 +1229,38 @@ desenho que salva as características do plano amostral da pesquisa. Isso
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(survey)}
-\NormalTok{pes_sel_plan <-}
+\NormalTok{pns_plan <-}
 \StringTok{    }\KeywordTok{svydesign}\NormalTok{(}
         \DataTypeTok{id =} \OperatorTok{~}\StringTok{ }\NormalTok{upa_pns ,}
         \DataTypeTok{strata =} \OperatorTok{~}\StringTok{ }\NormalTok{v0024 ,}
-        \DataTypeTok{data =}\NormalTok{ pes_sel.dat ,}
+        \DataTypeTok{data =}\NormalTok{ pns_dat ,}
         \DataTypeTok{weights =} \OperatorTok{~}\StringTok{ }\NormalTok{pre_pes_long ,}
         \DataTypeTok{nest =} \OtherTok{TRUE}
 \NormalTok{    )}
 \end{Highlighting}
 \end{Shaded}
 
-Os pesos do objeto de desenho \texttt{pes\_sel\_plan} devem ser
-modificados de modo que as estimativas dos totais populacionais dos
-pós-estratos fixados coincidam com os totais populacionais dos
-pós-estratos conhecidos a partir do Censo Demográfico. O data frame
+Os pesos do objeto de desenho \texttt{pns\_plan} devem ser modificados
+de modo que as estimativas dos totais populacionais dos pós-estratos
+fixados coincidam com os totais populacionais dos pós-estratos
+conhecidos a partir do Censo Demográfico. O data frame
 \texttt{post\_pop} contém na primeira coluna a identidade dos
 pós-estratos e na segunda seus totais populacionais.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{post_pop <-}\StringTok{ }\KeywordTok{unique}\NormalTok{( pes_sel.dat[ }\KeywordTok{c}\NormalTok{( }\StringTok{'v00293.y'}\NormalTok{ , }\StringTok{'v00292.y'}\NormalTok{ ) ] )}
+\NormalTok{post_pop <-}\StringTok{ }\KeywordTok{unique}\NormalTok{( pns_dat[ }\KeywordTok{c}\NormalTok{( }\StringTok{'v00293.y'}\NormalTok{ , }\StringTok{'v00292.y'}\NormalTok{ ) ] )}
 \KeywordTok{names}\NormalTok{( post_pop ) <-}\StringTok{ }\KeywordTok{c}\NormalTok{( }\StringTok{"v00293.y"}\NormalTok{ , }\StringTok{"Freq"}\NormalTok{ )}
 \end{Highlighting}
 \end{Shaded}
 
 Utilizando a função \texttt{postStratify()} da library \texttt{survey}
-\citep{R-survey} incorpora-se no objeto de desenho
-\texttt{pes\_sel\_plan} as informações contidas no data frame
-\texttt{post\_pop}.
+\citep{R-survey} incorpora-se no objeto de desenho \texttt{pns\_plan} as
+informações contidas no data frame \texttt{post\_pop}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pes_sel_calib <-}\StringTok{ }\KeywordTok{postStratify}\NormalTok{( pes_sel_plan , }\OperatorTok{~}\NormalTok{v00293.y , post_pop )}
+\NormalTok{pns_calib <-}\StringTok{ }\KeywordTok{postStratify}\NormalTok{( pns_plan , }\OperatorTok{~}\NormalTok{v00293.y , post_pop )}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1268,20 +1268,20 @@ Salvar objeto de desenho pós-estratificado para posterior utilização:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{saveRDS}\NormalTok{(pes_sel_calib, }\DataTypeTok{file =} \StringTok{"C:/adac/PNS/pns_des_sel.rds"}\NormalTok{ )}
+\KeywordTok{saveRDS}\NormalTok{(pns_calib, }\DataTypeTok{file =} \StringTok{"C:/adac/PNS/pns_calib.rds"}\NormalTok{ )}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pes_sel_calib <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/PNS/pns_des_sel.rds"}\NormalTok{)}
+\NormalTok{pns_calib <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/PNS/pns_calib.rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 Os comandos acima foram apresentados apenas para ilustrar como, a partir
 dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não
 seria necessária a execução desses comandos pois o objeto de desenho
-\texttt{pes\_sel\_calib} já se encontra disponível no arquivo 1
+\texttt{pns\_calib} já se encontra disponível no arquivo 1
 \texttt{2013\ all\ questionnaire\ survey\ design.rds}.
 
 Para exemplificar, vamos agora reproduzir estimativas na Tabela 6.42.1.1
@@ -1297,19 +1297,19 @@ Essa variável é de classe \texttt{character} e tem dois valores ``1'' e
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{diag_dep <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{ (pes_sel.dat}\OperatorTok{$}\NormalTok{q092}\OperatorTok{==}\StringTok{"1"}\NormalTok{)}
+\NormalTok{diag_dep <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{ (pns_dat}\OperatorTok{$}\NormalTok{q092}\OperatorTok{==}\StringTok{"1"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 Como mencionado, o objeto de desenho pós-estratificado
-\texttt{pes\_sel\_calib} pode ser lido do arquivo
+\texttt{pns\_calib} pode ser lido do arquivo
 \texttt{2013\ all\ questionnaire\ survey\ design.rds}. Vamos atualizar o
-objeto de desenho \texttt{pes\_sel\_calib} para incluir a variável
+objeto de desenho \texttt{pns\_calib} para incluir a variável
 \texttt{diad\_dep} na componente \texttt{variables}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pes_sel_calib <-}\StringTok{ }\KeywordTok{update}\NormalTok{ (pes_sel_calib, }\DataTypeTok{diag_dep =}\NormalTok{ diag_dep )}
+\NormalTok{pns_calib <-}\StringTok{ }\KeywordTok{update}\NormalTok{ (pns_calib, }\DataTypeTok{diag_dep =}\NormalTok{ diag_dep )}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1318,9 +1318,9 @@ depressão para o país inteiro usamos o seguinte comando:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{diagdepbr <-}\StringTok{ }\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{diag_dep, pes_sel_calib)}
-\CommentTok{# estimativa em % e erro padrão}
-\KeywordTok{round}\NormalTok{(}\DecValTok{100}\OperatorTok{*}\StringTok{ }\KeywordTok{coef}\NormalTok{(diagdepbr),}\DecValTok{1}\NormalTok{)}
+\NormalTok{diagdepbr <-}\StringTok{ }\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{diag_dep, pns_calib)}
+\CommentTok{# estimativa e erro padrão, ambos em % }
+\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\KeywordTok{coef}\NormalTok{(diagdepbr),}\DecValTok{1}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1331,7 +1331,7 @@ depressão para o país inteiro usamos o seguinte comando:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{round}\NormalTok{(}\DecValTok{100}\OperatorTok{*}\KeywordTok{SE}\NormalTok{(diagdepbr),}\DecValTok{1}\NormalTok{)}
+\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\KeywordTok{SE}\NormalTok{(diagdepbr)  ,}\DecValTok{1}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1465,7 +1465,7 @@ instrução.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pes_all_calib <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/PNS/2013 all questionnaire survey design.rds"}\NormalTok{)}
+\NormalTok{pns_all_calib <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"C:/adac/PNS/2013 all questionnaire survey design.rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1474,7 +1474,7 @@ Proporção de pessoas com seguro de saúde por nível de instrução:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{byeduc <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{( }\KeywordTok{svyby}\NormalTok{( }\OperatorTok{~}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{( i001 }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{ ) , }\OperatorTok{~}\StringTok{ }\NormalTok{educ ,}
-\DataTypeTok{design =}\NormalTok{ pes_all_des_pos , }\DataTypeTok{vartype =} \StringTok{"ci"}\NormalTok{ ,  }\DataTypeTok{level =} \FloatTok{0.95}\NormalTok{ ,}
+\DataTypeTok{design =}\NormalTok{ pns_all_des_pos , }\DataTypeTok{vartype =} \StringTok{"ci"}\NormalTok{ ,  }\DataTypeTok{level =} \FloatTok{0.95}\NormalTok{ ,}
 \NormalTok{svymean , }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{ ) )}
 \NormalTok{byeduc <-}\StringTok{ }\NormalTok{byeduc[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
 \KeywordTok{names}\NormalTok{(byeduc) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Prop"}\NormalTok{, }\StringTok{"l.i.c."}\NormalTok{, }\StringTok{"l.s.c."}\NormalTok{)}
@@ -1696,10 +1696,10 @@ Observe que as estimativas de variância para o desenho verdadeiro
 variável \texttt{analf1} com o objeto \texttt{ppv\_se\_plan}. Porém na
 estimativa do denominador do EPA, obtida a partir da função
 \texttt{Vwaas}, obtemos resultados diferentes quando usamos
-\texttt{analf1.se} ou \texttt{analf1}, com os pesos correspondentes. No
-segundo caso, a soma dos pesos não estima \(N\). Deve-se ter o cuidado,
-quando estimamos em um domínio, de trabalhar com pesos cuja soma seja um
-estimador do tamanho da população.
+\texttt{analf1.se} ou \texttt{analf1},\\
+com os pesos correspondentes. No segundo caso, a soma dos pesos não
+estima \(N\). Deve-se ter o cuidado, quando estimamos em um domínio, de
+trabalhar com pesos cuja soma seja um estimador do tamanho da população.
 
 \chapter{Referencial para Inferência}\label{refinf}
 
@@ -3443,12 +3443,13 @@ Vamos criar duas variáveis:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(survey)}
-\KeywordTok{library}\NormalTok{(anamco) }\CommentTok{# carrega dados}
+\KeywordTok{library}\NormalTok{(anamco) }
+\NormalTok{ppv_dat <-}\StringTok{ }\NormalTok{ppv }\CommentTok{# carrega dados}
 \CommentTok{# cria objeto de desenho}
-\NormalTok{ppv.des<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{ids =} \OperatorTok{~}\NormalTok{nsetor, }\DataTypeTok{strata =} \OperatorTok{~}\NormalTok{estratof,}
-\DataTypeTok{data =}\NormalTok{ ppv, }\DataTypeTok{nest =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{weights =} \OperatorTok{~}\NormalTok{pesof)}
+\NormalTok{ppv_plan<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{ids =} \OperatorTok{~}\NormalTok{nsetor, }\DataTypeTok{strata =} \OperatorTok{~}\NormalTok{estratof,}
+\DataTypeTok{data =}\NormalTok{ ppv_dat, }\DataTypeTok{nest =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{weights =} \OperatorTok{~}\NormalTok{pesof)}
 \CommentTok{# atualiza objeto de desenho com novas variáveis}
-\NormalTok{ppv.des<-}\KeywordTok{update}\NormalTok{(ppv.des,}
+\NormalTok{ppv_plan<-}\KeywordTok{update}\NormalTok{(ppv_plan,}
   \DataTypeTok{analf=}\NormalTok{(v04a01 }\OperatorTok{==}\StringTok{ }\DecValTok{2} \OperatorTok{|}\StringTok{ }\NormalTok{v04a02 }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{)}\OperatorTok{*}\DecValTok{1}\NormalTok{,}
   \DataTypeTok{faixa=}\NormalTok{(v02a08 }\OperatorTok{>=}\StringTok{ }\DecValTok{7} \OperatorTok{&}\StringTok{ }\NormalTok{v02a08 }\OperatorTok{<=}\StringTok{ }\DecValTok{14}\NormalTok{) }\OperatorTok{*}\DecValTok{1}\NormalTok{,}
   \DataTypeTok{analf.faixa=}\NormalTok{ (analf}\OperatorTok{==}\DecValTok{1} \OperatorTok{&}\StringTok{ }\NormalTok{faixa}\OperatorTok{==}\DecValTok{1}\NormalTok{)}\OperatorTok{*}\DecValTok{1}
@@ -3461,7 +3462,7 @@ vamos restringir o desenho a esse domínio:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ppv.se.des <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(ppv.des, regiao }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{ppv_se_plan <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(ppv_plan, regiao }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3470,8 +3471,8 @@ Vamos estimar os totais das variáveis \texttt{analf.faixa} e
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{tot.est<-}\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\NormalTok{analf.faixa}\OperatorTok{+}\NormalTok{faixa ,ppv.se.des )}
-\NormalTok{Vcov.Y1.Y2<-}\KeywordTok{vcov}\NormalTok{(tot.est) }
+\NormalTok{analf_faixa_tot_est<-}\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\NormalTok{analf.faixa}\OperatorTok{+}\NormalTok{faixa ,ppv_se_plan )}
+\NormalTok{Vcov.Y1.Y2<-}\KeywordTok{vcov}\NormalTok{(analf_faixa_tot_est) }
 \end{Highlighting}
 \end{Shaded}
 
@@ -3481,8 +3482,8 @@ estimativa da variância da razão de totais das variáveis
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{y1hat<-}\KeywordTok{coef}\NormalTok{(tot.est)[}\DecValTok{1}\NormalTok{]}
-\NormalTok{y2hat<-}\KeywordTok{coef}\NormalTok{(tot.est)[}\DecValTok{2}\NormalTok{]}
+\NormalTok{y1hat<-}\KeywordTok{coef}\NormalTok{(analf_faixa_tot_est)[}\DecValTok{1}\NormalTok{]}
+\NormalTok{y2hat<-}\KeywordTok{coef}\NormalTok{(analf_faixa_tot_est)[}\DecValTok{2}\NormalTok{]}
 \NormalTok{Var.raz<-(}\DecValTok{1}\OperatorTok{/}\NormalTok{y2hat)}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{y2hat)}\OperatorTok{*}\NormalTok{Vcov.Y1.Y2[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\DecValTok{2}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{y2hat)}\OperatorTok{*}\NormalTok{(}\OperatorTok{-}\NormalTok{y1hat}\OperatorTok{/}\NormalTok{y2hat}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{Vcov.Y1.Y2[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{]}\OperatorTok{+}
 \NormalTok{(}\OperatorTok{-}\NormalTok{y1hat}\OperatorTok{/}\NormalTok{y2hat}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{(}\OperatorTok{-}\NormalTok{y1hat}\OperatorTok{/}\NormalTok{y2hat}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{Vcov.Y1.Y2[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{]}
 \CommentTok{# estimativa do desvio-padrão}
@@ -3499,12 +3500,12 @@ Podemos calcular diretamente o desvio-padrão:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{svyratio}\NormalTok{(}\OperatorTok{~}\NormalTok{analf.faixa, }\OperatorTok{~}\NormalTok{faixa, ppv.se.des)}
+\KeywordTok{svyratio}\NormalTok{(}\OperatorTok{~}\NormalTok{analf.faixa, }\OperatorTok{~}\NormalTok{faixa, ppv_se_plan)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Ratio estimator: svyratio.survey.design2(~analf.faixa, ~faixa, ppv.se.des)
+## Ratio estimator: svyratio.survey.design2(~analf.faixa, ~faixa, ppv_se_plan)
 ## Ratios=
 ##                faixa
 ## analf.faixa 0.118689
@@ -3523,19 +3524,19 @@ A library \texttt{survey} dispõe de métodos alternativos para a
 estimação de variância. Vamos utilizar os métodos de replicação de
 \emph{Jackknife} e de \emph{Bootstrap} para estimar esta variância de
 razão. Inicialmente, vamos converter o objeto de desenho
-\texttt{ppv1.se.design} em um objeto de desenho de replicação de tipo
+\texttt{ppv1\_se\_plan} em um objeto de desenho de replicação de tipo
 \emph{Jackknife}, contendo as réplicas de pesos que fornecem
 correspondentes réplicas de estimativas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ppv.se.des.jkn<-}\KeywordTok{as.svrepdesign}\NormalTok{(ppv.se.des,}\DataTypeTok{type=}\StringTok{"JKn"}\NormalTok{)}
-\KeywordTok{svyratio}\NormalTok{(}\OperatorTok{~}\NormalTok{analf.faixa, }\OperatorTok{~}\NormalTok{faixa, ppv.se.des.jkn)}
+\NormalTok{ppv_se_plan_jkn<-}\KeywordTok{as.svrepdesign}\NormalTok{(ppv_se_plan,}\DataTypeTok{type=}\StringTok{"JKn"}\NormalTok{)}
+\KeywordTok{svyratio}\NormalTok{(}\OperatorTok{~}\NormalTok{analf.faixa, }\OperatorTok{~}\NormalTok{faixa, ppv_se_plan_jkn)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv.se.des.jkn)
+## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv_se_plan_jkn)
 ## Ratios=
 ##                faixa
 ## analf.faixa 0.118689
@@ -3548,29 +3549,29 @@ Para o tipo \emph{Bootstrap}, temos:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ppv.se.des.boot<-}\KeywordTok{as.svrepdesign}\NormalTok{(ppv.se.des,}\DataTypeTok{type=}\StringTok{"bootstrap"}\NormalTok{)}
-\KeywordTok{svyratio}\NormalTok{(}\OperatorTok{~}\NormalTok{analf.faixa, }\OperatorTok{~}\NormalTok{faixa, ppv.se.des.boot)}
+\NormalTok{ppv_se_plan_boot<-}\KeywordTok{as.svrepdesign}\NormalTok{(ppv_se_plan,}\DataTypeTok{type=}\StringTok{"bootstrap"}\NormalTok{)}
+\KeywordTok{svyratio}\NormalTok{(}\OperatorTok{~}\NormalTok{analf.faixa, }\OperatorTok{~}\NormalTok{faixa, ppv_se_plan_boot)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv.se.des.boot)
+## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv_se_plan_boot)
 ## Ratios=
 ##                faixa
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01196887
+## [1,] 0.01389055
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
 \emph{Jackknife} e \emph{Bootstrap} na library \texttt{survey}
-\citep{R-survey}. A classe do objeto \texttt{ppv.se.des.jkn} é
+\citep{R-survey}. A classe do objeto \texttt{ppv\_se\_plan\_jkn} é
 \texttt{svyrep.design} e ele contém as seguintes componentes:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{class}\NormalTok{(ppv.se.des.jkn)}
+\KeywordTok{class}\NormalTok{(ppv_se_plan_jkn)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3580,7 +3581,7 @@ Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{names}\NormalTok{(ppv.se.des.jkn)}
+\KeywordTok{names}\NormalTok{(ppv_se_plan_jkn)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3600,8 +3601,8 @@ de Jackknife.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ppv.se<-ppv.se.des.jkn}\OperatorTok{$}\NormalTok{variables}
-\KeywordTok{nrow}\NormalTok{(ppv.se)}
+\NormalTok{ppv_se_dat<-ppv_se_plan_jkn}\OperatorTok{$}\NormalTok{variables}
+\KeywordTok{nrow}\NormalTok{(ppv_se_dat)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3611,7 +3612,7 @@ de Jackknife.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ncong<-}\KeywordTok{sum}\NormalTok{(}\KeywordTok{with}\NormalTok{(ppv.se,}\KeywordTok{tapply}\NormalTok{( nsetor,estratof, }\ControlFlowTok{function}\NormalTok{(t) }\KeywordTok{length}\NormalTok{(}\KeywordTok{unique}\NormalTok{(t)))))}
+\NormalTok{ncong<-}\KeywordTok{sum}\NormalTok{(}\KeywordTok{with}\NormalTok{(ppv_se_dat,}\KeywordTok{tapply}\NormalTok{( nsetor,estratof, }\ControlFlowTok{function}\NormalTok{(t) }\KeywordTok{length}\NormalTok{(}\KeywordTok{unique}\NormalTok{(t)))))}
 \NormalTok{ncong}
 \end{Highlighting}
 \end{Shaded}
@@ -3628,11 +3629,11 @@ que é a forma comprimida. A forma não comprimida da matriz
 permite economizar memória, e pode ser facilmente convertida para a
 forma não comprimida, utilizando-se a componente\texttt{index}.
 
-No método jackknife, cada um dos conglomerados primários é removido, e a
-réplica correspondente dos pesos é o produto do peso amostral original
-por um fator apropriado, definido da forma a seguir. Suponhamos que foi
-removido um conglomerado no estrato \(h\), então os pesos do plano
-amostral serão multiplicados por:
+No método \emph{jackknife}, cada um dos conglomerados primários é
+removido, e a réplica correspondente dos pesos é o produto do peso
+amostral original por um fator apropriado, definido da forma a seguir.
+Suponhamos que foi removido um conglomerado no estrato \(h\), então os
+pesos do plano amostral serão multiplicados por:
 
 \begin{itemize}
 \tightlist
@@ -3650,10 +3651,10 @@ não comprimida da seguinte maneira:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{fact.peso.comp<-ppv.se.des.jkn}\OperatorTok{$}\NormalTok{repweights[[}\DecValTok{1}\NormalTok{]]}
-\NormalTok{ind.cong<-ppv.se.des.jkn}\OperatorTok{$}\NormalTok{repweights[[}\DecValTok{2}\NormalTok{]]}
-\NormalTok{mat.fat.pesos<-}\StringTok{ }\NormalTok{fact.peso.comp[ind.cong,]}
-\KeywordTok{str}\NormalTok{(mat.fat.pesos)}
+\NormalTok{fact_peso_comp_mat<-ppv_se_plan_jkn}\OperatorTok{$}\NormalTok{repweights[[}\DecValTok{1}\NormalTok{]]}
+\NormalTok{ind_cong <-ppv_se_plan_jkn}\OperatorTok{$}\NormalTok{repweights[[}\DecValTok{2}\NormalTok{]]}
+\NormalTok{fat_pesos_mat<-}\StringTok{ }\NormalTok{fact_peso_comp_mat[ind_cong,]}
+\KeywordTok{str}\NormalTok{(fat_pesos_mat)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3666,7 +3667,7 @@ dessa matriz pelos pesos do plano amostra:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{mat.rep.pesos<-}\KeywordTok{weights}\NormalTok{(ppv.se.des)}\OperatorTok{*}\NormalTok{mat.fat.pesos}
+\NormalTok{rep_pesos_mat<-}\KeywordTok{weights}\NormalTok{(ppv_se_plan)}\OperatorTok{*}\NormalTok{fat_pesos_mat}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3675,9 +3676,9 @@ correspondentes de estimativas da razão.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{rep.est.raz<-}\KeywordTok{numeric}\NormalTok{(}\KeywordTok{ncol}\NormalTok{(mat.rep.pesos))}
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{ncol}\NormalTok{(mat.rep.pesos))\{}
-\NormalTok{rep.est.raz[i]<-}\KeywordTok{sum}\NormalTok{(mat.rep.pesos[,i]}\OperatorTok{*}\NormalTok{ppv.se}\OperatorTok{$}\NormalTok{analf.faixa)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(mat.rep.pesos[,i]}\OperatorTok{*}\NormalTok{ppv.se}\OperatorTok{$}\NormalTok{faixa)}
+\NormalTok{rep_est_raz<-}\KeywordTok{numeric}\NormalTok{(}\KeywordTok{ncol}\NormalTok{(rep_pesos_mat))}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{ncol}\NormalTok{(rep_pesos_mat))\{}
+\NormalTok{rep_est_raz[i]<-}\KeywordTok{sum}\NormalTok{(rep_pesos_mat[,i]}\OperatorTok{*}\NormalTok{ppv_se_dat}\OperatorTok{$}\NormalTok{analf.faixa)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(rep_pesos_mat[,i]}\OperatorTok{*}\NormalTok{ppv_se_dat}\OperatorTok{$}\NormalTok{faixa)}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -3687,9 +3688,9 @@ variância:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{mean.raz<-}\KeywordTok{mean}\NormalTok{( rep.est.raz[ppv.se.des.jkn}\OperatorTok{$}\NormalTok{rscales}\OperatorTok{>}\DecValTok{0}\NormalTok{])}
-\NormalTok{var.jack.raz<-}\StringTok{ }\KeywordTok{sum}\NormalTok{((rep.est.raz}\OperatorTok{-}\NormalTok{mean.raz)}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{ppv.se.des.jkn}\OperatorTok{$}\NormalTok{rscales)}\OperatorTok{*}\NormalTok{ppv.se.des.jkn}\OperatorTok{$}\NormalTok{scale}
-\KeywordTok{round}\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(var.jack.raz),}\DecValTok{5}\NormalTok{)}
+\NormalTok{mean_raz<-}\KeywordTok{mean}\NormalTok{( rep_est_raz[ppv_se_plan_jkn}\OperatorTok{$}\NormalTok{rscales}\OperatorTok{>}\DecValTok{0}\NormalTok{])}
+\NormalTok{var_jack_raz<-}\StringTok{ }\KeywordTok{sum}\NormalTok{((rep_est_raz}\OperatorTok{-}\NormalTok{mean_raz)}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{ppv_se_plan_jkn}\OperatorTok{$}\NormalTok{rscales)}\OperatorTok{*}\NormalTok{ppv_se_plan_jkn}\OperatorTok{$}\NormalTok{scale}
+\KeywordTok{round}\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(var_jack_raz),}\DecValTok{5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3703,8 +3704,8 @@ pesos:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{var.raz.rep<-}\KeywordTok{withReplicates}\NormalTok{(ppv.se.des.jkn, }\ControlFlowTok{function}\NormalTok{(w,ppv.se) }\KeywordTok{sum}\NormalTok{(w}\OperatorTok{*}\NormalTok{ppv.se}\OperatorTok{$}\NormalTok{analf.faixa)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(w}\OperatorTok{*}\NormalTok{ppv.se}\OperatorTok{$}\NormalTok{faixa))}
-\NormalTok{var.raz.rep }
+\NormalTok{var_raz_rep<-}\KeywordTok{withReplicates}\NormalTok{(ppv_se_plan_jkn, }\ControlFlowTok{function}\NormalTok{(w,ppv_se_dat) }\KeywordTok{sum}\NormalTok{(w}\OperatorTok{*}\NormalTok{ppv_se_dat}\OperatorTok{$}\NormalTok{analf.faixa)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(w}\OperatorTok{*}\NormalTok{ppv_se_dat}\OperatorTok{$}\NormalTok{faixa))}
+\NormalTok{var_raz_rep }
 \end{Highlighting}
 \end{Shaded}
 
@@ -3724,7 +3725,7 @@ anos e acima de 14 anos podemos usar as mesmas réplicas de pesos:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{withReplicates}\NormalTok{(ppv.se.des.jkn,}\ControlFlowTok{function}\NormalTok{(w,ppv.se) }\KeywordTok{with}\NormalTok{(ppv.se,}
+\KeywordTok{withReplicates}\NormalTok{(ppv_se_plan_jkn,}\ControlFlowTok{function}\NormalTok{(w,ppv_se_dat) }\KeywordTok{with}\NormalTok{(ppv_se_dat,}
 \NormalTok{(}\KeywordTok{sum}\NormalTok{(w}\OperatorTok{*}\NormalTok{(analf}\OperatorTok{==}\DecValTok{1}\OperatorTok{&}\NormalTok{faixa}\OperatorTok{==}\DecValTok{1}\NormalTok{))}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(faixa}\OperatorTok{==}\DecValTok{1}\NormalTok{))}\OperatorTok{/}\NormalTok{(}\KeywordTok{sum}\NormalTok{(w}\OperatorTok{*}\NormalTok{(analf}\OperatorTok{==}\DecValTok{1}\OperatorTok{&}\NormalTok{faixa}\OperatorTok{==}\DecValTok{0}\NormalTok{))}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(faixa}\OperatorTok{==}\DecValTok{0}\NormalTok{))))}
 \end{Highlighting}
 \end{Shaded}
@@ -4366,16 +4367,16 @@ simulação como nos valores populacionais das variâncias, cujos cálculos
 estão ilustrados a seguir:
 
 \begin{eqnarray*}
-\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right) &=&\frac{231,84}{1.636,1}=0,142 \\
+\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right) &=&\frac{231.84}{1636.1}=0.142 \\
 \mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
-\right) &=&\frac{0,32569}{1,2121}=0,269
+\right) &=&\frac{0.32569}{1.2121}=0.269
 \end{eqnarray*}
 
 \begin{eqnarray*}
 \mathbf{EPA}\left( \overline{SAL}_{w},v_{0}\left( \overline{SAL}_{w}\right)
-\right) &=&\frac{244,18}{1.613,3}=0,151\mbox{ e } \\
+\right) &=&\frac{244.18}{1613.3}=0.151\mbox{ e } \\
 \mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
-\right) &=&\frac{0,43500}{1,1880}=0,366.
+\right) &=&\frac{0.43500}{1.1880}=0.366.
 \end{eqnarray*}
 
 A Tabela \ref{tab:eparec} resume os principais resultados deste
@@ -4830,15 +4831,15 @@ U_{h}}\left( SAL_{hi}-\overline{SAL}_{h}\right) \left( REC_{hi}-\overline{REC
 
 Substituindo os valores conhecidos na população das variáveis
 \(SAL_{hi}\) e \(REC_{hi}\), obtemos para esta covariância o valor \[
-COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3,2358
+COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
 \] e portanto a matriz de variância dos estimadores ponderados da média
 fica igual a
 
 \begin{equation}
 \mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}
 \left[ \begin{array}{rr}
-244,18 & 3,2358 \\ 
-3,2358 & 0,4350
+244.18 & 3.2358 \\ 
+3.2358 & 0.4350
 \end{array}
 \right]   \label{eq:epa7}
 \end{equation}
@@ -4880,8 +4881,8 @@ A partir da simulação foram obtidos os seguintes resultados:
 \begin{equation}
 \mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) =\left[ 
 \begin{array}{rr}
-1785,3 & 27,734 \\ 
-27,734 & 1,2852
+1785.3 & 27.734 \\ 
+27.734 & 1.2852
 \end{array}
 \right],  \label{eq:epa8}
 \end{equation}
@@ -4889,8 +4890,8 @@ A partir da simulação foram obtidos os seguintes resultados:
 \begin{equation}
 \mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
 \begin{array}{rr}
-250,41 & 3,2683 \\ 
-3,2683 & 0,42267
+250.41 & 3.2683 \\ 
+3.2683 & 0.42267
 \end{array}
 \right] \mbox{ e }  \label{eq:epa9}
 \end{equation}
@@ -4899,8 +4900,8 @@ A partir da simulação foram obtidos os seguintes resultados:
 \mathbf{\Delta =}\left[ \mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) \right]
 ^{-1}\mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
 \begin{array}{rr}
-0,1516 & -4,931 \\ 
--0,0007277 & 0,4353
+0.1516 & -4.931 \\ 
+-0.0007277 & 0.4353
 \end{array}
 \right] \;\;.  \label{eq:epa10}
 \end{equation}
@@ -5046,92 +5047,114 @@ delta & K=1 & K=2 & K=3 & K=4\\
 
 \section{Laboratório de R}\label{laboratorio-de-r-1}
 
-Vale a pena incluir as contas que não dependem da simulação?
-
-Exemplo \ref{exm:deffuni} Parte de simulação do exemplo para salários.
+Utilizando o R, obtemos a seguir alguns resultados descritos no Exemplo
+\ref{exm:deffuni}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(survey)}
 \CommentTok{# carrega dados}
 \KeywordTok{library}\NormalTok{(anamco)}
-\KeywordTok{data}\NormalTok{(popul)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{N<-}\KeywordTok{nrow}\NormalTok{(popul)}
-\NormalTok{n1<-}\DecValTok{30}\NormalTok{; n2<-}\DecValTok{30}
-\NormalTok{nh=}\KeywordTok{c}\NormalTok{(n1,n2)}
-\NormalTok{n<-}\KeywordTok{sum}\NormalTok{(nh)}
-\NormalTok{Nh<-}\KeywordTok{table}\NormalTok{(popul}\OperatorTok{$}\NormalTok{estrat)}
-\NormalTok{fh<-nh}\OperatorTok{/}\NormalTok{Nh ; Wh<-Nh}\OperatorTok{/}\NormalTok{N ; f<-}\StringTok{ }\NormalTok{n}\OperatorTok{/}\NormalTok{N}
-\end{Highlighting}
-\end{Shaded}
-
-Nessa simulação usamos a library \texttt{sampling} \citep{R-sampling}
-(incluir?)
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{sal.mat.res<-}\KeywordTok{matrix}\NormalTok{(}\OtherTok{NA}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{4}\NormalTok{)}
-\NormalTok{rec.mat.res<-}\KeywordTok{matrix}\NormalTok{(}\OtherTok{NA}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{4}\NormalTok{)}
-\NormalTok{popul}\OperatorTok{$}\NormalTok{sal <-}\StringTok{ }\NormalTok{popul}\OperatorTok{$}\NormalTok{sal}\OperatorTok{/}\DecValTok{1000}
-\NormalTok{popul}\OperatorTok{$}\NormalTok{rec <-}\StringTok{ }\NormalTok{popul}\OperatorTok{$}\NormalTok{rec}\OperatorTok{/}\DecValTok{1000000}
-\KeywordTok{library}\NormalTok{(sampling)}
-\CommentTok{#Geracão dos dados}
-\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{500}\NormalTok{)\{}
-\NormalTok{s<-}\KeywordTok{strata}\NormalTok{(popul, }\StringTok{"estrat"}\NormalTok{,}\KeywordTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{,}\DecValTok{30}\NormalTok{),}\DataTypeTok{method=} \StringTok{"srswor"}\NormalTok{)}
-\NormalTok{dados<-}\KeywordTok{getdata}\NormalTok{(popul,s)}
-\CommentTok{# média amostral de salário e de receita}
-\NormalTok{sal_med_y<-}\KeywordTok{mean}\NormalTok{(dados}\OperatorTok{$}\NormalTok{sal)}
-\NormalTok{rec_med_y<-}\KeywordTok{mean}\NormalTok{(dados}\OperatorTok{$}\NormalTok{rec)}
-\CommentTok{# estimador v0}
-\NormalTok{sal_var_aas<-(}\DecValTok{1}\OperatorTok{-}\NormalTok{f)}\OperatorTok{*}\KeywordTok{var}\NormalTok{(dados}\OperatorTok{$}\NormalTok{sal)}\OperatorTok{/}\NormalTok{n}
-\NormalTok{rec_var_aas<-(}\DecValTok{1}\OperatorTok{-}\NormalTok{f)}\OperatorTok{*}\KeywordTok{var}\NormalTok{(dados}\OperatorTok{$}\NormalTok{rec)}\OperatorTok{/}\NormalTok{n}
-\CommentTok{# vhat_aes estimador não-viciado}
-\NormalTok{desenho<-}\KeywordTok{svydesign}\NormalTok{(}\OperatorTok{~}\DecValTok{1}\NormalTok{,}\DataTypeTok{strata=}\OperatorTok{~}\NormalTok{estrat,}\DataTypeTok{data=}\NormalTok{dados,}\DataTypeTok{fpc=}\OperatorTok{~}\NormalTok{Prob)}
-\CommentTok{# estimador não-viciado da média de  salario e receita}
-\NormalTok{sal_med_yw<-}\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{sal,desenho) }
-\NormalTok{rec_med_yw<-}\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{rec,desenho)}
-\NormalTok{sal.mat.res[i,]<-}\KeywordTok{c}\NormalTok{(sal_med_y,}\KeywordTok{coef}\NormalTok{(sal_med_yw),sal_var_aas,}\KeywordTok{SE}\NormalTok{(sal_med_yw)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
-\NormalTok{rec.mat.res[i,]<-}\KeywordTok{c}\NormalTok{(rec_med_y,}\KeywordTok{coef}\NormalTok{(rec_med_yw),rec_var_aas,}\KeywordTok{SE}\NormalTok{(rec_med_yw)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
-\NormalTok{\}}
-\CommentTok{# 1-media de ybar; 2- média de ybar_w; 3- média de v0; 4- média de vhat_aes}
-\NormalTok{sal_res_mean <-}\KeywordTok{colMeans}\NormalTok{(sal.mat.res)}
-\NormalTok{rec_res_mean <-}\StringTok{ }\KeywordTok{colMeans}\NormalTok{(rec.mat.res)}
-\CommentTok{# epa = média de vhat_aes/ média de v0}
-
-\NormalTok{epa_sal1 <-}\StringTok{ }\NormalTok{sal_res_mean[}\DecValTok{4}\NormalTok{]}\OperatorTok{/}\NormalTok{sal_res_mean[}\DecValTok{3}\NormalTok{]}
-\NormalTok{epa_sal1}
+\NormalTok{popul_dat <-}\StringTok{ }\NormalTok{popul}
+\KeywordTok{names}\NormalTok{(popul_dat)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1414621
+## [1] "id"     "po"     "sal"    "rec"    "estrat"
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{epa_rec1 <-}\StringTok{ }\NormalTok{rec_res_mean[}\DecValTok{4}\NormalTok{]}\OperatorTok{/}\NormalTok{rec_res_mean[}\DecValTok{3}\NormalTok{]}
-\NormalTok{epa_rec1}
+\NormalTok{N<-}\KeywordTok{nrow}\NormalTok{(popul_dat)}
+\NormalTok{n1<-}\DecValTok{30}\NormalTok{; n2<-}\DecValTok{30}
+\NormalTok{nh=}\KeywordTok{c}\NormalTok{(n1,n2)}
+\NormalTok{n<-}\KeywordTok{sum}\NormalTok{(nh)}
+\NormalTok{Nh<-}\KeywordTok{table}\NormalTok{(popul_dat}\OperatorTok{$}\NormalTok{estrat)}
+\NormalTok{fh<-nh}\OperatorTok{/}\NormalTok{Nh ; Wh<-Nh}\OperatorTok{/}\NormalTok{N ; f<-}\StringTok{ }\NormalTok{n}\OperatorTok{/}\NormalTok{N}
+\end{Highlighting}
+\end{Shaded}
+
+Na simulação, usamos a library \texttt{sampling} \citep{R-sampling} para
+gerar amostras estratificadas de tamanho 30, com estratos definidos na
+Tabela \ref{tab:estempr}, para reproduzir os elementos das Tabelas
+\ref{tab:proestmed} e \ref{tab:varest}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# muda escala de salários e receitas}
+\NormalTok{popul_dat}\OperatorTok{$}\NormalTok{sal <-}\StringTok{ }\NormalTok{popul_dat}\OperatorTok{$}\NormalTok{sal}\OperatorTok{/}\DecValTok{1000}
+\NormalTok{popul_dat}\OperatorTok{$}\NormalTok{rec <-}\StringTok{ }\NormalTok{popul_dat}\OperatorTok{$}\NormalTok{rec}\OperatorTok{/}\DecValTok{1000000}
+\KeywordTok{library}\NormalTok{(sampling)}
+\CommentTok{# define espaços para salvar resultados}
+\NormalTok{est_aas <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{est_aes <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{cov_mat_aas_est <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\NormalTok{cov_mat_aes_est <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\CommentTok{# gera amostras com dois estratos de tamanho 30}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{500}\NormalTok{)\{}
+\NormalTok{  s<-}\KeywordTok{strata}\NormalTok{(popul_dat, }\StringTok{"estrat"}\NormalTok{,}\KeywordTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{,}\DecValTok{30}\NormalTok{),}\DataTypeTok{method=} \StringTok{"srswor"}\NormalTok{)}
+\NormalTok{dados<-}\KeywordTok{getdata}\NormalTok{(popul_dat,s)}
+\CommentTok{# média amostral de salário e de receita}
+\NormalTok{est_aas <-}\StringTok{ }\NormalTok{est_aas}\OperatorTok{+}\KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(dados}\OperatorTok{$}\NormalTok{sal), }\KeywordTok{mean}\NormalTok{(dados}\OperatorTok{$}\NormalTok{rec))}
+\CommentTok{# estimador v0}
+\NormalTok{cov_mat_aas_est <-}\StringTok{ }\NormalTok{cov_mat_aas_est }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{f)}\OperatorTok{*}\KeywordTok{cov}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(dados}\OperatorTok{$}\NormalTok{sal, dados}\OperatorTok{$}\NormalTok{rec))}\OperatorTok{/}\NormalTok{n}
+
+\CommentTok{# vhat_aes estimador não-viciado}
+\NormalTok{popul_plan<-}\KeywordTok{svydesign}\NormalTok{(}\OperatorTok{~}\DecValTok{1}\NormalTok{,}\DataTypeTok{strata=}\OperatorTok{~}\NormalTok{estrat,}\DataTypeTok{data=}\NormalTok{dados,}\DataTypeTok{fpc=}\OperatorTok{~}\NormalTok{Prob)}
+\CommentTok{# estimador não-viciado da média de  salario e receita}
+\NormalTok{sal_rec_aes_est <-}\StringTok{ }\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{sal}\OperatorTok{+}\NormalTok{rec,popul_plan)}
+\NormalTok{est_aes <-}\StringTok{ }\NormalTok{est_aes }\OperatorTok{+}\StringTok{ }\KeywordTok{coef}\NormalTok{(sal_rec_aes_est)}
+\NormalTok{cov_mat_aes_est <-}\StringTok{ }\NormalTok{cov_mat_aes_est}\OperatorTok{+}\StringTok{ }\KeywordTok{attr}\NormalTok{(sal_rec_aes_est,}\StringTok{'var'}\NormalTok{)}
+\NormalTok{\}}
+\CommentTok{# 1-media de ybar; 2- média de ybar_w; 3- média de v0; 4- média de vhat_aes}
+
+\NormalTok{mean_est_aas <-}\StringTok{ }\NormalTok{est_aas}\OperatorTok{/}\DecValTok{500}
+\NormalTok{mean_est_aes <-}\StringTok{ }\NormalTok{est_aes}\OperatorTok{/}\DecValTok{500}
+\NormalTok{mean_cov_mat_aas_est <-}\StringTok{ }\NormalTok{cov_mat_aas_est}\OperatorTok{/}\DecValTok{500}
+\NormalTok{mean_cov_mat_aes_est <-}\StringTok{ }\NormalTok{cov_mat_aes_est}\OperatorTok{/}\DecValTok{500}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean_cov_mat_aas_est <-}\StringTok{ }\NormalTok{cov_mat_aas_est}\OperatorTok{/}\DecValTok{500}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# epa = média de vhat_aes/ média de v0}
+
+\NormalTok{sal_mean_epa_est <-}\StringTok{ }\NormalTok{mean_cov_mat_aes_est[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]}\OperatorTok{/}\NormalTok{mean_cov_mat_aas_est[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]}
+\NormalTok{sal_mean_epa_est}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3636128
+## [1] 0.1425528
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rec_mean_epa_est <-}\StringTok{ }\NormalTok{mean_cov_mat_aes_est[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{]}\OperatorTok{/}\NormalTok{mean_cov_mat_aas_est[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{]}
+\NormalTok{rec_mean_epa_est}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3325159
 \end{verbatim}
 
 Usando a fórmula \eqref{eq:epa3}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# variância sob distr. de aleatorização verdadeira}
-\NormalTok{vp_sal_h <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(sal}\OperatorTok{~}\NormalTok{estrat, popul, var)}
-\NormalTok{vp_rec_h <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(rec}\OperatorTok{~}\NormalTok{estrat, popul, var)}
-\NormalTok{vp_sal <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(Wh}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{fh)}\OperatorTok{*}\NormalTok{vp_sal_h[,}\StringTok{"sal"}\NormalTok{]}\OperatorTok{/}\NormalTok{nh)}
-\NormalTok{vp_rec <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(Wh}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{fh)}\OperatorTok{*}\NormalTok{vp_rec_h[,}\StringTok{"rec"}\NormalTok{]}\OperatorTok{/}\NormalTok{nh)}
+\CommentTok{# variância sob distr. de aleatorização verdadeira }
+\NormalTok{mat_cov_pop <-}\StringTok{ }\KeywordTok{by}\NormalTok{(popul_dat, popul_dat}\OperatorTok{$}\NormalTok{estrat, }\ControlFlowTok{function}\NormalTok{(t)}\KeywordTok{var}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(t}\OperatorTok{$}\NormalTok{sal,t}\OperatorTok{$}\NormalTok{rec)) )}
+
+\NormalTok{mat_cov_aleat_verd <-(Wh[}\DecValTok{1}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{fh[}\DecValTok{1}\NormalTok{])}\OperatorTok{/}\NormalTok{nh[}\DecValTok{1}\NormalTok{])}\OperatorTok{*}\NormalTok{mat_cov_pop[[}\DecValTok{1}\NormalTok{]]}\OperatorTok{+}\NormalTok{(Wh[}\DecValTok{2}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{fh[}\DecValTok{2}\NormalTok{])}\OperatorTok{/}\NormalTok{nh[}\DecValTok{2}\NormalTok{])}\OperatorTok{*}\NormalTok{mat_cov_pop[[}\DecValTok{2}\NormalTok{]]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5141,10 +5164,10 @@ resultados da simulação:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{tab_}\DecValTok{43}\NormalTok{ <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
-\DataTypeTok{Quantidade_de_interesse =} \KeywordTok{c}\NormalTok{(}\StringTok{"Média_populacional_Ybar"}\NormalTok{, }\StringTok{"Média_de_ybar_sobre_ 500_ amostras"}\NormalTok{,}
-  \StringTok{"Média_de_ybarw_sobre_500_amostras"}\NormalTok{),}
-\NormalTok{Salá}\DataTypeTok{rios =} \KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(popul}\OperatorTok{$}\NormalTok{sal), sal_res_mean[}\DecValTok{1}\NormalTok{],sal_res_mean[}\DecValTok{2}\NormalTok{] ),}
-\DataTypeTok{Receitas =} \KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(popul}\OperatorTok{$}\NormalTok{rec),rec_res_mean[}\DecValTok{1}\NormalTok{],rec_res_mean[}\DecValTok{2}\NormalTok{] )  }
+\StringTok{"Quantidade de interesse"}\NormalTok{ =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Média Populacional"}\NormalTok{, }\StringTok{"Média de estimativas de média AAS"}\NormalTok{,}
+  \StringTok{"Média de estimativas de média AES"}\NormalTok{),}
+\NormalTok{Salá}\DataTypeTok{rios =} \KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(popul_dat}\OperatorTok{$}\NormalTok{sal), mean_est_aas[}\DecValTok{1}\NormalTok{], mean_est_aes[}\DecValTok{1}\NormalTok{] ),}
+\DataTypeTok{Receitas =} \KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(popul_dat}\OperatorTok{$}\NormalTok{rec), mean_est_aas[}\DecValTok{2}\NormalTok{], mean_est_aes[}\DecValTok{2}\NormalTok{] )  }
 \NormalTok{)}
 \NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(tab_}\DecValTok{43}\NormalTok{, }\DataTypeTok{booktabs=}\OtherTok{TRUE}\NormalTok{ )    }
 \end{Highlighting}
@@ -5152,11 +5175,11 @@ resultados da simulação:
 
 \begin{tabular}{lrr}
 \toprule
-Quantidade\_de\_interesse & Salários & Receitas\\
+Quantidade.de.interesse & Salários & Receitas\\
 \midrule
-Média\_populacional\_Ybar & 78.32826 & 2.106846\\
-Média\_de\_ybar\_sobre\_ 500\_ amostras & 162.33292 & 4.228982\\
-Média\_de\_ybarw\_sobre\_500\_amostras & 77.42824 & 2.109680\\
+Média Populacional & 78.32826 & 2.106846\\
+Média de estimativas de média AAS & 163.50334 & 4.171317\\
+Média de estimativas de média AES & 78.06853 & 2.061913\\
 \bottomrule
 \end{tabular}
 
@@ -5166,10 +5189,10 @@ simulação:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{tab_}\DecValTok{44}\NormalTok{ <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
-\DataTypeTok{Quantidade_de_interesse =} \KeywordTok{c}\NormalTok{(}\StringTok{"Variância_populacional_V_AES(ybarw)"}\NormalTok{, }\StringTok{"Média_de_ Vhat_AES(yvarw)"}\NormalTok{,}
-\StringTok{"Valor_esperado_de_v0_usando_população"}\NormalTok{,}\StringTok{"Média_de_v0_usando_500_amostras"}\NormalTok{),}
-\NormalTok{Salá}\DataTypeTok{rios=} \KeywordTok{c}\NormalTok{(vp_sal, sal_res_mean[}\DecValTok{4}\NormalTok{], }\OtherTok{NA}\NormalTok{, sal_res_mean[}\DecValTok{3}\NormalTok{]),}
-\DataTypeTok{Receitas =} \KeywordTok{c}\NormalTok{(vp_rec, rec_res_mean[}\DecValTok{4}\NormalTok{], }\OtherTok{NA}\NormalTok{, rec_res_mean[}\DecValTok{3}\NormalTok{])  }
+\StringTok{"Quantidade de interesse"}\NormalTok{ =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Variância do estimador AES"}\NormalTok{, }\StringTok{"Média de estimativas de variância AES"}\NormalTok{,}
+\StringTok{"Valor esperado AES do estimador AAS de variância"}\NormalTok{,}\StringTok{"Média de estimativas de variância AAS"}\NormalTok{),}
+\NormalTok{Salá}\DataTypeTok{rios=} \KeywordTok{c}\NormalTok{(mat_cov_aleat_verd[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{], mean_cov_mat_aes_est[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{], }\OtherTok{NA}\NormalTok{, mean_cov_mat_aas_est[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]),}
+\DataTypeTok{Receitas =} \KeywordTok{c}\NormalTok{(mat_cov_aleat_verd[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{], mean_cov_mat_aes_est[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{], }\OtherTok{NA}\NormalTok{, mean_cov_mat_aas_est[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{])  }
 \NormalTok{ )}
 \NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(tab_}\DecValTok{44}\NormalTok{, }\DataTypeTok{booktabs=} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
@@ -5177,14 +5200,79 @@ simulação:
 
 \begin{tabular}{lrr}
 \toprule
-Quantidade\_de\_interesse & Salários & Receitas\\
+Quantidade.de.interesse & Salários & Receitas\\
 \midrule
-Variância\_populacional\_V\_AES(ybarw) & 244.1758 & 0.4349945\\
-Média\_de\_ Vhat\_AES(yvarw) & 242.8132 & 0.4614696\\
-Valor\_esperado\_de\_v0\_usando\_população & NA & NA\\
-Média\_de\_v0\_usando\_500\_amostras & 1716.4542 & 1.2691237\\
+Variância do estimador AES & 244.1758 & 0.4349945\\
+Média de estimativas de variância AES & 245.1878 & 0.4011822\\
+Valor esperado AES do estimador AAS de variância & NA & NA\\
+Média de estimativas de variância AAS & 1719.9794 & 1.2065052\\
 \bottomrule
 \end{tabular}
+
+A seguir, reproduzimos os resultados do Exemplo \ref{exm:deffmult}, que
+utiliza também os resultados da simulação acima.
+
+Matriz de covariância dos estimadores ponderados da média, resultado em
+\eqref{eq:epa7}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mat_cov_aleat_verd}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            [,1]      [,2]
+## [1,] 244.175801 3.2357921
+## [2,]   3.235792 0.4349945
+\end{verbatim}
+
+Média da matriz de covariância dos estimadores de média do salário e da
+receita assumindo observações IID, resultado em \eqref{eq:epa8}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean_cov_mat_aas_est }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]      [,2]
+## [1,] 1719.9794 26.780304
+## [2,]   26.7803  1.206505
+\end{verbatim}
+
+Média da matriz de covariância dos estimadores de média do salário e da
+receita assumindo observações AES, resultado em \eqref{eq:epa9}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean_cov_mat_aes_est }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            sal       rec
+## sal 245.187815 3.1722720
+## rec   3.172272 0.4011822
+\end{verbatim}
+
+A partir desses resultados, obtemos os efeitos multivariados para as
+médias de Sálários e Receitas, em \eqref{eq:epa10}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DELTA =}\StringTok{ }\KeywordTok{solve}\NormalTok{(mean_cov_mat_aas_est)}\OperatorTok{%*%}\StringTok{ }\NormalTok{mean_cov_mat_aes_est}
+\KeywordTok{eigen}\NormalTok{(DELTA)}\OperatorTok{$}\NormalTok{values}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.4592617 0.1415845
+\end{verbatim}
+
+Os autovalores de DELTA 0.4592617 e 0.1415845 são os efeitos
+generalizados do plano amostral.
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:eqmean}{}{\label{exm:eqmean} }Teste da igualdade de

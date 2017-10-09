@@ -1044,50 +1044,64 @@ e \@ref(tab:varest).
 
 
 ```{r, message=FALSE, warning=FALSE}
-# cria matrizes para serem preenchidas
-mat_sal_est<-matrix(NA,500,4)
-mat_rec_est<-matrix(NA,500,4)
 # muda escala de salários e receitas
 popul_dat$sal <- popul_dat$sal/1000
 popul_dat$rec <- popul_dat$rec/1000000
 library(sampling)
+# define espaços para salvar resultados
+est_aas <- c(0,0)
+est_aes <- c(0,0)
+cov_mat_aas_est <- matrix(0,2,2)
+cov_mat_aes_est <- matrix(0,2,2)
 set.seed(123)
 # gera amostras com dois estratos de tamanho 30
 for(i in 1:500){
-s<-strata(popul_dat, "estrat",c(30,30),method= "srswor")
+  s<-strata(popul_dat, "estrat",c(30,30),method= "srswor")
 dados<-getdata(popul_dat,s)
 # média amostral de salário e de receita
-sal_med_aas_est<-mean(dados$sal)
-rec_med_aas_est<-mean(dados$rec)
+est_aas <- est_aas+c(mean(dados$sal), mean(dados$rec))
 # estimador v0
-sal_var_aas<-(1-f)*var(dados$sal)/n
-rec_var_aas<-(1-f)*var(dados$rec)/n
+cov_mat_aas_est <- cov_mat_aas_est + (1-f)*cov(cbind(dados$sal, dados$rec))/n
+
 # vhat_aes estimador não-viciado
 popul_plan<-svydesign(~1,strata=~estrat,data=dados,fpc=~Prob)
 # estimador não-viciado da média de  salario e receita
-sal_med_aes_est<-svymean(~sal,popul_plan) 
-rec_med_aes_est<-svymean(~rec,popul_plan)
-mat_sal_est[i,]<-c(sal_med_aas_est,coef(sal_med_aes_est),sal_var_aas,SE(sal_med_aes_est)^2)
-mat_rec_est[i,]<-c(rec_med_aas_est,coef(rec_med_aes_est),rec_var_aas,SE(rec_med_aes_est)^2)
+sal_rec_aes_est <- svymean(~sal+rec,popul_plan)
+est_aes <- est_aes + coef(sal_rec_aes_est)
+cov_mat_aes_est <- cov_mat_aes_est+ attr(sal_rec_aes_est,'var')
 }
 # 1-media de ybar; 2- média de ybar_w; 3- média de v0; 4- média de vhat_aes
-sal_est_mean <-colMeans(mat_sal_est)
-rec_est_mean <- colMeans(mat_rec_est)
+
+mean_est_aas <- est_aas/500
+mean_est_aes <- est_aes/500
+mean_cov_mat_aas_est <- cov_mat_aas_est/500
+mean_cov_mat_aes_est <- cov_mat_aes_est/500
+```
+
+```{r}
+mean_cov_mat_aas_est <- cov_mat_aas_est/500
+```
+
+```{r}
 # epa = média de vhat_aes/ média de v0
 
-sal_mean_epa_est <- sal_est_mean[4]/sal_est_mean[3]
+sal_mean_epa_est <- mean_cov_mat_aes_est[1,1]/mean_cov_mat_aas_est[1,1]
 sal_mean_epa_est
-rec_mean_epa_est <- rec_est_mean[4]/rec_est_mean[3]
+rec_mean_epa_est <- mean_cov_mat_aes_est[2,2]/mean_cov_mat_aas_est[2,2]
 rec_mean_epa_est
 ```
+
+
+
+
+
 Usando a fórmula \@ref(eq:epa3)
 
 ```{r}
 # variância sob distr. de aleatorização verdadeira 
-vp_sal_h <- aggregate(sal ~ estrat, popul_dat, var)
-vp_rec_h <- aggregate(rec ~ estrat, popul_dat, var)
-vp_sal <- sum(Wh^2*(1-fh)*vp_sal_h[,"sal"]/nh)
-vp_rec <- sum(Wh^2*(1-fh)*vp_rec_h[,"rec"]/nh)
+mat_cov_pop <- by(popul_dat, popul_dat$estrat, function(t)var(cbind(t$sal,t$rec)) )
+
+mat_cov_aleat_verd <-(Wh[1]^2*(1-fh[1])/nh[1])*mat_cov_pop[[1]]+(Wh[2]^2*(1-fh[2])/nh[2])*mat_cov_pop[[2]]
 ```
 
 A seguir, reproduzimos a Tabela \@ref(tab:proestmed), usando os resultados da simulação:
@@ -1096,8 +1110,8 @@ A seguir, reproduzimos a Tabela \@ref(tab:proestmed), usando os resultados da si
 tab_43 <- data.frame(
 "Quantidade de interesse" = c("Média Populacional", "Média de estimativas de média AAS",
   "Média de estimativas de média AES"),
-Salários = c(mean(popul_dat$sal), sal_est_mean[1], sal_est_mean[2] ),
-Receitas = c(mean(popul_dat$rec), rec_est_mean[1], rec_est_mean[2] )  
+Salários = c(mean(popul_dat$sal), mean_est_aas[1], mean_est_aes[1] ),
+Receitas = c(mean(popul_dat$rec), mean_est_aas[2], mean_est_aes[2] )  
 )
 knitr::kable(tab_43, booktabs=TRUE )    
 ```
@@ -1108,23 +1122,44 @@ A seguir reproduzimos a Tabela \@ref(tab:varest), usando os resultados da simula
 tab_44 <- data.frame(
 "Quantidade de interesse" = c("Variância do estimador AES", "Média de estimativas de variância AES",
 "Valor esperado AES do estimador AAS de variância","Média de estimativas de variância AAS"),
-Salários= c(vp_sal, sal_est_mean[4], NA, sal_est_mean[3]),
-Receitas = c(vp_rec, rec_est_mean[4], NA, rec_est_mean[3])  
+Salários= c(mat_cov_aleat_verd[1,1], mean_cov_mat_aes_est[1,1], NA, mean_cov_mat_aas_est[1,1]),
+Receitas = c(mat_cov_aleat_verd[2,2], mean_cov_mat_aes_est[2,2], NA, mean_cov_mat_aas_est[2,2])  
  )
 knitr::kable(tab_44, booktabs= TRUE)
 ```
 
 
-Resultados do Exemplo \@ref(exm:deffmult):
+A seguir, reproduzimos os resultados do Exemplo \@ref(exm:deffmult), que utiliza também os resultados da
+simulação acima.
 
 
+Matriz de covariância dos estimadores ponderados da média, resultado em \@ref(eq:epa7):
 ```{r}
-# matriz de covariância dos estimadores ponderados da média
-mat_cov_pop <- by(popul_dat, popul_dat$estrat, function(t)var(cbind(t$sal,t$rec)) )
-
-(Wh[1]^2*(1-fh[1])/nh[1])*mat_cov_pop[[1]]+(Wh[2]^2*(1-fh[2])/nh[2])*mat_cov_pop[[2]]
+mat_cov_aleat_verd
 ```
 
+Média da matriz de covariância dos estimadores de média do salário e da receita assumindo observações IID, resultado em 
+\@ref(eq:epa8):
+
+```{r}
+mean_cov_mat_aas_est 
+```
+
+Média da matriz de covariância dos estimadores de média do salário e da receita assumindo observações AES, resultado em 
+\@ref(eq:epa9):
+
+```{r}
+mean_cov_mat_aes_est 
+```
+
+A partir desses resultados, obtemos os efeitos multivariados para as médias de Sálários e Receitas, em \@ref(eq:epa10):
+
+```{r}
+DELTA = solve(mean_cov_mat_aas_est)%*% mean_cov_mat_aes_est
+eigen(DELTA)$values
+```
+Os autovalores de DELTA  `r eigen(DELTA)$values[1]` e 
+`r eigen(DELTA)$values[2]` são os efeitos generalizados do plano amostral.
 
 
 

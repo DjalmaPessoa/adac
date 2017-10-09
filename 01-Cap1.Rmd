@@ -567,7 +567,7 @@ lodown( "pnadc" , subset( pnadc_cat , year == 2016 & quarter == '03' ) )
 pnadc032016_dat <- readRDS( paste0( tempdir() , "/pnadc201603.rds" ) )
 ```
 
-vamos salvar o data frame `x` para uso posterior, :
+vamos salvar o data frame `pnadc032016_dat` para uso posterior, :
 
 ```{r , eval=FALSE}
 saveRDS(pnadc032016_dat, file="C:/adac/pnadc/pnadc201603.rds")

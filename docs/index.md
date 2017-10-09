@@ -2,7 +2,7 @@
 --- 
 title: "Análise de Dados Amostrais Complexos"
 author: "Djalma Pessoa e Pedro Nascimento Silva"
-date: "2017-10-07"
+date: "2017-10-09"
 
 site: bookdown::bookdown_site
 
