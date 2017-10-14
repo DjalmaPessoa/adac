@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-10-09}
+  \date{2017-10-14}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -3561,7 +3561,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01389055
+## [1,] 0.01174712
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -4214,52 +4214,20 @@ conhecida, os parâmetros populacionais de interesse podem ser
 calculados, obtendo-se os valores na primeira linha da Tabela
 \ref{tab:proestmed}.
 
-\begin{longtable}[]{@{}lcc@{}}
-\caption{\label{tab:proestmed} Propriedades dos estimadores da média das
-variáveis de pesquisa}\tabularnewline
+\begin{table}
+
+\caption{\label{tab:proestmed}Propriedades dos estimadores da média das variáveis de pesquisa}
+\centering
+\begin{tabular}[t]{lrr}
 \toprule
-\begin{minipage}[b]{0.43\columnwidth}\raggedright\strut
-Quantidade de interesse\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Salários\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Receitas\strut
-\end{minipage}\tabularnewline
+Quantidade.de.interesse & Salários & Receitas\\
 \midrule
-\endfirsthead
-\toprule
-\begin{minipage}[b]{0.43\columnwidth}\raggedright\strut
-Quantidade de interesse\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Salários\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Receitas\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.43\columnwidth}\raggedright\strut
-1) Média populacional\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-78.328\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-2.107\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.43\columnwidth}\raggedright\strut
-2) Média de \(\bar{y}\) sobre 500 amostras\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-160.750\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-4.191\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.43\columnwidth}\raggedright\strut
-3) Média de \(\bar{y}_{w}\) sobre 500 amostras\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-76.700\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-2.054\strut
-\end{minipage}\tabularnewline
+Média Populacional & 78.328 & 2.107\\
+Média de estimativas de média AAS & 163.503 & 4.171\\
+Média de estimativas de média AES & 78.069 & 2.062\\
 \bottomrule
-\end{longtable}
+\end{tabular}
+\end{table}
 
 Em contraste com os valores dos parâmetros populacionais, calculamos a
 média das médias amostrais não ponderadas (\(\bar{y}\)) dos salários e
@@ -4300,60 +4268,21 @@ dentro dos estratos \(h=1,2\) ou através da simulação. Esses valores são
 apresentados respectivamente na primeira e segunda linhas da Tabela
 \ref{tab:varest}, para as duas variáveis de pesquisa consideradas.
 
-\begin{longtable}[]{@{}lcc@{}}
-\caption{\label{tab:varest} Propriedades dos estimadore de variância do
-estimador \(\bar{y}_{w}\)}\tabularnewline
+\begin{table}
+
+\caption{\label{tab:varest}Propriedades dos estimadores de variância do estimador ponderado da média}
+\centering
+\begin{tabular}[t]{lrr}
 \toprule
-\begin{minipage}[b]{0.62\columnwidth}\raggedright\strut
-Quantidade de interesse\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Salários\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Receitas\strut
-\end{minipage}\tabularnewline
+Quantidade.de.interesse & Salários & Receitas\\
 \midrule
-\endfirsthead
-\toprule
-\begin{minipage}[b]{0.62\columnwidth}\raggedright\strut
-Quantidade de interesse\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Salários\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
-Receitas\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.62\columnwidth}\raggedright\strut
-1) Variância populacional \(V_{AES}\left( \bar{y}_{w}\right)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-244.1\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-0.43500\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.62\columnwidth}\raggedright\strut
-2) Média de \(\widehat{V}_{AES}\left(\bar{y}_{w}\right)\) usando \(500\)
-amostras\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-231.84\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-0.32569\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.62\columnwidth}\raggedright\strut
-3) Valor esperado de \(v_{0}\) usando população\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-1613.3\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-1.1880\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.62\columnwidth}\raggedright\strut
-4) Média de \(v_{0}\) usando \(500\) amostras\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-1636.1\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
-1.2121\strut
-\end{minipage}\tabularnewline
+Variância do estimador AES & 244.176 & 0.435\\
+Média de estimativas de variância AES & 245.188 & 0.401\\
+Valor esperado AES do estimador AAS de variância & 1613.300 & 1.188\\
+Média de estimativas de variância AAS & 1719.979 & 1.207\\
 \bottomrule
-\end{longtable}
+\end{tabular}
+\end{table}
 
 Os valores de
 \(E_{VERD}\left( v_{0}\left( \overline{SAL}_{w}\right) \right)\) e de
@@ -4366,18 +4295,29 @@ apresentadas na linha 4 da Tabela \ref{tab:varest}. Os valores para o
 simulação como nos valores populacionais das variâncias, cujos cálculos
 estão ilustrados a seguir:
 
-\begin{eqnarray*}
-\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right) &=&\frac{231.84}{1636.1}=0.142 \\
-\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
-\right) &=&\frac{0.32569}{1.2121}=0.269
-\end{eqnarray*}
+\(\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right)\):
 
-\begin{eqnarray*}
-\mathbf{EPA}\left( \overline{SAL}_{w},v_{0}\left( \overline{SAL}_{w}\right)
-\right) &=&\frac{244.18}{1613.3}=0.151\mbox{ e } \\
-\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
-\right) &=&\frac{0.43500}{1.1880}=0.366.
-\end{eqnarray*}
+\begin{verbatim}
+## 245.188/1719.979=0.143
+\end{verbatim}
+
+\(\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)\right)\):
+
+\begin{verbatim}
+## 0.401/1.207=0.332
+\end{verbatim}
+
+\(\mathbf{EPA}\left( \overline{SAL}_{w},v_{0}\left( \overline{SAL}_{w}\right)\right)\):
+
+\begin{verbatim}
+## 244.176/1613.3=0.151
+\end{verbatim}
+
+\(\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)\right)\)
+
+\begin{verbatim}
+## 0.435/1.188=0.366
+\end{verbatim}
 
 A Tabela \ref{tab:eparec} resume os principais resultados deste
 exercício, para o estimador ponderado da média \(\bar{y}_{w}\). Apesar
@@ -4410,53 +4350,21 @@ pontuais de médias e totais. Tal situação se deve ao uso ingênuo de
 pacotes estatísticos padrões desenvolvidos para analisar amostras IID,
 sem a devida consideração dos pesos e plano amostral.
 
-\begin{longtable}[]{@{}llll@{}}
-\caption{\label{tab:eparec}Valores dos Efeitos de Plano amostral(EPA) para
-as médias de Salário e Receita.}\tabularnewline
+\begin{table}
+
+\caption{\label{tab:eparec}Valores dos Efeitos de Plano amostral(EPA) para as médias de Salário e Receita.}
+\centering
+\begin{tabular}[t]{llrr}
 \toprule
-\begin{minipage}[b]{0.12\columnwidth}\raggedright\strut
-Variável\strut
-\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\raggedright\strut
-Estimativa\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright\strut
-Simulação\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright\strut
-População\strut
-\end{minipage}\tabularnewline
+Variável & Estimativa & Simulação & População\\
 \midrule
-\endfirsthead
-\toprule
-\begin{minipage}[b]{0.12\columnwidth}\raggedright\strut
-Variável\strut
-\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\raggedright\strut
-Estimativa\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright\strut
-Simulação\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright\strut
-População\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-Salário\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
-Variância EPA\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
-231.84 0.142\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
-244.18 0.151\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-Receita\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright\strut
-Variância EPA\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
-0.32569 0.269\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
-0.43500 0.366\strut
-\end{minipage}\tabularnewline
+Salário & Variância & 245.188 & 244.176\\
+Salário & EPA & 0.143 & 0.151\\
+Receita & Variância & 0.401 & 0.435\\
+Receita & EPA & 0.332 & 0.360\\
 \bottomrule
-\end{longtable}
+\end{tabular}
+\end{table}
 
 \BeginKnitrBlock{remark}
 \iffalse{} {Observação. } \fi{}Neste exemplo não foi feito uso analítico
@@ -4832,17 +4740,15 @@ U_{h}}\left( SAL_{hi}-\overline{SAL}_{h}\right) \left( REC_{hi}-\overline{REC
 Substituindo os valores conhecidos na população das variáveis
 \(SAL_{hi}\) e \(REC_{hi}\), obtemos para esta covariância o valor \[
 COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
-\] e portanto a matriz de variância dos estimadores ponderados da média
-fica igual a
+\] e portanto a matriz de variância
+\(\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w})\) dos
+estimadores ponderados da média fica igual a
 
-\begin{equation}
-\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}
-\left[ \begin{array}{rr}
-244.18 & 3.2358 \\ 
-3.2358 & 0.4350
-\end{array}
-\right]   \label{eq:epa7}
-\end{equation}
+\begin{verbatim}
+##         SAL   REC
+## SAL 244.176 3.236
+## REC   3.236 0.435
+\end{verbatim}
 
 onde os valores das variâncias em \eqref{eq:epa7} foram os calculados no
 Exemplo \ref{exm:deffuni} e coincidem, respectivamente, com os valores
@@ -4878,36 +4784,49 @@ calculadas estimativas:
 
 A partir da simulação foram obtidos os seguintes resultados:
 
-\begin{equation}
-\mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) =\left[ 
-\begin{array}{rr}
-1785.3 & 27.734 \\ 
-27.734 & 1.2852
-\end{array}
-\right],  \label{eq:epa8}
-\end{equation}
+\begin{itemize}
+\tightlist
+\item
+  A matriz de covariância das médias amostrais ponderadas de salário e
+  da receita, assumindo observações IID \(E_{AES}\left(V_{0}\right)\):
+\end{itemize}
 
-\begin{equation}
-\mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
-\begin{array}{rr}
-250.41 & 3.2683 \\ 
-3.2683 & 0.42267
-\end{array}
-\right] \mbox{ e }  \label{eq:epa9}
-\end{equation}
+\begin{verbatim}
+##          SAL    REC
+## SAL 1719.979 26.780
+## REC   26.780  1.207
+\end{verbatim}
 
-\begin{equation}
-\mathbf{\Delta =}\left[ \mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) \right]
-^{-1}\mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
-\begin{array}{rr}
-0.1516 & -4.931 \\ 
--0.0007277 & 0.4353
-\end{array}
-\right] \;\;.  \label{eq:epa10}
-\end{equation}
+\begin{itemize}
+\tightlist
+\item
+  A matriz de covariância das médias ponderadas de salário e da receita
+  considerando o plano amostral verdadeiro
+  \(V_{AES}\left(\hat{\theta}\right)\):
+\end{itemize}
 
-Os autovalores \(\delta_{1}=0,447\) e \(\delta_{2}=0,139\) de
-\(\mathbf{\Delta}\) fornecem os efeitos generalizados do plano amostral.
+\begin{verbatim}
+##         SAL   REC
+## SAL 245.188 3.172
+## REC   3.172 0.401
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  A matriz \(\Delta\) definida em \eqref{eq:epa6}
+\end{itemize}
+
+\(\Delta = \left[ E_{AES}\left( V_{0}\right)\right]^{-1}V_{AES}(\hat{\theta})\)
+
+\begin{verbatim}
+##         sal    rec
+## [1,]  0.155 -0.005
+## [2,] -0.817  0.445
+\end{verbatim}
+
+Os autovalores 0.459 e 0.142 de \(\mathbf{\Delta}\) fornecem os efeitos
+generalizados do plano amostral.
 
 Da mesma forma que o \(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)
 definido em \eqref{eq:epa2} para o caso uniparamétrico foi utilizado para
@@ -5047,232 +4966,138 @@ delta & K=1 & K=2 & K=3 & K=4\\
 
 \section{Laboratório de R}\label{laboratorio-de-r-1}
 
-Utilizando o R, obtemos a seguir alguns resultados descritos no Exemplo
-\ref{exm:deffuni}.
+Utilizando o R, obtemos a seguir alguns resultados descritos nos
+Exemplos \ref{exm:deffuni} e \ref{exm:deffmult}. Na simulação, usamos a
+library \texttt{sampling} \citep{R-sampling} para gerar amostras
+estratificadas de tamanho 30, com estratos definidos na Tabela
+\ref{tab:estempr}, para obter os valores nas Tabelas \ref{tab:proestmed}
+e \ref{tab:varest}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# carrega library}
 \KeywordTok{library}\NormalTok{(survey)}
 \CommentTok{# carrega dados}
 \KeywordTok{library}\NormalTok{(anamco)}
 \NormalTok{popul_dat <-}\StringTok{ }\NormalTok{popul}
-\KeywordTok{names}\NormalTok{(popul_dat)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "id"     "po"     "sal"    "rec"    "estrat"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{N<-}\KeywordTok{nrow}\NormalTok{(popul_dat)}
-\NormalTok{n1<-}\DecValTok{30}\NormalTok{; n2<-}\DecValTok{30}
-\NormalTok{nh=}\KeywordTok{c}\NormalTok{(n1,n2)}
-\NormalTok{n<-}\KeywordTok{sum}\NormalTok{(nh)}
-\NormalTok{Nh<-}\KeywordTok{table}\NormalTok{(popul_dat}\OperatorTok{$}\NormalTok{estrat)}
-\NormalTok{fh<-nh}\OperatorTok{/}\NormalTok{Nh ; Wh<-Nh}\OperatorTok{/}\NormalTok{N ; f<-}\StringTok{ }\NormalTok{n}\OperatorTok{/}\NormalTok{N}
-\end{Highlighting}
-\end{Shaded}
-
-Na simulação, usamos a library \texttt{sampling} \citep{R-sampling} para
-gerar amostras estratificadas de tamanho 30, com estratos definidos na
-Tabela \ref{tab:estempr}, para reproduzir os elementos das Tabelas
-\ref{tab:proestmed} e \ref{tab:varest}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# muda escala de salários e receitas}
+\NormalTok{N <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(popul_dat)}
+\NormalTok{n1 <-}\StringTok{ }\DecValTok{30}
+\NormalTok{n2 <-}\StringTok{ }\DecValTok{30}
+\NormalTok{nh =}\StringTok{ }\KeywordTok{c}\NormalTok{(n1, n2)}
+\NormalTok{n <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(nh)}
+\NormalTok{Nh <-}\StringTok{ }\KeywordTok{table}\NormalTok{(popul_dat}\OperatorTok{$}\NormalTok{estrat)}
+\NormalTok{fh <-}\StringTok{ }\NormalTok{nh}\OperatorTok{/}\NormalTok{Nh}
+\NormalTok{Wh <-}\StringTok{ }\NormalTok{Nh}\OperatorTok{/}\NormalTok{N}
+\NormalTok{f <-}\StringTok{ }\NormalTok{n}\OperatorTok{/}\NormalTok{N}
 \NormalTok{popul_dat}\OperatorTok{$}\NormalTok{sal <-}\StringTok{ }\NormalTok{popul_dat}\OperatorTok{$}\NormalTok{sal}\OperatorTok{/}\DecValTok{1000}
-\NormalTok{popul_dat}\OperatorTok{$}\NormalTok{rec <-}\StringTok{ }\NormalTok{popul_dat}\OperatorTok{$}\NormalTok{rec}\OperatorTok{/}\DecValTok{1000000}
+\NormalTok{popul_dat}\OperatorTok{$}\NormalTok{rec <-}\StringTok{ }\NormalTok{popul_dat}\OperatorTok{$}\NormalTok{rec}\OperatorTok{/}\FloatTok{1e+06}
 \KeywordTok{library}\NormalTok{(sampling)}
 \CommentTok{# define espaços para salvar resultados}
-\NormalTok{est_aas <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{)}
-\NormalTok{est_aes <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{)}
-\NormalTok{cov_mat_aas_est <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)}
-\NormalTok{cov_mat_aes_est <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\NormalTok{est_aas <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{est_aes <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{cov_mat_aas_est <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{cov_mat_aes_est <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)}
 \KeywordTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
 \CommentTok{# gera amostras com dois estratos de tamanho 30}
-\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{500}\NormalTok{)\{}
-\NormalTok{  s<-}\KeywordTok{strata}\NormalTok{(popul_dat, }\StringTok{"estrat"}\NormalTok{,}\KeywordTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{,}\DecValTok{30}\NormalTok{),}\DataTypeTok{method=} \StringTok{"srswor"}\NormalTok{)}
-\NormalTok{dados<-}\KeywordTok{getdata}\NormalTok{(popul_dat,s)}
-\CommentTok{# média amostral de salário e de receita}
-\NormalTok{est_aas <-}\StringTok{ }\NormalTok{est_aas}\OperatorTok{+}\KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(dados}\OperatorTok{$}\NormalTok{sal), }\KeywordTok{mean}\NormalTok{(dados}\OperatorTok{$}\NormalTok{rec))}
-\CommentTok{# estimador v0}
-\NormalTok{cov_mat_aas_est <-}\StringTok{ }\NormalTok{cov_mat_aas_est }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{f)}\OperatorTok{*}\KeywordTok{cov}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(dados}\OperatorTok{$}\NormalTok{sal, dados}\OperatorTok{$}\NormalTok{rec))}\OperatorTok{/}\NormalTok{n}
-
-\CommentTok{# vhat_aes estimador não-viciado}
-\NormalTok{popul_plan<-}\KeywordTok{svydesign}\NormalTok{(}\OperatorTok{~}\DecValTok{1}\NormalTok{,}\DataTypeTok{strata=}\OperatorTok{~}\NormalTok{estrat,}\DataTypeTok{data=}\NormalTok{dados,}\DataTypeTok{fpc=}\OperatorTok{~}\NormalTok{Prob)}
-\CommentTok{# estimador não-viciado da média de  salario e receita}
-\NormalTok{sal_rec_aes_est <-}\StringTok{ }\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{sal}\OperatorTok{+}\NormalTok{rec,popul_plan)}
-\NormalTok{est_aes <-}\StringTok{ }\NormalTok{est_aes }\OperatorTok{+}\StringTok{ }\KeywordTok{coef}\NormalTok{(sal_rec_aes_est)}
-\NormalTok{cov_mat_aes_est <-}\StringTok{ }\NormalTok{cov_mat_aes_est}\OperatorTok{+}\StringTok{ }\KeywordTok{attr}\NormalTok{(sal_rec_aes_est,}\StringTok{'var'}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{500}\NormalTok{) \{}
+\NormalTok{  s <-}\StringTok{ }\KeywordTok{strata}\NormalTok{(popul_dat, }\StringTok{"estrat"}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{, }\DecValTok{30}\NormalTok{), }\DataTypeTok{method =} \StringTok{"srswor"}\NormalTok{)}
+\NormalTok{  dados <-}\StringTok{ }\KeywordTok{getdata}\NormalTok{(popul_dat, s)}
+  \CommentTok{# média amostral de salário e de receita}
+\NormalTok{  est_aas <-}\StringTok{ }\NormalTok{est_aas }\OperatorTok{+}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(dados}\OperatorTok{$}\NormalTok{sal), }\KeywordTok{mean}\NormalTok{(dados}\OperatorTok{$}\NormalTok{rec))}
+  \CommentTok{# estimador v0}
+\NormalTok{  cov_mat_aas_est <-}\StringTok{ }\NormalTok{cov_mat_aas_est }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{f) }\OperatorTok{*}\StringTok{ }\KeywordTok{cov}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(dados}\OperatorTok{$}\NormalTok{sal, }
+\NormalTok{    dados}\OperatorTok{$}\NormalTok{rec))}\OperatorTok{/}\NormalTok{n}
+  
+  \CommentTok{# vhat_aes estimador não-viciado}
+\NormalTok{  popul_plan <-}\StringTok{ }\KeywordTok{svydesign}\NormalTok{(}\OperatorTok{~}\DecValTok{1}\NormalTok{, }\DataTypeTok{strata =} \OperatorTok{~}\NormalTok{estrat, }\DataTypeTok{data =}\NormalTok{ dados, }
+    \DataTypeTok{fpc =} \OperatorTok{~}\NormalTok{Prob)}
+  \CommentTok{# estimador não-viciado da média de salario e receita}
+\NormalTok{  sal_rec_aes_est <-}\StringTok{ }\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{sal }\OperatorTok{+}\StringTok{ }\NormalTok{rec, popul_plan)}
+\NormalTok{  est_aes <-}\StringTok{ }\NormalTok{est_aes }\OperatorTok{+}\StringTok{ }\KeywordTok{coef}\NormalTok{(sal_rec_aes_est)}
+\NormalTok{  cov_mat_aes_est <-}\StringTok{ }\NormalTok{cov_mat_aes_est }\OperatorTok{+}\StringTok{ }\KeywordTok{attr}\NormalTok{(sal_rec_aes_est, }
+    \StringTok{"var"}\NormalTok{)}
 \NormalTok{\}}
-\CommentTok{# 1-media de ybar; 2- média de ybar_w; 3- média de v0; 4- média de vhat_aes}
 
-\NormalTok{mean_est_aas <-}\StringTok{ }\NormalTok{est_aas}\OperatorTok{/}\DecValTok{500}
-\NormalTok{mean_est_aes <-}\StringTok{ }\NormalTok{est_aes}\OperatorTok{/}\DecValTok{500}
-\NormalTok{mean_cov_mat_aas_est <-}\StringTok{ }\NormalTok{cov_mat_aas_est}\OperatorTok{/}\DecValTok{500}
-\NormalTok{mean_cov_mat_aes_est <-}\StringTok{ }\NormalTok{cov_mat_aes_est}\OperatorTok{/}\DecValTok{500}
-\end{Highlighting}
-\end{Shaded}
+\CommentTok{# média populacional}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{mean_cov_mat_aas_est <-}\StringTok{ }\NormalTok{cov_mat_aas_est}\OperatorTok{/}\DecValTok{500}
-\end{Highlighting}
-\end{Shaded}
+\NormalTok{med_pop <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(popul_dat}\OperatorTok{$}\NormalTok{sal), }\KeywordTok{mean}\NormalTok{(popul_dat}\OperatorTok{$}\NormalTok{rec)),}\DecValTok{3}\NormalTok{)}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# epa = média de vhat_aes/ média de v0}
 
-\NormalTok{sal_mean_epa_est <-}\StringTok{ }\NormalTok{mean_cov_mat_aes_est[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]}\OperatorTok{/}\NormalTok{mean_cov_mat_aas_est[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]}
-\NormalTok{sal_mean_epa_est}
+\CommentTok{# Calcula médias das estimativas na simulação}
+
+\NormalTok{## Média das estimativas pontuais para as 500 amostras aas}
+\NormalTok{mean_est_aas <-}\StringTok{ }\KeywordTok{round}\NormalTok{(est_aas}\OperatorTok{/}\DecValTok{500}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+\NormalTok{mean_est_aas}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1425528
+## [1] 163.503   4.171
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{rec_mean_epa_est <-}\StringTok{ }\NormalTok{mean_cov_mat_aes_est[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{]}\OperatorTok{/}\NormalTok{mean_cov_mat_aas_est[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{]}
-\NormalTok{rec_mean_epa_est}
+\NormalTok{## Média das estimativas pontuais para as 500 amostras aes}
+\NormalTok{mean_est_aes <-}\StringTok{ }\KeywordTok{round}\NormalTok{(est_aes}\OperatorTok{/}\DecValTok{500}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+\NormalTok{mean_est_aes}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.3325159
+##    sal    rec 
+## 78.069  2.062
 \end{verbatim}
 
-Usando a fórmula \eqref{eq:epa3}
-
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# variância sob distr. de aleatorização verdadeira }
-\NormalTok{mat_cov_pop <-}\StringTok{ }\KeywordTok{by}\NormalTok{(popul_dat, popul_dat}\OperatorTok{$}\NormalTok{estrat, }\ControlFlowTok{function}\NormalTok{(t)}\KeywordTok{var}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(t}\OperatorTok{$}\NormalTok{sal,t}\OperatorTok{$}\NormalTok{rec)) )}
-
-\NormalTok{mat_cov_aleat_verd <-(Wh[}\DecValTok{1}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{fh[}\DecValTok{1}\NormalTok{])}\OperatorTok{/}\NormalTok{nh[}\DecValTok{1}\NormalTok{])}\OperatorTok{*}\NormalTok{mat_cov_pop[[}\DecValTok{1}\NormalTok{]]}\OperatorTok{+}\NormalTok{(Wh[}\DecValTok{2}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{fh[}\DecValTok{2}\NormalTok{])}\OperatorTok{/}\NormalTok{nh[}\DecValTok{2}\NormalTok{])}\OperatorTok{*}\NormalTok{mat_cov_pop[[}\DecValTok{2}\NormalTok{]]}
-\end{Highlighting}
-\end{Shaded}
-
-A seguir, reproduzimos a Tabela \ref{tab:proestmed}, usando os
-resultados da simulação:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{tab_}\DecValTok{43}\NormalTok{ <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
-\StringTok{"Quantidade de interesse"}\NormalTok{ =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Média Populacional"}\NormalTok{, }\StringTok{"Média de estimativas de média AAS"}\NormalTok{,}
-  \StringTok{"Média de estimativas de média AES"}\NormalTok{),}
-\NormalTok{Salá}\DataTypeTok{rios =} \KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(popul_dat}\OperatorTok{$}\NormalTok{sal), mean_est_aas[}\DecValTok{1}\NormalTok{], mean_est_aes[}\DecValTok{1}\NormalTok{] ),}
-\DataTypeTok{Receitas =} \KeywordTok{c}\NormalTok{(}\KeywordTok{mean}\NormalTok{(popul_dat}\OperatorTok{$}\NormalTok{rec), mean_est_aas[}\DecValTok{2}\NormalTok{], mean_est_aes[}\DecValTok{2}\NormalTok{] )  }
-\NormalTok{)}
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(tab_}\DecValTok{43}\NormalTok{, }\DataTypeTok{booktabs=}\OtherTok{TRUE}\NormalTok{ )    }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{tabular}{lrr}
-\toprule
-Quantidade.de.interesse & Salários & Receitas\\
-\midrule
-Média Populacional & 78.32826 & 2.106846\\
-Média de estimativas de média AAS & 163.50334 & 4.171317\\
-Média de estimativas de média AES & 78.06853 & 2.061913\\
-\bottomrule
-\end{tabular}
-
-A seguir reproduzimos a Tabela \ref{tab:varest}, usando os resultados da
-simulação:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{tab_}\DecValTok{44}\NormalTok{ <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
-\StringTok{"Quantidade de interesse"}\NormalTok{ =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Variância do estimador AES"}\NormalTok{, }\StringTok{"Média de estimativas de variância AES"}\NormalTok{,}
-\StringTok{"Valor esperado AES do estimador AAS de variância"}\NormalTok{,}\StringTok{"Média de estimativas de variância AAS"}\NormalTok{),}
-\NormalTok{Salá}\DataTypeTok{rios=} \KeywordTok{c}\NormalTok{(mat_cov_aleat_verd[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{], mean_cov_mat_aes_est[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{], }\OtherTok{NA}\NormalTok{, mean_cov_mat_aas_est[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]),}
-\DataTypeTok{Receitas =} \KeywordTok{c}\NormalTok{(mat_cov_aleat_verd[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{], mean_cov_mat_aes_est[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{], }\OtherTok{NA}\NormalTok{, mean_cov_mat_aas_est[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{])  }
-\NormalTok{ )}
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(tab_}\DecValTok{44}\NormalTok{, }\DataTypeTok{booktabs=} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{tabular}{lrr}
-\toprule
-Quantidade.de.interesse & Salários & Receitas\\
-\midrule
-Variância do estimador AES & 244.1758 & 0.4349945\\
-Média de estimativas de variância AES & 245.1878 & 0.4011822\\
-Valor esperado AES do estimador AAS de variância & NA & NA\\
-Média de estimativas de variância AAS & 1719.9794 & 1.2065052\\
-\bottomrule
-\end{tabular}
-
-A seguir, reproduzimos os resultados do Exemplo \ref{exm:deffmult}, que
-utiliza também os resultados da simulação acima.
-
-Matriz de covariância dos estimadores ponderados da média, resultado em
-\eqref{eq:epa7}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{mat_cov_aleat_verd}
+\CommentTok{# Média das estimativas de matriz de covariância para as 500}
+\CommentTok{# amostras aas}
+\NormalTok{mean_cov_mat_aas_est <-}\StringTok{ }\KeywordTok{round}\NormalTok{(cov_mat_aas_est}\OperatorTok{/}\DecValTok{500}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{mean_cov_mat_aas_est}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]      [,2]
-## [1,] 244.175801 3.2357921
-## [2,]   3.235792 0.4349945
+##          [,1]   [,2]
+## [1,] 1719.979 26.780
+## [2,]   26.780  1.207
 \end{verbatim}
-
-Média da matriz de covariância dos estimadores de média do salário e da
-receita assumindo observações IID, resultado em \eqref{eq:epa8}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{mean_cov_mat_aas_est }
+\CommentTok{# Média das estimativas de matriz de covariância para as 500}
+\CommentTok{# amostras aes}
+\NormalTok{mean_cov_mat_aes_est <-}\StringTok{ }\KeywordTok{round}\NormalTok{(cov_mat_aes_est}\OperatorTok{/}\DecValTok{500}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{mean_cov_mat_aes_est}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]      [,2]
-## [1,] 1719.9794 26.780304
-## [2,]   26.7803  1.206505
+##         sal   rec
+## sal 245.188 3.172
+## rec   3.172 0.401
 \end{verbatim}
-
-Média da matriz de covariância dos estimadores de média do salário e da
-receita assumindo observações AES, resultado em \eqref{eq:epa9}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{mean_cov_mat_aes_est }
+\NormalTok{## Matriz de covariância populacional}
+\NormalTok{mat_cov_pop <-}\StringTok{ }\KeywordTok{by}\NormalTok{(popul_dat, popul_dat}\OperatorTok{$}\NormalTok{estrat, }\ControlFlowTok{function}\NormalTok{(t) }\KeywordTok{var}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(t}\OperatorTok{$}\NormalTok{sal, }
+\NormalTok{  t}\OperatorTok{$}\NormalTok{rec)))}
+ 
+
+
+\NormalTok{## Matriz de covariância considerando o plano amostral}
+\NormalTok{## verdadeiro}
+\NormalTok{mat_cov_aleat_verd <-}\StringTok{ }\NormalTok{(Wh[}\DecValTok{1}\NormalTok{]}\OperatorTok{^}\DecValTok{2} \OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{fh[}\DecValTok{1}\NormalTok{])}\OperatorTok{/}\NormalTok{nh[}\DecValTok{1}\NormalTok{]) }\OperatorTok{*}\StringTok{ }\NormalTok{mat_cov_pop[[}\DecValTok{1}\NormalTok{]] }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\NormalTok{(Wh[}\DecValTok{2}\NormalTok{]}\OperatorTok{^}\DecValTok{2} \OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{fh[}\DecValTok{2}\NormalTok{])}\OperatorTok{/}\NormalTok{nh[}\DecValTok{2}\NormalTok{]) }\OperatorTok{*}\StringTok{ }\NormalTok{mat_cov_pop[[}\DecValTok{2}\NormalTok{]]}
+\NormalTok{mat_cov_aleat_verd <-}\StringTok{ }\KeywordTok{round}\NormalTok{(mat_cov_aleat_verd,}\DecValTok{3}\NormalTok{)}
+
+
+\NormalTok{## estimativa de efeitos generalizados do plano amostral}
+\NormalTok{DELTA =}\StringTok{ }\KeywordTok{solve}\NormalTok{(mean_cov_mat_aas_est) }\OperatorTok{%*%}\StringTok{ }\NormalTok{mean_cov_mat_aes_est}
+\NormalTok{epa <-}\KeywordTok{round}\NormalTok{(}\KeywordTok{eigen}\NormalTok{(DELTA)}\OperatorTok{$}\NormalTok{values,}\DecValTok{3}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-##            sal       rec
-## sal 245.187815 3.1722720
-## rec   3.172272 0.4011822
-\end{verbatim}
-
-A partir desses resultados, obtemos os efeitos multivariados para as
-médias de Sálários e Receitas, em \eqref{eq:epa10}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{DELTA =}\StringTok{ }\KeywordTok{solve}\NormalTok{(mean_cov_mat_aas_est)}\OperatorTok{%*%}\StringTok{ }\NormalTok{mean_cov_mat_aes_est}
-\KeywordTok{eigen}\NormalTok{(DELTA)}\OperatorTok{$}\NormalTok{values}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0.4592617 0.1415845
-\end{verbatim}
-
-Os autovalores de DELTA 0.4592617 e 0.1415845 são os efeitos
-generalizados do plano amostral.
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:eqmean}{}{\label{exm:eqmean} }Teste da igualdade de

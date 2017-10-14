@@ -347,25 +347,27 @@ duas variáveis de pesquisa (SAL e REC) foram calculados:
 ($\bar{y}_{w}$) considerando o plano amostral verdadeiro $\left( \hat{V}_{AES}\ \left( \bar{y}_{w}\right) \right)$.
 
 
+
 Note que na apresentação dos resultados os valores dos salários
 foram expressos em milhares de Reais (R\$ $1.000,00$) e os valores das
 receitas em milhões de Reais (R\$ $1.000.000,00$). Como a população é conhecida, os parâmetros populacionais de interesse podem
 ser calculados, obtendo-se os valores na primeira linha da Tabela \@ref(tab:proestmed).
 
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+source("Lab4a.R")
+```
 
-------------------------------------------------------------------------
-Quantidade de interesse            Salários   Receitas
---------------------------------  ---------- ----------
-1) Média populacional              78.328      2.107
+```{r proestmed, echo=FALSE}
+tab_43 <- data.frame(
+"Quantidade de interesse" = c("Média Populacional", "Média de estimativas de média AAS",
+  "Média de estimativas de média AES"),
+Salários = c(med_pop[1], mean_est_aas[1], mean_est_aes[1] ),
+Receitas = c(med_pop[2], mean_est_aas[2], mean_est_aes[2] )  
+)
+knitr::kable(tab_43, booktabs=TRUE, caption = "Propriedades dos estimadores da média das variáveis de pesquisa" )    
+```
 
-2) Média de $\bar{y}$ sobre        160.750     4.191
-500 amostras
 
-3) Média de $\bar{y}_{w}$ sobre    76.700      2.054
-500 amostras
-------------------------------------------------------------------------
-Table:(#tab:proestmed) Propriedades dos estimadores da média das variáveis
-de pesquisa
 
 Em contraste com os valores dos parâmetros populacionais, calculamos a
 média das médias amostrais não ponderadas ($\bar{y}$) dos
@@ -402,26 +404,14 @@ calcular $V_{AES}\left(\bar{y}_{w}\right)$ através das
 variâncias de $y$ dentro dos estratos $h=1,2$ ou através da simulação. Esses valores são apresentados respectivamente na primeira e
 segunda linhas da Tabela \@ref(tab:varest), para as duas variáveis de pesquisa consideradas.
 
-
---------------------------------------------------------------------------------
-Quantidade de interesse                           Salários   Receitas
------------------------------------------------- ---------- ----------
-1) Variância populacional                            244.1    0.43500
-$V_{AES}\left( \bar{y}_{w}\right)$
-
-2) Média de                                         231.84    0.32569
-$\widehat{V}_{AES}\left(\bar{y}_{w}\right)$
-usando $500$ amostras
-
-3) Valor esperado de                                1613.3     1.1880
-$v_{0}$ usando população
-
-4) Média de $v_{0}$                                 1636.1     1.2121
-usando $500$ amostras
--------------------------------------------------------------------------------
-Table:(#tab:varest) Propriedades dos estimadore de variância do estimador $\bar{y}_{w}$
-
-
+```{r varest, echo=FALSE}
+tab_44 <- data.frame(
+"Quantidade de interesse" = c("Variância do estimador AES", "Média de estimativas de variância AES", "Valor esperado AES do estimador AAS de variância","Média de estimativas de variância AAS"),
+Salários= c(mat_cov_aleat_verd[1,1], mean_cov_mat_aes_est[1,1], 1613.3 , mean_cov_mat_aas_est[1,1]),
+Receitas = c(mat_cov_aleat_verd[2,2], mean_cov_mat_aes_est[2,2], 1.1880, mean_cov_mat_aas_est[2,2])  
+ )
+knitr::kable(tab_44, booktabs= TRUE, caption = "Propriedades dos estimadores de variância do estimador ponderado da média")
+```
 
 Os valores de $E_{VERD}\left( v_{0}\left( \overline{SAL}_{w}\right) \right)$
 e de $E_{VERD}\left( v_{0}\left( \overline{REC}_{w}\right) \right)$ foram
@@ -431,18 +421,31 @@ e estimativas desses valores baseadas nas 500 amostras da simulação
 são apresentadas na linha 4 da Tabela  \@ref(tab:varest). Os valores para o 
 $\mathbf{EPA}$ foram calculados tanto com base nas estimativas de simulação como nos valores populacionais das variâncias, cujos cálculos estão ilustrados a seguir:
 
-\begin{eqnarray*}
-\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right) &=&\frac{231.84}{1636.1}=0.142 \\
-\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
-\right) &=&\frac{0.32569}{1.2121}=0.269
-\end{eqnarray*}
+$\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right)$:
 
-\begin{eqnarray*}
-\mathbf{EPA}\left( \overline{SAL}_{w},v_{0}\left( \overline{SAL}_{w}\right)
-\right) &=&\frac{244.18}{1613.3}=0.151\mbox{ e } \\
-\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
-\right) &=&\frac{0.43500}{1.1880}=0.366.
-\end{eqnarray*}
+```{r, echo=FALSE}
+cat(paste0(tab_44[2,2],"/",tab_44[4,2],"=", round(tab_44[2,2]/tab_44[4,2],3)))
+```
+
+$\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)\right)$:
+
+
+```{r, echo=FALSE}
+cat(paste0(tab_44[2,3],"/",tab_44[4,3],"=", round(tab_44[2,3]/tab_44[4,3],3)))
+```
+
+$\mathbf{EPA}\left( \overline{SAL}_{w},v_{0}\left( \overline{SAL}_{w}\right)\right)$:
+
+```{r, echo=FALSE}
+cat(paste0(tab_44[1,2],"/",tab_44[3,2],"=", round(tab_44[1,2]/tab_44[3,2],3)))
+```
+
+$\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)\right)$
+
+```{r, echo=FALSE}
+cat(paste0(tab_44[1,3],"/",tab_44[3,3],"=", round(tab_44[1,3]/tab_44[3,3],3)))
+```
+
 
 A Tabela \@ref(tab:eparec) resume os principais resultados deste exercício,
 para o estimador ponderado da média $\bar{y}_{w}$. Apesar das diferenças entre os resultados da simulação e suas contrapartidas
@@ -471,17 +474,16 @@ situação se deve ao uso ingênuo de pacotes estatísticos
 padrões desenvolvidos para analisar amostras IID, sem a devida consideração dos pesos e plano amostral.
 
 
------------------------------------------------------------------------
-Variável  Estimativa  Simulação  População
---------- ----------- ---------- ----------
-Salário   Variância   231.84     244.18
-          EPA         0.142      0.151
+```{r eparec, echo=FALSE}
+epa_df <- data.frame(
+Variável = c("Salário", "Salário", "Receita", "Receita"),
+Estimativa= c("Variância", "EPA", "Variância", "EPA"),
+Simulação =c(tab_44[2,2], tab_44[2,2]/tab_44[4,2] ,tab_44[2,3], tab_44[2,3]/tab_44[4,3]),  
+População=c(tab_44[1,2], tab_44[1,2]/tab_44[3,2] ,tab_44[1,3], tab_44[1,3]/tab_44[4,3])
+)
+knitr::kable(epa_df ,booktabs=TRUE, digits = c(0,0,3,3), caption = "Valores dos Efeitos de Plano amostral(EPA) para as médias de Salário e Receita." )
+```
 
-Receita   Variância   0.32569    0.43500
-          EPA         0.269      0.366
---------------------------------------------------------------------
-Table:(#tab:eparec)Valores dos Efeitos de Plano amostral(EPA) para as
-médias de Salário e Receita.
 
                   
 ```{remark} 
@@ -831,16 +833,14 @@ $SAL_{hi}$ e $REC_{hi}$, obtemos para esta covariância o valor
 \[
 COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
 \]
-e portanto a matriz de variância dos estimadores ponderados da média
-fica igual a 
-\begin{equation}
-\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}
-\left[ \begin{array}{rr}
-244.18 & 3.2358 \\ 
-3.2358 & 0.4350
-\end{array}
-\right]   (\#eq:epa7)
-\end{equation}
+e portanto a matriz de variância $\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w})$ dos estimadores ponderados da média fica igual a 
+```{r, echo=FALSE, c}
+dimnames(mat_cov_aleat_verd)<- list(c("SAL", "REC"),c("SAL", "REC"))
+mat_cov_aleat_verd
+
+```
+
+
 onde os valores das variâncias em \@ref(eq:epa7) foram os calculados no
 Exemplo \@ref(exm:deffuni) e coincidem, respectivamente, com os valores usados
 nos numeradores de $\mathbf{EPA}\left( \overline{SAL}_{w}\right)$ e de 
@@ -870,35 +870,33 @@ receita considerando o plano amostral verdadeiro.
 
 A partir da simulação foram obtidos os seguintes resultados:
 
-\begin{equation}
-\mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) =\left[ 
-\begin{array}{rr}
-1785.3 & 27.734 \\ 
-27.734 & 1.2852
-\end{array}
-\right],  (\#eq:epa8)
-\end{equation}
+- A matriz de covariância das médias amostrais ponderadas de salário e da receita, assumindo observações IID  $E_{AES}\left(V_{0}\right)$: 
 
-\begin{equation}
-\mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
-\begin{array}{rr}
-250.41 & 3.2683 \\ 
-3.2683 & 0.42267
-\end{array}
-\right] \mbox{ e }  (\#eq:epa9)
-\end{equation}
 
-\begin{equation}
-\mathbf{\Delta =}\left[ \mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) \right]
-^{-1}\mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
-\begin{array}{rr}
-0.1516 & -4.931 \\ 
--0.0007277 & 0.4353
-\end{array}
-\right] \;\;.  (\#eq:epa10)
-\end{equation}
+```{r, echo=FALSE}
+dimnames(mean_cov_mat_aas_est)<- list(c("SAL", "REC"),c("SAL", "REC"))
+mean_cov_mat_aas_est
+```
 
-Os autovalores $\delta_{1}=0,447$ e $\delta_{2}=0,139$ de 
+- A matriz de covariância das médias ponderadas de salário e da receita considerando o plano amostral verdadeiro $V_{AES}\left(\hat{\theta}\right)$:
+
+
+```{r, echo=FALSE}
+dimnames(mean_cov_mat_aes_est) <- list(c("SAL", "REC"),c("SAL", "REC"))
+mean_cov_mat_aes_est
+```
+
+- A matriz $\Delta$ definida em \@ref(eq:epa6)
+
+
+ $\Delta = \left[ E_{AES}\left( V_{0}\right)\right]^{-1}V_{AES}(\hat{\theta})$ 
+
+```{r, echo=FALSE}
+round(DELTA,3)
+```
+
+
+Os autovalores `r epa[1]` e `r epa[2]` de 
 $\mathbf{\Delta}$ fornecem os efeitos generalizados do plano amostral.
 
 Da mesma forma que o $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$
@@ -1015,157 +1013,14 @@ de 5% assumindo autovalores iguais para delta.")
 
 ```
 
-
 ## Laboratório de R
 
-Utilizando o R, obtemos a seguir alguns resultados descritos no Exemplo \@ref(exm:deffuni).
+Utilizando o R, obtemos a seguir alguns resultados descritos nos Exemplos \@ref(exm:deffuni) e \@ref(exm:deffmult). Na simulação, usamos a library `sampling` [@R-sampling] para gerar amostras estratificadas de tamanho 30, com estratos definidos na Tabela \@ref(tab:estempr), para obter os valores nas Tabelas \@ref(tab:proestmed)
+e \@ref(tab:varest).
 
-```{r, message=FALSE, warning=FALSE }
-library(survey)
-# carrega dados
-library(anamco)
-popul_dat <- popul
-names(popul_dat)
+
+```{r, code=readLines('Lab4a.R', encoding= "UTF-8")}
 ```
-
-```{r}
-N<-nrow(popul_dat)
-n1<-30; n2<-30
-nh=c(n1,n2)
-n<-sum(nh)
-Nh<-table(popul_dat$estrat)
-fh<-nh/Nh ; Wh<-Nh/N ; f<- n/N
-``` 
-
-
-Na simulação, usamos a library `sampling` [@R-sampling] para gerar amostras estratificadas de tamanho 30, com estratos definidos na Tabela \@ref(tab:estempr), para reproduzir os elementos das Tabelas \@ref(tab:proestmed)
-e \@ref(tab:varest). 
-
-
-
-```{r, message=FALSE, warning=FALSE}
-# muda escala de salários e receitas
-popul_dat$sal <- popul_dat$sal/1000
-popul_dat$rec <- popul_dat$rec/1000000
-library(sampling)
-# define espaços para salvar resultados
-est_aas <- c(0,0)
-est_aes <- c(0,0)
-cov_mat_aas_est <- matrix(0,2,2)
-cov_mat_aes_est <- matrix(0,2,2)
-set.seed(123)
-# gera amostras com dois estratos de tamanho 30
-for(i in 1:500){
-  s<-strata(popul_dat, "estrat",c(30,30),method= "srswor")
-dados<-getdata(popul_dat,s)
-# média amostral de salário e de receita
-est_aas <- est_aas+c(mean(dados$sal), mean(dados$rec))
-# estimador v0
-cov_mat_aas_est <- cov_mat_aas_est + (1-f)*cov(cbind(dados$sal, dados$rec))/n
-
-# vhat_aes estimador não-viciado
-popul_plan<-svydesign(~1,strata=~estrat,data=dados,fpc=~Prob)
-# estimador não-viciado da média de  salario e receita
-sal_rec_aes_est <- svymean(~sal+rec,popul_plan)
-est_aes <- est_aes + coef(sal_rec_aes_est)
-cov_mat_aes_est <- cov_mat_aes_est+ attr(sal_rec_aes_est,'var')
-}
-# 1-media de ybar; 2- média de ybar_w; 3- média de v0; 4- média de vhat_aes
-
-mean_est_aas <- est_aas/500
-mean_est_aes <- est_aes/500
-mean_cov_mat_aas_est <- cov_mat_aas_est/500
-mean_cov_mat_aes_est <- cov_mat_aes_est/500
-```
-
-```{r}
-mean_cov_mat_aas_est <- cov_mat_aas_est/500
-```
-
-```{r}
-# epa = média de vhat_aes/ média de v0
-
-sal_mean_epa_est <- mean_cov_mat_aes_est[1,1]/mean_cov_mat_aas_est[1,1]
-sal_mean_epa_est
-rec_mean_epa_est <- mean_cov_mat_aes_est[2,2]/mean_cov_mat_aas_est[2,2]
-rec_mean_epa_est
-```
-
-
-
-
-
-Usando a fórmula \@ref(eq:epa3)
-
-```{r}
-# variância sob distr. de aleatorização verdadeira 
-mat_cov_pop <- by(popul_dat, popul_dat$estrat, function(t)var(cbind(t$sal,t$rec)) )
-
-mat_cov_aleat_verd <-(Wh[1]^2*(1-fh[1])/nh[1])*mat_cov_pop[[1]]+(Wh[2]^2*(1-fh[2])/nh[2])*mat_cov_pop[[2]]
-```
-
-A seguir, reproduzimos a Tabela \@ref(tab:proestmed), usando os resultados da simulação:
-
-```{r}
-tab_43 <- data.frame(
-"Quantidade de interesse" = c("Média Populacional", "Média de estimativas de média AAS",
-  "Média de estimativas de média AES"),
-Salários = c(mean(popul_dat$sal), mean_est_aas[1], mean_est_aes[1] ),
-Receitas = c(mean(popul_dat$rec), mean_est_aas[2], mean_est_aes[2] )  
-)
-knitr::kable(tab_43, booktabs=TRUE )    
-```
-
-A seguir reproduzimos a Tabela \@ref(tab:varest), usando os resultados da simulação:
-
-```{r}
-tab_44 <- data.frame(
-"Quantidade de interesse" = c("Variância do estimador AES", "Média de estimativas de variância AES",
-"Valor esperado AES do estimador AAS de variância","Média de estimativas de variância AAS"),
-Salários= c(mat_cov_aleat_verd[1,1], mean_cov_mat_aes_est[1,1], NA, mean_cov_mat_aas_est[1,1]),
-Receitas = c(mat_cov_aleat_verd[2,2], mean_cov_mat_aes_est[2,2], NA, mean_cov_mat_aas_est[2,2])  
- )
-knitr::kable(tab_44, booktabs= TRUE)
-```
-
-
-A seguir, reproduzimos os resultados do Exemplo \@ref(exm:deffmult), que utiliza também os resultados da
-simulação acima.
-
-
-Matriz de covariância dos estimadores ponderados da média, resultado em \@ref(eq:epa7):
-```{r}
-mat_cov_aleat_verd
-```
-
-Média da matriz de covariância dos estimadores de média do salário e da receita assumindo observações IID, resultado em 
-\@ref(eq:epa8):
-
-```{r}
-mean_cov_mat_aas_est 
-```
-
-Média da matriz de covariância dos estimadores de média do salário e da receita assumindo observações AES, resultado em 
-\@ref(eq:epa9):
-
-```{r}
-mean_cov_mat_aes_est 
-```
-
-A partir desses resultados, obtemos os efeitos multivariados para as médias de Sálários e Receitas, em \@ref(eq:epa10):
-
-```{r}
-DELTA = solve(mean_cov_mat_aas_est)%*% mean_cov_mat_aes_est
-eigen(DELTA)$values
-```
-Os autovalores de DELTA  `r eigen(DELTA)$values[1]` e 
-`r eigen(DELTA)$values[2]` são os efeitos generalizados do plano amostral.
-
-
-
-
-
-
 
 ```{example, label="eqmean" }
 Teste da igualdade de médias para duas populações
@@ -1209,5 +1064,8 @@ svyttest(renda ~ sexo, amolim.des)
 ```{r}
 svyttest(renda ~ raca, amolim.des)
 ```
+
+
+
 
 

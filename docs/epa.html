@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-10-09">
+<meta name="date" content="2017-10-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -411,35 +411,30 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 <li><p>estimativa da variância da estimativa ponderada da média (<span class="math inline">\(\bar{y}_{w}\)</span>) considerando o plano amostral verdadeiro <span class="math inline">\(\left( \hat{V}_{AES}\ \left( \bar{y}_{w}\right) \right)\)</span>.</p></li>
 </ol>
 <p>Note que na apresentação dos resultados os valores dos salários foram expressos em milhares de Reais (R$ <span class="math inline">\(1.000,00\)</span>) e os valores das receitas em milhões de Reais (R$ <span class="math inline">\(1.000.000,00\)</span>). Como a população é conhecida, os parâmetros populacionais de interesse podem ser calculados, obtendo-se os valores na primeira linha da Tabela <a href="epa.html#tab:proestmed">4.3</a>.</p>
-<table style="width:78%;">
-<caption><span id="tab:proestmed">Tabela 4.3: </span> Propriedades dos estimadores da média das variáveis de pesquisa</caption>
-<colgroup>
-<col width="47%" />
-<col width="15%" />
-<col width="15%" />
-</colgroup>
+<table>
+<caption><span id="tab:proestmed">Tabela 4.3: </span>Propriedades dos estimadores da média das variáveis de pesquisa</caption>
 <thead>
 <tr class="header">
-<th align="left">Quantidade de interesse</th>
-<th align="center">Salários</th>
-<th align="center">Receitas</th>
+<th align="left">Quantidade.de.interesse</th>
+<th align="right">Salários</th>
+<th align="right">Receitas</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">1) Média populacional</td>
-<td align="center">78.328</td>
-<td align="center">2.107</td>
+<td align="left">Média Populacional</td>
+<td align="right">78.328</td>
+<td align="right">2.107</td>
 </tr>
 <tr class="even">
-<td align="left">2) Média de <span class="math inline">\(\bar{y}\)</span> sobre 500 amostras</td>
-<td align="center">160.750</td>
-<td align="center">4.191</td>
+<td align="left">Média de estimativas de média AAS</td>
+<td align="right">163.503</td>
+<td align="right">4.171</td>
 </tr>
 <tr class="odd">
-<td align="left">3) Média de <span class="math inline">\(\bar{y}_{w}\)</span> sobre 500 amostras</td>
-<td align="center">76.700</td>
-<td align="center">2.054</td>
+<td align="left">Média de estimativas de média AES</td>
+<td align="right">78.069</td>
+<td align="right">2.062</td>
 </tr>
 </tbody>
 </table>
@@ -447,89 +442,87 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 <p>Usamos também o estimador <span class="math inline">\(\bar{y}_{w}\)</span> para estimar a média dos salários e das receitas na população, obtendo para esse estimador as médias apresentadas na terceira linha da Tabela <a href="epa.html#tab:proestmed">4.3</a>. Observamos ainda um pequeno vício da ordem de <span class="math inline">\(-1,95\%\)</span> e <span class="math inline">\(-2,51\%\)</span> para os salários e receitas, respectivamente. Note que o estimador <span class="math inline">\(\bar{y}_{w}\)</span> é não-viciado sob o plano amostral adotado, entretanto o pequeno vício observado na simulação não pode ser ignorado pois é significantemente diferente de <span class="math inline">\(0\)</span> ao nível de significância de <span class="math inline">\(5\%\)</span>, apesar do tamanho razoável da simulação (<span class="math inline">\(500\)</span> replicações).</p>
 <p>Além dos estimadores pontuais, o interesse maior da simulação foi comparar valores de estimadores de variância, e consequentemente de medidas do efeito do plano amostral. Como o estimador pontual dado pela média amostral não ponderada (<span class="math inline">\(\bar{y}\)</span>) é grosseiramente viciado, não consideramos estimativas de variância para esse estimador, mas tão somente para o estimador não-viciado dado pela média ponderada <span class="math inline">\(\bar{y}_{w}\)</span>. Para esse último, consideramos dois estimadores de variância, a saber o estimador ingênuo sob a hipótese de AAS (dado por <span class="math inline">\(v_{0}\)</span>) e um estimador não viciado da variância sob o plano amostral <span class="math inline">\(\hat{V}_{AES}\left( \bar{y}_{w}\right)\)</span> , que foi obtido substituindo as variâncias dentro dos estratos <span class="math inline">\(S_{h}^{2}\)</span> por estimativas amostrais não viciadas dadas por <span class="math inline">\(s_{h}^{2}=\frac{1}{n_{h}-1}\sum_{i=1}^{n_{h}}(y_{hi}-\overline{y}_{h})^{2}\)</span>, <span class="math inline">\(h=1,2\)</span>, na fórmula de <span class="math inline">\(V_{AES}\left( \bar{y}_{w}\right)\)</span> conforme definida em <a href="epa.html#eq:epa3">(4.3)</a>.</p>
 <p>Como neste exercício a população é conhecida, podemos calcular <span class="math inline">\(V_{AES}\left(\bar{y}_{w}\right)\)</span> através das variâncias de <span class="math inline">\(y\)</span> dentro dos estratos <span class="math inline">\(h=1,2\)</span> ou através da simulação. Esses valores são apresentados respectivamente na primeira e segunda linhas da Tabela <a href="epa.html#tab:varest">4.4</a>, para as duas variáveis de pesquisa consideradas.</p>
-<table style="width:99%;">
-<caption><span id="tab:varest">Tabela 4.4: </span> Propriedades dos estimadore de variância do estimador <span class="math inline">\(\bar{y}_{w}\)</span></caption>
-<colgroup>
-<col width="68%" />
-<col width="15%" />
-<col width="15%" />
-</colgroup>
+<table>
+<caption><span id="tab:varest">Tabela 4.4: </span>Propriedades dos estimadores de variância do estimador ponderado da média</caption>
 <thead>
 <tr class="header">
-<th align="left">Quantidade de interesse</th>
-<th align="center">Salários</th>
-<th align="center">Receitas</th>
+<th align="left">Quantidade.de.interesse</th>
+<th align="right">Salários</th>
+<th align="right">Receitas</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">1) Variância populacional <span class="math inline">\(V_{AES}\left( \bar{y}_{w}\right)\)</span></td>
-<td align="center">244.1</td>
-<td align="center">0.43500</td>
+<td align="left">Variância do estimador AES</td>
+<td align="right">244.176</td>
+<td align="right">0.435</td>
 </tr>
 <tr class="even">
-<td align="left">2) Média de <span class="math inline">\(\widehat{V}_{AES}\left(\bar{y}_{w}\right)\)</span> usando <span class="math inline">\(500\)</span> amostras</td>
-<td align="center">231.84</td>
-<td align="center">0.32569</td>
+<td align="left">Média de estimativas de variância AES</td>
+<td align="right">245.188</td>
+<td align="right">0.401</td>
 </tr>
 <tr class="odd">
-<td align="left">3) Valor esperado de <span class="math inline">\(v_{0}\)</span> usando população</td>
-<td align="center">1613.3</td>
-<td align="center">1.1880</td>
+<td align="left">Valor esperado AES do estimador AAS de variância</td>
+<td align="right">1613.300</td>
+<td align="right">1.188</td>
 </tr>
 <tr class="even">
-<td align="left">4) Média de <span class="math inline">\(v_{0}\)</span> usando <span class="math inline">\(500\)</span> amostras</td>
-<td align="center">1636.1</td>
-<td align="center">1.2121</td>
+<td align="left">Média de estimativas de variância AAS</td>
+<td align="right">1719.979</td>
+<td align="right">1.207</td>
 </tr>
 </tbody>
 </table>
 <p>Os valores de <span class="math inline">\(E_{VERD}\left( v_{0}\left( \overline{SAL}_{w}\right) \right)\)</span> e de <span class="math inline">\(E_{VERD}\left( v_{0}\left( \overline{REC}_{w}\right) \right)\)</span> foram também calculados a partir das variâncias dentro e entre estratos na população, resultando nos valores na linha 3 da Tabela <a href="epa.html#tab:varest">4.4</a>, e estimativas desses valores baseadas nas 500 amostras da simulação são apresentadas na linha 4 da Tabela <a href="epa.html#tab:varest">4.4</a>. Os valores para o <span class="math inline">\(\mathbf{EPA}\)</span> foram calculados tanto com base nas estimativas de simulação como nos valores populacionais das variâncias, cujos cálculos estão ilustrados a seguir:</p>
-<span class="math display">\[\begin{eqnarray*}
-\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right) &amp;=&amp;\frac{231.84}{1636.1}=0.142 \\
-\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
-\right) &amp;=&amp;\frac{0.32569}{1.2121}=0.269
-\end{eqnarray*}\]</span>
-<span class="math display">\[\begin{eqnarray*}
-\mathbf{EPA}\left( \overline{SAL}_{w},v_{0}\left( \overline{SAL}_{w}\right)
-\right) &amp;=&amp;\frac{244.18}{1613.3}=0.151\mbox{ e } \\
-\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)
-\right) &amp;=&amp;\frac{0.43500}{1.1880}=0.366.
-\end{eqnarray*}\]</span>
+<p><span class="math inline">\(\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right)\)</span>:</p>
+<pre><code>## 245.188/1719.979=0.143</code></pre>
+<p><span class="math inline">\(\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)\right)\)</span>:</p>
+<pre><code>## 0.401/1.207=0.332</code></pre>
+<p><span class="math inline">\(\mathbf{EPA}\left( \overline{SAL}_{w},v_{0}\left( \overline{SAL}_{w}\right)\right)\)</span>:</p>
+<pre><code>## 244.176/1613.3=0.151</code></pre>
+<p><span class="math inline">\(\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)\right)\)</span></p>
+<pre><code>## 0.435/1.188=0.366</code></pre>
 <p>A Tabela <a href="epa.html#tab:eparec">4.5</a> resume os principais resultados deste exercício, para o estimador ponderado da média <span class="math inline">\(\bar{y}_{w}\)</span>. Apesar das diferenças entre os resultados da simulação e suas contrapartidas calculadas considerando conhecidos os valores da população, as conclusões da análise são similares:</p>
 <ol style="list-style-type: decimal">
 <li><p>ignorar os pesos na estimação da média provoca vícios substanciais, que não podem ser ignorados; portanto, o uso do estimador simples de média (<span class="math inline">\(\bar{y}\)</span>) é desaconselhado;</p></li>
 <li><p>ignorar os pesos na estimação da variância do estimador ponderado <span class="math inline">\(\bar{y}_{w}\)</span> também provoca vícios substanciais, neste caso, superestimando a variância por ignorar o efeito de estratificação; os efeitos de plano amostral são substancialmente menores que <span class="math inline">\(1\)</span> para as duas variáveis de pesquisa consideradas (salários e receita); portanto o uso do estimador ingênuo de variância <span class="math inline">\(v_{0}\)</span> é desaconselhado.</p></li>
 </ol>
 <p>Essas conclusões são largamente aceitas pelos amostristas e produtores de dados baseados em pesquisas amostrais para o caso da estimação de médias e totais, e respectivas variâncias. Entretanto ainda há exemplos de usos indevidos de dados amostrais nos quais os pesos são ignorados, em particular para a estimação de variâncias associadas a estimativas pontuais de médias e totais. Tal situação se deve ao uso ingênuo de pacotes estatísticos padrões desenvolvidos para analisar amostras IID, sem a devida consideração dos pesos e plano amostral.</p>
-<table style="width:61%;">
+<table>
 <caption><span id="tab:eparec">Tabela 4.5: </span>Valores dos Efeitos de Plano amostral(EPA) para as médias de Salário e Receita.</caption>
-<colgroup>
-<col width="13%" />
-<col width="16%" />
-<col width="15%" />
-<col width="15%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Variável</th>
 <th align="left">Estimativa</th>
-<th align="left">Simulação</th>
-<th align="left">População</th>
+<th align="right">Simulação</th>
+<th align="right">População</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">Salário</td>
-<td align="left">Variância EPA</td>
-<td align="left">231.84 0.142</td>
-<td align="left">244.18 0.151</td>
+<td align="left">Variância</td>
+<td align="right">245.188</td>
+<td align="right">244.176</td>
+</tr>
+<tr class="even">
+<td align="left">Salário</td>
+<td align="left">EPA</td>
+<td align="right">0.143</td>
+<td align="right">0.151</td>
+</tr>
+<tr class="odd">
+<td align="left">Receita</td>
+<td align="left">Variância</td>
+<td align="right">0.401</td>
+<td align="right">0.435</td>
 </tr>
 <tr class="even">
 <td align="left">Receita</td>
-<td align="left">Variância EPA</td>
-<td align="left">0.32569 0.269</td>
-<td align="left">0.43500 0.366</td>
+<td align="left">EPA</td>
+<td align="right">0.332</td>
+<td align="right">0.360</td>
 </tr>
 </tbody>
 </table>
@@ -720,18 +713,13 @@ S_{SAL,REC}^{\left( h\right) }=\frac{1}{N_{h}-1}\sum\limits_{i\in
 U_{h}}\left( SAL_{hi}-\overline{SAL}_{h}\right) \left( REC_{hi}-\overline{REC
 }_{h}\right) \;. 
 \]</span></p>
-Substituindo os valores conhecidos na população das variáveis <span class="math inline">\(SAL_{hi}\)</span> e <span class="math inline">\(REC_{hi}\)</span>, obtemos para esta covariância o valor <span class="math display">\[
+<p>Substituindo os valores conhecidos na população das variáveis <span class="math inline">\(SAL_{hi}\)</span> e <span class="math inline">\(REC_{hi}\)</span>, obtemos para esta covariância o valor <span class="math display">\[
 COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
-\]</span> e portanto a matriz de variância dos estimadores ponderados da média fica igual a
-<span class="math display" id="eq:epa7">\[\begin{equation}
-\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}
-\left[ \begin{array}{rr}
-244.18 &amp; 3.2358 \\ 
-3.2358 &amp; 0.4350
-\end{array}
-\right]   \tag{4.7}
-\end{equation}\]</span>
-<p>onde os valores das variâncias em <a href="epa.html#eq:epa7">(4.7)</a> foram os calculados no Exemplo <a href="epa.html#exm:deffuni">4.2</a> e coincidem, respectivamente, com os valores usados nos numeradores de <span class="math inline">\(\mathbf{EPA}\left( \overline{SAL}_{w}\right)\)</span> e de <span class="math inline">\(\mathbf{EPA}\left( \overline{REC}_{w}\right)\)</span> lá apresentados. Para calcular o <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})\)</span> é preciso agora obter <span class="math inline">\(\mathbf{E}_{VERD}\left(\mathbf{V}_{0}\right)\)</span>.</p>
+\]</span> e portanto a matriz de variância <span class="math inline">\(\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w})\)</span> dos estimadores ponderados da média fica igual a</p>
+<pre><code>##         SAL   REC
+## SAL 244.176 3.236
+## REC   3.236 0.435</code></pre>
+<p>onde os valores das variâncias em <a href="#eq:epa7">(<strong>??</strong>)</a> foram os calculados no Exemplo <a href="epa.html#exm:deffuni">4.2</a> e coincidem, respectivamente, com os valores usados nos numeradores de <span class="math inline">\(\mathbf{EPA}\left( \overline{SAL}_{w}\right)\)</span> e de <span class="math inline">\(\mathbf{EPA}\left( \overline{REC}_{w}\right)\)</span> lá apresentados. Para calcular o <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})\)</span> é preciso agora obter <span class="math inline">\(\mathbf{E}_{VERD}\left(\mathbf{V}_{0}\right)\)</span>.</p>
 <p>Neste exemplo, a matriz de efeito do plano amostral <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})=\mathbf{\Delta }\)</span> pode também ser calculada através de simulação, de modo análogo ao que foi feito no Exemplo <a href="epa.html#exm:deffuni">4.2</a>. Para isto, foram utilizadas outras <span class="math inline">\(500\)</span> amostras de tamanho <span class="math inline">\(60\)</span> segundo o plano amostral descrito no Exemplo <a href="epa.html#exm:deffuni">4.2</a>. Para cada uma das <span class="math inline">\(500\)</span> amostras foram calculadas estimativas:</p>
 <ol style="list-style-type: decimal">
 <li><p>da variância da média amostral ponderada do salário e da receita assumindo observações IID;</p></li>
@@ -740,36 +728,30 @@ COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
 <li><p>da covariância entre médias ponderadas do salário e da receita considerando o plano amostral verdadeiro.</p></li>
 </ol>
 <p>A partir da simulação foram obtidos os seguintes resultados:</p>
-<span class="math display" id="eq:epa8">\[\begin{equation}
-\mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) =\left[ 
-\begin{array}{rr}
-1785.3 &amp; 27.734 \\ 
-27.734 &amp; 1.2852
-\end{array}
-\right],  \tag{4.8}
-\end{equation}\]</span>
-<span class="math display" id="eq:epa9">\[\begin{equation}
-\mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
-\begin{array}{rr}
-250.41 &amp; 3.2683 \\ 
-3.2683 &amp; 0.42267
-\end{array}
-\right] \mbox{ e }  \tag{4.9}
-\end{equation}\]</span>
-<span class="math display" id="eq:epa10">\[\begin{equation}
-\mathbf{\Delta =}\left[ \mathbf{E}_{AES}\left( \mathbf{V}_{0}\right) \right]
-^{-1}\mathbf{V}_{AES}(\mathbf{\hat{\theta})=}\left[ 
-\begin{array}{rr}
-0.1516 &amp; -4.931 \\ 
--0.0007277 &amp; 0.4353
-\end{array}
-\right] \;\;.  \tag{4.10}
-\end{equation}\]</span>
-<p>Os autovalores <span class="math inline">\(\delta_{1}=0,447\)</span> e <span class="math inline">\(\delta_{2}=0,139\)</span> de <span class="math inline">\(\mathbf{\Delta}\)</span> fornecem os efeitos generalizados do plano amostral.</p>
+<ul>
+<li>A matriz de covariância das médias amostrais ponderadas de salário e da receita, assumindo observações IID <span class="math inline">\(E_{AES}\left(V_{0}\right)\)</span>:</li>
+</ul>
+<pre><code>##          SAL    REC
+## SAL 1719.979 26.780
+## REC   26.780  1.207</code></pre>
+<ul>
+<li>A matriz de covariância das médias ponderadas de salário e da receita considerando o plano amostral verdadeiro <span class="math inline">\(V_{AES}\left(\hat{\theta}\right)\)</span>:</li>
+</ul>
+<pre><code>##         SAL   REC
+## SAL 245.188 3.172
+## REC   3.172 0.401</code></pre>
+<ul>
+<li>A matriz <span class="math inline">\(\Delta\)</span> definida em <a href="epa.html#eq:epa6">(4.6)</a></li>
+</ul>
+<p><span class="math inline">\(\Delta = \left[ E_{AES}\left( V_{0}\right)\right]^{-1}V_{AES}(\hat{\theta})\)</span></p>
+<pre><code>##         sal    rec
+## [1,]  0.155 -0.005
+## [2,] -0.817  0.445</code></pre>
+<p>Os autovalores 0.459 e 0.142 de <span class="math inline">\(\mathbf{\Delta}\)</span> fornecem os efeitos generalizados do plano amostral.</p>
 Da mesma forma que o <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> definido em <a href="epa.html#eq:epa2">(4.2)</a> para o caso uniparamétrico foi utilizado para corrigir níveis de confiança de intervalos e níveis de significância de testes, o <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})\)</span> definido em <a href="epa.html#eq:epa6">(4.6)</a> pode ser utilizado para corrigir níveis de confiança de regiões de confiança e níveis de significância de testes de hipóteses no caso multiparamétrico. Para ilustrar, vamos considerar o problema de testar a hipótese <span class="math inline">\(H_{0}:\mathbf{\mu }=\mathbf{\mu }_{0}\)</span>, onde <span class="math inline">\(\mathbf{\mu }\)</span> é o vetor de médias de um vetor de variáveis de pesquisa <span class="math inline">\(\mathbf{y}\)</span>. A estatística de teste usualmente adotada para este caso é a <span class="math inline">\(T^{2}\)</span> de Hottelling dada por
 <span class="math display" id="eq:epa11">\[\begin{equation}
 T^{2}=n\left( \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{S}
-_{y}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) , \tag{4.11} 
+_{y}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) , \tag{4.7} 
 \end{equation}\]</span>
 onde
 <span class="math display">\[\begin{eqnarray*}
@@ -784,7 +766,7 @@ onde
 <p>Contudo, se for utilizado um plano amostral complexo, <span class="math inline">\(T^{2}\)</span> tem aproximadamente a distribuição da variável <span class="math inline">\(\sum\limits_{i=1}^{K}\)</span> <span class="math inline">\(\delta _{i}Z_{i}^{2}\)</span>, onde <span class="math inline">\(Z_{1},\ldots ,Z_{K}\)</span> são variáveis aleatórias independentes com distribuição normal padrão e os <span class="math inline">\(\delta _{i}\)</span> são os autovalores da matriz <span class="math inline">\(\mathbf{\Delta }=\Sigma _{AAS}^{-1}\Sigma\)</span>, onde <span class="math inline">\(\Sigma _{AAS}=E_{p}(\mathbf{S}_{y}/n)\)</span> e <span class="math inline">\(\Sigma =V_{p}(\mathbf{\bar{y})}\)</span>.</p>
 Vamos analisar o efeito do plano amostral sobre o nível de significância deste teste. Para simplificar, consideremos o caso em que <span class="math inline">\(\delta _{1}=\ldots =\delta _{K}=\delta\)</span>. Neste caso, o nível de significância real é dado aproximadamente por
 <span class="math display" id="eq:epa12">\[\begin{equation}
-P\left(\chi ^{2}\left( K\right) &gt;\chi _{\alpha }^{2}\left( K\right) /\delta\right)  \tag{4.12}
+P\left(\chi ^{2}\left( K\right) &gt;\chi _{\alpha }^{2}\left( K\right) /\delta\right)  \tag{4.8}
 \end{equation}\]</span>
 <p>onde <span class="math inline">\(\chi _{\alpha }^{2}\left( K\right)\)</span> é o quantil superior <span class="math inline">\(\alpha\)</span> de uma distribuição <span class="math inline">\(\chi ^{2}\)</span> com <span class="math inline">\(K\)</span> graus de liberdade, isto é, o valor tal que <span class="math inline">\(P\left[ \chi ^{2}\left( K\right) &gt;\chi _{\alpha}^{2}\left( K\right) \right] =\alpha\)</span> .</p>
 <p>A Tabela <a href="epa.html#tab:nivsig">4.7</a> apresenta os níveis de significância reais para <span class="math inline">\(\alpha =5\%\)</span> para vários valores de <span class="math inline">\(K\)</span> e <span class="math inline">\(\delta\)</span>. Mesmo quando os valores dos <span class="math inline">\(\delta _{i}\)</span> são distintos, os valores da Tabela <a href="epa.html#tab:nivsig">4.7</a> podem ser devidamente interpretados. Para isso, consideremos o <span class="math inline">\(p\)</span>valor do teste da hipótese <span class="math inline">\(H_{0}:\mathbf{\mu }=\mathbf{\mu }_{0}\)</span>, sob a hipótese de amostragem aleatória simples com reposição e sob o plano amostral efetivamente utilizado. Por definição este valor é dado por <span class="math display">\[
@@ -795,14 +777,14 @@ K\right) &gt;\left( \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{
 O verdadeiro valor-<span class="math inline">\(p\)</span> pode ser definido analogamente como
 <span class="math display" id="eq:epa13">\[\begin{equation}
 p\mbox{valor}_{VERD}\left( \mathbf{\bar{y}}\right) =P\left[ \chi ^{2}\left(K\right) &gt;\left( \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{\Sigma }_{VERD}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) \right] \;.
-\tag{4.13}
+\tag{4.9}
 \end{equation}\]</span>
 Os valores na Tabela <a href="epa.html#tab:nivsig">4.7</a> podem ser usados para quantificar a diferença entre estes valores-<span class="math inline">\(p\)</span>. Consideremos a região crítica do teste de nível <span class="math inline">\(\alpha\)</span> baseado na hipótese de AAS:
 <span class="math display" id="eq:epa14">\[\begin{eqnarray}
 RC_{AAS}\left( \mathbf{\bar{y}}\right) &amp;=&amp;\left\{ \mathbf{\bar{y}:}\left( 
 \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{\Sigma }
 _{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) &gt;\chi _{\alpha
-}^{2}\left( K\right) \right\} \tag{4.14}  \\
+}^{2}\left( K\right) \right\} \tag{4.10}  \\
 &amp;=&amp;\left\{ \mathbf{\bar{y}:}p\mbox{valor}_{AAS}\left( \mathbf{\bar{y}}
 \right) &lt;\alpha \right\}.  \nonumber
 \end{eqnarray}\]</span>
@@ -810,9 +792,9 @@ _{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) &gt;\chi _{\alpha
 <span class="math display" id="eq:epa15">\[\begin{equation}
 \max_{\mathbf{\bar{y}\in }RC_{AAS}\left( \mathbf{\bar{y}}\right) }p
 \mbox{valor}_{VERD}\left( \mathbf{\bar{y}}\right) =P\left( \chi ^{2}\left(K\right) &gt;\chi _{\alpha }^{2}\left( K\right) /\delta _{1}\right).
-\tag{4.15}
+\tag{4.11}
 \end{equation}\]</span>
-<p>Observe que o segundo membro de <a href="epa.html#eq:epa15">(4.15)</a> é da mesma forma que o segundo membro de <a href="epa.html#eq:epa12">(4.12)</a>. Logo, os valores da Tabela <a href="epa.html#tab:nivsig">4.7</a> podem ser interpretados como valores máximos de <span class="math inline">\(p\)</span>valor<span class="math inline">\(_{VERD}\left( \mathbf{\bar{y}}\right)\)</span> para <span class="math inline">\(\mathbf{\bar{y}}\)</span> na região <span class="math inline">\(RC_{AAS}\left(\mathbf{\bar{y}}\right)\)</span>, considerando-se <span class="math inline">\(\delta_{1}\)</span> no lugar de <span class="math inline">\(\delta\)</span>.</p>
+<p>Observe que o segundo membro de <a href="epa.html#eq:epa15">(4.11)</a> é da mesma forma que o segundo membro de <a href="epa.html#eq:epa12">(4.8)</a>. Logo, os valores da Tabela <a href="epa.html#tab:nivsig">4.7</a> podem ser interpretados como valores máximos de <span class="math inline">\(p\)</span>valor<span class="math inline">\(_{VERD}\left( \mathbf{\bar{y}}\right)\)</span> para <span class="math inline">\(\mathbf{\bar{y}}\)</span> na região <span class="math inline">\(RC_{AAS}\left(\mathbf{\bar{y}}\right)\)</span>, considerando-se <span class="math inline">\(\delta_{1}\)</span> no lugar de <span class="math inline">\(\delta\)</span>.</p>
 <table>
 <caption><span id="tab:nivsig">Tabela 4.7: </span>Níveis de significância (%) verdadeiros do teste T2 para o nível nominal de 5% assumindo autovalores iguais para delta.</caption>
 <thead>
@@ -872,160 +854,96 @@ _{AAS}^{-1}\left( \mathbf{\bar{y}-\mu }_{0}\right) &gt;\chi _{\alpha
 </div>
 <div id="laboratorio-de-r-1" class="section level2">
 <h2><span class="header-section-number">4.6</span> Laboratório de R</h2>
-<p>Utilizando o R, obtemos a seguir alguns resultados descritos no Exemplo <a href="epa.html#exm:deffuni">4.2</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survey)
+<p>Utilizando o R, obtemos a seguir alguns resultados descritos nos Exemplos <a href="epa.html#exm:deffuni">4.2</a> e <a href="epa.html#exm:deffmult">4.5</a>. Na simulação, usamos a library <code>sampling</code> <span class="citation">(Tillé and Matei <a href="#ref-R-sampling">2016</a>)</span> para gerar amostras estratificadas de tamanho 30, com estratos definidos na Tabela <a href="epa.html#tab:estempr">4.2</a>, para obter os valores nas Tabelas <a href="epa.html#tab:proestmed">4.3</a> e <a href="epa.html#tab:varest">4.4</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># carrega library</span>
+<span class="kw">library</span>(survey)
 <span class="co"># carrega dados</span>
 <span class="kw">library</span>(anamco)
 popul_dat &lt;-<span class="st"> </span>popul
-<span class="kw">names</span>(popul_dat)</code></pre></div>
-<pre><code>## [1] &quot;id&quot;     &quot;po&quot;     &quot;sal&quot;    &quot;rec&quot;    &quot;estrat&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">N&lt;-<span class="kw">nrow</span>(popul_dat)
-n1&lt;-<span class="dv">30</span>; n2&lt;-<span class="dv">30</span>
-nh=<span class="kw">c</span>(n1,n2)
-n&lt;-<span class="kw">sum</span>(nh)
-Nh&lt;-<span class="kw">table</span>(popul_dat<span class="op">$</span>estrat)
-fh&lt;-nh<span class="op">/</span>Nh ; Wh&lt;-Nh<span class="op">/</span>N ; f&lt;-<span class="st"> </span>n<span class="op">/</span>N</code></pre></div>
-<p>Na simulação, usamos a library <code>sampling</code> <span class="citation">(Tillé and Matei <a href="#ref-R-sampling">2016</a>)</span> para gerar amostras estratificadas de tamanho 30, com estratos definidos na Tabela <a href="epa.html#tab:estempr">4.2</a>, para reproduzir os elementos das Tabelas <a href="epa.html#tab:proestmed">4.3</a> e <a href="epa.html#tab:varest">4.4</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># muda escala de salários e receitas</span>
+N &lt;-<span class="st"> </span><span class="kw">nrow</span>(popul_dat)
+n1 &lt;-<span class="st"> </span><span class="dv">30</span>
+n2 &lt;-<span class="st"> </span><span class="dv">30</span>
+nh =<span class="st"> </span><span class="kw">c</span>(n1, n2)
+n &lt;-<span class="st"> </span><span class="kw">sum</span>(nh)
+Nh &lt;-<span class="st"> </span><span class="kw">table</span>(popul_dat<span class="op">$</span>estrat)
+fh &lt;-<span class="st"> </span>nh<span class="op">/</span>Nh
+Wh &lt;-<span class="st"> </span>Nh<span class="op">/</span>N
+f &lt;-<span class="st"> </span>n<span class="op">/</span>N
 popul_dat<span class="op">$</span>sal &lt;-<span class="st"> </span>popul_dat<span class="op">$</span>sal<span class="op">/</span><span class="dv">1000</span>
-popul_dat<span class="op">$</span>rec &lt;-<span class="st"> </span>popul_dat<span class="op">$</span>rec<span class="op">/</span><span class="dv">1000000</span>
+popul_dat<span class="op">$</span>rec &lt;-<span class="st"> </span>popul_dat<span class="op">$</span>rec<span class="op">/</span><span class="fl">1e+06</span>
 <span class="kw">library</span>(sampling)
 <span class="co"># define espaços para salvar resultados</span>
-est_aas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)
-est_aes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)
-cov_mat_aas_est &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">2</span>)
-cov_mat_aes_est &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">2</span>)
+est_aas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)
+est_aes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)
+cov_mat_aas_est &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>)
+cov_mat_aes_est &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>)
 <span class="kw">set.seed</span>(<span class="dv">123</span>)
 <span class="co"># gera amostras com dois estratos de tamanho 30</span>
-<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">500</span>){
-  s&lt;-<span class="kw">strata</span>(popul_dat, <span class="st">&quot;estrat&quot;</span>,<span class="kw">c</span>(<span class="dv">30</span>,<span class="dv">30</span>),<span class="dt">method=</span> <span class="st">&quot;srswor&quot;</span>)
-dados&lt;-<span class="kw">getdata</span>(popul_dat,s)
-<span class="co"># média amostral de salário e de receita</span>
-est_aas &lt;-<span class="st"> </span>est_aas<span class="op">+</span><span class="kw">c</span>(<span class="kw">mean</span>(dados<span class="op">$</span>sal), <span class="kw">mean</span>(dados<span class="op">$</span>rec))
-<span class="co"># estimador v0</span>
-cov_mat_aas_est &lt;-<span class="st"> </span>cov_mat_aas_est <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">-</span>f)<span class="op">*</span><span class="kw">cov</span>(<span class="kw">cbind</span>(dados<span class="op">$</span>sal, dados<span class="op">$</span>rec))<span class="op">/</span>n
-
-<span class="co"># vhat_aes estimador não-viciado</span>
-popul_plan&lt;-<span class="kw">svydesign</span>(<span class="op">~</span><span class="dv">1</span>,<span class="dt">strata=</span><span class="op">~</span>estrat,<span class="dt">data=</span>dados,<span class="dt">fpc=</span><span class="op">~</span>Prob)
-<span class="co"># estimador não-viciado da média de  salario e receita</span>
-sal_rec_aes_est &lt;-<span class="st"> </span><span class="kw">svymean</span>(<span class="op">~</span>sal<span class="op">+</span>rec,popul_plan)
-est_aes &lt;-<span class="st"> </span>est_aes <span class="op">+</span><span class="st"> </span><span class="kw">coef</span>(sal_rec_aes_est)
-cov_mat_aes_est &lt;-<span class="st"> </span>cov_mat_aes_est<span class="op">+</span><span class="st"> </span><span class="kw">attr</span>(sal_rec_aes_est,<span class="st">&#39;var&#39;</span>)
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">500</span>) {
+  s &lt;-<span class="st"> </span><span class="kw">strata</span>(popul_dat, <span class="st">&quot;estrat&quot;</span>, <span class="kw">c</span>(<span class="dv">30</span>, <span class="dv">30</span>), <span class="dt">method =</span> <span class="st">&quot;srswor&quot;</span>)
+  dados &lt;-<span class="st"> </span><span class="kw">getdata</span>(popul_dat, s)
+  <span class="co"># média amostral de salário e de receita</span>
+  est_aas &lt;-<span class="st"> </span>est_aas <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="kw">mean</span>(dados<span class="op">$</span>sal), <span class="kw">mean</span>(dados<span class="op">$</span>rec))
+  <span class="co"># estimador v0</span>
+  cov_mat_aas_est &lt;-<span class="st"> </span>cov_mat_aas_est <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>f) <span class="op">*</span><span class="st"> </span><span class="kw">cov</span>(<span class="kw">cbind</span>(dados<span class="op">$</span>sal, 
+    dados<span class="op">$</span>rec))<span class="op">/</span>n
+  
+  <span class="co"># vhat_aes estimador não-viciado</span>
+  popul_plan &lt;-<span class="st"> </span><span class="kw">svydesign</span>(<span class="op">~</span><span class="dv">1</span>, <span class="dt">strata =</span> <span class="op">~</span>estrat, <span class="dt">data =</span> dados, 
+    <span class="dt">fpc =</span> <span class="op">~</span>Prob)
+  <span class="co"># estimador não-viciado da média de salario e receita</span>
+  sal_rec_aes_est &lt;-<span class="st"> </span><span class="kw">svymean</span>(<span class="op">~</span>sal <span class="op">+</span><span class="st"> </span>rec, popul_plan)
+  est_aes &lt;-<span class="st"> </span>est_aes <span class="op">+</span><span class="st"> </span><span class="kw">coef</span>(sal_rec_aes_est)
+  cov_mat_aes_est &lt;-<span class="st"> </span>cov_mat_aes_est <span class="op">+</span><span class="st"> </span><span class="kw">attr</span>(sal_rec_aes_est, 
+    <span class="st">&quot;var&quot;</span>)
 }
-<span class="co"># 1-media de ybar; 2- média de ybar_w; 3- média de v0; 4- média de vhat_aes</span>
 
-mean_est_aas &lt;-<span class="st"> </span>est_aas<span class="op">/</span><span class="dv">500</span>
-mean_est_aes &lt;-<span class="st"> </span>est_aes<span class="op">/</span><span class="dv">500</span>
-mean_cov_mat_aas_est &lt;-<span class="st"> </span>cov_mat_aas_est<span class="op">/</span><span class="dv">500</span>
-mean_cov_mat_aes_est &lt;-<span class="st"> </span>cov_mat_aes_est<span class="op">/</span><span class="dv">500</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_cov_mat_aas_est &lt;-<span class="st"> </span>cov_mat_aas_est<span class="op">/</span><span class="dv">500</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># epa = média de vhat_aes/ média de v0</span>
+<span class="co"># média populacional</span>
 
-sal_mean_epa_est &lt;-<span class="st"> </span>mean_cov_mat_aes_est[<span class="dv">1</span>,<span class="dv">1</span>]<span class="op">/</span>mean_cov_mat_aas_est[<span class="dv">1</span>,<span class="dv">1</span>]
-sal_mean_epa_est</code></pre></div>
-<pre><code>## [1] 0.1425528</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rec_mean_epa_est &lt;-<span class="st"> </span>mean_cov_mat_aes_est[<span class="dv">2</span>,<span class="dv">2</span>]<span class="op">/</span>mean_cov_mat_aas_est[<span class="dv">2</span>,<span class="dv">2</span>]
-rec_mean_epa_est</code></pre></div>
-<pre><code>## [1] 0.3325159</code></pre>
-<p>Usando a fórmula <a href="epa.html#eq:epa3">(4.3)</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># variância sob distr. de aleatorização verdadeira </span>
-mat_cov_pop &lt;-<span class="st"> </span><span class="kw">by</span>(popul_dat, popul_dat<span class="op">$</span>estrat, <span class="cf">function</span>(t)<span class="kw">var</span>(<span class="kw">cbind</span>(t<span class="op">$</span>sal,t<span class="op">$</span>rec)) )
+med_pop &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">c</span>(<span class="kw">mean</span>(popul_dat<span class="op">$</span>sal), <span class="kw">mean</span>(popul_dat<span class="op">$</span>rec)),<span class="dv">3</span>)
 
-mat_cov_aleat_verd &lt;-(Wh[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>fh[<span class="dv">1</span>])<span class="op">/</span>nh[<span class="dv">1</span>])<span class="op">*</span>mat_cov_pop[[<span class="dv">1</span>]]<span class="op">+</span>(Wh[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>fh[<span class="dv">2</span>])<span class="op">/</span>nh[<span class="dv">2</span>])<span class="op">*</span>mat_cov_pop[[<span class="dv">2</span>]]</code></pre></div>
-<p>A seguir, reproduzimos a Tabela <a href="epa.html#tab:proestmed">4.3</a>, usando os resultados da simulação:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tab_<span class="dv">43</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-<span class="st">&quot;Quantidade de interesse&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Média Populacional&quot;</span>, <span class="st">&quot;Média de estimativas de média AAS&quot;</span>,
-  <span class="st">&quot;Média de estimativas de média AES&quot;</span>),
-Salá<span class="dt">rios =</span> <span class="kw">c</span>(<span class="kw">mean</span>(popul_dat<span class="op">$</span>sal), mean_est_aas[<span class="dv">1</span>], mean_est_aes[<span class="dv">1</span>] ),
-<span class="dt">Receitas =</span> <span class="kw">c</span>(<span class="kw">mean</span>(popul_dat<span class="op">$</span>rec), mean_est_aas[<span class="dv">2</span>], mean_est_aes[<span class="dv">2</span>] )  
-)
-knitr<span class="op">::</span><span class="kw">kable</span>(tab_<span class="dv">43</span>, <span class="dt">booktabs=</span><span class="ot">TRUE</span> )    </code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Quantidade.de.interesse</th>
-<th align="right">Salários</th>
-<th align="right">Receitas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Média Populacional</td>
-<td align="right">78.32826</td>
-<td align="right">2.106846</td>
-</tr>
-<tr class="even">
-<td align="left">Média de estimativas de média AAS</td>
-<td align="right">163.50334</td>
-<td align="right">4.171317</td>
-</tr>
-<tr class="odd">
-<td align="left">Média de estimativas de média AES</td>
-<td align="right">78.06853</td>
-<td align="right">2.061913</td>
-</tr>
-</tbody>
-</table>
-<p>A seguir reproduzimos a Tabela <a href="epa.html#tab:varest">4.4</a>, usando os resultados da simulação:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tab_<span class="dv">44</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-<span class="st">&quot;Quantidade de interesse&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Variância do estimador AES&quot;</span>, <span class="st">&quot;Média de estimativas de variância AES&quot;</span>,
-<span class="st">&quot;Valor esperado AES do estimador AAS de variância&quot;</span>,<span class="st">&quot;Média de estimativas de variância AAS&quot;</span>),
-Salá<span class="dt">rios=</span> <span class="kw">c</span>(mat_cov_aleat_verd[<span class="dv">1</span>,<span class="dv">1</span>], mean_cov_mat_aes_est[<span class="dv">1</span>,<span class="dv">1</span>], <span class="ot">NA</span>, mean_cov_mat_aas_est[<span class="dv">1</span>,<span class="dv">1</span>]),
-<span class="dt">Receitas =</span> <span class="kw">c</span>(mat_cov_aleat_verd[<span class="dv">2</span>,<span class="dv">2</span>], mean_cov_mat_aes_est[<span class="dv">2</span>,<span class="dv">2</span>], <span class="ot">NA</span>, mean_cov_mat_aas_est[<span class="dv">2</span>,<span class="dv">2</span>])  
- )
-knitr<span class="op">::</span><span class="kw">kable</span>(tab_<span class="dv">44</span>, <span class="dt">booktabs=</span> <span class="ot">TRUE</span>)</code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Quantidade.de.interesse</th>
-<th align="right">Salários</th>
-<th align="right">Receitas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Variância do estimador AES</td>
-<td align="right">244.1758</td>
-<td align="right">0.4349945</td>
-</tr>
-<tr class="even">
-<td align="left">Média de estimativas de variância AES</td>
-<td align="right">245.1878</td>
-<td align="right">0.4011822</td>
-</tr>
-<tr class="odd">
-<td align="left">Valor esperado AES do estimador AAS de variância</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-</tr>
-<tr class="even">
-<td align="left">Média de estimativas de variância AAS</td>
-<td align="right">1719.9794</td>
-<td align="right">1.2065052</td>
-</tr>
-</tbody>
-</table>
-<p>A seguir, reproduzimos os resultados do Exemplo <a href="epa.html#exm:deffmult">4.5</a>, que utiliza também os resultados da simulação acima.</p>
-<p>Matriz de covariância dos estimadores ponderados da média, resultado em <a href="epa.html#eq:epa7">(4.7)</a>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat_cov_aleat_verd</code></pre></div>
-<pre><code>##            [,1]      [,2]
-## [1,] 244.175801 3.2357921
-## [2,]   3.235792 0.4349945</code></pre>
-<p>Média da matriz de covariância dos estimadores de média do salário e da receita assumindo observações IID, resultado em <a href="epa.html#eq:epa8">(4.8)</a>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_cov_mat_aas_est </code></pre></div>
-<pre><code>##           [,1]      [,2]
-## [1,] 1719.9794 26.780304
-## [2,]   26.7803  1.206505</code></pre>
-<p>Média da matriz de covariância dos estimadores de média do salário e da receita assumindo observações AES, resultado em <a href="epa.html#eq:epa9">(4.9)</a>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_cov_mat_aes_est </code></pre></div>
-<pre><code>##            sal       rec
-## sal 245.187815 3.1722720
-## rec   3.172272 0.4011822</code></pre>
-<p>A partir desses resultados, obtemos os efeitos multivariados para as médias de Sálários e Receitas, em <a href="epa.html#eq:epa10">(4.10)</a>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DELTA =<span class="st"> </span><span class="kw">solve</span>(mean_cov_mat_aas_est)<span class="op">%*%</span><span class="st"> </span>mean_cov_mat_aes_est
-<span class="kw">eigen</span>(DELTA)<span class="op">$</span>values</code></pre></div>
-<pre><code>## [1] 0.4592617 0.1415845</code></pre>
-<p>Os autovalores de DELTA 0.4592617 e 0.1415845 são os efeitos generalizados do plano amostral.</p>
+
+<span class="co"># Calcula médias das estimativas na simulação</span>
+
+## Média das estimativas pontuais para as 500 amostras aas
+mean_est_aas &lt;-<span class="st"> </span><span class="kw">round</span>(est_aas<span class="op">/</span><span class="dv">500</span>,<span class="dv">3</span>)
+mean_est_aas</code></pre></div>
+<pre><code>## [1] 163.503   4.171</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Média das estimativas pontuais para as 500 amostras aes
+mean_est_aes &lt;-<span class="st"> </span><span class="kw">round</span>(est_aes<span class="op">/</span><span class="dv">500</span>,<span class="dv">3</span>)
+mean_est_aes</code></pre></div>
+<pre><code>##    sal    rec 
+## 78.069  2.062</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Média das estimativas de matriz de covariância para as 500</span>
+<span class="co"># amostras aas</span>
+mean_cov_mat_aas_est &lt;-<span class="st"> </span><span class="kw">round</span>(cov_mat_aas_est<span class="op">/</span><span class="dv">500</span>, <span class="dv">3</span>)
+mean_cov_mat_aas_est</code></pre></div>
+<pre><code>##          [,1]   [,2]
+## [1,] 1719.979 26.780
+## [2,]   26.780  1.207</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Média das estimativas de matriz de covariância para as 500</span>
+<span class="co"># amostras aes</span>
+mean_cov_mat_aes_est &lt;-<span class="st"> </span><span class="kw">round</span>(cov_mat_aes_est<span class="op">/</span><span class="dv">500</span>, <span class="dv">3</span>)
+mean_cov_mat_aes_est</code></pre></div>
+<pre><code>##         sal   rec
+## sal 245.188 3.172
+## rec   3.172 0.401</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Matriz de covariância populacional
+mat_cov_pop &lt;-<span class="st"> </span><span class="kw">by</span>(popul_dat, popul_dat<span class="op">$</span>estrat, <span class="cf">function</span>(t) <span class="kw">var</span>(<span class="kw">cbind</span>(t<span class="op">$</span>sal, 
+  t<span class="op">$</span>rec)))
+ 
+
+
+## Matriz de covariância considerando o plano amostral
+## verdadeiro
+mat_cov_aleat_verd &lt;-<span class="st"> </span>(Wh[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>fh[<span class="dv">1</span>])<span class="op">/</span>nh[<span class="dv">1</span>]) <span class="op">*</span><span class="st"> </span>mat_cov_pop[[<span class="dv">1</span>]] <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span>(Wh[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>fh[<span class="dv">2</span>])<span class="op">/</span>nh[<span class="dv">2</span>]) <span class="op">*</span><span class="st"> </span>mat_cov_pop[[<span class="dv">2</span>]]
+mat_cov_aleat_verd &lt;-<span class="st"> </span><span class="kw">round</span>(mat_cov_aleat_verd,<span class="dv">3</span>)
+
+
+## estimativa de efeitos generalizados do plano amostral
+DELTA =<span class="st"> </span><span class="kw">solve</span>(mean_cov_mat_aas_est) <span class="op">%*%</span><span class="st"> </span>mean_cov_mat_aes_est
+epa &lt;-<span class="kw">round</span>(<span class="kw">eigen</span>(DELTA)<span class="op">$</span>values,<span class="dv">3</span>)</code></pre></div>
 
 <div class="example">
 <span id="exm:eqmean" class="example"><strong>Exemplo 4.6  </strong></span>Teste da igualdade de médias para duas populações
