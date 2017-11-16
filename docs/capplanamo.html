@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-10-14">
+<meta name="date" content="2017-11-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -600,7 +600,7 @@ Var.raz&lt;-(<span class="dv">1</span><span class="op">/</span>y2hat)<span class
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01255283</code></pre>
+## [1,] 0.01306578</code></pre>
 <p>Vamos apresentar mais detalhes sobre a obtenção dos estimadores de <em>Jackknife</em> e <em>Bootstrap</em> na library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. A classe do objeto <code>ppv_se_plan_jkn</code> é <code>svyrep.design</code> e ele contém as seguintes componentes:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(ppv_se_plan_jkn)</code></pre></div>
 <pre><code>## [1] &quot;svyrep.design&quot;</code></pre>
@@ -648,10 +648,26 @@ var_raz_rep </code></pre></div>
 ## [1,] 0.11869 0.0118</code></pre>
 <p>Resultado que coincide com a estimativa obtida pela aplicação da função <code>svyratio</code>.</p>
 <p>A vantagem de utilizar métodos de replicação é a facilidade com que estimamos a variância de qualquer característica da população, cujo estimador pontual é conhecido. Por exemplo, se quisermos estimar a variância da razão das taxas de analfabetos nas faixas etárias de 0 a 14 anos e acima de 14 anos podemos usar as mesmas réplicas de pesos:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">withReplicates</span>(ppv_se_plan_jkn,<span class="cf">function</span>(w,ppv_se_dat) <span class="kw">with</span>(ppv_se_dat,
-(<span class="kw">sum</span>(w<span class="op">*</span>(analf<span class="op">==</span><span class="dv">1</span><span class="op">&amp;</span>faixa<span class="op">==</span><span class="dv">1</span>))<span class="op">/</span><span class="kw">sum</span>(faixa<span class="op">==</span><span class="dv">1</span>))<span class="op">/</span>(<span class="kw">sum</span>(w<span class="op">*</span>(analf<span class="op">==</span><span class="dv">1</span><span class="op">&amp;</span>faixa<span class="op">==</span><span class="dv">0</span>))<span class="op">/</span><span class="kw">sum</span>(faixa<span class="op">==</span><span class="dv">0</span>))))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">withReplicates</span> (ppv_se_plan_jkn,<span class="cf">function</span>(w,ppv_se_dat) <span class="kw">with</span>(ppv_se_dat,
+(<span class="kw">sum</span>(w<span class="op">*</span>(analf<span class="op">==</span><span class="dv">1</span><span class="op">&amp;</span>faixa<span class="op">==</span><span class="dv">1</span>))<span class="op">/</span><span class="kw">sum</span>(w<span class="op">*</span>(faixa<span class="op">==</span><span class="dv">1</span>)))<span class="op">/</span>(<span class="kw">sum</span>(w<span class="op">*</span>(analf<span class="op">==</span><span class="dv">1</span><span class="op">&amp;</span>faixa<span class="op">==</span><span class="dv">0</span>))<span class="op">/</span><span class="kw">sum</span>(w<span class="op">*</span>(faixa<span class="op">==</span><span class="dv">0</span>)))
+))  </code></pre></div>
 <pre><code>##        theta     SE
-## [1,] 0.50623 0.0494</code></pre>
+## [1,] 0.50403 0.0482</code></pre>
+<p>O erro padrão da razão entre razões estimada no exemplo anterior pode ser estimado por linearizão de Taylor, usando-se a função <code>svycontrast()</code> da library survey:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cria variáveis dummies: </span>
+ppv_se_plan &lt;-<span class="st"> </span><span class="kw">update</span>(ppv_se_plan,
+<span class="dt">num1 =</span> <span class="kw">as.numeric</span>(analf<span class="op">==</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>faixa<span class="op">==</span><span class="dv">1</span>),
+<span class="dt">num2 =</span> <span class="kw">as.numeric</span>(analf<span class="op">==</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>faixa<span class="op">==</span><span class="dv">0</span>),
+<span class="dt">den1 =</span> <span class="kw">as.numeric</span> (faixa <span class="op">==</span><span class="st"> </span><span class="dv">1</span>),
+<span class="dt">den2 =</span> <span class="kw">as.numeric</span>(faixa <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)
+)
+<span class="co"># estima totais e matriz de covariância de estimativas de totais</span>
+comp.tot &lt;-<span class="st"> </span><span class="kw">svytotal</span>(<span class="op">~</span>num1<span class="op">+</span>num2<span class="op">+</span>den1<span class="op">+</span>den2, ppv_se_plan)  
+
+<span class="co"># estima razão de razões:  </span>
+<span class="kw">svycontrast</span>(comp.tot, <span class="kw">quote</span>((num1<span class="op">/</span>den1)<span class="op">/</span>(num2<span class="op">/</span>den2)))  </code></pre></div>
+<pre><code>##            nlcon    SE
+## contrast 0.50403 0.048</code></pre>
 
 </div>
 </div>

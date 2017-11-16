@@ -791,8 +791,28 @@ A vantagem de utilizar métodos de replicação é a facilidade com que estimamo
 característica da população, cujo estimador pontual é conhecido. Por exemplo, se quisermos estimar a variância da razão das taxas de analfabetos nas faixas etárias de 0 a 14 anos e acima de 14 anos podemos usar as mesmas réplicas de pesos:
 
 ```{r}
-withReplicates(ppv_se_plan_jkn,function(w,ppv_se_dat) with(ppv_se_dat,
-(sum(w*(analf==1&faixa==1))/sum(faixa==1))/(sum(w*(analf==1&faixa==0))/sum(faixa==0))))
+withReplicates (ppv_se_plan_jkn,function(w,ppv_se_dat) with(ppv_se_dat,
+(sum(w*(analf==1&faixa==1))/sum(w*(faixa==1)))/(sum(w*(analf==1&faixa==0))/sum(w*(faixa==0)))
+))  
+```
+
+O erro padrão da razão entre razões estimada no exemplo anterior pode ser estimado por linearizão de Taylor, usando-se a função `svycontrast()` da library survey: 
+
+
+```{r}
+# cria variáveis dummies: 
+ppv_se_plan <- update(ppv_se_plan,
+num1 = as.numeric(analf==1 & faixa==1),
+num2 = as.numeric(analf==1 & faixa==0),
+den1 = as.numeric (faixa == 1),
+den2 = as.numeric(faixa == 0)
+)
+# estima totais e matriz de covariância de estimativas de totais
+comp.tot <- svytotal(~num1+num2+den1+den2, ppv_se_plan)  
+
+# estima razão de razões:  
+svycontrast(comp.tot, quote((num1/den1)/(num2/den2)))  
+
 ```
 
 

@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-10-14}
+  \date{2017-11-16}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -3561,7 +3561,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01174712
+## [1,] 0.01315429
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -3725,14 +3725,41 @@ anos e acima de 14 anos podemos usar as mesmas réplicas de pesos:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{withReplicates}\NormalTok{(ppv_se_plan_jkn,}\ControlFlowTok{function}\NormalTok{(w,ppv_se_dat) }\KeywordTok{with}\NormalTok{(ppv_se_dat,}
-\NormalTok{(}\KeywordTok{sum}\NormalTok{(w}\OperatorTok{*}\NormalTok{(analf}\OperatorTok{==}\DecValTok{1}\OperatorTok{&}\NormalTok{faixa}\OperatorTok{==}\DecValTok{1}\NormalTok{))}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(faixa}\OperatorTok{==}\DecValTok{1}\NormalTok{))}\OperatorTok{/}\NormalTok{(}\KeywordTok{sum}\NormalTok{(w}\OperatorTok{*}\NormalTok{(analf}\OperatorTok{==}\DecValTok{1}\OperatorTok{&}\NormalTok{faixa}\OperatorTok{==}\DecValTok{0}\NormalTok{))}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(faixa}\OperatorTok{==}\DecValTok{0}\NormalTok{))))}
+\KeywordTok{withReplicates}\NormalTok{ (ppv_se_plan_jkn,}\ControlFlowTok{function}\NormalTok{(w,ppv_se_dat) }\KeywordTok{with}\NormalTok{(ppv_se_dat,}
+\NormalTok{(}\KeywordTok{sum}\NormalTok{(w}\OperatorTok{*}\NormalTok{(analf}\OperatorTok{==}\DecValTok{1}\OperatorTok{&}\NormalTok{faixa}\OperatorTok{==}\DecValTok{1}\NormalTok{))}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(w}\OperatorTok{*}\NormalTok{(faixa}\OperatorTok{==}\DecValTok{1}\NormalTok{)))}\OperatorTok{/}\NormalTok{(}\KeywordTok{sum}\NormalTok{(w}\OperatorTok{*}\NormalTok{(analf}\OperatorTok{==}\DecValTok{1}\OperatorTok{&}\NormalTok{faixa}\OperatorTok{==}\DecValTok{0}\NormalTok{))}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(w}\OperatorTok{*}\NormalTok{(faixa}\OperatorTok{==}\DecValTok{0}\NormalTok{)))}
+\NormalTok{))  }
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ##        theta     SE
-## [1,] 0.50623 0.0494
+## [1,] 0.50403 0.0482
+\end{verbatim}
+
+O erro padrão da razão entre razões estimada no exemplo anterior pode
+ser estimado por linearizão de Taylor, usando-se a função
+\texttt{svycontrast()} da library survey:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# cria variáveis dummies: }
+\NormalTok{ppv_se_plan <-}\StringTok{ }\KeywordTok{update}\NormalTok{(ppv_se_plan,}
+\DataTypeTok{num1 =} \KeywordTok{as.numeric}\NormalTok{(analf}\OperatorTok{==}\DecValTok{1} \OperatorTok{&}\StringTok{ }\NormalTok{faixa}\OperatorTok{==}\DecValTok{1}\NormalTok{),}
+\DataTypeTok{num2 =} \KeywordTok{as.numeric}\NormalTok{(analf}\OperatorTok{==}\DecValTok{1} \OperatorTok{&}\StringTok{ }\NormalTok{faixa}\OperatorTok{==}\DecValTok{0}\NormalTok{),}
+\DataTypeTok{den1 =} \KeywordTok{as.numeric}\NormalTok{ (faixa }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{),}
+\DataTypeTok{den2 =} \KeywordTok{as.numeric}\NormalTok{(faixa }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{)}
+\NormalTok{)}
+\CommentTok{# estima totais e matriz de covariância de estimativas de totais}
+\NormalTok{comp.tot <-}\StringTok{ }\KeywordTok{svytotal}\NormalTok{(}\OperatorTok{~}\NormalTok{num1}\OperatorTok{+}\NormalTok{num2}\OperatorTok{+}\NormalTok{den1}\OperatorTok{+}\NormalTok{den2, ppv_se_plan)  }
+
+\CommentTok{# estima razão de razões:  }
+\KeywordTok{svycontrast}\NormalTok{(comp.tot, }\KeywordTok{quote}\NormalTok{((num1}\OperatorTok{/}\NormalTok{den1)}\OperatorTok{/}\NormalTok{(num2}\OperatorTok{/}\NormalTok{den2)))  }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            nlcon    SE
+## contrast 0.50403 0.048
 \end{verbatim}
 
 \chapter{Efeitos do Plano Amostral}\label{epa}
