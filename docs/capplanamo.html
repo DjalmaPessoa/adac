@@ -600,7 +600,7 @@ Var.raz&lt;-(<span class="dv">1</span><span class="op">/</span>y2hat)<span class
 ## analf.faixa 0.118689
 ## SEs=
 ##            [,1]
-## [1,] 0.01306578</code></pre>
+## [1,] 0.01201306</code></pre>
 <p>Vamos apresentar mais detalhes sobre a obtenção dos estimadores de <em>Jackknife</em> e <em>Bootstrap</em> na library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. A classe do objeto <code>ppv_se_plan_jkn</code> é <code>svyrep.design</code> e ele contém as seguintes componentes:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(ppv_se_plan_jkn)</code></pre></div>
 <pre><code>## [1] &quot;svyrep.design&quot;</code></pre>
@@ -653,7 +653,7 @@ var_raz_rep </code></pre></div>
 ))  </code></pre></div>
 <pre><code>##        theta     SE
 ## [1,] 0.50403 0.0482</code></pre>
-<p>O erro padrão da razão entre razões estimada no exemplo anterior pode ser estimado por linearizão de Taylor, usando-se a função <code>svycontrast()</code> da library survey:</p>
+<p>O erro padrão da razão entre razões estimada no exemplo anterior pode ser estimado por linearização de Taylor, usando-se a função <code>svycontrast()</code> da library survey:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cria variáveis dummies: </span>
 ppv_se_plan &lt;-<span class="st"> </span><span class="kw">update</span>(ppv_se_plan,
 <span class="dt">num1 =</span> <span class="kw">as.numeric</span>(analf<span class="op">==</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>faixa<span class="op">==</span><span class="dv">1</span>),

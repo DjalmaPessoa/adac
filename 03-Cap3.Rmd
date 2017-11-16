@@ -796,7 +796,7 @@ withReplicates (ppv_se_plan_jkn,function(w,ppv_se_dat) with(ppv_se_dat,
 ))  
 ```
 
-O erro padrão da razão entre razões estimada no exemplo anterior pode ser estimado por linearizão de Taylor, usando-se a função `svycontrast()` da library survey: 
+O erro padrão da razão entre razões estimada no exemplo anterior pode ser estimado por linearização de Taylor, usando-se a função `svycontrast()` da library survey: 
 
 
 ```{r}
