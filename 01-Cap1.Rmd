@@ -3,27 +3,30 @@
 
 ## Motivação
 
-Este livro trata de problema de grande importância para os usuários
-de dados obtidos através de pesquisas amostrais por agências
-produtoras de informações estatísticas. Tais dados são
-comumente utilizados em análises descritivas envolvendo o cálculo de
-estimativas para totais, proporções, médias e razões, nas
-quais, em geral, são devidamente considerados os pesos distintos das
-observações e o planejamento da amostra que lhes deu origem.
+Este livro trata de problema de grande importância para os analistas
+de dados obtidos através de pesquisas amostrais, tais como as conduzidas
+por agências produtoras de informações estatísticas oficiais ou públicas. 
+Tais dados são comumente utilizados em análises descritivas envolvendo 
+a obtenção de estimativas para totais, médias, proporções e razões. 
+Nessas análises, em geral, são devidamente incorporados os pesos distintos das
+observações e a estrutura do plano amostral empregado para obter os dados
+considerados.
 
-Outro uso destes dados, denominado secundário, é a construção e ajuste de modelos, 
-feita geralmente por analistas que trabalham fora das
-agências produtoras dos dados. Neste caso, o foco é, essencialmente,
-estabelecer a natureza de relações ou associações entre
-variáveis. Para isto, a estatística clássica conta com um
-arsenal de ferramentas de análise, já incorporado aos principais
-pacotes estatísticos disponíveis. O uso destes pacotes se faz,
-entretanto, sob condições que não refletem a complexidade
-usualmente envolvida nas pesquisas amostrais de populações finitas.
-Em geral, partem de hipóteses básicas que só são válidas
-quando os dados são obtidos através de amostras aleatórias
-simples com reposição (AASC). Tais pacotes estatísticos não
-consideram os seguintes aspectos relevantes no caso de amostras complexas:
+Nas três últimas décadas tem se tornado mais frequente um outro tipo de uso 
+de dados de pesquisas amostrais. Tal uso, denominado secundário e/ou analítico, 
+envolve a construção e ajuste de modelos, geralmente feitos por analistas que 
+trabalham fora das agências produtoras dos dados. Neste caso, o foco da análise 
+busca estabelecer a natureza de relações ou associações entre variáveis ou testar
+hipóteses. Para tais fins, a estatística clássica conta com um vasto arsenal 
+de ferramentas de análise, já incorporado aos principais pacotes estatísticos
+disponíveis (tais como MINITAB, R, SAS, SPSS, etc). 
+
+As ferramentas de análise convencionais disponíveis nesses pacotes estatísticos
+geralmente partem de hipóteses básicas que só são válidas quando os dados 
+foram obtidos através de amostras aleatórias simples com reposição (AASC). 
+Tais hipóteses são geralmente inadequadas para modelar observações provenientes 
+de amostras de populações finitas, pois desconsideram os seguintes aspectos 
+relevantes dos planos amostrais usualmente empregados nas pesquisas amostrais:
 
 
 i.)  **probabilidades distintas de seleção das unidades**;
@@ -35,18 +38,18 @@ iii.) **estratificação**;
 iv.)  **calibração ou imputação para não-resposta e outros ajustes**.
 
 
-As estimativas pontuais de parâmetros da população ou de modelos são
-influenciadas por pesos distintos das observações. Além disso,
-as estimativas de variância (ou da precisão dos estimadores) são 
-influenciadas pela conglomeração, estratificação e pesos, ou no caso de não resposta, 
-também por eventual imputação de dados faltantes. Ao ignorar estes aspectos, os pacotes 
-tradicionais de análise podem produzir estimativas incorretas das variâncias das 
-estimativas pontuais.
+As estimativas pontuais de parâmetros descritivos da população ou 
+de modelos são influenciadas por pesos distintos das observações. Além disso,
+as estimativas de variância (ou da precisão dos estimadores) são influenciadas
+pela conglomeração, estratificação e pesos, ou no caso de não resposta, 
+também por eventual imputação de dados faltantes ou reponderação das observações
+disponíveis. Ao ignorar estes aspectos, os pacotes tradicionais de análise 
+podem produzir estimativas incorretas das variâncias das estimativas pontuais.
 
-A seguir vamos apresentar um exemplo de uso de dados de uma pesquisa
-amostral real para ilustrar como os pontos i) a iv) acima mencionados afetam a
-inferência sobre quantidades descritivas populacionais tais como
-médias, proporções, razões e totais.
+O exemplo a seguir considera o uso de dados de uma pesquisa amostral real 
+conduzida pelo IBGE para ilustrar como os pontos i) a iv) acima mencionados 
+afetam a inferência sobre quantidades descritivas populacionais tais como
+totais, médias, proporções e razões. 
 
 ```{example, label="distppv"}
 Distribuição dos pesos da amostra da PPV
@@ -54,103 +57,115 @@ Distribuição dos pesos da amostra da PPV
 
 Os dados deste exemplo são relativos à distribuição dos
 pesos na amostra da Pesquisa sobre Padrões de Vida (PPV), realizada pelo
-IBGE nos anos 1996-97. [@albieri] descrevem resumidamente a Pesquisa sobre Padrões de Vida
-(PPV), que foi realizada nas Regiões Nordeste e Sudeste do País,
-considerando 10 estratos geográficos, a saber: Região Metropolitana
-de Fortaleza, Região Metropolitana de Recife, Região Metropolitana
-de Salvador, restante da área urbana do Nordeste, restante da área
-rural do Nordeste, Região Metropolitana de Belo Horizonte, Região
-Metropolitana do Rio de Janeiro, Região Metropolitana de São Paulo,
-restante da área urbana do Sudeste e restante da área rural do
-Sudeste.
+IBGE nos anos 1996-97. [@albieri] descrevem resumidamente a PPV, que foi 
+realizada nas Regiões Nordeste e Sudeste do País. 
 
-O plano amostral empregado na seleção da amostra da PPV foi de dois estágios, 
-com estratificação das unidades primárias de amostragem (no caso os setores censitários 
-da base geográfica do IBGE conforme usada para o Censo
-Demográfico de 1991), seleção destes setores com probabilidade proporcional ao
-tamanho, e seleção aleatória das unidades de segundo estágio (domicílios).
-O tamanho da amostra para cada estrato geográfico foi
-fixado em 480 domicílios, e o número de setores selecionados 
-foi fixado em 60, com 8 domicílios selecionados em cada
-setor. A exceção ficou por conta dos estratos que correspondem ao restante da
-área rural de cada Região, onde foram selecionados 30 setores e 16 domicílios por
-setor, em função da dificuldade de acesso a esses setores, o que
-implicaria em aumento de custo da coleta.
+O plano amostral empregado na seleção da amostra da PPV foi estratificado e
+conglomerado em dois estágios, com alocação desproporcional da amostra 
+nos estratos geográficos. A estratificação considerou inicialmente 10 estratos 
+geográficos conforme listados na Tabela \@ref(tab:numset). 
 
-Os setores de cada um dos 10 estratos geográficos foram subdivididos em
-3 estratos de acordo com a renda média mensal do chefe do domicílio
-por setor, perfazendo um total de 30 estratos geográficos versus renda.
-Em seguida foi feita uma alocação proporcional, com base no
-número de domicílios particulares permanentes ocupados do estrato de
-renda no universo de cada estrato geográfico, obtidos pelo Censo de 1991.
-No final foram obtidos 554 setores na amostra, distribuídos tal como
-revela a Tabela \@ref(tab:numset).
+As unidades primárias de amostragem (UPAs) foram os setores censitários 
+da base geográfica do IBGE conforme usada para o Censo Demográfico de 1991. 
+A seleção dos setores dentro de cada estrato foi feita com probabilidade 
+proporcional ao tamanho. Os domicílios foram as unidades de segundo estágio, 
+selecionados por amostragem aleatória simples sem reposição em cada setor 
+selecionado, após a atualização do cadastro de domicílios do setor.
 
+Em cada um dos 10 estratos geográficos, os setores foram subdivididos em
+três estratos de acordo com a renda média mensal do chefe do domicílio
+por setor, perfazendo um total de 30 estratos finais para seleção da amostra.
+
+O tamanho da amostra para cada estrato geográfico foi fixado em 480 domicílios, 
+e o número de setores selecionados foi fixado em 60, com 8 domicílios 
+sendo selecionados em cada setor. A exceção ficou por conta dos estratos que 
+correspondiam ao restante da área rural de cada Região, onde foram 
+selecionados 30 setores e com 16 domicílios selecionados por setor, 
+em função da maior dificuldade de acesso a esses setores, o que implicaria
+em aumento de custo da coleta caso fosse mantido o mesmo tamanho da amostra
+do segundo estágio em cada setor.
+
+A alocação da amostra dentro de cada estrato geográfico foi proporcional ao 
+número de domicílios particulares permanentes ocupados do estrato de renda 
+no Censo de 1991. No final foram incluídos 554 setores na amostra, 
+distribuídos tal como mostrado na Tabela \@ref(tab:numset).
 
 
 ```{r, numset, echo=FALSE}
-estrat <- data.frame (Estrato =
- c("RM Fortaleza", "RM Recife", "RM Salvador",
-"Restante Nordeste Urbano", "Restante Nordeste Rural",
-"RM Belo Horizonte", "RM Rio de Janeiro", "RM São Paulo",
-"Restante Sudeste Urbano", "Restante Sudeste Rural","Total")
-, População = c(2263, 2309,2186,15057,23711,3283, 10420,
- 14931, 25855, 12001, 112016), Amostra = c(62, 61, 61, 61, 33, 62,
-   61, 61, 61,31,554)
+estrat <- data.frame (
+ Estrato_Geográfico =
+ c("Região Metropolitana de Fortaleza", "Região Metropolitana de Recife", 
+   "Região Metropolitana de Salvador", "Restante Nordeste Urbano", 
+   "Restante Nordeste Rural", "Região Metropolitana de Belo Horizonte", 
+   "Região Metropolitana do Rio de Janeiro", "Região Metropolitana de São Paulo",
+   "Restante Sudeste Urbano", "Restante Sudeste Rural", "Total"),
+ População = c(2263, 2309,2186,15057,23711,3283, 10420, 14931, 25855, 
+               12001, 112016), 
+ Amostra = c(62, 61, 61, 61, 33, 62, 61, 61, 61,31,554)
     )
-knitr::kable(estrat,booktabs = TRUE, align= "lrr",
+knitr::kable(estrat, booktabs = TRUE, align= "lrr",
+             format.args= list(big.mark = '.'),
   caption = "Número de setores na população e na amostra, por estrato geográfico"
   )
 ```
 
 A Tabela \@ref(tab:dispesos) apresenta um resumo das distribuições dos pesos
 amostrais para as Regiões Nordeste (5 estratos geográficos) e
-Sudeste (5 estratos geográficos) separadamente e para o conjunto da
+Sudeste (5 estratos geográficos) separadamente, e para o conjunto da
 amostra da PPV.
 
 
 ```{r, dispesos, echo=FALSE}
 # leitura dos dados
+library(tidyverse)
 library(anamco)
-Nordeste <- ppv$pesof[ppv$regiao=="1"]
-Sudeste <- ppv$pesof[ppv$regiao=="2"]
-Q1 <- c(quantile(Nordeste,.25),quantile(Sudeste,.25), quantile(ppv$pesof,.25) )
-names(Q1)<- NULL
-Mediana<-  c(quantile(Nordeste,.50),quantile(Sudeste,.50), quantile(ppv$pesof,.50) )
-names(Mediana)<- NULL
-Q3 = c(quantile(Nordeste,.75),quantile(Sudeste,.75), quantile(ppv$pesof,.75))
-names(Q3) <- NULL 
-Pesos <- data.frame(
-  Região = c("Nordeste", "Sudeste", "Nordeste_Sudeste"),
-  Mínimo = c(min(Nordeste), min(Sudeste), min(ppv$pesof)),
-  Q1 = Q1,
-  Mediana= Mediana,
-  Q3 = Q3,
-  Máximo = c(max(Nordeste), max(Sudeste), max(ppv$pesof)) 
-  )
-knitr::kable(Pesos ,booktabs = TRUE, align = "lccccc",
-  caption = "Distribuição dos pesos da amostra da PPV")
-
+ppv <- transform(ppv,
+                 regiao=factor(regiao,  
+                               labels = c("Nordeste", "Sudeste")))
+regiao <- group_by(ppv, regiao) %>%
+          summarise(Minimo=min(pesof),
+                    Quartil_1    =quantile(pesof, 0.25),
+                    Mediana=quantile(pesof, 0.50),
+                    Quartil_3    =quantile(pesof, 0.75),
+                    Maximo=max(pesof))
+global <- summarise(ppv,
+                    Minimo=min(pesof),
+                    Quartil_1    =quantile(pesof, 0.25),
+                    Mediana=quantile(pesof, 0.50),
+                    Quartil_3    =quantile(pesof, 0.75),
+                    Maximo=max(pesof))
+global <- transform(global, 
+                    regiao=factor("3", labels=c("Nordeste+Sudeste")))
+resumo_pesos <- data.frame(rbind(regiao, global))
+names(resumo_pesos) <- c("Região", "Mínimo", "Quartil 1",
+                         "Mediana", "Quartil 3", "Máximo")
+knitr::kable(resumo_pesos , booktabs = TRUE, 
+             align = "lrrrrr",
+             format.args= list(big.mark = '.'),
+             caption = "Resumos da distribuição dos pesos da amostra da PPV")
 ```
 
 
-
-No cálculo dos pesos foram consideradas as probabilidades de
-inclusão dos elementos na amostra bem como correções devido a
+No cálculo dos pesos amostrais foram consideradas as probabilidades de
+inclusão dos elementos na amostra, bem como correções devido à
 não-resposta. Contudo, a grande variabilidade dos pesos amostrais da PPV
-é devida à variabilidade das probabilidades de inclusão na
+é devida, principalmente, à variabilidade das probabilidades de inclusão na
 amostra, ilustrando desta forma o ponto i) citado anteriormente nesta seção.
 
 Na análise de dados desta pesquisa, deve-se considerar que há
-elementos da amostra com pesos bem distintos. Por exemplo, a razão entre
-o maior e o menor peso é cerca de 40 vezes. Tais pesos são
-utilizados para `expandir` os dados, multiplicando-se cada observação 
-pelo seu respectivo peso. Assim, por exemplo, para `estimar`
-quantos elementos `da população` pertencem a determinado
-conjunto (domínio), basta somar os pesos dos elementos da amostra que
-pertencem a este conjunto. É possível ainda incorporar os pesos, de
-maneira simples e natural, quando estimamos medidas descritivas simples da
-população tais como totais, médias, proporções, razões, etc.
+elementos da amostra com pesos muito distintos. Por exemplo, a razão entre
+o maior e o menor peso é cerca de 40 vezes. Os pesos também variam bastante 
+entre as regiões, com mediana 3,5 vezes maior na região Sudeste quando 
+comparada com a região Nordeste, em função da alocação desproporcional da
+amostra nas regiões.
+
+Tais pesos são utilizados para `expandir` os dados, multiplicando-se 
+cada observação pelo seu respectivo peso. Assim, por exemplo, para `estimar`
+quantos elementos `da população` pertencem a determinado conjunto (domínio), 
+basta somar os pesos dos elementos da amostra que pertencem a este conjunto. 
+É possível ainda incorporar os pesos, de maneira simples e natural, quando 
+estimamos medidas descritivas simples da população tais como totais, médias, 
+proporções, razões, etc.
 
 Por outro lado, quando utilizamos a amostra para estudos analíticos, as
 opções padrão disponíveis nos pacotes estatísticos usuais para
@@ -160,33 +175,38 @@ distribuídas (IID). Por exemplo, os procedimentos padrão disponíveis para
 estimar a média populacional permitem utilizar pesos distintos das observações amostrais,
 mas tratariam tais pesos como se fossem frequências de observações repetidas na amostra, 
 e portanto interpretariam a soma dos pesos como tamanho amostral, situação que
-na maioria das vezes gera inferências incorretas sobre a precisão das estimativas,
-pois o tamanho da amostra é muito menor que a soma dos pesos amostrais usualmente 
-encontrados nos arquivos de microdados de pesquisas disseminados por agências de
-estatísticas oficiais. Em tais pesquisas, a opção mais freqüente é disseminar pesos que
-somados estimam o total de unidades `da população`. 
+na maioria das vezes gera inferências incorretas sobre a precisão das estimativas.
+Isto ocorre pois o tamanho da amostra é muito menor que a soma dos pesos amostrais 
+usualmente encontrados nos arquivos de microdados de pesquisas disseminados 
+por agências de estatísticas oficiais. Em tais pesquisas, a opção mais freqüente 
+é disseminar pesos que, quando somados, estimam o total de unidades `da população`. 
 
 Além disso, a variabilidade dos pesos para distintas observações amostrais
 produz impactos tanto na estimação pontual quanto na estimação das
-variâncias dessas estimativas, que sofre ainda influência da
-conglomeração e estratificação - pontos ii) e iii) mencionados anteriormente.
+variâncias dessas estimativas, que sofre ainda influência da conglomeração 
+e da estratificação - pontos ii) e iii) mencionados anteriormente.
 
 Para exemplificar o impacto de ignorar os pesos e o plano amostral ao
 estimar quantidades descritivas populacionais, tais como totais, médias,
-proporções e razões, calculamos estimativas de quantidades
-desses diferentes tipos usando a amostra da PPV juntamente com estimativas das
-respectivas variâncias. Essas estimativas de variâncias foram
-calculadas sob duas estratégias: considerando amostragem
+proporções e razões, calculamos estimativas de quantidades desses diferentes 
+tipos usando a amostra da PPV juntamente com estimativas das
+respectivas variâncias. Tais estimativas de variância foram
+calculadas sob duas estratégias: a) considerando amostragem
 aleatória simples (portanto ignorando o plano amostral efetivamente
-adotado), e considerando o plano amostral da pesquisa e os pesos
-diferenciados das unidades. A razão entre as estimativas de
-variância obtidas sob o plano amostral verdadeiro e sob amostragem
-aleatória simples foi calculada para cada uma das estimativas consideradas 
-usando a library `survey` do R [@R-survey] . Essa razão fornece uma
-medida do efeito de ignorar o plano amostral . Os resultados das
-estimativas ponderadas e variâncias considerando o plano amostral
-são apresentados na Tabela \@ref(tab:epas) , juntamente com as medidas dos
-efeitos de plano amostral (EPA). Exemplos de utilização da library `survey` para obtenção de estimativas apresentadas na \@ref(tab:epas) estão na Seção \@ref(epa). As outras estimativas da Tabela \@ref(tab:epas) podem ser obtidas de maneira análoga.
+adotado na pesquisa), e b) considerando o plano amostral da pesquisa e os pesos
+diferenciados das unidades. 
+
+A razão entre as estimativas de variância obtidas sob o plano amostral 
+verdadeiro e sob amostragem aleatória simples foi calculada para cada uma
+das estimativas consideradas usando o pacote `survey` do R [@R-survey]. 
+Essa razão fornece uma medida do efeito de ignorar o plano amostral. 
+Os resultados das estimativas ponderadas e variâncias considerando o plano 
+amostral são apresentados na Tabela \@ref(tab:epas), juntamente com as 
+medidas dos efeitos de plano amostral (EPA). 
+
+Exemplos de utilização do pacote `survey` para obtenção de estimativas 
+apresentadas na \@ref(tab:epas) estão na Seção \@ref(epa). As outras 
+estimativas da Tabela \@ref(tab:epas) podem ser obtidas de maneira análoga.
 
 Na Tabela \@ref(tab:epas) apresentamos as estimativas dos seguintes parâmetros populacionais:
 
@@ -210,10 +230,11 @@ epas <- data.frame(
 "Parâmetro" = c("1.", "2.", "3.", "4.", "5.", "6.", "7.",
   "8.", "9.", "10.", "11.","12."),  
 Estimativa = c(3.62, 10.70, 1208123, 1174220,4792344, 11.87, 10.87, 10817590, 10804511,709145,1.39,0.53),
-DP =c(0.05, 1.15, 146681, 127982, 318877, 1.18, 0.67, 322947, 323182, 87363, 0.03, 0.01),
-EPA= c(2.64, 2.97, 3.37,2.64, 4.17,2.46, 3.86, 2.02, 3.02, 2.03, 1.26, 1.99 )
+"Erro Padrão"=c(0.05, 1.15, 146681, 127982, 318877, 1.18, 0.67, 322947, 323182, 87363, 0.03, 0.01),
+"EPA"= c(2.64, 2.97, 3.37,2.64, 4.17,2.46, 3.86, 2.02, 3.02, 2.03, 1.26, 1.99 )
 )
-knitr::kable(epas, booktabs=TRUE,align = "llll",
+knitr::kable(epas, booktabs=TRUE, align = "crrr",
+             format.args= list(big.mark = '.', decimal.mark=","),
 caption="Estimativas de Efeitos de Plano Amostral (EPAs)
 para variáveis selecionadas da PPV - Região Sudeste"
 )
@@ -231,32 +252,45 @@ simples implicaria em subestimar consideravelmente a variância da
 estimativa pontual, que é mais que 4 vezes maior se consideramos o plano
 amostral efetivamente utilizado.
 
-Note que as variáveis e parâmetros cujas estimativas são apresentadas na Tabela \@ref(tab:epas) não foram escolhidas de forma a acentuar os efeitos ilustrados, mas tão somente para representar distintos parâmetros (médias, razões, totais, proporções) e variáveis de interesse. Os resultados apresentados para as estimativas de EPA ilustram bem o cenário típico em pesquisas amostrais complexas: o impacto do plano amostral sobre a inferência varia conforme a variável e o tipo de parâmetro de interesse. Note ainda que à exceção do menor valor, todas as demais estimativas de EPA apresentaram valores superiores a 2.
+Note que as variáveis e parâmetros cujas estimativas são apresentadas 
+na Tabela \@ref(tab:epas) não foram escolhidas de forma a acentuar os 
+efeitos ilustrados, mas tão somente para representar distintos parâmetros 
+(totais, médias, proporções, razões) e variáveis de interesse. Os resultados 
+apresentados para as estimativas de EPA ilustram bem o cenário típico em pesquisas
+amostrais complexas: o impacto do plano amostral sobre a inferência varia conforme
+a variável e o tipo de parâmetro de interesse. Note ainda que, à exceção dos dois
+menores valores (1,26 e 1,99), todas as demais estimativas de EPA apresentaram 
+valores superiores a 2.
 
 ## Objetivos do Livro
 
 Este livro tem três objetivos principais:
 
-1)  **ilustrar e analisar o impacto das simplificações
-feitas ao utilizar pacotes usuais de análise de dados quando estes são provenientes de pesquisas amostrais complexas**;
+1)  **Ilustrar e analisar o impacto das simplificações feitas ao utilizar pacotes
+usuais de análise de dados quando estes são provenientes de pesquisas amostrais 
+complexas**;
 
-2) **apresentar uma coleção de métodos e recursos computacionais 
-disponíveis para análise de dados amostrais complexos, equipando o analista para trabalhar com tais dados, reduzindo assim o risco de inferências incorretas**;
+2) **Apresentar uma coleção de métodos e recursos computacionais disponíveis para
+análise de dados amostrais complexos, equipando o analista para trabalhar com 
+tais dados, reduzindo assim o risco de inferências incorretas**;
 
-3) **ilustrar o potencial analítico de muitas das pesquisas produzidas 
-por agências de estatísticas oficiais para responder questões de interesse, mediante uso de ferramentas de análise estatística agora já bastante difundidas, aumentando assim o valor adicionado destas pesquisas**.
+3) **Ilustrar o potencial analítico de muitas das pesquisas produzidas por agências
+de estatísticas oficiais para responder questões de interesse, mediante uso de 
+ferramentas de análise estatística agora já bastante difundidas, aumentando assim
+o valor adicionado destas pesquisas**.
 
 
-Para alcançar tais objetivos, adota-se uma abordagem fortemente ancorada na 
+Para alcançar tais objetivos, adotamos uma abordagem fortemente ancorada na 
 apresentação de exemplos de análises de dados obtidos em pesquisas amostrais complexas,
-usando pacotes clássicos e também recursos do pacote estatístico R (http://www.r-project.org/). 
-A comparação dos resultados das análises feitas das duas
-formas permite avaliar o impacto de não se considerar os pontos i)
-a iv) anteriormente citados. O ponto iv) não será tratado de forma completa neste texto. 
+usando os recursos do pacote estatístico R (http://www.r-project.org/). 
+
+A comparação dos resultados de análises feitas das duas formas (considerando ou 
+ignorando o plano amostral) permite avaliar o impacto de não se considerar os pontos i)
+a iv) anteriormente citados. O ponto iv) não é tratado de forma completa neste texto. 
 O leitor interessado na análise de dados sujeitos a não-resposta pode consultar 
 [@kalton83a], [@LR2002], [@Rubin87], [@SSW92], ou Schafer (1997), por exemplo.
 
-**Estrutura do Livro**
+## Estrutura do Livro
 
 O livro está organizado em catorze capítulos. Este primeiro capítulo
 discute a motivação para estudar o assunto e apresenta uma ideia
@@ -265,33 +299,35 @@ geral dos objetivos e da estrutura do livro.
 No segundo capítulo, procuramos dar uma visão das diferentes
 abordagens utilizadas na análise estatística de dados de pesquisas
 amostrais complexas. Apresentamos um referencial para inferência com
-ênfase no `Modelo de Superpopulação` que incorpora, de
-forma natural, tanto uma estrutura estocástica para descrever a geração 
+ênfase no `Modelo de Superpopulação` que incorpora, de forma natural, 
+tanto uma estrutura estocástica para descrever a geração 
 dos dados populacionais (modelo) como o plano amostral
 efetivamente utilizado para obter os dados amostrais (plano
 amostral). As referências básicas para seguir este capítulo
-são cap2 em [@Silva], cap1 em [@SHS89] e caps 1 e 2 em [@CHSK2003]. 
+são o capítulo 2 em [@Silva], o capítulo 1 em [@SHS89] e os capítulos 
+1 e 2 em [@CHSK2003]. 
 
 Esse referencial tem evoluído ao longo dos anos como uma forma de
-permitir a incorporação de idéias e procedimentos de análise
+permitir a incorporação de ideias e procedimentos de análise
 e inferência usualmente associados à Estatística Clássica
-à prática da interpretação de dados provenientes de
+à prática da análise e interpretação de dados provenientes de
 pesquisas amostrais. Apesar dessa evolução, sua adoção
 não é livre de controvérsia e uma breve revisão dessa
 discussão é apresentada no Capítulo \@ref(refinf).
 
-No Capítulo \@ref(capplanamo) apresentamos uma revisão sucinta, a título
-de recordação, de alguns resultados básicos da Teoria de
+No Capítulo \@ref(capplanamo) apresentamos uma revisão sucinta, para
+recordação, de alguns resultados básicos da Teoria de 
 Amostragem, requeridos nas partes subsequentes do livro. São
 discutidos os procedimentos básicos para estimação de totais
 considerando o plano amostral, e em seguida revistas algumas técnicas
-para estimação de variâncias úteis para o caso de
+para estimação de variâncias que são necessárias e úteis para o caso de
 estatísticas complexas, tais como razões e outras estatísticas
 requeridas na inferência analítica com dados amostrais. As
-referências centrais para este capítulo são caps 2 e 3 em [@SSW92], [@W85] e [@cochran].
+referências centrais para este capítulo são os capítulos 2 e 3 
+em [@SSW92], [@W85] e [@cochran].
 
 No Capítulo \@ref(epa) introduzimos o conceito de `Efeito do Plano Amostral
-(EPA)`, que permite avaliar o impacto de ignorar a estruturação dos
+(EPA)`, que permite avaliar o impacto de ignorar a estrutura dos
 dados populacionais ou do plano amostral sobre a estimativa da variância
 de um estimador. Para isso, comparamos o estimador da variância
 apropriado para dados obtidos por amostragem aleatória simples
@@ -301,103 +337,110 @@ distribuição de aleatorização induzida pelo plano amostral efetivamente util
 [@SHS89], complementado com o texto de [@lethonen].
 
 No Capítulo \@ref(ajmodpar) estudamos a questão do uso de pesos ao analisar dados
-provenientes de pesquisas amostrais complexas, e introduzimos um método
-geral, denominado `Método de Máxima Pseudo Verossimilhança(MPV)`, para incorporar os pesos e o plano amostral na obtenção
-não só de estimativas de parâmetros dos modelos regulares de
-interesse, como também das variâncias dessas estimativas. As
+provenientes de pesquisas amostrais complexas, e introduzimos um método geral, 
+denominado `Método de Máxima Pseudo Verossimilhança(MPV)`, para incorporar os pesos
+e o plano amostral na obtenção não só de estimativas de parâmetros dos modelos 
+de interesse mais comuns, como também das variâncias dessas estimativas. As
 referências básicas utilizadas nesse capítulo foram
-[@SHS89], [@Pfeff], [@binder83] e cap.6 em [@Silva].
+[@SHS89], [@Pfeff], [@binder83] e o capítulo 6 em [@Silva].
 
 O Capítulo \@ref(modreg) trata da obtenção de `Estimadores de
-Máxima Pseudo-Verossimilhança (EMPV)` e da
-respectiva matriz de covariância para os parâmetros em modelos de
-regressão linear e de regressão logística, quando os dados
-vêm de pesquisas amostrais complexas. Apresentamos um exemplo de aplicação 
+Máxima Pseudo-Verossimilhança (EMPV)` e da respectiva matriz de covariância
+para os parâmetros em modelos de regressão linear e de regressão logística, quando 
+os dados vêm de pesquisas amostrais complexas. Apresentamos um exemplo de aplicação 
 com dados do Suplemento Trabalho da Pesquisa Nacional por
-Amostra de Domicílios (PNAD) de 90, onde ajustamos um modelo de
+Amostra de Domicílios (PNAD) de 1990, onde ajustamos um modelo de
 regressão logística. Neste exemplo, são feitas comparações entre 
-resultados de ajustes obtidos através de um programa
-especializado, a library `survey` [@R-survey], e através de um programa de
-uso geral, a library `glm` do R. As referências centrais são 
-cap6 em [@Silva] e Binder(1983), além de [@Pessoa].
+resultados de ajustes obtidos através de um programa especializado, o pacote `survey` 
+[@R-survey], e através de um programa de uso geral, a função `glm` do R. As referências 
+centrais são o capítulo 6 em [@Silva] e Binder(1983), além de [@Pessoa].
 
-Os Capítulos \@ref(testqualajust) e  \@ref(testetab2) tratam da análise de dados
+Os Capítulos \@ref(testqualajust) e \@ref(testetab2) tratam da análise de dados
 categóricos com ênfase na adaptação dos testes clássicos
 para proporções, de independência e de homogeneidade em tabelas
 de contingência, para dados provenientes de pesquisas amostrais
 complexas. Apresentamos correções das estatísticas clássicas
-e a estatística de Wald baseada no plano amostral. As referências
-básicas usadas nesses capítulos foram os livros cap. 4, [@SHS89] e 
-cap. 7 [@lethonen]. Também são apresentadas as idéias básicas de como
+e também a estatística de Wald baseada no plano amostral. As referências
+básicas usadas nesses capítulos foram os o capítulo 4 em [@SHS89] e 
+o capítulo 7 [@lethonen]. Também são apresentadas as ideias básicas de como
 efetuar ajuste de modelos log-lineares a dados de frequências em tabelas de 
 múltiplas entradas.
 
-O Capítulo \@ref(estimacao-de-densidades) trata da estimação de densidades e funções de distribuição,
-ferramentas que tem assumido importância cada dia maior com a maior disponibilidade
-de microdados de pesquisas amostrais para analistas fora das agências produtoras.
+O Capítulo \@ref(estimacao-de-densidades) trata da estimação de densidades e 
+funções de distribuição, ferramentas que tem assumido importância cada dia maior 
+com a maior disponibilidade de microdados de pesquisas amostrais para analistas
+fora das agências produtoras.
 
 O Capítulo \@ref(modelos-hierarquicos) trata da estimação e ajuste de modelos hierárquicos 
-considerando o plano amostral. Modelos hierárquicos (ou modelos multinível) têm sido
+considerando o plano amostral. Modelos hierárquicos (ou modelos multiníveis) têm sido
 bastante utilizados para explorar situações em que as relações entre variáveis de
-interesse em uma certa população de unidades elementares (por exemplo, crianças em escolas, pacientes em hospitais, empregados em empresas, moradores em regiões, etc.) são afetadas por efeitos de grupos determinados ao nível de unidades conglomeradas (os grupos). Ajustar e interpretar tais modelos é tarefa mais difícil que o mero ajuste de modelos lineares mesmo em casos onde os dados são obtidos de forma exaustiva, mas ainda mais complicada quando se trata de dados obtidos através de pesquisas amostrais complexas. Várias alternativas de métodos para ajuste de modelos hierárquicos estão disponíveis, e este capítulo apresenta uma revisão de tais abordagens, ilustrando com aplicações a dados de pesquisas amostrais de escolares.
+interesse em uma certa população de unidades elementares (por exemplo, crianças em escolas, 
+pacientes em hospitais, empregados em empresas, moradores em regiões, etc.) são afetadas 
+por efeitos de grupos determinados ao nível de unidades conglomeradas (os grupos). Ajustar 
+e interpretar tais modelos é tarefa mais difícil que o mero ajuste de modelos lineares, 
+mesmo em casos onde os dados são obtidos de forma exaustiva, mas ainda mais complicada 
+quando se trata de dados obtidos através de pesquisas amostrais complexas. Várias 
+alternativas de métodos para ajuste de modelos hierárquicos estão disponíveis, e este 
+capítulo apresenta uma revisão de tais abordagens, ilustrando com aplicações a dados 
+de pesquisas amostrais de escolares.
 
-O Capítulo \@ref(nao-resposta) trata da não resposta e suas conseqüências sobre a análise de dados. 
-As abordagens de tratamento usuais, reponderação e imputação, são descritas de maneira
-resumida, com apresentação de alguns exemplos ilustrativos, e referências à ampla literatura existente sobre o assunto. Em seguida destacamos a importância de considerar os efeitos da não-resposta e dos tratamentos compensatórios aplicados nas análises dos dados resultantes, destacando em particular as ferramentas disponíveis para a estimação de variâncias na presença de dados incompletos tratados mediante reponderação e/ou imputação.
+O Capítulo \@ref(nao-resposta) trata da não resposta e suas conseqüências sobre a análise
+de dados. As abordagens de tratamento usuais, reponderação e imputação, são descritas de 
+maneira resumida, com apresentação de alguns exemplos ilustrativos, e referências à ampla 
+literatura existente sobre o assunto. Em seguida destacamos a importância de considerar 
+os efeitos da não-resposta e dos tratamentos compensatórios aplicados nas análises dos 
+dados resultantes, destacando em particular as ferramentas disponíveis para a estimação
+de variâncias na presença de dados incompletos tratados mediante reponderação e/ou imputação.
 
-O Capítulo \@ref(diagnostico-de-ajuste-de-modelo) trata de assunto ainda emergente: diagnósticos do ajuste de modelos 
-quando os dados foram obtidos de amostras complexas. A literatura sobre o assunto ainda
-é incipiente, mas o assunto é importante e procura-se estimular sua investigação com a
-revisão do estado da arte no assunto.
+O Capítulo \@ref(diagnostico-de-ajuste-de-modelo) trata de assunto ainda emergente: diagnósticos
+do ajuste de modelos quando os dados foram obtidos de amostras complexas. A literatura sobre
+o assunto ainda é incipiente, mas o assunto é importante e procura-se estimular sua investigação
+com a revisão do estado da arte no assunto.
 	
 O Capítulo \@ref(agregdesag) discute algumas formas alternativas de analisar dados de
 pesquisas complexas, contrapondo algumas abordagens distintas à que demos preferência
 nos capítulos anteriores, para dar aos leitores condições de apreciar de forma crítica
 o material apresentado no restante deste livro. Entre as abordagens discutidas, há duas 
 principais: a denominada `análise desagregada`, e a abordagem denominada `obtenção 
-do modelo amostral` proposta por [@PKR]. A chamada 
-`análise desagregada` incorpora explicitamente na análise vários aspectos do
-plano amostral utilizado através do emprego de modelos hierárquicos [@bryk]. 
-Em contraste, a abordagem adotada nos oito primeiros capítulos é denominada `análise agregada`, e
-procura `eliminar` da análise efeitos tais como conglomeração
-induzida pelo plano amostral, considerando tais efeitos como `ruídos`
-ou fatores de perturbação que `atrapalham` o emprego dos
-procedimentos clássicos de estimação, ajuste de modelos e teste de hipóteses.
+do modelo amostral` proposta por [@PKR]. A chamada `análise desagregada` incorpora 
+explicitamente na análise vários aspectos do plano amostral utilizado, através do emprego
+de modelos hierárquicos [@bryk]. Em contraste, a abordagem adotada nos oito primeiros 
+capítulos é denominada `análise agregada`, e procura `eliminar` da análise efeitos 
+tais como conglomeração induzida pelo plano amostral, considerando tais efeitos como
+`ruídos` ou fatores de perturbação que `atrapalham` o emprego dos procedimentos 
+clássicos de estimação, ajuste de modelos e teste de hipóteses.
 
 A abordagem de `obtenção do modelo amostral` parte de um modelo de superpopulação e
-procura derivar o modelo amostral (ou que valeria para as observações da amostra obtida) 
+procura derivar o modelo amostral (ou que valeria para as observações da amostra obtida), 
 considerando modelos para as probabilidades de inclusão dadas as variáveis auxiliares e
 as variáveis resposta de interesse. Uma vez obtidos tais modelos, seu ajuste prossegue por
-métodos convencionais tais como máxima verossimilhança ou mesmo MCMC (Markov Chain Monte Carlo).
+métodos convencionais tais como máxima verossimilhança ou mesmo MCMC (Markov Chain 
+Monte Carlo).
 
 Por último, no Capítulo \@ref(pacotes), listamos alguns pacotes computacionais
-especializados disponíveis para a análise de dados de pesquisas
-amostrais complexas. Sem pretender ser exaustiva ou detalhada, essa
-revisão dos pacotes procura também apresentar suas
-características mais importantes. Vários destes programas podem ser
-adquiridos gratuitamente via `internet`, nos endereços fornecidos
-de seus produtores. Com isto pretendemos indicar aos leitores o caminho mais
-curto para permitir a implementação prática das técnicas e
-métodos aqui discutidos.
+especializados disponíveis para a análise de dados de pesquisas amostrais complexas. 
+Sem pretender ser exaustiva ou detalhada, essa revisão dos pacotes procura também 
+apresentar suas características mais importantes. Alguns destes programas podem ser
+adquiridos gratuitamente via `internet`, nos endereços fornecidos de seus produtores. 
+Com isto, pretendemos indicar aos leitores o caminho mais curto para permitir a 
+implementação prática das técnicas e métodos aqui discutidos.
 
 Uma das características que procuramos dar ao livro foi o emprego de
 exemplos com dados reais, retirados principalmente da experiência do
 IBGE com pesquisas amostrais complexas. Embora a experiência de fazer
 inferência analítica com dados desse tipo seja ainda incipiente no
-Brasil, acreditamos ser fundamental difundir essas idéias para alimentar
+Brasil, acreditamos ser fundamental difundir essas ideias para alimentar
 um processo de melhoria do aproveitamento dos dados das inúmeras
 pesquisas realizadas pelo IBGE e instituições congêneres, que
-permita ir além da tradicional estimação de médias, totais,
-proporções e razões. Esperamos com esse livro fazer uma contribuição 
-a esse processo.
+permita ir além da tradicional estimação de totais, médias, proporções 
+e razões. Esperamos com esse livro fazer uma contribuição a esse processo.
 
 Uma dificuldade em escrever um livro como este vem do fato de que não
-é possível começar do zero: é preciso assumir algum
-conhecimento prévio de idéias e conceitos necessários à
-compreensão do material tratado. Procuramos tornar o livro acessível
-para um estudante de fim de curso de graduação em Estatística.
-Por essa razão optamos por não apresentar provas de resultados e
-sempre que possível, apresentar os conceitos e idéias de maneira
+é possível começar do zero: é preciso assumir algum conhecimento prévio 
+de ideias e conceitos necessários à compreensão do material tratado. 
+Procuramos tornar o livro acessível para um estudante de fim de curso de 
+graduação em Estatística. Por essa razão, optamos por não apresentar provas 
+de resultados e, sempre que possível, apresentar os conceitos e ideias de maneira
 intuitiva, juntamente com uma discussão mais formal para dar solidez aos
 resultados apresentados. As provas de vários dos resultados aqui
 discutidos se restringem a material disponível apenas em artigos em
@@ -405,17 +448,20 @@ periódicos especializados estrangeiros e portanto, são de acesso
 mais difícil. Ao leitor em busca de maior detalhamento e rigor,
 sugerimos consultar diretamente as inúmeras referências
 incluídas ao longo do texto. Para um tratamento mais profundo do
-assunto, os livros de [@SHS89]  e [@CHSK2003] 
-são as referências centrais a pesquisar. Para aqueles querendo um tratamento 
-ainda mais prático que o nosso, o livro de [@lethonen] pode ser uma 
-opção interessante.
+assunto, os livros de [@SHS89]  e [@CHSK2003] são as referências centrais 
+a consultar. Para aqueles querendo um tratamento ainda mais prático que o 
+nosso, os livro de [@lethonen] e [@heeringa] podem ser opções interessantes.
 
 ## Laboratório de R do Capítulo 1. {#epa}
 
+XXX Parei aqui em 20/11/2017
+
 ```{example, label= "exe12"}
-Utilização da library survey do R para estimar alguns totais e razões na Tabela \@ref(tab:epas)
+Utilização do pacote survey do R para estimar alguns totais e razões na Tabela \@ref(tab:epas)
 ```
-Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) de 2004 do IBGE, cujo plano amostral encontra-se descrito no Exemplo \@ref(exm:distppv) . Os dados da `PPV` estão no data frame `ppv` da library `anamco`. 
+Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida (`PPV`) do IBGE, 
+cujo plano amostral encontra-se descrito no Exemplo \@ref(exm:distppv). 
+Os dados da `PPV` estão no arquivo (data frame) `ppv` do pacote `anamco`. 
 
 
 ```{r, message=FALSE, warning=FALSE}
@@ -448,7 +494,7 @@ A seguir, mostramos como utilizar a library `survey` [@R-survey] do R para obter
 - estratof - estratos;
 - pesof - pesos do plano amostral;
 
-O passo fundamental para utilização da library `survey` [@R-survey] é criar um objeto que guarde as informações relevantes do plano amostral. Isso é feito por meio da função `svydesign()`.
+O passo fundamental para utilização do pacote `survey` [@R-survey] é criar um objeto que guarde as informações relevantes do plano amostral. Isso é feito por meio da função `svydesign()`.
 As variáveis que definem estratos, conglomerados e pesos na `PPV` são respectivamente, `estratof`, `nsetor` e `pesof`. O objeto de desenho amostral, `ppv_plan` incorpora as informações do plano amostral adotado na `PPV`.
 
 ```{r, message=FALSE, warning=FALSE}
@@ -481,7 +527,7 @@ svytotal(~analf2, ppv_se_plan, deff = TRUE)
 svyratio(~analf1, ~faixa1, ppv_se_plan)
 svyratio(~analf2, ~faixa2, ppv_se_plan)
 ```
-Uma alternativa para obter estimativa por domínios  é utilizar a função `svyby()` da library `survey` [@R-survey]. Assim, poderíamos estimar os totais da variável `analf1` para as regiões `Nordeste (1)` e  `Sudeste(2)` da seguinte forma:
+Uma alternativa para obter estimativa por domínios  é utilizar a função `svyby()` do pacote `survey` [@R-survey]. Assim, poderíamos estimar os totais da variável `analf1` para as regiões `Nordeste (1)` e  `Sudeste(2)` da seguinte forma:
 
 ```{r}
 svyby(~analf1, ~regiao, ppv_plan, svytotal, deff = TRUE)
@@ -535,7 +581,7 @@ caption = "Proporção de analfabetos para faixas etárias 7-14 anos e mais de 1
 
 
 ```{example, label = "exe14"}
-Utilização da library survey do R para estimar taxa de desocupação para um trimestre na  PNADC 
+Utilização do pacote survey do R para estimar taxa de desocupação para um trimestre na  PNADC 
 ```
 
 - Instala library `lodown` [@R-lodown] do github:
@@ -647,7 +693,7 @@ result
 
 
 ```{example, label= "exe15"}
-Utilização da library survey do R para análise de microdados da  PNS 
+Utilização do pacote survey do R para análise de microdados da  PNS 
 ```
 
 Leitura dos microdados usando a library `lodown`[@R-lodown]
@@ -684,7 +730,7 @@ No data frame pns_dat o nome das variáveis, obtidos por `names(pns)`, estão em
 O data frame `pns_dat` contém as variáveis descritas no dicionário da `PNS` e algumas variáveis obtidas derivadas. 
 
 O passo inicial para a análise dos microdados é definir um objeto de desenho que salva
-as características do plano amostral da pesquisa. Isso é feito por meio da função `svydesign()` da library `survey` [@R-survey]. 
+as características do plano amostral da pesquisa. Isso é feito por meio da função `svydesign()` do pacote `survey` [@R-survey]. 
 
 
 ```{r, message=FALSE, warning=FALSE}
@@ -706,7 +752,7 @@ post_pop <- unique( pns_dat[ c( 'v00293.y' , 'v00292.y' ) ] )
 names( post_pop ) <- c( "v00293.y" , "Freq" )
 ```
 
-Utilizando a função `postStratify()` da library `survey` [@R-survey] incorpora-se no objeto de desenho `pns_plan` as informações contidas no data frame `post_pop`.
+Utilizando a função `postStratify()` do pacote `survey` [@R-survey] incorpora-se no objeto de desenho `pns_plan` as informações contidas no data frame `post_pop`.
 
 
 ```{r}
@@ -948,9 +994,9 @@ attr(svytotal(~analf1, ppv_se_plan),"var")/VAAS1
 attr(svytotal(~analf2, ppv_se_plan),"var")/VAAS2
 ```
 
-Esses valores do EPA coincidem com os obtidos acima através da library `survey`[@R-survey] e 
+Esses valores do EPA coincidem com os obtidos acima através do pacote `survey`[@R-survey] e 
 são distintos daqueles apresentados na Tabela \@ref(tab:epas). Para obter os valores 
-correspondentes aos da Tabela \@ref(tab:epas), através da library `survey`[@R-survey], vamos definir as variáveis:
+correspondentes aos da Tabela \@ref(tab:epas), através do pacote `survey`[@R-survey], vamos definir as variáveis:
 
 ```{r}
 analf1.se<-with(ppv1_dat,((v04a01==2|v04a02==2) & (v02a08>=7&v02a08<=14))&(regiao==2))
