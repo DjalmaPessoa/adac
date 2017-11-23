@@ -1,0 +1,440 @@
+
+```{example, label = "exe14"}
+Utilização do pacote survey do R para estimar taxa de desocupação para um trimestre na  PNADC 
+```
+
+- Instala o pacote `lodown` [@R-lodown] do github:
+  
+  
+  ```{r, eval=FALSE}
+library(devtools)
+install_github("ajdamico/lodown")
+```
+
+
+- carrega o pacote para ler os dados da PNADC
+
+```{r, eval=FALSE}
+library(lodown)
+```
+
+- Baixa catálogo da PNADC com arquivos disponíveis:
+  
+  ```{r, eval=FALSE}
+pnadc_cat <- get_catalog( "pnadc" , output_dir =tempdir() )
+```
+
+Os microdados de interesse são terceiro trimestre de 2016. Vamos ler os microdados
+e salvá-los em um data frame `pnadc032016_dat`.
+
+```{r, eval=FALSE}
+lodown( "pnadc" , subset( pnadc_cat , year == 2016 & quarter == '03' ) )
+pnadc032016_dat <- readRDS( paste0( tempdir() , "/pnadc201603.rds" ) )
+```
+
+vamos salvar o data frame `pnadc032016_dat` para uso posterior, :
+  
+  ```{r , eval=FALSE}
+saveRDS(pnadc032016_dat, file="C:/adac/pnadc/pnadc201603.rds")
+```
+
+
+Partindo do arquivo `pnadc201603.rds`, podemos recuperar o data frame `pnadc032016_dat`: 
+  
+  
+  ```{r, eval= FALSE}
+pnadc032016_dat <- readRDS("C:/adac/pnadc/pnadc201603.rds")
+```
+
+
+-  Carrega o pacote `survey`
+
+```{r, message=FALSE, warning=FALSE}
+library(survey)
+```
+
+- Fixa opção para caso de UPA única no estrato
+```{r}
+options( survey.lonely.psu = "adjust" )
+```
+-  Cria versão inicial de objeto de desenho:
+  
+  
+  ```{r , eval=FALSE}
+pnadc032016_plan <- svydesign(ids =~upa, strata=~estrato, 
+                              weights=~v1027, data = pnadc032016_dat, nest=TRUE)
+```
+
+
+- Especifica totais de pós-estratos na população:
+  
+  ```{r, eval= FALSE}
+df_pos <-data.frame(posest=unique(pnadc032016_dat$posest), 
+                    Freq=unique(pnadc032016_dat$v1029))
+```
+-   Pós-estratifica objeto de desenho inicial:
+  
+  ```{r, eval = FALSE}
+pnadc032016_calib <-postStratify(pnadc032016_plan, ~posest, df_pos)
+```
+
+Para calcular a taxa de desocupação, o IBGE considera pessoas de 14 anos
+ou mais na semana de referência(PIA) e calcula a razão de dois totais:
+  
+  1. Numerador: total de pessoas desocupadas (vd4002==2)
+
+2. Denominador: total de pessoas na força de trabalho (vd4001==1)
+
+```{r, echo = FALSE, eval= FALSE }
+saveRDS(pnadc032016_calib, file="C:/adac/pnadc/pnadc032016_calib.rds")
+```
+
+```{r, echo = FALSE}
+pnadc032016_calib <- readRDS("C:/adac/pnadc/pnadc032016_calib.rds")
+```
+
+```{r}
+# estima taxa de desocupação
+taxa_des <- svyratio(~ vd4002=="2" ,
+                     ~ vd4001 == "1" , pnadc032016_calib , na.rm = TRUE)
+# organiza saída
+result <- data.frame(
+  100*coef(taxa_des),
+  100*SE(taxa_des), 
+  100*cv(taxa_des)
+)
+row.names(result)<- NULL
+names(result) <-NULL
+names(result) <- c("Taxa", "Erro_Padrão", "CV")
+# taxa de desocupação
+result
+```
+
+
+```{example, label= "exe15"}
+Utilização do pacote survey do R para análise de microdados da  PNS 
+```
+
+Leitura dos microdados usando o pacote `lodown`[@R-lodown]
+
+```{r ,eval = FALSE}
+#library(lodown)
+#lodown( "pns" , output_dir = "C:/adac/PNS")
+```
+
+Depois de baixar os dados, são criados os seguintes arquivos no diretório `C:/adac/PNS` :
+  
+  1. `2013 all questionnaire survey design.rds` que contém o objeto de desenho para todos as pessoas na amostra;
+
+2. `2013 all questionnaire survey.rds` que contém os microdados para todos as pessoas da amostra
+
+3. `2013 long questionnaire survey design.rds` que contém o objeto de desenho para uma subamostra de pessoas com 18 anos ou mais que responderam um questionário mais longo;
+
+4. `2013 long questionnaire survey.rds` que contém os microdados para uma subamostra de pessoas com 18 anos ou mais que responderam um questionário mais longo;
+
+```{remark}
+Nos arquivos acima, além das variáveis contidas no dicionário da PNS, foram acrescentadas variáveis derivadas, utilizadas nos exemplos no site [asdfree.com](https://github.com/ajdamico/asdfree/tree/master/Pesquisa%20Nacional%20De%20Saude) 
+```
+
+Inicialmente, vamos estimar características de pessoas com 18 anos ou mais mais que responderam o questionário longo e salvar os microdados dessa amostra no data frame `pns_dat`.
+
+```{r, cache=TRUE}
+pns_dat <- readRDS("C:/adac/PNS/2013 long questionnaire survey.rds")
+dim(pns_dat)
+```
+
+```{remark}
+No data frame pns_dat o nome das variáveis, obtidos por `names(pns)`, estão em minúsculas. No dicionário da PNS os códigos correspondentes estão em maiúsculas.
+```
+O data frame `pns_dat` contém as variáveis descritas no dicionário da `PNS` e algumas variáveis obtidas derivadas. 
+
+O passo inicial para a análise dos microdados é definir um objeto de desenho que salva
+as características do plano amostral da pesquisa. Isso é feito por meio da função `svydesign()` do pacote `survey` [@R-survey]. 
+
+
+```{r, message=FALSE, warning=FALSE}
+library(survey)
+pns_plan <-
+  svydesign(
+    id = ~ upa_pns ,
+    strata = ~ v0024 ,
+    data = pns_dat ,
+    weights = ~ pre_pes_long ,
+    nest = TRUE
+  )
+```
+
+Os pesos do objeto de desenho `pns_plan` devem ser modificados de modo que as estimativas dos totais populacionais dos pós-estratos fixados coincidam com os  totais populacionais dos pós-estratos conhecidos a partir do Censo Demográfico. O data frame `post_pop` contém na primeira coluna a identidade dos pós-estratos e na segunda seus totais populacionais.
+
+```{r}
+post_pop <- unique( pns_dat[ c( 'v00293.y' , 'v00292.y' ) ] )
+names( post_pop ) <- c( "v00293.y" , "Freq" )
+```
+
+Utilizando a função `postStratify()` do pacote `survey` [@R-survey] incorpora-se no objeto de desenho `pns_plan` as informações contidas no data frame `post_pop`.
+
+
+```{r}
+pns_calib <- postStratify( pns_plan , ~v00293.y , post_pop )
+```
+
+Salvar objeto de desenho pós-estratificado para posterior utilização:
+  
+  ```{r, eval= FALSE}
+saveRDS(pns_calib, file = "C:/adac/PNS/pns_calib.rds" )
+```
+
+```{r, eval=FALSE}
+pns_calib <- readRDS("C:/adac/PNS/pns_calib.rds")
+```
+
+Os comandos acima foram apresentados apenas para ilustrar como, a partir dos microdados da pesquisa, obtemos o objeto de desenho da pesquisa. Não seria necessária a execução desses comandos pois o  objeto de desenho `pns_calib` já se encontra disponível no arquivo 1 `2013 all questionnaire survey design.rds`. 
+
+Para exemplificar, vamos agora reproduzir estimativas na Tabela 6.42.1.1 da publicação em ftp://ftp.ibge.gov.br/PNS/2013/pns2013.pdf.
+
+A variável de interesse tem código Q092 e sua descrição é: 
+  "Algum médico ou profissional de saúde mental (como psiquiatra ou psicólogo) já lhe deu o diagnóstico de depressão?"
+
+Essa variável é de classe `character` e tem dois valores "1" e "2". Vamos definir uma nova variável `diag_dep` que é igual a 1 se recebe diagnóstico de depressão e 0 caso contrário:
+  
+  ```{r}
+diag_dep <- as.numeric (pns_dat$q092=="1")
+```
+
+Como mencionado, o objeto de desenho pós-estratificado `pns_calib` pode ser lido
+do arquivo `2013 all questionnaire survey design.rds`. Vamos atualizar o objeto de desenho `pns_calib` para incluir a variável `diad_dep` na componente `variables`:
+  
+  ```{r}
+pns_calib <- update (pns_calib, diag_dep = diag_dep )
+```
+Para calcular a proporção de pessoas que receberam diagnóstico de depressão para
+o país inteiro usamos o seguinte comando:
+  
+  ```{r}
+diagdepbr <- svymean(~diag_dep, pns_calib)
+# estimativa e erro padrão, ambos em % 
+round(100 * coef(diagdepbr),1)
+round(100 * SE(diagdepbr)  ,1)
+```
+
+
+e para obter um intervalo de confiança aproximado com nível de confiança de 95%, usamos:
+  
+  ```{r}
+round(100* c(coef(diagdepbr) - 2*SE(diagdepbr),coef(diagdepbr) + 2*SE(diagdepbr)  ), 1)
+```
+
+As estimativa de proporção e os limites do intervalo de confiança podem ser obtidos por meio da função:
+  
+  
+  ```{r}
+three_stats <- function(z) round(100 * c(coef(z), coef(z) - 
+                                           2 * SE(z), coef(z) + 2 * SE(z)), 1)
+
+```
+
+Aplicando a função `three_stats` para estimar a proporção para o país inteiro:
+  
+  ```{r}
+three_stats(diagdepbr)
+```
+que coincidem com os resultados já obtidos.
+
+
+
+Para o país por sexo:
+  
+  
+  ```{r, echo=FALSE}
+diagdepsex <- svyby(~diag_dep, ~c006, design = pns_calib, svymean)
+res <- three_stats(diagdepsex)
+dfsex <- data.frame( sexo = names(res)[1:2], prop = res[1:2], l.i.c. = res[3:4],l.s.c =res[5:6])
+knitr::kable(dfsex,booktabs = TRUE, row.names = FALSE,  
+             caption = "Proporção de diagnóstico de depressão por sexo")
+
+```
+
+Por situação (rural e urbano)
+
+```{r, echo= FALSE, cache=TRUE}
+diagdepsitu <- svyby(~diag_dep, ~situ, design = pns_calib, svymean)
+res <- three_stats(diagdepsitu)
+dfsitu <- data.frame( situ = names(res)[1:2], prop = res[1:2], l.i.c. = res[3:4],l.s.c =res[5:6])
+knitr::kable(dfsitu,booktabs = TRUE, row.names = FALSE, 
+             caption = "Proporção de diagnóstico de depressão por situação")
+```
+
+
+
+```{r, eval=FALSE, echo= FALSE}
+diagdepsitusex <- svyby(~diag_dep, ~situ + c006, design = pns_calib, svymean)
+res <- three_stats(diagdepsitusex)
+dfsitusex <- data.frame(situ.sex = names(res)[1:4],prop = res[1:4], 
+                        l.i.c = res[5:8], l.s.c=res[9:12] )
+knitr::kable(dfsitusex,booktabs = TRUE, row.names = FALSE,
+             caption = "Proporção de diagnóstico de depressão por situação e sexo")
+```
+
+Por Unidade da Federação:
+  
+  ```{r, echo=FALSE, cache=TRUE}
+diagdepuf <- svyby(~diag_dep, ~uf, design = pns_calib, svymean)
+res <- three_stats(diagdepuf)
+dfuf <- data.frame(uf = names(res)[1:27], prop = res[1:27], 
+                   l.i.c. = res[28:54], l.s.c =res[55:81]  )
+knitr::kable(dfuf,booktabs = TRUE, row.names = FALSE, 
+             caption = "Proporção de diagnóstico de depressão por uf")
+```
+
+
+```{r, eval= FALSE, echo= FALSE , cache=TRUE}
+diagdepufsex <- svyby(~diag_dep, ~uf + c006, design = pns_calib, 
+                      svymean)
+res <- three_stats(diagdepufsex)
+dfufsex <- data.frame (uf.sex =names(res)[1:54], prop = res[1: 54],
+                       l.i.c = res[55:108], l.s.c=res[109:162] )
+knitr::kable(dfufsex,booktabs = TRUE, row.names = FALSE, 
+             caption = "Proporção de diagnóstico de depressão por uf e sexo")
+```
+
+Usando o objeto de desenho para todas as pessoas que reponderam o questionário curto, salvo no arquivo em `2013 all questionnaire survey design.rds`, vamos estimar a proporção de pessoas que possuem plano de saúde por grupos de nível de instrução.
+
+
+```{r, eval=FALSE, echo=TRUE}
+pns_all_calib <- readRDS("C:/adac/PNS/2013 all questionnaire survey design.rds")
+```
+
+
+Proporção de pessoas com seguro de saúde por nível de instrução:
+  
+  ```{r, eval=FALSE, echo=TRUE}
+byeduc <- data.frame( svyby( ~ as.numeric( i001 == 1 ) , ~ educ ,
+                             design = pns_all_des_pos , vartype = "ci" ,  level = 0.95 ,
+                             svymean , na.rm = TRUE ) )
+byeduc <- byeduc[,-1]
+names(byeduc) <- c("Prop", "l.i.c.", "l.s.c.")
+```
+
+
+```{r, eval= FALSE , echo=FALSE}
+saveRDS(byeduc, file = "C:/adac/PNS/byeduc.rds" )
+```
+
+
+```{r, eval=TRUE, echo=FALSE}
+byeduc <- readRDS("C:/adac/PNS/byeduc.rds")
+```
+
+Imprime tabela: 
+  
+  ```{r}
+knitr::kable(byeduc,booktabs = TRUE,  
+             digits= 3, caption = "Proporção de pessoas com seguro de saúde por nível de instrução")
+```
+
+Gráfico de barras usando o pacote `ggplot2` [@R-ggplot2]:
+  
+  ```{r, message=FALSE, warning=FALSE}
+library(ggplot2)
+ggplot(
+  byeduc,
+  aes( x = c("SinstFundi", "FundcMedi", "MedcSupi", "Supc") , y = 100*Prop )
+) +
+  geom_bar( stat = "identity" ) +
+  geom_errorbar( aes( ymin = 100*l.i.c. , ymax = 100*l.s.c. ))  +
+  ylim(c(0,100))+
+  xlab( "nível de instrução" ) +
+  ylab( "% com seguro de saúde" )+
+  ggtitle("% de pessoas com plano de saúde, com indicação do intervalo de
+          confiança de 95%, segundo grupos de nível de instrução - Brasil - 2013")
+```
+
+
+## Apêndice: Estimativa do efeito de plano amostral (EPA)
+
+Esse assunto será tratado em detalhes no Capítulo \@ref(epa) . Por enquanto, apresentaremos uma introdução necessária para compreender os valores na Tabela \@ref(tab:epas).
+
+O efeito de plano amostral (EPA) de Kish é definido na fórmula 
+\@ref(eq:epa1). Vamos considerar o caso particular em que $\hat{\theta}$ é um estimador de total de uma variável $Y$.Ou seja
+\[
+  EPA_{Kish}\left(\widehat{Y}\right)=\frac{V_{VERD}\left(\widehat{Y}\right)}{V_{AAS}\left(\widehat{Y}\right)}
+  \]
+
+Na definição do EPA,  a estimativa do numerador pode ser obtida usando-se o pacote `survey` [@R-survey], a partir do objeto de `ppv_se_plan` que incorpora as características do plano amostral utilizado para coletar os dados. Não é possível estimar diretamente o denominador, pois o plano amostral AAS (Amostragem Aleatória Simples) não foi adotado na coleta dos dados. Devemos estimar o denominador a partir de dados obtidos através do plano amostral VERD, como se eles tivessem sido obtidos através de AAS.
+
+Supondo conhecido o tamanho da população $N$ e a fração amostral $f=n/N$ pequena, a estimativa da variância de $\widehat{Y}$ é dada na expressão \@ref(eq:estpa9)
+\[
+  \widehat{V}_{AAS}\left(\widehat{Y}\right)=N^2\frac{\widehat{S}_y}{n-1}
+  \]
+onde $\widehat{S}_y= n^{-1}\sum_{i\in s}\left(y_i-\overline{y}\right)^2$ é a estimativa de $S_y=N^{-1}\sum_{i\in U}\left(y_i-\overline{Y}\right)^2$, com $\overline{Y}=N^{-1}Y$.
+
+No lugar dessa estimativa, vamos utilizar os pesos do plano amostral verdadeiro 
+para estimar $S_y$. Vamos ainda estimar $N$, em geral é desconhecido, por 
+$\widehat{N}=\sum_{i \in s} w_i$. Dessa forma obtemos a estimativa
+\begin{eqnarray*}
+\widehat{V}_{w-AAS}\left(\widehat{Y}\right)&=& \widehat{N}^2\left[\sum_{i \in s}w_i\left(y_i-\overline{y}\right)^2/\widehat{N}\right]/(n-1)\\
+&=&\frac{\widehat{N}}{n-1}\left[\sum_{i \in s}w_iy_i^2-\left(\sum_{i \in s}w_iy_i\right)^2/\widehat{N}\right],
+\end{eqnarray*}
+onde $\overline{y}=\sum_{i \in s}w_iy_i/n$.
+
+A expressão acima pode ser calculada facilmente através da seguinte função do R:
+  ```{r}
+Vwaas<-function(y,w)
+{
+  #função auxiliar usada em outras funções
+  #entrada:
+  #y - valores de variavel na amostra;
+  #w - pesos amostrais;
+  #saida:  estimativa de variância de desenho para o total (segundo o SUDAAN)
+  
+  n1<-length(y)-1
+  wsum<-sum(y*w)
+  wsum2<-sum((y^2)*w)
+  nhat<-sum(w)
+  vwaas<-(nhat/n1)*(wsum2-wsum^2/nhat)
+  vwaas
+}
+```
+
+Vamos utilizar a função `Vwaas` para estimar os valores de `Efeitos do Plano Amostral`das estimativas de totais apresentadas anteriormente.
+Consideremos o plano amostral `ppv_se_plan` anteriormente definido. 
+Vamos usar a função `Vwaas` para obter uma estimativa da variância do total estimado da variável `analf1`. Todos os elementos os elementos necessários estão contidos no objeto `ppv_se_plan`:
+  
+  
+  ```{r}
+VAAS1<- Vwaas(ppv_se_plan$variables[,"analf1"],weights(ppv_se_plan))
+VAAS2<- Vwaas(ppv_se_plan$variables[,"analf2"],weights(ppv_se_plan))
+```
+
+O efeito de plano amostral da estimativa do total de `analf1` pode agora ser calculada por
+
+```{r}
+attr(svytotal(~analf1, ppv_se_plan),"var")/VAAS1
+attr(svytotal(~analf2, ppv_se_plan),"var")/VAAS2
+```
+
+Esses valores do EPA coincidem com os obtidos acima através do pacote `survey`[@R-survey] e 
+são distintos daqueles apresentados na Tabela \@ref(tab:epas). Para obter os valores 
+correspondentes aos da Tabela \@ref(tab:epas), através do pacote `survey`[@R-survey], vamos definir as variáveis:
+  
+  ```{r}
+analf1.se<-with(ppv1_dat,((v04a01==2|v04a02==2) & (v02a08>=7&v02a08<=14))&(regiao==2))
+analf2.se<-with(ppv1_dat,((v04a01==2|v04a02==2) & (v02a08>14))&(regiao==2))
+ppv_plan <- update (ppv_plan,analf1.se=analf1.se,analf2.se=analf2.se  )
+svytotal(analf1.se,ppv_plan,deff=T)
+svytotal(analf2.se,ppv_plan,deff=T)
+```
+
+Ou, alternativamente,
+
+```{r}
+svytotal(~I(ifelse(regiao==2,analf1,0)),ppv_plan,deff=T)
+svytotal(~I(ifelse(regiao==2,analf2,0)),ppv_plan,deff=T)
+```
+
+
+Observe que as estimativas de variância para o desenho verdadeiro (numerador do EPA)
+são iguais quando usamos: a variável  `analf1.se` com o objeto de desenho `ppv_plan` 
+ou a variável `analf1` com o objeto `ppv_se_plan`. Porém na estimativa do denominador do EPA, obtida a partir da função `Vwaas`, obtemos resultados diferentes quando usamos `analf1.se` ou `analf1`,  
+com os pesos correspondentes. No segundo caso, a soma dos pesos não estima $N$. Deve-se ter o cuidado, quando estimamos em um domínio, de trabalhar com pesos cuja soma seja um estimador do tamanho da população.
+
