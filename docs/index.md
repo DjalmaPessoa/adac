@@ -1,8 +1,9 @@
 
+
 --- 
 title: "Análise de Dados Amostrais Complexos"
 author: "Djalma Pessoa e Pedro Nascimento Silva"
-date: "2017-11-16"
+date: "2017-11-30"
 
 site: bookdown::bookdown_site
 
@@ -100,3 +101,4 @@ companheirismo e solidariedade nesses meses de trabalho na preparação do manus
 Finalmente, agradecemos a nossas famílias pela aceitação
 resignada de nossas ausências e pelo incentivo à conclusão da
 empreitada.
+

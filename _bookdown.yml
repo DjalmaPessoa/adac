@@ -1,4 +1,6 @@
 book_filename: "bookdown-adac"
+before_chapter_script: "script1.R"
+after_chapter_script: "script2.R"
 language:
   tables: yes
   label:
