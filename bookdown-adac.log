@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  30 NOV 2017 10:26
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  30 NOV 2017 14:55
 entering extended mode
 **./bookdown-adac.tex
 (bookdown-adac.tex
@@ -931,7 +931,17 @@ Package: amsthm 2015/03/04 v2.20.2
 \c@proposition=\count172
 \c@example=\count173
 \c@exercise=\count174
-(bookdown-adac.aux)
+(bookdown-adac.aux
+
+LaTeX Warning: Label `epa' multiply defined.
+
+
+LaTeX Warning: Label `def:unnamed-chunk-2' multiply defined.
+
+
+LaTeX Warning: Label `tab:proplinha' multiply defined.
+
+)
 \openout1 = `bookdown-adac.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 147.
@@ -1029,23 +1039,8 @@ LaTeX Info: Redefining \nameref on input line 147.
 
 ] [2
 
-] (bookdown-adac.toc)
-\tf@toc=\write5
-\openout5 = `bookdown-adac.toc'.
-
-[3] [4
-
-] [5] [6]
-Cap\'{\i }tulo 1.
-
-Package natbib Warning: Citation `albieri' on page 7 undefined on input line 29
-2.
-
-[7
-
-]
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 332.
-
+] (bookdown-adac.toc
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 3.
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1053,28 +1048,25 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `lmr' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 332.
-
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 3.
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 332
-.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 3.
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 332
-.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 3.
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 332.
+(Font)              <10> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 332.
+(Font)              <7> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 332.
-LaTeX Font Info:    Try loading font information for U+msa on input line 332.
+(Font)              <5> on input line 3.
+LaTeX Font Info:    Try loading font information for U+msa on input line 3.
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -1082,242 +1074,209 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 fg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 332.
+LaTeX Font Info:    Try loading font information for U+msb on input line 3.
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-msb.c
 fg"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [8]
+) [3])
+\tf@toc=\write5
+\openout5 = `bookdown-adac.toc'.
 
-Package natbib Warning: Citation `R-survey' on page 9 undefined on input line 4
-47.
+[4] [5
 
-[9] [10]
+] [6]
+Cap\'{\i }tulo 1.
+[7
 
-Package natbib Warning: Citation `kalton83a' on page 11 undefined on input line
- 571.
-
-
-Package natbib Warning: Citation `LR2002' on page 11 undefined on input line 57
-1.
-
-
-Package natbib Warning: Citation `Rubin87' on page 11 undefined on input line 5
-71.
-
-
-Package natbib Warning: Citation `SSW92' on page 11 undefined on input line 571
-.
-
-
-Package natbib Warning: Citation `Silva' on page 11 undefined on input line 587
-.
-
-
-Package natbib Warning: Citation `SHS89' on page 11 undefined on input line 588
-.
-
-
-Package natbib Warning: Citation `CHSK2003' on page 11 undefined on input line 
-588.
-
-
-LaTeX Warning: Reference `capplanamo' on page 11 undefined on input line 597.
-
-
-Package natbib Warning: Citation `SSW92' on page 11 undefined on input line 605
-.
-
-
-Package natbib Warning: Citation `W85' on page 11 undefined on input line 605.
-
-
-Package natbib Warning: Citation `cochran' on page 11 undefined on input line 6
-06.
-
-
-Package natbib Warning: Citation `SHS89' on page 11 undefined on input line 616
-.
-
-
-Package natbib Warning: Citation `lethonen' on page 11 undefined on input line 
-617.
-
-
-LaTeX Warning: Reference `ajmodpar' on page 11 undefined on input line 619.
-
-
-Package natbib Warning: Citation `SHS89' on page 11 undefined on input line 626
-.
-
-
-Package natbib Warning: Citation `Pfeff' on page 11 undefined on input line 626
-.
-
-
-Package natbib Warning: Citation `binder83' on page 11 undefined on input line 
-626.
-
-
-Package natbib Warning: Citation `Silva' on page 11 undefined on input line 627
-.
-
-
-Underfull \hbox (badness 1077) in paragraph at lines 619--628
+] [8] [9] [10]
+Underfull \hbox (badness 1077) in paragraph at lines 602--611
 \TU/lmr/m/n/10 amostrais complexas, e introduzimos um método geral, denominado 
 \TU/lmtt/m/n/10 Método de Máxima Pseudo
  []
 
-
-LaTeX Warning: Reference `modreg' on page 11 undefined on input line 629.
-
-
-Package natbib Warning: Citation `R-survey' on page 11 undefined on input line 
-638.
-
-
-Package natbib Warning: Citation `Silva' on page 11 undefined on input line 640
-.
-
-
-Package natbib Warning: Citation `Pessoa' on page 11 undefined on input line 64
-0.
-
-[11]
-
-LaTeX Warning: Reference `testqualajust' on page 12 undefined on input line 642
-.
-
-
-LaTeX Warning: Reference `testetab2' on page 12 undefined on input line 642.
-
-
-Package natbib Warning: Citation `SHS89' on page 12 undefined on input line 648
-.
-
-
-Package natbib Warning: Citation `lethonen' on page 12 undefined on input line 
-649.
-
-
-LaTeX Warning: Reference `estimacao-de-densidades' on page 12 undefined on inpu
-t line 653.
-
-
-LaTeX Warning: Reference `modelos-hierarquicos' on page 12 undefined on input l
-ine 658.
-
-
-LaTeX Warning: Reference `nao-resposta' on page 12 undefined on input line 674.
-
-
-
-LaTeX Warning: Reference `diagnostico-de-ajuste-de-modelo' on page 12 undefined
- on input line 685.
-
-
-LaTeX Warning: Reference `agregdesag' on page 12 undefined on input line 691.
-
-
-Package natbib Warning: Citation `PKR' on page 12 undefined on input line 698.
-
-
-Package natbib Warning: Citation `bryk' on page 12 undefined on input line 700.
-
-
-
-LaTeX Warning: Reference `pacotes' on page 12 undefined on input line 716.
-
-[12]
-
-Package natbib Warning: Citation `SHS89' on page 13 undefined on input line 749
-.
-
-
-Package natbib Warning: Citation `CHSK2003' on page 13 undefined on input line 
-749.
-
-
-Package natbib Warning: Citation `lethonen' on page 13 undefined on input line 
-751.
-
+[11] [12]
 
 Package natbib Warning: Citation `heeringa' on page 13 undefined on input line 
-751.
+734.
 
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 768.
-[13]
-
-Package natbib Warning: Citation `R-survey' on page 14 undefined on input line 
-820.
-
-
-Package natbib Warning: Citation `R-survey' on page 14 undefined on input line 
-837.
-
-[14]
-
-Package natbib Warning: Citation `R-survey' on page 15 undefined on input line 
-942.
-
-[15]
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 103
-0.
-("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmtt.fd"
-File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [16]
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 751.
+[13] [14] [15] [16]
 Cap\'{\i }tulo 2.
 File: Figuras/Figura2.1.png Graphic file (type QTm)
-<use  "Figuras/Figura2.1.png" >
-
-LaTeX Warning: Reference `modreg' on page 17 undefined on input line 1125.
-
-
-LaTeX Warning: Reference `testqualajust' on page 17 undefined on input line 112
-6.
-
-
-LaTeX Warning: Reference `testetab2' on page 17 undefined on input line 1126.
-
-
-LaTeX Warning: Reference `estimacao-de-densidades' on page 17 undefined on inpu
-t line 1127.
-
-[17
+<use  "Figuras/Figura2.1.png" > [17
 
 ] [18]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 1150
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 1122
 .
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 1150.
-
-
-LaTeX Warning: Reference `tab:modelamo' on page 19 undefined on input line 1163
-.
-
-
-LaTeX Warning: Reference `fig:modamo' on page 19 undefined on input line 1164.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 1122.
 
 File: Figuras/Figura2.2.png Graphic file (type QTm)
-<use  "Figuras/Figura2.2.png" >
-! Missing } inserted.
-<inserted text> 
-                }
-l.1179 \(Y_1=y_{i_{1}, \ldots, Y_n=y_{i_{n}\)
-                                             \strut 
-Here is how much of TeX's memory you used:
- 22865 strings out of 427918
- 431859 string characters out of 3149834
- 518609 words of memory out of 3000000
- 26509 multiletter control sequences out of 15000+200000
- 16680 words of font info for 47 fonts, out of 3000000 for 9000
- 1328 hyphenation exceptions out of 8191
- 41i,9n,68p,10413b,468s stack positions out of 5000i,500n,10000p,200000b,50000s
+<use  "Figuras/Figura2.2.png" > [19] [20]
+File: Figuras/Figura2.3.png Graphic file (type QTm)
+<use  "Figuras/Figura2.3.png" > [21] [22] [23] [24] [25] [26] [27] [28] [29] [3
+0] [31] [32
 
-Output written on bookdown-adac.pdf (18 pages).
+]
+Cap\'{\i }tulo 3.
+[33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44]
+LaTeX Font Info:    Try loading font information for OMS+lmtt on input line 298
+6.
+LaTeX Font Info:    No file OMSlmtt.fd. on input line 2986.
+
+LaTeX Font Warning: Font shape `OMS/lmtt/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 2986.
+
+[45] [46]
+Cap\'{\i }tulo 4.
+[47
+
+]
+LaTeX Font Info:    Try loading font information for OML+lmr on input line 3258
+.
+("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllmr.fd"
+File: omllmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OML/lmr/m/n' in size <10> not available
+(Font)              Font shape `OML/lmm/m/it' tried instead on input line 3258.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[48] [49] [50] [51]
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 3544
+.
+("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [52] [53]
+File: Figuras/fig41.png Graphic file (type QTm)
+<use  "Figuras/fig41.png" > [54] [55]
+Overfull \hbox (37.50438pt too wide) in paragraph at lines 3827--3833
+[]\TU/lmr/m/n/10 Neste caso, um intervalo de confiança de nível de confiança ap
+roximado $[]$ é dado por $[]$,
+ []
+
+[56] [57] [58]
+
+LaTeX Warning: Reference `eq:epa7' on page 59 undefined on input line 4086.
+
+[59] [60] [61] [62] [63] [64]
+Cap\'{\i }tulo 5.
+[65
+
+] [66] [67] [68] [69] [70] [71] [72] [73] [74]
+Cap\'{\i }tulo 6.
+[75
+
+] [76] [77] [78] [79]
+Overfull \hbox (19.68164pt too wide) in paragraph at lines 5913--5915
+[]|\TU/lmr/m/n/10 ae(1)ae(2)ae(3)|  
+ []
+
+
+Overfull \hbox (18.87164pt too wide) in paragraph at lines 5920--5922
+[]|\TU/lmr/m/n/10 ht(1)ht(2)ht(3)|  
+ []
+
+
+Overfull \hbox (37.50165pt too wide) in paragraph at lines 5927--5929
+[]|\TU/lmr/m/n/10 id(1)id(2)id(3)id(4)|  
+ []
+
+
+Overfull \hbox (16.44164pt too wide) in paragraph at lines 5934--5936
+[]|\TU/lmr/m/n/10 re(1)re(2)re(3)|  
+ []
+
+[80] [81] [82] [83] [84] [85] [86] [87] [88]
+Cap\'{\i }tulo 7.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[89
+
+] [90] [91] [92] [93] [94] [95] [96] [97] [98]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[99] [100] [101]
+Overfull \hbox (4.29082pt too wide) in paragraph at lines 7654--7656
+[]|\TU/lmr/m/n/10 11.640|  
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[102] [103] [104]
+Cap\'{\i }tulo 8.
+[105
+
+] [106] [107] [108] [109] [110] [111] [112] [113] [114]
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 868
+3.
+("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmtt.fd"
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [115] [116] [117] [118] [119] [120]
+Cap\'{\i }tulo 9.
+[121
+
+] [122
+
+]
+Cap\'{\i }tulo 10.
+[123] [124
+
+]
+Cap\'{\i }tulo 11.
+[125] [126
+
+]
+Cap\'{\i }tulo 12.
+[127] [128
+
+]
+Cap\'{\i }tulo 13.
+[129] [130] [131] [132] [133] [134] [135] [136] [137] [138] [139] [140] [141] [
+142]
+Cap\'{\i }tulo 14.
+[143
+
+] [144] [145] [146] [147] (bookdown-adac.bbl [148] [149
+
+] [150] [151])
+
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 10804.
+[152]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 10804.
+(bookdown-adac.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 10804.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 10804.
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 23454 strings out of 427918
+ 440813 string characters out of 3149834
+ 549933 words of memory out of 3000000
+ 27071 multiletter control sequences out of 15000+200000
+ 25898 words of font info for 55 fonts, out of 3000000 for 9000
+ 1328 hyphenation exceptions out of 8191
+ 41i,21n,68p,10413b,571s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on bookdown-adac.pdf (152 pages).

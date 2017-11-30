@@ -115,7 +115,7 @@ Sudeste (5 estratos geográficos) separadamente, e para o conjunto da
 amostra da PPV.
 
 
-```{r, dispesos, echo=FALSE}
+```{r message=FALSE, warning=FALSE, dispesos, echo=FALSE}
 # leitura dos dados
 library(tidyverse)
 library(anamco)
@@ -592,7 +592,7 @@ faixa2 = as.numeric(v02a08 > 14)
 
 - Estimar a taxa de analfabetos por região para as faixas etárias de 7-14 anos e mais de 14 anos.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 result1 <- ppv_plan %>%  
            group_by(regiao) %>% 
            summarise(
