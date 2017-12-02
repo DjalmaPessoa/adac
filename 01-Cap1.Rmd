@@ -599,6 +599,7 @@ result1 <- ppv_plan %>%
            taxa_analf1 = 100*survey_ratio(analf1, faixa1),
            taxa_analf2 = 100*survey_ratio(analf2, faixa2)  
            )
+result1$regiao <- c("Nordeste", "Sudeste")
 knitr::kable(as.data.frame(result1), booktabs = TRUE, row.names = FALSE, digits = 1,
              align = "crrrr", format.args= list(decimal.mark=","),
 caption = "Proporção de analfabetos para faixas etárias 7-14 anos e mais de 14 anos")

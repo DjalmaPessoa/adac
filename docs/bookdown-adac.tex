@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-11-30}
+  \date{2017-12-02}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -1003,6 +1003,7 @@ contem os dados e as informações da estrutura do plano amostral.
            \DataTypeTok{taxa_analf1 =} \DecValTok{100}\OperatorTok{*}\KeywordTok{survey_ratio}\NormalTok{(analf1, faixa1),}
            \DataTypeTok{taxa_analf2 =} \DecValTok{100}\OperatorTok{*}\KeywordTok{survey_ratio}\NormalTok{(analf2, faixa2)  }
 \NormalTok{           )}
+\NormalTok{result1}\OperatorTok{$}\NormalTok{regiao <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Nordeste"}\NormalTok{, }\StringTok{"Sudeste"}\NormalTok{)}
 \NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(result1), }\DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{digits =} \DecValTok{1}\NormalTok{,}
              \DataTypeTok{align =} \StringTok{"crrrr"}\NormalTok{, }\DataTypeTok{format.args=} \KeywordTok{list}\NormalTok{(}\DataTypeTok{decimal.mark=}\StringTok{","}\NormalTok{),}
 \DataTypeTok{caption =} \StringTok{"Proporção de analfabetos para faixas etárias 7-14 anos e mais de 14 anos"}\NormalTok{)}
@@ -1017,8 +1018,8 @@ contem os dados e as informações da estrutura do plano amostral.
 \toprule
 regiao & taxa\_analf1 & taxa\_analf1\_se & taxa\_analf2 & taxa\_analf2\_se\\
 \midrule
-NA & 42,3 & 3,1 & 33,6 & 1,6\\
-NA & 11,9 & 1,2 & 10,9 & 0,7\\
+Nordeste & 42,3 & 3,1 & 33,6 & 1,6\\
+Sudeste & 11,9 & 1,2 & 10,9 & 0,7\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -2866,8 +2867,8 @@ Para o tipo \emph{Bootstrap}, temos:
 ##                faixa
 ## analf.faixa 0,118689
 ## SEs=
-##            [,1]
-## [1,] 0,01291285
+##           [,1]
+## [1,] 0,0108575
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
