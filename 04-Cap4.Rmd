@@ -2,7 +2,6 @@
 
 ## Introdução
 
-
 O cálculo de desvio padrão e o uso de testes de hipóteses
 desempenham papel fundamental em estudos analíticos. Além de
 estimativas pontuais, na inferência analítica é necessário
@@ -659,15 +658,15 @@ $N\left( 0;1\right)$. Calculamos esta probabilidade para alguns valores do $\mat
 
 $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$    $1-\alpha=0.95$      $1-\alpha=0.99$
 -----------------------------------------------   ----------------     ---------------
-                    0.90                                 0.96                0.99
-                    0.95                                 0.96                0.99
-                    1.0                                  0.95                0.99
-                    1.5                                  0.89                0.96
-                    2.0                                  0.83                0.93
-                    2.5                                  0.78                0.90
-                    3.0                                  0.74                0.86
-                    3.5                                  0.71                0.83
-                    4.0                                  0.67                0.80
+                    0,90                                 0,96                0,99
+                    0,95                                 0,96                0,99
+                    1,0                                  0,95                0,99
+                    1,5                                  0,89                0,96
+                    2,0                                  0,83                0,93
+                    2,5                                  0,78                0,90
+                    3,0                                  0,74                0,86
+                    3,5                                  0,71                0,83
+                    4,0                                  0,67                0,80
 
 Table:(#tab:procob) Probabilidades de cobertura para níveis nominais de 95% e 99%
 

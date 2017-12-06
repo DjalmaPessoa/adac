@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-12-01}
+  \date{2017-12-06}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -2867,7 +2867,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0,118689
 ## SEs=
 ##            [,1]
-## [1,] 0,01195716
+## [1,] 0,01056773
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -3889,15 +3889,15 @@ de 95\% e 99\%}\tabularnewline
 \(1-\alpha=0.99\)\tabularnewline
 \midrule
 \endhead
-0.90 & 0.96 & 0.99\tabularnewline
-0.95 & 0.96 & 0.99\tabularnewline
-1.0 & 0.95 & 0.99\tabularnewline
-1.5 & 0.89 & 0.96\tabularnewline
-2.0 & 0.83 & 0.93\tabularnewline
-2.5 & 0.78 & 0.90\tabularnewline
-3.0 & 0.74 & 0.86\tabularnewline
-3.5 & 0.71 & 0.83\tabularnewline
-4.0 & 0.67 & 0.80\tabularnewline
+0,90 & 0,96 & 0,99\tabularnewline
+0,95 & 0,96 & 0,99\tabularnewline
+1,0 & 0,95 & 0,99\tabularnewline
+1,5 & 0,89 & 0,96\tabularnewline
+2,0 & 0,83 & 0,93\tabularnewline
+2,5 & 0,78 & 0,90\tabularnewline
+3,0 & 0,74 & 0,86\tabularnewline
+3,5 & 0,71 & 0,83\tabularnewline
+4,0 & 0,67 & 0,80\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -5878,64 +5878,32 @@ fatores na análise. A variável ht foi considerada como a soma de horas
 trabalhadas em todos os trabalhos, por semana. A variável re compreende
 a renda média mensal de todos os trabalhos, em salários mínimos.
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtable}[]{@{}ccc@{}}
 \caption{\label{tab:varexp}Descrição das variáveis
 explicativas}\tabularnewline
 \toprule
-\begin{minipage}[b]{0.38\columnwidth}\raggedright\strut
-Fatores\strut
-\end{minipage} & \begin{minipage}[b]{0.10\columnwidth}\raggedright\strut
-Níveis\strut
-\end{minipage} & \begin{minipage}[b]{0.25\columnwidth}\raggedright\strut
-Descrição dos níveis\strut
-\end{minipage}\tabularnewline
+Fatores & Níveis & Descrição dos níveis\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-\begin{minipage}[b]{0.38\columnwidth}\raggedright\strut
-Fatores\strut
-\end{minipage} & \begin{minipage}[b]{0.10\columnwidth}\raggedright\strut
-Níveis\strut
-\end{minipage} & \begin{minipage}[b]{0.25\columnwidth}\raggedright\strut
-Descrição dos níveis\strut
-\end{minipage}\tabularnewline
+Fatores & Níveis & Descrição dos níveis\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.38\columnwidth}\raggedright\strut
-Sexo(sx)\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
-sx(1)sx(2)\strut
-\end{minipage} & \begin{minipage}[t]{0.25\columnwidth}\raggedright\strut
-HomensMulheres\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.38\columnwidth}\raggedright\strut
-Anos de estudo(ht)\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
-ae(1)ae(2)ae(3)\strut
-\end{minipage} & \begin{minipage}[t]{0.25\columnwidth}\raggedright\strut
-Até 4De 5 a 89 ou mais\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.38\columnwidth}\raggedright\strut
-Horas trabalhadas(ht)\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
-ht(1)ht(2)ht(3)\strut
-\end{minipage} & \begin{minipage}[t]{0.25\columnwidth}\raggedright\strut
-Menos de 40De 40 a 48Mais de 48\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.38\columnwidth}\raggedright\strut
-Idade em anos completos(id)\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
-id(1)id(2)id(3)id(4)\strut
-\end{minipage} & \begin{minipage}[t]{0.25\columnwidth}\raggedright\strut
-Até 17De 18 a 25De 26 a 4950 ou mais\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.38\columnwidth}\raggedright\strut
-Rendimento médio mensal(re)\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
-re(1)re(2)re(3)\strut
-\end{minipage} & \begin{minipage}[t]{0.25\columnwidth}\raggedright\strut
-Menos de 1De 1 a 5Mais de 5\strut
-\end{minipage}\tabularnewline
+Sexo (sx) & sx(1) & Homens\tabularnewline
+\(~\) & sx(2) & Mulheres\tabularnewline
+Anos de Estudo (ae) & ae(1) & Até 4\tabularnewline
+\(~\) & ae(2) & De 5 a 8\tabularnewline
+\(~\) & ae(3) & 9 ou mais\tabularnewline
+Horas trabalhadas (ht) & ht(1) & Menos de 40\tabularnewline
+\(~\) & ht(2) & De 40 a 48\tabularnewline
+\(~\) & ht(3) & Mais de 48\tabularnewline
+Idade em anos completos (id) & id(1) & Até 17\tabularnewline
+\(~\) & id(2) & De 18 a 25\tabularnewline
+\(~\) & id(3) & De 26 a 49\tabularnewline
+\(~\) & id(4) & 50 ou mais\tabularnewline
+Rendimento Médio Mensal (re) & re(1) & Menos de 1\tabularnewline
+\(~\) & re(2) & De1 a 5\tabularnewline
+\(~\) & re(3) & Mais de 5\tabularnewline
 \bottomrule
 \end{longtable}
 
