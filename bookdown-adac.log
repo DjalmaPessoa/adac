@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  6 DEC 2017 16:16
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  6 DEC 2017 17:41
 entering extended mode
 **./bookdown-adac.tex
 (bookdown-adac.tex
@@ -1191,7 +1191,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [99] [100] [101]
 Overfull \hbox (4.29082pt too wide) in paragraph at lines 7622--7624
-[]|\TU/lmr/m/n/10 11.640|  
+[]|\TU/lmr/m/n/10 11,640|  
  []
 
 
@@ -1237,12 +1237,12 @@ Cap\'{\i }tulo 14.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 10772.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 10742.
 [152]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 10772.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 10742.
 (bookdown-adac.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 10772.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 10772.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 10742.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 10742.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1254,10 +1254,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 23454 strings out of 427918
- 440813 string characters out of 3149834
- 547926 words of memory out of 3000000
- 27071 multiletter control sequences out of 15000+200000
+ 23455 strings out of 427918
+ 440835 string characters out of 3149834
+ 547993 words of memory out of 3000000
+ 27072 multiletter control sequences out of 15000+200000
  25898 words of font info for 55 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  41i,21n,68p,10413b,571s stack positions out of 5000i,500n,10000p,200000b,50000s

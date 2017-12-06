@@ -911,8 +911,9 @@ attr(ht.mean, "var")
 - Estimativas de proporções nas classes de renda por domínios definidos pela variável `sx`:
 
 ```{r, echo=FALSE, results='asis'}
-library(xtable)
-print(xtable(svyby(~re,~sx,pnad.des, svymean,keep.var=TRUE), caption="Proporções por sexo"), include.rownames=FALSE, type="html")
+prop_class_re <- svyby(~re,~sx,pnad.des, svymean,keep.var=TRUE)
+knitr::kable(prop_class_re, booktabs=TRUE, digits= c(3,3,3,3,3,3),
+  caption= "Proporções nas classes de renda por sexo")
 ```
 
 - Estimativas das proporções nas classes de renda e a tabela cruzada das variáveis sexo e renda:
