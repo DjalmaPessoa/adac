@@ -450,7 +450,7 @@ mínimos.
 |              $~$             |  id(3)   |      De 26 a 49        |
 |              $~$             |  id(4)   |      50 ou mais        |
 | Rendimento Médio Mensal (re) |  re(1)   |      Menos de 1        |
-|              $~$             |  re(2)   |        De1 a 5         |
+|              $~$             |  re(2)   |        De 1 a 5        |
 |              $~$             |  re(3)   |       Mais de 5        |
 
 Table:(#tab:varexp)Descrição das variáveis explicativas
