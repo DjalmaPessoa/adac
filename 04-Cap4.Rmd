@@ -994,22 +994,33 @@ segundo membro de \@ref(eq:epa12). Logo, os valores da Tabela \@ref(tab:nivsig) 
 ser interpretados como valores máximos de $p$valor$_{VERD}\left( \mathbf{\bar{y}}\right)$ para $\mathbf{\bar{y}}$ na região 
 $RC_{AAS}\left(\mathbf{\bar{y}}\right)$, considerando-se $\delta_{1}$ no lugar de $\delta$.
 
+|          |    | K  |    |    |
+|:--------:|----|----|---:|---:|
+| $\delta$ |  1 |  2 |  3 |  4 |
+|    0,9   |  4 |  4 |  3 |  3 |
+|    1,0   |  5 |  5 |  5 |  5 |
+|    1,5   | 11 | 14 | 16 | 19 |
+|    2,0   | 17 | 22 | 27 | 32 |
+|    2,5   | 22 | 30 | 37 | 44 |
+|    3,0   | 26 | 37 | 46 | 53 |
 
-```{r, nivsig, echo=FALSE}
+Table:(#tab:nivsig) Níveis de significância (%) verdadeiros do teste T2 para o nível nominal
+de 5% assumindo autovalores iguais a $\delta$.
+
+```{r nivsig, echo=FALSE,eval=FALSE}
 K <- 1:4
 delta <- c(.9, seq(1, 3, by=.5))
 qsup <- qchisq(.95, c(1:4))
 mat.res <- matrix(NA, length(delta), length(K))
 for(i in 1:length(delta)){
-mat.res[i,] <- round(pchisq(qsup/delta[i], K, lower.tail = F)*100, 0)
+mat.res[i,] <- round(pchisq(qsup/delta[i], K, lower.tail = FALSE)*100, 0)
 }
 mat.res <- cbind(delta, mat.res)
 df.res <- as.data.frame (mat.res)
 names(df.res)<- c("delta", "K=1","K=2", "K=3", "K=4")
-knitr::kable(df.res, booktabs=TRUE, align = "ccccc",
+knitr::kable(df.res, booktabs=TRUE, 
 caption="Níveis de significância (%) verdadeiros do teste T2 para o nível nominal
-de 5% assumindo autovalores iguais para delta.")
-
+de 5% assumindo autovalores iguais a delta.")
 ```
 
 ## Laboratório de R

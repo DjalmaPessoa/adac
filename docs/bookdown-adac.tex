@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-12-06}
+  \date{2017-12-11}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -2866,8 +2866,8 @@ Para o tipo \emph{Bootstrap}, temos:
 ##                faixa
 ## analf.faixa 0,118689
 ## SEs=
-##           [,1]
-## [1,] 0,0139985
+##            [,1]
+## [1,] 0,01276471
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -4276,26 +4276,27 @@ segundo membro de \eqref{eq:epa12}. Logo, os valores da Tabela
 \(RC_{AAS}\left(\mathbf{\bar{y}}\right)\), considerando-se
 \(\delta_{1}\) no lugar de \(\delta\).
 
-\textbackslash{}begin\{table\}
-
-\textbackslash{}caption\{\label{tab:nivsig}Níveis de significância (\%)
-verdadeiros do teste T2 para o nível nominal de 5\% assumindo
-autovalores iguais para delta.\} \centering
-
-\begin{tabular}[t]{ccccccccccccccccccccccccc}
+\begin{longtable}[]{@{}cllrr@{}}
+\caption{\label{tab:nivsig} Níveis de significância (\%) verdadeiros do
+teste T2 para o nível nominal de 5\% assumindo autovalores iguais a
+\(\delta\).}\tabularnewline
 \toprule
-delta & K=1 & K=2 & K=3 & K=4\\
+& & K & &\tabularnewline
 \midrule
-0,9 & 4 & 4 & 3 & 3\\
-1,0 & 5 & 5 & 5 & 5\\
-1,5 & 11 & 14 & 16 & 18\\
-2,0 & 17 & 22 & 27 & 31\\
-2,5 & 22 & 30 & 37 & 43\\
-3,0 & 26 & 37 & 46 & 53\\
+\endfirsthead
+\toprule
+& & K & &\tabularnewline
+\midrule
+\endhead
+\(\delta\) & 1 & 2 & 3 & 4\tabularnewline
+0,9 & 4 & 4 & 3 & 3\tabularnewline
+1,0 & 5 & 5 & 5 & 5\tabularnewline
+1,5 & 11 & 14 & 16 & 19\tabularnewline
+2,0 & 17 & 22 & 27 & 32\tabularnewline
+2,5 & 22 & 30 & 37 & 44\tabularnewline
+3,0 & 26 & 37 & 46 & 53\tabularnewline
 \bottomrule
-\end{tabular}
-
-\textbackslash{}end\{table\}
+\end{longtable}
 
 \section{Laboratório de R}\label{laboratorio-de-r-1}
 
@@ -6021,10 +6022,10 @@ significância dos testes de nulidade dos efeitos do modelo. Todos os
 efeitos incluídos no modelo são significativos, nos níveis usuais de
 significância. A \textbf{PROC LOGISTIC} do pacote \textbf{SUDAAN} não
 inclui testes para os efeitos principais, por não ser possível separar
-tais efeitos das interações. A coluna de \(p\) valores da
-Tabela\ref{tab:testmodlogit}, obtida pela função \texttt{svyglm()} da
-library survey, utiliza a estatística de Wald baseada no plano amostral
-com correção.
+tais efeitos das interações. A coluna de \(p\) valores da Tabela
+\ref{tab:testmodlogit}, obtida pela função \texttt{svyglm()} da library
+survey, utiliza a estatística de Wald baseada no plano amostral com
+correção.
 
 Os testes da Tabela \ref{tab:testmodlogit} indicam a significância de
 todas as interações de 2 fatores que entraram no modelo selecionado. O

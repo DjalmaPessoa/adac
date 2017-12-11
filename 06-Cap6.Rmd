@@ -547,7 +547,7 @@ efeitos incluídos no modelo são significativos, nos níveis
 usuais de significância. A **PROC LOGISTIC** do pacote 
 **SUDAAN** não inclui testes para os efeitos principais, por não ser
 possível separar tais efeitos das interações. A coluna de $p$
-valores da Tabela\@ref(tab:testmodlogit), obtida pela função `svyglm()` da library survey,
+valores da Tabela \@ref(tab:testmodlogit), obtida pela função `svyglm()` da library survey,
 utiliza a estatística de Wald baseada no plano amostral com correção. 
 
 Os testes da Tabela \@ref(tab:testmodlogit) indicam a significância de todas as
