@@ -570,7 +570,7 @@ E_{VERD}\left[ v_{0}\left( \widehat{\theta }\right) \right] =\sigma
 \]</span></p>
 <p>A Figura <a href="epa.html#fig:epacong">4.1</a> plota os valores de <span class="math inline">\(\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)\)</span> e <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> para valores de <span class="math inline">\(\rho\)</span> entre <span class="math inline">\(0\)</span> e <span class="math inline">\(0,8\)</span>. Como se pode notar, o efeito da especificação inadequada do plano amostral ou da estrutura populacional pode ser severo, com valores de <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> chegando a <span class="math inline">\(9\)</span>. Um aspecto importante a notar é que o <span class="math inline">\(\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)\)</span> tem variação muito mais modesta que o <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span>.</p>
 <div class="figure"><span id="fig:epacong"></span>
-<img src="Figuras/fig41.png" alt="Valores de EPA e EPA de Kish para conglomeração"  />
+<img src="04-Cap4_files/figure-html/epacong-1.png" alt="Valores de EPA e EPA de Kish para conglomeração" width="672" />
 <p class="caption">
 Figura 4.1: Valores de EPA e EPA de Kish para conglomeração
 </p>
@@ -747,7 +747,7 @@ COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
 <pre><code>##         sal    rec
 ## [1,]  0,155 -0,005
 ## [2,] -0,817  0,445</code></pre>
-<p>Os autovalores 0,459 e 0,142 de <span class="math inline">\(\mathbf{\Delta}\)</span> fornecem os efeitos generalizados do plano amostral.</p>
+<p>Os autovalores 1 e 1,020202 de <span class="math inline">\(\mathbf{\Delta}\)</span> fornecem os efeitos generalizados do plano amostral.</p>
 Da mesma forma que o <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> definido em <a href="epa.html#eq:epa2">(4.2)</a> para o caso uniparamétrico foi utilizado para corrigir níveis de confiança de intervalos e níveis de significância de testes, o <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})\)</span> definido em <a href="epa.html#eq:epa6">(4.6)</a> pode ser utilizado para corrigir níveis de confiança de regiões de confiança e níveis de significância de testes de hipóteses no caso multiparamétrico. Para ilustrar, vamos considerar o problema de testar a hipótese <span class="math inline">\(H_{0}:\mathbf{\mu }=\mathbf{\mu }_{0}\)</span>, onde <span class="math inline">\(\mathbf{\mu }\)</span> é o vetor de médias de um vetor de variáveis de pesquisa <span class="math inline">\(\mathbf{y}\)</span>. A estatística de teste usualmente adotada para este caso é a <span class="math inline">\(T^{2}\)</span> de Hottelling dada por
 <span class="math display" id="eq:epa11">\[\begin{equation}
 T^{2}=n\left( \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{S}
