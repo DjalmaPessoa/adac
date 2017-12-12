@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-12-11}
+  \date{2017-12-12}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -2867,7 +2867,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0,118689
 ## SEs=
 ##            [,1]
-## [1,] 0,01276471
+## [1,] 0,01141157
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -6580,22 +6580,6 @@ X_{P}^{2}=\sum\limits_{j=1}^{2}\left( n_{j}-n\,p_{0j}\right)
 onde as proporções \(\widehat{p}_{j}=n_{j}/n\) são estimativas amostrais
 usuais das proporções populacionais \(p_{j}\), para \(j=1,2\).
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{p0 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(.}\DecValTok{8}\NormalTok{, .}\DecValTok{2}\NormalTok{)}
-\NormalTok{obs<-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{840}\NormalTok{, }\DecValTok{160}\NormalTok{)}
-\NormalTok{n<-}\StringTok{ }\KeywordTok{sum}\NormalTok{(obs)}
-\NormalTok{phat <-}\StringTok{ }\NormalTok{obs}\OperatorTok{/}\NormalTok{n}
-\CommentTok{# Estatística de Pearson}
-\NormalTok{x2p <-}\StringTok{ }\KeywordTok{sum}\NormalTok{((obs}\OperatorTok{-}\NormalTok{n}\OperatorTok{*}\NormalTok{p0)}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\NormalTok{(n}\OperatorTok{*}\NormalTok{p0))}
-\NormalTok{x2p}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 10
-\end{verbatim}
-
 Como há apenas duas categorias e as proporções devem somar \(1\),
 observa-se que \(p_{2}=1-p_{1},\) \(\widehat{p}_{2}=1-\widehat{p}_{1}\)
 e \(p_{02}=1-p_{01}\). Isto acarreta na equivalência entre as
@@ -6682,43 +6666,6 @@ Vamos calcular os valores das estatísticas de Pearson e de RV, com suas
 correções de Rao-Scott, para os dados do Exemplo \ref{exm:exebin}. Para
 as correções, primeiro é preciso calcular o efeito do plano amostral
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{p <-}\StringTok{ }\NormalTok{p0[}\DecValTok{1}\NormalTok{]}
-\NormalTok{m <-}\StringTok{ }\DecValTok{50}
-\CommentTok{# Efeito do plano amostral}
-\NormalTok{d <-}\StringTok{ }\NormalTok{(p}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{p)}\OperatorTok{/}\NormalTok{m)}\OperatorTok{/}\StringTok{ }\NormalTok{(p}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{p)}\OperatorTok{/}\NormalTok{n)}
-\NormalTok{d}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 20
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Estatística de Peason corrigida}
-\NormalTok{x2pd <-}\StringTok{ }\NormalTok{x2p}\OperatorTok{/}\NormalTok{d}
-\NormalTok{x2pd}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0,5
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# valor-p do teste}
-\KeywordTok{pchisq}\NormalTok{(x2pd, }\DecValTok{1}\NormalTok{, }\DataTypeTok{lower.tail =}\NormalTok{ F)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0,4795001
-\end{verbatim}
-
 \[
 \begin{array}{llcll}
 d & = & V_{p}\left( \widehat{p}\right) /V_{bin}\left( \widehat{p}\right) & =
@@ -6740,45 +6687,10 @@ e também que \(X_{P}^{2}(d)=Z_{bin}^{2}/d= 3,162^{2}/20=0,5\) ou seja,
 do teste da Razão de Verossimilhança e sua correção de Rao-Scott são
 dados respectivamente por
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Estatística da RV}
-\NormalTok{x2rv <-}\StringTok{ }\DecValTok{2}\OperatorTok{*}\NormalTok{n}\OperatorTok{*}\KeywordTok{sum}\NormalTok{(phat}\OperatorTok{*}\KeywordTok{log}\NormalTok{(phat}\OperatorTok{/}\NormalTok{p0))}
-\NormalTok{x2rv}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 10,56154
-\end{verbatim}
-
 \[
 X_{RV}^{2}=2\times 1.000\times \log \left( \frac{0,84\times 0,16}{0,80\times
 0,20}\right) =10,56\;, 
 \] com \(p\)valor \(0,0012\), e
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Estatística da RV corrigida}
-\NormalTok{x2rvd <-}\StringTok{ }\NormalTok{x2rv}\OperatorTok{/}\NormalTok{d}
-\NormalTok{x2rvd}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0,528077
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# valor-p do teste}
-\KeywordTok{pchisq}\NormalTok{(x2rvd, }\DecValTok{1}\NormalTok{, }\DataTypeTok{lower.tail =} \OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0,4674165
-\end{verbatim}
 
 \[
 X_{RV}^{2}(d)=X_{LR}^{2}/d=10,56/20=0,528\;\;, 
@@ -6857,30 +6769,6 @@ Para o plano amostral de conglomerados considerado no Exemplo
 \ref{exm:exebin}, a estatística \(X_{W}^{2}\), sem qualquer ajuste
 auxiliar, já é distribuída assintoticamente como qui-quadrado com um
 grau de liberdade. O valor da estatística de Wald para esse exemplo é
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x2n <-}\StringTok{ }\DecValTok{1000}\OperatorTok{*}\StringTok{ }\KeywordTok{sum}\NormalTok{((phat}\OperatorTok{-}\NormalTok{p0)}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\NormalTok{phat)}
-\NormalTok{vhatp <-}\StringTok{ }\NormalTok{(phat[}\DecValTok{1}\NormalTok{]}\OperatorTok{*}\NormalTok{phat[}\DecValTok{2}\NormalTok{])}\OperatorTok{/}\NormalTok{m }\CommentTok{# variância usa número efetivo}
-\CommentTok{# Estatística de Wald}
-\NormalTok{x2w <-}\StringTok{ }\NormalTok{((phat[}\DecValTok{1}\NormalTok{]}\OperatorTok{-}\NormalTok{p0[}\DecValTok{1}\NormalTok{])}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{vhatp}
-\NormalTok{x2w}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0,5952381
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{pchisq}\NormalTok{(x2w,}\DecValTok{1}\NormalTok{, }\DataTypeTok{lower.tail =} \OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0,4404007
-\end{verbatim}
 
 \[
 X_{W}^{2}=\left( 0,84-0,80\right) ^{2}/0,002743=0,583\;\;\mbox{.} 
@@ -7277,33 +7165,6 @@ estratos é \(H=15\) e o número total de conglomerados (setores) na
 amostra da PPV é \(m=276\) e portanto \(f=m-H=261\). As informações
 utilizadas neste exemplo são apresentadas na Tabela \ref{tab:ppcount}.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(survey)}
-\NormalTok{ppv1 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"~}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{GitHub}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{adac}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{data}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{ppv.rds"}\NormalTok{)}
-\CommentTok{# cria idade categorizada}
-\NormalTok{ppv1<-}\KeywordTok{transform}\NormalTok{(ppv1,}\DataTypeTok{idatab=}\KeywordTok{cut}\NormalTok{(v02a08,}
-\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{14}\NormalTok{,}\DecValTok{29}\NormalTok{,}\DecValTok{44}\NormalTok{,}\DecValTok{59}\NormalTok{,}\DecValTok{200}\NormalTok{), }\DataTypeTok{include.lowest=}\NormalTok{T), }\DataTypeTok{one=}\DecValTok{1}\NormalTok{)}
-
-\CommentTok{# Objeto de desenho da PPV}
-\NormalTok{ppv.des<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{id=}\OperatorTok{~}\NormalTok{nsetor,}\DataTypeTok{strat=}\OperatorTok{~}\NormalTok{estratof,}\DataTypeTok{weights=}\OperatorTok{~}\NormalTok{pesof,}
-\DataTypeTok{data=}\NormalTok{ppv1,}\DataTypeTok{nest=}\OtherTok{TRUE}\NormalTok{)}
-\CommentTok{# Considera região sudeste}
-\NormalTok{ppv.se.des<-}\KeywordTok{subset}\NormalTok{(ppv.des,regiao}\OperatorTok{==}\DecValTok{2}\NormalTok{)}
-\CommentTok{# estima proporções nas classes de IDATAB}
-\NormalTok{ppv.id<-}\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{idatab,ppv.se.des,}\DataTypeTok{deff=}\NormalTok{T)}
-\NormalTok{vhat<-}\KeywordTok{vcov}\NormalTok{(ppv.id)}
-\NormalTok{ppv.id <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(ppv.id)}
-\NormalTok{freq <-}\StringTok{ }\KeywordTok{svyby}\NormalTok{(}\OperatorTok{~}\NormalTok{one, }\OperatorTok{~}\NormalTok{idatab, ppv.se.des, unwtd.count)}\OperatorTok{$}\NormalTok{counts}
-\CommentTok{# matriz de variância-covariância estimada}
-\NormalTok{idad_tab <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"0-14"}\NormalTok{, }\StringTok{"15-29"}\NormalTok{, }\StringTok{"30-44"}\NormalTok{,}\StringTok{"45-59"}\NormalTok{,}\StringTok{"60+"}\NormalTok{)}
-\NormalTok{tab73 <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{idade=}\NormalTok{ idad_tab, }\DataTypeTok{prop_contagem=} \KeywordTok{c}\NormalTok{(}\FloatTok{0.2842}\NormalTok{, }\FloatTok{0.2747}\NormalTok{, }\FloatTok{0.2263}\NormalTok{, }\FloatTok{0.1261}\NormalTok{, }\FloatTok{0.0860}\NormalTok{), frequência= freq, }\DataTypeTok{prop_est_ppv=}\NormalTok{ ppv.id}\OperatorTok{$}\NormalTok{mean,}\DataTypeTok{epa =}\NormalTok{ ppv.id}\OperatorTok{$}\NormalTok{deff) }
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(tab73, }\DataTypeTok{booktabs=} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{digits=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{), }\DataTypeTok{align =} \StringTok{"lcccc"}\NormalTok{,}
- \DataTypeTok{caption =} \StringTok{"Vetores de proporções por classes de idade da PPV 96/97 e Contagem}
-\StringTok{ 96 e EPAs calculados para a PPV - Região Sudeste"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{table}
 
 \caption{\label{tab:ppcount}Vetores de proporções por classes de idade da PPV 96/97 e Contagem
@@ -7376,56 +7237,14 @@ Estes valores foram obtidos através do pacote SUDAAN. Para obter as
 diferentes correções da estatística de Pearson, precisamos calcular as
 seguintes quantidades:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dhat <-}\StringTok{ }\NormalTok{tab73}\OperatorTok{$}\NormalTok{epa}
-\NormalTok{dhatdot <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(dhat)}
-\NormalTok{dhatdot}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 2,376168
-\end{verbatim}
-
 \[
 \hat{d}_{.}=\sum_{j=1}^{5}\hat{d}_{j}/5=2,376\;\;\mbox{,} 
 \]
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{phat <-}\StringTok{ }\NormalTok{tab73}\OperatorTok{$}\NormalTok{prop_est_ppv}
-\NormalTok{deltahatdot <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(phat}\OperatorTok{*}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{p0)}\OperatorTok{*}\NormalTok{dhat}\OperatorTok{/}\NormalTok{(}\DecValTok{4}\OperatorTok{*}\NormalTok{p0))}
-\NormalTok{deltahatdot}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 2,459607
-\end{verbatim}
 
 \[
 \hat{\delta}_{.}=\sum_{j=1}^5\frac{\hat{p}_{j}}{4p_{0j}}
 \left( 1-\hat{p}_{0j}\right) \hat{d}_{j}=2,457\;\;, 
 \]
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{nppv <-}\StringTok{ }\KeywordTok{sum}\NormalTok{ (freq)}
-\NormalTok{raz <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\OtherTok{NA}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{5}\NormalTok{)}
-\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{)\{}
-  \ControlFlowTok{for}\NormalTok{(j }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{)\{}
-\NormalTok{    raz[i,j]<-}\StringTok{ }\NormalTok{vhat[i,j]}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\NormalTok{(p0[i]}\OperatorTok{*}\NormalTok{p0[j])}
-\NormalTok{  \}}
-\NormalTok{\}}
-\NormalTok{ahat2_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\NormalTok{nppv}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\StringTok{ }\KeywordTok{sum}\NormalTok{(raz)}\OperatorTok{/}\NormalTok{(}\DecValTok{4}\OperatorTok{*}\NormalTok{deltahatdot}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
-\NormalTok{ahat2_}\DecValTok{1}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 1,249524
-\end{verbatim}
 
 \[
 1+\hat{a}^{2}=8903^{2}\sum\limits_{j=1}^{5}\sum\limits_{k=1}^{5}\left( \hat{V}_{p}^{2}\left( \hat{p}_{j},\hat{p}_{k}\right) /p_{0j}p_{0k}\right) /\left(
@@ -7435,33 +7254,12 @@ seguintes quantidades:
 Podemos então calcular a estatística \(X_{P}^{2}\) de Pearson usando
 \eqref{eq:qual11}, resultando em
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x2p <-nppv}\OperatorTok{*}\StringTok{ }\KeywordTok{sum}\NormalTok{((phat }\OperatorTok{-}\NormalTok{p0)}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\NormalTok{p0)}
-\NormalTok{x2p}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 11,50719
-\end{verbatim}
-
 \[
 X_{P}^{2}=11,64 
 \] com \(4\) g.l. e um \(p\)valor \(0,020\) .
 
 A estatística de Pearson com ajustamento de EPA médio é calculada usando
 \eqref{eq:qual12}, resultando em
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x2p}\OperatorTok{/}\NormalTok{dhatdot}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 4,842751
-\end{verbatim}
 
 \[
 X_{P}^{2}\left( \hat{d}_{.}\right) =11,64/2,376=4,901 
@@ -7470,33 +7268,12 @@ X_{P}^{2}\left( \hat{d}_{.}\right) =11,64/2,376=4,901
 A estatística de Pearson com ajustamento de Rao-Scott de primeira ordem,
 dada por \eqref{eq:qual13}, resulta em
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x2p}\OperatorTok{/}\NormalTok{deltahatdot }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 4,678467
-\end{verbatim}
-
 \[
 X_{P}^{2}\left( \hat{\delta}_{.}\right) =11,64/2,457=4,74 
 \] com \(4\) g.l. e um \(p\)valor \(0,315\) .
 
 O ajustamento de Rao-Scott de primeira ordem F-corrigido para a
 estatística de Pearson, dado por \eqref{eq:qual15}, resulta em
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{J <-}\StringTok{ }\KeywordTok{length}\NormalTok{(phat)}
-\NormalTok{x2p}\OperatorTok{/}\StringTok{ }\NormalTok{((J}\OperatorTok{-}\DecValTok{1}\NormalTok{)}\OperatorTok{*}\NormalTok{deltahatdot)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 1,169617
-\end{verbatim}
 
 \[
 FX_{P}^{2}\left( \hat{\delta}_{.}\right) =4,74/4=1,85
@@ -7505,37 +7282,12 @@ FX_{P}^{2}\left( \hat{\delta}_{.}\right) =4,74/4=1,85
 O ajustamento de Rao-Scott de segunda ordem para a estatística de
 Pearson, dado por \eqref{eq:qual14}, resulta em
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{(x2p}\OperatorTok{/}\NormalTok{deltahatdot)}\OperatorTok{/}\NormalTok{ahat2_}\DecValTok{1}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 3,744199
-\end{verbatim}
-
 \[
 X_{P}^{2}\left( \hat{\delta}_{.},\hat{a}^{2}\right) =4,74/1,253=3,784 
 \] com \(4\)/\(1,253=3,19\) g.l. e \(p\)valor \(0,314\) .
 
 A estatística de Wald baseada no plano amostral (veja equação
 \eqref{eq:qual8} resulta em
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{phatv <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(phat[}\OperatorTok{-}\DecValTok{5}\NormalTok{], }\DataTypeTok{ncol=}\DecValTok{1}\NormalTok{)}
-\NormalTok{p0v <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(p0[}\OperatorTok{-}\DecValTok{5}\NormalTok{], }\DataTypeTok{ncol=}\DecValTok{1}\NormalTok{)}
-\NormalTok{vhat0 <-}\StringTok{ }\NormalTok{vhat[}\OperatorTok{-}\DecValTok{5}\NormalTok{,}\OperatorTok{-}\DecValTok{5}\NormalTok{]}
-\NormalTok{x2w <-}\StringTok{  }\KeywordTok{t}\NormalTok{(phatv}\OperatorTok{-}\NormalTok{p0v)}\OperatorTok{%*%}\StringTok{ }\KeywordTok{solve}\NormalTok{(vhat0)}\OperatorTok{%*%}\NormalTok{(phatv}\OperatorTok{-}\NormalTok{p0v)}
-\NormalTok{x2w}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##          [,1]
-## [1,] 5,742022
-\end{verbatim}
 
 \[
 X_{W}^{2}=5,691 
@@ -7544,38 +7296,9 @@ X_{W}^{2}=5,691
 As estatísticas F-corrigidas de Wald, definidas em \eqref{eq:qual9} e
 \eqref{eq:qual10}, resultam em
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# número de estratos da PPV-sudeste}
-\NormalTok{nestrat <-}\StringTok{ }\KeywordTok{length}\NormalTok{(}\KeywordTok{unique}\NormalTok{(ppv1}\OperatorTok{$}\NormalTok{estratof[ppv1}\OperatorTok{$}\NormalTok{regiao }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{]))}
-\CommentTok{# número de setores da PPV-sudeste}
-\NormalTok{nsetor <-}\StringTok{ }\KeywordTok{length}\NormalTok{(}\KeywordTok{unique}\NormalTok{(ppv1}\OperatorTok{$}\NormalTok{nsetor[ppv1}\OperatorTok{$}\NormalTok{regiao }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{]))}
-\NormalTok{f <-}\StringTok{ }\NormalTok{nsetor }\OperatorTok{-}\NormalTok{nestrat}
-\NormalTok{f1p <-}\StringTok{ }\NormalTok{((f}\OperatorTok{-}\NormalTok{J}\OperatorTok{+}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{(f}\OperatorTok{*}\NormalTok{(J}\OperatorTok{-}\DecValTok{1}\NormalTok{)))}\OperatorTok{*}\NormalTok{x2w}
-\NormalTok{f1p}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##          [,1]
-## [1,] 1,419005
-\end{verbatim}
-
 \[
 F_{1.p}=\frac{261-5+2}{261\times 4}\times 5,690661=1,406 
 \] com \(4\) e \(259\) g.l. e um \(p\)valor \(0,232\) , e
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{f2p <-}\StringTok{ }\NormalTok{x2w}\OperatorTok{/}\NormalTok{(J}\OperatorTok{-}\DecValTok{1}\NormalTok{)}
-\NormalTok{f2p}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##          [,1]
-## [1,] 1,435505
-\end{verbatim}
 
 \[
 F_{2.p}=5,691/4\mbox{ }=1,423 
@@ -7723,6 +7446,13 @@ como na estatística Wald.
 \section{Laboratório de R}\label{laboratorio-de-r-4}
 
 Exemplo 7.1 pode ser substituído por: Criar variável ITAB (Não aparece)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ppv1<-}\KeywordTok{transform}\NormalTok{(ppv1,}\DataTypeTok{idatab =} \KeywordTok{cut}\NormalTok{(v02a08,}
+\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{14}\NormalTok{,}\DecValTok{29}\NormalTok{,}\DecValTok{44}\NormalTok{,}\DecValTok{59}\NormalTok{,}\DecValTok{200}\NormalTok{),}\DataTypeTok{include.lowest=}\NormalTok{T))}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]

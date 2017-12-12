@@ -1,7 +1,7 @@
 ---
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 # Testes de Qualidade de Ajuste {#testqualajust}
 
@@ -95,14 +95,14 @@ X_{P}^{2}=\sum\limits_{j=1}^{2}\left( n_{j}-n\,p_{0j}\right)
 onde as proporções $\widehat{p}_{j}=n_{j}/n$ são estimativas
 amostrais usuais das proporções populacionais $p_{j}$, para $j=1,2$.
 
-```{r}
+```{r, echo=FALSE}
 p0 <- c(.8, .2)
 obs<- c(840, 160)
 n<- sum(obs)
 phat <- obs/n
 # Estatística de Pearson
 x2p <- sum((obs-n*p0)^2/(n*p0))
-x2p
+# x2p
 ```
 
 
@@ -179,17 +179,17 @@ as correções, primeiro é preciso calcular o efeito do plano
 amostral
 
 
-```{r}
+```{r, echo=FALSE}
 p <- p0[1]
 m <- 50
 # Efeito do plano amostral
 d <- (p*(1-p)/m)/ (p*(1-p)/n)
-d
+# d
 # Estatística de Peason corrigida
 x2pd <- x2p/d
-x2pd
+# x2pd
 # valor-p do teste
-pchisq(x2pd, 1, lower.tail = F)
+# pchisq(x2pd, 1, lower.tail = F)
 ```
 
 
@@ -220,10 +220,10 @@ conforme esperado. Os valores da estatística do
 teste da Razão de Verossimilhança e sua correção de
 Rao-Scott são dados respectivamente por 
 
-```{r}
+```{r, echo=FALSE}
 # Estatística da RV
 x2rv <- 2*n*sum(phat*log(phat/p0))
-x2rv
+#x2rv
 ```
 
 \[
@@ -233,12 +233,12 @@ X_{RV}^{2}=2\times 1.000\times \log \left( \frac{0,84\times 0,16}{0,80\times
 com $p$valor $0,0012$, e 
 
 
-```{r}
+```{r, echo=FALSE}
 # Estatística da RV corrigida
 x2rvd <- x2rv/d
-x2rvd
+#x2rvd
 # valor-p do teste
-pchisq(x2rvd, 1, lower.tail = FALSE)
+#pchisq(x2rvd, 1, lower.tail = FALSE)
 ```
 
 
@@ -315,13 +315,13 @@ a estatística $X_{W}^{2}$, sem qualquer ajuste auxiliar, já é
 distribuída assintoticamente como qui-quadrado com um grau de liberdade.
 O valor da estatística de Wald para esse exemplo é
 
-```{r}
+```{r, echo=FALSE}
 x2n <- 1000* sum((phat-p0)^2/phat)
 vhatp <- (phat[1]*phat[2])/m # variância usa número efetivo
 # Estatística de Wald
 x2w <- ((phat[1]-p0[1])^2)/vhatp
-x2w
-pchisq(x2w,1, lower.tail = FALSE)
+# x2w
+# pchisq(x2w,1, lower.tail = FALSE)
 ```
 
 
@@ -672,7 +672,7 @@ número de estratos é $H=15$ e o número total de conglomerados
 (setores) na amostra da PPV é $m=276$ e portanto $f=m-H=261$. As informações utilizadas neste exemplo são apresentadas na Tabela \@ref(tab:ppcount).
 
 
-```{r ppcount, warning=FALSE, message=FALSE}
+```{r ppcount, warning=FALSE, message=FALSE, echo=FALSE}
 library(survey)
 ppv1 <- readRDS("~\\GitHub\\adac\\data\\ppv.rds")
 # cria idade categorizada
@@ -732,7 +732,7 @@ valores dos EPAs, listados na coluna 5 da Tabela \@ref(tab:ppcount). Estes valor
 foram obtidos através do pacote SUDAAN. Para obter as diferentes correções da estatística de Pearson, precisamos calcular as seguintes
 quantidades: 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 dhat <- tab73$epa
 dhatdot <- mean(dhat)
 dhatdot
@@ -742,7 +742,7 @@ dhatdot
 \hat{d}_{.}=\sum_{j=1}^{5}\hat{d}_{j}/5=2,376\;\;\mbox{,} 
 \]
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 phat <- tab73$prop_est_ppv
 deltahatdot <- sum(phat*(1-p0)*dhat/(4*p0))
 deltahatdot
@@ -754,7 +754,7 @@ deltahatdot
 \left( 1-\hat{p}_{0j}\right) \hat{d}_{j}=2,457\;\;, 
 \]
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 nppv <- sum (freq)
 raz <- matrix(NA,5,5)
 for(i in 1:5){
@@ -776,7 +776,7 @@ ahat2_1
 Podemos então calcular a estatística $X_{P}^{2}$ de Pearson usando \@ref(eq:qual11), resultando em 
 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 x2p <-nppv* sum((phat -p0)^2/p0)
 x2p
 ```
@@ -789,7 +789,7 @@ com $4$ g.l. e um $p$valor $0,020$ .
 A estatística de Pearson com ajustamento de EPA médio é
 calculada usando \@ref(eq:qual12), resultando em 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 x2p/dhatdot
 ```
 
@@ -801,7 +801,7 @@ com $4$ g.l. e um $p$valor $0,298$ .
 
 A estatística de Pearson com ajustamento de Rao-Scott de primeira ordem,
 dada por \@ref(eq:qual13), resulta em
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 x2p/deltahatdot 
 ```
 
@@ -813,7 +813,7 @@ com $4$ g.l. e um $p$valor $0,315$ .
 
 O ajustamento de Rao-Scott de primeira ordem F-corrigido para a
 estatística de Pearson, dado por \@ref(eq:qual15), resulta em 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 J <- length(phat)
 x2p/ ((J-1)*deltahatdot)
 ```
@@ -826,7 +826,7 @@ com $4$ e $261$ g.l e um $p$valor $0,318$ .
 O ajustamento de Rao-Scott de segunda ordem para a estatística de
 Pearson, dado por \@ref(eq:qual14), resulta em
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 (x2p/deltahatdot)/ahat2_1
 ```
 
@@ -838,7 +838,7 @@ com $4$/$1,253=3,19$ g.l. e $p$valor $0,314$ .
 A estatística de Wald baseada no plano amostral (veja equação 
 \@ref(eq:qual8) resulta em 
 
-```{r}
+```{r, echo =FALSE, eval=FALSE}
 phatv <- matrix(phat[-5], ncol=1)
 p0v <- matrix(p0[-5], ncol=1)
 vhat0 <- vhat[-5,-5]
@@ -856,7 +856,7 @@ As estatísticas F-corrigidas de Wald, definidas em \@ref(eq:qual9) e \@ref(eq:q
 
 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 # número de estratos da PPV-sudeste
 nestrat <- length(unique(ppv1$estratof[ppv1$regiao == 2]))
 # número de setores da PPV-sudeste
@@ -872,7 +872,7 @@ F_{1.p}=\frac{261-5+2}{261\times 4}\times 5,690661=1,406
 com $4$ e $259$ g.l. e um $p$valor $0,232$ , e 
 
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 f2p <- x2w/(J-1)
 f2p
 ```
@@ -927,7 +927,7 @@ ordem de Rao-Scott, como na estatística Wald.
 
 Exemplo 7.1 pode ser substituído por: Criar variável ITAB (Não aparece)
 
-```{r, echo=FALSE}
+```{r}
 ppv1<-transform(ppv1,idatab = cut(v02a08,
 c(0,14,29,44,59,200),include.lowest=T))
 ```
@@ -944,7 +944,7 @@ ppv.id<-svymean(~idatab,ppv.se.des,deff=T)
 vhvat<-vcov(ppv.id)
 ```
 
-```{r   estpropclas}
+```{r estpropclas}
 library(xtable)
 fr_ppv_id<- data.frame(ppv.id)
 row.names(fr_ppv_id) <- NULL
