@@ -2867,7 +2867,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0,118689
 ## SEs=
 ##            [,1]
-## [1,] 0,01141157
+## [1,] 0,01060419
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -8374,15 +8374,6 @@ Def\_prop\_lin & 2 & 1,911 & 1,298 & 1,802\\
 As mesmas estimativas para a tabela marginal de \texttt{Rendas} são
 dadas por:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{marg_re_pop <-}\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{re,pnad.des, }\DataTypeTok{deff=}\OtherTok{TRUE}\NormalTok{ ))}
-\NormalTok{marg_re_pop<-}\StringTok{ }\KeywordTok{transform}\NormalTok{(marg_re_pop, }\DataTypeTok{SE=}\DecValTok{10000}\OperatorTok{*}\NormalTok{SE )}
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(marg_re_pop ,}\DataTypeTok{booktabs=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{digits=}\DecValTok{3}\NormalTok{,}
-  \DataTypeTok{caption=}\StringTok{"Proporções nas linha, desvios padrões e EPAs de `re` na população"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{table}
 
 \caption{\label{tab:unnamed-chunk-2}Proporções nas linha, desvios padrões e EPAs de `re` na população}
@@ -8401,29 +8392,6 @@ re3 & 0,261 & 96,130 & 3,122\\
 Vamos calcular, a título de ilustração, o efeito do plano amostral da
 estimativa na cela (1,1) da Tabela \ref{tab:proplinha}, apresentado na
 cela (1,7) dessa tabela.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# cria dummy para re=1}
-\NormalTok{pnad.des <-}\StringTok{ }\KeywordTok{update}\NormalTok{(pnad.des, }
-  \DataTypeTok{ind_rend1=} \KeywordTok{as.numeric}\NormalTok{(re}\OperatorTok{==}\DecValTok{1}\NormalTok{))}
-\CommentTok{# proporção de re=1 quando  sx= 1:}
-\NormalTok{prop_re1_des <-}\StringTok{ }\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{ind_rend1, }\KeywordTok{subset}\NormalTok{(pnad.des, sx}\OperatorTok{==}\DecValTok{1}\NormalTok{))}
-\CommentTok{# objeto de desenho AAS}
-\NormalTok{pnad.des_AAS<-}\KeywordTok{svydesign}\NormalTok{(}\DataTypeTok{id=}\OperatorTok{~}\DecValTok{1}\NormalTok{,}\DataTypeTok{data=}\NormalTok{pnadrj90)}
-\CommentTok{# dummy para re=1}
-\NormalTok{pnad.des_AAS <-}\StringTok{ }\KeywordTok{update}\NormalTok{(pnad.des_AAS, }
-  \DataTypeTok{ind_rend1=} \KeywordTok{as.numeric}\NormalTok{(re}\OperatorTok{==}\DecValTok{1}\NormalTok{))}
-\CommentTok{# proporção de re=1 quando sx=1}
-\NormalTok{prop_re1_AAS <-}\StringTok{ }\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{ind_rend1, }\KeywordTok{subset}\NormalTok{(pnad.des_AAS, sx}\OperatorTok{==}\DecValTok{1}\NormalTok{))}
-\KeywordTok{round}\NormalTok{(}\KeywordTok{attr}\NormalTok{(prop_re1_des,}\StringTok{"var"}\NormalTok{)}\OperatorTok{/}\KeywordTok{attr}\NormalTok{(prop_re1_AAS,}\StringTok{"var"}\NormalTok{),}\DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##           ind_rend1
-## ind_rend1      1,42
-\end{verbatim}
 
 A estimativa do efeito médio de plano amostral para corrigir a
 estatística \(X_{P}^{2}\left( H\right)\) é \(\hat{d}_{.}=1,802\) ,
@@ -8456,15 +8424,6 @@ Def\_prop\_lin & 2 & 1,698 & 1,103 & 1,731\\
 \end{table}
 
 Tabela de proporções de \texttt{sx} para a população inteira:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{marg_sx_pop <-}\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{svymean}\NormalTok{(}\OperatorTok{~}\NormalTok{sx,pnad.des, }\DataTypeTok{deff=}\OtherTok{TRUE}\NormalTok{ ))}
-\NormalTok{marg_sx_pop <-}\StringTok{ }\KeywordTok{transform}\NormalTok{(marg_sx_pop, }\DataTypeTok{SE =} \DecValTok{10000}\OperatorTok{*}\NormalTok{SE)}
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(marg_sx_pop, }\DataTypeTok{digits=}\DecValTok{3}\NormalTok{,}
-  \DataTypeTok{caption=}\StringTok{"Proporções nas linha, desvios padrões e EPAs de sx na população"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{table}
 

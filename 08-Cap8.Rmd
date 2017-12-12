@@ -754,7 +754,7 @@ knitr::kable(result ,booktabs=TRUE, digits=c(3,3,3), align= c("l","c","c","c", "
 As mesmas estimativas para a tabela marginal de `Rendas` são dadas por: 
 
 
-```{r}
+```{r, echo=FALSE}
 marg_re_pop <-as.data.frame(svymean(~re,pnad.des, deff=TRUE ))
 marg_re_pop<- transform(marg_re_pop, SE=10000*SE )
 knitr::kable(marg_re_pop ,booktabs=TRUE, digits=3,
@@ -765,7 +765,7 @@ knitr::kable(marg_re_pop ,booktabs=TRUE, digits=3,
 Vamos calcular, a título de ilustração, o efeito do plano amostral da estimativa na cela (1,1) da Tabela \@ref(tab:proplinha), apresentado na cela (1,7) dessa tabela.
 
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, echo=FALSE}
 # cria dummy para re=1
 pnad.des <- update(pnad.des, 
   ind_rend1= as.numeric(re==1))
@@ -778,7 +778,7 @@ pnad.des_AAS <- update(pnad.des_AAS,
   ind_rend1= as.numeric(re==1))
 # proporção de re=1 quando sx=1
 prop_re1_AAS <- svymean(~ind_rend1, subset(pnad.des_AAS, sx==1))
-round(attr(prop_re1_des,"var")/attr(prop_re1_AAS,"var"),2)
+# round(attr(prop_re1_des,"var")/attr(prop_re1_AAS,"var"),2)
 ```
 
 A estimativa do efeito médio de plano amostral para corrigir a
@@ -809,7 +809,7 @@ knitr::kable(result,booktabs=TRUE, digits=3, align= c("l","c", "c", "c", "c"),ro
 
 Tabela de proporções de `sx` para a população inteira:
 
-```{r}
+```{r, echo=FALSE}
 marg_sx_pop <-data.frame(svymean(~sx,pnad.des, deff=TRUE ))
 marg_sx_pop <- transform(marg_sx_pop, SE = 10000*SE)
 knitr::kable(marg_sx_pop, digits=3,

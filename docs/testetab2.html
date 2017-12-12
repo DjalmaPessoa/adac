@@ -804,10 +804,6 @@ _{.}\right) /\left( L-1\right) \left( C-1\right) \;\;.  \tag{8.16}
 </tbody>
 </table>
 <p>As mesmas estimativas para a tabela marginal de <code>Rendas</code> são dadas por:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">marg_re_pop &lt;-<span class="kw">as.data.frame</span>(<span class="kw">svymean</span>(<span class="op">~</span>re,pnad.des, <span class="dt">deff=</span><span class="ot">TRUE</span> ))
-marg_re_pop&lt;-<span class="st"> </span><span class="kw">transform</span>(marg_re_pop, <span class="dt">SE=</span><span class="dv">10000</span><span class="op">*</span>SE )
-knitr<span class="op">::</span><span class="kw">kable</span>(marg_re_pop ,<span class="dt">booktabs=</span><span class="ot">TRUE</span>, <span class="dt">digits=</span><span class="dv">3</span>,
-  <span class="dt">caption=</span><span class="st">&quot;Proporções nas linha, desvios padrões e EPAs de `re` na população&quot;</span>)</code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-2">Tabela 8.5: </span>Proporções nas linha, desvios padrões e EPAs de <code>re</code> na população</caption>
 <thead>
@@ -840,21 +836,6 @@ knitr<span class="op">::</span><span class="kw">kable</span>(marg_re_pop ,<span 
 </tbody>
 </table>
 <p>Vamos calcular, a título de ilustração, o efeito do plano amostral da estimativa na cela (1,1) da Tabela <a href="testetab2.html#tab:proplinha">8.2</a>, apresentado na cela (1,7) dessa tabela.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cria dummy para re=1</span>
-pnad.des &lt;-<span class="st"> </span><span class="kw">update</span>(pnad.des, 
-  <span class="dt">ind_rend1=</span> <span class="kw">as.numeric</span>(re<span class="op">==</span><span class="dv">1</span>))
-<span class="co"># proporção de re=1 quando  sx= 1:</span>
-prop_re1_des &lt;-<span class="st"> </span><span class="kw">svymean</span>(<span class="op">~</span>ind_rend1, <span class="kw">subset</span>(pnad.des, sx<span class="op">==</span><span class="dv">1</span>))
-<span class="co"># objeto de desenho AAS</span>
-pnad.des_AAS&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span><span class="op">~</span><span class="dv">1</span>,<span class="dt">data=</span>pnadrj90)
-<span class="co"># dummy para re=1</span>
-pnad.des_AAS &lt;-<span class="st"> </span><span class="kw">update</span>(pnad.des_AAS, 
-  <span class="dt">ind_rend1=</span> <span class="kw">as.numeric</span>(re<span class="op">==</span><span class="dv">1</span>))
-<span class="co"># proporção de re=1 quando sx=1</span>
-prop_re1_AAS &lt;-<span class="st"> </span><span class="kw">svymean</span>(<span class="op">~</span>ind_rend1, <span class="kw">subset</span>(pnad.des_AAS, sx<span class="op">==</span><span class="dv">1</span>))
-<span class="kw">round</span>(<span class="kw">attr</span>(prop_re1_des,<span class="st">&quot;var&quot;</span>)<span class="op">/</span><span class="kw">attr</span>(prop_re1_AAS,<span class="st">&quot;var&quot;</span>),<span class="dv">2</span>)</code></pre></div>
-<pre><code>##           ind_rend1
-## ind_rend1      1,42</code></pre>
 <p>A estimativa do efeito médio de plano amostral para corrigir a estatística <span class="math inline">\(X_{P}^{2}\left( H\right)\)</span> é <span class="math inline">\(\hat{d}_{.}=1,802\)</span> , calculada tomando a média dos EPAs das celas correspondentes aos níveis 1 e 2 da variável <code>sx</code>.</p>
 <p>Vamos agora considerar o teste de independência entre as variáveis Sexo e Renda e calcular o efeito de plano amostral médio das estimativas das proporções nas celas da tabela. A Tabela <a href="testetab2.html#tab:propcelas">8.6</a> contém, em cada cela, as estimativas: da proporção na cela, do desvio-padrão da estimativa da proporção na cela (<span class="math inline">\(\times 10.000\)</span>), e do efeito de plano amostral da estimativa de proporção na cela.</p>
 <table>
@@ -914,10 +895,6 @@ prop_re1_AAS &lt;-<span class="st"> </span><span class="kw">svymean</span>(<span
 </tbody>
 </table>
 <p>Tabela de proporções de <code>sx</code> para a população inteira:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">marg_sx_pop &lt;-<span class="kw">data.frame</span>(<span class="kw">svymean</span>(<span class="op">~</span>sx,pnad.des, <span class="dt">deff=</span><span class="ot">TRUE</span> ))
-marg_sx_pop &lt;-<span class="st"> </span><span class="kw">transform</span>(marg_sx_pop, <span class="dt">SE =</span> <span class="dv">10000</span><span class="op">*</span>SE)
-knitr<span class="op">::</span><span class="kw">kable</span>(marg_sx_pop, <span class="dt">digits=</span><span class="dv">3</span>,
-  <span class="dt">caption=</span><span class="st">&quot;Proporções nas linha, desvios padrões e EPAs de sx na população&quot;</span>)</code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-4">Tabela 8.7: </span>Proporções nas linha, desvios padrões e EPAs de sx na população</caption>
 <thead>
