@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-12-12">
+<meta name="date" content="2017-12-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -423,18 +423,18 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 <tbody>
 <tr class="odd">
 <td align="left">Média Populacional</td>
-<td align="right">78,328</td>
-<td align="right">2,107</td>
+<td align="right">78,3</td>
+<td align="right">2,11</td>
 </tr>
 <tr class="even">
 <td align="left">Média de estimativas de média AAS</td>
-<td align="right">163,503</td>
-<td align="right">4,171</td>
+<td align="right">163,5</td>
+<td align="right">4,17</td>
 </tr>
 <tr class="odd">
 <td align="left">Média de estimativas de média AES</td>
-<td align="right">78,069</td>
-<td align="right">2,062</td>
+<td align="right">78,1</td>
+<td align="right">2,06</td>
 </tr>
 </tbody>
 </table>
@@ -454,22 +454,22 @@ V_{p}\left( \bar{y}_{w}\right) =\sum\limits_{h=1}^{2}W_{h}^{2}\left(
 <tbody>
 <tr class="odd">
 <td align="left">Variância do estimador AES</td>
-<td align="right">244,176</td>
+<td align="right">244</td>
 <td align="right">0,435</td>
 </tr>
 <tr class="even">
 <td align="left">Média de estimativas de variância AES</td>
-<td align="right">245,188</td>
+<td align="right">245</td>
 <td align="right">0,401</td>
 </tr>
 <tr class="odd">
 <td align="left">Valor esperado AES do estimador AAS de variância</td>
-<td align="right">1613,300</td>
+<td align="right">1613</td>
 <td align="right">1,188</td>
 </tr>
 <tr class="even">
 <td align="left">Média de estimativas de variância AAS</td>
-<td align="right">1719,979</td>
+<td align="right">1720</td>
 <td align="right">1,207</td>
 </tr>
 </tbody>
@@ -713,12 +713,10 @@ S_{SAL,REC}^{\left( h\right) }=\frac{1}{N_{h}-1}\sum\limits_{i\in
 U_{h}}\left( SAL_{hi}-\overline{SAL}_{h}\right) \left( REC_{hi}-\overline{REC
 }_{h}\right) \;. 
 \]</span></p>
-<p>Substituindo os valores conhecidos na população das variáveis <span class="math inline">\(SAL_{hi}\)</span> e <span class="math inline">\(REC_{hi}\)</span>, obtemos para esta covariância o valor <span class="math display">\[
+Substituindo os valores conhecidos na população das variáveis <span class="math inline">\(SAL_{hi}\)</span> e <span class="math inline">\(REC_{hi}\)</span>, obtemos para esta covariância o valor <span class="math display">\[
 COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
-\]</span> e portanto a matriz de variância <span class="math inline">\(\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w})\)</span> dos estimadores ponderados da média fica igual a</p>
-<pre><code>##         SAL   REC
-## SAL 244,176 3,236
-## REC   3,236 0,435</code></pre>
+\]</span> e portanto a matriz de variância <span class="math inline">\(\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w})\)</span> dos estimadores ponderados da média fica igual a
+
 <p>onde os valores das variâncias em <a href="#eq:epa7">(<strong>??</strong>)</a> foram os calculados no Exemplo <a href="epa.html#exm:deffuni">4.2</a> e coincidem, respectivamente, com os valores usados nos numeradores de <span class="math inline">\(\mathbf{EPA}\left( \overline{SAL}_{w}\right)\)</span> e de <span class="math inline">\(\mathbf{EPA}\left( \overline{REC}_{w}\right)\)</span> lá apresentados. Para calcular o <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})\)</span> é preciso agora obter <span class="math inline">\(\mathbf{E}_{VERD}\left(\mathbf{V}_{0}\right)\)</span>.</p>
 <p>Neste exemplo, a matriz de efeito do plano amostral <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})=\mathbf{\Delta }\)</span> pode também ser calculada através de simulação, de modo análogo ao que foi feito no Exemplo <a href="epa.html#exm:deffuni">4.2</a>. Para isto, foram utilizadas outras <span class="math inline">\(500\)</span> amostras de tamanho <span class="math inline">\(60\)</span> segundo o plano amostral descrito no Exemplo <a href="epa.html#exm:deffuni">4.2</a>. Para cada uma das <span class="math inline">\(500\)</span> amostras foram calculadas estimativas:</p>
 <ol style="list-style-type: decimal">
@@ -731,23 +729,17 @@ COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
 <ul>
 <li>A matriz de covariância das médias amostrais ponderadas de salário e da receita, assumindo observações IID <span class="math inline">\(E_{AES}\left(V_{0}\right)\)</span>:</li>
 </ul>
-<pre><code>##          SAL    REC
-## SAL 1719,979 26,780
-## REC   26,780  1,207</code></pre>
+
 <ul>
 <li>A matriz de covariância das médias ponderadas de salário e da receita considerando o plano amostral verdadeiro <span class="math inline">\(V_{AES}\left(\hat{\theta}\right)\)</span>:</li>
 </ul>
-<pre><code>##         SAL   REC
-## SAL 245,188 3,172
-## REC   3,172 0,401</code></pre>
+
 <ul>
 <li>A matriz <span class="math inline">\(\Delta\)</span> definida em <a href="epa.html#eq:epa6">(4.6)</a></li>
 </ul>
 <p><span class="math inline">\(\Delta = \left[ E_{AES}\left( V_{0}\right)\right]^{-1}V_{AES}(\hat{\theta})\)</span></p>
-<pre><code>##         sal    rec
-## [1,]  0,155 -0,005
-## [2,] -0,817  0,445</code></pre>
-<p>Os autovalores 1 e 1,020202 de <span class="math inline">\(\mathbf{\Delta}\)</span> fornecem os efeitos generalizados do plano amostral.</p>
+
+<p>Os autovalores 1 e 1,02 de <span class="math inline">\(\mathbf{\Delta}\)</span> fornecem os efeitos generalizados do plano amostral.</p>
 Da mesma forma que o <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> definido em <a href="epa.html#eq:epa2">(4.2)</a> para o caso uniparamétrico foi utilizado para corrigir níveis de confiança de intervalos e níveis de significância de testes, o <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})\)</span> definido em <a href="epa.html#eq:epa6">(4.6)</a> pode ser utilizado para corrigir níveis de confiança de regiões de confiança e níveis de significância de testes de hipóteses no caso multiparamétrico. Para ilustrar, vamos considerar o problema de testar a hipótese <span class="math inline">\(H_{0}:\mathbf{\mu }=\mathbf{\mu }_{0}\)</span>, onde <span class="math inline">\(\mathbf{\mu }\)</span> é o vetor de médias de um vetor de variáveis de pesquisa <span class="math inline">\(\mathbf{y}\)</span>. A estatística de teste usualmente adotada para este caso é a <span class="math inline">\(T^{2}\)</span> de Hottelling dada por
 <span class="math display" id="eq:epa11">\[\begin{equation}
 T^{2}=n\left( \mathbf{\bar{y}-\mu }_{0}\right) ^{^{\prime }}\mathbf{S}
@@ -915,26 +907,26 @@ med_pop &lt;-<span class="st"> </span><span class="kw">round</span>(<span class=
 ## Média das estimativas pontuais para as 500 amostras aas
 mean_est_aas &lt;-<span class="st"> </span><span class="kw">round</span>(est_aas<span class="op">/</span><span class="dv">500</span>,<span class="dv">3</span>)
 mean_est_aas</code></pre></div>
-<pre><code>## [1] 163,503   4,171</code></pre>
+<pre><code>## [1] 163,50   4,17</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Média das estimativas pontuais para as 500 amostras aes
 mean_est_aes &lt;-<span class="st"> </span><span class="kw">round</span>(est_aes<span class="op">/</span><span class="dv">500</span>,<span class="dv">3</span>)
 mean_est_aes</code></pre></div>
-<pre><code>##    sal    rec 
-## 78,069  2,062</code></pre>
+<pre><code>##   sal   rec 
+## 78,07  2,06</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Média das estimativas de matriz de covariância para as 500</span>
 <span class="co"># amostras aas</span>
 mean_cov_mat_aas_est &lt;-<span class="st"> </span><span class="kw">round</span>(cov_mat_aas_est<span class="op">/</span><span class="dv">500</span>, <span class="dv">3</span>)
 mean_cov_mat_aas_est</code></pre></div>
-<pre><code>##          [,1]   [,2]
-## [1,] 1719,979 26,780
-## [2,]   26,780  1,207</code></pre>
+<pre><code>##        [,1]  [,2]
+## [1,] 1720,0 26,78
+## [2,]   26,8  1,21</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Média das estimativas de matriz de covariância para as 500</span>
 <span class="co"># amostras aes</span>
 mean_cov_mat_aes_est &lt;-<span class="st"> </span><span class="kw">round</span>(cov_mat_aes_est<span class="op">/</span><span class="dv">500</span>, <span class="dv">3</span>)
 mean_cov_mat_aes_est</code></pre></div>
-<pre><code>##         sal   rec
-## sal 245,188 3,172
-## rec   3,172 0,401</code></pre>
+<pre><code>##        sal   rec
+## sal 245,19 3,172
+## rec   3,17 0,401</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Matriz de covariância populacional
 mat_cov_pop &lt;-<span class="st"> </span><span class="kw">by</span>(popul_dat, popul_dat<span class="op">$</span>estrat, <span class="cf">function</span>(t) <span class="kw">var</span>(<span class="kw">cbind</span>(t<span class="op">$</span>sal, 
   t<span class="op">$</span>rec)))
@@ -974,16 +966,16 @@ amolim.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span><spa
 <li>Vamos estimar, a renda média por raça:</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyby</span>(<span class="op">~</span>renda, <span class="op">~</span>raca, amolim.des, svymean)</code></pre></div>
-<pre><code>##   raca     renda        se
-## 1    1 110405,93 11261,845
-## 2    2  73559,84  8207,357</code></pre>
+<pre><code>##   raca  renda    se
+## 1    1 110406 11262
+## 2    2  73560  8207</code></pre>
 <ul>
 <li>Vamos estimar, a renda média por sexo:</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyby</span>(<span class="op">~</span>renda, <span class="op">~</span>sexo, amolim.des, svymean)</code></pre></div>
-<pre><code>##   sexo     renda        se
-## 1    1 108746,01 11695,974
-## 2    2  40039,39  4042,393</code></pre>
+<pre><code>##   sexo  renda    se
+## 1    1 108746 11696
+## 2    2  40039  4042</code></pre>
 <ul>
 <li>Vamos testar a igualdade de rendas por sexo:</li>
 </ul>
@@ -992,11 +984,11 @@ amolim.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span><spa
 ##  Design-based t-test
 ## 
 ## data:  renda ~ sexo
-## t = -5,9251, df = 23, p-value = 4,855e-06
+## t = -6, df = 20, p-value = 5e-06
 ## alternative hypothesis: true difference in mean is not equal to 0
 ## sample estimates:
 ## difference in mean 
-##          -68706,63</code></pre>
+##             -68707</code></pre>
 <ul>
 <li>Vamos testar a igualdade de rendas por raça:</li>
 </ul>
@@ -1005,11 +997,11 @@ amolim.des&lt;-<span class="kw">svydesign</span>(<span class="dt">id=</span><spa
 ##  Design-based t-test
 ## 
 ## data:  renda ~ raca
-## t = -3,9714, df = 23, p-value = 0,000604
+## t = -4, df = 20, p-value = 6e-04
 ## alternative hypothesis: true difference in mean is not equal to 0
 ## sample estimates:
 ## difference in mean 
-##          -36846,09</code></pre>
+##             -36846</code></pre>
 
 </div>
 </div>

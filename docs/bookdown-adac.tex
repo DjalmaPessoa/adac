@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-12-12}
+  \date{2017-12-13}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -479,20 +479,20 @@ para variáveis selecionadas da PPV - Região Sudeste}
 \toprule
 Parâmetro & Estimativa & Erro.Padrão & EPA\\
 \midrule
-1. & 3,62 & 0,05 & 2,64\\
-2. & 10,70 & 1,15 & 2,97\\
-3. & 1.208.123,00 & 146.681,00 & 3,37\\
-4. & 1.174.220,00 & 127.982,00 & 2,64\\
-5. & 4.792.344,00 & 318.877,00 & 4,17\\
+1. & 3,62e+00 & 5,00e-02 & 2,64\\
+2. & 1,07e+01 & 1,15e+00 & 2,97\\
+3. & 1,21e+06 & 1,47e+05 & 3,37\\
+4. & 1,17e+06 & 1,28e+05 & 2,64\\
+5. & 4,79e+06 & 3,19e+05 & 4,17\\
 \addlinespace
-6. & 11,87 & 1,18 & 2,46\\
-7. & 10,87 & 0,67 & 3,86\\
-8. & 10.817.590,00 & 322.947,00 & 2,02\\
-9. & 10.804.511,00 & 323.182,00 & 3,02\\
-10. & 709.145,00 & 87.363,00 & 2,03\\
+6. & 1,19e+01 & 1,18e+00 & 2,46\\
+7. & 1,09e+01 & 6,70e-01 & 3,86\\
+8. & 1,08e+07 & 3,23e+05 & 2,02\\
+9. & 1,08e+07 & 3,23e+05 & 3,02\\
+10. & 7,09e+05 & 8,74e+04 & 2,03\\
 \addlinespace
-11. & 1,39 & 0,03 & 1,26\\
-12. & 0,53 & 0,01 & 1,99\\
+11. & 1,39e+00 & 3,00e-02 & 1,26\\
+12. & 5,30e-01 & 1,00e-02 & 1,99\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -867,8 +867,8 @@ nas linhas 4 e 5 da Tabela \ref{tab:epas}:
 \end{Shaded}
 
 \begin{verbatim}
-##          total      SE   DEff
-## analf1 1174220  127982 2,0543
+##          total      SE DEff
+## analf1 1174220  127982 2,05
 \end{verbatim}
 
 \begin{Shaded}
@@ -878,8 +878,8 @@ nas linhas 4 e 5 da Tabela \ref{tab:epas}:
 \end{Shaded}
 
 \begin{verbatim}
-##          total      SE   DEff
-## analf2 4792344  318877 3,3237
+##          total      SE DEff
+## analf2 4792344  318877 3,32
 \end{verbatim}
 
 \begin{itemize}
@@ -898,11 +898,11 @@ nas linhas 4 e 5 da Tabela \ref{tab:epas}:
 \begin{verbatim}
 ## Ratio estimator: svyratio.survey.design2(~analf1, ~faixa1, ppv_se_plan)
 ## Ratios=
-##          faixa1
-## analf1 0,118689
+##        faixa1
+## analf1  0,119
 ## SEs=
-##            faixa1
-## analf1 0,01178896
+##        faixa1
+## analf1 0,0118
 \end{verbatim}
 
 \begin{Shaded}
@@ -914,11 +914,11 @@ nas linhas 4 e 5 da Tabela \ref{tab:epas}:
 \begin{verbatim}
 ## Ratio estimator: svyratio.survey.design2(~analf2, ~faixa2, ppv_se_plan)
 ## Ratios=
-##           faixa2
-## analf2 0,1086871
+##        faixa2
+## analf2  0,109
 ## SEs=
-##             faixa2
-## analf2 0,006732254
+##         faixa2
+## analf2 0,00673
 \end{verbatim}
 
 Uma alternativa para obter estimativa por domínios é utilizar a função
@@ -933,9 +933,9 @@ poderíamos estimar os totais da variável \texttt{analf1} para as regiões
 \end{Shaded}
 
 \begin{verbatim}
-##            regiao  analf1       se DEff.analf1
-## Nordeste Nordeste 3512866 352619,5    9,660561
-## Sudeste   Sudeste 1174220 127982,2    2,054345
+##            regiao  analf1     se DEff.analf1
+## Nordeste Nordeste 3512866 352620        9,66
+## Sudeste   Sudeste 1174220 127982        2,05
 \end{verbatim}
 
 Observe que as estimativas de totais e desvios padrão obtidas coincidem
@@ -1003,6 +1003,7 @@ contem os dados e as informações da estrutura do plano amostral.
            \DataTypeTok{taxa_analf1 =} \DecValTok{100}\OperatorTok{*}\KeywordTok{survey_ratio}\NormalTok{(analf1, faixa1),}
            \DataTypeTok{taxa_analf2 =} \DecValTok{100}\OperatorTok{*}\KeywordTok{survey_ratio}\NormalTok{(analf2, faixa2)  }
 \NormalTok{           )}
+\NormalTok{result1}\OperatorTok{$}\NormalTok{regiao <-}\KeywordTok{c}\NormalTok{(}\StringTok{"Nordeste"}\NormalTok{,}\StringTok{"Sudeste"}\NormalTok{)}
 \NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(result1), }\DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{digits =} \DecValTok{1}\NormalTok{,}
              \DataTypeTok{align =} \StringTok{"crrrr"}\NormalTok{, }\DataTypeTok{format.args=} \KeywordTok{list}\NormalTok{(}\DataTypeTok{decimal.mark=}\StringTok{","}\NormalTok{),}
 \DataTypeTok{caption =} \StringTok{"Proporção de analfabetos para faixas etárias 7-14 anos e mais de 14 anos"}\NormalTok{)}
@@ -1017,8 +1018,8 @@ contem os dados e as informações da estrutura do plano amostral.
 \toprule
 regiao & taxa\_analf1 & taxa\_analf1\_se & taxa\_analf2 & taxa\_analf2\_se\\
 \midrule
-NA & 42,3 & 3,1 & 33,6 & 1,6\\
-NA & 11,9 & 1,2 & 10,9 & 0,7\\
+Nordeste & 42,3 & 3,1 & 33,6 & 1,6\\
+Sudeste & 11,9 & 1,2 & 10,9 & 0,7\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1097,17 +1098,10 @@ por exemplo, na investigação da natureza da associação entre variáveis
 Vários exemplos discutidos ao longo dos Capítulos \ref{modreg},
 \ref{testqualajust} e \ref{testetab2} ilustram situações deste tipo. No
 Capítulo \ref{estimacao-de-densidades} o foco vai ser a estimação não
-paramétrica da forma da função \(f(y;\theta)\).
-
-Inferência sob modelos do tipo descrito nesta seção forma o conteúdo de
-um curso introdutório de inferência estatística. Mais detalhes podem ser
-consultados, por exemplo, em XXX CASELLA, G.; BERGER, R.L. Inferência
-Estatística. Cengage CTP, 1ª Edição, 2010. Magalhães, Marcos N. e LIMA,
-A.C.P. de 2015 Noções de Probabilidade e Estatística -- 7ª edição, 3ª
-reimpressão revista, Edusp- Editora da Universidade de São Paulo.
-
-XXX Colocar referências na bibliografia e usar aqui apenas as citações
-XXX
+paramétrica da forma da função \(f(y;\theta)\). Inferência sob modelos
+do tipo descrito nesta seção forma o conteúdo de um curso introdutório
+de inferência estatística. Mais detalhes podem ser consultados, por
+exemplo, em \citep{Casella} e \citep{Marcos}.
 
 \subsection{Abordagem 2 - Amostragem
 Probabilística}\label{abordagem-2---amostragem-probabilistica}
@@ -2798,8 +2792,8 @@ estimativa da variância da razão de totais das variáveis
 \end{Shaded}
 
 \begin{verbatim}
-##      faixa 
-## 0,01178896
+##  faixa 
+## 0,0118
 \end{verbatim}
 
 Podemos calcular diretamente o desvio-padrão:
@@ -2813,16 +2807,16 @@ Podemos calcular diretamente o desvio-padrão:
 \begin{verbatim}
 ## Ratio estimator: svyratio.survey.design2(~analf.faixa, ~faixa, ppv_se_plan)
 ## Ratios=
-##                faixa
-## analf.faixa 0,118689
+##             faixa
+## analf.faixa 0,119
 ## SEs=
-##                  faixa
-## analf.faixa 0,01178896
+##              faixa
+## analf.faixa 0,0118
 \end{verbatim}
 
 A estimativa do desvio-padrão obtida por meio da função
 \texttt{svyratio} coincide com a obtida diretamente pelo método de
-linearização, e é igual a 0,01179. O método default para estimar
+linearização, e é igual a 0,012. O método default para estimar
 variâncias usado pela library \texttt{survey} \citep{R-survey} do R é o
 de linearização de Taylor.
 
@@ -2844,11 +2838,11 @@ correspondentes réplicas de estimativas.
 \begin{verbatim}
 ## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv_se_plan_jkn)
 ## Ratios=
-##                faixa
-## analf.faixa 0,118689
+##             faixa
+## analf.faixa 0,119
 ## SEs=
-##            [,1]
-## [1,] 0,01181434
+##        [,1]
+## [1,] 0,0118
 \end{verbatim}
 
 Para o tipo \emph{Bootstrap}, temos:
@@ -2863,11 +2857,11 @@ Para o tipo \emph{Bootstrap}, temos:
 \begin{verbatim}
 ## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv_se_plan_boot)
 ## Ratios=
-##                faixa
-## analf.faixa 0,118689
+##             faixa
+## analf.faixa 0,119
 ## SEs=
-##            [,1]
-## [1,] 0,01400229
+##         [,1]
+## [1,] 0,00982
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -3001,7 +2995,7 @@ variância:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0,01181
+## [1] 0,0118
 \end{verbatim}
 
 A library \texttt{survey} \citep{R-survey} fornece uma função para
@@ -3016,8 +3010,8 @@ pesos:
 \end{Shaded}
 
 \begin{verbatim}
-##        theta     SE
-## [1,] 0,11869 0,0118
+##      theta   SE
+## [1,] 0,119 0,01
 \end{verbatim}
 
 Resultado que coincide com a estimativa obtida pela aplicação da função
@@ -3038,8 +3032,8 @@ anos e acima de 14 anos podemos usar as mesmas réplicas de pesos:
 \end{Shaded}
 
 \begin{verbatim}
-##        theta     SE
-## [1,] 0,50403 0,0482
+##      theta   SE
+## [1,] 0,504 0,05
 \end{verbatim}
 
 O erro padrão da razão entre razões estimada no exemplo anterior pode
@@ -3064,8 +3058,8 @@ ser estimado por linearização de Taylor, usando-se a função
 \end{Shaded}
 
 \begin{verbatim}
-##            nlcon    SE
-## contrast 0,50403 0,048
+##          nlcon   SE
+## contrast 0,504 0,05
 \end{verbatim}
 
 \chapter{Efeitos do Plano Amostral}\label{epa}
@@ -3555,9 +3549,9 @@ calculados, obtendo-se os valores na primeira linha da Tabela
 \toprule
 Quantidade.de.interesse & Salários & Receitas\\
 \midrule
-Média Populacional & 78,328 & 2,107\\
-Média de estimativas de média AAS & 163,503 & 4,171\\
-Média de estimativas de média AES & 78,069 & 2,062\\
+Média Populacional & 78,3 & 2,11\\
+Média de estimativas de média AAS & 163,5 & 4,17\\
+Média de estimativas de média AES & 78,1 & 2,06\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -3609,10 +3603,10 @@ apresentados respectivamente na primeira e segunda linhas da Tabela
 \toprule
 Quantidade.de.interesse & Salários & Receitas\\
 \midrule
-Variância do estimador AES & 244,176 & 0,435\\
-Média de estimativas de variância AES & 245,188 & 0,401\\
-Valor esperado AES do estimador AAS de variância & 1613,300 & 1,188\\
-Média de estimativas de variância AAS & 1719,979 & 1,207\\
+Variância do estimador AES & 244 & 0,435\\
+Média de estimativas de variância AES & 245 & 0,401\\
+Valor esperado AES do estimador AAS de variância & 1613 & 1,188\\
+Média de estimativas de variância AAS & 1720 & 1,207\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -4077,11 +4071,18 @@ COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
 \(\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w})\) dos
 estimadores ponderados da média fica igual a
 
-\begin{verbatim}
-##         SAL   REC
-## SAL 244,176 3,236
-## REC   3,236 0,435
-\end{verbatim}
+\begin{center}
+
+\begin{tabular}{l|r|r}
+\hline
+  & SAL & REC\\
+\hline
+SAL & 244,18 & 3,236\\
+\hline
+REC & 3,24 & 0,435\\
+\hline
+\end{tabular}
+\end{center}
 
 onde os valores das variâncias em \eqref{eq:epa7} foram os calculados no
 Exemplo \ref{exm:deffuni} e coincidem, respectivamente, com os valores
@@ -4124,11 +4125,18 @@ A partir da simulação foram obtidos os seguintes resultados:
   da receita, assumindo observações IID \(E_{AES}\left(V_{0}\right)\):
 \end{itemize}
 
-\begin{verbatim}
-##          SAL    REC
-## SAL 1719,979 26,780
-## REC   26,780  1,207
-\end{verbatim}
+\begin{center}
+
+\begin{tabular}{l|r|r}
+\hline
+  & SAL & REC\\
+\hline
+SAL & 1720,0 & 26,78\\
+\hline
+REC & 26,8 & 1,21\\
+\hline
+\end{tabular}
+\end{center}
 
 \begin{itemize}
 \tightlist
@@ -4138,11 +4146,18 @@ A partir da simulação foram obtidos os seguintes resultados:
   \(V_{AES}\left(\hat{\theta}\right)\):
 \end{itemize}
 
-\begin{verbatim}
-##         SAL   REC
-## SAL 245,188 3,172
-## REC   3,172 0,401
-\end{verbatim}
+\begin{center}
+
+\begin{tabular}{l|r|r}
+\hline
+  & SAL & REC\\
+\hline
+SAL & 245,19 & 3,172\\
+\hline
+REC & 3,17 & 0,401\\
+\hline
+\end{tabular}
+\end{center}
 
 \begin{itemize}
 \tightlist
@@ -4152,13 +4167,20 @@ A partir da simulação foram obtidos os seguintes resultados:
 
 \(\Delta = \left[ E_{AES}\left( V_{0}\right)\right]^{-1}V_{AES}(\hat{\theta})\)
 
-\begin{verbatim}
-##         sal    rec
-## [1,]  0,155 -0,005
-## [2,] -0,817  0,445
-\end{verbatim}
+\begin{center}
 
-Os autovalores 1 e 1,020202 de \(\mathbf{\Delta}\) fornecem os efeitos
+\begin{tabular}{r|r}
+\hline
+sal & rec\\
+\hline
+0,155 & -0,005\\
+\hline
+-0,817 & 0,445\\
+\hline
+\end{tabular}
+\end{center}
+
+Os autovalores 1 e 1,02 de \(\mathbf{\Delta}\) fornecem os efeitos
 generalizados do plano amostral.
 
 Da mesma forma que o \(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)
@@ -4366,7 +4388,7 @@ e \ref{tab:varest}.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 163,503   4,171
+## [1] 163,50   4,17
 \end{verbatim}
 
 \begin{Shaded}
@@ -4378,8 +4400,8 @@ e \ref{tab:varest}.
 \end{Shaded}
 
 \begin{verbatim}
-##    sal    rec 
-## 78,069  2,062
+##   sal   rec 
+## 78,07  2,06
 \end{verbatim}
 
 \begin{Shaded}
@@ -4392,9 +4414,9 @@ e \ref{tab:varest}.
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]   [,2]
-## [1,] 1719,979 26,780
-## [2,]   26,780  1,207
+##        [,1]  [,2]
+## [1,] 1720,0 26,78
+## [2,]   26,8  1,21
 \end{verbatim}
 
 \begin{Shaded}
@@ -4407,9 +4429,9 @@ e \ref{tab:varest}.
 \end{Shaded}
 
 \begin{verbatim}
-##         sal   rec
-## sal 245,188 3,172
-## rec   3,172 0,401
+##        sal   rec
+## sal 245,19 3,172
+## rec   3,17 0,401
 \end{verbatim}
 
 \begin{Shaded}
@@ -4492,9 +4514,9 @@ utilizar o data frame \texttt{amolim}, contendo dados da
 \end{Shaded}
 
 \begin{verbatim}
-##   raca     renda        se
-## 1    1 110405,93 11261,845
-## 2    2  73559,84  8207,357
+##   raca  renda    se
+## 1    1 110406 11262
+## 2    2  73560  8207
 \end{verbatim}
 
 \begin{itemize}
@@ -4510,9 +4532,9 @@ utilizar o data frame \texttt{amolim}, contendo dados da
 \end{Shaded}
 
 \begin{verbatim}
-##   sexo     renda        se
-## 1    1 108746,01 11695,974
-## 2    2  40039,39  4042,393
+##   sexo  renda    se
+## 1    1 108746 11696
+## 2    2  40039  4042
 \end{verbatim}
 
 \begin{itemize}
@@ -4532,11 +4554,11 @@ utilizar o data frame \texttt{amolim}, contendo dados da
 ##  Design-based t-test
 ## 
 ## data:  renda ~ sexo
-## t = -5,9251, df = 23, p-value = 4,855e-06
+## t = -6, df = 20, p-value = 5e-06
 ## alternative hypothesis: true difference in mean is not equal to 0
 ## sample estimates:
 ## difference in mean 
-##          -68706,63
+##             -68707
 \end{verbatim}
 
 \begin{itemize}
@@ -4556,11 +4578,11 @@ utilizar o data frame \texttt{amolim}, contendo dados da
 ##  Design-based t-test
 ## 
 ## data:  renda ~ raca
-## t = -3,9714, df = 23, p-value = 0,000604
+## t = -4, df = 20, p-value = 6e-04
 ## alternative hypothesis: true difference in mean is not equal to 0
 ## sample estimates:
 ## difference in mean 
-##          -36846,09
+##             -36846
 \end{verbatim}
 
 \chapter{Ajuste de Modelos Paramétricos}\label{ajmodpar}
@@ -6041,11 +6063,11 @@ interações.
 \toprule
 Contraste & gl\_num & gl\_den & Estatística\_F & valor\_p\\
 \midrule
-ht:re & 4 & 616 & 6,743 & 0,000\\
-ht:id & 6 & 616 & 3,545 & 0,002\\
-sx:id & 3 & 616 & 6,996 & 0,000\\
-sx:ht & 2 & 616 & 9,540 & 0,000\\
-ae:ht & 4 & 616 & 4,722 & 0,001\\
+ht:re & 4 & 616 & 6,74 & 0,000\\
+ht:id & 6 & 616 & 3,54 & 0,002\\
+sx:id & 3 & 616 & 7,00 & 0,000\\
+sx:ht & 2 & 616 & 9,54 & 0,000\\
+ae:ht & 4 & 616 & 4,72 & 0,001\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -6437,7 +6459,7 @@ Teste de Wald para a hipótese \(H_0: ht:re=0\)
 ##  in svyglm(formula = informal ~ sx + ae + ht + id + re + sx * id + 
 ##     sx * ht + ae * ht + ht * id + ht * re, design = pnad.des, 
 ##     family = quasibinomial())
-## F =  6,742662  on  4  and  616  df: p= 2,58e-05
+## F =  6,74  on  4  and  616  df: p= 3e-05
 \end{verbatim}
 
 \chapter{Testes de Qualidade de Ajuste}\label{testqualajust}
@@ -6797,11 +6819,11 @@ comparação.
 \toprule
 Estatística & gl & vobs & valorp\\
 \midrule
-Pearson & 1 & 10,00 & 0,0016\\
-Pearson ajustada & 1 & 0,50 & 0,4795\\
-RV & 1 & 10,56 & 0,0012\\
-RV ajustada & 1 & 0,53 & 0,4674\\
-Wald & 1 & 0,60 & 0,4404\\
+Pearson & 1 & 10,00 & 0,002\\
+Pearson ajustada & 1 & 0,50 & 0,480\\
+RV & 1 & 10,56 & 0,001\\
+RV ajustada & 1 & 0,53 & 0,467\\
+Wald & 1 & 0,60 & 0,440\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -7174,11 +7196,11 @@ utilizadas neste exemplo são apresentadas na Tabela \ref{tab:ppcount}.
 \toprule
 idade & prop\_contagem & frequência & prop\_est\_ppv & epa\\
 \midrule
-0-14 & 0,2842 & 2516 & 0,2845 & 2,2862\\
-15-29 & 0,2747 & 2360 & 0,2678 & 2,1867\\
-30-44 & 0,2263 & 2018 & 0,2225 & 2,2542\\
-45-59 & 0,1261 & 1177 & 0,1316 & 1,9906\\
-60+ & 0,0860 & 832 & 0,0935 & 3,1632\\
+0-14 & 0,284 & 2516 & 0,2845 & 2,29\\
+15-29 & 0,275 & 2360 & 0,2678 & 2,19\\
+30-44 & 0,226 & 2018 & 0,2225 & 2,25\\
+45-59 & 0,126 & 1177 & 0,1316 & 1,99\\
+60+ & 0,086 & 832 & 0,0935 & 3,16\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -7199,15 +7221,15 @@ linearização de Taylor descrito na Seção \ref{taylor} através da fórmula
 \hline
   & 0-14 & 15-29 & 30-44 & 45-59 & 60+\\
 \hline
-0-14 & 52,274 & -3,899 & -5,672 & -19,292 & -23,411\\
+0-14 & 52,27 & -3,9 & -5,672 & -19,29 & -23,411\\
 \hline
-15-29 & -3,899 & 48,164 & -29,346 & -3,399 & -11,520\\
+15-29 & -3,90 & 48,2 & -29,346 & -3,40 & -11,520\\
 \hline
-30-44 & -5,672 & -29,346 & 43,799 & -8,226 & -0,556\\
+30-44 & -5,67 & -29,3 & 43,799 & -8,23 & -0,556\\
 \hline
-45-59 & -19,292 & -3,399 & -8,226 & 25,551 & 5,366\\
+45-59 & -19,29 & -3,4 & -8,226 & 25,55 & 5,366\\
 \hline
-60+ & -23,411 & -11,520 & -0,556 & 5,366 & 30,120\\
+60+ & -23,41 & -11,5 & -0,556 & 5,37 & 30,120\\
 \hline
 \end{tabular}
 
@@ -7219,15 +7241,15 @@ resultando em
 
 \begin{tabular}{r|r|r|r|r}
 \hline
-22,850 & -8,855 & -7,224 & -4,025 & -2,745\\
+22,85 & -8,86 & -7,22 & -4,03 & -2,75\\
 \hline
--8,855 & 22,515 & -7,051 & -3,929 & -2,680\\
+-8,86 & 22,52 & -7,05 & -3,93 & -2,68\\
 \hline
--7,224 & -7,051 & 19,666 & -3,205 & -2,186\\
+-7,22 & -7,05 & 19,67 & -3,21 & -2,19\\
 \hline
--4,025 & -3,929 & -3,205 & 12,378 & -1,218\\
+-4,03 & -3,93 & -3,21 & 12,38 & -1,22\\
 \hline
--2,745 & -2,680 & -2,186 & -1,218 & 8,829\\
+-2,75 & -2,68 & -2,19 & -1,22 & 8,83\\
 \hline
 \end{tabular}
 
@@ -7487,11 +7509,11 @@ Exemplo 7.1 pode ser substituído por: Criar variável ITAB (Não aparece)
 \toprule
 idade & mean & SE & deff\\
 \midrule
-0 a 14 anos & 0,2845 & 0,0072 & 2,286\\
-15 a 29 anos & 0,2678 & 0,0069 & 2,187\\
-30 a 44 anos & 0,2225 & 0,0066 & 2,254\\
-45 a 59 anos & 0,1316 & 0,0051 & 1,991\\
-60 anos e mais & 0,0935 & 0,0055 & 3,163\\
+0 a 14 anos & 0,2845 & 0,0072 & 2,29\\
+15 a 29 anos & 0,2678 & 0,0069 & 2,19\\
+30 a 44 anos & 0,2225 & 0,0066 & 2,25\\
+45 a 59 anos & 0,1316 & 0,0051 & 1,99\\
+60 anos e mais & 0,0935 & 0,0055 & 3,16\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -7512,8 +7534,8 @@ Estatística de Wald calculada a partir da fórmula \eqref{eq:qual8}
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]
-## [1,] 5,742022
+##      [,1]
+## [1,] 5,74
 \end{verbatim}
 
 \begin{Shaded}
@@ -7541,8 +7563,8 @@ Estatística de Pearson calculada a partir da fórmula 7.11
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]
-## [1,] 11,50719
+##      [,1]
+## [1,] 11,5
 \end{verbatim}
 
 Cálculo do valor-p:
@@ -8382,9 +8404,9 @@ dadas por:
 \toprule
   & mean & SE & deff\\
 \midrule
-re1 & 0,155 & 68,977 & 2,361\\
-re2 & 0,584 & 82,001 & 1,803\\
-re3 & 0,261 & 96,130 & 3,122\\
+re1 & 0,155 & 69,0 & 2,36\\
+re2 & 0,584 & 82,0 & 1,80\\
+re3 & 0,261 & 96,1 & 3,12\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -8433,9 +8455,9 @@ Tabela de proporções de \texttt{sx} para a população inteira:
 \hline
   & mean & SE & deff\\
 \hline
-sx1 & 0,657 & 55,814 & 0,901\\
+sx1 & 0,657 & 55,8 & 0,901\\
 \hline
-sx2 & 0,343 & 55,814 & 0,901\\
+sx2 & 0,343 & 55,8 & 0,901\\
 \hline
 \end{tabular}
 \end{table}
@@ -8565,9 +8587,9 @@ Definição do objeto de desenho:
 \end{Shaded}
 
 \begin{verbatim}
-##        mean     SE
-## sx1 0,65708 0,0056
-## sx2 0,34292 0,0056
+##      mean   SE
+## sx1 0,657 0,01
+## sx2 0,343 0,01
 \end{verbatim}
 
 \begin{Shaded}
@@ -8577,10 +8599,10 @@ Definição do objeto de desenho:
 \end{Shaded}
 
 \begin{verbatim}
-##        mean     SE
-## re1 0,15546 0,0069
-## re2 0,58356 0,0082
-## re3 0,26098 0,0096
+##      mean   SE
+## re1 0,155 0,01
+## re2 0,584 0,01
+## re3 0,261 0,01
 \end{verbatim}
 
 \begin{Shaded}
@@ -8590,10 +8612,10 @@ Definição do objeto de desenho:
 \end{Shaded}
 
 \begin{verbatim}
-##        mean     SE
-## ae1 0,31304 0,0095
-## ae2 0,31972 0,0071
-## ae3 0,36725 0,0105
+##      mean   SE
+## ae1 0,313 0,01
+## ae2 0,320 0,01
+## ae3 0,367 0,01
 \end{verbatim}
 
 \begin{Shaded}
@@ -8615,8 +8637,8 @@ Definição do objeto de desenho:
 \end{Shaded}
 
 \begin{verbatim}
-##       ht1       ht2       ht3 
-## 0,2103714 0,6148881 0,1747405
+##   ht1   ht2   ht3 
+## 0,210 0,615 0,175
 \end{verbatim}
 
 \begin{Shaded}
@@ -8630,10 +8652,10 @@ Definição do objeto de desenho:
 ## [1] "ht1" "ht2" "ht3"
 ## 
 ## $var
-##               ht1           ht2           ht3
-## ht1  3,666206e-05 -3,322546e-05 -3,436592e-06
-## ht2 -3,322546e-05  6,758652e-05 -3,436106e-05
-## ht3 -3,436592e-06 -3,436106e-05  3,779765e-05
+##           ht1       ht2       ht3
+## ht1  3,67e-05 -3,32e-05 -3,44e-06
+## ht2 -3,32e-05  6,76e-05 -3,44e-05
+## ht3 -3,44e-06 -3,44e-05  3,78e-05
 ## 
 ## $statistic
 ## [1] "mean"
@@ -8649,10 +8671,10 @@ Definição do objeto de desenho:
 \end{Shaded}
 
 \begin{verbatim}
-##               ht1           ht2           ht3
-## ht1  3,666206e-05 -3,322546e-05 -3,436592e-06
-## ht2 -3,322546e-05  6,758652e-05 -3,436106e-05
-## ht3 -3,436592e-06 -3,436106e-05  3,779765e-05
+##           ht1       ht2       ht3
+## ht1  3,67e-05 -3,32e-05 -3,44e-06
+## ht2 -3,32e-05  6,76e-05 -3,44e-05
+## ht3 -3,44e-06 -3,44e-05  3,78e-05
 \end{verbatim}
 
 \begin{Shaded}
@@ -8662,10 +8684,10 @@ Definição do objeto de desenho:
 \end{Shaded}
 
 \begin{verbatim}
-##               ht1           ht2           ht3
-## ht1  3,666206e-05 -3,322546e-05 -3,436592e-06
-## ht2 -3,322546e-05  6,758652e-05 -3,436106e-05
-## ht3 -3,436592e-06 -3,436106e-05  3,779765e-05
+##           ht1       ht2       ht3
+## ht1  3,67e-05 -3,32e-05 -3,44e-06
+## ht2 -3,32e-05  6,76e-05 -3,44e-05
+## ht3 -3,44e-06 -3,44e-05  3,78e-05
 \end{verbatim}
 
 \begin{itemize}
@@ -8703,10 +8725,10 @@ sx & re1 & re2 & re3 & se.re1 & se.re2 & se.re3\\
 \end{Shaded}
 
 \begin{verbatim}
-##          mean        SE   DEff
-## re1 0,1554555 0,0068977 2,3611
-## re2 0,5835630 0,0082001 1,8027
-## re3 0,2609815 0,0096130 3,1216
+##        mean      SE DEff
+## re1 0,15546 0,00690 2,36
+## re2 0,58356 0,00820 1,80
+## re3 0,26098 0,00961 3,12
 \end{verbatim}
 
 \begin{Shaded}
@@ -8729,9 +8751,9 @@ sx & re1 & re2 & re3 & se.re1 & se.re2 & se.re3\\
 \end{Shaded}
 
 \begin{verbatim}
-##   sx       re1       re2       re3      se.re1     se.re2     se.re3
-## 1  1 0,1110831 0,5908215 0,2980955 0,005726888 0,01025759 0,01112131
-## 2  2 0,2404788 0,5696548 0,1898663 0,012502636 0,01193753 0,01114102
+##   sx   re1   re2   re3  se.re1 se.re2 se.re3
+## 1  1 0,111 0,591 0,298 0,00573 0,0103 0,0111
+## 2  2 0,240 0,570 0,190 0,01250 0,0119 0,0111
 \end{verbatim}
 
 \begin{Shaded}
@@ -8741,8 +8763,8 @@ sx & re1 & re2 & re3 & se.re1 & se.re2 & se.re3\\
 \end{Shaded}
 
 \begin{verbatim}
-##                                 mean        SE   DEff
-## I((sx == 1 & re == 1) * 1) 0,0729904 0,0038343 1,4156
+##                               mean      SE DEff
+## I((sx == 1 & re == 1) * 1) 0,07299 0,00383 1,42
 \end{verbatim}
 
 \begin{Shaded}
@@ -8754,9 +8776,9 @@ sx & re1 & re2 & re3 & se.re1 & se.re2 & se.re3\\
 
 \begin{verbatim}
 ##    re
-## sx           1          2          3
-##   1 0,07299044 0,38821684 0,19587250
-##   2 0,08246505 0,19534616 0,06510900
+## sx       1      2      3
+##   1 0,0730 0,3882 0,1959
+##   2 0,0825 0,1953 0,0651
 \end{verbatim}
 
 \begin{Shaded}
@@ -8768,9 +8790,9 @@ sx & re1 & re2 & re3 & se.re1 & se.re2 & se.re3\\
 
 \begin{verbatim}
 ##    re
-## sx          1         2         3
-##   1  7,299044 38,821684 19,587250
-##   2  8,246505 19,534616  6,510900
+## sx      1     2     3
+##   1  7,30 38,82 19,59
+##   2  8,25 19,53  6,51
 \end{verbatim}
 
 \begin{Shaded}
@@ -8785,7 +8807,7 @@ sx & re1 & re2 & re3 & se.re1 & se.re2 & se.re3\\
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1,642161
+## [1] 1,64
 \end{verbatim}
 
 \BeginKnitrBlock{example}
@@ -8812,7 +8834,7 @@ sx & re1 & re2 & re3 & se.re1 & se.re2 & se.re3\\
 ##  Pearson's Chi-squared test
 ## 
 ## data:  tab.amo
-## X-squared = 227,03, df = 2, p-value < 2,2e-16
+## X-squared = 200, df = 2, p-value <2e-16
 \end{verbatim}
 
 \BeginKnitrBlock{remark}
@@ -8856,12 +8878,12 @@ pela library \texttt{survey} \citep{R-survey} com as fórmulas do texto:
 \toprule
 Metodo & Estatistica & Valorp\\
 \midrule
-AASR & 227,025 & 0\\
-AASRPOND & 224,848 & 0\\
-RAO-SCOTT & 224,848 & 0\\
-RAO.SCOTT.F & 108,337 & 0\\
-WALD & 68,410 & 0\\
-ADJWALD & 68,304 & 0\\
+AASR & 227,0 & 0\\
+AASRPOND & 224,8 & 0\\
+RAO-SCOTT & 224,8 & 0\\
+RAO.SCOTT.F & 108,3 & 0\\
+WALD & 68,4 & 0\\
+ADJWALD & 68,3 & 0\\
 \bottomrule
 \end{tabular}
 

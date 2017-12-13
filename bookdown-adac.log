@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  12 DEC 2017 17:14
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  13 DEC 2017 18:11
 entering extended mode
 **./bookdown-adac.tex
 (bookdown-adac.tex
@@ -1110,63 +1110,65 @@ File: Figuras/Figura2.1.png Graphic file (type QTm)
 <use  "Figuras/Figura2.1.png" > [17
 
 ] [18]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 1122
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 1116
 .
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 1122.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 1116.
 
 File: Figuras/Figura2.2.png Graphic file (type QTm)
 <use  "Figuras/Figura2.2.png" > [19] [20]
 File: Figuras/Figura2.3.png Graphic file (type QTm)
-<use  "Figuras/Figura2.3.png" > [21] [22] [23] [24] [25] [26] [27] [28] [29] [3
-0] [31] [32
+<use  "Figuras/Figura2.3.png" > [21]
+Underfull \vbox (badness 2762) has occurred while \output is active []
+
+[22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32
 
 ]
 Cap\'{\i }tulo 3.
 [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44]
 LaTeX Font Info:    Try loading font information for OMS+lmtt on input line 298
-6.
-LaTeX Font Info:    No file OMSlmtt.fd. on input line 2986.
+0.
+LaTeX Font Info:    No file OMSlmtt.fd. on input line 2980.
 
 LaTeX Font Warning: Font shape `OMS/lmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 2986.
+(Font)              for symbol `textbraceleft' on input line 2980.
 
 [45] [46]
 Cap\'{\i }tulo 4.
 [47
 
 ]
-LaTeX Font Info:    Try loading font information for OML+lmr on input line 3258
+LaTeX Font Info:    Try loading font information for OML+lmr on input line 3252
 .
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllmr.fd"
 File: omllmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OML/lmr/m/n' in size <10> not available
-(Font)              Font shape `OML/lmm/m/it' tried instead on input line 3258.
+(Font)              Font shape `OML/lmm/m/it' tried instead on input line 3252.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [48] [49] [50] [51]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 3544
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 3538
 .
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [52] [53]
 File: 04-Cap4_files/figure-latex/epacong-1.pdf Graphic file (type QTm)
 <use  "04-Cap4_files/figure-latex/epacong-1.pdf" > [54] [55]
-Overfull \hbox (37.50438pt too wide) in paragraph at lines 3827--3833
+Overfull \hbox (37.50438pt too wide) in paragraph at lines 3821--3827
 []\TU/lmr/m/n/10 Neste caso, um intervalo de confiança de nível de confiança ap
 roximado $[]$ é dado por $[]$,
  []
 
 [56] [57] [58]
 
-LaTeX Warning: Reference `eq:epa7' on page 59 undefined on input line 4086.
+LaTeX Warning: Reference `eq:epa7' on page 59 undefined on input line 4087.
 
 [59] [60] [61] [62] [63] [64]
 Cap\'{\i }tulo 5.
@@ -1184,7 +1186,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 Cap\'{\i }tulo 7.
 [89] [90] [91] [92] [93] [94] [95] [96] [97] [98]
-Overfull \hbox (4.29082pt too wide) in paragraph at lines 7346--7348
+Overfull \hbox (4.29082pt too wide) in paragraph at lines 7368--7370
 []|\TU/lmr/m/n/10 11,640|  
  []
 
@@ -1193,7 +1195,7 @@ Cap\'{\i }tulo 8.
 [101
 
 ] [102] [103]
-Overfull \hbox (0.59674pt too wide) in paragraph at lines 7862--7868
+Overfull \hbox (0.59674pt too wide) in paragraph at lines 7884--7890
 []\TU/lmr/m/n/10 Designemos por $\OML/lmm/m/it/10 f \OT1/lmr/m/n/10 = \OML/lmm/
 m/it/10 m \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 H$ \TU/lmr/m/n/10 o número tota
 l de graus de liberdade disponível para estimar $[] \OML/lmm/m/it/10 ;$
@@ -1203,8 +1205,8 @@ l de graus de liberdade disponível para estimar $[] \OML/lmm/m/it/10 ;$
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [106] [107] [108] [109] [110] [111] [112] [113]
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 881
-6.
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 883
+8.
 ("C:\Users\owner\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmtt.fd"
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [114] [115] [116
@@ -1240,12 +1242,12 @@ Cap\'{\i }tulo 14.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 10432.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 10454.
 [148]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 10432.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 10454.
 (bookdown-adac.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 10432.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 10432.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 10454.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 10454.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1257,12 +1259,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 23455 strings out of 427918
- 440862 string characters out of 3149834
- 554060 words of memory out of 3000000
- 27071 multiletter control sequences out of 15000+200000
+ 23461 strings out of 427918
+ 440949 string characters out of 3149834
+ 554135 words of memory out of 3000000
+ 27077 multiletter control sequences out of 15000+200000
  25898 words of font info for 55 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
- 41i,21n,68p,10413b,567s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,21n,68p,10413b,565s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on bookdown-adac.pdf (148 pages).

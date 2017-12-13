@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-12-12">
+<meta name="date" content="2017-12-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -569,38 +569,38 @@ Var.raz&lt;-(<span class="dv">1</span><span class="op">/</span>y2hat)<span class
 (<span class="op">-</span>y1hat<span class="op">/</span>y2hat<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>(<span class="op">-</span>y1hat<span class="op">/</span>y2hat<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>Vcov.Y1.Y2[<span class="dv">2</span>,<span class="dv">2</span>]
 <span class="co"># estimativa do desvio-padrão</span>
 <span class="kw">sqrt</span>(Var.raz)</code></pre></div>
-<pre><code>##      faixa 
-## 0,01178896</code></pre>
+<pre><code>##  faixa 
+## 0,0118</code></pre>
 <p>Podemos calcular diretamente o desvio-padrão:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">svyratio</span>(<span class="op">~</span>analf.faixa, <span class="op">~</span>faixa, ppv_se_plan)</code></pre></div>
 <pre><code>## Ratio estimator: svyratio.survey.design2(~analf.faixa, ~faixa, ppv_se_plan)
 ## Ratios=
-##                faixa
-## analf.faixa 0,118689
+##             faixa
+## analf.faixa 0,119
 ## SEs=
-##                  faixa
-## analf.faixa 0,01178896</code></pre>
-<p>A estimativa do desvio-padrão obtida por meio da função <code>svyratio</code> coincide com a obtida diretamente pelo método de linearização, e é igual a 0,01179. O método default para estimar variâncias usado pela library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> do R é o de linearização de Taylor.</p>
+##              faixa
+## analf.faixa 0,0118</code></pre>
+<p>A estimativa do desvio-padrão obtida por meio da função <code>svyratio</code> coincide com a obtida diretamente pelo método de linearização, e é igual a 0,012. O método default para estimar variâncias usado pela library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> do R é o de linearização de Taylor.</p>
 <p>A library <code>survey</code> dispõe de métodos alternativos para a estimação de variância. Vamos utilizar os métodos de replicação de <em>Jackknife</em> e de <em>Bootstrap</em> para estimar esta variância de razão. Inicialmente, vamos converter o objeto de desenho <code>ppv1_se_plan</code> em um objeto de desenho de replicação de tipo <em>Jackknife</em>, contendo as réplicas de pesos que fornecem correspondentes réplicas de estimativas.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv_se_plan_jkn&lt;-<span class="kw">as.svrepdesign</span>(ppv_se_plan,<span class="dt">type=</span><span class="st">&quot;JKn&quot;</span>)
 <span class="kw">svyratio</span>(<span class="op">~</span>analf.faixa, <span class="op">~</span>faixa, ppv_se_plan_jkn)</code></pre></div>
 <pre><code>## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv_se_plan_jkn)
 ## Ratios=
-##                faixa
-## analf.faixa 0,118689
+##             faixa
+## analf.faixa 0,119
 ## SEs=
-##            [,1]
-## [1,] 0,01181434</code></pre>
+##        [,1]
+## [1,] 0,0118</code></pre>
 <p>Para o tipo <em>Bootstrap</em>, temos:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ppv_se_plan_boot&lt;-<span class="kw">as.svrepdesign</span>(ppv_se_plan,<span class="dt">type=</span><span class="st">&quot;bootstrap&quot;</span>)
 <span class="kw">svyratio</span>(<span class="op">~</span>analf.faixa, <span class="op">~</span>faixa, ppv_se_plan_boot)</code></pre></div>
 <pre><code>## Ratio estimator: svyratio.svyrep.design(~analf.faixa, ~faixa, ppv_se_plan_boot)
 ## Ratios=
-##                faixa
-## analf.faixa 0,118689
+##             faixa
+## analf.faixa 0,119
 ## SEs=
-##            [,1]
-## [1,] 0,01379257</code></pre>
+##        [,1]
+## [1,] 0,0114</code></pre>
 <p>Vamos apresentar mais detalhes sobre a obtenção dos estimadores de <em>Jackknife</em> e <em>Bootstrap</em> na library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. A classe do objeto <code>ppv_se_plan_jkn</code> é <code>svyrep.design</code> e ele contém as seguintes componentes:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(ppv_se_plan_jkn)</code></pre></div>
 <pre><code>## [1] &quot;svyrep.design&quot;</code></pre>
@@ -640,19 +640,19 @@ rep_est_raz[i]&lt;-<span class="kw">sum</span>(rep_pesos_mat[,i]<span class="op"
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_raz&lt;-<span class="kw">mean</span>( rep_est_raz[ppv_se_plan_jkn<span class="op">$</span>rscales<span class="op">&gt;</span><span class="dv">0</span>])
 var_jack_raz&lt;-<span class="st"> </span><span class="kw">sum</span>((rep_est_raz<span class="op">-</span>mean_raz)<span class="op">^</span><span class="dv">2</span><span class="op">*</span>ppv_se_plan_jkn<span class="op">$</span>rscales)<span class="op">*</span>ppv_se_plan_jkn<span class="op">$</span>scale
 <span class="kw">round</span>(<span class="kw">sqrt</span>(var_jack_raz),<span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1] 0,01181</code></pre>
+<pre><code>## [1] 0,0118</code></pre>
 <p>A library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> fornece uma função para estimar a variância de uma função de totais a partir das réplicas de pesos:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">var_raz_rep&lt;-<span class="kw">withReplicates</span>(ppv_se_plan_jkn, <span class="cf">function</span>(w,ppv_se_dat) <span class="kw">sum</span>(w<span class="op">*</span>ppv_se_dat<span class="op">$</span>analf.faixa)<span class="op">/</span><span class="kw">sum</span>(w<span class="op">*</span>ppv_se_dat<span class="op">$</span>faixa))
 var_raz_rep </code></pre></div>
-<pre><code>##        theta     SE
-## [1,] 0,11869 0,0118</code></pre>
+<pre><code>##      theta   SE
+## [1,] 0,119 0,01</code></pre>
 <p>Resultado que coincide com a estimativa obtida pela aplicação da função <code>svyratio</code>.</p>
 <p>A vantagem de utilizar métodos de replicação é a facilidade com que estimamos a variância de qualquer característica da população, cujo estimador pontual é conhecido. Por exemplo, se quisermos estimar a variância da razão das taxas de analfabetos nas faixas etárias de 0 a 14 anos e acima de 14 anos podemos usar as mesmas réplicas de pesos:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">withReplicates</span> (ppv_se_plan_jkn,<span class="cf">function</span>(w,ppv_se_dat) <span class="kw">with</span>(ppv_se_dat,
 (<span class="kw">sum</span>(w<span class="op">*</span>(analf<span class="op">==</span><span class="dv">1</span><span class="op">&amp;</span>faixa<span class="op">==</span><span class="dv">1</span>))<span class="op">/</span><span class="kw">sum</span>(w<span class="op">*</span>(faixa<span class="op">==</span><span class="dv">1</span>)))<span class="op">/</span>(<span class="kw">sum</span>(w<span class="op">*</span>(analf<span class="op">==</span><span class="dv">1</span><span class="op">&amp;</span>faixa<span class="op">==</span><span class="dv">0</span>))<span class="op">/</span><span class="kw">sum</span>(w<span class="op">*</span>(faixa<span class="op">==</span><span class="dv">0</span>)))
 ))  </code></pre></div>
-<pre><code>##        theta     SE
-## [1,] 0,50403 0,0482</code></pre>
+<pre><code>##      theta   SE
+## [1,] 0,504 0,05</code></pre>
 <p>O erro padrão da razão entre razões estimada no exemplo anterior pode ser estimado por linearização de Taylor, usando-se a função <code>svycontrast()</code> da library survey:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cria variáveis dummies: </span>
 ppv_se_plan &lt;-<span class="st"> </span><span class="kw">update</span>(ppv_se_plan,
@@ -666,8 +666,8 @@ comp.tot &lt;-<span class="st"> </span><span class="kw">svytotal</span>(<span cl
 
 <span class="co"># estima razão de razões:  </span>
 <span class="kw">svycontrast</span>(comp.tot, <span class="kw">quote</span>((num1<span class="op">/</span>den1)<span class="op">/</span>(num2<span class="op">/</span>den2)))  </code></pre></div>
-<pre><code>##            nlcon    SE
-## contrast 0,50403 0,048</code></pre>
+<pre><code>##          nlcon   SE
+## contrast 0,504 0,05</code></pre>
 
 </div>
 </div>
