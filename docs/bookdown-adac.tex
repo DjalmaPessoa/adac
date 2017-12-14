@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-12-13}
+  \date{2017-12-14}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -2860,8 +2860,8 @@ Para o tipo \emph{Bootstrap}, temos:
 ##             faixa
 ## analf.faixa 0,119
 ## SEs=
-##         [,1]
-## [1,] 0,00982
+##        [,1]
+## [1,] 0,0113
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -4071,18 +4071,11 @@ COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
 \(\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w})\) dos
 estimadores ponderados da média fica igual a
 
-\begin{center}
-
-\begin{tabular}{l|r|r}
-\hline
-  & SAL & REC\\
-\hline
-SAL & 244,18 & 3,236\\
-\hline
-REC & 3,24 & 0,435\\
-\hline
-\end{tabular}
-\end{center}
+\begin{verbatim}
+       SAL   REC
+SAL 244,18 3,236
+REC   3,24 0,435
+\end{verbatim}
 
 onde os valores das variâncias em \eqref{eq:epa7} foram os calculados no
 Exemplo \ref{exm:deffuni} e coincidem, respectivamente, com os valores
@@ -4125,18 +4118,11 @@ A partir da simulação foram obtidos os seguintes resultados:
   da receita, assumindo observações IID \(E_{AES}\left(V_{0}\right)\):
 \end{itemize}
 
-\begin{center}
-
-\begin{tabular}{l|r|r}
-\hline
-  & SAL & REC\\
-\hline
-SAL & 1720,0 & 26,78\\
-\hline
-REC & 26,8 & 1,21\\
-\hline
-\end{tabular}
-\end{center}
+\begin{verbatim}
+       SAL   REC
+SAL 1720,0 26,78
+REC   26,8  1,21
+\end{verbatim}
 
 \begin{itemize}
 \tightlist
@@ -4146,18 +4132,11 @@ REC & 26,8 & 1,21\\
   \(V_{AES}\left(\hat{\theta}\right)\):
 \end{itemize}
 
-\begin{center}
-
-\begin{tabular}{l|r|r}
-\hline
-  & SAL & REC\\
-\hline
-SAL & 245,19 & 3,172\\
-\hline
-REC & 3,17 & 0,401\\
-\hline
-\end{tabular}
-\end{center}
+\begin{verbatim}
+       SAL   REC
+SAL 245,19 3,172
+REC   3,17 0,401
+\end{verbatim}
 
 \begin{itemize}
 \tightlist
@@ -4167,18 +4146,11 @@ REC & 3,17 & 0,401\\
 
 \(\Delta = \left[ E_{AES}\left( V_{0}\right)\right]^{-1}V_{AES}(\hat{\theta})\)
 
-\begin{center}
-
-\begin{tabular}{r|r}
-\hline
-sal & rec\\
-\hline
-0,155 & -0,005\\
-\hline
--0,817 & 0,445\\
-\hline
-\end{tabular}
-\end{center}
+\begin{verbatim}
+        sal      rec
+[1,]  0,155 -0,00509
+[2,] -0,817  0,44506
+\end{verbatim}
 
 Os autovalores 1 e 1,02 de \(\mathbf{\Delta}\) fornecem os efeitos
 generalizados do plano amostral.

@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-12-13">
+<meta name="date" content="2017-12-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -713,10 +713,12 @@ S_{SAL,REC}^{\left( h\right) }=\frac{1}{N_{h}-1}\sum\limits_{i\in
 U_{h}}\left( SAL_{hi}-\overline{SAL}_{h}\right) \left( REC_{hi}-\overline{REC
 }_{h}\right) \;. 
 \]</span></p>
-Substituindo os valores conhecidos na população das variáveis <span class="math inline">\(SAL_{hi}\)</span> e <span class="math inline">\(REC_{hi}\)</span>, obtemos para esta covariância o valor <span class="math display">\[
+<p>Substituindo os valores conhecidos na população das variáveis <span class="math inline">\(SAL_{hi}\)</span> e <span class="math inline">\(REC_{hi}\)</span>, obtemos para esta covariância o valor <span class="math display">\[
 COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
-\]</span> e portanto a matriz de variância <span class="math inline">\(\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w})\)</span> dos estimadores ponderados da média fica igual a
-
+\]</span> e portanto a matriz de variância <span class="math inline">\(\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w})\)</span> dos estimadores ponderados da média fica igual a</p>
+<pre><code>       SAL   REC
+SAL 244,18 3,236
+REC   3,24 0,435</code></pre>
 <p>onde os valores das variâncias em <a href="#eq:epa7">(<strong>??</strong>)</a> foram os calculados no Exemplo <a href="epa.html#exm:deffuni">4.2</a> e coincidem, respectivamente, com os valores usados nos numeradores de <span class="math inline">\(\mathbf{EPA}\left( \overline{SAL}_{w}\right)\)</span> e de <span class="math inline">\(\mathbf{EPA}\left( \overline{REC}_{w}\right)\)</span> lá apresentados. Para calcular o <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})\)</span> é preciso agora obter <span class="math inline">\(\mathbf{E}_{VERD}\left(\mathbf{V}_{0}\right)\)</span>.</p>
 <p>Neste exemplo, a matriz de efeito do plano amostral <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})=\mathbf{\Delta }\)</span> pode também ser calculada através de simulação, de modo análogo ao que foi feito no Exemplo <a href="epa.html#exm:deffuni">4.2</a>. Para isto, foram utilizadas outras <span class="math inline">\(500\)</span> amostras de tamanho <span class="math inline">\(60\)</span> segundo o plano amostral descrito no Exemplo <a href="epa.html#exm:deffuni">4.2</a>. Para cada uma das <span class="math inline">\(500\)</span> amostras foram calculadas estimativas:</p>
 <ol style="list-style-type: decimal">
@@ -729,16 +731,22 @@ COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
 <ul>
 <li>A matriz de covariância das médias amostrais ponderadas de salário e da receita, assumindo observações IID <span class="math inline">\(E_{AES}\left(V_{0}\right)\)</span>:</li>
 </ul>
-
+<pre><code>       SAL   REC
+SAL 1720,0 26,78
+REC   26,8  1,21</code></pre>
 <ul>
 <li>A matriz de covariância das médias ponderadas de salário e da receita considerando o plano amostral verdadeiro <span class="math inline">\(V_{AES}\left(\hat{\theta}\right)\)</span>:</li>
 </ul>
-
+<pre><code>       SAL   REC
+SAL 245,19 3,172
+REC   3,17 0,401</code></pre>
 <ul>
 <li>A matriz <span class="math inline">\(\Delta\)</span> definida em <a href="epa.html#eq:epa6">(4.6)</a></li>
 </ul>
 <p><span class="math inline">\(\Delta = \left[ E_{AES}\left( V_{0}\right)\right]^{-1}V_{AES}(\hat{\theta})\)</span></p>
-
+<pre><code>        sal      rec
+[1,]  0,155 -0,00509
+[2,] -0,817  0,44506</code></pre>
 <p>Os autovalores 1 e 1,02 de <span class="math inline">\(\mathbf{\Delta}\)</span> fornecem os efeitos generalizados do plano amostral.</p>
 Da mesma forma que o <span class="math inline">\(\mathbf{EPA}\left( \hat{\theta},v_{0}\right)\)</span> definido em <a href="epa.html#eq:epa2">(4.2)</a> para o caso uniparamétrico foi utilizado para corrigir níveis de confiança de intervalos e níveis de significância de testes, o <span class="math inline">\(\mathbf{EMPA}(\mathbf{\hat{\theta},V}_{0})\)</span> definido em <a href="epa.html#eq:epa6">(4.6)</a> pode ser utilizado para corrigir níveis de confiança de regiões de confiança e níveis de significância de testes de hipóteses no caso multiparamétrico. Para ilustrar, vamos considerar o problema de testar a hipótese <span class="math inline">\(H_{0}:\mathbf{\mu }=\mathbf{\mu }_{0}\)</span>, onde <span class="math inline">\(\mathbf{\mu }\)</span> é o vetor de médias de um vetor de variáveis de pesquisa <span class="math inline">\(\mathbf{y}\)</span>. A estatística de teste usualmente adotada para este caso é a <span class="math inline">\(T^{2}\)</span> de Hottelling dada por
 <span class="math display" id="eq:epa11">\[\begin{equation}
