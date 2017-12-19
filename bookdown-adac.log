@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  14 DEC 2017 16:29
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210) (preloaded format=xelatex 2017.1.24)  19 DEC 2017 11:43
 entering extended mode
 **./bookdown-adac.tex
 (bookdown-adac.tex
@@ -1252,10 +1252,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 23463 strings out of 427918
- 440987 string characters out of 3149834
- 554170 words of memory out of 3000000
- 27079 multiletter control sequences out of 15000+200000
+ 23469 strings out of 427918
+ 441077 string characters out of 3149834
+ 554231 words of memory out of 3000000
+ 27085 multiletter control sequences out of 15000+200000
  25898 words of font info for 55 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  41i,21n,68p,10413b,567s stack positions out of 5000i,500n,10000p,200000b,50000s
