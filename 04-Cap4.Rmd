@@ -420,26 +420,28 @@ e estimativas desses valores baseadas nas 500 amostras da simulação
 são apresentadas na linha 4 da Tabela  \@ref(tab:varest). Os valores para o 
 $\mathbf{EPA}$ foram calculados tanto com base nas estimativas de simulação como nos valores populacionais das variâncias, cujos cálculos estão ilustrados a seguir:
 
-$\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right)$:
+
+$\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right)=$
 
 ```{r, echo=FALSE}
 cat(paste0(tab_44[2,2],"/",tab_44[4,2],"=", round(tab_44[2,2]/tab_44[4,2],3)))
 ```
 
-$\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)\right)$:
+
+$\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)\right)=$
 
 
 ```{r, echo=FALSE}
 cat(paste0(tab_44[2,3],"/",tab_44[4,3],"=", round(tab_44[2,3]/tab_44[4,3],3)))
 ```
 
-$\mathbf{EPA}\left( \overline{SAL}_{w},v_{0}\left( \overline{SAL}_{w}\right)\right)$:
+$\mathbf{EPA}\left( \overline{SAL}_{w},v_{0}\left( \overline{SAL}_{w}\right)\right)=$
 
 ```{r, echo=FALSE}
 cat(paste0(tab_44[1,2],"/",tab_44[3,2],"=", round(tab_44[1,2]/tab_44[3,2],3)))
 ```
 
-$\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)\right)$
+$\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)\right)=$
 
 ```{r, echo=FALSE}
 cat(paste0(tab_44[1,3],"/",tab_44[3,3],"=", round(tab_44[1,3]/tab_44[3,3],3)))
