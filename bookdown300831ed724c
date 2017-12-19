@@ -1,5 +1,3 @@
-
-
 # Efeitos do Plano Amostral {#epa}
 
 ## Introdução
@@ -48,14 +46,18 @@ distribuição induzida pelo plano amostral complexo (verdadeiro)
 $V_{VERD}\left( \hat{\theta}\right)$ e a variância da distribuição do estimador induzida pelo plano de amostragem aleatória simples 
 $V_{AAS}\left(\hat{\theta}\right)$.
 
-\BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:unnamed-chunk-3"><strong>(\#def:unnamed-chunk-3) </strong></span>O **Efeito do Plano Amostral ($EPA$)**  **de Kish** para um estimador $\hat{\theta}$ é</div>\EndKnitrBlock{definition}
+```{definition}
+O **Efeito do Plano Amostral ($EPA$)**  **de Kish** para um estimador $\hat{\theta}$ é
+``` 
 \begin{equation}
 \mathbf{EPA}_{Kish}\left( \hat{\theta}\right) =\frac{V_{VERD}\left( \hat{\theta}\right) }{V_{AAS}\left( \hat{\theta}\right) }. (\#eq:epa1) \end{equation}
 
 Para ilustrar o conceito do $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$, vamos considerar um exemplo.
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:epakish"><strong>(\#exm:epakish) </strong></span>Efeitos de plano amostral de Kish para estimadores de totais
-com amostragem conglomerada em dois estágios.</div>\EndKnitrBlock{example}
+```{example, label="epakish" }
+Efeitos de plano amostral de Kish para estimadores de totais
+com amostragem conglomerada em dois estágios.
+```
 
 [@SilvaMou] estimaram o $\mathbf{EPA}_{Kish}$ para
 estimadores de totais de várias variáveis sócio-econômicas
@@ -201,7 +203,9 @@ complicado obter esta distribuição, vamos tomar uma medida de centro ou locaç
 Podemos desta forma introduzir uma medida de efeito da especificação
 incorreta do plano amostral (ou do modelo) sobre a estimativa $v_{0}$ da variância do estimador $\hat{\theta}$.
 
-\BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:unnamed-chunk-4"><strong>(\#def:unnamed-chunk-4) </strong></span>O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa $v_{0}$ da variância do estimador $\hat{\theta}$ é </div>\EndKnitrBlock{definition}
+```{definition}
+O efeito da especificação incorreta do plano amostral (ou do modelo) sobre a estimativa $v_{0}$ da variância do estimador $\hat{\theta}$ é 
+```
 
 \begin{equation}
 \mathbf{EPA}\left( \hat{\theta},v_{0}\right) =\frac{V_{VERD}\left(\hat{
@@ -240,9 +244,11 @@ razão, é recomendável ao menos estimar os EPAs antes de concluir
 a análise padrão, para poder então avaliar se há impactos
 importantes a considerar.
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:deffuni"><strong>(\#exm:deffuni) </strong></span>Efeitos de plano amostral para estimação de
+```{example, label = "deffuni"}
+Efeitos de plano amostral para estimação de
 médias na amostragem estratificada simples com alocação
-desproporcional</div>\EndKnitrBlock{example}
+desproporcional
+```
 
 Neste exemplo consideramos uma população de $N=749$ empresas, para
 as quais foram observadas as seguintes variáveis:
@@ -346,22 +352,19 @@ foram expressos em milhares de Reais (R\$ $1.000,00$) e os valores das
 receitas em milhões de Reais (R\$ $1.000.000,00$). Como a população é conhecida, os parâmetros populacionais de interesse podem
 ser calculados, obtendo-se os valores na primeira linha da Tabela \@ref(tab:proestmed).
 
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+source("Lab4a.R")
+```
 
-
-\begin{table}
-
-\caption{(\#tab:proestmed)Propriedades dos estimadores da média das variáveis de pesquisa}
-\centering
-\begin{tabular}[t]{lrr}
-\toprule
-Quantidade.de.interesse & Salários & Receitas\\
-\midrule
-Média Populacional & 78,3 & 2,11\\
-Média de estimativas de média AAS & 163,5 & 4,17\\
-Média de estimativas de média AES & 78,1 & 2,06\\
-\bottomrule
-\end{tabular}
-\end{table}
+```{r proestmed, echo=FALSE}
+tab_43 <- data.frame(
+"Quantidade de interesse" = c("Média Populacional", "Média de estimativas de média AAS",
+  "Média de estimativas de média AES"),
+Salários = c(med_pop[1], mean_est_aas[1], mean_est_aes[1] ),
+Receitas = c(med_pop[2], mean_est_aas[2], mean_est_aes[2] )  
+)
+knitr::kable(tab_43, booktabs=TRUE, caption = "Propriedades dos estimadores da média das variáveis de pesquisa" )    
+```
 
 
 
@@ -400,21 +403,14 @@ calcular $V_{AES}\left(\bar{y}_{w}\right)$ através das
 variâncias de $y$ dentro dos estratos $h=1,2$ ou através da simulação. Esses valores são apresentados respectivamente na primeira e
 segunda linhas da Tabela \@ref(tab:varest), para as duas variáveis de pesquisa consideradas.
 
-\begin{table}
-
-\caption{(\#tab:varest)Propriedades dos estimadores de variância do estimador ponderado da média}
-\centering
-\begin{tabular}[t]{lrr}
-\toprule
-Quantidade.de.interesse & Salários & Receitas\\
-\midrule
-Variância do estimador AES & 244 & 0,435\\
-Média de estimativas de variância AES & 245 & 0,401\\
-Valor esperado AES do estimador AAS de variância & 1613 & 1,188\\
-Média de estimativas de variância AAS & 1720 & 1,207\\
-\bottomrule
-\end{tabular}
-\end{table}
+```{r varest, echo=FALSE}
+tab_44 <- data.frame(
+"Quantidade de interesse" = c("Variância do estimador AES", "Média de estimativas de variância AES", "Valor esperado AES do estimador AAS de variância","Média de estimativas de variância AAS"),
+Salários= c(mat_cov_aleat_verd[1,1], mean_cov_mat_aes_est[1,1], 1613.3 , mean_cov_mat_aas_est[1,1]),
+Receitas = c(mat_cov_aleat_verd[2,2], mean_cov_mat_aes_est[2,2], 1.1880, mean_cov_mat_aas_est[2,2])  
+ )
+knitr::kable(tab_44, booktabs= TRUE, caption = "Propriedades dos estimadores de variância do estimador ponderado da média")
+```
 
 Os valores de $E_{VERD}\left( v_{0}\left( \overline{SAL}_{w}\right) \right)$
 e de $E_{VERD}\left( v_{0}\left( \overline{REC}_{w}\right) \right)$ foram
@@ -427,32 +423,28 @@ $\mathbf{EPA}$ foram calculados tanto com base nas estimativas de simulação co
 
 $\mathbf{EPA}\left(\overline{SAL}_{w},v_{0}\left(\overline{SAL}_{w}\right)\right)=$
 
-
-```
-## 245,188/1719,979=0,143
+```{r, echo=FALSE}
+cat(paste0(tab_44[2,2],"/",tab_44[4,2],"=", round(tab_44[2,2]/tab_44[4,2],3)))
 ```
 
 
 $\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)\right)=$
 
 
-
-```
-## 0,401/1,207=0,332
+```{r, echo=FALSE}
+cat(paste0(tab_44[2,3],"/",tab_44[4,3],"=", round(tab_44[2,3]/tab_44[4,3],3)))
 ```
 
 $\mathbf{EPA}\left( \overline{SAL}_{w},v_{0}\left( \overline{SAL}_{w}\right)\right)=$
 
-
-```
-## 244,176/1613,3=0,151
+```{r, echo=FALSE}
+cat(paste0(tab_44[1,2],"/",tab_44[3,2],"=", round(tab_44[1,2]/tab_44[3,2],3)))
 ```
 
 $\mathbf{EPA}\left( \overline{REC}_{w},v_{0}\left( \overline{REC}_{w}\right)\right)=$
 
-
-```
-## 0,435/1,188=0,366
+```{r, echo=FALSE}
+cat(paste0(tab_44[1,3],"/",tab_44[3,3],"=", round(tab_44[1,3]/tab_44[3,3],3)))
 ```
 
 
@@ -483,33 +475,31 @@ situação se deve ao uso ingênuo de pacotes estatísticos
 padrões desenvolvidos para analisar amostras IID, sem a devida consideração dos pesos e plano amostral.
 
 
-\begin{table}
-
-\caption{(\#tab:eparec)Valores dos Efeitos de Plano amostral(EPA) para as médias de Salário e Receita.}
-\centering
-\begin{tabular}[t]{llrr}
-\toprule
-Variável & Estimativa & Simulação & População\\
-\midrule
-Salário & Variância & 245,188 & 244,176\\
-Salário & EPA & 0,143 & 0,151\\
-Receita & Variância & 0,401 & 0,435\\
-Receita & EPA & 0,332 & 0,360\\
-\bottomrule
-\end{tabular}
-\end{table}
+```{r eparec, echo=FALSE}
+epa_df <- data.frame(
+Variável = c("Salário", "Salário", "Receita", "Receita"),
+Estimativa= c("Variância", "EPA", "Variância", "EPA"),
+Simulação =c(tab_44[2,2], tab_44[2,2]/tab_44[4,2] ,tab_44[2,3], tab_44[2,3]/tab_44[4,3]),  
+População=c(tab_44[1,2], tab_44[1,2]/tab_44[3,2] ,tab_44[1,3], tab_44[1,3]/tab_44[4,3])
+)
+knitr::kable(epa_df ,booktabs=TRUE, digits = c(0,0,3,3), caption = "Valores dos Efeitos de Plano amostral(EPA) para as médias de Salário e Receita." )
+```
 
 
                   
-\BeginKnitrBlock{remark}<div class="remark">\iffalse{} <span class="remark"><em>Observação. </em></span>  \fi{}Neste exemplo não foi feito uso analítico dos dados e sim
+```{remark} 
+Neste exemplo não foi feito uso analítico dos dados e sim
 descritivo, onde é usual incorporar os pesos no cálculo de
 estimativas e variâncias.
 Não seria esperado usar um estimador ponderado para a média e
 não considerar os pesos no cálculo de variâncias, como fizemos
-neste exemplo.</div>\EndKnitrBlock{remark}
+neste exemplo.
+```
 
-\BeginKnitrBlock{remark}<div class="remark">\iffalse{} <span class="remark"><em>Observação. </em></span>  \fi{}O exemplo mostra que ignorar a estratificação ao calcular $v_{0}$
-diminui o $\mathbf{EPA}$.</div>\EndKnitrBlock{remark}
+```{remark}
+O exemplo mostra que ignorar a estratificação ao calcular $v_{0}$
+diminui o $\mathbf{EPA}$.
+```
 
 Um outro exemplo relevante é utilizado a seguir para ilustrar o fato de
 que o conceito do $\mathbf{EPA}$ adotado aqui é mais abrangente do que o
@@ -517,8 +507,10 @@ definido por Kish, em particular porque a origem do efeito pode estar na
 estrutura da população e não no plano amostral usado para obter
 os dados.
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:exe43"><strong>(\#exm:exe43) </strong></span>População conglomerada com conglomerados de tamanho 2 
-[@SHS89], p. 25</div>\EndKnitrBlock{example}
+```{example, label= "exe43"}
+População conglomerada com conglomerados de tamanho 2 
+[@SHS89], p. 25
+```
 
 Considere uma população de conglomerados de tamanho 2, isto é,
 onde as unidades (elementares ou de referência) estão grupadas em
@@ -581,7 +573,15 @@ e
 A Figura \@ref(fig:epacong) plota os valores de $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$ e $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ para valores de $\rho$ entre $0$ e $0,8$. Como se pode notar, o efeito da especificação inadequada do plano amostral ou da estrutura populacional pode ser severo, com valores de $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$ chegando a $9$. Um aspecto importante a notar é que o $\mathbf{EPA}_{Kish}\left( \hat{\theta}\right)$ tem variação muito mais modesta que o $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$.
 
 
-![(\#fig:epacong)Valores de EPA e EPA de Kish para conglomeração](04-Cap4_files/figure-latex/epacong-1.pdf) 
+```{r epacong, echo=FALSE,fig.cap ="Valores de EPA e EPA de Kish para conglomeração"}
+ro <- seq(0, 1, by =0.01)
+epa <- (1+ro)/(1-ro)
+epak <- 1+ro
+plot(ro, epa, ylim = c(0,10) ,type="l", xlab = expression(italic(rho)),
+  ylab = expression(italic(EPA)))
+lines(ro, epak, lty= 2 )
+legend("topleft", c("EPA", "EPA_KISH"), lty= c(1,2))
+```
 
 
 Este exemplo ilustra bem dois aspectos distintos do uso de medidas como o
@@ -691,7 +691,9 @@ significância nominais e reais subtraindo de $1$ os valores da Tabela
 \@ref(tab:procob). Por exemplo, para $\alpha =0,05$ e $\mathbf{EPA}\left( \hat{\theta},v_{0}\right) =2$, o nível de significância real seria
 aproximadamente $1-0,83=0,17$.
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:exebin"><strong>(\#exm:exebin) </strong></span>Teste de hipótese sobre proporção</div>\EndKnitrBlock{example}
+```{example, label= "exebin"}
+Teste de hipótese sobre proporção
+```
 Vamos considerar um exemplo hipotético de teste de hipótese sobre
 uma proporção, semelhante ao de [@Sud76], apresentado em
 p. 196, [@lethonen]. Uma amostra de $m=50$ conglomerados
@@ -813,8 +815,10 @@ estratificada desproporcional anteriormente apresentado, mas agora
 considerando a natureza multivariada do problema (há duas variáveis
 de pesquisa).
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:deffmult"><strong>(\#exm:deffmult) </strong></span>Efeitos Multivariados do Plano Amostral para as médias
-de Salários e de Receitas</div>\EndKnitrBlock{example}
+```{example , label="deffmult"}
+Efeitos Multivariados do Plano Amostral para as médias
+de Salários e de Receitas
+```
 
 Vamos considerar as variáveis Salário (em R\$ $1.000$) e Receita (em
 R\$ $1.000.000$) definidas na população de empresas do Exemplo 
@@ -839,11 +843,9 @@ COV_{AES}(\overline{SAL}_{w},\overline{REC}_{w}\mathbf{)=\;}3.2358
 \]
 e portanto a matriz de variância $\mathbf{V}_{AES}(\overline{SAL}_{w},\overline{REC}_{w})$ dos estimadores ponderados da média fica igual a
 
-
-```
-       SAL   REC
-SAL 244,18 3,236
-REC   3,24 0,435
+```{r, echo=FALSE, comment=NA }
+dimnames(mat_cov_aleat_verd)<- list(c("SAL", "REC"),c("SAL", "REC"))
+mat_cov_aleat_verd
 ```
 
 
@@ -879,22 +881,18 @@ A partir da simulação foram obtidos os seguintes resultados:
 - A matriz de covariância das médias amostrais ponderadas de salário e da receita, assumindo observações IID  $E_{AES}\left(V_{0}\right)$: 
 
 
-
-```
-       SAL   REC
-SAL 1720,0 26,78
-REC   26,8  1,21
+```{r, echo=FALSE, comment=NA}
+dimnames(mean_cov_mat_aas_est)<- list(c("SAL", "REC"),c("SAL", "REC"))
+mean_cov_mat_aas_est
 ```
 
 
 - A matriz de covariância das médias ponderadas de salário e da receita considerando o plano amostral verdadeiro $V_{AES}\left(\hat{\theta}\right)$:
 
 
-
-```
-       SAL   REC
-SAL 245,19 3,172
-REC   3,17 0,401
+```{r, echo=FALSE, comment=NA}
+dimnames(mean_cov_mat_aes_est) <- list(c("SAL", "REC"),c("SAL", "REC"))
+mean_cov_mat_aes_est
 ```
 
 
@@ -904,15 +902,12 @@ REC   3,17 0,401
  $\Delta = \left[ E_{AES}\left( V_{0}\right)\right]^{-1}V_{AES}(\hat{\theta})$ 
 
 
-
-```
-        sal      rec
-[1,]  0,155 -0,00509
-[2,] -0,817  0,44506
+```{r, echo=FALSE, comment=NA}
+DELTA
 ```
 
 
-Os autovalores 1 e 1,02 de 
+Os autovalores `r epa[1]` e `r epa[2]` de 
 $\mathbf{\Delta}$ fornecem os efeitos generalizados do plano amostral.
 
 Da mesma forma que o $\mathbf{EPA}\left( \hat{\theta},v_{0}\right)$
@@ -1024,7 +1019,21 @@ $RC_{AAS}\left(\mathbf{\bar{y}}\right)$, considerando-se $\delta_{1}$ no lugar d
 Table:(#tab:nivsig) Níveis de significância (%) verdadeiros do teste T2 para o nível nominal
 de 5% assumindo autovalores iguais a $\delta$.
 
-
+```{r nivsig, echo=FALSE,eval=FALSE}
+K <- 1:4
+delta <- c(.9, seq(1, 3, by=.5))
+qsup <- qchisq(.95, c(1:4))
+mat.res <- matrix(NA, length(delta), length(K))
+for(i in 1:length(delta)){
+mat.res[i,] <- round(pchisq(qsup/delta[i], K, lower.tail = FALSE)*100, 0)
+}
+mat.res <- cbind(delta, mat.res)
+df.res <- as.data.frame (mat.res)
+names(df.res)<- c("delta", "K=1","K=2", "K=3", "K=4")
+knitr::kable(df.res, booktabs=TRUE, 
+caption="Níveis de significância (%) verdadeiros do teste T2 para o nível nominal
+de 5% assumindo autovalores iguais a delta.")
+```
 
 ## Laboratório de R
 
@@ -1032,150 +1041,24 @@ Utilizando o R, obtemos a seguir alguns resultados descritos nos Exemplos \@ref(
 e \@ref(tab:varest).
 
 
-
-```r
-# carrega library
-library(survey)
-# carrega dados
-library(anamco)
-popul_dat <- popul
-N <- nrow(popul_dat)
-n1 <- 30
-n2 <- 30
-nh = c(n1, n2)
-n <- sum(nh)
-Nh <- table(popul_dat$estrat)
-fh <- nh/Nh
-Wh <- Nh/N
-f <- n/N
-popul_dat$sal <- popul_dat$sal/1000
-popul_dat$rec <- popul_dat$rec/1e+06
-library(sampling)
-# define espaços para salvar resultados
-est_aas <- c(0, 0)
-est_aes <- c(0, 0)
-cov_mat_aas_est <- matrix(0, 2, 2)
-cov_mat_aes_est <- matrix(0, 2, 2)
-set.seed(123)
-# gera amostras com dois estratos de tamanho 30
-for (i in 1:500) {
-  s <- strata(popul_dat, "estrat", c(30, 30), method = "srswor")
-  dados <- getdata(popul_dat, s)
-  # média amostral de salário e de receita
-  est_aas <- est_aas + c(mean(dados$sal), mean(dados$rec))
-  # estimador v0
-  cov_mat_aas_est <- cov_mat_aas_est + (1 - f) * cov(cbind(dados$sal, 
-    dados$rec))/n
-  
-  # vhat_aes estimador não-viciado
-  popul_plan <- svydesign(~1, strata = ~estrat, data = dados, 
-    fpc = ~Prob)
-  # estimador não-viciado da média de salario e receita
-  sal_rec_aes_est <- svymean(~sal + rec, popul_plan)
-  est_aes <- est_aes + coef(sal_rec_aes_est)
-  cov_mat_aes_est <- cov_mat_aes_est + attr(sal_rec_aes_est, 
-    "var")
-}
-
-# média populacional
-
-med_pop <- round(c(mean(popul_dat$sal), mean(popul_dat$rec)),3)
-
-
-# Calcula médias das estimativas na simulação
-
-## Média das estimativas pontuais para as 500 amostras aas
-mean_est_aas <- round(est_aas/500,3)
-mean_est_aas
+```{r, code=readLines('Lab4a.R', encoding= "UTF-8")}
 ```
 
+```{example, label="eqmean" }
+Teste da igualdade de médias para duas populações
 ```
-## [1] 163,50   4,17
-```
-
-```r
-## Média das estimativas pontuais para as 500 amostras aes
-mean_est_aes <- round(est_aes/500,3)
-mean_est_aes
-```
-
-```
-##   sal   rec 
-## 78,07  2,06
-```
-
-```r
-# Média das estimativas de matriz de covariância para as 500
-# amostras aas
-mean_cov_mat_aas_est <- round(cov_mat_aas_est/500, 3)
-mean_cov_mat_aas_est
-```
-
-```
-##        [,1]  [,2]
-## [1,] 1720,0 26,78
-## [2,]   26,8  1,21
-```
-
-```r
-# Média das estimativas de matriz de covariância para as 500
-# amostras aes
-mean_cov_mat_aes_est <- round(cov_mat_aes_est/500, 3)
-mean_cov_mat_aes_est
-```
-
-```
-##        sal   rec
-## sal 245,19 3,172
-## rec   3,17 0,401
-```
-
-```r
-## Matriz de covariância populacional
-mat_cov_pop <- by(popul_dat, popul_dat$estrat, function(t) var(cbind(t$sal, 
-  t$rec)))
- 
-
-
-## Matriz de covariância considerando o plano amostral
-## verdadeiro
-mat_cov_aleat_verd <- (Wh[1]^2 * (1 - fh[1])/nh[1]) * mat_cov_pop[[1]] + 
-  (Wh[2]^2 * (1 - fh[2])/nh[2]) * mat_cov_pop[[2]]
-mat_cov_aleat_verd <- round(mat_cov_aleat_verd,3)
-
-
-## estimativa de efeitos generalizados do plano amostral
-DELTA = solve(mean_cov_mat_aas_est) %*% mean_cov_mat_aes_est
-epa <-round(eigen(DELTA)$values,3)
-```
-
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eqmean"><strong>(\#exm:eqmean) </strong></span>Teste da igualdade de médias para duas populações</div>\EndKnitrBlock{example}
 
 Para exemplificar o material descrito na Seção \@ref(icth), vamos utilizar o data frame `amolim`, contendo dados da `Amostra do Censo Experimental de Limeira`.
 
-
-```r
+```{r}
 # carregar dados
 library(anamco)
 dim(amolim)
-```
-
-```
-## [1] 706  14
-```
-
-```r
 names(amolim)
-```
-
-```
-##  [1] "setor"  "np"     "domic"  "sexo"   "renda"  "lrenda" "raca"  
-##  [8] "estudo" "idade"  "na"     "peso"   "domtot" "peso1"  "pesof"
 ```
 - Objeto de desenho para os dados da Amostra de Limeira:
 
-
-```r
+```{r}
 library(survey)
 amolim.des<-svydesign(id=~setor+domic, weights=~pesof,
   data=amolim)
@@ -1183,68 +1066,26 @@ amolim.des<-svydesign(id=~setor+domic, weights=~pesof,
 
 - Vamos estimar, a renda média por raça:
 
-
-```r
+```{r}
 svyby(~renda, ~raca, amolim.des, svymean)
-```
-
-```
-##   raca  renda    se
-## 1    1 110406 11262
-## 2    2  73560  8207
 ```
 
 - Vamos estimar, a renda média por sexo:
 
-
-```r
+```{r}
 svyby(~renda, ~sexo, amolim.des, svymean)
-```
-
-```
-##   sexo  renda    se
-## 1    1 108746 11696
-## 2    2  40039  4042
 ```
 - Vamos testar a igualdade de rendas por sexo:
 
-
-```r
+```{r}
 svyttest(renda ~ sexo, amolim.des)
-```
-
-```
-## 
-## 	Design-based t-test
-## 
-## data:  renda ~ sexo
-## t = -6, df = 20, p-value = 5e-06
-## alternative hypothesis: true difference in mean is not equal to 0
-## sample estimates:
-## difference in mean 
-##             -68707
 ```
 
 - Vamos testar a igualdade de rendas por raça:
 
-
-```r
+```{r}
 svyttest(renda ~ raca, amolim.des)
 ```
-
-```
-## 
-## 	Design-based t-test
-## 
-## data:  renda ~ raca
-## t = -4, df = 20, p-value = 6e-04
-## alternative hypothesis: true difference in mean is not equal to 0
-## sample estimates:
-## difference in mean 
-##             -36846
-```
-
-
 
 
 

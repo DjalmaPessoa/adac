@@ -1,3 +1,8 @@
+```{r include=FALSE, cache=FALSE}
+op <- options() # para guardar as opções originais
+options(OutDec=",") # muda separador decimal para ","
+options(digits=3)
+```
 # Efeitos do Plano Amostral {#epa}
 
 ## Introdução
@@ -1091,3 +1096,6 @@ svyttest(renda ~ raca, amolim.des)
 
 
 
+```{r include=FALSE, cache=FALSE}
+options(op)
+```
