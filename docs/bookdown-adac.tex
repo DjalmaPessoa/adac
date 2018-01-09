@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-12-19}
+  \date{2018-01-09}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -479,20 +479,20 @@ para variáveis selecionadas da PPV - Região Sudeste}
 \toprule
 Parâmetro & Estimativa & Erro.Padrão & EPA\\
 \midrule
-1. & 3,62e+00 & 5,00e-02 & 2,64\\
-2. & 1,07e+01 & 1,15e+00 & 2,97\\
-3. & 1,21e+06 & 1,47e+05 & 3,37\\
-4. & 1,17e+06 & 1,28e+05 & 2,64\\
-5. & 4,79e+06 & 3,19e+05 & 4,17\\
+1. & 3,62 & 0,05 & 2,64\\
+2. & 10,70 & 1,15 & 2,97\\
+3. & 1.208.123,00 & 146.681,00 & 3,37\\
+4. & 1.174.220,00 & 127.982,00 & 2,64\\
+5. & 4.792.344,00 & 318.877,00 & 4,17\\
 \addlinespace
-6. & 1,19e+01 & 1,18e+00 & 2,46\\
-7. & 1,09e+01 & 6,70e-01 & 3,86\\
-8. & 1,08e+07 & 3,23e+05 & 2,02\\
-9. & 1,08e+07 & 3,23e+05 & 3,02\\
-10. & 7,09e+05 & 8,74e+04 & 2,03\\
+6. & 11,87 & 1,18 & 2,46\\
+7. & 10,87 & 0,67 & 3,86\\
+8. & 10.817.590,00 & 322.947,00 & 2,02\\
+9. & 10.804.511,00 & 323.182,00 & 3,02\\
+10. & 709.145,00 & 87.363,00 & 2,03\\
 \addlinespace
-11. & 1,39e+00 & 3,00e-02 & 1,26\\
-12. & 5,30e-01 & 1,00e-02 & 1,99\\
+11. & 1,39 & 0,03 & 1,26\\
+12. & 0,53 & 0,01 & 1,99\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -2861,7 +2861,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0,119
 ## SEs=
 ##        [,1]
-## [1,] 0,0139
+## [1,] 0,0129
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
@@ -4526,7 +4526,7 @@ utilizar o data frame \texttt{amolim}, contendo dados da
 ##  Design-based t-test
 ## 
 ## data:  renda ~ sexo
-## t = -6, df = 20, p-value = 5e-06
+## t = -6, df = 20, p-value = 0,000005
 ## alternative hypothesis: true difference in mean is not equal to 0
 ## sample estimates:
 ## difference in mean 
@@ -4550,7 +4550,7 @@ utilizar o data frame \texttt{amolim}, contendo dados da
 ##  Design-based t-test
 ## 
 ## data:  renda ~ raca
-## t = -4, df = 20, p-value = 6e-04
+## t = -4, df = 20, p-value = 0,0006
 ## alternative hypothesis: true difference in mean is not equal to 0
 ## sample estimates:
 ## difference in mean 
@@ -6431,7 +6431,7 @@ Teste de Wald para a hipótese \(H_0: ht:re=0\)
 ##  in svyglm(formula = informal ~ sx + ae + ht + id + re + sx * id + 
 ##     sx * ht + ae * ht + ht * id + ht * re, design = pnad.des, 
 ##     family = quasibinomial())
-## F =  6,74  on  4  and  616  df: p= 3e-05
+## F =  6,74  on  4  and  616  df: p= 0,00003
 \end{verbatim}
 
 \chapter{Testes de Qualidade de Ajuste}\label{testqualajust}
@@ -8624,10 +8624,10 @@ Definição do objeto de desenho:
 ## [1] "ht1" "ht2" "ht3"
 ## 
 ## $var
-##           ht1       ht2       ht3
-## ht1  3,67e-05 -3,32e-05 -3,44e-06
-## ht2 -3,32e-05  6,76e-05 -3,44e-05
-## ht3 -3,44e-06 -3,44e-05  3,78e-05
+##             ht1        ht2         ht3
+## ht1  0,00003666 -0,0000332 -0,00000344
+## ht2 -0,00003323  0,0000676 -0,00003436
+## ht3 -0,00000344 -0,0000344  0,00003780
 ## 
 ## $statistic
 ## [1] "mean"
@@ -8643,10 +8643,10 @@ Definição do objeto de desenho:
 \end{Shaded}
 
 \begin{verbatim}
-##           ht1       ht2       ht3
-## ht1  3,67e-05 -3,32e-05 -3,44e-06
-## ht2 -3,32e-05  6,76e-05 -3,44e-05
-## ht3 -3,44e-06 -3,44e-05  3,78e-05
+##             ht1        ht2         ht3
+## ht1  0,00003666 -0,0000332 -0,00000344
+## ht2 -0,00003323  0,0000676 -0,00003436
+## ht3 -0,00000344 -0,0000344  0,00003780
 \end{verbatim}
 
 \begin{Shaded}
@@ -8656,10 +8656,10 @@ Definição do objeto de desenho:
 \end{Shaded}
 
 \begin{verbatim}
-##           ht1       ht2       ht3
-## ht1  3,67e-05 -3,32e-05 -3,44e-06
-## ht2 -3,32e-05  6,76e-05 -3,44e-05
-## ht3 -3,44e-06 -3,44e-05  3,78e-05
+##             ht1        ht2         ht3
+## ht1  0,00003666 -0,0000332 -0,00000344
+## ht2 -0,00003323  0,0000676 -0,00003436
+## ht3 -0,00000344 -0,0000344  0,00003780
 \end{verbatim}
 
 \begin{itemize}
@@ -8806,7 +8806,7 @@ sx & re1 & re2 & re3 & se.re1 & se.re2 & se.re3\\
 ##  Pearson's Chi-squared test
 ## 
 ## data:  tab.amo
-## X-squared = 200, df = 2, p-value <2e-16
+## X-squared = 200, df = 2, p-value <0,0000000000000002
 \end{verbatim}
 
 \BeginKnitrBlock{remark}
@@ -10420,7 +10420,7 @@ fornecido pelo usuário).
 Mais detalhes estão no site da library
 \href{http://r-survey.r-forge.r-project.org/survey/}{survey}
 
-\bibliography{packages,book}
+\bibliography{book.bib,packages.bib}
 
 
 \end{document}

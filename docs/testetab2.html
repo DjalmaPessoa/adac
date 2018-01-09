@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2017-12-19">
+<meta name="date" content="2018-01-09">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -985,10 +985,10 @@ _{.}\right) /\left( L-1\right) \left( C-1\right) \;\;.  \tag{8.16}
 ## [1] &quot;ht1&quot; &quot;ht2&quot; &quot;ht3&quot;
 ## 
 ## $var
-##           ht1       ht2       ht3
-## ht1  3,67e-05 -3,32e-05 -3,44e-06
-## ht2 -3,32e-05  6,76e-05 -3,44e-05
-## ht3 -3,44e-06 -3,44e-05  3,78e-05
+##             ht1        ht2         ht3
+## ht1  0,00003666 -0,0000332 -0,00000344
+## ht2 -0,00003323  0,0000676 -0,00003436
+## ht3 -0,00000344 -0,0000344  0,00003780
 ## 
 ## $statistic
 ## [1] &quot;mean&quot;
@@ -996,15 +996,15 @@ _{.}\right) /\left( L-1\right) \left( C-1\right) \;\;.  \tag{8.16}
 ## $class
 ## [1] &quot;svystat&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">vcov</span>(ht.mean)                         <span class="co">#estimativas de variâncias e covariâncias</span></code></pre></div>
-<pre><code>##           ht1       ht2       ht3
-## ht1  3,67e-05 -3,32e-05 -3,44e-06
-## ht2 -3,32e-05  6,76e-05 -3,44e-05
-## ht3 -3,44e-06 -3,44e-05  3,78e-05</code></pre>
+<pre><code>##             ht1        ht2         ht3
+## ht1  0,00003666 -0,0000332 -0,00000344
+## ht2 -0,00003323  0,0000676 -0,00003436
+## ht3 -0,00000344 -0,0000344  0,00003780</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attr</span>(ht.mean, <span class="st">&quot;var&quot;</span>)</code></pre></div>
-<pre><code>##           ht1       ht2       ht3
-## ht1  3,67e-05 -3,32e-05 -3,44e-06
-## ht2 -3,32e-05  6,76e-05 -3,44e-05
-## ht3 -3,44e-06 -3,44e-05  3,78e-05</code></pre>
+<pre><code>##             ht1        ht2         ht3
+## ht1  0,00003666 -0,0000332 -0,00000344
+## ht2 -0,00003323  0,0000676 -0,00003436
+## ht3 -0,00000344 -0,0000344  0,00003780</code></pre>
 <ul>
 <li>Estimativas de proporções nas classes de renda por domínios definidos pela variável <code>sx</code>:</li>
 </ul>
@@ -1096,7 +1096,7 @@ tab.amo &lt;-<span class="st"> </span><span class="kw">table</span>(sx,re)
 ##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  tab.amo
-## X-squared = 200, df = 2, p-value &lt;2e-16</code></pre>
+## X-squared = 200, df = 2, p-value &lt;0,0000000000000002</code></pre>
 
 <div class="remark">
  <span class="remark"><em>Observação. </em></span> Identificar resultados dos testes obtidos pela library <code>survey</code> <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span> com as fórmulas do texto:
