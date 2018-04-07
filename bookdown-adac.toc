@@ -1,88 +1,260 @@
 \select@language {brazil}
-\contentsline {chapter}{Prefácio}{5}{chapter*.2}
-\contentsline {section}{Agradecimentos}{5}{section*.3}
-\contentsline {chapter}{\numberline {1}Introdução}{7}{chapter.1}
-\contentsline {section}{\numberline {1.1}Motivação}{7}{section.1.1}
-\contentsline {section}{\numberline {1.2}Objetivos do Livro}{10}{section.1.2}
-\contentsline {section}{\numberline {1.3}Estrutura do Livro}{11}{section.1.3}
-\contentsline {section}{\numberline {1.4}Laboratório de R do Capítulo 1.}{13}{section.1.4}
-\contentsline {section}{\numberline {1.5}Laboratório de R do Capítulo 1 - Extra.}{15}{section.1.5}
-\contentsline {chapter}{\numberline {2}Referencial para Inferência}{17}{chapter.2}
-\contentsline {section}{\numberline {2.1}Modelagem - Primeiras Ideias}{17}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Abordagem 1 - Modelagem Clássica}{17}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Abordagem 2 - Amostragem Probabilística}{19}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Discussão das Abordagens 1 e 2}{19}{subsection.2.1.3}
+\contentsline {chapter}{Prefácio}{9}{chapter*.2}
+\contentsline {section}{Agradecimentos}{9}{section*.3}
+\contentsline {chapter}{\numberline {1}Introdução}{11}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivação}{11}{section.1.1}
+\contentsline {section}{\numberline {1.2}Objetivos do Livro}{14}{section.1.2}
+\contentsline {section}{\numberline {1.3}Estrutura do Livro}{15}{section.1.3}
+\contentsline {section}{\numberline {1.4}Laboratório de R do Capítulo 1.}{17}{section.1.4}
+\contentsline {section}{\numberline {1.5}Laboratório de R do Capítulo 1 - Extra.}{19}{section.1.5}
+\contentsline {chapter}{\numberline {2}Referencial para Inferência}{21}{chapter.2}
+\contentsline {section}{\numberline {2.1}Modelagem - Primeiras Ideias}{21}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Abordagem 1 - Modelagem Clássica}{21}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Abordagem 2 - Amostragem Probabilística}{21}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Discussão das Abordagens 1 e 2}{21}{subsection.2.1.3}
 \contentsline {subsection}{\numberline {2.1.4}Abordagem 3 - Modelagem de Superpopulação}{21}{subsection.2.1.4}
-\contentsline {section}{\numberline {2.2}Fontes de Variação}{24}{section.2.2}
-\contentsline {section}{\numberline {2.3}Modelos de Superpopulação}{24}{section.2.3}
-\contentsline {section}{\numberline {2.4}Planejamento Amostral}{26}{section.2.4}
-\contentsline {section}{\numberline {2.5}Planos Amostrais Informativos e Ignoráveis}{27}{section.2.5}
-\contentsline {chapter}{\numberline {3}Estimação Baseada no Plano Amostral}{33}{chapter.3}
-\contentsline {section}{\numberline {3.1}Estimação de Totais}{33}{section.3.1}
-\contentsline {section}{\numberline {3.2}Por que Estimar Variâncias}{36}{section.3.2}
-\contentsline {section}{\numberline {3.3}Linearização de Taylor para Estimar variâncias}{37}{section.3.3}
-\contentsline {section}{\numberline {3.4}Método do Conglomerado Primário}{39}{section.3.4}
-\contentsline {section}{\numberline {3.5}Métodos de Replicação}{40}{section.3.5}
-\contentsline {section}{\numberline {3.6}Laboratório de R}{42}{section.3.6}
-\contentsline {chapter}{\numberline {4}Efeitos do Plano Amostral}{47}{chapter.4}
-\contentsline {section}{\numberline {4.1}Introdução}{47}{section.4.1}
-\contentsline {section}{\numberline {4.2}Efeito do Plano Amostral (EPA) de Kish}{47}{section.4.2}
-\contentsline {section}{\numberline {4.3}Efeito do Plano Amostral Ampliado}{49}{section.4.3}
-\contentsline {section}{\numberline {4.4}Intervalos de Confiança e Testes de Hipóteses}{56}{section.4.4}
-\contentsline {section}{\numberline {4.5}Efeitos Multivariados de Plano Amostral}{58}{section.4.5}
-\contentsline {section}{\numberline {4.6}Laboratório de R}{61}{section.4.6}
-\contentsline {chapter}{\numberline {5}Ajuste de Modelos Paramétricos}{65}{chapter.5}
-\contentsline {section}{\numberline {5.1}Introdução}{65}{section.5.1}
-\contentsline {section}{\numberline {5.2}Método de Máxima Verossimilhança (MV)}{66}{section.5.2}
-\contentsline {section}{\numberline {5.3}Ponderação de Dados Amostrais}{66}{section.5.3}
-\contentsline {section}{\numberline {5.4}Método de Máxima Pseudo-Verossimilhança}{69}{section.5.4}
-\contentsline {section}{\numberline {5.5}Robustez do Procedimento MPV}{72}{section.5.5}
-\contentsline {section}{\numberline {5.6}Desvantagens da Inferência de Aleatorização}{73}{section.5.6}
-\contentsline {section}{\numberline {5.7}Laboratório de R}{74}{section.5.7}
-\contentsline {chapter}{\numberline {6}Modelos de Regressão}{75}{chapter.6}
-\contentsline {section}{\numberline {6.1}Modelo de Regressão Linear Normal}{75}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Especificação do Modelo}{75}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Pseudo-parâmetros do Modelo}{76}{subsection.6.1.2}
-\contentsline {subsection}{\numberline {6.1.3}Estimadores de MPV dos Parâmetros do Modelo}{77}{subsection.6.1.3}
-\contentsline {subsection}{\numberline {6.1.4}Estimação da Variância de Estimadores de MPV}{78}{subsection.6.1.4}
-\contentsline {section}{\numberline {6.2}Modelo de Regressão Logística}{79}{section.6.2}
-\contentsline {section}{\numberline {6.3}Teste de Hipóteses}{84}{section.6.3}
-\contentsline {section}{\numberline {6.4}Laboratório de R}{85}{section.6.4}
-\contentsline {chapter}{\numberline {7}Testes de Qualidade de Ajuste}{89}{chapter.7}
-\contentsline {section}{\numberline {7.1}Introdução}{89}{section.7.1}
-\contentsline {section}{\numberline {7.2}Teste para uma Proporção}{89}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Correção de Estatísticas Clássicas}{89}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Estatística de Wald}{92}{subsection.7.2.2}
-\contentsline {section}{\numberline {7.3}Teste para Várias Proporções}{93}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Estatística de Wald Baseada no Plano Amostral}{93}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Situações Instáveis}{94}{subsection.7.3.2}
-\contentsline {subsection}{\numberline {7.3.3}Estatística de Pearson com Ajuste de Rao-Scott}{94}{subsection.7.3.3}
-\contentsline {section}{\numberline {7.4}Laboratório de R}{99}{section.7.4}
-\contentsline {chapter}{\numberline {8}Testes em Tabelas de Duas Entradas}{101}{chapter.8}
-\contentsline {section}{\numberline {8.1}Introdução}{101}{section.8.1}
-\contentsline {section}{\numberline {8.2}Tabelas 2x2}{101}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}Teste de Independência}{102}{subsection.8.2.1}
-\contentsline {subsection}{\numberline {8.2.2}Teste de Homogeneidade}{102}{subsection.8.2.2}
-\contentsline {subsection}{\numberline {8.2.3}Efeitos de Plano Amostral nas Celas}{103}{subsection.8.2.3}
-\contentsline {section}{\numberline {8.3}Tabelas de Duas Entradas (Caso Geral)}{103}{section.8.3}
-\contentsline {subsection}{\numberline {8.3.1}Teste de Homogeneidade}{103}{subsection.8.3.1}
-\contentsline {subsection}{\numberline {8.3.2}Teste de Independência}{106}{subsection.8.3.2}
-\contentsline {subsection}{\numberline {8.3.3}Estatística de Wald Baseada no Plano Amostral}{107}{subsection.8.3.3}
-\contentsline {subsection}{\numberline {8.3.4}Estatística de Pearson com Ajuste de Rao-Scott}{108}{subsection.8.3.4}
-\contentsline {section}{\numberline {8.4}Laboratório de R}{112}{section.8.4}
-\contentsline {chapter}{\numberline {9}Estimação de densidades}{117}{chapter.9}
-\contentsline {section}{\numberline {9.1}Introdução}{117}{section.9.1}
-\contentsline {chapter}{\numberline {10}Modelos Hierárquicos}{119}{chapter.10}
-\contentsline {section}{\numberline {10.1}Introdução}{119}{section.10.1}
-\contentsline {chapter}{\numberline {11}Não-Resposta}{121}{chapter.11}
-\contentsline {section}{\numberline {11.1}Introdução}{121}{section.11.1}
-\contentsline {chapter}{\numberline {12}Diagnóstico de ajuste de modelo}{123}{chapter.12}
-\contentsline {section}{\numberline {12.1}Introdução}{123}{section.12.1}
-\contentsline {chapter}{\numberline {13}Agregação vs.~Desagregação}{125}{chapter.13}
-\contentsline {section}{\numberline {13.1}Introdução}{125}{section.13.1}
-\contentsline {section}{\numberline {13.2}Modelagem da Estrutura Populacional}{125}{section.13.2}
-\contentsline {section}{\numberline {13.3}Modelos Hierárquicos}{128}{section.13.3}
-\contentsline {section}{\numberline {13.4}Análise Desagregada: Prós e Contras}{136}{section.13.4}
-\contentsline {chapter}{\numberline {14}Pacotes para Analisar Dados Amostrais}{139}{chapter.14}
-\contentsline {section}{\numberline {14.1}Introdução}{139}{section.14.1}
-\contentsline {section}{\numberline {14.2}Pacotes Computacionais}{139}{section.14.2}
+\contentsline {section}{\numberline {2.2}Fontes de Variação}{21}{section.2.2}
+\contentsline {section}{\numberline {2.3}Modelos de Superpopulação}{21}{section.2.3}
+\contentsline {section}{\numberline {2.4}Planejamento Amostral}{21}{section.2.4}
+\contentsline {section}{\numberline {2.5}Planos Amostrais Informativos e Ignoráveis}{21}{section.2.5}
+\contentsline {chapter}{\numberline {3}Estimação Baseada no Plano Amostral}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}Estimação de Totais}{24}{section.3.1}
+\contentsline {section}{\numberline {3.2}Por que Estimar Variâncias}{24}{section.3.2}
+\contentsline {section}{\numberline {3.3}Linearização de Taylor para Estimar variâncias}{24}{section.3.3}
+\contentsline {section}{\numberline {3.4}Método do Conglomerado Primário}{24}{section.3.4}
+\contentsline {section}{\numberline {3.5}Métodos de Replicação}{24}{section.3.5}
+\contentsline {section}{\numberline {3.6}Laboratório de R}{24}{section.3.6}
+\contentsline {section}{\numberline {3.7}faixa}{24}{section.3.7}
+\contentsline {section}{\numberline {3.8}0,0118}{24}{section.3.8}
+\contentsline {section}{\numberline {3.9}Ratio estimator: svyratio.survey.design2(\textasciitilde {}analf.faixa, \textasciitilde {}faixa, ppv\_se\_plan)}{24}{section.3.9}
+\contentsline {section}{\numberline {3.10}Ratios=}{24}{section.3.10}
+\contentsline {section}{\numberline {3.11}faixa}{24}{section.3.11}
+\contentsline {section}{\numberline {3.12}analf.faixa 0,119}{24}{section.3.12}
+\contentsline {section}{\numberline {3.13}SEs=}{24}{section.3.13}
+\contentsline {section}{\numberline {3.14}faixa}{24}{section.3.14}
+\contentsline {section}{\numberline {3.15}analf.faixa 0,0118}{24}{section.3.15}
+\contentsline {section}{\numberline {3.16}Ratio estimator: svyratio.svyrep.design(\textasciitilde {}analf.faixa, \textasciitilde {}faixa, ppv\_se\_plan\_jkn)}{24}{section.3.16}
+\contentsline {section}{\numberline {3.17}Ratios=}{24}{section.3.17}
+\contentsline {section}{\numberline {3.18}faixa}{24}{section.3.18}
+\contentsline {section}{\numberline {3.19}analf.faixa 0,119}{24}{section.3.19}
+\contentsline {section}{\numberline {3.20}SEs=}{24}{section.3.20}
+\contentsline {section}{\numberline {3.21}{[},1{]}}{24}{section.3.21}
+\contentsline {section}{\numberline {3.22}{[}1,{]} 0,0118}{24}{section.3.22}
+\contentsline {section}{\numberline {3.23}Ratio estimator: svyratio.svyrep.design(\textasciitilde {}analf.faixa, \textasciitilde {}faixa, ppv\_se\_plan\_boot)}{24}{section.3.23}
+\contentsline {section}{\numberline {3.24}Ratios=}{24}{section.3.24}
+\contentsline {section}{\numberline {3.25}faixa}{24}{section.3.25}
+\contentsline {section}{\numberline {3.26}analf.faixa 0,119}{24}{section.3.26}
+\contentsline {section}{\numberline {3.27}SEs=}{24}{section.3.27}
+\contentsline {section}{\numberline {3.28}{[},1{]}}{24}{section.3.28}
+\contentsline {section}{\numberline {3.29}{[}1,{]} 0,0129}{24}{section.3.29}
+\contentsline {section}{\numberline {3.30}{[}1{]} ``svyrep.design''}{24}{section.3.30}
+\contentsline {section}{\numberline {3.31}{[}1{]} ``repweights'' ``pweights'' ``type''}{24}{section.3.31}
+\contentsline {section}{\numberline {3.32}{[}4{]} ``rho'' ``scale'' ``rscales''}{24}{section.3.32}
+\contentsline {section}{\numberline {3.33}{[}7{]} ``call'' ``combined.weights'' ``selfrep''}{24}{section.3.33}
+\contentsline {section}{\numberline {3.34}{[}10{]} ``mse'' ``variables'' ``degf''}{24}{section.3.34}
+\contentsline {section}{\numberline {3.35}{[}1{]} 8903}{24}{section.3.35}
+\contentsline {section}{\numberline {3.36}{[}1{]} 276}{24}{section.3.36}
+\contentsline {section}{\numberline {3.37}num {[}1:8903, 1:276{]} 0 0 1,06 1,06 1,06 \ldots {}}{24}{section.3.37}
+\contentsline {section}{\numberline {3.38}{[}1{]} 0,0118}{24}{section.3.38}
+\contentsline {section}{\numberline {3.39}theta SE}{24}{section.3.39}
+\contentsline {section}{\numberline {3.40}{[}1,{]} 0,119 0,01}{24}{section.3.40}
+\contentsline {section}{\numberline {3.41}theta SE}{24}{section.3.41}
+\contentsline {section}{\numberline {3.42}{[}1,{]} 0,504 0,05}{24}{section.3.42}
+\contentsline {section}{\numberline {3.43}nlcon SE}{24}{section.3.43}
+\contentsline {section}{\numberline {3.44}contrast 0,504 0,05}{24}{section.3.44}
+\contentsline {chapter}{\numberline {4}Efeitos do Plano Amostral}{25}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introdução}{26}{section.4.1}
+\contentsline {section}{\numberline {4.2}Efeito do Plano Amostral (EPA) de Kish}{26}{section.4.2}
+\contentsline {section}{\numberline {4.3}Efeito do Plano Amostral Ampliado}{26}{section.4.3}
+\contentsline {section}{\numberline {4.4}245,188/1719,979=0,143}{26}{section.4.4}
+\contentsline {section}{\numberline {4.5}0,401/1,207=0,332}{26}{section.4.5}
+\contentsline {section}{\numberline {4.6}244,176/1613,3=0,151}{26}{section.4.6}
+\contentsline {section}{\numberline {4.7}0,435/1,188=0,366}{26}{section.4.7}
+\contentsline {section}{\numberline {4.8}Intervalos de Confiança e Testes de Hipóteses}{26}{section.4.8}
+\contentsline {section}{\numberline {4.9}Efeitos Multivariados de Plano Amostral}{26}{section.4.9}
+\contentsline {section}{\numberline {4.10}Laboratório de R}{26}{section.4.10}
+\contentsline {section}{\numberline {4.11}Média das estimativas pontuais para as 500 amostras aas}{26}{section.4.11}
+\contentsline {section}{\numberline {4.12}{[}1{]} 163,50 4,17}{26}{section.4.12}
+\contentsline {section}{\numberline {4.13}Média das estimativas pontuais para as 500 amostras aes}{26}{section.4.13}
+\contentsline {section}{\numberline {4.14}sal rec}{26}{section.4.14}
+\contentsline {section}{\numberline {4.15}78,07 2,06}{26}{section.4.15}
+\contentsline {section}{\numberline {4.16}{[},1{]} {[},2{]}}{26}{section.4.16}
+\contentsline {section}{\numberline {4.17}{[}1,{]} 1720,0 26,78}{26}{section.4.17}
+\contentsline {section}{\numberline {4.18}{[}2,{]} 26,8 1,21}{26}{section.4.18}
+\contentsline {section}{\numberline {4.19}sal rec}{26}{section.4.19}
+\contentsline {section}{\numberline {4.20}sal 245,19 3,172}{26}{section.4.20}
+\contentsline {section}{\numberline {4.21}rec 3,17 0,401}{26}{section.4.21}
+\contentsline {section}{\numberline {4.22}Matriz de covariância populacional}{26}{section.4.22}
+\contentsline {section}{\numberline {4.23}Matriz de covariância considerando o plano amostral}{26}{section.4.23}
+\contentsline {section}{\numberline {4.24}verdadeiro}{26}{section.4.24}
+\contentsline {section}{\numberline {4.25}estimativa de efeitos generalizados do plano amostral}{26}{section.4.25}
+\contentsline {section}{\numberline {4.26}{[}1{]} 706 14}{26}{section.4.26}
+\contentsline {section}{\numberline {4.27}{[}1{]} ``setor'' ``np'' ``domic'' ``sexo'' ``renda'' ``lrenda'' ``raca''}{26}{section.4.27}
+\contentsline {section}{\numberline {4.28}{[}8{]} ``estudo'' ``idade'' ``na'' ``peso'' ``domtot'' ``peso1'' ``pesof''}{26}{section.4.28}
+\contentsline {section}{\numberline {4.29}raca renda se}{26}{section.4.29}
+\contentsline {section}{\numberline {4.30}1 1 110406 11262}{26}{section.4.30}
+\contentsline {section}{\numberline {4.31}2 2 73560 8207}{26}{section.4.31}
+\contentsline {section}{\numberline {4.32}sexo renda se}{26}{section.4.32}
+\contentsline {section}{\numberline {4.33}1 1 108746 11696}{26}{section.4.33}
+\contentsline {section}{\numberline {4.34}2 2 40039 4042}{26}{section.4.34}
+\contentsline {section}{\numberline {4.35}}{26}{section.4.35}
+\contentsline {section}{\numberline {4.36}Design-based t-test}{26}{section.4.36}
+\contentsline {section}{\numberline {4.37}}{26}{section.4.37}
+\contentsline {section}{\numberline {4.38}data: renda \textasciitilde {} sexo}{26}{section.4.38}
+\contentsline {section}{\numberline {4.39}t = -6, df = 20, p-value = 0,000005}{26}{section.4.39}
+\contentsline {section}{\numberline {4.40}alternative hypothesis: true difference in mean is not equal to 0}{26}{section.4.40}
+\contentsline {section}{\numberline {4.41}sample estimates:}{26}{section.4.41}
+\contentsline {section}{\numberline {4.42}difference in mean}{26}{section.4.42}
+\contentsline {section}{\numberline {4.43}-68707}{26}{section.4.43}
+\contentsline {section}{\numberline {4.44}}{26}{section.4.44}
+\contentsline {section}{\numberline {4.45}Design-based t-test}{26}{section.4.45}
+\contentsline {section}{\numberline {4.46}}{26}{section.4.46}
+\contentsline {section}{\numberline {4.47}data: renda \textasciitilde {} raca}{26}{section.4.47}
+\contentsline {section}{\numberline {4.48}t = -4, df = 20, p-value = 0,0006}{26}{section.4.48}
+\contentsline {section}{\numberline {4.49}alternative hypothesis: true difference in mean is not equal to 0}{26}{section.4.49}
+\contentsline {section}{\numberline {4.50}sample estimates:}{26}{section.4.50}
+\contentsline {section}{\numberline {4.51}difference in mean}{26}{section.4.51}
+\contentsline {section}{\numberline {4.52}-36846}{26}{section.4.52}
+\contentsline {chapter}{\numberline {5}Ajuste de Modelos Paramétricos}{27}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introdução}{27}{section.5.1}
+\contentsline {section}{\numberline {5.2}Método de Máxima Verossimilhança (MV)}{27}{section.5.2}
+\contentsline {section}{\numberline {5.3}Ponderação de Dados Amostrais}{27}{section.5.3}
+\contentsline {section}{\numberline {5.4}Método de Máxima Pseudo-Verossimilhança}{27}{section.5.4}
+\contentsline {section}{\numberline {5.5}Robustez do Procedimento MPV}{27}{section.5.5}
+\contentsline {section}{\numberline {5.6}Desvantagens da Inferência de Aleatorização}{27}{section.5.6}
+\contentsline {section}{\numberline {5.7}Laboratório de R}{27}{section.5.7}
+\contentsline {chapter}{\numberline {6}Modelos de Regressão}{29}{chapter.6}
+\contentsline {section}{\numberline {6.1}Modelo de Regressão Linear Normal}{30}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Especificação do Modelo}{30}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Pseudo-parâmetros do Modelo}{30}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Estimadores de MPV dos Parâmetros do Modelo}{30}{subsection.6.1.3}
+\contentsline {subsection}{\numberline {6.1.4}Estimação da Variância de Estimadores de MPV}{30}{subsection.6.1.4}
+\contentsline {section}{\numberline {6.2}Modelo de Regressão Logística}{30}{section.6.2}
+\contentsline {section}{\numberline {6.3}Teste de Hipóteses}{30}{section.6.3}
+\contentsline {section}{\numberline {6.4}Laboratório de R}{30}{section.6.4}
+\contentsline {section}{\numberline {6.5}{[}1{]} ``stra'' ``psu'' ``pesopes'' ``informal'' ``sx'' ``id''}{30}{section.6.5}
+\contentsline {section}{\numberline {6.6}{[}7{]} ``ae'' ``ht'' ``re'' ``um''}{30}{section.6.6}
+\contentsline {section}{\numberline {6.7}stra psu pesopes informal sx id ae}{30}{section.6.7}
+\contentsline {section}{\numberline {6.8}``numeric'' ``numeric'' ``numeric'' ``numeric'' ``numeric'' ``numeric'' ``numeric''}{30}{section.6.8}
+\contentsline {section}{\numberline {6.9}ht re um}{30}{section.6.9}
+\contentsline {section}{\numberline {6.10}``numeric'' ``numeric'' ``numeric''}{30}{section.6.10}
+\contentsline {section}{\numberline {6.11}Wald test for ht:re}{30}{section.6.11}
+\contentsline {section}{\numberline {6.12}in svyglm(formula = informal \textasciitilde {} sx + ae + ht + id + re + sx * id +}{30}{section.6.12}
+\contentsline {section}{\numberline {6.13}sx * ht + ae * ht + ht * id + ht * re, design = pnad.des,}{30}{section.6.13}
+\contentsline {section}{\numberline {6.14}family = quasibinomial())}{30}{section.6.14}
+\contentsline {section}{\numberline {6.15}F = 6,74 on 4 and 616 df: p= 0,00003}{30}{section.6.15}
+\contentsline {chapter}{\numberline {7}Testes de Qualidade de Ajuste}{31}{chapter.7}
+\contentsline {section}{\numberline {7.1}Introdução}{32}{section.7.1}
+\contentsline {section}{\numberline {7.2}Teste para uma Proporção}{32}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Correção de Estatísticas Clássicas}{32}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Estatística de Wald}{32}{subsection.7.2.2}
+\contentsline {section}{\numberline {7.3}Teste para Várias Proporções}{32}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Estatística de Wald Baseada no Plano Amostral}{32}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Situações Instáveis}{32}{subsection.7.3.2}
+\contentsline {subsection}{\numberline {7.3.3}Estatística de Pearson com Ajuste de Rao-Scott}{32}{subsection.7.3.3}
+\contentsline {section}{\numberline {7.4}Laboratório de R}{32}{section.7.4}
+\contentsline {section}{\numberline {7.5}{[},1{]}}{32}{section.7.5}
+\contentsline {section}{\numberline {7.6}{[}1,{]} 5,74}{32}{section.7.6}
+\contentsline {section}{\numberline {7.7}{[},1{]}}{32}{section.7.7}
+\contentsline {section}{\numberline {7.8}{[}1,{]} 0,219}{32}{section.7.8}
+\contentsline {section}{\numberline {7.9}{[},1{]}}{32}{section.7.9}
+\contentsline {section}{\numberline {7.10}{[}1,{]} 11,5}{32}{section.7.10}
+\contentsline {section}{\numberline {7.11}{[},1{]}}{32}{section.7.11}
+\contentsline {section}{\numberline {7.12}{[}1,{]} 0,021}{32}{section.7.12}
+\contentsline {chapter}{\numberline {8}Testes em Tabelas de Duas Entradas}{33}{chapter.8}
+\contentsline {section}{\numberline {8.1}Introdução}{34}{section.8.1}
+\contentsline {section}{\numberline {8.2}Tabelas 2x2}{34}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Teste de Independência}{34}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Teste de Homogeneidade}{34}{subsection.8.2.2}
+\contentsline {subsection}{\numberline {8.2.3}Efeitos de Plano Amostral nas Celas}{34}{subsection.8.2.3}
+\contentsline {section}{\numberline {8.3}Tabelas de Duas Entradas (Caso Geral)}{34}{section.8.3}
+\contentsline {subsection}{\numberline {8.3.1}Teste de Homogeneidade}{34}{subsection.8.3.1}
+\contentsline {subsection}{\numberline {8.3.2}Teste de Independência}{34}{subsection.8.3.2}
+\contentsline {subsection}{\numberline {8.3.3}Estatística de Wald Baseada no Plano Amostral}{34}{subsection.8.3.3}
+\contentsline {subsection}{\numberline {8.3.4}Estatística de Pearson com Ajuste de Rao-Scott}{34}{subsection.8.3.4}
+\contentsline {section}{\numberline {8.4}Laboratório de R}{34}{section.8.4}
+\contentsline {section}{\numberline {8.5}{[}1{]} ``stra'' ``psu'' ``pesopes'' ``informal'' ``sx'' ``id''}{34}{section.8.5}
+\contentsline {section}{\numberline {8.6}{[}7{]} ``ae'' ``ht'' ``re'' ``um''}{34}{section.8.6}
+\contentsline {section}{\numberline {8.7}stra psu pesopes informal sx id ae}{34}{section.8.7}
+\contentsline {section}{\numberline {8.8}``numeric'' ``numeric'' ``numeric'' ``numeric'' ``numeric'' ``numeric'' ``numeric''}{34}{section.8.8}
+\contentsline {section}{\numberline {8.9}ht re um}{34}{section.8.9}
+\contentsline {section}{\numberline {8.10}``numeric'' ``numeric'' ``numeric''}{34}{section.8.10}
+\contentsline {section}{\numberline {8.11}mean SE}{34}{section.8.11}
+\contentsline {section}{\numberline {8.12}sx1 0,657 0,01}{34}{section.8.12}
+\contentsline {section}{\numberline {8.13}sx2 0,343 0,01}{34}{section.8.13}
+\contentsline {section}{\numberline {8.14}mean SE}{34}{section.8.14}
+\contentsline {section}{\numberline {8.15}re1 0,155 0,01}{34}{section.8.15}
+\contentsline {section}{\numberline {8.16}re2 0,584 0,01}{34}{section.8.16}
+\contentsline {section}{\numberline {8.17}re3 0,261 0,01}{34}{section.8.17}
+\contentsline {section}{\numberline {8.18}mean SE}{34}{section.8.18}
+\contentsline {section}{\numberline {8.19}ae1 0,313 0,01}{34}{section.8.19}
+\contentsline {section}{\numberline {8.20}ae2 0,320 0,01}{34}{section.8.20}
+\contentsline {section}{\numberline {8.21}ae3 0,367 0,01}{34}{section.8.21}
+\contentsline {section}{\numberline {8.22}ht1 ht2 ht3}{34}{section.8.22}
+\contentsline {section}{\numberline {8.23}0,210 0,615 0,175}{34}{section.8.23}
+\contentsline {section}{\numberline {8.24}\$names}{34}{section.8.24}
+\contentsline {section}{\numberline {8.25}{[}1{]} ``ht1'' ``ht2'' ``ht3''}{34}{section.8.25}
+\contentsline {section}{\numberline {8.26}}{34}{section.8.26}
+\contentsline {section}{\numberline {8.27}\$var}{34}{section.8.27}
+\contentsline {section}{\numberline {8.28}ht1 ht2 ht3}{34}{section.8.28}
+\contentsline {section}{\numberline {8.29}ht1 0,00003666 -0,0000332 -0,00000344}{34}{section.8.29}
+\contentsline {section}{\numberline {8.30}ht2 -0,00003323 0,0000676 -0,00003436}{34}{section.8.30}
+\contentsline {section}{\numberline {8.31}ht3 -0,00000344 -0,0000344 0,00003780}{34}{section.8.31}
+\contentsline {section}{\numberline {8.32}}{34}{section.8.32}
+\contentsline {section}{\numberline {8.33}\$statistic}{34}{section.8.33}
+\contentsline {section}{\numberline {8.34}{[}1{]} ``mean''}{34}{section.8.34}
+\contentsline {section}{\numberline {8.35}}{34}{section.8.35}
+\contentsline {section}{\numberline {8.36}\$class}{34}{section.8.36}
+\contentsline {section}{\numberline {8.37}{[}1{]} ``svystat''}{34}{section.8.37}
+\contentsline {section}{\numberline {8.38}ht1 ht2 ht3}{34}{section.8.38}
+\contentsline {section}{\numberline {8.39}ht1 0,00003666 -0,0000332 -0,00000344}{34}{section.8.39}
+\contentsline {section}{\numberline {8.40}ht2 -0,00003323 0,0000676 -0,00003436}{34}{section.8.40}
+\contentsline {section}{\numberline {8.41}ht3 -0,00000344 -0,0000344 0,00003780}{34}{section.8.41}
+\contentsline {section}{\numberline {8.42}ht1 ht2 ht3}{34}{section.8.42}
+\contentsline {section}{\numberline {8.43}ht1 0,00003666 -0,0000332 -0,00000344}{34}{section.8.43}
+\contentsline {section}{\numberline {8.44}ht2 -0,00003323 0,0000676 -0,00003436}{34}{section.8.44}
+\contentsline {section}{\numberline {8.45}ht3 -0,00000344 -0,0000344 0,00003780}{34}{section.8.45}
+\contentsline {section}{\numberline {8.46}mean SE DEff}{34}{section.8.46}
+\contentsline {section}{\numberline {8.47}re1 0,15546 0,00690 2,36}{34}{section.8.47}
+\contentsline {section}{\numberline {8.48}re2 0,58356 0,00820 1,80}{34}{section.8.48}
+\contentsline {section}{\numberline {8.49}re3 0,26098 0,00961 3,12}{34}{section.8.49}
+\contentsline {section}{\numberline {8.50}re}{34}{section.8.50}
+\contentsline {section}{\numberline {8.51}sx 1 2 3}{34}{section.8.51}
+\contentsline {section}{\numberline {8.52}1 0,073 0,388 0,196}{34}{section.8.52}
+\contentsline {section}{\numberline {8.53}2 0,082 0,195 0,065}{34}{section.8.53}
+\contentsline {section}{\numberline {8.54}sx re1 re2 re3 se.re1 se.re2 se.re3}{34}{section.8.54}
+\contentsline {section}{\numberline {8.55}1 1 0,111 0,591 0,298 0,00573 0,0103 0,0111}{34}{section.8.55}
+\contentsline {section}{\numberline {8.56}2 2 0,240 0,570 0,190 0,01250 0,0119 0,0111}{34}{section.8.56}
+\contentsline {section}{\numberline {8.57}mean SE DEff}{34}{section.8.57}
+\contentsline {section}{\numberline {8.58}I((sx == 1 \& re == 1) * 1) 0,07299 0,00383 1,42}{34}{section.8.58}
+\contentsline {section}{\numberline {8.59}re}{34}{section.8.59}
+\contentsline {section}{\numberline {8.60}sx 1 2 3}{34}{section.8.60}
+\contentsline {section}{\numberline {8.61}1 0,0730 0,3882 0,1959}{34}{section.8.61}
+\contentsline {section}{\numberline {8.62}2 0,0825 0,1953 0,0651}{34}{section.8.62}
+\contentsline {section}{\numberline {8.63}re}{34}{section.8.63}
+\contentsline {section}{\numberline {8.64}sx 1 2 3}{34}{section.8.64}
+\contentsline {section}{\numberline {8.65}1 7,30 38,82 19,59}{34}{section.8.65}
+\contentsline {section}{\numberline {8.66}2 8,25 19,53 6,51}{34}{section.8.66}
+\contentsline {section}{\numberline {8.67}{[}1{]} 1,64}{34}{section.8.67}
+\contentsline {section}{\numberline {8.68}}{34}{section.8.68}
+\contentsline {section}{\numberline {8.69}Pearson's Chi-squared test}{34}{section.8.69}
+\contentsline {section}{\numberline {8.70}}{34}{section.8.70}
+\contentsline {section}{\numberline {8.71}data: tab.amo}{34}{section.8.71}
+\contentsline {section}{\numberline {8.72}X-squared = 200, df = 2, p-value \textless {}0,0000000000000002}{34}{section.8.72}
+\contentsline {chapter}{\numberline {9}Estimação de densidades}{35}{chapter.9}
+\contentsline {section}{\numberline {9.1}Introdução}{35}{section.9.1}
+\contentsline {chapter}{\numberline {10}Modelos Hierárquicos}{37}{chapter.10}
+\contentsline {section}{\numberline {10.1}Introdução}{37}{section.10.1}
+\contentsline {chapter}{\numberline {11}Não-Resposta}{39}{chapter.11}
+\contentsline {section}{\numberline {11.1}Introdução}{39}{section.11.1}
+\contentsline {chapter}{\numberline {12}Diagnóstico de ajuste de modelo}{41}{chapter.12}
+\contentsline {section}{\numberline {12.1}Introdução}{41}{section.12.1}
+\contentsline {chapter}{\numberline {13}Agregação vs.~Desagregação}{43}{chapter.13}
+\contentsline {section}{\numberline {13.1}Introdução}{43}{section.13.1}
+\contentsline {section}{\numberline {13.2}Modelagem da Estrutura Populacional}{43}{section.13.2}
+\contentsline {section}{\numberline {13.3}Modelos Hierárquicos}{43}{section.13.3}
+\contentsline {section}{\numberline {13.4}Análise Desagregada: Prós e Contras}{43}{section.13.4}
+\contentsline {chapter}{\numberline {14}Pacotes para Analisar Dados Amostrais}{45}{chapter.14}
+\contentsline {section}{\numberline {14.1}Introdução}{45}{section.14.1}
+\contentsline {section}{\numberline {14.2}Pacotes Computacionais}{45}{section.14.2}
+\contentsline {chapter}{\numberline {15}Placeholder}{47}{chapter.15}
