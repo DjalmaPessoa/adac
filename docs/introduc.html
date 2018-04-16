@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2018-04-09">
+<meta name="date" content="2018-04-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -511,6 +511,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span id="exm:exe12" class="example"><strong>Exemplo 1.2  </strong></span>Utilização do pacote <code>survey</code> do R para estimar alguns totais e razões com dados da PPV apresentados na Tabela <a href="introduc.html#tab:epas">1.3</a>
 </div>
 <p> Os exemplos a seguir utilizam dados da Pesquisa de Padrões de Vida ( <em>PPV</em> ) do IBGE, cujo plano amostral encontra-se descrito no Exemplo <a href="introduc.html#exm:distppv">1.1</a>. Os dados da <em>PPV</em> que usamos aqui estão disponíveis no arquivo (data frame) <code>ppv</code> do pacote <code>anamco</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># instalação da library anamco</span>
+<span class="kw">library</span>(devtools)
+<span class="kw">install_github</span>(<span class="st">&quot;djalmapessoa/anamco&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Leitura dos dados</span>
 <span class="kw">library</span>(anamco)
 ppv_dat &lt;-<span class="st"> </span>ppv
@@ -623,7 +626,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">as
              <span class="dt">align =</span> <span class="st">&quot;crrrr&quot;</span>, <span class="dt">format.args=</span> <span class="kw">list</span>(<span class="dt">decimal.mark=</span><span class="st">&quot;,&quot;</span>),
 <span class="dt">caption =</span> <span class="st">&quot;Porcentagem de analfabetos para faixas etárias 7-14 anos e mais de 14 anos&quot;</span>)</code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-12">Tabela 1.4: </span>Porcentagem de analfabetos para faixas etárias 7-14 anos e mais de 14 anos</caption>
+<caption><span id="tab:unnamed-chunk-13">Tabela 1.4: </span>Porcentagem de analfabetos para faixas etárias 7-14 anos e mais de 14 anos</caption>
 <thead>
 <tr class="header">
 <th align="center">regiao</th>

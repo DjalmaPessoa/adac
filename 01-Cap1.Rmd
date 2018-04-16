@@ -479,6 +479,11 @@ cujo plano amostral encontra-se descrito no Exemplo \@ref(exm:distppv).
 Os dados da _PPV_ que usamos aqui estão disponíveis no arquivo (data frame) `ppv` 
 do pacote `anamco`. 
 
+```{r, eval=FALSE}
+# instalação da library anamco
+library(devtools)
+install_github("djalmapessoa/anamco")
+```
 
 ```{r, message=FALSE, warning=FALSE}
 # Leitura dos dados

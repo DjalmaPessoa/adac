@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-04-09}
+  \date{2018-04-16}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -773,6 +773,14 @@ encontra-se descrito no Exemplo \ref{exm:distppv}. Os dados da
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# instalação da library anamco}
+\KeywordTok{library}\NormalTok{(devtools)}
+\KeywordTok{install_github}\NormalTok{(}\StringTok{"djalmapessoa/anamco"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# Leitura dos dados}
 \KeywordTok{library}\NormalTok{(anamco)}
 \NormalTok{ppv_dat <-}\StringTok{ }\NormalTok{ppv}
@@ -1050,7 +1058,7 @@ amostral.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-12}Porcentagem de analfabetos para faixas etárias 7-14 anos e mais de 14 anos}
+\caption{\label{tab:unnamed-chunk-13}Porcentagem de analfabetos para faixas etárias 7-14 anos e mais de 14 anos}
 \centering
 \begin{tabular}[t]{crrrrcrrrrcrrrrcrrrrcrrrr}
 \toprule
@@ -2899,7 +2907,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0,119
 ## SEs=
 ##        [,1]
-## [1,] 0,0119
+## [1,] 0,0111
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de
