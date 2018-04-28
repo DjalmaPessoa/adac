@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-04-16}
+  \date{2018-04-28}
 
 \usepackage{booktabs}
 \usepackage[brazil]{babel}
@@ -427,11 +427,11 @@ sob duas estratégias:
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
 \item
-  ** considerando Amostragem Aleatória Simples (AAS) **, e portanto
+  \textbf{considerando Amostragem Aleatória Simples (AAS)} , e portanto
   ignorando o plano amostral efetivamente adotado na pesquisa; e
 \item
-  ** considerando o plano amostral da pesquisa e os pesos diferenciados
-  das unidades. **
+  \textbf{considerando o plano amostral da pesquisa e os pesos
+  diferenciados das unidades.}
 \end{enumerate}
 
 A razão entre as estimativas de variância obtidas sob o plano amostral
@@ -1083,20 +1083,20 @@ Clássica}\label{abordagem-1---modelagem-classica}
 
 Seja \(Y\) um vetor \(P \times 1\) de variáveis de pesquisa (ou de
 interesse), e sejam \(n\) vetores de observações destas variáveis para
-uma amostra de unidades de interesse denotados por \(y_1,\ldots ,y_n\).
+uma amostra de unidades de interesse denotados por \(y_1, \ldots ,y_n\).
 Em Inferência Estatística, a abordagem que aqui chamamos de
-\texttt{Modelagem\ clássica} considera \(y_1,\ldots ,y_n\) como valores
-(realizações) de vetores de variáveis aleatórias \(Y_1,\ldots ,Y_n\).
+\emph{Modelagem clássica} considera \(y_1, \ldots ,y_n\) como valores
+(realizações) de vetores de variáveis aleatórias \(Y_1, \ldots ,Y_n\).
 
 Podemos formular modelos bastante sofisticados para a distribuição
 conjunta destes vetores aleatórios, mas para simplificar a discussão,
-vamos inicialmente supor que \(Y_1,\ldots ,Y_n\) são vetores aleatórios
+vamos inicialmente supor que \(Y_1, \ldots ,Y_n\) são vetores aleatórios
 independentes e identicamente distribuídos (IID), com a mesma
 distribuição de \(Y\), caracterizada pela função de densidade ou de
 frequência \(f(y;\theta)\), onde \(\theta \in \Theta\) é o parâmetro (um
 vetor de dimensão \(K \times 1\)) indexador da distribuição \(f\), e
 \(\Theta\) é o espaço paramétrico. A partir das observações
-\(y_1,\ldots ,y_n\), são feitas inferências a respeito do parâmetro
+\(y_1, \ldots ,y_n\), são feitas inferências a respeito do parâmetro
 \(\theta\).
 
 Uma representação gráfica esquemática dessa abordagem é apresentada na
@@ -1111,23 +1111,24 @@ apresentada na Tabela \ref{tab:modelclass}.
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:modelclass} Representação esquemática da abordagem
-1.}\tabularnewline
+\emph{Modelagem Clássica}.}\tabularnewline
 \toprule
 \begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
 Dados Amostrais\strut
 \end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
-\(Y_1=y_1,\ldots, Y_n=y_n\)\strut
+\(Y_1=y_1, \ldots, Y_n=y_n\)\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
 Modelo Paramétrico/ Hipóteses\strut
 \end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
-\(Y_1,\ldots,Y_n\) variáveis aleatórias IID com distribuição
+\(Y_1, \ldots ,Y_n\) variáveis aleatórias IID com distribuição
 \(f(y,\theta)\), onde \(\theta \in \Theta\)\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
 Objetivo\strut
 \end{minipage} & \begin{minipage}[t]{0.60\columnwidth}\raggedright\strut
-Inferir sobre \(\theta\) usando as observações \(y_1, \ldots,y_n\)\strut
+Inferir sobre \(\theta\) usando as observações
+\(y_1, \ldots ,y_n\)\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
@@ -1138,37 +1139,40 @@ os elementos da família de distribuições
 prática, as questões relevantes da pesquisa são traduzidas em termos de
 perguntas sobre o valor ou região a que pertence o parâmetro \(\theta\),
 e a inferência sobre \(\theta\) a partir dos dados ajuda a responder
-tais questões. Esta abordagem é útil em estudos analíticos tais como,
-por exemplo, na investigação da natureza da associação entre variáveis
-(modelos de regressão linear ou logística, modelos log-lineares, etc.).
-Vários exemplos discutidos ao longo dos Capítulos \ref{modreg},
+tais questões.
+
+Esta abordagem é útil em estudos analíticos tais como, por exemplo, na
+investigação da natureza da associação entre variáveis (modelos de
+regressão linear ou logística, modelos log-lineares, etc.). Vários
+exemplos discutidos ao longo dos Capítulos \ref{modreg},
 \ref{testqualajust} e \ref{testetab2} ilustram situações deste tipo. No
 Capítulo \ref{estimacao-de-densidades} o foco vai ser a estimação não
-paramétrica da forma da função \(f(y;\theta)\). Inferência sob modelos
-do tipo descrito nesta seção forma o conteúdo de um curso introdutório
-de inferência estatística. Mais detalhes podem ser consultados, por
-exemplo, em \citep{Casella} e \citep{Marcos}.
+paramétrica da forma da função \(f(y;\theta)\).
+
+Inferência sob modelos do tipo descrito nesta seção forma o conteúdo de
+um curso introdutório de inferência estatística. Mais detalhes podem ser
+consultados, por exemplo, em \citep{Casella} e \citep{Marcos}.
 
 \subsection{Abordagem 2 - Amostragem
 Probabilística}\label{abordagem-2---amostragem-probabilistica}
 
-A abordagem adotada pelos praticantes de amostragem (amostristas)
-considera uma população finita \(U=\{1,\ldots ,N\}\), da qual é
-selecionada uma amostra \(a=\left\{ i_{1},\ldots ,i_{n}\right\}\),
-segundo um plano amostral caracterizado por \(p\left( a\right)\),
-probabilidade de ser selecionada a amostra \(a\), suposta calculável
-para todas as possíveis amostras. Os valores \(y_{1},\ldots ,y_{N}\) das
-variáveis de interesse \(Y\) na população finita são considerados fixos,
-porém desconhecidos. \textbar{}
+A abordagem adotada pelos praticantes de \emph{Amostragem
+Probabilística} (amostristas) considera uma população finita
+\(U=\{1, \ldots ,N\}\), da qual é selecionada uma amostra
+\(a=\left\{ i_{1}, \ldots ,i_{n}\right\}\), segundo um plano amostral
+caracterizado por \(p\left( a\right)\), probabilidade de ser selecionada
+a amostra \(a\), suposta calculável para todas as possíveis amostras. Os
+valores \(y_{1}, \ldots ,y_{N}\) das variáveis de interesse \(Y\) na
+\emph{população finita} são considerados fixos, porém desconhecidos.
 
-A partir dos valores observados na amostra, denotados por
+A partir dos valores observados na amostra \(a\), denotados por
 \(y_{i_1}, \ldots, y_{i_n}\), são feitas inferências a respeito de
 funções dos valores populacionais, digamos
 \(g\left( y_{1}, \ldots , y_{N}\right)\). Os valores de tais funções são
 quantidades descritivas populacionais (QDPs), também denominadas
-\texttt{parâmetros\ da\ população\ finita} pelos amostristas. Em geral,
-o objetivo desta abordagem é fazer estudos descritivos utilizando
-funções \(g\) particulares, tais como totais
+\emph{parâmetros da população finita} pelos amostristas. Em geral, o
+objetivo desta abordagem é fazer estudos descritivos utilizando funções
+\(g\) particulares, tais como totais
 \(g\left( y_{1}, \ldots , y_{N}\right) = \sum_{i=1}^{N} y_{i}\) , médias
 \(g\left( y_{1}, \ldots , y_{N}\right) = N^{-1}\sum_{i=1}^{N} y_{i}\),
 proporções, razões, etc. Uma descrição esquemática resumida dessa
@@ -1183,7 +1187,7 @@ representação gráfica resumida na Figura \ref{fig:modamo}.
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:modelamo} Representação esquemática da abordagem
-2.}\tabularnewline
+\emph{Amostragem Probabilística}.}\tabularnewline
 \toprule
 \begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
 Dados Amostrais\strut
@@ -1204,50 +1208,65 @@ Inferir sobre funções \(g(y_1, \ldots , y_N)\) usando
 \bottomrule
 \end{longtable}
 
+Esta abordagem é largamente empregada na produção de estatísticas
+públicas e oficiais, por agências e instituições de muitos países. Uma
+das alegadas vantagens dessa abordagem é o fato de que as distribuições
+de referência usadas para inferência são controladas pelos amostristas
+que planejam as pesquisas por amostragem, e portanto, a inferência pode
+ser considerada não paramétrica e não dependente de modelos que
+precisariam ser especificados pelo analista.
+
 \subsection{Discussão das Abordagens 1 e
 2}\label{discussao-das-abordagens-1-e-2}
 
-A primeira abordagem (Modelagem Clássica), nos termos descritos, foi
-proposta como modelo para medidas na Física e Astronomia, onde em geral
-o pesquisador tem relativo controle sobre os experimentos, e onde faz
-sentido falar em replicação ou repetição do experimento. Neste contexto,
-o conceito de aleatoriedade é geralmente introduzido para modelar os
-erros (não controláveis) no processo de medição.
+A primeira abordagem ( \emph{Modelagem Clássica} ), nos termos
+descritos, foi inicialmente proposta para dados de medidas na Física e
+Astronomia, onde em geral o pesquisador tem relativo controle sobre os
+experimentos, e onde faz sentido falar em replicação ou repetição do
+experimento. Neste contexto, a ideia de aleatoriedade é geralmente
+introduzida para modelar os erros (não controláveis) do processo de
+medição, e as distribuições de estatísticas de interesse são derivadas a
+partir da \emph{distribuição do modelo} especificado.
 
-A segunda abordagem (Amostragem Probabilística) é utilizada
-principalmente no contexto de estudos socioeconômicos, para levantamento
-de dados por agências governamentais produtoras de informações
-estatísticas. Nesta abordagem, a aleatoriedade é introduzida pelo
-pesquisador no processo para obtenção dos dados, através do planejamento
-amostral \(p(a)\) utilizado \citep{Neyman} e as distribuições das
-estatísticas de interesse são derivadas a partir dessa
-\texttt{distribuição\ de\ aleatorização}.
+A segunda abordagem ( \emph{Amostragem Probabilística} ) é utilizada
+principalmente no contexto de estudos socioeconômicos observacionais,
+para levantamento de dados por agências governamentais produtoras de
+informações estatísticas. Nesta abordagem, a aleatoriedade é introduzida
+pelo pesquisador no processo para obtenção dos dados, através do
+\emph{planejamento amostral} \(p(a)\) utilizado \citep{Neyman} e as
+distribuições das estatísticas de interesse são derivadas a partir dessa
+\emph{distribuição de aleatorização}.
 
-Os planos amostrais podem ser complexos, gerando observações com as
-características i) a iv) do Capítulo \ref{introduc}. Os dados obtidos
-são utilizados principalmente para descrição da população finita, sendo
-calculadas estimativas de totais, médias, proporções, razões, etc. Sob
-essa abordagem, os pontos i) a iv) do Capítulo \ref{introduc} são
-devidamente considerados tanto na estimação de parâmetros descritivos
-usuais, como também na estimação de variâncias dos estimadores.
+Os planos amostrais podem ser complexos, gerando observações afetadas
+pelas características i) a iv) mencionadas no Capítulo \ref{introduc}.
+Os dados obtidos são utilizados principalmente para descrição da
+população finita, mediante o cálculo de estimativas de \emph{parâmetros
+descritivos} usuais tais como totais, médias, proporções, razões, etc.
+Sob a abordagem de \emph{Amostragem Probabilística}, os pontos i) a iv)
+do Capítulo \ref{introduc} são devidamente considerados tanto na
+estimação dos parâmetros descritivos como também na estimação de
+variâncias dos estimadores, permitindo a inferência pontual e por
+intervalos de confiança baseada na distribuição assintótica normal dos
+estimadores habitualmente considerados.
 
-A abordagem de amostragem probabilística é essencialmente
+A abordagem de \emph{Amostragem Probabilística} é essencialmente
 não-paramétrica, pois não supõe uma distribuição paramétrica particular
 para as observações da amostra. Por outro lado, essa abordagem tem a
 desvantagem de fazer inferências restritas à particular população finita
 considerada.
 
-Apesar dessa abordagem ter sido inicialmente concebida e aplicada para
-problemas de inferência descritiva sobre populações finitas, é cada vez
-mais comum, porém, a utilização de dados obtidos através de pesquisas
-amostrais complexas para fins analíticos, com a aplicação de métodos de
-análise desenvolvidos e apropriados para a \texttt{abordagem\ 1}.
-
-Diante do exposto, podemos considerar algumas questões de interesse.
+Apesar da abordagem de \emph{Amostragem Probabilística} ter sido
+inicialmente concebida e aplicada para problemas de inferência
+descritiva sobre populações finitas, é cada vez mais comum, porém, a
+utilização dos dados obtidos através de pesquisas amostrais complexas
+para fins analíticos, com a aplicação de métodos de análise
+desenvolvidos e apropriados para a abordagem de \emph{Modelagem
+Clássica}. Nesse contexto, é relevante considerar algumas questões de
+interesse.
 
 \begin{itemize}
 \item
-  É adequado aplicar métodos de análise da \texttt{abordagem\ 1},
+  É adequado aplicar métodos de análise da \emph{Modelagem Clássica},
   concebidos para observações IID, aos dados obtidos através de
   pesquisas amostrais complexas?
 \item
@@ -1255,36 +1274,37 @@ Diante do exposto, podemos considerar algumas questões de interesse.
   aplicáveis para tratar dados amostrais complexos?
 \item
   Ou seria mais adequado fazer uso analítico dos dados dentro da
-  \texttt{abordagem\ 2}? E neste caso, como fazer isto, visto que nesta
-  abordagem não é especificado um modelo para a distribuição das
-  variáveis de pesquisa \texttt{na\ população}?
+  abordagem de \emph{Amostragem Probabilística}? E neste caso, como
+  fazer isto, visto que nesta abordagem não é especificado um modelo
+  para a distribuição das variáveis de pesquisa \emph{na população}?
 \end{itemize}
 
 Além destas questões, também é de interesse a questão da robustez da
-modelagem, traduzida nas seguintes perguntas.
+inferência, traduzida nas seguintes perguntas.
 
 \begin{itemize}
-\tightlist
 \item
-  O que acontece quando o modelo adotado na \texttt{abordagem\ 1} não é
-  verdadeiro?
+  O que acontece quando o modelo adotado na \emph{Modelagem Clássica}
+  não é verdadeiro?
 \item
-  Neste caso, qual a interpretação dos parâmetros na
-  \texttt{abordagem\ 1}?
+  Neste caso, qual a interpretação dos parâmetros na \emph{Modelagem
+  Clássica}?
 \item
   Ainda neste caso, as quantidades descritivas populacionais da
-  \texttt{abordagem\ 2} poderiam ter alguma utilidade ou interpretação?
+  \emph{Amostragem Probabilística} poderiam ter alguma utilidade ou
+  interpretação?
 \end{itemize}
 
 O objeto deste livro é exatamente discutir respostas para as questões
 aqui enumeradas. Para isso, vamos considerar uma abordagem que propõe um
-modelo parametrizado como na \texttt{abordagem\ 1} mas formulado para
-descrever os dados da população, e não os da amostra. Além disso, essa
-abordagem incorpora na análise os pontos i) a iii) do Capítulo
+modelo parametrizado como na \emph{Modelagem Clássica}, mas formulado
+para descrever os dados da população, e não os da amostra. Além disso,
+essa abordagem incorpora na análise os pontos i) a iii) do Capítulo
 \ref{introduc} mediante aproveitamento da estrutura do planejamento
-amostral, como feito habitualmente na \texttt{abordagem\ 2}. Essa
-abordagem foi primeiro proposta em \citep{royall}, e é bem descrita, por
-exemplo, em \citep{valliant}.
+amostral, como feito habitualmente na \emph{Amostragem Probabilística}.
+Essa abordagem, denominada de \emph{Modelagem de Superpopulação}, foi
+primeiro proposta em \citep{Brewer1963} e \citep{royall}, e é bem
+descrita, por exemplo, em \citep{binder83} e \citep{valliant}.
 
 \subsection{Abordagem 3 - Modelagem de
 Superpopulação}\label{modelsuperpop}
@@ -1294,12 +1314,12 @@ interesse \(Y\) na população finita são considerados observações ou
 realizações dos vetores aleatórios \(Y_{1}, \ldots , Y_{N}\), supostos
 IID com distribuição \(f(y;\theta)\), onde \(\theta \in \Theta\). Este
 modelo é denominado \texttt{Modelo\ de\ Superpopulação}. Note que, em
-contraste com o que se faz na \texttt{abordagem\ 1}, o modelo
+contraste com o que se faz na \emph{Modelagem Clássica}, o modelo
 probabilístico é aqui especificado para descrever o mecanismo aleatório
-que gera \texttt{a\ população}, não \texttt{a\ amostra}. Na maioria das
-aplicações práticas, a população de interesse, embora considerada finta,
-jamais será observada por inteiro. Não obstante, ao formular o modelo
-para descrever propriedades da população, nossas perguntas e respostas
+que gera a \emph{população}, não a amostra. Na maioria das aplicações
+práticas, a população de interesse, embora considerada finIta, jamais
+será observada por inteiro. Não obstante, ao formular o modelo para
+descrever propriedades da população, nossas perguntas e respostas
 descritas em termos de valores ou regiões para o parâmetro \(\theta\)
 passam a se referir à população de interesse ou a populações similares,
 quer existam ao mesmo tempo, quer se refiram a estados futuros (ou
@@ -1322,28 +1342,28 @@ Veja uma representação gráfica resumida desta abordagem na Figura
 \caption{\label{fig:modsup}Modelagem de Superpopulação}
 \end{figure}
 
-Adotando o modelo de superpopulação e considerando métodos usuais
-disponíveis na \texttt{abordagem\ 1}, podemos utilizar funções de
+Adotando o \emph{Modelo de Superpopulação} e considerando métodos usuais
+disponíveis na \emph{Modelagem Clássica}, podemos utilizar funções de
 \(y_{1}, \ldots ,y_{N}\) , digamos \(g( y_{1}, \ldots , y_{N})\), para
 fazer inferência sobre \(\theta\). Desta forma, definimos estatísticas
-\(\left( y_{1},\ldots ,y_{N}\right)\) (no sentido da
-\texttt{abordagem\ 1}) que são quantidades descritivas populacionais
-(parâmetros populacionais no contexto da \texttt{abordagem\ 2}), que
+\(\left( y_{1},\ldots ,y_{N}\right)\) (no sentido da \emph{Modelagem
+Clássica}) que são quantidades descritivas populacionais (parâmetros
+populacionais no contexto da \emph{Amostragem Probabilística}), que
 passam a ser os novos parâmetros-alvo. O passo seguinte é utilizar
-métodos disponíveis na \texttt{abordagem\ 2} para fazer inferência sobre
-\(g\left( y_{1}, \ldots , y_{N}\right)\) baseada em
+métodos disponíveis na \emph{Amostragem Probabilística} para fazer
+inferência sobre \(g\left( y_{1}, \ldots , y_{N}\right)\) baseada em
 \(y_{i_1},\ldots ,y_{i_n}\). Note que não é possível basear a inferência
 nos valores populacionais \(y_{1}, \ldots , y_{N}\), já que estes não
 são conhecidos ou observados. Este último passo adiciona a informação
 sobre o plano amostral utilizado, contida em \(p(a)\), à informação
 estrutural contida no modelo
 \(\left\{ f\left( y; \theta \right) ;\theta \in \Theta\right\}\). Uma
-representação esquemática dessa abordagem é apresentada no Tabela
+representação esquemática dessa abordagem é apresentada na Tabela
 \ref{tab:modelsuperpop}.
 
 \begin{longtable}[]{@{}ll@{}}
-\caption{\label{tab:modelsuperpop} Representação esquemática da abordagem
-3.}\tabularnewline
+\caption{\label{tab:modelsuperpop} Representação esquemática da
+\emph{Modelagem de Superpopulação}.}\tabularnewline
 \toprule
 \begin{minipage}[t]{0.29\columnwidth}\raggedright\strut
 Dados Amostrais\strut
@@ -1377,59 +1397,59 @@ Inferir sobre \(g\left( Y_{1}, \ldots , Y_{N}\right)\) partir de
 \end{longtable}
 
 A descrição da abordagem adotada neste livro foi apresentada de maneira
-propositadamente simplificada e vaga nesta seção, mas será aprofundada
-ao longo do texto. Admitiremos que o leitor esteja familiarizado com a
-\texttt{abordagem\ 1} e com as noções básicas da \texttt{abordagem\ 2}.
-A título de recordação, serão apresentados no Capítulo \ref{planamo}
-alguns resultados básicos da Teoria de Amostragem. A ênfase do texto,
-porém, será na apresentação da \texttt{abordagem\ 3}, sendo para isto
-apresentados os elementos indispensáveis das
-\texttt{abordagens\ 1\ e\ 2}.
+propositalmente simplificada e vaga nesta seção, mas será aprofundada ao
+longo do texto. Admitiremos que o leitor esteja familiarizado com a
+\emph{Modelagem Clássica} e com as noções básicas da \emph{Amostragem
+Probabilística}. A título de recordação, serão apresentados no Capítulo
+\ref{planamo} alguns resultados básicos da \emph{Amostragem
+Probabilística}. A ênfase do texto, porém, será na apresentação da
+\emph{Modelagem de Superpopulação}, sendo para isto apresentados os
+elementos indispensáveis das abordagens de \emph{Modelagem Clássica} e
+da \emph{Amostragem Probabilística}.
 
 Ao construir e ajustar modelos a partir de dados de pesquisas amostrais
-\texttt{complexas}, tais como as executadas pelo IBGE e outras
+\emph{complexas}, tais como as executadas pelo IBGE e outras
 instituições similares, o usuário precisa incorporar as informações
 sobre pesos e sobre a estrutura dos planos amostrais utilizados. Em
 geral, ao publicar os resultados das pesquisas, os pesos são
 considerados, sendo possível produzir estimativas pontuais
-\texttt{corretas} utilizando os pacotes tradicionais. Por outro lado,
-para construir intervalos de confiança e testar hipóteses sobre
-parâmetros de modelos, seria preciso o conhecimento das estimativas de
-variâncias e covariâncias das estimativas, obtidas levando em conta a
-estrutura do plano amostral utilizado. Mesmo conhecendo o plano
-amostral, geralmente não é simples incorporar pesos e plano amostral na
-análise sem o uso de pacotes especializados, ou de rotinas específicas
-já agora disponíveis em alguns dos pacotes mais comumente utilizados
-(por exemplo, SAS, Stata, SPSS, ou R entre outros). Tais pacotes
-especializados ou rotinas específicas utilizam, em geral, métodos
-aproximados para estimar matrizes de covariância. Entre esses métodos,
-destacam-se o de Máxima Pseudo-Verossimilhança, a Linearização, o método
-do Conglomerado Primário, e métodos de reamostragem, que serão descritos
-mais adiante.
+\emph{corretas} utilizando os pacotes tradicionais. Por outro lado, para
+construir intervalos de confiança e testar hipóteses sobre parâmetros de
+modelos, seria preciso o conhecimento das estimativas de variâncias e
+covariâncias das estimativas, obtidas levando em conta a estrutura do
+plano amostral utilizado. Mesmo conhecendo o plano amostral, geralmente
+não é simples incorporar pesos e plano amostral na análise sem o uso de
+pacotes especializados, ou de rotinas específicas já agora disponíveis
+em alguns dos pacotes mais comumente utilizados (por exemplo, SAS,
+Stata, SPSS, ou R entre outros). Tais pacotes especializados ou rotinas
+específicas utilizam, em geral, métodos aproximados para estimar
+matrizes de covariância. Entre esses métodos, destacam-se o de Máxima
+Pseudo-Verossimilhança, a Linearização, o método do Conglomerado
+Primário, e métodos de reamostragem, que serão descritos mais adiante.
 
 Em outras palavras, o uso dos pacotes usuais para analisar dados
 produzidos por pesquisas com planos amostrais complexos, tal como o uso
 de muitos remédios, pode ter contra-indicações. Cabe ao usuário
-\texttt{ler\ a\ bula} e identificar situações em que o uso de tais
-pacotes pode ser inadequado, e buscar opções de rotinas específicas ou
-de pacotes especializados capazes de incorporar adequadamente a
-estrutura do plano amostral nas análises.
+\emph{ler a bula} e identificar situações em que o uso de tais pacotes
+pode ser inadequado, e buscar opções de rotinas específicas ou de
+pacotes especializados capazes de incorporar adequadamente a estrutura
+do plano amostral nas análises.
 
 Ao longo deste livro faremos uso intensivo do pacote \texttt{survey}
 disponível no R, mas o leitor encontrará funcionalidade semelhante em
 vários outros pacotes. Nossa escolha se deveu a dois fatores principais:
 primeiro ao fato do pacote R ser aberto, livre e gratuito, dispensando o
 usuário de custos de licenciamento, bem como possibilitando aos
-interessados o acesso ao código fonte e a capacidade de modificar as
+interessados o acesso ao código fonte e à capacidade de modificar as
 rotinas de análise, caso necessário. O segundo fator é de natureza mais
 técnica, porém transitória. No presente momento, o pacote
 \texttt{survey} é a coleção de rotinas mais completa e genérica
 existente para análise de dados amostrais complexos, dispondo de funções
-capazes de ajustar os modelos usuais mas também de ajustar modelos não
-convencionais mediante maximização de verossimilhanças especificadas
-pelo usuário. Sabemos, entretanto, que muitos usuários habituados à
-facilidade de uso de pacotes com interfaces gráficas do tipo
-\texttt{aponte\ e\ clique} terão dificuldade adicional de adaptar-se à
+capazes de ajustar os modelos usuais, mas também de ajustar modelos não
+convencionais, mediante a maximização numérica de verossimilhanças
+especificadas pelo usuário. Sabemos, entretanto, que muitos usuários
+habituados à facilidade de uso de pacotes com interfaces gráficas do
+tipo \emph{aponte e clique} terão dificuldade adicional de adaptar-se à
 linguagem de comandos utilizada pelo pacote R, mas acreditamos que os
 benefícios do aprendizado desta nova ferramenta compensarão largamente
 os custos adicionais do aprendizado.
@@ -1437,29 +1457,29 @@ os custos adicionais do aprendizado.
 O emprego de ferramentas de análise como o pacote \texttt{survey}
 permitirá aos usuários focar sua atenção mais na seleção, análise e
 interpretação dos modelos ajustados do que nas dificuldades técnicas
-envolvidas nos cálculos correspondentes. E é com este espírito que
+envolvidas nos cálculos correspondentes. É com este espírito que
 escrevemos este texto, que busca apresentar os métodos, ilustrando seu
-uso com exemplos reais e orientando sobre o uso adequado das ferramentas
-de modelagem e análise disponíveis no sistema R.
+uso com exemplos reais, e orientando sobre o uso adequado das
+ferramentas de modelagem e análise disponíveis no sistema R.
 
 \section{Fontes de Variação}\label{fontes-de-variacao}
 
-Esta seção estabelece um referencial para inferência em pesquisas
+Esta seção estabelece o referencial para inferência em pesquisas
 amostrais que será usado no restante deste texto. \citep{cassel} sugerem
-que um referencial para inferência poderia usar três fontes de
+que um referencial para inferência poderia considerar três fontes de
 aleatoriedade (incerteza, variação), incluindo:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  \texttt{Modelo\ de\ superpopulação}, que descreve o processo
-  subjacente que, por hipótese, era as medidas verdadeiras de qualquer
-  unidade da população considerada;
+  \emph{Modelo de Superpopulação}, que descreve o processo subjacente
+  que, por hipótese, gera as medidas verdadeiras para todas as unidades
+  da população considerada;
 \item
-  \texttt{Processo\ de\ medição}, que diz respeito aos instrumentos e
+  \emph{Processo de Medição}, que diz respeito aos instrumentos e
   métodos usados para obter as medidas de qualquer unidade da população;
 \item
-  \texttt{Planejamento\ amostral}, que estabelece o mecanismo pelo qual
+  \emph{Planejamento Amostral}, que estabelece o mecanismo pelo qual
   unidades da população são selecionadas para participar da amostra da
   pesquisa ou estudo.
 \end{enumerate}
@@ -1472,7 +1492,7 @@ Uma quarta fonte de incerteza que precisa ser acrescentada às anteriores
 \setcounter{enumi}{3}
 \tightlist
 \item
-  \texttt{Mecanismo\ de\ resposta}, ou seja, o mecanismo que controla se
+  \emph{Mecanismo de resposta}, ou seja, o mecanismo que controla se
   valores de medições de unidades selecionadas para a amostra são
   obtidos / observados ou não.
 \end{enumerate}
@@ -1482,17 +1502,18 @@ fontes (2) e (4) não serão consideradas no referencial adotado para a
 maior parte dos capítulos. Para o tratamento das dificuldades causadas
 por não resposta, a fonte (4) será considerada no capítulo onze. Assim
 sendo, exceto onde explicitamente indicado, de agora em diante
-admitiremos que não há \texttt{erros\ de\ medição}, implicando que os
+admitiremos que não há \emph{erros de medição}, implicando que os
 valores observados de quaisquer variáveis de interesse serão
 considerados valores corretos ou verdadeiros. Admitiremos ainda que há
-\texttt{resposta\ completa}, implicando que os valores de quaisquer
+\emph{resposta completa}, implicando que os valores de quaisquer
 variáveis de interesse estão disponíveis para todos os elementos da
 amostra selecionada depois que a pesquisa foi realizada. Hipóteses
-semelhantes são adotadas, por exemplo, em \citep{Mont87}.
+semelhantes são adotadas, por exemplo, em \citep{binder83} e
+\citep{Mont87}.
 
 Portanto, o referencial aqui adotado considera apenas duas fontes
-alternativas de variação: o \texttt{Modelo\ de\ Superpopulação} (1) e o
-\texttt{Plano\ Amostral} (3). Estas fontes alternativas de variação,
+alternativas de variação: o \emph{Modelo de Superpopulação} (1) e o
+\emph{Plano Amostral} (3). Estas fontes alternativas de variação,
 descritas nesta seção apenas de forma esquemática, são discutidas com
 maiores detalhes a seguir.
 
@@ -1502,9 +1523,9 @@ quando é especificado um modelo estocástico para o processo subjacente
 que gera as medidas na população. A fonte de variação (3) será
 considerada porque a atenção será focalizada na análise de dados obtidos
 através de pesquisas amostrais complexas. Aqui a discussão se
-restringirá a planos amostrais aleatorizados ou de amostragem
-probabilística, não sendo considerados métodos intencionais ou outros
-métodos não-aleatórios de seleção de amostras.
+restringirá a planos amostrais aleatorizados ou de \emph{Amostragem
+Probabilística}, não sendo considerados métodos intencionais ou outros
+métodos não-aleatórios algumas vezes usados para seleção de amostras.
 
 \section{Modelos de Superpopulação}\label{modelos-de-superpopulacao}
 
@@ -1514,7 +1535,7 @@ univocamente os \(N\) elementos distintos de uma população-alvo finita
 pesquisa cobrindo \(n\) elementos distintos numa amostra \(a\),
 \(a=\{i_{1},...,i_{n}\}\subset U\), é realizada para medir os valores de
 \(P\) variáveis de interesse da pesquisa, doravante denominadas
-simplesmente \texttt{variáveis\ da\ pesquisa}.
+simplesmente \emph{variáveis da pesquisa}.
 
 Denotaremos por \(\mathbf{y}_i=(y_{i1},...,y_{iP})^{\prime }\) o vetor
 \(P\times 1\) de valores das variáveis da pesquisa e por
@@ -1532,12 +1553,11 @@ de vetores aleatórios geradores das observações na população.
 Quando se supõe que \(\mathbf{y}_1 ,\ldots, \mathbf{y}_N\) são a
 realização conjunta de vetores aleatórios
 \(\mathbf{Y}_1 ,\ldots, \mathbf{Y}_N\), a distribuição conjunta de
-probabilidade de \(\mathbf{Y}_1 ,\ldots, \mathbf{Y}_N\) é um modelo
-(marginal) de superpopulação, que doravante denotaremos simplesmente por
-\(f(\mathbf{y}_U;\theta)\), ou de forma abreviada, por \(M\) para
-indicar que se trata do \texttt{modelo\ marginal\ de\ superpopulação}.
-Esperanças e variâncias definidas com respeito à distribuição do modelo
-marginal \(M\) serão denotadas \(E_M\) e \(V_M\) respectivamente.
+probabilidade de \(\mathbf{Y}_1 ,\ldots, \mathbf{Y}_N\) é um
+\emph{Modelo de Superpopulação} (marginal), que doravante denotaremos
+simplesmente por \(f(\mathbf{y}_U;\theta)\), ou de forma abreviada, por
+\(M\). Esperanças e variâncias definidas com respeito à distribuição do
+modelo \(M\) serão denotadas \(E_M\) e \(V_M\) respectivamente.
 
 Analogamente, \(\mathbf{x}_1 ,\ldots, \mathbf{x}_N\) pode ser
 considerada uma realização conjunta de vetores aleatórios
@@ -1552,7 +1572,7 @@ definidas de forma análoga às matrizes \(\mathbf{y}_{U}\) e
 O referencial aqui adotado permite a especificação da distribuição
 conjunta combinada das variáveis da pesquisa e das variáveis auxiliares.
 Representamos por \(f( \mathbf{y}_U , \mathbf{x}_U ; \mathbf{\eta} )\) a
-função de densidade de probabilidade de
+função de densidade de probabilidade conjunta de
 \(( \mathbf{Y}_U , \mathbf{X}_U )\), onde \(\mathbf{\eta}\) é um vetor
 de parâmetros.
 
@@ -1594,16 +1614,17 @@ ou seja, uma distribuição degenerada é especificada para
 \(\left(\mathbf{Y}_U , \mathbf{X}_U \right)\).
 
 Este modelo foi considerado em \citep{cassel}, que o chamaram de
-\texttt{abordagem\ de\ população\ fixa} e afirmaram ser esta a abordagem
-subjacente ao desenvolvimento da teoria de amostragem encontrada nos
-livros clássicos tais como \citep{cochran} e outros. Aqui esta abordagem
-é chamada de \texttt{abordagem\ baseada\ no\ planejamento\ amostral} ou
-\texttt{abordagem\ de\ aleatorização}, pois neste caso a única fonte de
-variação (aleatoriedade) é proveniente do planejamento amostral. Em
-geral, a distribuição conjunta de
-\(\left( \mathbf{Y}_U , \mathbf{X}_U \right)\) não precisa ser
-degenerada como em \eqref{eq:ref4}, embora o referencial aqui adotado seja
-suficientemente geral para permitir considerar esta possibilidade.
+\emph{abordagem de população fixa}, e afirmaram ser esta a abordagem
+subjacente ao desenvolvimento da teoria da \emph{Amostragem
+Probabilística} encontrada nos livros clássicos tais como
+\citep{cochran} e outros. Aqui esta abordagem é chamada de
+\emph{abordagem baseada no planejamento amostral} ou \emph{abordagem de
+aleatorização}, pois neste caso a única fonte de variação
+(aleatoriedade) é proveniente do planejamento amostral. Em geral, a
+distribuição conjunta de \(\left( \mathbf{Y}_U , \mathbf{X}_U \right)\)
+não precisa ser degenerada como em \eqref{eq:ref4}, embora o referencial
+aqui adotado seja suficientemente geral para permitir considerar esta
+possibilidade.
 
 Se todas as unidades da população fossem pesquisadas (ou seja, se fosse
 executado um censo), os dados observados seriam
@@ -1619,13 +1640,13 @@ sobre \(\mathbf{\eta}, \mathbf{\phi},\mathbf{\lambda}\) ou
 
 Inferência sobre quaisquer dos parâmetros
 \(\mathbf{\eta},\mathbf{\phi},\mathbf{\lambda}\) ou \(\mathbf{\theta}\)
-do modelo de superpopulação é chamada \texttt{inferência\ analítica}.
-Este tipo de inferência só faz sentido quando o modelo de superpopulação
-não é degenerado como em \eqref{eq:ref4}. Usualmente seu objetivo é
-explicar a relação entre variáveis não apenas para a população finita
-sob análise, mas também para outras populações que poderiam ter sido
-geradas pelo modelo de superpopulação adotado. Vários exemplos de
-inferência analítica serão discutidos ao longo deste livro.
+do modelo de superpopulação é chamada \emph{inferência analítica}. Este
+tipo de inferência só faz sentido quando o modelo de superpopulação não
+é degenerado como em \eqref{eq:ref4}. Usualmente seu objetivo é explicar a
+relação entre variáveis não apenas para a população finita sob análise,
+mas também para outras populações que poderiam ter sido geradas pelo
+modelo de superpopulação adotado. Vários exemplos de inferência
+analítica serão discutidos ao longo deste livro.
 
 Se o objetivo da inferência é estimar quantidades que fazem sentido
 somente para a população finita sob análise, tais como funções
@@ -1633,7 +1654,13 @@ somente para a população finita sob análise, tais como funções
 variáveis da pesquisa, o modelo de superpopulação não é estritamente
 necessário, embora possa ser útil. Inferência para tais quantidades,
 chamadas parâmetros da população finita ou quantidades descritivas
-populacionais (QDPs), é chamada \texttt{inferência\ descritiva}.
+populacionais (QDPs), é chamada \emph{inferência descritiva}.
+
+Vale notar que a especificação do modelo de superpopulação aqui proposta
+serve tanto para o caso da abordagem clássica para inferência, como
+também para o caso da abordagem Bayesiana. Neste caso, a especificação
+do modelo precisaria ser completada mediante a especificação de
+distribuições a priori para os parâmetros do modelo.
 
 \section{Planejamento Amostral}\label{planamo}
 
@@ -1649,25 +1676,25 @@ dados disponíveis incluem:
   O conjunto de rótulos \(a=\left\{ i_1 , \ldots, i_n \right\}\) dos
   distintos elementos na amostra, onde \(n\)
   \(\left( 1 \leq n \leq N \right)\) é o número de elementos na amostra
-  \(a\), chamado tamanho da amostra;
+  \(a\), também chamado de \emph{tamanho da amostra};
 \item
   Os valores na amostra das variáveis da pesquisa
   \(\mathbf{y}_{i_1} ,\ldots, \mathbf{y}_{i_n}\);
 \item
   Os valores das variáveis auxiliares na população
   \(\mathbf{x}_1 ,\ldots, \mathbf{x}_N\), quando a informação auxiliar é
-  dita \texttt{completa}; alternativamente, os valores das variáveis
+  dita \emph{completa}; alternativamente, os valores das variáveis
   auxiliares na amostra \(\mathbf{x}_{i_1} ,\ldots, \mathbf{x}_{i_n}\),
   mais os totais ou médias destas variáveis na população, quando a
-  informação auxiliar é dita \texttt{parcial}.
+  informação auxiliar é dita \emph{parcial}.
 \end{enumerate}
 
 O mecanismo usado para selecionar a amostra \(a\) da população finita
-\(U\) é chamado plano amostral. Uma forma de caracterizá-lo é através da
-função \(p\left( .\right)\), onde \(p(a)\) dá a probabilidade de
-selecionar a amostra \(a\) no conjunto \(A\) de todas as amostras
+\(U\) é chamado \emph{plano amostral}. Uma forma de caracterizá-lo é
+através da função \(p\left( .\right)\), onde \(p(a)\) dá a probabilidade
+de selecionar a amostra \(a\) no conjunto \(A\) de todas as amostras
 possíveis. Só mecanismos amostrais envolvendo alguma forma de seleção
-probabilística bem definida serão aqui considerados, e portanto supõe-se
+probabilística bem definida serão aqui considerados. Portanto, supõe-se
 que \(0 \leq p(a) \leq 1 \; \forall a \in A\) e
 \(\sum_{a \in A} p(a)=1\).
 
@@ -1675,7 +1702,7 @@ Esta caracterização do plano amostral \(p(a)\) é bem geral, permitindo
 que o mecanismo de seleção amostral dependa dos valores das variáveis
 auxiliares \(\mathbf{x}_1 ,\ldots, \mathbf{x}_N\) bem como dos valores
 das variáveis da pesquisa na população
-\(\mathbf{y}_1 ,\ldots, \mathbf{y}_N\) (amostragem \texttt{informativa},
+\(\mathbf{y}_1 ,\ldots, \mathbf{y}_N\) (amostragem \emph{informativa},
 veja Seção \ref{inform}. Uma notação mais explícita para indicar esta
 possibilidade envolveria escrever \(p(a)\) como
 \(p\left[ a | (\mathbf{y}_U , \mathbf{x}_U ) \right]\). Tal notação será
@@ -1726,19 +1753,19 @@ das variâncias dos estimadores de totais e de médias.
 Ao fazer inferência usando dados de pesquisas amostrais precisamos
 distinguir duas situações que requerem tratamento diferenciado. Uma
 dessas situações ocorre quando o plano amostral empregado para coletar
-os dados é \texttt{informativo}, isto é, quando o mecanismo de seleção
-das unidades amostrais pode depender dos valores das variáveis de
-pesquisa. Um exemplo típico desta situação é o dos
-\texttt{estudos\ de\ caso-controle}, em que a amostra é selecionada de
-tal forma que há \texttt{casos} (unidades com determinada condição) e
-\texttt{controles} (unidades sem essa condição), sendo de interesse a
-modelagem do indicador de presença ou ausência da condição em função de
-variáveis preditoras, e sendo esse indicador uma das variáveis de
-pesquisa, que é considerada no mecanismo de seleção da amostra. Os
-métodos que discutiremos ao longo deste livro não são adequados, em
-geral, para esse tipo de situação, e portanto uma hipótese fundamental
-adotada ao longo deste texto é que os planos amostrais considerados são
-\texttt{não-informativos}, isto é, não podem depender diretamente dos
+os dados é \emph{informativo}, isto é, quando o mecanismo de seleção das
+unidades amostrais pode depender dos valores das variáveis de pesquisa.
+Um exemplo típico desta situação é o dos \emph{estudos de
+caso-controle}, em que a amostra é selecionada de tal forma que há
+\emph{casos} (unidades com determinada condição) e \emph{controles}
+(unidades sem essa condição), sendo de interesse a modelagem do
+indicador de presença ou ausência da condição em função de variáveis
+preditoras, e sendo esse indicador uma das variáveis de pesquisa, que é
+considerada no mecanismo de seleção da amostra. Os métodos que
+discutiremos ao longo deste livro não são adequados, em geral, para esse
+tipo de situação, e portanto uma hipótese fundamental adotada ao longo
+deste texto é que os planos amostrais considerados são
+\emph{não-informativos}, isto é, não podem depender diretamente dos
 valores das variáveis da pesquisa. Logo eles satisfazem:
 
 \begin{equation}
@@ -1746,32 +1773,32 @@ f\left[ \mathbf{\delta }_a | \left( \mathbf{y}_U , \mathbf{x}_U \right)
 \right] = f\left( \mathbf{\delta }_a | \mathbf{x}_U \right) . \label{eq:ref7}
 \end{equation}
 
-Entre os planos amostrais \texttt{não-informativos}, precisamos ainda
+Entre os planos amostrais \emph{não-informativos}, precisamos ainda
 distinguir duas outras situações de interesse. Quando o plano amostral é
 Amostragem Aleatória Simples Com Reposição (AASC), o modelo adotado para
 a amostra é o mesmo que o modelo adotado para a população antes da
 amostragem. Quando isto ocorre, o plano amostral é dito
-\texttt{ignorável}, porque a inferência baseada na amostra utilizando a
-abordagem clássica descrita em \ref{classic} pode prosseguir sem
-problemas. Entretanto, esquemas amostrais desse tipo são raramente
-empregados na prática, por razões de eficiência e custo. Em vez disso,
-são geralmente empregados planos amostrais envolvendo estratificação,
-conglomeração e probabilidades desiguais de seleção
-(\texttt{amostragem\ complexa}).
+\emph{ignorável}, porque a inferência baseada na amostra utilizando a
+abordagem DE \emph{Modelagem Clássica} descrita em \ref{classic} pode
+prosseguir sem problemas. Entretanto, esquemas amostrais desse tipo são
+raramente empregados na prática, por razões de eficiência e custo. Em
+vez disso, são geralmente empregados planos amostrais envolvendo
+estratificação, conglomeração e probabilidades desiguais de seleção (
+\emph{amostragem complexa} ).
 
 Com amostragem complexa, porém, os modelos para a população e a amostra
-podem ser muito diferentes (plano amostral \texttt{não-ignorável}),
-mesmo que o mecanismo de seleção não dependa das variáveis de pesquisa,
-mas somente das variáveis auxiliares. Neste caso, ignorar o plano
-amostral pode viciar a inferência. Veja o Exemplo \ref{exm:nonigno}
-adiante.
+podem ser muito diferentes (plano amostral \emph{não-ignorável}), mesmo
+que o mecanismo de seleção não dependa das variáveis de pesquisa, mas
+somente das variáveis auxiliares. Neste caso, ignorar o plano amostral
+pode viciar a inferência. Veja o Exemplo \ref{exm:nonigno} adiante.
 
 A definição precisa de ignorabilidade e as condições sob as quais um
-plano amostral é ignorável para inferência são bastante discutidas na
-literatura - veja por exemplo \citep{Sugden84} ou os Capítulos 1 e 2 de
-\citep{CHSK2003}. Porém testar a ignorabilidade do plano amostral é
-muitas vezes complicado. Em caso de dificuldade, o uso de pesos tem
-papel fundamental.
+plano amostral é \emph{ignorável} para inferência são bastante
+discutidas na literatura - veja por exemplo \citep{Sugden84} ou os
+Capítulos 1 e 2 de \citep{CHSK2003}. Porém testar a ignorabilidade do
+plano amostral é muitas vezes complicado. Em caso de dificuldade, o uso
+dos \emph{pesos amostrais} tem papel fundamental, como se verá mais
+adiante.
 
 Uma forma simples de lidar com os efeitos do plano amostral na estimação
 pontual de quantidades descritivas populacionais de interesse é
@@ -1782,17 +1809,18 @@ estimação pontual de parâmetros em modelos de superpopulação, o que vai
 requerer métodos específicos discutidos no Capítulo \ref{ajmodpar}.
 
 Como incluir os pesos para proteger contra planos amostrais
-\texttt{não-ignoráveis} e a possibilidade de má especificação do modelo?
+\emph{não-ignoráveis} e a possibilidade de má especificação do modelo?
 Uma ideia é modificar os estimadores dos parâmetros de modo que sejam
-consistentes (em termos da distribuição de aleatorização) para
+consistentes (em termos da \emph{distribuição de aleatorização}) para
 quantidades descritivas da população finita da qual a amostra foi
 extraída, que por sua vez seriam boas aproximações para os parâmetros
 dos modelos de interesse. Afirmações probabilísticas são então feitas
-com respeito à distribuição de aleatorização das estatísticas amostrais
-\(p\) ou com respeito à distribuição mista ou combinada \(Mp\).
+com respeito à \emph{distribuição de aleatorização} das estatísticas
+amostrais \(p\) ou com respeito à distribuição mista ou combinada
+\(Mp\).
 
 A seguir apresentamos um exemplo com a finalidade de ilustrar uma
-situação de plano amostral não-ignorável.
+situação de plano amostral \emph{não-ignorável}.
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:nonigno}{}{\label{exm:nonigno} }Efeito da
@@ -1827,22 +1855,22 @@ que também pode ser representada por:
 
 \begin{eqnarray}
  f_U (x ; y) &=& Pr( X = x ; Y = y )\\
-             & =& \eta_{00}^{(1-x)(1-y)} \times \eta_{01}^{(1-x)y} \times \eta_{10}^{x(1-y)} (1 - \eta_{00} - \eta_{01} - \eta_{10})^{xy} \nonumber
+             & =& \eta_{00}^{(1-x)(1-y)} \times \eta_{01}^{(1-x)y} \times \eta_{10}^{x(1-y)} \times (1 - \eta_{00} - \eta_{01} - \eta_{10})^{xy} \nonumber
 \end{eqnarray}
 
 onde a designação \(f_U\) é utilizada para denotar a distribuição
-\texttt{na\ população}.
+\emph{na população}.
 
-Note agora que a distribuição marginal da variável \(Y\)
-\texttt{na\ população} é Bernoulli com parâmetro
-\(1 - \eta_{00} - \eta_{10}\), ou alternativamente:
+Note agora que a distribuição marginal da variável \(Y\) \emph{na
+população} é Bernoulli com parâmetro \(1 - \eta_{00} - \eta_{10}\), ou
+alternativamente:
 
 \begin{equation}
  f_U (y) = Pr( Y = y ) = (\eta_{00} + \eta_{10})^{(1-y)} \times (1 - \eta_{00} - \eta_{10})^y
 \end{equation}
 
-De forma análoga, a distribuição marginal da variável \(X\)
-\texttt{na\ população} também é Bernoulli, mas com parâmetro
+De forma análoga, a distribuição marginal da variável \(X\) \emph{na
+população} também é Bernoulli, mas com parâmetro
 \(1 - \eta_{00} - \eta_{01}\), ou alternativamente:
 
 \begin{equation}
@@ -1864,24 +1892,24 @@ valores de \(y\) iguais a 1 observada no censo seria dada por
 \(x\) iguais a 1 na população seria igual a
 \((N_{1+} / N = 1 - (N_{00} - N_{01})/N\).
 
-Agora suponha que uma amostra estratificada simples
-\texttt{com\ reposição} de tamanho \(n\) inteiro e par seja selecionada
-da população, onde os estratos são definidos com base nos valores da
-variável \(x\), e onde a alocação da amostra nos estratos é dada por
-\(n_0 = n_1 = n/2\), sendo \(n_x\) o tamanho da amostra no estrato
-correspondente ao valor \(x\) usado como índice. Esta alocação é dita
-\texttt{alocação\ igual}, pois o tamanho total da amostra é repartido em
-partes iguais entre os estratos definidos para seleção, e no caso, há
-apenas dois estratos. A alocação desta amostra será desproporcional
-exceto no caso em que \(N_{0+} = N_{1+}\).
+Agora suponha que uma amostra estratificada simples \emph{com reposição}
+de tamanho \(n\) inteiro e par seja selecionada da população, onde os
+estratos são definidos com base nos valores da variável \(x\), e onde a
+alocação da amostra nos estratos é dada por \(n_0 = n_1 = n/2\), sendo
+\(n_x\) o tamanho da amostra no estrato correspondente ao valor \(x\)
+usado como índice. Esta alocação é dita \emph{alocação igual}, pois o
+tamanho total da amostra é repartido em partes iguais entre os estratos
+definidos para seleção, e no caso, há apenas dois estratos. A alocação
+desta amostra será desproporcional exceto no caso em que
+\(N_{0+} = N_{1+}\).
 
 Nosso interesse aqui é ilustrar o efeito que uma alocação
 desproporcional pode causar na análise dos dados amostrais, caso não
 sejam levadas em conta na análise informações relevantes sobre a
 estrutura do plano amostral. Para isto, vamos precisar obter a
-distribuição amostral da variável de interesse \(Y\). Isto pode ser
-feito em dois passos. Primeiro, note que a distribuição condicional de
-\(Y\) dado \(X\) na população é dada por:
+\emph{distribuição amostral} da variável de interesse \(Y\). Isto pode
+ser feito em dois passos. Primeiro, note que a distribuição condicional
+de \(Y\) dado \(X\) \emph{na população} é dada por:
 
 \begin{longtable}[]{@{}cccc@{}}
 \caption{\label{tab:Tab25} Distribuição de probabilidades condicional de
@@ -1909,23 +1937,23 @@ ou, alternativamente
 \end{eqnarray}
 
 Dado o plano amostral acima descrito, a distribuição marginal de \(X\)
-\texttt{na\ amostra} é Bernoulli com parâmetro \(1/2\). Isto segue
-devido ao fato de que a amostra foi alocada igualmente com base nos
-valores de \(x\) na população, e portanto, sempre teremos metade da
-amostra com valores de \(x\) iguais a \(0\) e metade com valores iguais
-a \(1\). Isto pode ser representado como:
+\emph{na amostra} é Bernoulli com parâmetro \(1/2\). Isto segue devido
+ao fato de que a amostra foi alocada igualmente com base nos valores de
+\(x\) na população, e portanto, sempre teremos metade da amostra com
+valores de \(x\) iguais a \(0\) e metade com valores iguais a \(1\).
+Isto pode ser representado como:
 
 \begin{equation}
  f_a (x) = Pr( X_i = x | i \in a ) = 1 / 2,\; \forall x \in \Omega \mbox{ e } \forall i \in U
 \end{equation}
 
 onde a designação \(f_a\) é utilizada para denotar a distribuição
-\texttt{na\ amostra}.
+\emph{na amostra}.
 
 Podemos usar a informação sobre a distribuição condicional de \(Y\) dado
-\(X\) na população e a informação sobre a distribuição marginal de \(X\)
-na amostra para obter a distribuição marginal de \(Y\) na amostra, que é
-dada por:
+\(X\) \emph{na população} e a informação sobre a distribuição marginal
+de \(X\) \emph{na amostra} para obter a distribuição marginal de \(Y\)
+\emph{na amostra}, que é dada por:
 
 \begin{eqnarray}
  f_a (y) &= &Pr( Y_i = y | i \in a )\\ 
@@ -1936,13 +1964,14 @@ dada por:
 &=& \frac{1}{2} \times \left[ \frac{\eta_{00}^{(1-y)} \eta_{01}^y} {\eta_{00}+\eta_{01}}+ \frac{\eta_{10}^{(1-y)} (1 - \eta_{00} - \eta_{01} - \eta_{10})^y} {1 - \eta_{00} - \eta_{01}} \right]\nonumber
 \end{eqnarray}
 
-Isto mostra que a distribuição marginal de \(Y\) na amostra é diferente
-da distribuição marginal de \(Y\) na população, mesmo quando o plano
-amostral é especialmente simples e utiliza amostragem aleatória simples
-com reposição dentro de cada estrato definido pela variável \(X\). Isto
-ocorre devido à alocação desproporcional da amostra, apesar de a
-distribuição condicional de \(Y\) dado \(X\) na população ser a mesma e
-que a distribuição condicional de \(Y\) dado \(X\) na amostra.
+Isto mostra que a distribuição marginal de \(Y\) \emph{na amostra} é
+diferente da distribuição marginal de \(Y\) \emph{na população}, mesmo
+quando o plano amostral é especialmente simples e utiliza amostragem
+aleatória simples com reposição dentro de cada estrato definido pela
+variável \(X\). Isto ocorre devido à alocação desproporcional da
+amostra, apesar de a distribuição condicional de \(Y\) dado \(X\) na
+população ser a mesma e que a distribuição condicional de \(Y\) dado
+\(X\) \emph{na amostra}.
 
 Um exemplo numérico facilita a compreensão. Se a distribuição conjunta
 de \(X\) e \(Y\) na população é dada por:
@@ -1965,12 +1994,12 @@ Total & 0,8 & 0,2 & 1\tabularnewline
 \bottomrule
 \end{longtable}
 
-segue-se que a distribuição condicional de \(Y\) dado \(X\) na população
-(e também na amostra) é dada por
+segue-se que a distribuição condicional de \(Y\) dado \(X\) \emph{na
+população} (e também \emph{na amostra}) é dada por
 
 \begin{longtable}[]{@{}cccc@{}}
 \caption{\label{tab:Tab27} Distribuição de probabilidades condicional de
-\(Y\) dado \(X\) na população - \(f_U( y | x )\).}\tabularnewline
+\(Y\) dado \(X\) \emph{na população} - \(f_U( y | x )\).}\tabularnewline
 \toprule
 & \(y\) & &\tabularnewline
 \midrule
@@ -1985,12 +2014,12 @@ segue-se que a distribuição condicional de \(Y\) dado \(X\) na população
 \bottomrule
 \end{longtable}
 
-e que a distribuição marginal de \(Y\) na população e na amostra são
-dadas por
+e que a distribuição marginal de \(Y\) \emph{na população} e \emph{na
+amostra} são dadas por
 
 \begin{longtable}[]{@{}ccc@{}}
 \caption{\label{tab:Tab28} Distribuição de probabilidades marginal de \(Y\)
-na população - \(f_U( y )\).}\tabularnewline
+\emph{na população} - \(f_U( y )\).}\tabularnewline
 \toprule
 \(y\) & 0 & 1\tabularnewline
 \midrule
@@ -2004,27 +2033,27 @@ na população - \(f_U( y )\).}\tabularnewline
 \bottomrule
 \end{longtable}
 
-Assim, inferência sobre a distribuição de \(Y\) \texttt{na\ população}
+Assim, inferência sobre a distribuição de \(Y\) \emph{na população}
 levada a cabo a partir dos dados da amostra observada sem considerar a
 estrutura do plano amostral seria equivocada, pois a alocação igual da
 amostra nos estratos levaria à observação de uma proporção maior de
 valores de \(X\) iguais a 1 na amostra (1/2) do que a correspondente
 proporção existente na população (1/5). Em conseqüência, a proporção de
-valores de \(Y\) iguais a 1 na amostra (0.3125) seria 56\% maior que a
-correspondente proporção na população (0.2).
+valores de \(Y\) iguais a 1 na amostra (0,3125) seria 56\% maior que a
+correspondente proporção \emph{na população} (0,2).
 
 Este exemplo é propositalmente simples, envolve apenas duas variáveis
 com distribuição Bernoulli, mas ilustra bem como a amostragem pode
-modificar distribuições de variáveis da amostra em relação à
-correspondente distribuição na população.
+modificar distribuições de variáveis \emph{na amostra} em relação à
+correspondente distribuição \emph{na população}.
 
 Caso a inferência requerida fosse sobre parâmetros da distribuição
-condicional de \(Y\) dado \(X\), a amostragem seria ignorável, isto é,
-\(f_a ( y | x) = f_U (y | x)\). Assim, fica evidenciado também que a
-noção de que o plano amostral pode ser ignorado depende da inferência
-desejada. No nosso exemplo, o plano amostral é ignorável para inferência
-sobre a distribuição condicional de \(Y\) dado \(X\), mas não é
-ignorável para inferência sobre a distribuição marginal de \(Y\).
+condicional de \(Y\) dado \(X\), a amostragem seria \emph{ignorável},
+isto é, \(f_a ( y | x) = f_U (y | x)\). Assim, fica evidenciado também
+que a noção de que o plano amostral pode ser ignorado depende da
+inferência desejada. No nosso exemplo, o plano amostral é ignorável para
+inferência sobre a distribuição condicional de \(Y\) dado \(X\), mas não
+é ignorável para inferência sobre a distribuição marginal de \(Y\).
 
 \chapter{Estimação Baseada no Plano Amostral}\label{capplanamo}
 
@@ -2907,7 +2936,7 @@ Para o tipo \emph{Bootstrap}, temos:
 ## analf.faixa 0,119
 ## SEs=
 ##        [,1]
-## [1,] 0,0111
+## [1,] 0,0164
 \end{verbatim}
 
 Vamos apresentar mais detalhes sobre a obtenção dos estimadores de

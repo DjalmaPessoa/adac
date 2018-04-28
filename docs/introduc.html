@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2018-04-16">
+<meta name="date" content="2018-04-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -363,8 +363,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Além disso, a variabilidade dos pesos para distintas observações amostrais produz impactos tanto na estimação pontual quanto na estimação das variâncias dessas estimativas, que sofre ainda influência da conglomeração e da estratificação - pontos ii) e iii) mencionados anteriormente.</p>
 <p>Para exemplificar o impacto de ignorar os pesos e o plano amostral ao estimar quantidades descritivas populacionais, tais como totais, médias, proporções e razões, calculamos estimativas de quantidades desses diferentes tipos usando a amostra da PPV juntamente com estimativas das respectivas variâncias. Tais estimativas de variância foram calculadas sob duas estratégias:</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>** considerando Amostragem Aleatória Simples (AAS) **, e portanto ignorando o plano amostral efetivamente adotado na pesquisa; e</p></li>
-<li><p>** considerando o plano amostral da pesquisa e os pesos diferenciados das unidades. **</p></li>
+<li><p><strong>considerando Amostragem Aleatória Simples (AAS)</strong> , e portanto ignorando o plano amostral efetivamente adotado na pesquisa; e</p></li>
+<li><p><strong>considerando o plano amostral da pesquisa e os pesos diferenciados das unidades.</strong></p></li>
 </ol>
 <p>A razão entre as estimativas de variância obtidas sob o plano amostral verdadeiro (de fato usado na pesquisa) e sob AAS foi calculada para cada uma das estimativas consideradas usando o pacote <code>survey</code> do R <span class="citation">(Lumley <a href="#ref-R-survey">2017</a>)</span>. Essa razão fornece uma medida do efeito de ignorar o plano amostral. Os resultados das estimativas ponderadas e variâncias considerando o plano amostral são apresentados na Tabela <a href="introduc.html#tab:epas">1.3</a>, juntamente com as medidas dos Efeitos de Plano Amostral (EPA).</p>
 <p>Exemplos de utilização do pacote <code>survey</code> para obtenção de estimativas apresentadas na <a href="introduc.html#tab:epas">1.3</a> estão na Seção <a href="introduc.html#epa">1.4</a>. As outras estimativas da Tabela <a href="introduc.html#tab:epas">1.3</a> podem ser obtidas de maneira análoga.</p>
