@@ -25,7 +25,7 @@
 <meta name="author" content="Djalma Pessoa e Pedro Nascimento Silva">
 
 
-<meta name="date" content="2018-04-28">
+<meta name="date" content="2018-05-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -264,7 +264,7 @@ Figura 2.1: Representação esquemática da Modelagem Clássica
 </table>
 <p>Do ponto de vista matemático, o parâmetro <span class="math inline">\(\theta\)</span> serve para indexar os elementos da família de distribuições <span class="math inline">\(\left\{f\left( y;\theta \right);\theta \in \Theta \right\}\)</span>. Na prática, as questões relevantes da pesquisa são traduzidas em termos de perguntas sobre o valor ou região a que pertence o parâmetro <span class="math inline">\(\theta\)</span>, e a inferência sobre <span class="math inline">\(\theta\)</span> a partir dos dados ajuda a responder tais questões.</p>
 <p>Esta abordagem é útil em estudos analíticos tais como, por exemplo, na investigação da natureza da associação entre variáveis (modelos de regressão linear ou logística, modelos log-lineares, etc.). Vários exemplos discutidos ao longo dos Capítulos <a href="modreg.html#modreg">6</a>, <a href="testqualajust.html#testqualajust">7</a> e <a href="testetab2.html#testetab2">8</a> ilustram situações deste tipo. No Capítulo <a href="estimacao-de-densidades.html#estimacao-de-densidades">9</a> o foco vai ser a estimação não paramétrica da forma da função <span class="math inline">\(f(y;\theta)\)</span>.</p>
-<p>Inferência sob modelos do tipo descrito nesta seção forma o conteúdo de um curso introdutório de inferência estatística. Mais detalhes podem ser consultados, por exemplo, em <span class="citation">(Casella and Roger <a href="#ref-Casella">2010</a>)</span> e <span class="citation">(Magalhães and Lima <a href="#ref-Marcos">2015</a>)</span>.</p>
+<p>Inferência sob modelos do tipo descrito nesta seção forma o conteúdo de um curso introdutório de inferência estatística. Mais detalhes podem ser consultados, por exemplo, em <span class="citation">(Casella and Berger <a href="#ref-Casella">2010</a>)</span> e <span class="citation">(Magalhães and Lima <a href="#ref-Marcos">2015</a>)</span>.</p>
 </div>
 <div id="abordagem-2---amostragem-probabilistica" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Abordagem 2 - Amostragem Probabilística</h3>
@@ -317,7 +317,7 @@ Figura 2.2: Amostragem Probabilística
 <li>Neste caso, qual a interpretação dos parâmetros na <em>Modelagem Clássica</em>?</li>
 <li><p>Ainda neste caso, as quantidades descritivas populacionais da <em>Amostragem Probabilística</em> poderiam ter alguma utilidade ou interpretação?</p></li>
 </ul>
-<p>O objeto deste livro é exatamente discutir respostas para as questões aqui enumeradas. Para isso, vamos considerar uma abordagem que propõe um modelo parametrizado como na <em>Modelagem Clássica</em>, mas formulado para descrever os dados da população, e não os da amostra. Além disso, essa abordagem incorpora na análise os pontos i) a iii) do Capítulo <a href="introduc.html#introduc">1</a> mediante aproveitamento da estrutura do planejamento amostral, como feito habitualmente na <em>Amostragem Probabilística</em>. Essa abordagem, denominada de <em>Modelagem de Superpopulação</em>, foi primeiro proposta em <span class="citation">(<span class="citeproc-not-found" data-reference-id="Brewer1963"><strong>???</strong></span>)</span> e <span class="citation">(Royall <a href="#ref-royall">1970</a>)</span>, e é bem descrita, por exemplo, em <span class="citation">(Binder <a href="#ref-binder83">1983</a>)</span> e <span class="citation">(Valliant et al. <a href="#ref-valliant">2000</a>)</span>.</p>
+<p>O objeto deste livro é exatamente discutir respostas para as questões aqui enumeradas. Para isso, vamos considerar uma abordagem que propõe um modelo parametrizado como na <em>Modelagem Clássica</em>, mas formulado para descrever os dados da população, e não os da amostra. Além disso, essa abordagem incorpora na análise os pontos i) a iii) do Capítulo <a href="introduc.html#introduc">1</a> mediante aproveitamento da estrutura do planejamento amostral, como feito habitualmente na <em>Amostragem Probabilística</em>. Essa abordagem, denominada de <em>Modelagem de Superpopulação</em>, foi primeiro proposta em <span class="citation">(<span class="citeproc-not-found" data-reference-id="Brewer1963"><strong>???</strong></span>)</span> e <span class="citation">(Royall <a href="#ref-royall">1970</a>)</span>, e é bem descrita, por exemplo, em <span class="citation">(Binder <a href="#ref-binder83">1983</a>)</span> e <span class="citation">(Valliant and Royall <a href="#ref-valliant">2000</a>)</span>.</p>
 </div>
 <div id="modelsuperpop" class="section level3">
 <h3><span class="header-section-number">2.1.4</span> Abordagem 3 - Modelagem de Superpopulação</h3>
@@ -346,7 +346,7 @@ Figura 2.3: Modelagem de Superpopulação
 <td align="left">Extraídos de <span class="math inline">\(y_1,\dots,y_N\)</span> segundo <span class="math inline">\(p(a)\)</span></td>
 </tr>
 <tr class="odd">
-<td align="left">Modelo para poulação</td>
+<td align="left">Modelo para população</td>
 <td align="left"><span class="math inline">\(Y_1, \dots, Y_N\)</span> variáveis aleatórias IID com distribuição <span class="math inline">\(f(y,\theta)\)</span>, onde <span class="math inline">\(\theta \in \Theta\)</span></td>
 </tr>
 <tr class="even">
@@ -662,22 +662,22 @@ f\left[ \mathbf{\delta }_a | \left( \mathbf{y}_U , \mathbf{x}_U \right)
 <h3>Referências</h3>
 <div id="refs" class="references">
 <div id="ref-Casella">
-<p>Casella, G, and L.B. Roger. 2010. <em>Inferência Estatística</em>. São Paulo: Cengage Learning.</p>
+<p>Casella, G., and R.L. Berger. 2010. <em>Inferência Estatística</em>. São Paulo: Cengage Learning.</p>
 </div>
 <div id="ref-Marcos">
-<p>Magalhães, Marcos N., and A.C.P. Lima. 2015. <em>Noções de Probabilidade E Estatística</em>. 7ª edição, 3ª reimpressão revista. São Paulo: Edusp - Editora da Universidade de São Paulo.</p>
+<p>Magalhães, M.N., and A.C.P. Lima. 2015. <em>Noções de Probabilidade E Estatística</em>. 7ª edição, 3ª reimpressão revista. São Paulo: Edusp - Editora da Universidade de São Paulo.</p>
 </div>
 <div id="ref-Neyman">
 <p>Neyman, J. 1934. “On the Two Different Aspects of the Representative Method: The Method of Stratified Sampling and the Method of Purposive Selection.” <em>Journal of the Royal Statistical Society A</em> 97: 558–606.</p>
 </div>
 <div id="ref-royall">
-<p>Royall, Richard M. 1970. “On Finite Population Sampling Theory Under Certain Linear Regression Models.” <em>Biometrika</em> 57 (2). Oxford University Press: 377–87.</p>
+<p>Royall, R.M. 1970. “On Finite Population Sampling Theory Under Certain Linear Regression Models.” <em>Biometrika</em> 57 (2). Oxford University Press: 377–87.</p>
 </div>
 <div id="ref-binder83">
 <p>Binder, D. A. 1983. “On the Variances of Asymptotically Normal Estimators from Complex Surveys.” <em>International Statistical Review</em> 51: 279–92.</p>
 </div>
 <div id="ref-valliant">
-<p>Valliant, Richard, Richard Valliant, Alan H Dorfman, and Richard M Royall. 2000. <em>Finite Population Sampling and Inference: A Prediction Approach</em>. 04; QA276. 6, V3.</p>
+<p>Valliant, A.H., R.; Dorfman, and R.M. Royall. 2000. <em>Finite Population Sampling and Inference: A Prediction Approach</em>. 04; QA276. 6, V3.</p>
 </div>
 <div id="ref-thompson">
 <p>Thompson, S. K. 1992. <em>Sampling</em>. Wiley Series in Probability and Mathematical Statistics. John Wiley; Sons.</p>
